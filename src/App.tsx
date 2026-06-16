@@ -4,6 +4,7 @@ import { HomePage } from '@/pages/HomePage';
 import { AboutPage } from '@/pages/AboutPage';
 import { ContactPage } from '@/pages/ContactPage';
 import { AIAgentPage } from '@/pages/AIAgentPage';
+import { CryptoServicePage } from '@/pages/crypto/CryptoServicePage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import './App.css';
 
@@ -31,6 +32,58 @@ const router = createBrowserRouter([
       {
         path: 'contact',
         element: <ContactPage />,
+      },
+      {
+        path: 'crypto-pr-services',
+        element: <CryptoServicePage type="crypto-pr-services" />,
+      },
+      {
+        path: 'crypto-influencer-marketing',
+        element: <CryptoServicePage type="crypto-influencer-marketing" />,
+      },
+      {
+        path: 'crypto-telegram-marketing',
+        element: <CryptoServicePage type="crypto-telegram-marketing" />,
+      },
+      {
+        path: 'crypto-community-marketing',
+        element: <CryptoServicePage type="crypto-community-marketing" />,
+      },
+      {
+        path: 'crypto-video-creation-marketing',
+        element: <CryptoServicePage type="crypto-video-creation-marketing" />,
+      },
+      {
+        path: 'crypto-twitter-influencer-marketing',
+        element: <CryptoServicePage type="crypto-twitter-influencer-marketing" />,
+      },
+      {
+        path: 'ico-marketing-agency',
+        element: <CryptoServicePage type="ico-marketing-agency" />,
+      },
+      {
+        path: 'ido-marketing-agency',
+        element: <CryptoServicePage type="ido-marketing-agency" />,
+      },
+      {
+        path: 'ieo-marketing-agency',
+        element: <CryptoServicePage type="ieo-marketing-agency" />,
+      },
+      {
+        path: 'crypto-kol-agency',
+        element: <CryptoServicePage type="crypto-kol-agency" />,
+      },
+      {
+        path: 'sto-marketing-agency',
+        element: <CryptoServicePage type="sto-marketing-agency" />,
+      },
+      {
+        path: 'ico-listing-services',
+        element: <CryptoServicePage type="ico-listing-services" />,
+      },
+      {
+        path: 'ieo-listing-services',
+        element: <CryptoServicePage type="ieo-listing-services" />,
       },
       {
         path: '*',
