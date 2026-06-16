@@ -112,7 +112,7 @@ Pairing a high-personality display font for headings with a highly legible sans-
 Critical CTA components or card containers use a CSS border-image or multiple background clipping trick to show a glowing linear-gradient (`orange` to `blue`) that shifts angle using keyframe animations on hover.
 
 ### 5.3. Process Workflow Icon Styles
-Operating process card icons (e.g. Learn, Strategize) are rendered inside an orange backdrop container (`bg-orange-500/10`) with a transition filter (`grayscale hover:grayscale-0 dark:invert dark:opacity-80`) giving a premium hover reaction state.
+Operating process card icons are rendered inside an orange backdrop container (`bg-orange-500/10`) with transition filters giving a premium hover reaction state.
 
 ---
 
@@ -127,7 +127,7 @@ We utilize a three-tiered animation model:
    - **Hero Text Reveal**: Letters split into spans, staggered upwards (`y: 100` to `y: 0`, delay `0.03s` per char).
    - **Achievement Counters**: Triggers counter integers to count up from `0` to target value when the section reaches `top 80%` of screen.
    - **Alternate Parallax Rows**: Images translation `y: [-40px, 40px]` matching screen scroll offset.
-   - **Dynamic Reveal Staggers**: Grids on About and Crypto pages fade in staggered from below (`y: 40` to `y: 0`) when scrolled into view.
+   - **Dynamic Reveal Staggers**: Grids on About, Crypto, and Influencer pages fade in staggered from below (`y: 40` to `y: 0`) when scrolled into view.
 3. **Framer Motion (Micro-interactions)**:
    - Hamburger drawer overlay open/close.
    - Capture Modal spring scale-up.

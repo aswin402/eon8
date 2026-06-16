@@ -34,7 +34,7 @@ We will elevate the original site's visual language by applying the **UI/UX Pro 
 - **Menu Items**:
   - `AI-Agent` (dropdown)
   - `Crypto` (dropdown mapped to local SPA routes)
-  - `Influencer` (dropdown)
+  - `Influencer` (dropdown mapped to local SPA routes)
   - `NFT` (dropdown)
   - `Our Services` (mega dropdown)
   - `Blog`, `About Us`, `Contact Us`
@@ -83,6 +83,14 @@ We will elevate the original site's visual language by applying the **UI/UX Pro 
   - Core services descriptions with tailored vector layout icons.
   - Accordion FAQ sections handling client concerns.
 
+### 3.10. Influencer Services Hub & Dynamic Pages (5 Pages)
+- **Unified Template Design**: Leverages a single page configuration system (`InfluencerServicePage.tsx` + `influencerPagesData.ts`) to serve the 5 customized routes.
+- **Kinetic Staggers**: Integrates GSAP ScrollTrigger to coordinate fading entries for the page cards and workflow sections.
+- **Content Blocks**:
+  - Vibrant gradient hero and bullet list of influencer values.
+  - Services grid (e.g. Influencer Discovery, Brand Endorsements) with custom vector icons.
+  - Dynamic FAQ drop-down drawers handles client queries.
+
 ---
 
 ## 4. Non-Functional & Quality Requirements
@@ -113,4 +121,4 @@ We will elevate the original site's visual language by applying the **UI/UX Pro 
 ## 6. Out of Scope for Phase 1
 - Full backend integration (submissions will print mock API payloads to client logger).
 - Admin dashboard for editing blog posts.
-- Non-crypto, non-AI sub-service landing pages (e.g. Influencer, NFT, Digital, SEO, PPC, ORM, AR/VR services which currently point to their original external Eon8 pages).
+- Non-crypto, non-AI, non-influencer sub-service landing pages (e.g. NFT, Digital, SEO, PPC, ORM, AR/VR services which currently point to their original external Eon8 pages).

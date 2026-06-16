@@ -38,11 +38,11 @@ const NAV_ITEMS = [
     label: 'Influencer',
     href: '#',
     submenu: [
-      { name: 'Influencer Marketing Agency', href: 'https://www.eon8.com/influencer-marketing-agency/' },
-      { name: 'Insta Influencer Marketing Agency', href: 'https://www.eon8.com/instagram-influencer-marketing-agency/' },
-      { name: 'TikTok Influencer Marketing', href: 'https://www.eon8.com/tiktok-influencer-marketing/' },
-      { name: 'Youtube Influencer Services', href: 'https://www.eon8.com/youtube-influencer-services/' },
-      { name: 'Twitter Influencer Marketing', href: 'https://www.eon8.com/twitter-influencer-marketing/' }
+      { name: 'Influencer Marketing Agency', href: '/influencer-marketing-agency' },
+      { name: 'Insta Influencer Marketing Agency', href: '/instagram-influencer-marketing-agency' },
+      { name: 'TikTok Influencer Marketing', href: '/tiktok-influencer-marketing' },
+      { name: 'Youtube Influencer Services', href: '/youtube-influencer-services' },
+      { name: 'Twitter Influencer Marketing', href: '/twitter-influencer-marketing' }
     ]
   },
   {

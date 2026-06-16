@@ -17,7 +17,9 @@ graph TD
   B --> J[AIAgentPage.tsx Router Route]
   B --> K[CryptoServicePage.tsx Dynamic Router Route]
   K --> L[cryptoPagesData.ts Loader]
-  B --> M[Floating WhatsApp & Quick Contact]
+  B --> M[InfluencerServicePage.tsx Dynamic Router Route]
+  M --> N[influencerPagesData.ts Loader]
+  B --> O[Floating WhatsApp & Quick Contact]
 ```
 
 ### 1.1. Core Libraries and Frameworks
@@ -65,6 +67,9 @@ src/
 │   ├── crypto/
 │   │   ├── cryptoPagesData.ts # Config dataset storing text values for the 13 pages
 │   │   └── CryptoServicePage.tsx # Reusable visual template page component
+│   ├── influencer/
+│   │   ├── influencerPagesData.ts # Config dataset storing text values for the 5 pages
+│   │   └── InfluencerServicePage.tsx # Reusable visual template page component
 │   ├── HomePage.tsx           # Assembles all frontpage sections
 │   ├── AboutPage.tsx          # Agency profile page (with operates accordion)
 │   ├── ContactPage.tsx        # Standard lead contact page
@@ -84,9 +89,7 @@ src/
 
 ### 3.1. Navbar (`src/components/Navbar.tsx`)
 - Detects page scrolling via a React listener.
-- If `window.scrollY > 40`, sets an `isScrolled` boolean state to true.
-- Under the hood, Tailwind applies classes dynamically.
-- Mapped as internal relative SPA router Link paths starting with `/` for the 13 Crypto services, AI Agent services, and About/Contact sections.
+- Mapped as internal relative SPA router Link paths starting with `/` for the 13 Crypto services, 5 Influencer services, AI Agent services, and About/Contact sections.
 
 ### 3.2. Achievements Counter (`src/pages/HomePage.tsx`)
 - Uses GSAP `ScrollTrigger` to hook into viewport intersection.
@@ -100,20 +103,12 @@ src/
 - Instantiates Lenis in a `useEffect` layout hook and updates GSAP ScrollTrigger updates on scroll.
 
 ### 3.5. Dynamic Crypto Services Template (`CryptoServicePage.tsx`)
-- **Single Template Architecture**: Instead of maintaining 13 duplicate page files, routing entries feed directly into a single page template.
-- **Dynamic SEO Hook**: Updates document header values dynamically using an active route side-effect listener:
-  ```typescript
-  useEffect(() => {
-    if (data) {
-      document.title = data.metaTitle || `${data.heroTitle} | Eon8`;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', data.metaDesc || "");
-      }
-    }
-  }, [data, type]);
-  ```
-- **Icon Pool Cycle**: Loops through a predefined library of Lucide vectors (`Coins`, `Megaphone`, `Globe`, `Zap`) to render visual indicator tags in the services grid.
+- Single template architecture feeding directly into dynamic routes. Updates document titles dynamically for SEO and loops through standard Lucide vectors.
+
+### 3.6. Dynamic Influencer Services Template (`InfluencerServicePage.tsx`)
+- **Single Template Design**: Routes the 5 sub-service pages into a single layout template.
+- **Dynamic SEO Update**: A React hook updates page header meta tags (`title`, `description`) based on the active path parameters.
+- **Scroll Trigger Reveals**: Staggers entries of service cards and timeline steps via GSAP ScrollTrigger hook-ins.
 
 ---
 

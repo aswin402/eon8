@@ -5,6 +5,7 @@ import { AboutPage } from '@/pages/AboutPage';
 import { ContactPage } from '@/pages/ContactPage';
 import { AIAgentPage } from '@/pages/AIAgentPage';
 import { CryptoServicePage } from '@/pages/crypto/CryptoServicePage';
+import { InfluencerServicePage } from '@/pages/influencer/InfluencerServicePage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import './App.css';
 
@@ -84,6 +85,26 @@ const router = createBrowserRouter([
       {
         path: 'ieo-listing-services',
         element: <CryptoServicePage type="ieo-listing-services" />,
+      },
+      {
+        path: 'influencer-marketing-agency',
+        element: <InfluencerServicePage type="influencer-marketing-agency" />,
+      },
+      {
+        path: 'instagram-influencer-marketing-agency',
+        element: <InfluencerServicePage type="instagram-influencer-marketing-agency" />,
+      },
+      {
+        path: 'tiktok-influencer-marketing',
+        element: <InfluencerServicePage type="tiktok-influencer-marketing" />,
+      },
+      {
+        path: 'youtube-influencer-services',
+        element: <InfluencerServicePage type="youtube-influencer-services" />,
+      },
+      {
+        path: 'twitter-influencer-marketing',
+        element: <InfluencerServicePage type="twitter-influencer-marketing" />,
       },
       {
         path: '*',

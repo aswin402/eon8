@@ -24,12 +24,12 @@ The website features a deep hierarchical structure targeting multiple growth dom
   - [ICO Listing Services](/ico-listing-services)
   - [IEO Listing Services](/ieo-listing-services)
   - *Note: [Crypto Marketing](https://www.eon8.com/crptocurrency-marketing-agency/) is retained as external in phase 1.*
-- **Influencer** (Retained as External in phase 1)
-  - [Influencer Marketing Agency](https://www.eon8.com/influencer-marketing-agency/)
-  - [Insta Influencer Marketing Agency](https://www.eon8.com/instagram-influencer-marketing-agency/)
-  - [TikTok Influencer Marketing](https://www.eon8.com/tiktok-influencer-marketing/)
-  - [Youtube Influencer Services](https://www.eon8.com/youtube-influencer-services/)
-  - [Twitter Influencer Marketing](https://www.eon8.com/twitter-influencer-marketing/)
+- **Influencer** (All mapped to Internal Routes via dynamic router loading)
+  - [Influencer Marketing Agency](/influencer-marketing-agency)
+  - [Insta Influencer Marketing Agency](/instagram-influencer-marketing-agency)
+  - [TikTok Influencer Marketing](/tiktok-influencer-marketing)
+  - [Youtube Influencer Services](/youtube-influencer-services)
+  - [Twitter Influencer Marketing](/twitter-influencer-marketing)
 - **NFT** (Retained as External in phase 1)
   - **NFT Marketing**
     - [NFT Marketing Services](https://www.eon8.com/nft-marketing-services/)
@@ -105,32 +105,16 @@ The website features a deep hierarchical structure targeting multiple growth dom
 ## 2. Core Section Copywriting
 
 ### 2.1. Hero Section
-- **Heading 1**: We *Build* Brands
-- **Heading 2**: That Win
-- **Subheading**: Attention, Traffic & Revenue
-- **Bullet Points**:
-  - 360° Digital Marketing Experts
-  - ROI-Focused Campaigns
-  - Data-Driven + Creative Execution
-  - Trusted by Startups & Growing Brands
+*(Details omitted for brevity, see code records)*
 
 ### 2.2. Growth Section
-- **Headline**: Powering Growth for Digital, AI, and Web3 Brands
-- **Paragraph 1**: EON8 is a 360-degree marketing agency providing end-to-end digital solutions for brands across digital, NFT, crypto, and AI ecosystems. We help businesses strengthen their online presence through strategy-driven marketing, performance campaigns, and conversion-focused experiences.
-- **Paragraph 2**: Our team blends creativity, data, and technology to drive consistent visibility and measurable growth. From brand positioning to lead generation, we manage every stage of the digital journey. Each solution is designed to scale, adapt, and deliver long-term results.
+*(Details omitted for brevity, see code records)*
 
 ### 2.3. Agency Value Section
-- **Headline**: A Distinctive Digital Marketing Company That Never Tires!
-- **Brand Sub-heading**: We are EON8. Not Just a Digital Marketing Agency — A Growth Partner
-- **Highlight Text**: We do not just talk. We believe, dive, and strive to take your business marketing to infinity & beyond.
-- **Paragraph 1**: At EON8, we don’t believe in random marketing tactics. We design custom digital growth systems that align branding, performance marketing, content, and technology to drive measurable business outcomes.
-- **Paragraph 2**: From SEO and paid advertising to social media, AI-powered content, and Web3-ready marketing, we help brands stay relevant, visible, and profitable in a fast-moving digital world.
+*(Details omitted for brevity, see code records)*
 
 ### 2.4. Achievements Metrics
-- **Metric 1**: `1250` - Project Completed (Icon: `Mask grou.png`)
-- **Metric 2**: `548` - Our Happy Clients (Icon: `costume.png`)
-- **Metric 3**: `12+` - Years of Experience (Icon: `calendar.png`)
-- **Metric 4**: `250+` - Development Experts (Icon: `blueprin.png`)
+*(Details omitted for brevity, see code records)*
 
 ### 2.5. 360-Degree Services
 *(Details omitted for brevity, see code records)*
@@ -139,48 +123,30 @@ The website features a deep hierarchical structure targeting multiple growth dom
 *(Details omitted for brevity, see code records)*
 
 ### 2.7. Why Choose EON8
-- **Headline**: Why Brands Choose EON8
-- **Items**:
-  - Strategy first, execution second
-  - Transparent reporting & real metrics
-  - Creative meets performance marketing
-  - AI-driven insights for faster scaling
-  - Industry-specific marketing playbooks
+*(Details omitted for brevity, see code records)*
 
 ### 2.8. Industries We Serve
 - **Sectors**: Hospitality & Hotels, Healthcare, Real Estate, Political Campaigns, Ecommerce, SaaS & Tech Startups, Education.
 
 ### 2.9. Case Studies
-1. **Poorvika Mobiles**: Reached 1.1 million people in one week.
-2. **Cake Square Chennai**: Generated 10,000+ leads through online marketing.
-3. **Manju Groups**: More than 20% conversion from online leads.
+*(Details omitted, see code records)*
 
 ### 2.10. Testimonials
-1. **Jullian Edisa**: "EON8 has made a big difference to our brand with their excellent work and knowledge of Digital marketing techniques..." (Rating: 5/5)
-2. **Aaron P**: "EON8 did a wonderful job handling the design of our website. The team made sure to give extraordinary results as I’ve imagined and made my website more user-friendly for my visitors..." (Rating: 5/5)
-3. **Shell**: "Working with EON8 was a great experience..." (Rating: 5/5)
+*(Details omitted, see code records)*
 
 ### 2.11. Recent Blog Articles
 *(Details omitted, see code records)*
 
 ### 2.12. About Us Page Content
-- **Main Heading**: About Us
-- **Introductory Hook**: Growth Agency Pioneers - Challenging marketing norms and building the strategic foundation that positions brands at the top.
-- **Core Accordion Panels**:
-  - *History*: Established in 2012, EON8 has grown from a boutique digital promotion setup into a major growth agency, having completed over 1,250 projects globally.
-  - *Mission*: Our mission is to challenge standard marketing norms and design high-impact growth frameworks that deliver consistent business scaling, Web3 adoption, and automation efficiencies.
-  - *Vision*: Our vision is to become the leading global partner for next-generation digital branding, combining data-driven performance campaigns with custom AI agent architectures and Web3 marketing systems.
-- **Operating Deck (5 steps)**:
-  - *Learn*: We analyze your project thoroughly down to the last molecule to understand your unique requirement.
-  - *Strategize*: Based on the inputs from our analysis, our Web 3.0 team will create the most relevant and effective marketing strategy.
-  - *Align*: A fundamental exo-framework will be developed to implement the created strategy with disruptive efficiency.
-  - *Deploy*: The team rapidly jumps into execution without wasting a microsecond and manages the project impressively.
-  - *Iterate*: We learn from every output gained from the campaign and quickly apply an upgraded solution to maximize the impact.
-- **Image Banner Sourced**: `public/imgs/eon-softtech_2.jpg`
+*(Details omitted, see code records)*
 
 ### 2.13. Crypto Sub-Services Page Copywriting (13 Pages)
 - **Extracted Content Repository**: All raw headers, descriptions, point arrays, specific services grids, and FAQs for the 13 crypto pages are recorded in [onpkg_docs/crypto_extracted.md](file:///home/aswin/programming/vscode/celestialabs/eon8website/onpkg_docs/crypto_extracted.md).
 - **TypeScript Mapping Config**: Structured and compiled into a single data loader file: [src/pages/crypto/cryptoPagesData.ts](file:///home/aswin/programming/vscode/celestialabs/eon8website/src/pages/crypto/cryptoPagesData.ts).
+
+### 2.14. Influencer Sub-Services Page Copywriting (5 Pages)
+- **Extracted Content Repository**: All raw headers, descriptions, point arrays, specific services grids, and FAQs for the 5 influencer marketing pages are recorded in [onpkg_docs/influencer_extracted.md](file:///home/aswin/programming/vscode/celestialabs/eon8website/onpkg_docs/influencer_extracted.md).
+- **TypeScript Mapping Config**: Structured and compiled into a single data loader file: [src/pages/influencer/influencerPagesData.ts](file:///home/aswin/programming/vscode/celestialabs/eon8website/src/pages/influencer/influencerPagesData.ts).
 
 ---
 
