@@ -8,29 +8,29 @@ The website features a deep hierarchical structure targeting multiple growth dom
 
 - **Logo**: Eon8 Logo (redirects to `/`)
 - **AI-Agent**
-  - [AI Agent Development Services](https://www.eon8.com/ai-agent-development-services/)
-- **Crypto**
-  - [Crypto Marketing](https://www.eon8.com/crptocurrency-marketing-agency/)
-  - [Crypto PR Services](https://www.eon8.com/crypto-pr-services/)
-  - [Crypto Influencer Marketing](https://www.eon8.com/crypto-influencer-marketing/)
-  - [Crypto Telegram Marketing](https://www.eon8.com/crypto-telegram-marketing/)
-  - [Crypto Community Marketing](https://www.eon8.com/crypto-community-marketing/)
-  - [Crypto Video Creation & Marketing](https://www.eon8.com/crypto-video-creation-marketing/)
-  - [Crypto Twitter Influencer Marketing](https://www.eon8.com/crypto-twitter-influencer-marketing/)
-  - [ICO Marketing Agency](https://www.eon8.com/ico-marketing-agency/)
-  - [IDO Marketing Agency](https://www.eon8.com/ido-marketing-agency/)
-  - [IEO Marketing Agency](https://www.eon8.com/ieo-marketing-agency/)
-  - [Crypto KOL Agency](https://www.eon8.com/crypto-kol-agency/)
-  - [STO Marketing Agency](https://www.eon8.com/sto-marketing-agency/)
-  - [ICO Listing Services](https://www.eon8.com/ico-listing-services/)
-  - [IEO Listing Services](https://www.eon8.com/ieo-listing-services/)
-- **Influencer**
+  - [AI Agent Development Services](/ai-agent-development-services) (Internal Route)
+- **Crypto** (All mapped to Internal Routes via dynamic router loading)
+  - [Crypto PR Services](/crypto-pr-services)
+  - [Crypto Influencer Marketing](/crypto-influencer-marketing)
+  - [Crypto Telegram Marketing](/crypto-telegram-marketing)
+  - [Crypto Community Marketing](/crypto-community-marketing)
+  - [Crypto Video Creation & Marketing](/crypto-video-creation-marketing)
+  - [Crypto Twitter Influencer Marketing](/crypto-twitter-influencer-marketing)
+  - [ICO Marketing Agency](/ico-marketing-agency)
+  - [IDO Marketing Agency](/ido-marketing-agency)
+  - [IEO Marketing Agency](/ieo-marketing-agency)
+  - [Crypto KOL Agency](/crypto-kol-agency)
+  - [STO Marketing Agency](/sto-marketing-agency)
+  - [ICO Listing Services](/ico-listing-services)
+  - [IEO Listing Services](/ieo-listing-services)
+  - *Note: [Crypto Marketing](https://www.eon8.com/crptocurrency-marketing-agency/) is retained as external in phase 1.*
+- **Influencer** (Retained as External in phase 1)
   - [Influencer Marketing Agency](https://www.eon8.com/influencer-marketing-agency/)
   - [Insta Influencer Marketing Agency](https://www.eon8.com/instagram-influencer-marketing-agency/)
   - [TikTok Influencer Marketing](https://www.eon8.com/tiktok-influencer-marketing/)
   - [Youtube Influencer Services](https://www.eon8.com/youtube-influencer-services/)
   - [Twitter Influencer Marketing](https://www.eon8.com/twitter-influencer-marketing/)
-- **NFT**
+- **NFT** (Retained as External in phase 1)
   - **NFT Marketing**
     - [NFT Marketing Services](https://www.eon8.com/nft-marketing-services/)
     - [NFT Art Agency](https://www.eon8.com/nft-art-agency/)
@@ -54,7 +54,7 @@ The website features a deep hierarchical structure targeting multiple growth dom
     - [Discord Community Building Services](https://www.eon8.com/discord-community-building-services/)
     - [NFT Game Reddit Marketing](https://www.eon8.com/nft-game-reddit-marketing/)
     - [PR Marketing Agency](https://www.eon8.com/pr-marketing-agency/)
-- **Our Services**
+- **Our Services** (Retained as External in phase 1)
   - **Digital Marketing Agency**
     - [Search Engine Optimization SEO](https://www.eon8.com/search-engine-optimization-services-seo/)
     - [Local SEO Services](https://www.eon8.com/local-seo-agency/)
@@ -96,9 +96,9 @@ The website features a deep hierarchical structure targeting multiple growth dom
     - [VR in Product Marketing](https://www.eon8.com/vr-product-marketing/)
   - **Metaverse Solutions**
     - [Strategic Branding in Metaverse](https://www.eon8.com/metaverse/)
-- **Blog** (direct link)
-- **About Us** (direct link)
-- **Contact Us** (direct link)
+- **Blog** (External Link: `https://www.eon8.com/digital-marketing-blog/`)
+- **About Us**: [/about-us](/about-us) (Internal Route)
+- **Contact Us**: [/contact](/contact) (Internal Route)
 
 ---
 
@@ -133,58 +133,10 @@ The website features a deep hierarchical structure targeting multiple growth dom
 - **Metric 4**: `250+` - Development Experts (Icon: `blueprin.png`)
 
 ### 2.5. 360-Degree Services
-1. **Digital Marketing & Conversion Optimization**:
-   - High-performance marketing websites
-   - Landing pages built for lead generation
-   - UX/UI improvements for higher engagement
-   - Lead tracking, analytics & performance reporting
-2. **Search Engine Optimization (SEO)**:
-   - Keyword research & content strategy
-   - Technical SEO & on-page optimization
-   - High-authority link building
-   - Local & International SEO
-3. **Performance Marketing (Google & Meta Ads)**:
-   - Google Search & Display Ads
-   - Meta & Instagram Ads
-   - Funnel-based ad creatives
-   - Conversion tracking & CRO
-4. **Social Media Marketing**:
-   - Content strategy & calendar
-   - Reels & short-form video marketing
-   - Community management
-   - Influencer & brand collaborations
-5. **Content & AI Marketing**:
-   - SEO blog & website content
-   - AI-powered content workflows
-   - Marketing automation
-   - Lead nurturing campaigns
-6. **Brand Strategy & Design**:
-   - Brand identity & guidelines
-   - Creative campaigns
-   - Website UI/UX design
-   - Conversion-focused design
+*(Details omitted for brevity, see code records)*
 
 ### 2.6. Alternate Verticals (Web3, AI, SEO)
-- **Vertical 1 (NFT)**: NFT Marketing Optimization
-  - NFT launch-ready websites & mint pages
-  - High-conversion NFT landing page optimization
-  - Community-first UX for collectors & investors
-  - Wallet, mint & marketplace tracking analytics
-- **Vertical 2 (Crypto)**: Crypto Marketing Optimization
-  - High-trust crypto websites & token platforms
-  - Conversion-focused landing pages
-  - UX/UI design for credibility & clarity
-  - Advanced funnel analytics & user behavior insights
-- **Vertical 3 (AI)**: AI Marketing Optimization
-  - High-performance websites for AI products
-  - Product-led landing page optimization
-  - UX/UI that simplifies complex AI solutions
-  - Advanced analytics & conversion insights
-- **Vertical 4 (Web Optimization)**: Website & Conversion Optimization
-  - High-performance websites
-  - Landing page optimization
-  - UX/UI improvements
-  - Lead tracking & analytics
+*(Details omitted for brevity, see code records)*
 
 ### 2.7. Why Choose EON8
 - **Headline**: Why Brands Choose EON8
@@ -204,35 +156,39 @@ The website features a deep hierarchical structure targeting multiple growth dom
 3. **Manju Groups**: More than 20% conversion from online leads.
 
 ### 2.10. Testimonials
-1. **Jullian Edisa**: "EON8 has made a big difference to our brand with their excellent work and knowledge of Digital marketing techniques. Our brand awareness grew, the search engine rankings of our website are made better and eventually, our sales had gone high." (Rating: 5/5)
-2. **Aaron P**: "EON8 did a wonderful job handling the design of our website. The team made sure to give extraordinary results as I’ve imagined and made my website more user-friendly for my visitors." (Rating: 5/5)
-3. **Shell**: "Working with EON8 was a great experience. Their team perfectly understood our vision and delivered a website design that was both visually impressive and highly user-friendly." (Rating: 5/5)
+1. **Jullian Edisa**: "EON8 has made a big difference to our brand with their excellent work and knowledge of Digital marketing techniques..." (Rating: 5/5)
+2. **Aaron P**: "EON8 did a wonderful job handling the design of our website. The team made sure to give extraordinary results as I’ve imagined and made my website more user-friendly for my visitors..." (Rating: 5/5)
+3. **Shell**: "Working with EON8 was a great experience..." (Rating: 5/5)
 
 ### 2.11. Recent Blog Articles
-1. **WhatsApp Marketing**: "WhatsApp Marketing Services by EON8 Convert Conversations into Revenue"
-   - Summary: With over 2 billion active users globally, WhatsApp has rapidly evolved into more than just a messaging tool...
-2. **AI Lessons & Prevention**: "AI Deleted Its Database Without Warning – What I Learned and How You Can Prevent It"
-   - Summary: Artificial Intelligence has rapidly transformed the digital landscape. However, database operations demand human oversight...
-3. **AI Video Marketing**: "AI-Powered Product Marketing Agency: Revolutionizing Video Marketing for Brands"
-   - Summary: In today's fast-paced digital world, product marketing isn't just about creating awareness, it's about building smart strategies...
+*(Details omitted, see code records)*
+
+### 2.12. About Us Page Content
+- **Main Heading**: About Us
+- **Introductory Hook**: Growth Agency Pioneers - Challenging marketing norms and building the strategic foundation that positions brands at the top.
+- **Core Accordion Panels**:
+  - *History*: Established in 2012, EON8 has grown from a boutique digital promotion setup into a major growth agency, having completed over 1,250 projects globally.
+  - *Mission*: Our mission is to challenge standard marketing norms and design high-impact growth frameworks that deliver consistent business scaling, Web3 adoption, and automation efficiencies.
+  - *Vision*: Our vision is to become the leading global partner for next-generation digital branding, combining data-driven performance campaigns with custom AI agent architectures and Web3 marketing systems.
+- **Operating Deck (5 steps)**:
+  - *Learn*: We analyze your project thoroughly down to the last molecule to understand your unique requirement.
+  - *Strategize*: Based on the inputs from our analysis, our Web 3.0 team will create the most relevant and effective marketing strategy.
+  - *Align*: A fundamental exo-framework will be developed to implement the created strategy with disruptive efficiency.
+  - *Deploy*: The team rapidly jumps into execution without wasting a microsecond and manages the project impressively.
+  - *Iterate*: We learn from every output gained from the campaign and quickly apply an upgraded solution to maximize the impact.
+- **Image Banner Sourced**: `public/imgs/eon-softtech_2.jpg`
+
+### 2.13. Crypto Sub-Services Page Copywriting (13 Pages)
+- **Extracted Content Repository**: All raw headers, descriptions, point arrays, specific services grids, and FAQs for the 13 crypto pages are recorded in [onpkg_docs/crypto_extracted.md](file:///home/aswin/programming/vscode/celestialabs/eon8website/onpkg_docs/crypto_extracted.md).
+- **TypeScript Mapping Config**: Structured and compiled into a single data loader file: [src/pages/crypto/cryptoPagesData.ts](file:///home/aswin/programming/vscode/celestialabs/eon8website/src/pages/crypto/cryptoPagesData.ts).
 
 ---
 
 ## 3. Assets Inventory
 
-All local assets are sourced from the `www.eon8.com/imgs` subdirectory:
+All local assets are sourced from the `public/imgs` subdirectory:
 - **Logo Primary**: `imgs/Logo-White-BG-removebg-preview.png`
 - **Logo Footer**: `imgs/Logo_bg-1.png`
-- **Hero Video**: Sourced remotely from `https://www.eon8.com/wp-content/themes/eon8/assets/img/banner_vid.mp4`
-- **Growth Image**: `imgs/digital-globe.png`
-- **Agency Image**: `imgs/growth-handshake.png`
-- **Why Image**: `imgs/building.png`
-- **Satisfaction Image**: `imgs/satisfaction.png`
-- **Achievement Icons**: `imgs/Mask grou.png` (completed), `imgs/costume.png` (happy clients), `imgs/calendar.png` (years), `imgs/blueprin.png` (experts)
-- **Service Icons**: `imgs/service1.png` to `imgs/service6.png`
-- **Vertical Images**: `imgs/nft.png`, `imgs/crypto.png`, `imgs/ai.png`, `imgs/website.png`
-- **Client Logos**: `imgs/vlcc.png`, `imgs/tvs.png`, `imgs/shell.png`, `imgs/lifung.png`, `imgs/nac.png`, `imgs/mcc.png`, `imgs/apollo.png`, `imgs/chettinad.png`, `imgs/ibm.png`, `imgs/kvb.png`, `imgs/mcdelivery.png`, `imgs/vels.png`, `imgs/copperchimney.png`, `imgs/poorvika.png`, `imgs/ramraj.png`
-- **Case Logos**: `imgs/poorvik.png`, `imgs/coko.png`, `imgs/manju.png`
-- **Avatars**: `imgs/Jullian-Edisa.jpg`, `imgs/testi_1.jpg`, `imgs/shell.png`
-- **Social Media Icons**: `imgs/Whatsapp-1.png`, `imgs/Instagram-1.png`, `imgs/Facebook-1.png`, `imgs/Linkedin-1.png`, `imgs/twitter-1.png`, `imgs/youtube.png`
-- **Certifications**: `imgs/top-digital.svg`, `imgs/digi-mar-ag.png`, `imgs/clutch.png`, `imgs/top-digital-marketing-agencies.svg`, `imgs/google-partner.png`
+- **About Banner**: `imgs/eon-softtech_2.jpg`
+- **Process Icons**: `imgs/social-media-3.svg`, `imgs/presentation.svg`, `imgs/content.svg`, `imgs/amazon.svg`, `imgs/technology.svg`
+*(Other static assets remain unchanged, see earlier listings)*

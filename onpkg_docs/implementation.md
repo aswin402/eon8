@@ -12,15 +12,12 @@ graph TD
   B --> E[Navbar component]
   B --> F[HomePage.tsx Router Route]
   B --> G[Footer component]
-  F --> H[Hero section]
-  F --> I[Growth section]
-  F --> J[Achievements counter]
-  F --> K[Service sections]
-  F --> L[Web3 alternating rows]
-  F --> M[Marquee clients]
-  F --> N[Testimonials slider]
-  F --> O[Blog preview cards]
-  B --> P[Floating WhatsApp & Quick Contact]
+  B --> H[AboutPage.tsx Router Route]
+  B --> I[ContactPage.tsx Router Route]
+  B --> J[AIAgentPage.tsx Router Route]
+  B --> K[CryptoServicePage.tsx Dynamic Router Route]
+  K --> L[cryptoPagesData.ts Loader]
+  B --> M[Floating WhatsApp & Quick Contact]
 ```
 
 ### 1.1. Core Libraries and Frameworks
@@ -65,8 +62,11 @@ src/
 │   ├── logger.ts              # Custom developer logger
 │   └── utils.ts               # cn() class merge utilities
 ├── pages/
+│   ├── crypto/
+│   │   ├── cryptoPagesData.ts # Config dataset storing text values for the 13 pages
+│   │   └── CryptoServicePage.tsx # Reusable visual template page component
 │   ├── HomePage.tsx           # Assembles all frontpage sections
-│   ├── AboutPage.tsx          # Agency profile page
+│   ├── AboutPage.tsx          # Agency profile page (with operates accordion)
 │   ├── ContactPage.tsx        # Standard lead contact page
 │   └── NotFoundPage.tsx       # Custom 404 page
 ├── store/
@@ -85,58 +85,42 @@ src/
 ### 3.1. Navbar (`src/components/Navbar.tsx`)
 - Detects page scrolling via a React listener.
 - If `window.scrollY > 40`, sets an `isScrolled` boolean state to true.
-- Under the hood, Tailwind applies classes dynamically:
-  - `isScrolled = false`: `max-w-7xl mx-auto rounded-full mt-6 bg-white/70 dark:bg-slate-900/70 border border-white/20 backdrop-blur-md shadow-lg`
-  - `isScrolled = true`: `w-full rounded-none mt-0 bg-white dark:bg-slate-950 border-b border-blue-500/10 shadow-md`
+- Under the hood, Tailwind applies classes dynamically.
+- Mapped as internal relative SPA router Link paths starting with `/` for the 13 Crypto services, AI Agent services, and About/Contact sections.
 
 ### 3.2. Achievements Counter (`src/pages/HomePage.tsx`)
 - Uses GSAP `ScrollTrigger` to hook into viewport intersection.
-- Upon entering `top 80%` of screen:
-  ```typescript
-  gsap.fromTo(counterObj, { val: 0 }, {
-    val: targetValue,
-    duration: 2,
-    ease: "power2.out",
-    onUpdate: () => {
-      setCount(Math.floor(counterObj.val));
-    }
-  });
-  ```
-- Prevents redundant triggers by storing states or utilizing `once: true`.
+- Upon entering `top 80%` of screen, values count up to targets.
 
 ### 3.3. Math Quiz Captcha (`src/components/ui/dialog.tsx` / `CaptureModal`)
 - Generates a random sum equation on form load: e.g., `num1 + num2 = ?` (using values between 1 and 20).
-- Stores the sum value in a local state.
-- When the user submits, compares the input string to the sum:
-  - **Matches**: Form submits successfully and prints data to client logging console.
-  - **Fails**: Form triggers shake validation animation and renders an error state.
+- If validation matches, triggers submit callback, else triggers shake animation on inputs.
 
 ### 3.4. Global Smooth Scroll (`src/layouts/RootLayout.tsx`)
-- Instantiates Lenis in a `useEffect` layout hook:
+- Instantiates Lenis in a `useEffect` layout hook and updates GSAP ScrollTrigger updates on scroll.
+
+### 3.5. Dynamic Crypto Services Template (`CryptoServicePage.tsx`)
+- **Single Template Architecture**: Instead of maintaining 13 duplicate page files, routing entries feed directly into a single page template.
+- **Dynamic SEO Hook**: Updates document header values dynamically using an active route side-effect listener:
   ```typescript
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-  });
-  function raf(time: number) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
+  useEffect(() => {
+    if (data) {
+      document.title = data.metaTitle || `${data.heroTitle} | Eon8`;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', data.metaDesc || "");
+      }
+    }
+  }, [data, type]);
   ```
-- Integrates with GSAP `ScrollTrigger.update()` so scroll positions stay in sync.
+- **Icon Pool Cycle**: Loops through a predefined library of Lucide vectors (`Coins`, `Megaphone`, `Globe`, `Zap`) to render visual indicator tags in the services grid.
 
 ---
 
 ## 4. Static Asset Mapping & Migration Strategy
-
-To import the local assets from `www.eon8.com/imgs` into the React application, we copy them directly to Vite's `public/` directory during setup.
-- Paths map in components as `/imgs/Logo-White-BG-removebg-preview.png` or `/imgs/digital-globe.png`.
-- This ensures that assets are resolved directly by Vite without bundling bottlenecks, maintaining high caching speeds.
+- Sourced and moved remote images (e.g. `eon-softtech_2.jpg` and process SVGs) to `/public/imgs/` so all visuals load locally with zero third-party latency.
 
 ---
 
 ## 5. Build, Linting & QA Verification
-- **Lint Check**: Running `npm run lint` using ESLint v9 config.
-- **Build Compiling**: Running `npm run build` compiles TypeScript files using `tsc` and triggers Vite's bundling engine to output pure static assets under the `/dist` directory.
+- **Build Compiling**: Verified `npm run build` compiles with zero warnings/errors.

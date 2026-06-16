@@ -33,7 +33,7 @@ We will elevate the original site's visual language by applying the **UI/UX Pro 
 - **Scrolled State**: Transition smoothly (scale, border-radius, background padding) into a fixed, solid-white/dark-slate full-width top bar.
 - **Menu Items**:
   - `AI-Agent` (dropdown)
-  - `Crypto` (dropdown)
+  - `Crypto` (dropdown mapped to local SPA routes)
   - `Influencer` (dropdown)
   - `NFT` (dropdown)
   - `Our Services` (mega dropdown)
@@ -68,6 +68,21 @@ We will elevate the original site's visual language by applying the **UI/UX Pro 
 - **Quick Contact Modal**: Accessible via CTA buttons, featuring a fields validation check, and a **Math Captcha** (e.g., "12 + 3 = ?") to prevent spam.
 - **WhatsApp Shortcut**: Floating green badge on the bottom left for instant communication.
 
+### 3.8. About Us Page (`/about-us` / `/about`)
+- **Visual Hero Section**: Custom vibrant orange/blue diagonal gradient banner and a specialized Compass growth badge.
+- **Interactive Core Accordion**: Detailed, slide-toggle container powered by Framer Motion displaying Eon8's History, Mission, and Vision alongside a responsive product banner image.
+- **Operational Workflow**: A clean card deck showing the five operational steps (Learn, Strategize, Align, Deploy, Iterate) using customized responsive vector graphics.
+- **Social Proof**: Testimonials section displaying verified client quotes and client profile grids.
+
+### 3.9. Crypto Services Hub & Dynamic Pages (13 Pages)
+- **High-Performance Architecture**: Scaled using a single, optimized dynamic template component (`CryptoServicePage.tsx`) reading data configs from `cryptoPagesData.ts` to implement all 13 sub-service pages.
+- **Dynamic SEO Metadata**: Built-in React hooks to dynamically rewrite document header meta tags (`title`, `description`) based on the active route.
+- **Content Blocks**:
+  - Customized dark gradient banner detailing services value statements.
+  - Staggered GSAP reveals for the point list arrays and services grids.
+  - Core services descriptions with tailored vector layout icons.
+  - Accordion FAQ sections handling client concerns.
+
 ---
 
 ## 4. Non-Functional & Quality Requirements
@@ -98,4 +113,4 @@ We will elevate the original site's visual language by applying the **UI/UX Pro 
 ## 6. Out of Scope for Phase 1
 - Full backend integration (submissions will print mock API payloads to client logger).
 - Admin dashboard for editing blog posts.
-- Complete localized versions of all sub-service landing pages (they will redirect to a generic modernized contact page or anchor sections).
+- Non-crypto, non-AI sub-service landing pages (e.g. Influencer, NFT, Digital, SEO, PPC, ORM, AR/VR services which currently point to their original external Eon8 pages).

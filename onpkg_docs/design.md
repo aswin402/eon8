@@ -2,7 +2,7 @@
 
 ## 1. Aesthetic Direction: Futuristic Growth Tech (UI/UX Pro Max)
 
-We reject standard, flat template designs. The modernized Eon8 clone will follow a **Futuristic Growth Tech** aesthetic. It bridges luxury agency styling with high-performance Web3/AI visual aesthetics.
+We reject standard, flat template designs. The modernized Eon8 clone follows a **Futuristic Growth Tech** aesthetic. It bridges luxury agency styling with high-performance Web3/AI visual aesthetics.
 
 - **Vibe**: Liquid glass layouts, deep space backgrounds offset by high-contrast neon highlights, and buttery-smooth kinetic responses.
 - **Visual Features**:
@@ -111,6 +111,9 @@ Pairing a high-personality display font for headings with a highly legible sans-
 ### 5.2. Orange-Blue Border-Glow Effect
 Critical CTA components or card containers use a CSS border-image or multiple background clipping trick to show a glowing linear-gradient (`orange` to `blue`) that shifts angle using keyframe animations on hover.
 
+### 5.3. Process Workflow Icon Styles
+Operating process card icons (e.g. Learn, Strategize) are rendered inside an orange backdrop container (`bg-orange-500/10`) with a transition filter (`grayscale hover:grayscale-0 dark:invert dark:opacity-80`) giving a premium hover reaction state.
+
 ---
 
 ## 6. Kinetic Motion & Animations
@@ -124,7 +127,9 @@ We utilize a three-tiered animation model:
    - **Hero Text Reveal**: Letters split into spans, staggered upwards (`y: 100` to `y: 0`, delay `0.03s` per char).
    - **Achievement Counters**: Triggers counter integers to count up from `0` to target value when the section reaches `top 80%` of screen.
    - **Alternate Parallax Rows**: Images translation `y: [-40px, 40px]` matching screen scroll offset.
+   - **Dynamic Reveal Staggers**: Grids on About and Crypto pages fade in staggered from below (`y: 40` to `y: 0`) when scrolled into view.
 3. **Framer Motion (Micro-interactions)**:
    - Hamburger drawer overlay open/close.
-   - Capture Modal spring scale-up (`scale: [0.9, 1]`, duration: `0.2s`, type: `spring`, stiffness: `300`).
+   - Capture Modal spring scale-up.
    - Theme Toggle Sun/Moon rotate animation.
+   - **FAQ Accordion Open/Close**: Handles smooth height collapses using `<AnimatePresence>` dynamic scale transitions.
