@@ -25,6 +25,26 @@ export function CaptureModal() {
   const [submitted, setSubmitted] = useState(false);
   const [generalError, setGeneralError] = useState('');
 
+  // Reset form fields and captcha on modal open
+  useEffect(() => {
+    if (isContactModalOpen) {
+      const timer = setTimeout(() => {
+        setName('');
+        setEmail('');
+        setPhone('');
+        setCountry('');
+        setMessage('');
+        setSubmitted(false);
+        setGeneralError('');
+        setNum1(Math.floor(Math.random() * 15) + 3);
+        setNum2(Math.floor(Math.random() * 10) + 2);
+        setCaptchaInput('');
+        setCaptchaError(false);
+      }, 0);
+      return () => clearTimeout(timer);
+    }
+  }, [isContactModalOpen]);
+
   // Generate new captcha question
   const generateCaptcha = () => {
     setNum1(Math.floor(Math.random() * 15) + 3);
@@ -32,19 +52,6 @@ export function CaptureModal() {
     setCaptchaInput('');
     setCaptchaError(false);
   };
-
-  useEffect(() => {
-    if (isContactModalOpen) {
-      generateCaptcha();
-      setSubmitted(false);
-      setGeneralError('');
-      setName('');
-      setEmail('');
-      setPhone('');
-      setCountry('');
-      setMessage('');
-    }
-  }, [isContactModalOpen]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

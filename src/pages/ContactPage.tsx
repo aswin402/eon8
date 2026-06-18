@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Send, Sparkles, RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,8 +11,8 @@ export function ContactPage() {
   const [message, setMessage] = useState('');
   
   // Captcha State
-  const [num1, setNum1] = useState(0);
-  const [num2, setNum2] = useState(0);
+  const [num1, setNum1] = useState(() => Math.floor(Math.random() * 12) + 2);
+  const [num2, setNum2] = useState(() => Math.floor(Math.random() * 8) + 1);
   const [captchaInput, setCaptchaInput] = useState('');
   const [captchaError, setCaptchaError] = useState(false);
   const [shakeTrigger, setShakeTrigger] = useState(false);
@@ -28,10 +28,6 @@ export function ContactPage() {
     setCaptchaInput('');
     setCaptchaError(false);
   };
-
-  useEffect(() => {
-    generateCaptcha();
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

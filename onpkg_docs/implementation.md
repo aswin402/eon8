@@ -114,6 +114,7 @@ src/
 
 ## 4. Static Asset Mapping & Migration Strategy
 - Sourced and moved remote images (e.g. `eon-softtech_2.jpg` and process SVGs) to `/public/imgs/` so all visuals load locally with zero third-party latency.
+- **Vite Tech Stack & Page Assets**: Mapped static tech logos (Python, JS, Node, GCP, AWS, etc.) from root `assets/` and custom website graphics from `www.eon8.com/imgs/` into `src/assets/`. Always use ES `import` paths for these files inside React page components (e.g. `import pythonLogo from '@/assets/Python.png'`) so Vite builds, hashes, and optimizes them for production.
 
 ---
 

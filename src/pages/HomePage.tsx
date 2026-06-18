@@ -10,13 +10,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function HomePage() {
   const { setContactModalOpen } = useAppStore();
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
+  );
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Check accessibility reduced-motion preference
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(mediaQuery.matches);
     
     const handleChange = (e: MediaQueryListEvent) => {
       setReducedMotion(e.matches);
@@ -257,7 +258,7 @@ export function HomePage() {
             </div>
             <h1 className="text-4xl sm:text-6xl xl:text-7xl font-heading font-black tracking-tight leading-none text-white">
               We <em className="text-orange-500 not-italic font-medium font-serif italic">Build</em> Brands <br />
-              <span className="bg-gradient-to-r from-orange-400 via-primary to-blue-500 bg-clip-text text-transparent">That Win</span>
+              <span className="bg-gradient-to-r from-orange-500 to-blue-400 bg-clip-text text-transparent">That Win</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-300 font-semibold max-w-lg">
               Attention, Traffic & Revenue Optimization
@@ -267,7 +268,7 @@ export function HomePage() {
               <Button 
                 onClick={() => setContactModalOpen(true)}
                 size="lg"
-                className="rounded-full bg-gradient-to-r from-orange-500 to-primary text-white font-bold h-14 px-8 text-base shadow-xl shadow-orange-500/10 hover:shadow-orange-500/25 hover:scale-102 transition-all cursor-pointer"
+                className="rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold h-14 px-8 text-base shadow-xl shadow-orange-500/20 hover:scale-102 transition-all cursor-pointer"
               >
                 <span>Get Free Consultation</span>
                 <ArrowRight className="w-5 h-5 ml-1" />
@@ -591,7 +592,7 @@ export function HomePage() {
                 <img 
                   src={row.img} 
                   alt={row.title} 
-                  className="w-full max-w-md rounded-2xl object-contain shadow-2xl" 
+                  className="w-full max-w-md object-contain" 
                 />
               </div>
             </div>
@@ -608,7 +609,7 @@ export function HomePage() {
           <img 
             src="/imgs/building.png" 
             alt="Office building structure" 
-            className="w-full max-w-md rounded-3xl object-contain shadow-2xl" 
+            className="w-full max-w-md object-contain" 
           />
         </div>
 
@@ -671,40 +672,64 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 9. Infinite Scrolling Client Marquee */}
-      <section className="py-16 bg-white dark:bg-slate-950 border-y border-border/20 overflow-hidden relative">
-        <div className="max-w-6xl mx-auto px-6 mb-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-muted-foreground/80">Our Prestigious Clients</h2>
-        </div>
-
-        {/* CSS Scrolling Marquee */}
-        <div className="relative flex overflow-x-hidden">
-          <div className="animate-marquee flex gap-12 items-center whitespace-nowrap py-4">
-            {clients.map((c, i) => (
-              <div key={i} className="flex items-center justify-center shrink-0 w-28 h-12 bg-muted/20 border border-border/30 rounded-xl p-2 hover:border-primary/40 hover:scale-105 transition-all">
-                <img src={c.img} alt={c.name} className="max-w-full max-h-8 object-contain dark:invert" />
-              </div>
-            ))}
+      {/* 9. Prestigious Clients Grid */}
+      <section className="py-20 bg-slate-50 dark:bg-slate-900/40 border-y border-border/20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-heading font-black text-slate-950 dark:text-white">
+              Our Prestigious Clients
+            </h2>
           </div>
 
-          <div className="absolute top-0 animate-marquee2 flex gap-12 items-center whitespace-nowrap py-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
             {clients.map((c, i) => (
-              <div key={i} className="flex items-center justify-center shrink-0 w-28 h-12 bg-muted/20 border border-border/30 rounded-xl p-2 hover:border-primary/40 hover:scale-105 transition-all">
-                <img src={c.img} alt={c.name} className="max-w-full max-h-8 object-contain dark:invert" />
+              <div 
+                key={i} 
+                className="flex items-center justify-center bg-white border border-blue-500/30 hover:border-blue-500 rounded-2xl p-6 h-28 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <img 
+                  src={c.img} 
+                  alt={c.name} 
+                  className="max-w-full max-h-16 object-contain" 
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 10. Client Satisfaction & Case Studies */}
-      <section className="py-24 px-6 bg-slate-50 dark:bg-slate-900/50">
-        <div className="max-w-6xl mx-auto space-y-16">
-          
-          <div className="text-center space-y-4 max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-5xl font-heading font-black">Client Satisfaction is Our Prime Goal</h2>
-            <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+      {/* 10. Client Satisfaction */}
+      <section className="py-20 px-6 bg-white dark:bg-slate-950">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left: Rating Image */}
+          <div className="max-w-md lg:max-w-full mx-auto">
+            <img 
+              src="/imgs/satisfaction.png" 
+              alt="Client Satisfaction rating slider" 
+              className="w-full h-auto object-contain" 
+            />
+          </div>
+
+          {/* Right: Text Details */}
+          <div className="space-y-6 text-left">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-slate-950 dark:text-white leading-tight">
+              Client Satisfaction Is <br />
+              Our Prime Goal
+            </h2>
+            <p className="text-slate-600 dark:text-slate-300 text-base md:text-lg leading-relaxed font-medium">
               Be it a small or large business, we make sure to provide the best dedicated service to uplift your business value and returns while not forgetting to meet your expectations.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 10b. Case Studies */}
+      <section className="py-24 px-6 bg-slate-50 dark:bg-slate-900/50 border-t border-border/10">
+        <div className="max-w-6xl mx-auto space-y-16">
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <h2 className="text-3xl sm:text-5xl font-heading font-black">Our Success Stories</h2>
+            <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+              We deliver passionate, tailor-made digital marketing services that generate increased sales & fetch outstanding business growth.
             </p>
           </div>
 

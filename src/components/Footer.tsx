@@ -43,24 +43,24 @@ export function Footer() {
     <footer className="w-full bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 text-white relative z-10 pt-24 pb-8 px-6 mt-20 border-t border-blue-500/10">
       
       {/* Floating Contact Ribbon (Centered Panel) */}
-      <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white dark:bg-slate-900 border border-border/40 shadow-xl rounded-2xl px-6 md:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12 w-[calc(100%-2rem)] max-w-4xl z-20">
-        <div className="flex items-center gap-3 text-slate-800 dark:text-white font-medium text-sm md:text-base">
+      <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white dark:bg-slate-900 border border-border/40 shadow-xl rounded-2xl px-6 md:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12 w-[calc(100%-2rem)] max-w-6xl z-20">
+        <div className="flex items-center gap-3 text-slate-800 dark:text-white font-medium text-sm md:text-base whitespace-nowrap">
           <Phone className="w-5 h-5 text-orange-500 shrink-0" />
-          <a href="tel:+919042294007" className="hover:text-primary transition-colors">+91 90422 94007</a>
+          <a href="tel:+919042294007" className="hover:text-primary transition-colors whitespace-nowrap">+91 90422 94007</a>
         </div>
         
         <div className="hidden md:block w-px h-8 bg-slate-200 dark:bg-slate-800" />
         
-        <div className="flex items-center gap-3 text-slate-800 dark:text-white font-medium text-sm md:text-base">
+        <div className="flex items-center gap-3 text-slate-800 dark:text-white font-medium text-sm md:text-base whitespace-nowrap">
           <Mail className="w-5 h-5 text-primary shrink-0" />
-          <a href="mailto:info@eon8.com" className="hover:text-primary transition-colors font-mono">info@eon8.com</a>
+          <a href="mailto:info@eon8.com" className="hover:text-primary transition-colors font-mono whitespace-nowrap">info@eon8.com</a>
         </div>
         
         <div className="hidden md:block w-px h-8 bg-slate-200 dark:bg-slate-800" />
         
         <div className="flex items-center gap-3 text-slate-800 dark:text-white font-medium text-xs md:text-sm text-center md:text-left">
           <MapPin className="w-5 h-5 text-blue-500 shrink-0" />
-          <span>Mumbai, Hyderabad, Bangalore, Chennai</span>
+          <span className="md:whitespace-nowrap">Mumbai, Hyderabad, Bangalore, Chennai</span>
         </div>
       </div>
 

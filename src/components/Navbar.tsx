@@ -3,10 +3,33 @@ import { Link } from 'react-router-dom';
 import { ThemeToggleButton } from '@/components/ThemeToggleButton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Phone, Mail, MapPin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+
+interface SubItem {
+  name: string;
+  href: string;
+}
+
+interface MegaSubGroup {
+  title: string;
+  items: SubItem[];
+}
+
+interface MegaSection {
+  title?: string;
+  items?: SubItem[];
+  subGroups?: MegaSubGroup[];
+}
+
+interface NavItem {
+  label: string;
+  href: string;
+  submenu?: SubItem[];
+  isMega?: boolean;
+  megaSections?: MegaSection[];
+}
 
 // Navigation Data structure for mega-menus and dropdowns
-const NAV_ITEMS = [
+const NAV_ITEMS: NavItem[] = [
   {
     label: 'AI-Agent',
     href: '#',
@@ -53,28 +76,36 @@ const NAV_ITEMS = [
       {
         title: 'NFT Marketing',
         items: [
-          { name: 'NFT Marketing Services', href: 'https://www.eon8.com/nft-marketing-services/' },
-          { name: 'NFT Art Agency', href: 'https://www.eon8.com/nft-art-agency/' },
-          { name: 'NFT Collection Marketing', href: 'https://www.eon8.com/nft-collection-marketing/' },
-          { name: 'NFT Community Marketing', href: 'https://www.eon8.com/nft-community-marketing/' },
-          { name: 'NFT Game Marketing Services', href: 'https://www.eon8.com/nft-game-marketing-services/' },
-          { name: 'NFT Social Media Marketing', href: 'https://www.eon8.com/nft-social-media-marketing/' },
-          { name: 'NFT PR Services', href: 'https://www.eon8.com/nft-pr-services/' },
-          { name: 'NFT Telegram Marketing', href: 'https://www.eon8.com/nft-telegram-marketing/' },
-          { name: 'NFT Twitter Marketing', href: 'https://www.eon8.com/nft-twitter-marketing/' },
+          { name: 'NFT Marketing Services', href: '/nft-marketing-services' },
+          { name: 'NFT Art Agency', href: '/nft-art-agency' },
+          { name: 'NFT Collection Marketing', href: '/nft-collection-marketing' },
+          { name: 'NFT Community Marketing', href: '/nft-community-marketing' },
+          { name: 'NFT Game Marketing Services', href: '/nft-game-marketing-services' },
+          { name: 'NFT Social Media Marketing', href: '/nft-social-media-marketing' },
+          { name: 'NFT PR Services', href: '/nft-pr-services' },
+          { name: 'NFT Telegram Marketing', href: '/nft-telegram-marketing' },
+          { name: 'NFT Twitter Marketing', href: '/nft-twitter-marketing' },
+          { name: 'NFT Youtube Marketing', href: '/nft-youtube-marketing' },
+          { name: 'NFT Reddit Marketing', href: '/nft-reddit-marketing' },
+          { name: 'NFT Game Discord Marketing', href: '/nft-game-discord-marketing' },
         ]
       },
       {
-        title: 'Discord & Community',
+        title: 'Discord Marketing',
         items: [
-          { name: 'Discord Marketing Agency', href: 'https://www.eon8.com/discord-marketing-agency/' },
-          { name: 'Discord Game Marketing Agency', href: 'https://www.eon8.com/discord-game-marketing-agency/' },
-          { name: 'Discord Server Marketing', href: 'https://www.eon8.com/discord-server-marketing/' },
-          { name: 'Discord Moderation Services', href: 'https://www.eon8.com/discord-moderation-services/' },
-          { name: 'Reddit Community Marketing', href: 'https://www.eon8.com/reddit-community-marketing-agency/' },
-          { name: 'Discord Community Building', href: 'https://www.eon8.com/discord-community-building-services/' },
-          { name: 'NFT Game Reddit Marketing', href: 'https://www.eon8.com/nft-game-reddit-marketing/' },
-          { name: 'PR Marketing Agency', href: 'https://www.eon8.com/pr-marketing-agency/' }
+          { name: 'Discord Marketing Agency', href: '/discord-marketing-agency' },
+          { name: 'Discord Game Marketing Agency', href: '/discord-game-marketing-agency' },
+          { name: 'Discord server marketing', href: '/discord-server-marketing' },
+          { name: 'Discord Moderation Services', href: '/discord-moderation-services' },
+        ]
+      },
+      {
+        title: 'Community',
+        items: [
+          { name: 'Reddit Community Marketing Agency', href: '/reddit-community-marketing-agency' },
+          { name: 'Discord Community Building Services', href: '/discord-community-building-services' },
+          { name: 'NFT Game Reddit Marketing', href: '/nft-game-reddit-marketing' },
+          { name: 'PR Marketing Agency', href: '/pr-marketing-agency' }
         ]
       }
     ]
@@ -85,43 +116,80 @@ const NAV_ITEMS = [
     isMega: true,
     megaSections: [
       {
-        title: 'Digital & SEO',
+        title: 'Digital Marketing Agency',
         items: [
-          { name: 'Search Engine Optimization (SEO)', href: 'https://www.eon8.com/search-engine-optimization-services-seo/' },
-          { name: 'Local SEO Services', href: 'https://www.eon8.com/local-seo-agency/' },
-          { name: 'eCommerce SEO Services', href: 'https://www.eon8.com/ecommerce-seo-services/' },
-          { name: 'Mobile SEO Service', href: 'https://www.eon8.com/mobile-seo-agency-eon8-seo-services/' },
-          { name: 'SEO for Small Business', href: 'https://www.eon8.com/small-business-seo-services/' },
-          { name: 'Link Building Service', href: 'https://www.eon8.com/link-building-services-for-high-rankings/' },
-          { name: 'Game Marketing Agency', href: 'https://www.eon8.com/game-marketing-agency-video-mobile-gaming/' },
-          { name: 'Ecommerce Development', href: 'https://www.eon8.com/ecommerce-website-development-services/' },
-          { name: 'Web Design & Development', href: 'https://www.eon8.com/web-design-development-services-chennai/' }
+          { name: 'Search Engine Optimization SEO', href: '/search-engine-optimization-services-seo' },
+          { name: 'Local SEO services', href: '/local-seo-agency' },
+          { name: 'eCommerce SEO services', href: '/ecommerce-seo-services' },
+          { name: 'Mobile SEO Service', href: '/mobile-seo-agency-eon8-seo-services' },
+          { name: 'SEO for Small Business', href: '/small-business-seo-services' },
+          { name: 'Link Building Service', href: '/link-building-services-for-high-rankings' },
+          { name: 'Game Marketing Agency', href: '/game-marketing-agency-video-mobile-gaming' },
+          { name: 'Ecommerce Development Services', href: '/ecommerce-website-development-services' },
+          { name: 'Web Design & Development', href: '/web-design-development-services-chennai' }
         ]
       },
       {
-        title: 'Social & Paid Ads',
-        items: [
-          { name: 'Social Media Brand Management', href: 'https://www.eon8.com/social-media-brand-management-agency-chennai/' },
-          { name: 'Best Social Media Management', href: 'https://www.eon8.com/social-media-management-agency-chennai/' },
-          { name: 'Facebook Marketing Agency', href: 'https://www.eon8.com/facebook-marketing-agency-in-chennai/' },
-          { name: 'Twitter Marketing Agency', href: 'https://www.eon8.com/twitter-marketing-agency-in-chennai-marketing/' },
-          { name: 'Instagram Marketing Agency', href: 'https://www.eon8.com/instagram-marketing-agency-services-instagram/' },
-          { name: 'LinkedIn Marketing Agency', href: 'https://www.eon8.com/linkedin-marketing-agency-chennai-services/' },
-          { name: 'YouTube Marketing Company', href: 'https://www.eon8.com/youtube-marketing-company-chennai-eon8/' },
-          { name: 'Search Advertising (PPC)', href: 'https://www.eon8.com/search-advertising-company/' },
-          { name: 'Display Advertising Agency', href: 'https://www.eon8.com/display-advertising-agency/' }
+        subGroups: [
+          {
+            title: 'Social Media Marketing',
+            items: [
+              { name: 'Social Media Brand Management Agency', href: '/social-media-brand-management-agency-chennai' },
+              { name: 'Best Social Media Management Agency', href: '/social-media-management-agency-chennai' },
+              { name: 'Facebook Marketing Agency', href: '/facebook-marketing-agency-in-chennai' },
+              { name: 'Twitter Marketing Agency', href: '/twitter-marketing-agency-in-chennai-marketing' },
+              { name: 'Instagram Marketing Agency Insta', href: '/instagram-marketing-agency-services-instagram' },
+              { name: 'LinkedIn marketing agency', href: '/linkedin-marketing-agency-chennai-services' },
+              { name: 'YouTube marketing company', href: '/youtube-marketing-company-chennai-eon8' }
+            ]
+          },
+          {
+            title: 'ORM Services',
+            items: [
+              { name: 'Reputation management services', href: '/reputation-management-services' },
+              { name: 'Online Reputation Management', href: '/online-reputation-management-agency' },
+              { name: 'Clean Negative search results', href: '/clean-negative-search-results' },
+              { name: 'Google Complaint Removal', href: '/google-complaint-removal' },
+              { name: 'Complaints board removal', href: '/complaints-board-removal' },
+              { name: 'Consumer complaints removal', href: '/consumer-complaints-removal' }
+            ]
+          }
         ]
       },
       {
-        title: 'App & ORM & Innovation',
-        items: [
-          { name: 'Android App Marketing Services', href: 'https://www.eon8.com/android-apps-marketing-services-marketing/' },
-          { name: 'Apple App Store Optimization', href: 'https://www.eon8.com/apple-app-store-optimization-services-ios/' },
-          { name: 'Reputation Management Services', href: 'https://www.eon8.com/reputation-management-services/' },
-          { name: 'Online Reputation Management', href: 'https://www.eon8.com/online-reputation-management-agency/' },
-          { name: 'Immersive AR Marketing', href: 'https://www.eon8.com/immersive-vr-marketing/' },
-          { name: 'Augmented Reality Agency', href: 'https://www.eon8.com/augmented-reality-agency/' },
-          { name: 'Strategic Metaverse Branding', href: 'https://www.eon8.com/metaverse/' }
+        subGroups: [
+          {
+            title: 'Pay-Per-Click',
+            items: [
+              { name: 'Search Advertising Company', href: '/search-advertising-company' },
+              { name: 'Display Advertising Agency', href: '/display-advertising-agency' },
+              { name: 'Remarketing and Retargeting Ads', href: '/best-remarketing-ad-agency' },
+              { name: 'Product Listing Ads Agency', href: '/product-listing-ads-agency' }
+            ]
+          },
+          {
+            title: 'App Marketing',
+            items: [
+              { name: 'Android App Marketing Services', href: '/android-apps-marketing-services-marketing' },
+              { name: 'Apple App Store Optimization', href: '/apple-app-store-optimization-services-ios' },
+              { name: 'Android Game Marketing Services', href: '/android-game-marketing-services-eon8-marketing' }
+            ]
+          },
+          {
+            title: 'AR/VR Brand Innovation',
+            items: [
+              { name: 'Immersive Marketing with Augmented Reality', href: '/immersive-vr-marketing' },
+              { name: 'End-to-End Augmented Reality Services', href: '/augmented-reality-agency' },
+              { name: 'Social Media AR Campaigns', href: '/social-ar-solutions' },
+              { name: 'Virtual Reality in Product Marketing', href: '/vr-product-marketing' }
+            ]
+          },
+          {
+            title: 'Metaverse Solutions',
+            items: [
+              { name: 'Strategic Branding in the Metaverse', href: '/metaverse' }
+            ]
+          }
         ]
       }
     ]
@@ -174,34 +242,37 @@ export function Navbar() {
       <header
         className={`fixed left-0 right-0 z-50 transition-all duration-500 flex items-center ${
           isScrolled
-            ? 'top-0 w-full bg-background/95 dark:bg-slate-950/95 border-b border-border/40 shadow-md h-16 px-6 backdrop-blur-md'
-            : 'top-4 max-w-6xl mx-auto w-[calc(100%-2rem)] bg-white/80 dark:bg-slate-900/80 border border-border/40 shadow-lg h-20 rounded-full px-8 backdrop-blur-md'
+            ? 'top-0 w-full bg-white/95 dark:bg-slate-950/95 border-b border-border/40 shadow-md h-20 px-6 backdrop-blur-md'
+            : 'top-4 max-w-[1250px] mx-auto w-[calc(100%-2rem)] bg-white dark:bg-slate-900 shadow-lg h-24 rounded-full px-8 lg:px-10'
         }`}
         style={!isScrolled ? {
           boxShadow: '0 8px 32px 0 rgba(0, 102, 255, 0.08)',
-          background: 'linear-gradient(to right, rgba(var(--glass-bg), 0.8), rgba(var(--glass-bg), 0.85))'
         } : {}}
       >
         {/* Animated Gradient Border Overlay for Floating Capsule */}
         {!isScrolled && (
-          <div className="absolute inset-0 -z-10 rounded-full p-[1.5px] bg-gradient-to-r from-orange-500 via-primary to-blue-500 opacity-60 pointer-events-none" />
+          <div className="absolute inset-0 -z-10 rounded-full p-[2px] bg-gradient-to-r from-orange-500 via-purple-600 to-blue-600 pointer-events-none">
+            <div className="w-full h-full rounded-full bg-white dark:bg-slate-900" />
+          </div>
         )}
 
-        <div className="flex items-center justify-between w-full relative">
+        <div className="flex items-center justify-between lg:justify-center w-full h-full relative lg:gap-8 xl:gap-12">
           
-          {/* Logo */}
-          <Link to="/" className="flex items-center hover:opacity-95 transition-opacity shrink-0">
-            <img
-              src="/imgs/Logo-White-BG-removebg-preview.png"
-              alt="Eon8 Logo"
-              className={`object-contain transition-all duration-500 ${
-                isScrolled ? 'h-10' : 'h-12'
-              } dark:invert`}
-            />
-          </Link>
+          {/* Logo - Left Block in Flex Flow */}
+          <div className="flex justify-start shrink-0 z-10 pl-6 lg:pl-0">
+            <Link to="/" className="flex items-center hover:opacity-95 transition-opacity">
+              <img
+                src="/imgs/Logo-White-BG-removebg-preview.png"
+                alt="Eon8 Logo"
+                className={`object-contain transition-all duration-500 ${
+                  isScrolled ? 'h-12' : 'h-14'
+                } dark:invert`}
+              />
+            </Link>
+          </div>
 
-          {/* Desktop Nav Items */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {/* Desktop Nav Items - Centered relative to capsule container */}
+          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2.5">
             {NAV_ITEMS.map((item) => (
               <div
                 key={item.label}
@@ -210,7 +281,7 @@ export function Navbar() {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <button
-                  className="flex items-center gap-1 text-sm font-semibold py-2 px-3 text-foreground/80 hover:text-primary transition-colors cursor-pointer"
+                  className="flex items-center gap-1 text-xs lg:text-[13px] xl:text-[14px] font-semibold py-2 px-1.5 lg:px-2 xl:px-3 text-foreground/80 hover:text-primary transition-colors cursor-pointer whitespace-nowrap"
                 >
                   <span>{item.label}</span>
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${
@@ -227,30 +298,76 @@ export function Navbar() {
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
                       className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 z-50 ${
-                        item.isMega ? 'w-[580px] xl:w-[700px]' : 'w-72'
+                        item.isMega ? 'w-[1000px] xl:w-[1150px]' : 'w-72'
                       }`}
                     >
-                      <div className="bg-popover border border-border/50 rounded-2xl shadow-xl shadow-black/10 p-5 backdrop-blur-md grid gap-6 grid-cols-1 md:grid-cols-12">
+                      <div className="bg-popover border border-border/50 rounded-2xl shadow-xl shadow-black/10 p-7 backdrop-blur-md">
                         {item.isMega ? (
-                          // Mega Menu Content
-                          item.megaSections?.map((section) => (
-                            <div key={section.title} className="md:col-span-6 last:md:col-span-12 last:md:grid last:md:grid-cols-2 last:md:gap-x-4 border-l border-border/10 pl-4 first:border-l-0 first:pl-0">
-                              <h5 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">{section.title}</h5>
-                              <ul className="space-y-2">
-                                {section.items.map((subitem) => (
-                                  <li key={subitem.name}>
-                                    {renderLink(subitem.name, subitem.href, "text-xs font-medium text-foreground/70 hover:text-primary hover:underline transition-all block py-1")}
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))
+                          // Mega Menu Content - Dynamic columns depending on count
+                          <div className={`grid gap-8 ${
+                            item.megaSections?.length === 3
+                              ? 'grid-cols-1 md:grid-cols-3'
+                              : 'grid-cols-1 md:grid-cols-2'
+                          }`}>
+                            {item.megaSections?.map((section, idx) => (
+                              <div
+                                key={idx}
+                                className={`space-y-6 ${
+                                  idx > 0 ? 'md:pl-6' : ''
+                                }`}
+                              >
+                                {section.subGroups ? (
+                                  section.subGroups.map((group) => (
+                                    <div key={group.title} className="space-y-3">
+                                      <h5 className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 tracking-normal normal-case mb-1">
+                                        {group.title}
+                                      </h5>
+                                      <ul className="space-y-1.5">
+                                        {group.items.map((subitem) => (
+                                          <li key={subitem.name}>
+                                            {renderLink(
+                                              subitem.name,
+                                              subitem.href,
+                                              "text-[13px] md:text-[13.5px] font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-all hover:translate-x-1 duration-200 block py-0.5"
+                                            )}
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ))
+                                ) : (
+                                  <div className="space-y-3">
+                                    {section.title && (
+                                      <h5 className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 tracking-normal normal-case mb-1">
+                                        {section.title}
+                                      </h5>
+                                    )}
+                                    <ul className="space-y-1.5">
+                                      {section.items?.map((subitem) => (
+                                        <li key={subitem.name}>
+                                          {renderLink(
+                                            subitem.name,
+                                            subitem.href,
+                                            "text-[13px] md:text-[13.5px] font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-all hover:translate-x-1 duration-200 block py-0.5"
+                                          )}
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
                         ) : (
                           // Standard Dropdown List
-                          <ul className="md:col-span-12 space-y-2.5">
+                          <ul className="space-y-2">
                             {item.submenu?.map((subitem) => (
                               <li key={subitem.name}>
-                                {renderLink(subitem.name, subitem.href, "text-xs font-medium text-foreground/70 hover:text-primary hover:underline transition-all block py-1")}
+                                {renderLink(
+                                  subitem.name,
+                                  subitem.href,
+                                  "text-[13px] md:text-[13.5px] font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-all hover:translate-x-1 duration-200 block py-0.5"
+                                )}
                               </li>
                             ))}
                           </ul>
@@ -265,20 +382,22 @@ export function Navbar() {
             {/* Simple static links */}
             {SIMPLE_LINKS.map((link) => (
               <span key={link.label}>
-                {renderLink(link.label, link.href, "text-sm font-semibold py-2 px-3 text-foreground/80 hover:text-primary hover:underline transition-all")}
+                {renderLink(link.label, link.href, "text-xs lg:text-[13px] xl:text-[14px] font-semibold py-2 px-1.5 lg:px-2 xl:px-3 text-foreground/80 hover:text-primary hover:underline transition-all whitespace-nowrap")}
               </span>
             ))}
           </nav>
 
-          {/* Action Bar */}
-          <div className="flex items-center gap-3 shrink-0">
-            <ThemeToggleButton />
-            
-            <Link to="/contact" className="hidden md:inline-flex">
-              <Button className="rounded-full bg-gradient-to-r from-orange-500 to-primary text-white font-bold hover:shadow-lg hover:shadow-primary/20 transition-all">
-                Get Consultation
-              </Button>
-            </Link>
+          {/* Action Bar - Pinned Right */}
+          <div className="flex items-center justify-end shrink-0 pr-6 lg:pr-0">
+            {/* Desktop Theme Toggle (always visible near Contact Us) */}
+            <div className="hidden lg:block">
+              <ThemeToggleButton />
+            </div>
+
+            {/* Mobile/Tablet action buttons (always visible on smaller screens) */}
+            <div className="flex lg:hidden items-center gap-2">
+              <ThemeToggleButton />
+            </div>
 
             {/* Mobile Menu Toggle button */}
             <button
@@ -357,20 +476,37 @@ export function Navbar() {
                             className="overflow-hidden pl-4 space-y-2 mt-1"
                           >
                             {item.isMega ? (
-                              item.megaSections?.map((sect) => (
-                                <div key={sect.title} className="space-y-1.5 py-1">
-                                  <div className="text-[10px] font-bold text-muted-foreground uppercase">{sect.title}</div>
-                                  {sect.items.map((sub) => (
-                                    <span key={sub.name} className="block py-1">
-                                      {renderLink(sub.name, sub.href, "text-sm font-medium text-foreground/60 hover:text-primary hover:underline block")}
-                                    </span>
-                                  ))}
+                              item.megaSections?.map((sect, sIdx) => (
+                                <div key={sIdx} className="space-y-4 py-2 border-t border-border/5 first:border-t-0 first:pt-0">
+                                  {sect.subGroups ? (
+                                    sect.subGroups.map((group) => (
+                                      <div key={group.title} className="space-y-1.5">
+                                        <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mt-2">{group.title}</div>
+                                        {group.items.map((sub) => (
+                                          <span key={sub.name} className="block py-1">
+                                            {renderLink(sub.name, sub.href, "text-[13px] font-medium text-slate-600 dark:text-slate-400 hover:text-primary block")}
+                                          </span>
+                                        ))}
+                                      </div>
+                                    ))
+                                  ) : (
+                                    <div className="space-y-1.5">
+                                      {sect.title && (
+                                        <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mt-2">{sect.title}</div>
+                                      )}
+                                      {sect.items?.map((sub) => (
+                                        <span key={sub.name} className="block py-1">
+                                          {renderLink(sub.name, sub.href, "text-[13px] font-medium text-slate-600 dark:text-slate-400 hover:text-primary block")}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  )}
                                 </div>
                               ))
                             ) : (
                               item.submenu?.map((sub) => (
                                 <span key={sub.name} className="block py-1">
-                                  {renderLink(sub.name, sub.href, "text-sm font-medium text-foreground/60 hover:text-primary hover:underline block")}
+                                  {renderLink(sub.name, sub.href, "text-[13px] font-medium text-slate-600 dark:text-slate-400 hover:text-primary block")}
                                 </span>
                               ))
                             )}

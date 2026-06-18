@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PhoneCall, MessageCircle, X, Send, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -18,15 +18,14 @@ export function FloatingWidgets() {
     console.log('Sidebar Form Submitted:', { name, phone, email, message });
   };
 
-  useEffect(() => {
-    if (isDrawerOpen) {
-      setSubmitted(false);
-      setName('');
-      setPhone('');
-      setEmail('');
-      setMessage('');
-    }
-  }, [isDrawerOpen]);
+  const handleOpenDrawer = () => {
+    setSubmitted(false);
+    setName('');
+    setPhone('');
+    setEmail('');
+    setMessage('');
+    setIsDrawerOpen(true);
+  };
 
   return (
     <>
@@ -62,7 +61,7 @@ export function FloatingWidgets() {
       <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden md:block">
         {!isDrawerOpen && (
           <motion.button
-            onClick={() => setIsDrawerOpen(true)}
+            onClick={handleOpenDrawer}
             whileHover={{ x: -4 }}
             className="bg-red-600 text-white font-bold text-xs uppercase tracking-wider py-4 px-2 rounded-l-2xl shadow-xl flex flex-col items-center gap-2 border border-red-500/20 cursor-pointer"
             style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}

@@ -1,0 +1,56 @@
+/* Neon Cursor Styles */
+.neon-cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-main {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  background-color: #ff8c00; /* Theme orange */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10001;
+  box-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00;
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #ff8c00; /* Theme orange */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+}
+
+.cursor-glow {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 140, 0, 0.15); /* Soft orange glow */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  filter: blur(8px);
+}
+
+/* Hide default cursor on desktop */
+@media (pointer: fine) {
+  body, 
+  a, 
+  button, 
+  input, 
+  select, 
+  textarea, 
+  [role="button"] {
+    cursor: none !important;
+  }
+}

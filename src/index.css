@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Geist:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Geist:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -35,6 +35,9 @@
 
   --font-heading: 'Manrope', sans-serif;
   --font-body: 'Geist', sans-serif;
+
+  --color-orange-500: oklch(75.05% 0.18 58.29);
+  --color-orange-600: oklch(70% 0.18 58.29);
 }
 
 @layer base {
@@ -98,6 +101,12 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold;
   }
+  p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 27.2px;
+    font-weight: 500;
+  }
 }
 
 @theme inline {
@@ -141,6 +150,8 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --color-orange-500: oklch(75.05% 0.18 58.29);
+  --color-orange-600: oklch(70% 0.18 58.29);
 }
 
 :root {

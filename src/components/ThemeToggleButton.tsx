@@ -3,7 +3,11 @@ import { useThemeStore } from '../store/useThemeStore';
 import Button from './button';
 
 
-export function ThemeToggleButton() {
+interface ThemeToggleButtonProps {
+  className?: string;
+}
+
+export function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
   const { theme, setTheme } = useThemeStore();
 
   const cycleTheme = () => {
@@ -17,7 +21,7 @@ export function ThemeToggleButton() {
       size="icon"
       onClick={cycleTheme}
       title={`Current: ${theme} • Click to cycle`}
-      className="fixed top-4 right-4 h-10 w-10 rounded-full"
+      className={className || "h-10 w-10 rounded-full relative"}
     >
       <Sun
         className={`h-[1.2rem] w-[1.2rem] transition-all ${

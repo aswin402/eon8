@@ -46,28 +46,42 @@ export function LordIcon({
 }: LordIconProps) {
   const playerRef = useRef<Player>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [iconData, setIconData] = useState<any>(null);
+  const [iconData, setIconData] = useState<unknown>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [prevSrc, setPrevSrc] = useState(src);
   const [resolvedColors, setResolvedColors] = useState<string | undefined>(undefined);
   
   // Hook into theme store to trigger re-renders on theme toggle
   const { theme } = useThemeStore();
 
-  useEffect(() => {
+  if (src !== prevSrc) {
+    setPrevSrc(src);
     setIsLoading(true);
+    setIconData(null);
+  }
+
+  useEffect(() => {
+    let active = true;
     fetch(src)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         return res.json();
       })
       .then((data) => {
-        setIconData(data);
-        setIsLoading(false);
+        if (active) {
+          setIconData(data);
+          setIsLoading(false);
+        }
       })
       .catch((err) => {
-        console.error('Failed to load lordicon from url:', src, err);
-        setIsLoading(false);
+        if (active) {
+          console.error('Failed to load lordicon from url:', src, err);
+          setIsLoading(false);
+        }
       });
+    return () => {
+      active = false;
+    };
   }, [src]);
 
   // Resolve CSS color variables and currentColors dynamically to HEX
