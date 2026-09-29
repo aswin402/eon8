@@ -153,11 +153,11 @@ This task list serves as the main checklist for building and verifying the Eon8 
   - [x] What Are AI Agents architecture graphic & 5 strategic business benefits
   - [x] 4 core AI Agent service modules & 6-stage development process
   - [x] Categorized tech stack matrix (Python, LangChain, OpenAI, AWS) & AI FAQ accordion
-- [ ] **Task 4: Upgrade Digital Marketing Service Architecture (`DigitalServicePage.tsx`)**
-  - [ ] Split Hero with inline "Request Free Quote / 5 Mins Call Back" form card
-  - [ ] Industry trust row & "Our Specific Sector" tag pills
-  - [ ] Mid-page callout break banner & "Empowering Business" 4-pillar feature deck
-  - [ ] ROI breakdown comparison table & service-specific FAQs
+- [x] **Task 4: Upgrade Digital Marketing Service Architecture (`DigitalServicePage.tsx`)**
+  - [x] Split Hero with inline "Request Free Quote / 5 Mins Call Back" form card
+  - [x] Industry trust row & "Our Specific Sector" tag pills
+  - [x] Mid-page callout break banner & "Empowering Business" 4-pillar feature deck
+  - [x] ROI breakdown comparison table & service-specific FAQs
 - [ ] **Task 5: Upgrade Crypto & Web3 Marketing Architecture (`CryptoServicePage.tsx`)**
   - [ ] Web3 Split Hero with inline quick consultation card
   - [ ] Top-tier publication proof marquee (CoinTelegraph, Bloomberg, Yahoo Finance, Business Insider)

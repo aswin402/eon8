@@ -137,11 +137,11 @@
 7. **"Why Choose EON8" Comparison Table / ROI Breakdown**: Clear metrics proving 3.8x average traffic growth.
 8. **Interactive FAQ Accordion** tailored per service type.
 
-- [ ] **Step 1:** Audit `https://www.eon8.com/digital-marketing-agency-in-chennai/` and sub-pages.
-- [ ] **Step 2:** Refactor `DigitalServicePage.tsx` to include the split-hero lead capture card, partner trust bar, and callout break banner.
-- [ ] **Step 3:** Verify all 25+ digital service routes render without error.
-- [ ] **Step 4:** Run `npm run build` to verify clean build.
-- [ ] **Step 5:** Commit changes (`feat(digital): upgrade DigitalServicePage layout with authentic Eon8 split-hero and proof elements`).
+- [x] **Step 1:** Audit `https://www.eon8.com/digital-marketing-agency-in-chennai/` and sub-pages.
+- [x] **Step 2:** Refactor `DigitalServicePage.tsx` to include the split-hero lead capture card, partner trust bar, and callout break banner.
+- [x] **Step 3:** Verify all 25+ digital service routes render without error.
+- [x] **Step 4:** Run `npm run build` to verify clean build.
+- [x] **Step 5:** Commit changes (`feat(digital): upgrade DigitalServicePage layout with authentic Eon8 split-hero and proof elements`).
 
 ---
 
