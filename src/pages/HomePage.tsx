@@ -233,7 +233,7 @@ export function HomePage() {
     <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-body">
       
       {/* 1. Cinematic Hero Banner */}
-      <section className="relative min-h-[85vh] lg:min-h-[92vh] flex items-center justify-center overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-20">
+      <section className="relative min-h-screen min-h-[100dvh] flex items-center justify-center overflow-hidden pt-28 pb-16 lg:pt-32 lg:pb-16">
         {/* Remote video background loop */}
         <video 
           autoPlay 
