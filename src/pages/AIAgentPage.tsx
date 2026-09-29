@@ -273,7 +273,7 @@ export function AIAgentPage() {
     <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-body">
       
       {/* 1. Cinematic Hero Banner (Alternating Section - Blue Background) */}
-      <section className="relative py-24 md:py-32 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 text-white overflow-hidden text-left">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 text-white overflow-hidden text-left">
         {/* Glow overlay */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-400/20 rounded-full blur-[160px] pointer-events-none" />
         

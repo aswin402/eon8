@@ -51,33 +51,39 @@ export function BlogListPage() {
   const featuredPost = allPosts[0];
 
   return (
-    <div className="bg-background text-foreground min-h-screen py-16 px-4 sm:px-6 font-body">
-      {/* Background ambient gradient glow */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-6xl h-80 bg-gradient-to-b from-orange-500/10 via-primary/5 to-transparent blur-3xl pointer-events-none -z-10" />
+    <div className="bg-background text-foreground min-h-screen font-body">
+      {/* 1. Dedicated Full-Bleed Dark Hero Section */}
+      <section className="relative pt-32 pb-16 md:pt-36 md:pb-20 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white border-b border-border/30 overflow-hidden">
+        {/* Background ambient gradient glow */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-gradient-to-b from-orange-500/15 via-primary/10 to-transparent blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
-        {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-foreground font-semibold">Blog & Insights</span>
-        </div>
-
-        {/* Header Hero Banner */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 text-xs font-semibold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Growth Intelligence & Engineering</span>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-6 text-center">
+          {/* Breadcrumb Navigation */}
+          <div className="flex items-center justify-center gap-2 text-xs text-slate-400">
+            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-slate-200 font-semibold">Blog & Insights</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-heading font-black tracking-tight leading-tight">
-            Eon8 <span className="bg-gradient-to-r from-orange-500 to-primary bg-clip-text text-transparent">Insights & Blog</span>
-          </h1>
+          {/* Header Hero Banner */}
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 text-xs font-semibold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Growth Intelligence & Engineering</span>
+            </div>
 
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            Actionable strategies, technical breakdowns, and industry playbooks on AI Agents, performance marketing, search algorithms, and modern business automation.
-          </p>
+            <h1 className="text-4xl sm:text-6xl font-heading font-black tracking-tight leading-tight text-white">
+              Eon8 <span className="bg-gradient-to-r from-orange-500 to-blue-400 bg-clip-text text-transparent">Insights & Blog</span>
+            </h1>
+
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Actionable strategies, technical breakdowns, and industry playbooks on AI Agents, performance marketing, search algorithms, and modern business automation.
+            </p>
+          </div>
         </div>
+      </section>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-12 sm:space-y-16">
 
         {/* Featured Post Spotlight (shown when unfiltered) */}
         {featuredPost && selectedCategory === 'All' && !searchQuery && (

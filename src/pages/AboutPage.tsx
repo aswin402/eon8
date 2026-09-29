@@ -141,9 +141,9 @@ export function AboutPage() {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-body pt-24 lg:pt-28">
+    <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-body">
       {/* 1. Header Banner - Exact Eon8 Gradient */}
-      <header className="custom-page-header bg-gradient-to-r from-[#ff6a00] to-[#ff8c42] py-16 md:py-20 text-center text-white relative shadow-inner">
+      <header className="custom-page-header bg-gradient-to-r from-[#ff6a00] to-[#ff8c42] pt-32 pb-16 md:pt-40 md:pb-20 text-center text-white relative shadow-inner">
         <div className="max-w-5xl mx-auto px-6 space-y-3">
           <div className="flex items-center justify-center gap-2 text-xs font-semibold tracking-wider uppercase text-white/80">
             <Link to="/" className="hover:text-white transition-colors">

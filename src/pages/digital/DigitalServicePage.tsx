@@ -169,24 +169,22 @@ export function DigitalServicePage({ type }: DigitalServicePageProps) {
   return (
     <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-body">
       
-      {/* 1. Breadcrumb Strip */}
-      <div className="bg-slate-900 border-b border-white/10 py-3.5 px-6 text-xs text-slate-400">
-        <div className="max-w-7xl mx-auto flex items-center gap-2">
-          <Link to="/" className="hover:text-white transition-colors">Home</Link>
-          <span>/</span>
-          <span className="text-slate-300">Services</span>
-          <span>/</span>
-          <span className="text-[#ff6a00] font-semibold truncate max-w-[280px] sm:max-w-md">{data.heroTitle}</span>
-        </div>
-      </div>
-
-      {/* 2. Signature Split Hero Section with Inline Lead Card */}
-      <section className="relative py-20 md:py-28 bg-gradient-to-br from-slate-950 via-[#0b1329] to-[#06122b] text-white border-b border-indigo-500/10 overflow-hidden">
+      {/* Signature Split Hero Section with Integrated Breadcrumbs and Lead Form */}
+      <section className="relative pt-32 pb-20 md:pt-36 md:pb-28 bg-gradient-to-br from-slate-950 via-[#0b1329] to-[#06122b] text-white border-b border-indigo-500/10 overflow-hidden">
         {/* Ambient glow */}
         <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#ff6a00]/10 rounded-full blur-[150px] pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-6">
+          {/* Integrated Breadcrumbs */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-400">
+            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <span>/</span>
+            <span className="text-slate-300">Services</span>
+            <span>/</span>
+            <span className="text-[#ff6a00] font-semibold truncate max-w-[280px] sm:max-w-md">{data.heroTitle}</span>
+          </nav>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left: Dynamic Content */}

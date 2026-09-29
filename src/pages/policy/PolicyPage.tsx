@@ -36,40 +36,47 @@ export function PolicyPage({ slug }: PolicyPageProps) {
   }
 
   return (
-    <div className="bg-background text-foreground min-h-screen py-16 px-6 font-body">
-      {/* Ambient gradient */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-full max-w-5xl h-72 bg-gradient-to-b from-orange-500/10 via-primary/5 to-transparent blur-3xl pointer-events-none -z-10" />
+    <div className="bg-background text-foreground min-h-screen font-body">
+      {/* 1. Full-Bleed Dark Hero Section */}
+      <section className="relative pt-32 pb-14 md:pt-36 md:pb-16 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white border-b border-border/30 overflow-hidden">
+        {/* Ambient gradient */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-gradient-to-b from-orange-500/15 via-primary/10 to-transparent blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-4xl mx-auto space-y-12">
-        {/* Navigation Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-foreground font-semibold">Legal</span>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-orange-500 font-semibold">{data.title}</span>
-        </div>
-
-        {/* Page Header */}
-        <div className="border-b border-border/40 pb-8 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 text-xs font-semibold">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Official Policy Document</span>
+        <div className="max-w-4xl mx-auto px-6 space-y-6 text-left">
+          {/* Navigation Breadcrumb */}
+          <div className="flex items-center gap-2 text-xs text-slate-400">
+            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-slate-300">Legal</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-orange-400 font-semibold">{data.title}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-heading font-black tracking-tight text-foreground">
-            {data.title}
-          </h1>
+          {/* Page Header */}
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 text-xs font-semibold uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Official Policy Document</span>
+            </div>
 
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl">
-            {data.subtitle}
-          </p>
+            <h1 className="text-3xl sm:text-5xl font-heading font-black tracking-tight text-white leading-tight">
+              {data.title}
+            </h1>
 
-          <div className="flex items-center gap-2 text-xs text-muted-foreground pt-2">
-            <Calendar className="w-4 h-4 text-orange-500" />
-            <span>Last Updated: <strong className="text-foreground">{data.lastUpdated}</strong></span>
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+              {data.subtitle}
+            </p>
+
+            <div className="flex items-center gap-2 text-xs text-slate-400 pt-2 border-t border-white/10">
+              <Calendar className="w-4 h-4 text-orange-400" />
+              <span>Last Updated: <strong className="text-white">{data.lastUpdated}</strong></span>
+            </div>
           </div>
         </div>
+      </section>
+
+      {/* Main Content */}
+      <div className="max-w-4xl mx-auto px-6 py-12 space-y-12">
 
         {/* Policy Content Sections */}
         <div className="space-y-10">

@@ -177,24 +177,22 @@ export function CryptoServicePage({ type }: CryptoServicePageProps) {
   return (
     <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-body selection:bg-orange-500 selection:text-white">
       
-      {/* 1. Breadcrumb Strip */}
-      <div className="bg-muted/40 border-b border-border/40 py-3.5 px-4 sm:px-6 text-xs text-muted-foreground">
-        <div className="max-w-7xl mx-auto flex items-center gap-2 flex-wrap">
-          <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-          <span>/</span>
-          <Link to="/crypto-marketing-agency" className="text-muted-foreground hover:text-primary transition-colors">Crypto Marketing</Link>
-          <span>/</span>
-          <span className="text-orange-500 font-semibold truncate max-w-[260px] sm:max-w-md">{data.heroTitle}</span>
-        </div>
-      </div>
-
-      {/* 2. Signature Split Hero Section (Home Page Theme Colors & Style) */}
-      <section className="relative py-16 sm:py-24 md:py-28 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white border-b border-border/30 overflow-hidden">
+      {/* Signature Split Hero Section (Home Page Theme Colors & Style) with Integrated Breadcrumbs */}
+      <section className="relative pt-32 pb-16 sm:pt-36 sm:pb-24 md:pt-40 md:pb-28 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white border-b border-border/30 overflow-hidden">
         {/* Ambient Glows matching Home Page */}
         <div className="absolute top-10 left-1/4 -translate-x-1/2 w-full max-w-5xl h-80 bg-gradient-to-b from-orange-500/15 via-primary/10 to-transparent blur-3xl pointer-events-none -z-10" />
         <div className="absolute bottom-0 right-10 w-96 h-96 bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-6">
+          {/* Integrated Breadcrumbs */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 flex-wrap text-xs text-slate-400">
+            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <span>/</span>
+            <Link to="/crypto-marketing-agency" className="text-slate-400 hover:text-white transition-colors">Crypto Marketing</Link>
+            <span>/</span>
+            <span className="text-orange-500 font-semibold truncate max-w-[260px] sm:max-w-md">{data.heroTitle}</span>
+          </nav>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Column: Headline and Features */}

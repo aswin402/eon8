@@ -115,102 +115,107 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
   const articleTitle = encodeURIComponent(post.title);
 
   return (
-    <article className="bg-background text-foreground min-h-screen py-16 px-4 sm:px-6 font-body">
-      {/* Background ambient lighting */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-gradient-to-b from-orange-500/10 via-primary/5 to-transparent blur-3xl pointer-events-none -z-10" />
+    <article className="bg-background text-foreground min-h-screen font-body">
+      {/* 1. Full-Bleed Dark Hero Section */}
+      <section className="relative pt-32 pb-14 md:pt-36 md:pb-16 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white border-b border-border/30 overflow-hidden">
+        {/* Background ambient lighting */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-gradient-to-b from-orange-500/15 via-primary/10 to-transparent blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto space-y-10 text-left">
-        {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-xs text-muted-foreground flex-wrap">
-          <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-muted-foreground">{post.category}</span>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-foreground font-semibold line-clamp-1 max-w-[200px] sm:max-w-md">
-            {post.title}
-          </span>
-        </div>
-
-        {/* Article Header */}
-        <div className="space-y-4 max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 text-xs font-bold uppercase tracking-wider">
-            <Tag className="w-3.5 h-3.5" />
-            <span>{post.category}</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-6 text-left">
+          {/* Breadcrumb Navigation */}
+          <div className="flex items-center gap-2 text-xs text-slate-400 flex-wrap">
+            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-slate-400">{post.category}</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-slate-200 font-semibold line-clamp-1 max-w-[200px] sm:max-w-md">
+              {post.title}
+            </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-heading font-black tracking-tight leading-tight text-foreground">
-            {post.title}
-          </h1>
+          {/* Article Header */}
+          <div className="space-y-4 max-w-4xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 text-xs font-bold uppercase tracking-wider">
+              <Tag className="w-3.5 h-3.5" />
+              <span>{post.category}</span>
+            </div>
 
-          {/* Metadata Row */}
-          <div className="flex items-center justify-between border-y border-border/40 py-3.5 text-xs text-muted-foreground flex-wrap gap-4">
-            <div className="flex items-center gap-4 flex-wrap">
-              <div className="flex items-center gap-2 text-foreground font-semibold">
-                <div className="w-7 h-7 bg-orange-500/20 text-orange-500 rounded-full flex items-center justify-center font-bold">
-                  <User className="w-4 h-4" />
+            <h1 className="text-3xl sm:text-5xl font-heading font-black tracking-tight leading-tight text-white">
+              {post.title}
+            </h1>
+
+            {/* Metadata Row */}
+            <div className="flex items-center justify-between border-y border-white/10 py-3.5 text-xs text-slate-300 flex-wrap gap-4">
+              <div className="flex items-center gap-4 flex-wrap">
+                <div className="flex items-center gap-2 text-white font-semibold">
+                  <div className="w-7 h-7 bg-orange-500/20 text-orange-400 rounded-full flex items-center justify-center font-bold">
+                    <User className="w-4 h-4" />
+                  </div>
+                  <span>{post.author}</span>
                 </div>
-                <span>{post.author}</span>
+
+                <span>•</span>
+
+                <div className="flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4 text-orange-400" />
+                  <span>{post.date}</span>
+                </div>
+
+                <span>•</span>
+
+                <div className="flex items-center gap-1.5">
+                  <Clock className="w-4 h-4 text-orange-400" />
+                  <span>{post.readTime}</span>
+                </div>
               </div>
 
-              <span>•</span>
-
-              <div className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-orange-500" />
-                <span>{post.date}</span>
+              {/* Social Share Icons */}
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-semibold text-slate-400 mr-1 hidden sm:inline">Share:</span>
+                <button
+                  onClick={handleCopyLink}
+                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-all cursor-pointer"
+                  title="Copy Article Link"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                </button>
+                <a
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${articleUrl}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-all"
+                  title="Share on LinkedIn"
+                >
+                  <img src="/imgs/Linkedin-1.png" alt="LinkedIn" className="w-4 h-4 object-contain brightness-200" />
+                </a>
+                <a
+                  href={`https://twitter.com/intent/tweet?url=${articleUrl}&text=${articleTitle}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-all"
+                  title="Share on X"
+                >
+                  <img src="/imgs/twitter-1.png" alt="X" className="w-4 h-4 object-contain brightness-200" />
+                </a>
+                <a
+                  href={`https://api.whatsapp.com/send?text=${articleTitle}%20${articleUrl}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-all"
+                  title="Share on WhatsApp"
+                >
+                  <img src="/imgs/Whatsapp-1.png" alt="WhatsApp" className="w-4 h-4 object-contain" />
+                </a>
               </div>
-
-              <span>•</span>
-
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-orange-500" />
-                <span>{post.readTime}</span>
-              </div>
-            </div>
-
-            {/* Social Share Icons */}
-            <div className="flex items-center gap-2">
-              <span className="text-[11px] font-semibold text-muted-foreground mr-1 hidden sm:inline">Share:</span>
-              <button
-                onClick={handleCopyLink}
-                className="w-8 h-8 rounded-lg bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-orange-500/40 transition-all cursor-pointer"
-                title="Copy Article Link"
-              >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-              </button>
-              <a
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${articleUrl}`}
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-orange-500/40 transition-all"
-                title="Share on LinkedIn"
-              >
-                <img src="/imgs/Linkedin-1.png" alt="LinkedIn" className="w-4 h-4 object-contain" />
-              </a>
-              <a
-                href={`https://twitter.com/intent/tweet?url=${articleUrl}&text=${articleTitle}`}
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-orange-500/40 transition-all"
-                title="Share on X"
-              >
-                <img src="/imgs/twitter-1.png" alt="X" className="w-4 h-4 object-contain" />
-              </a>
-              <a
-                href={`https://api.whatsapp.com/send?text=${articleTitle}%20${articleUrl}`}
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-orange-500/40 transition-all"
-                title="Share on WhatsApp"
-              >
-                <img src="/imgs/Whatsapp-1.png" alt="WhatsApp" className="w-4 h-4 object-contain" />
-              </a>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* 2-Column Grid: Main Body + Sticky Sidebar */}
+      {/* 2-Column Grid: Main Body + Sticky Sidebar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Main Article Content (8 cols) */}
           <div className="lg:col-span-8 space-y-10">

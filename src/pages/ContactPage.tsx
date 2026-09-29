@@ -114,7 +114,7 @@ export function ContactPage() {
     <div className="min-h-screen bg-background text-foreground font-body">
       
       {/* 1. Header Banner with Eon8 Signature Gradient & Breadcrumbs */}
-      <section className="relative overflow-hidden py-16 md:py-20 bg-gradient-to-r from-[#ff6a00] to-[#ff8c42] text-white">
+      <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-r from-[#ff6a00] to-[#ff8c42] text-white">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <nav className="flex items-center justify-center gap-2 text-xs md:text-sm font-semibold tracking-wider uppercase opacity-90 mb-4">
