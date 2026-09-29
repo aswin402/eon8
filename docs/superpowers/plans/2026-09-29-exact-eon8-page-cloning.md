@@ -192,10 +192,10 @@
 4. **Mid-page Banner**: *"You Know How To Make NFTs, We Know How To Sell NFTs. Connect with us right now!"*
 5. **NFT Specific FAQ Accordion**.
 
-- [ ] **Step 1:** Audit live content from `https://www.eon8.com/nft-marketing-services/`.
-- [ ] **Step 2:** Refactor `NftServicePage.tsx` with the 3-pillar framework, Discord deck, and consultation CTA.
-- [ ] **Step 3:** Run `npm run build` to verify zero errors.
-- [ ] **Step 4:** Commit changes (`feat(nft): upgrade NftServicePage with authentic 3-pillar framework and Discord deck`).
+- [x] **Step 1:** Audit live content from `https://www.eon8.com/nft-marketing-services/`.
+- [x] **Step 2:** Refactor `NftServicePage.tsx` with the 3-pillar framework, Discord deck, and consultation CTA.
+- [x] **Step 3:** Run `npm run build` to verify zero errors.
+- [x] **Step 4:** Commit changes (`feat(nft): upgrade NftServicePage with authentic 3-pillar framework and Discord deck`).
 
 ---
 

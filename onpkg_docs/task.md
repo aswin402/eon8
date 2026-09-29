@@ -163,10 +163,10 @@ This task list serves as the main checklist for building and verifying the Eon8 
   - [x] Top-tier publication proof marquee (CoinTelegraph, Bloomberg, Yahoo Finance, Business Insider)
   - [x] Interactive 3-stage capability tabs (Create / Scale / Improve)
   - [x] Web3 capabilities grid & Crypto FAQ accordion
-- [ ] **Task 6: Upgrade NFT & Community Marketing Architecture (`NftServicePage.tsx`)**
-  - [ ] NFT Split Hero with inline lead capture form
-  - [ ] 3-Pillar Framework: Create Hype, Drive Value, Build Community
-  - [ ] Discord & Reddit moderation showcase deck & NFT FAQ
+- [x] **Task 6: Upgrade NFT & Community Marketing Architecture (`NftServicePage.tsx`)**
+  - [x] NFT Split Hero with inline lead capture form
+  - [x] 3-Pillar Framework: Create Hype, Drive Value, Build Community
+  - [x] Discord & Reddit moderation showcase deck & NFT FAQ
 - [ ] **Task 7: Upgrade Influencer Marketing Architecture (`InfluencerServicePage.tsx`)**
   - [ ] Split Hero with influencer campaign metrics & inline consultation form
   - [ ] Influencer Tiers Matrix (Nano, Micro, Macro, Mega, Celebrities)
