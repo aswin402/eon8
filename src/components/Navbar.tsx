@@ -41,7 +41,7 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Crypto',
     href: '#',
     submenu: [
-      { name: 'Crypto Marketing', href: 'https://www.eon8.com/crptocurrency-marketing-agency/' },
+      { name: 'Crypto Marketing', href: '/crptocurrency-marketing-agency' },
       { name: 'Crypto PR Services', href: '/crypto-pr-services' },
       { name: 'Crypto Influencer Marketing', href: '/crypto-influencer-marketing' },
       { name: 'Crypto Telegram Marketing', href: '/crypto-telegram-marketing' },
@@ -105,7 +105,8 @@ const NAV_ITEMS: NavItem[] = [
           { name: 'Reddit Community Marketing Agency', href: '/reddit-community-marketing-agency' },
           { name: 'Discord Community Building Services', href: '/discord-community-building-services' },
           { name: 'NFT Game Reddit Marketing', href: '/nft-game-reddit-marketing' },
-          { name: 'PR Marketing Agency', href: '/pr-marketing-agency' }
+          { name: 'PR Marketing Agency', href: '/pr-marketing-agency' },
+          { name: 'Free NFT Consultation', href: '/nft-free-consultation' }
         ]
       }
     ]
@@ -118,6 +119,7 @@ const NAV_ITEMS: NavItem[] = [
       {
         title: 'Digital Marketing Agency',
         items: [
+          { name: 'Digital Marketing Agency in Chennai', href: '/digital-marketing-agency-in-chennai' },
           { name: 'Search Engine Optimization SEO', href: '/search-engine-optimization-services-seo' },
           { name: 'Local SEO services', href: '/local-seo-agency' },
           { name: 'eCommerce SEO services', href: '/ecommerce-seo-services' },
@@ -134,6 +136,7 @@ const NAV_ITEMS: NavItem[] = [
           {
             title: 'Social Media Marketing',
             items: [
+              { name: 'Top Social Media Marketing Company', href: '/social-media-marketing-company-chennai' },
               { name: 'Social Media Brand Management Agency', href: '/social-media-brand-management-agency-chennai' },
               { name: 'Best Social Media Management Agency', href: '/social-media-management-agency-chennai' },
               { name: 'Facebook Marketing Agency', href: '/facebook-marketing-agency-in-chennai' },
@@ -161,6 +164,7 @@ const NAV_ITEMS: NavItem[] = [
           {
             title: 'Pay-Per-Click',
             items: [
+              { name: 'PPC Services Agency in Chennai', href: '/ppc-company-chennai' },
               { name: 'Search Advertising Company', href: '/search-advertising-company' },
               { name: 'Display Advertising Agency', href: '/display-advertising-agency' },
               { name: 'Remarketing and Retargeting Ads', href: '/best-remarketing-ad-agency' },
@@ -185,9 +189,10 @@ const NAV_ITEMS: NavItem[] = [
             ]
           },
           {
-            title: 'Metaverse Solutions',
+            title: 'Metaverse & Conversational',
             items: [
-              { name: 'Strategic Branding in the Metaverse', href: '/metaverse' }
+              { name: 'Strategic Branding in the Metaverse', href: '/metaverse' },
+              { name: 'WhatsApp Marketing Services', href: '/whatsapp-marketing-services' }
             ]
           }
         ]
@@ -197,7 +202,7 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 const SIMPLE_LINKS = [
-  { label: 'Blog', href: 'https://www.eon8.com/digital-marketing-blog/' },
+  { label: 'Blog', href: '/blog' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Contact Us', href: '/contact' }
 ];

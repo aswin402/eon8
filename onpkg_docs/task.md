@@ -99,6 +99,28 @@ This task list serves as the main checklist for building and verifying the Eon8 
 - [x] Testimonials slider layout showcasing client quotes
 - [x] Call-To-Action Ribbon for speaking with experts
 
+### E. Dynamic Service Hubs & Newly Cloned Category Pages
+- [x] Clone Flagship Crypto Marketing Agency Hub (`/crptocurrency-marketing-agency` & `/crypto-marketing-agency`)
+- [x] Clone Flagship Digital Marketing Agency Page (`/digital-marketing-agency-in-chennai`)
+- [x] Clone Pay-Per-Click Ads Agency Page (`/ppc-company-chennai`)
+- [x] Clone Social Media Marketing Company Page (`/social-media-marketing-company-chennai`)
+- [x] Clone WhatsApp Marketing & Automation Services Page (`/whatsapp-marketing-services`)
+- [x] Clone Free NFT & Web3 Marketing Consultation Page (`/nft-free-consultation`)
+
+### F. Legal & Policy Pages
+- [x] Implement reusable PolicyPage component (`src/pages/policy/PolicyPage.tsx`)
+- [x] Privacy Policy (`/privacy-policy-2` & `/privacy-policy`)
+- [x] Terms and Conditions (`/terms-and-conditions`)
+- [x] Refund Policy (`/refund-policy`)
+- [x] Delivery Policy (`/delivery-policy`)
+- [x] Connect all footer policy links to internal SPA routes
+
+### G. Interactive Blog System & Article Reader
+- [x] Build comprehensive Blog List Page with search, category filtering, and featured post spotlight (`/blog` & `/digital-marketing-blog`)
+- [x] Build individual BlogPost reader template (`src/pages/blog/BlogPostPage.tsx`)
+- [x] Cloned 10+ real articles from Eon8 live site (Operations Monitoring Agent, Financial Assistant Agent, Customer Support Agent, AI Safety/Data Loss, Product Marketing Video AI, etc.)
+- [x] Connect all blog links across Navbar, Footer, and HomePage cards to client-side SPA routes
+
 ---
 
 ## 5. Verification & Optimization QA
@@ -107,3 +129,8 @@ This task list serves as the main checklist for building and verifying the Eon8 
 - [x] Test form capture validation by inputs checks and correct math captcha input
 - [x] Bypassed Cloudflare URL issues using browser user-agent curl commands
 - [x] Localized remote Eon8 images and SVGs into `/public/imgs/`
+- [x] 100% route coverage parity with live Eon8 website (90 of 90 evaluated content pages covered)
+- [x] Implement route-level code splitting (`React.lazy`, `Suspense`, `<PageLoader />`)
+- [x] Configure Vite manual chunking in `vite.config.ts` (all bundles < 300 kB, zero chunk size warnings)
+- [x] Generate production SEO assets (`public/robots.txt` and `public/sitemap.xml` with 104 routes)
+- [x] Integrate automated sitemap generation into npm build pipeline

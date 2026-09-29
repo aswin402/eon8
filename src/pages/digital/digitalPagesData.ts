@@ -1967,5 +1967,333 @@ export const digitalPagesData: Record<string, DigitalServiceData> = {
         a: "Many platforms allow users to log in using standard email and Google accounts, making it easy for mainstream audiences to participate."
       }
     ]
+  },
+  "digital-marketing-agency-in-chennai": {
+    pathKey: "digital-marketing-agency-in-chennai",
+    metaTitle: "EON8 - No:1 Digital Marketing Agency in Chennai, India",
+    metaDesc: "Looking to grow your business online? Eon8 is a leading digital marketing agency in Chennai delivering SEO, Social Media, Performance PPC, and conversion-focused growth systems.",
+    heroTitle: "No. 1 Digital Marketing Agency in Chennai",
+    heroSubtitle: "Empowering brands with tailor-made digital strategies that drive traffic, leads, and measurable revenue",
+    heroPoints: [
+      "Top-Ranked Agency",
+      "Data-Backed Strategies",
+      "ROI-Focused Campaigns",
+      "Multi-Industry Expertise"
+    ],
+    introTitle: "Transforming Digital Visions into Market-Leading Reality",
+    introDesc: "Eon8 is an eminent digital marketing agency in Chennai that has set a new benchmark for online marketing excellence. We go beyond ordinary tactics to design custom growth systems that align branding, search visibility, high-converting paid ads, and cutting-edge Web3 and AI tools. Trusted by leading brands like TVS, VLCC, Shell, and Poorvika, we ensure your business dominates its competitive landscape.",
+    servicesTitle: "Our 360° Digital Marketing Services",
+    servicesSubtitle: "Holistic digital growth solutions built for sustained business impact",
+    services: [
+      {
+        title: "Search Engine Optimization (SEO)",
+        desc: "Dominate search results with high-intent keyword ranking, technical audits, and authority link acquisition."
+      },
+      {
+        title: "Social Media Marketing",
+        desc: "Engaging brand storytelling, viral reel production, community management, and paid social targeting across Meta, LinkedIn, and X."
+      },
+      {
+        title: "Pay-Per-Click Advertising (PPC)",
+        desc: "High-ROI Google Search, Display, Remarketing, and Performance Max ad campaigns that maximize conversion rates."
+      },
+      {
+        title: "Website Design & CRO",
+        desc: "Ultra-fast, mobile-first websites and landing pages optimized to convert clicks into high-value inquiries."
+      },
+      {
+        title: "Content & AI Marketing",
+        desc: "Thought-leadership content, blog production, email automation sequences, and AI-accelerated copy workflows."
+      },
+      {
+        title: "Online Reputation Management (ORM)",
+        desc: "Safeguard your corporate image, suppress negative listings, and cultivate 5-star brand sentiment."
+      }
+    ],
+    processTitle: "Our Proven 5-Phase Growth Framework",
+    processSteps: [
+      {
+        title: "Step 1: Deep Discovery",
+        desc: "We audit your existing digital footprint, competitor strategies, and target audience persona."
+      },
+      {
+        title: "Step 2: Custom Blueprint",
+        desc: "Formulating a multichannel marketing plan with clear KPIs, timelines, and budget allocation."
+      },
+      {
+        title: "Step 3: Creative & Technical Build",
+        desc: "Designing compelling ad creatives, conversion landing pages, and setting up tracking pixels."
+      },
+      {
+        title: "Step 4: Campaign Launch",
+        desc: "Deploying campaigns with precision targeting, bid optimizations, and A/B split tests."
+      },
+      {
+        title: "Step 5: Scale & Optimize",
+        desc: "Continuous performance monitoring, conversion rate optimization, and transparent weekly reporting."
+      }
+    ],
+    whyTitle: "Why Choose Eon8 as Your Digital Marketing Partner in Chennai?",
+    whyDesc: "With over a decade of industry expertise, 1,250+ completed projects, and a passionate team of over 250 specialists, Eon8 brings unmatched creative ingenuity and rigorous analytical discipline to every campaign.",
+    faqs: [
+      {
+        q: "Why is Eon8 considered the top digital marketing agency in Chennai?",
+        a: "Eon8 delivers end-to-end performance-driven solutions combining SEO, paid advertising, social media, and web development with verifiable client results, such as reaching 1.1 million users in one week for Poorvika Mobiles."
+      },
+      {
+        q: "What industries does Eon8 specialize in?",
+        a: "We work across healthcare, retail, hospitality, real estate, education, fintech, SaaS, Web3, and ecommerce."
+      },
+      {
+        q: "How does Eon8 measure campaign success?",
+        a: "We track hard business metrics: Cost Per Lead (CPL), Return On Ad Spend (ROAS), organic keyword rankings, and customer acquisition cost (CAC)."
+      },
+      {
+        q: "Can Eon8 work with businesses outside Chennai?",
+        a: "Yes, Eon8 operates across Mumbai, Bangalore, and Hyderabad, and manages digital campaigns for international clients in North America, Europe, and the Middle East."
+      }
+    ]
+  },
+  "ppc-company-chennai": {
+    pathKey: "ppc-company-chennai",
+    metaTitle: "PPC Ads Agency in Chennai | Pay-Per-Click Services Company - Eon8",
+    metaDesc: "Boost your sales and double your ROI with premier PPC advertising and management services from Eon8, Chennai's top-rated Google Ads and paid marketing company.",
+    heroTitle: "Top PPC Services Agency in Chennai",
+    heroSubtitle: "Drive qualified buyers directly to your business with precision-targeted Google & Social paid advertising",
+    heroPoints: [
+      "Google Certified Partner",
+      "Immediate Lead Flow",
+      "Negative Keyword Scrubbing",
+      "High ROAS Guaranteed"
+    ],
+    introTitle: "Accelerate Customer Acquisition with High-Precision Paid Ads",
+    introDesc: "Pay-Per-Click (PPC) marketing is the fastest and most measurable advertising model to generate immediate traffic, high-intent leads, and direct sales. As Chennai's premier PPC company, Eon8 builds hyper-targeted campaigns across Google Search, Display Networks, YouTube Ads, Meta Ads, and LinkedIn Ads. We ensure every rupee or dollar spent delivers maximum return on investment.",
+    servicesTitle: "Our Pay-Per-Click Management Suite",
+    servicesSubtitle: "Data-backed paid campaigns engineered to convert",
+    services: [
+      {
+        title: "Google Search Campaigns",
+        desc: "Target high-intent keywords when potential customers are actively searching for your products or services."
+      },
+      {
+        title: "Display & Banner Advertising",
+        desc: "Eye-catching visual ads across millions of partner websites, blogs, and news portals to build omnipresent brand awareness."
+      },
+      {
+        title: "Remarketing & Retargeting",
+        desc: "Re-engage visitors who left your website without converting, gently steering them back into the checkout funnel."
+      },
+      {
+        title: "Shopping & Product Listing Ads (PLA)",
+        desc: "Showcase ecommerce products with real-time pricing and photos directly at the top of Google search results."
+      },
+      {
+        title: "Paid Social Ads (Meta & LinkedIn)",
+        desc: "Granular demographic, interest, and professional firmographic targeting across Instagram, Facebook, and LinkedIn."
+      },
+      {
+        title: "Landing Page CRO & A/B Testing",
+        desc: "High-converting, mobile-optimized landing pages that maximize ad Quality Scores and reduce Cost Per Click (CPC)."
+      }
+    ],
+    processTitle: "How We Maximize Your PPC Performance",
+    processSteps: [
+      {
+        title: "Phase 1: Keyword Research & Intent Mapping",
+        desc: "Identifying high-intent, low-waste search terms while eliminating negative keywords."
+      },
+      {
+        title: "Phase 2: Compelling Ad Copy & Creatives",
+        desc: "Writing persuasive ad copy with dynamic extensions and rich visual assets that maximize click-through rates (CTR)."
+      },
+      {
+        title: "Phase 3: Conversion Tracking Setup",
+        desc: "Installing and verifying Google Tag Manager, GA4, pixel tracking, and server-side conversion APIs."
+      },
+      {
+        title: "Phase 4: Bid Management & Negative Keyword Scrubbing",
+        desc: "Applying smart bidding strategies and daily negative keyword pruning to eliminate wasted ad spend."
+      },
+      {
+        title: "Phase 5: Iterative CRO",
+        desc: "A/B testing ad variations, headlines, and call-to-actions to continuously improve Quality Score and lower acquisition costs."
+      }
+    ],
+    whyTitle: "Why Choose Eon8 for Pay-Per-Click Marketing?",
+    whyDesc: "We don't set campaigns on autopilot. Our certified Google Ads specialists perform daily bid adjustments, search query audits, and budget optimizations to ensure your campaigns consistently beat industry benchmarks.",
+    faqs: [
+      {
+        q: "What is Pay-Per-Click (PPC) advertising?",
+        a: "PPC is an online advertising model where advertisers only pay when a user actually clicks on their ad, making it a highly cost-effective and accountable marketing channel."
+      },
+      {
+        q: "How fast can I get results from PPC campaigns?",
+        a: "Unlike SEO which takes time to build momentum, PPC campaigns can begin driving traffic and inbound inquiries within hours of launching."
+      },
+      {
+        q: "What budget do I need to start PPC ads?",
+        a: "We work with businesses of all sizes, structuring test campaigns starting from modest daily budgets and scaling up profitably as positive ROAS is proven."
+      },
+      {
+        q: "How do you prevent wasted ad spend?",
+        a: "We maintain exhaustive negative keyword lists, utilize exact and phrase match types, geo-fence campaigns, and optimize device bidding."
+      }
+    ]
+  },
+  "social-media-marketing-company-chennai": {
+    pathKey: "social-media-marketing-company-chennai",
+    metaTitle: "Growing Social Media Marketing Agency in Chennai - EON8",
+    metaDesc: "Eon8 is the best social media marketing company in Chennai helping brands drive leads, sales, and community engagement through custom organic and paid social campaigns.",
+    heroTitle: "Top Social Media Marketing Agency",
+    heroSubtitle: "Ignite viral conversations, build devoted communities, and turn followers into paying customers",
+    heroPoints: [
+      "Creative Brand Storytelling",
+      "High-Converting Reels & Shorts",
+      "Targeted Paid Social Funnels",
+      "24/7 Community Engagement"
+    ],
+    introTitle: "Propelling Your Brand into the Social Spotlight",
+    introDesc: "We are a leading social media marketing and advertising agency in Chennai that helps businesses build compelling digital identities and go viral across Instagram, Facebook, LinkedIn, Twitter (X), and YouTube. Before kicking things off, we develop a rock-solid social media strategy tailored specifically to your brand tone, audience psychology, and revenue targets.",
+    servicesTitle: "Our Full-Spectrum Social Media Services",
+    servicesSubtitle: "From creative content calendars to targeted paid advertising",
+    services: [
+      {
+        title: "Profile Setup & Branding Optimization",
+        desc: "Custom profile layouts, unified color schemes, bio copywriting, and highlight badges that establish instant credibility."
+      },
+      {
+        title: "Content Strategy & Visual Production",
+        desc: "Scroll-stopping graphics, carousel posts, infographics, and motion animations created by expert designers."
+      },
+      {
+        title: "Reels & Short-Form Video Marketing",
+        desc: "Trending audio research, storyboarding, scriptwriting, and editing for Instagram Reels and YouTube Shorts."
+      },
+      {
+        title: "Social Media Advertising (Meta & LinkedIn Ads)",
+        desc: "High-ROI lead generation and sales campaigns targeting specific buyer demographics and retargeting engaged followers."
+      },
+      {
+        title: "Community Management & Social Listening",
+        desc: "Active comment replies, direct message handling, sentiment analysis, and reputation monitoring around the clock."
+      },
+      {
+        title: "Influencer & Creator Collaborations",
+        desc: "Partnering with verified niche micro- and macro-influencers to amplify your brand message authentically."
+      }
+    ],
+    processTitle: "Our 4-Step Social Growth Methodology",
+    processSteps: [
+      {
+        title: "1. Audience & Competitor Analysis",
+        desc: "We uncover what content formats your ideal customers interact with and identify gaps your brand can exploit."
+      },
+      {
+        title: "2. Content Calendar & Creative Sprints",
+        desc: "Monthly thematic planning with scheduled deliverables, caption crafting, and creative review workflows."
+      },
+      {
+        title: "3. Multi-Platform Publishing & Distribution",
+        desc: "Strategic scheduling at peak audience activity hours paired with engagement-boosting tactics."
+      },
+      {
+        title: "4. Analytics & Community Growth",
+        desc: "Detailed monthly reports examining follower growth, reach, engagement rate, website clicks, and sales conversions."
+      }
+    ],
+    whyTitle: "Why Choose Eon8 for Social Media Marketing?",
+    whyDesc: "We don't post generic stock images. Our creative team produces original, visually captivating content and pairs it with data-driven paid amplification to ensure your brand stands out in saturated social feeds.",
+    faqs: [
+      {
+        q: "What platforms do you manage?",
+        a: "We manage Instagram, Facebook, LinkedIn, Twitter (X), YouTube, Pinterest, and TikTok."
+      },
+      {
+        q: "How does social media marketing generate direct sales?",
+        a: "Through strategic content funnels, link-in-bio optimizations, direct-message sales automations, and targeted retargeting ads aimed at warm audiences."
+      },
+      {
+        q: "How often will you post on my social channels?",
+        a: "Depending on your package, we typically publish 3 to 7 high-quality posts per week, supplemented by daily Instagram and Facebook stories."
+      }
+    ]
+  },
+  "whatsapp-marketing-services": {
+    pathKey: "whatsapp-marketing-services",
+    metaTitle: "WhatsApp Marketing Services | Automation & CRM by EON8",
+    metaDesc: "Boost engagement with EON8's WhatsApp marketing services: AI chatbots, bulk broadcast messaging, CRM integration, and real-time conversion tracking.",
+    heroTitle: "WhatsApp Marketing & Automation Services",
+    heroSubtitle: "Convert conversations into revenue with over 95% open rates, instant messaging, and automated sales funnels",
+    heroPoints: [
+      "Official WhatsApp Business API",
+      "95%+ Open Rates",
+      "Automated AI Chatbots",
+      "Seamless CRM Integrations"
+    ],
+    introTitle: "The Most Direct & High-Converting Marketing Channel on Earth",
+    introDesc: "With over 2 billion active users globally, WhatsApp has evolved from a simple messaging tool into a high-performing communication powerhouse for customer engagement, support, and sales. Eon8 delivers end-to-end WhatsApp marketing solutions, helping brands launch verified Business API accounts, broadcast segmented promotions, deploy AI chatbots, recover abandoned shopping carts, and automate customer journeys with unmatched ROI.",
+    servicesTitle: "Our Comprehensive WhatsApp Marketing Portfolio",
+    servicesSubtitle: "Enterprise-grade WhatsApp tools engineered for modern business scale",
+    services: [
+      {
+        title: "WhatsApp Business API Activation & Green Tick",
+        desc: "Complete registration, company verification, and blue/green tick badge verification with Meta."
+      },
+      {
+        title: "Targeted Broadcast Campaigns",
+        desc: "Send compliant, highly personalized bulk notifications, product drops, and festive offers to segmented customer lists."
+      },
+      {
+        title: "AI-Powered Chatbots & Conversational Flows",
+        desc: "Intelligent natural language chatbots that handle product inquiries, FAQs, booking appointments, and instant support 24/7."
+      },
+      {
+        title: "Abandoned Cart Recovery & Ecommerce Funnels",
+        desc: "Automated recovery messages with one-click checkout links that recoup up to 30% of lost online sales."
+      },
+      {
+        title: "Click-to-WhatsApp Ads (Meta Integration)",
+        desc: "Run Facebook and Instagram ads that route warm prospects directly into a live WhatsApp chat conversation."
+      },
+      {
+        title: "CRM & Helpdesk Integrations",
+        desc: "Sync customer chats seamlessly with HubSpot, Salesforce, Zoho, Shopify, and custom backend databases."
+      }
+    ],
+    processTitle: "How We Implement Your WhatsApp Growth Engine",
+    processSteps: [
+      {
+        title: "Phase 1: API Onboarding & Verification",
+        desc: "Setting up your Meta Business Manager, getting official WhatsApp API approval, and configuring templates."
+      },
+      {
+        title: "Phase 2: Conversation Flow Design",
+        desc: "Mapping intuitive user conversation trees, fallback responses, and bot escalation triggers to human agents."
+      },
+      {
+        title: "Phase 3: Integration & Testing",
+        desc: "Connecting your ecommerce catalog, CRM systems, webhook endpoints, and testing message delivery speeds."
+      },
+      {
+        title: "Phase 4: Campaign Launch & Automation",
+        desc: "Deploying scheduled broadcast blasts, setting up automated drip campaigns, and monitoring open/reply rates."
+      }
+    ],
+    whyTitle: "Why Partner with Eon8 for WhatsApp Marketing?",
+    whyDesc: "Eon8 ensures 100% compliance with WhatsApp anti-spam policies to protect your phone number reputation, while engineering sophisticated automations that turn simple chats into closed revenue.",
+    faqs: [
+      {
+        q: "What is the difference between WhatsApp Business App and WhatsApp Business API?",
+        a: "The standard WhatsApp Business App is designed for small single-device usage with broadcast limits of 256 contacts. The WhatsApp Business API allows unlimited broadcasts, multi-agent support, automated AI chatbots, and full CRM integration."
+      },
+      {
+        q: "What open rates can we expect on WhatsApp?",
+        a: "WhatsApp messages boast an average open rate of over 95%, with over 80% of messages read within the first 5 minutes of delivery."
+      },
+      {
+        q: "Can we integrate WhatsApp with Shopify or WooCommerce?",
+        a: "Yes! We can automate order confirmations, live shipping tracking updates, abandoned cart reminders, and re-order prompts."
+      }
+    ]
   }
 };

@@ -14,21 +14,21 @@ export function Footer() {
   ];
 
   const servicesLinks = [
-    { name: 'Digital Marketing Services', href: 'https://www.eon8.com/search-engine-optimization-services-seo/' },
-    { name: 'Search Engine Optimization (SEO)', href: 'https://www.eon8.com/search-engine-optimization-services-seo/' },
-    { name: 'Social Media Management', href: 'https://www.eon8.com/social-media-management-agency-chennai/' },
-    { name: 'Crypto Marketing Services', href: 'https://www.eon8.com/crptocurrency-marketing-agency/' },
-    { name: 'NFT Marketing Agency', href: 'https://www.eon8.com/nft-marketing-services/' },
+    { name: 'Digital Marketing Services', href: '/digital-marketing-agency-in-chennai' },
+    { name: 'Search Engine Optimization (SEO)', href: '/search-engine-optimization-services-seo' },
+    { name: 'Social Media Management', href: '/social-media-marketing-company-chennai' },
+    { name: 'Crypto Marketing Services', href: '/crptocurrency-marketing-agency' },
+    { name: 'NFT Marketing Agency', href: '/nft-marketing-services' },
     { name: 'AI Agent Development', href: '/ai-agent-development-services' }
   ];
 
   const policyLinks = [
-    { name: 'Blog', href: 'https://www.eon8.com/digital-marketing-blog/' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact Us', href: '/contact' },
-    { name: 'Privacy Policy', href: 'https://www.eon8.com/privacy-policy-2/' },
-    { name: 'Refund Policy', href: 'https://www.eon8.com/refund-policy/' },
-    { name: 'Terms And Conditions', href: 'https://www.eon8.com/terms-and-conditions/' },
-    { name: 'Delivery Policy', href: 'https://www.eon8.com/delivery-policy/' }
+    { name: 'Privacy Policy', href: '/privacy-policy-2' },
+    { name: 'Refund Policy', href: '/refund-policy' },
+    { name: 'Terms And Conditions', href: '/terms-and-conditions' },
+    { name: 'Delivery Policy', href: '/delivery-policy' }
   ];
 
   const certLogos = [

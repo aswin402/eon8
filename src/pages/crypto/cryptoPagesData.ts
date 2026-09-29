@@ -916,5 +916,169 @@ export const cryptoPagesData: Record<string, CryptoServiceData> = {
     "whyTitle": "Why Choose Eon8 For Launch Your Token with Strategic IEO Listing Services?",
     "whyDesc": "",
     "faqs": []
+  },
+  "crptocurrency-marketing-agency": {
+    "pathKey": "crptocurrency-marketing-agency",
+    "metaTitle": "Crypto Marketing Agency | Crypto Marketing Services Company - Eon8",
+    "metaDesc": "Eon8 is a premier crypto marketing agency focused on driving exponential growth through futuristic Web 3.0 strategies, investor PR, influencer marketing, and tokenomics.",
+    "heroTitle": "Premier Crypto Marketing Agency",
+    "heroSubtitle": "Scale your Web 3.0 & blockchain venture with data-backed crypto marketing strategies",
+    "heroPoints": [
+      "Attract Quality Investors",
+      "Community-First Growth",
+      "High-ROI Token Campaigns",
+      "Global Web3 PR Reach"
+    ],
+    "introTitle": "Propelling Web 3.0 & Blockchain Projects to Infinity & Beyond",
+    "introDesc": "Eon8 is a full-service crypto marketing agency that sets your project apart from the competition. With exponential crypto market growth and rising competitive noise, hiring a specialized Web3 marketing agency is essential to scale your project effectively. We combine investor relations, Tier-1 media syndication, KOL endorsements, high-converting funnel design, tokenomics advisory, and community scaling across Telegram and Discord.",
+    "servicesTitle": "Our Core Crypto Marketing Capabilities",
+    "servicesSubtitle": "End-to-end promotion, liquidity growth, and community management",
+    "services": [
+      {
+        "title": "Project Audit & Strategy",
+        "desc": "Thorough evaluation of your crypto project through gap analysis, whitepaper auditing, market positioning, and roadmap optimization."
+      },
+      {
+        "title": "Crypto PR & Media Syndication",
+        "desc": "Guaranteed coverage across CoinTelegraph, CoinDesk, Bloomberg, Yahoo Finance, and leading blockchain publications."
+      },
+      {
+        "title": "KOL & Crypto Influencer Marketing",
+        "desc": "Access to 500+ verified crypto influencers across YouTube, X (Twitter), and TikTok delivering authentic project endorsements."
+      },
+      {
+        "title": "Community Management & Shilling",
+        "desc": "24/7 active moderation, Telegram growth bots, Discord onboarding funnels, and organic hype generation."
+      },
+      {
+        "title": "Token Launch Support (ICO/IDO/IEO)",
+        "desc": "Fundraising campaign strategies, whitelisting, launchpad partnerships, and token generation event execution."
+      },
+      {
+        "title": "Exchange Listing Advisory",
+        "desc": "Fast-tracked listing assistance on Tier-1 and Tier-2 centralized (CEX) and decentralized (DEX) crypto exchanges."
+      }
+    ],
+    "processTitle": "Our 4-Stage Crypto Growth Engine",
+    "processSteps": [
+      {
+        "title": "Step 1: Discover & Audit",
+        "desc": "Deep-dive analysis into your tokenomics, utility, community sentiment, and competitor landscape."
+      },
+      {
+        "title": "Step 2: Strategy & Architecture",
+        "desc": "Formulating targeted buyer personas, PR calendars, KOL alignment, and campaign milestones."
+      },
+      {
+        "title": "Step 3: Multi-Channel Execution",
+        "desc": "Deploying synchronized press releases, influencer videos, Twitter Spaces, and targeted crypto ad networks."
+      },
+      {
+        "title": "Step 4: Scale & Retain",
+        "desc": "Maintaining liquidity awareness, post-TGE momentum, continuous community engagement, and staking incentives."
+      }
+    ],
+    "whyTitle": "Why Choose Eon8 as Your Crypto Marketing Agency?",
+    "whyDesc": "We understand blockchain mechanics, tokenomics, and Web3 investor psychology. With over a decade of agency excellence and dozens of successful crypto launches, we deliver tangible ROI, real community holders, and institutional credibility.",
+    "faqs": [
+      {
+        "q": "What is cryptocurrency marketing?",
+        "a": "Cryptocurrency marketing is the strategic promotion of blockchain, DeFi, NFT, and Web3 projects to attract investors, build authentic holder communities, and drive token adoption."
+      },
+      {
+        "q": "Why do crypto projects need a specialized marketing agency?",
+        "a": "The crypto space moves at lightning speed with unique regulatory landscapes, platform ad restrictions, and high community skepticism. A specialized agency like Eon8 has established media relationships, verified KOL networks, and Web3-native battle-tested strategies."
+      },
+      {
+        "q": "Which channels are most effective for crypto marketing?",
+        "a": "Telegram, Twitter (X), YouTube, Discord, specialized Web3 ad networks (CoinZilla, Bitmedia), and Tier-1 press releases on CoinTelegraph and CoinDesk."
+      },
+      {
+        "q": "How soon can we see results from a crypto campaign?",
+        "a": "PR distribution and influencer drops can deliver immediate visibility and traffic within 48 to 72 hours, while community building and investor trust compound steadily over weeks leading up to your launch."
+      }
+    ]
+  },
+  "crypto-marketing-agency": {
+    "pathKey": "crypto-marketing-agency",
+    "metaTitle": "Crypto Marketing Agency | Crypto Marketing Services Company - Eon8",
+    "metaDesc": "Eon8 is a premier crypto marketing agency focused on driving exponential growth through futuristic Web 3.0 strategies, investor PR, influencer marketing, and tokenomics.",
+    "heroTitle": "Premier Crypto Marketing Agency",
+    "heroSubtitle": "Scale your Web 3.0 & blockchain venture with data-backed crypto marketing strategies",
+    "heroPoints": [
+      "Attract Quality Investors",
+      "Community-First Growth",
+      "High-ROI Token Campaigns",
+      "Global Web3 PR Reach"
+    ],
+    "introTitle": "Propelling Web 3.0 & Blockchain Projects to Infinity & Beyond",
+    "introDesc": "Eon8 is a full-service crypto marketing agency that sets your project apart from the competition. With exponential crypto market growth and rising competitive noise, hiring a specialized Web3 marketing agency is essential to scale your project effectively. We combine investor relations, Tier-1 media syndication, KOL endorsements, high-converting funnel design, tokenomics advisory, and community scaling across Telegram and Discord.",
+    "servicesTitle": "Our Core Crypto Marketing Capabilities",
+    "servicesSubtitle": "End-to-end promotion, liquidity growth, and community management",
+    "services": [
+      {
+        "title": "Project Audit & Strategy",
+        "desc": "Thorough evaluation of your crypto project through gap analysis, whitepaper auditing, market positioning, and roadmap optimization."
+      },
+      {
+        "title": "Crypto PR & Media Syndication",
+        "desc": "Guaranteed coverage across CoinTelegraph, CoinDesk, Bloomberg, Yahoo Finance, and leading blockchain publications."
+      },
+      {
+        "title": "KOL & Crypto Influencer Marketing",
+        "desc": "Access to 500+ verified crypto influencers across YouTube, X (Twitter), and TikTok delivering authentic project endorsements."
+      },
+      {
+        "title": "Community Management & Shilling",
+        "desc": "24/7 active moderation, Telegram growth bots, Discord onboarding funnels, and organic hype generation."
+      },
+      {
+        "title": "Token Launch Support (ICO/IDO/IEO)",
+        "desc": "Fundraising campaign strategies, whitelisting, launchpad partnerships, and token generation event execution."
+      },
+      {
+        "title": "Exchange Listing Advisory",
+        "desc": "Fast-tracked listing assistance on Tier-1 and Tier-2 centralized (CEX) and decentralized (DEX) crypto exchanges."
+      }
+    ],
+    "processTitle": "Our 4-Stage Crypto Growth Engine",
+    "processSteps": [
+      {
+        "title": "Step 1: Discover & Audit",
+        "desc": "Deep-dive analysis into your tokenomics, utility, community sentiment, and competitor landscape."
+      },
+      {
+        "title": "Step 2: Strategy & Architecture",
+        "desc": "Formulating targeted buyer personas, PR calendars, KOL alignment, and campaign milestones."
+      },
+      {
+        "title": "Step 3: Multi-Channel Execution",
+        "desc": "Deploying synchronized press releases, influencer videos, Twitter Spaces, and targeted crypto ad networks."
+      },
+      {
+        "title": "Step 4: Scale & Retain",
+        "desc": "Maintaining liquidity awareness, post-TGE momentum, continuous community engagement, and staking incentives."
+      }
+    ],
+    "whyTitle": "Why Choose Eon8 as Your Crypto Marketing Agency?",
+    "whyDesc": "We understand blockchain mechanics, tokenomics, and Web3 investor psychology. With over a decade of agency excellence and dozens of successful crypto launches, we deliver tangible ROI, real community holders, and institutional credibility.",
+    "faqs": [
+      {
+        "q": "What is cryptocurrency marketing?",
+        "a": "Cryptocurrency marketing is the strategic promotion of blockchain, DeFi, NFT, and Web3 projects to attract investors, build authentic holder communities, and drive token adoption."
+      },
+      {
+        "q": "Why do crypto projects need a specialized marketing agency?",
+        "a": "The crypto space moves at lightning speed with unique regulatory landscapes, platform ad restrictions, and high community skepticism. A specialized agency like Eon8 has established media relationships, verified KOL networks, and Web3-native battle-tested strategies."
+      },
+      {
+        "q": "Which channels are most effective for crypto marketing?",
+        "a": "Telegram, Twitter (X), YouTube, Discord, specialized Web3 ad networks (CoinZilla, Bitmedia), and Tier-1 press releases on CoinTelegraph and CoinDesk."
+      },
+      {
+        "q": "How soon can we see results from a crypto campaign?",
+        "a": "PR distribution and influencer drops can deliver immediate visibility and traffic within 48 to 72 hours, while community building and investor trust compound steadily over weeks leading up to your launch."
+      }
+    ]
   }
 };

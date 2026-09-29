@@ -1,14 +1,19 @@
+import { lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { RootLayout } from '@/layouts/RootLayout';
 import { HomePage } from '@/pages/HomePage';
-import { AboutPage } from '@/pages/AboutPage';
-import { ContactPage } from '@/pages/ContactPage';
-import { AIAgentPage } from '@/pages/AIAgentPage';
-import { CryptoServicePage } from '@/pages/crypto/CryptoServicePage';
-import { InfluencerServicePage } from '@/pages/influencer/InfluencerServicePage';
-import { NftServicePage } from '@/pages/nft/NftServicePage';
-import { DigitalServicePage } from '@/pages/digital/DigitalServicePage';
-import { NotFoundPage } from '@/pages/NotFoundPage';
+
+const AboutPage = lazy(() => import('@/pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const ContactPage = lazy(() => import('@/pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const AIAgentPage = lazy(() => import('@/pages/AIAgentPage').then(m => ({ default: m.AIAgentPage })));
+const CryptoServicePage = lazy(() => import('@/pages/crypto/CryptoServicePage').then(m => ({ default: m.CryptoServicePage })));
+const InfluencerServicePage = lazy(() => import('@/pages/influencer/InfluencerServicePage').then(m => ({ default: m.InfluencerServicePage })));
+const NftServicePage = lazy(() => import('@/pages/nft/NftServicePage').then(m => ({ default: m.NftServicePage })));
+const DigitalServicePage = lazy(() => import('@/pages/digital/DigitalServicePage').then(m => ({ default: m.DigitalServicePage })));
+const PolicyPage = lazy(() => import('@/pages/policy/PolicyPage').then(m => ({ default: m.PolicyPage })));
+const BlogListPage = lazy(() => import('@/pages/blog/BlogListPage').then(m => ({ default: m.BlogListPage })));
+const BlogPostPage = lazy(() => import('@/pages/blog/BlogPostPage').then(m => ({ default: m.BlogPostPage })));
+const NotFoundPage = lazy(() => import('@/pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
 import './App.css';
 
 const router = createBrowserRouter([
@@ -323,6 +328,118 @@ const router = createBrowserRouter([
       {
         path: 'pr-marketing-agency',
         element: <NftServicePage type="pr-marketing-agency" />,
+      },
+      {
+        path: 'nft-free-consultation',
+        element: <NftServicePage type="nft-free-consultation" />,
+      },
+      {
+        path: 'crptocurrency-marketing-agency',
+        element: <CryptoServicePage type="crptocurrency-marketing-agency" />,
+      },
+      {
+        path: 'crypto-marketing-agency',
+        element: <CryptoServicePage type="crypto-marketing-agency" />,
+      },
+      {
+        path: 'digital-marketing-agency-in-chennai',
+        element: <DigitalServicePage type="digital-marketing-agency-in-chennai" />,
+      },
+      {
+        path: 'ppc-company-chennai',
+        element: <DigitalServicePage type="ppc-company-chennai" />,
+      },
+      {
+        path: 'social-media-marketing-company-chennai',
+        element: <DigitalServicePage type="social-media-marketing-company-chennai" />,
+      },
+      {
+        path: 'whatsapp-marketing-services',
+        element: <DigitalServicePage type="whatsapp-marketing-services" />,
+      },
+      {
+        path: 'privacy-policy-2',
+        element: <PolicyPage slug="privacy-policy-2" />,
+      },
+      {
+        path: 'privacy-policy',
+        element: <PolicyPage slug="privacy-policy-2" />,
+      },
+      {
+        path: 'terms-and-conditions',
+        element: <PolicyPage slug="terms-and-conditions" />,
+      },
+      {
+        path: 'refund-policy',
+        element: <PolicyPage slug="refund-policy" />,
+      },
+      {
+        path: 'delivery-policy',
+        element: <PolicyPage slug="delivery-policy" />,
+      },
+      {
+        path: 'blog',
+        element: <BlogListPage />,
+      },
+      {
+        path: 'digital-marketing-blog',
+        element: <BlogListPage />,
+      },
+      {
+        path: 'blog/:slug',
+        element: <BlogPostPage />,
+      },
+      {
+        path: 'operations-monitoring-agent',
+        element: <BlogPostPage slug="operations-monitoring-agent" />,
+      },
+      {
+        path: 'financial-assistant-agent-2026',
+        element: <BlogPostPage slug="financial-assistant-agent-2026" />,
+      },
+      {
+        path: 'health-and-wellness-coach-ai-agent',
+        element: <BlogPostPage slug="health-and-wellness-coach-ai-agent" />,
+      },
+      {
+        path: 'customer-support-ai-agent',
+        element: <BlogPostPage slug="customer-support-ai-agent" />,
+      },
+      {
+        path: 'content-operations-agent-ai-workflows-2026',
+        element: <BlogPostPage slug="content-operations-agent-ai-workflows-2026" />,
+      },
+      {
+        path: 'business-operations-agent-enterprise-automation',
+        element: <BlogPostPage slug="business-operations-agent-enterprise-automation" />,
+      },
+      {
+        path: 'sales-and-lead-generation-agent',
+        element: <BlogPostPage slug="sales-and-lead-generation-agent" />,
+      },
+      {
+        path: 'personalized-ai-agent',
+        element: <BlogPostPage slug="personalized-ai-agent" />,
+      },
+      {
+        path: 'data-loss-by-ai-lessons-and-prevention',
+        element: <BlogPostPage slug="data-loss-by-ai-lessons-and-prevention" />,
+      },
+      {
+        path: 'product-marketing-agency-using-ai',
+        element: <BlogPostPage slug="product-marketing-agency-using-ai" />,
+      },
+      {
+        path: 'performance-marketing-vs-traditional-marketing',
+        element: <BlogPostPage slug="performance-marketing-vs-traditional-marketing" />,
+      },
+      {
+        path: 'crm-software-development-trends-2026',
+        element: <BlogPostPage slug="crm-software-development-trends-2026" />,
+      },
+      {
+        path: 'erp-software-development',
+        element: <BlogPostPage slug="erp-software-development" />,
       },
       {
         path: '*',

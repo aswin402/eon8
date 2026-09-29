@@ -1189,5 +1189,71 @@ export const nftPagesData: Record<string, NftServiceData> = {
         a: "Yes, our team of professional Web3 copywriters drafts the complete copy, hooks, and structures, sending them to you for approval before media pitching."
       }
     ]
+  },
+  "nft-free-consultation": {
+    pathKey: "nft-free-consultation",
+    metaTitle: "Free NFT Marketing Consultation for Your Project | Eon8",
+    metaDesc: "Get a Free NFT Consultation for Marketing, Branding, Community Growth, and Web3 Launch Strategies with EON8 Digital Marketing Experts.",
+    heroTitle: "Free NFT Marketing Consultation",
+    heroSubtitle: "Unlock high-converting Web3 marketing strategies and get expert guidance tailored to your NFT collection",
+    heroPoints: [
+      "$100 Value Consultation - Free",
+      "Personalized Roadmap",
+      "Discord & Community Strategy",
+      "Mint Launch Tactics"
+    ],
+    introTitle: "Solve Your Web 3.0 Marketing Bottlenecks with Experienced Specialists",
+    introDesc: "Launching an NFT project or Web3 platform requires more than great artwork—it demands community hype, Discord moderation, strategic influencer partnerships, and whitelisting funnels. Avail your complimentary Web 3.0 consultation call with Eon8's senior strategists to receive a personalized roadmap for your upcoming drop.",
+    servicesTitle: "Consultation Focus Areas",
+    servicesSubtitle: "What we cover in your complimentary 30-minute strategic session",
+    services: [
+      {
+        title: "Discord & Community Strategy",
+        desc: "How to onboard, verify, and retain 2,000+ active Discord community members in your first month."
+      },
+      {
+        title: "KOL & Influencer Alignment",
+        desc: "Selecting verified crypto and NFT creators who deliver real mint conversions without bot inflation."
+      },
+      {
+        title: "Whitelisting & Mint Day Mechanics",
+        desc: "Structuring tiered presales, public mint countdowns, and gas optimization techniques."
+      },
+      {
+        title: "PR & Media Syndication",
+        desc: "Getting featured on OpenSea, Rarible, CoinTelegraph, and top Web3 news publications."
+      }
+    ],
+    processTitle: "How the Free Consultation Works",
+    processSteps: [
+      {
+        title: "1. Request Session",
+        desc: "Fill out the consultation form with your project name, target budget, and preferred time slot."
+      },
+      {
+        title: "2. Project Pre-Audit",
+        desc: "Our analysts review your artwork, website, smart contract readiness, and current social footprint."
+      },
+      {
+        title: "3. Strategic Strategy Call",
+        desc: "A 30-minute private video session delivering actionable recommendations and campaign budget estimates."
+      },
+      {
+        title: "4. Implementation Roadmap",
+        desc: "Receive a detailed execution blueprint for scaling your mint and secondary market volume."
+      }
+    ],
+    whyTitle: "Why Consult with Eon8?",
+    whyDesc: "Eon8 has supported dozens of Web3 and NFT launches, helping projects navigate community building, liquidity generation, and secondary market royalty models.",
+    faqs: [
+      {
+        q: "Is the consultation really 100% free?",
+        a: "Yes, our initial 30-minute Web3 consultation is completely free with no obligation to hire us."
+      },
+      {
+        q: "Who should apply for this consultation?",
+        a: "NFT artists, Web3 startup founders, gaming studios building play-to-earn games, and brands exploring digital collectibles."
+      }
+    ]
   }
 };

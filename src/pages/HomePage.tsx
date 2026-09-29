@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useAppStore } from '@/store/useAppStore';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Star, Quote, Calendar, Award, Sparkles, CheckCircle } from 'lucide-react';
@@ -212,19 +213,19 @@ export function HomePage() {
       title: 'WhatsApp Marketing Services by EON8 Convert Conversations into Revenue',
       desc: 'With over 2 billion active users globally, WhatsApp has rapidly evolved into more than just a messaging tool...',
       img: '/imgs/WhatsApp-Marketing-Agency.jpg',
-      link: 'https://www.eon8.com/whatsapp-marketing-services/'
+      link: '/whatsapp-marketing-services'
     },
     {
       title: 'AI Deleted Its Database Without Warning – What I Learned and How You Can Prevent It',
       desc: 'Introduction Artificial Intelligence (AI) has rapidly transformed the digital landscape, offering unmatched automation, scalability, and performance...',
       img: '/imgs/WhatsApp-Image-2025-08-04-at-1.17.08-PM.jpeg',
-      link: 'https://www.eon8.com/data-loss-by-ai-lessons-and-prevention/'
+      link: '/data-loss-by-ai-lessons-and-prevention'
     },
     {
       title: 'AI-Powered Product Marketing Agency: Revolutionizing Video Marketing for Brands',
       desc: 'In today’s fast-paced digital world, product marketing isn’t just about creating awareness it’s about building smart, data-driven strategies...',
       img: '/imgs/Product-marketing-agency-using-AI-.png',
-      link: 'https://www.eon8.com/product-marketing-agency-using-ai/'
+      link: '/product-marketing-agency-using-ai'
     }
   ];
 
@@ -526,7 +527,7 @@ export function HomePage() {
                 'Community-first UX for collectors & investors',
                 'Wallet, mint & marketplace tracking analytics'
               ],
-              link: 'https://www.eon8.com/nft-marketing-services/'
+              link: '/nft-marketing-services'
             },
             {
               title: 'Crypto Marketing Optimization',
@@ -537,7 +538,7 @@ export function HomePage() {
                 'UX/UI design for credibility & clarity',
                 'Advanced funnel analytics & user behavior insights'
               ],
-              link: 'https://www.eon8.com/crypto-marketing-agency/'
+              link: '/crptocurrency-marketing-agency'
             },
             {
               title: 'AI Marketing Optimization',
@@ -548,7 +549,7 @@ export function HomePage() {
                 'UX/UI that simplifies complex AI solutions',
                 'Advanced analytics & conversion insights'
               ],
-              link: 'https://www.eon8.com/ai-agent-development-services/'
+              link: '/ai-agent-development-services'
             },
             {
               title: 'Website & Conversion Optimization',
@@ -559,7 +560,7 @@ export function HomePage() {
                 'UX/UI improvements that solve conversion bottlenecks',
                 'Detailed lead tracking & analytics implementation'
               ],
-              link: 'https://www.eon8.com/search-engine-optimization-services-seo/'
+              link: '/search-engine-optimization-services-seo'
             }
           ].map((row, idx) => (
             <div 
@@ -578,11 +579,11 @@ export function HomePage() {
                   ))}
                 </ul>
                 <div className="pt-4">
-                  <a href={row.link}>
-                    <Button className="rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 shadow-md hover:shadow-lg transition-all">
+                  <Link to={row.link}>
+                    <Button className="rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 shadow-md hover:shadow-lg transition-all cursor-pointer">
                       Read More
                     </Button>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -831,7 +832,7 @@ export function HomePage() {
                   </div>
                   <div className="p-5 space-y-3 text-left">
                     <h4 className="text-base font-heading font-bold text-foreground line-clamp-2 leading-snug group-hover:text-primary transition-colors">
-                      <a href={blog.link}>{blog.title}</a>
+                      <Link to={blog.link}>{blog.title}</Link>
                     </h4>
                     <p className="text-muted-foreground text-xs leading-relaxed line-clamp-3">
                       {blog.desc}
@@ -840,9 +841,9 @@ export function HomePage() {
                 </div>
 
                 <div className="p-5 pt-0 border-t border-border/10 flex items-center justify-between text-xs">
-                  <a href={blog.link} className="font-bold text-orange-500 hover:underline">
+                  <Link to={blog.link} className="font-bold text-orange-500 hover:underline">
                     Read Article
-                  </a>
+                  </Link>
                   <div className="flex items-center gap-1.5 text-muted-foreground">
                     <Calendar className="w-3.5 h-3.5" />
                     <span>2026</span>
@@ -853,11 +854,11 @@ export function HomePage() {
           </div>
 
           <div className="text-center">
-            <a href="https://www.eon8.com/blog/">
-              <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded-xl px-8 h-12">
+            <Link to="/blog">
+              <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded-xl px-8 h-12 cursor-pointer">
                 <span>View More Articles</span>
               </Button>
-            </a>
+            </Link>
           </div>
 
         </div>
