@@ -48,11 +48,11 @@
 5. **Client Proof & Testimonial Carousel**: Authentic client testimonials with ratings, company names, and verified avatars.
 6. **Bottom Consultation Ribbon**: Full-width contact bar with telephone number (+91 90422 94007) and inquiry modal trigger.
 
-- [ ] **Step 1:** Fetch and audit live content and assets from `https://www.eon8.com/about-us/`.
-- [ ] **Step 2:** Refactor `src/pages/AboutPage.tsx` with the 6 authentic sections, Framer Motion tab transitions, and animated skill bars.
-- [ ] **Step 3:** Run `npm run build` and verify zero TypeScript or layout warnings.
-- [ ] **Step 4:** Test on mobile and desktop viewports.
-- [ ] **Step 5:** Commit changes (`feat(about): rebuild About Us page to match live eon8.com/about-us UI`).
+- [x] **Step 1:** Fetch and audit live content and assets from `https://www.eon8.com/about-us/`.
+- [x] **Step 2:** Refactor `src/pages/AboutPage.tsx` with the 6 authentic sections, Framer Motion tab transitions, and animated skill bars.
+- [x] **Step 3:** Run `npm run build` and verify zero TypeScript or layout warnings.
+- [x] **Step 4:** Test on mobile and desktop viewports.
+- [x] **Step 5:** Commit changes (`feat(about): rebuild About Us page to match live eon8.com/about-us UI`).
 
 ---
 
@@ -79,11 +79,11 @@
 4. **Full-Width Interactive Google Maps Embed**: Embedded coordinates centered on Eon8 Chennai Headquarters with custom styled overlay.
 5. **Global Contact Strip**: Quick-dial phone link and direct email link.
 
-- [ ] **Step 1:** Audit live form fields and location details from `https://www.eon8.com/contact/`.
-- [ ] **Step 2:** Refactor `src/pages/ContactPage.tsx` with the 4 city cards, interactive enquiry form, and responsive map layout.
-- [ ] **Step 3:** Run `npm run build` to verify clean build.
-- [ ] **Step 4:** Test form validation, math captcha challenge, and mobile responsive behavior.
-- [ ] **Step 5:** Commit changes (`feat(contact): rebuild Contact page with exact Eon8 4-city cards and inquiry form`).
+- [x] **Step 1:** Audit live form fields and location details from `https://www.eon8.com/contact/`.
+- [x] **Step 2:** Refactor `src/pages/ContactPage.tsx` with the 4 city cards, interactive enquiry form, and responsive map layout.
+- [x] **Step 3:** Run `npm run build` to verify clean build.
+- [x] **Step 4:** Test form validation, math captcha challenge, and mobile responsive behavior.
+- [x] **Step 5:** Commit changes (`feat(contact): rebuild Contact page with exact Eon8 4-city cards and inquiry form`).
 
 ---
 

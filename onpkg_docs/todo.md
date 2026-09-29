@@ -144,10 +144,10 @@ This task list serves as the main checklist for building and verifying the Eon8 
   - [x] "Scale your Business" high-conversion banner CTA
   - [x] 5-step operational workflow cards (Learn, Strategize, Align, Deploy, Iterate)
   - [x] Testimonials slider & bottom consultation ribbon
-- [ ] **Task 2: Rebuild Contact Us Page (`ContactPage.tsx`)**
-  - [ ] 4 strategic city cards (Mumbai, Chennai HQ, Bangalore, Hyderabad) with SVG silhouettes & contact details
-  - [ ] Interactive dual-column "Get Enquiry" form with service selector, budget, phone code, and math captcha
-  - [ ] Responsive full-width Google Maps embed with custom overlay
+- [x] **Task 2: Rebuild Contact Us Page (`ContactPage.tsx`)**
+  - [x] 4 strategic city cards (Mumbai, Chennai HQ, Bangalore, Hyderabad) with SVG silhouettes & contact details
+  - [x] Interactive dual-column "Get Enquiry" form with service selector, budget, phone code, and math captcha
+  - [x] Responsive full-width Google Maps embed with custom overlay
 - [ ] **Task 3: Upgrade Flagship AI Agent Page (`AIAgentPage.tsx`)**
   - [ ] Authentic Eon8 Split Hero with inline "Reach Out To Us" lead capture card
   - [ ] What Are AI Agents architecture graphic & 5 strategic business benefits
