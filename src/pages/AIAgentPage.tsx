@@ -78,13 +78,22 @@ export function AIAgentPage() {
   const [bookingForm, setBookingForm] = useState({ name: '', email: '' });
   const [bookingConfirmed, setBookingConfirmed] = useState(false);
 
-  // Bottom Form State
+  // Dynamic Calendar Month info
+  const now = new Date();
+  const currentMonthName = now.toLocaleString('default', { month: 'long', year: 'numeric' });
+  const daysInCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+  const currentDayNumber = now.getDate();
+
+  // Bottom Form State & Math Captcha
   const [contactName, setContactName] = useState('');
   const [contactEmail, setContactEmail] = useState('');
   const [contactPhone, setContactPhone] = useState('');
   const [countryCode, setCountryCode] = useState('+91');
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [contactError, setContactError] = useState('');
+  const [captchaNum1, setCaptchaNum1] = useState(() => Math.floor(Math.random() * 9) + 3);
+  const [captchaNum2, setCaptchaNum2] = useState(() => Math.floor(Math.random() * 7) + 1);
+  const [captchaVal, setCaptchaVal] = useState('');
 
   // GSAP animations for reveals
   useEffect(() => {
@@ -303,12 +312,12 @@ export function AIAgentPage() {
             </div>
           </div>
           
-          {/* Right Column: 3D Illustration */}
+          {/* Right Column: AI Agent Development Illustration */}
           <div className="flex justify-center select-none">
             <img 
-              src="/imgs/ai-agent-hero-new.jpg" 
-              alt="AI Agent Development 3D Render" 
-              className="w-full max-w-[450px] lg:max-w-[480px] rounded-3xl object-contain shadow-2xl hover:scale-[1.01] transition-transform duration-500 border border-blue-400/15"
+              src="/imgs/ai-agent-development-services.png" 
+              alt="AI Agent Development Services" 
+              className="w-full max-w-[500px] lg:max-w-[540px] rounded-3xl object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500"
             />
           </div>
 
@@ -332,8 +341,8 @@ export function AIAgentPage() {
             {/* Left Column: Tech Infographic Diagram */}
             <div className="flex justify-center select-none">
               <img 
-                src="/imgs/ai-agent-types.jpg" 
-                alt="AI Agent Types Infographic Diagram" 
+                src="/imgs/ai-agents.png" 
+                alt="AI Agents Architecture Diagram" 
                 className="w-full max-w-[500px] lg:max-w-none rounded-2xl shadow-lg border border-border/30 hover:shadow-xl transition-shadow duration-300"
               />
             </div>
@@ -650,8 +659,8 @@ export function AIAgentPage() {
           {/* Right Column: Case study generated image */}
           <div className="flex justify-center select-none">
             <img 
-              src="/imgs/ecommerce-case-study.jpg" 
-              alt="Holographic humanoid ecommerce AI assistant" 
+              src="/imgs/casestudy-ai-agents.png" 
+              alt="E-commerce AI Agent Case Study" 
               className="w-full max-w-[500px] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 border border-border/25"
             />
           </div>
@@ -754,7 +763,7 @@ export function AIAgentPage() {
                     <div className="flex items-center justify-between">
                       <h4 className="font-heading font-black text-base text-foreground">Select a Date & Time</h4>
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-bold text-foreground">June 2026</span>
+                        <span className="text-sm font-bold text-foreground">{currentMonthName}</span>
                       </div>
                     </div>
                     
@@ -763,10 +772,10 @@ export function AIAgentPage() {
                       {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(d => (
                         <div key={d} className="text-slate-400 py-1">{d}</div>
                       ))}
-                      {/* Empty slots for offset (June 1st, 2026 is Monday, so 0 offset) */}
-                      {Array.from({ length: 30 }).map((_, i) => {
+                      {Array.from({ length: daysInCurrentMonth }).map((_, i) => {
                         const day = i + 1;
-                        const isPast = day <= 18; // Today is 18th
+                        const isPast = day < currentDayNumber;
+                        const isSelected = selectedDate === day;
                         return (
                           <button
                             key={day}
@@ -775,7 +784,9 @@ export function AIAgentPage() {
                             className={`py-3 rounded-full text-center font-extrabold focus:outline-none transition-all ${
                               isPast 
                                 ? 'text-slate-200 dark:text-slate-800 cursor-not-allowed' 
-                                : 'text-slate-800 dark:text-slate-200 bg-blue-500/5 hover:bg-blue-600 hover:text-white cursor-pointer ring-1 ring-blue-600/10'
+                                : isSelected
+                                  ? 'bg-blue-600 text-white shadow-md'
+                                  : 'text-slate-800 dark:text-slate-200 bg-blue-500/5 hover:bg-blue-600 hover:text-white cursor-pointer ring-1 ring-blue-600/10'
                             }`}
                           >
                             {day}
@@ -795,7 +806,7 @@ export function AIAgentPage() {
                         ← Back to calendar
                       </button>
                       <h4 className="font-heading font-black text-sm text-foreground">
-                        Selected: June {selectedDate}, 2026
+                        Selected: {currentMonthName} {selectedDate}
                       </h4>
                     </div>
 
@@ -830,7 +841,7 @@ export function AIAgentPage() {
                         ← Back to times
                       </button>
                       <h4 className="font-heading font-black text-sm text-foreground">
-                        June {selectedDate} at {selectedTime}
+                        {currentMonthName} {selectedDate} at {selectedTime}
                       </h4>
                     </div>
 
@@ -875,7 +886,7 @@ export function AIAgentPage() {
                 </div>
                 <h3 className="text-2xl font-heading font-black text-foreground">Meeting Confirmed!</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mx-auto">
-                  Hi {bookingForm.name}, your meeting is scheduled on <strong>June {selectedDate}, 2026 at {selectedTime}</strong>. Calendar invite details have been sent to {bookingForm.email}.
+                  Hi {bookingForm.name}, your meeting is scheduled on <strong>{currentMonthName} {selectedDate} at {selectedTime}</strong>. Calendar invite details have been sent to {bookingForm.email}.
                 </p>
                 <button 
                   onClick={() => {
@@ -940,8 +951,12 @@ export function AIAgentPage() {
               <form 
                 onSubmit={(e) => {
                   e.preventDefault();
-                  if (!contactName || !contactEmail || !contactPhone) {
+                  if (!contactName.trim() || !contactEmail.trim() || !contactPhone.trim()) {
                     setContactError('Please fill out all required fields');
+                    return;
+                  }
+                  if (parseInt(captchaVal.trim(), 10) !== captchaNum1 + captchaNum2) {
+                    setContactError('Incorrect Captcha answer. Please try again.');
                     return;
                   }
                   setContactSubmitted(true);
@@ -950,7 +965,7 @@ export function AIAgentPage() {
                 className="space-y-4 text-slate-800"
               >
                 {contactError && (
-                  <p className="text-xs font-bold text-red-400">{contactError}</p>
+                  <p className="text-xs font-bold text-red-300 bg-red-950/60 p-2.5 rounded-lg border border-red-500/30">{contactError}</p>
                 )}
 
                 <div className="space-y-1">
@@ -997,11 +1012,26 @@ export function AIAgentPage() {
                   />
                 </div>
 
+                {/* Math Captcha Equation */}
+                <div className="flex items-center justify-between gap-3 bg-white/10 border border-white/20 p-3 rounded-xl text-white">
+                  <span className="text-xs font-mono font-bold tracking-wider">
+                    {captchaNum1} + {captchaNum2} = ?
+                  </span>
+                  <input 
+                    type="text" 
+                    required 
+                    placeholder="Answer"
+                    value={captchaVal}
+                    onChange={(e) => setCaptchaVal(e.target.value)}
+                    className="w-24 h-9 bg-white text-slate-900 text-center font-bold text-xs rounded-lg focus:outline-none shadow-inner"
+                  />
+                </div>
+
                 <Button 
                   type="submit"
-                  className="w-full h-12 bg-[#b92c2c] hover:bg-[#9d2424] text-white font-extrabold rounded-xl text-sm transition-all border border-red-700/20 shadow-md cursor-pointer mt-2"
+                  className="w-full h-12 bg-[#ff6a00] hover:bg-[#ea580c] text-white font-extrabold rounded-xl text-sm transition-all shadow-md cursor-pointer mt-2"
                 >
-                  Submit
+                  Submit Enquiry
                 </Button>
               </form>
             ) : (
@@ -1009,9 +1039,9 @@ export function AIAgentPage() {
                 <div className="w-16 h-16 bg-green-500/10 text-green-400 rounded-full flex items-center justify-center mx-auto border border-green-500/25">
                   <UserCheck className="w-8 h-8" />
                 </div>
-                <h4 className="text-xl font-heading font-black text-white">Thank You!</h4>
+                <h4 className="text-xl font-heading font-black text-white">Thank You, {contactName}!</h4>
                 <p className="text-blue-100 text-sm leading-relaxed max-w-sm mx-auto">
-                  Hi {contactName}, your details have been received successfully. Our team will contact you at {contactEmail} / {countryCode} {contactPhone} shortly.
+                  Hi {contactName}, your details have been received successfully. Our senior AI architecture team will contact you within 5 minutes.
                 </p>
                 <button 
                   onClick={() => {
@@ -1019,8 +1049,11 @@ export function AIAgentPage() {
                     setContactName('');
                     setContactEmail('');
                     setContactPhone('');
+                    setCaptchaVal('');
+                    setCaptchaNum1(Math.floor(Math.random() * 9) + 3);
+                    setCaptchaNum2(Math.floor(Math.random() * 7) + 1);
                   }}
-                  className="text-xs font-bold text-blue-300 hover:underline cursor-pointer"
+                  className="text-xs font-bold text-orange-300 hover:underline cursor-pointer"
                 >
                   Submit another inquiry
                 </button>
