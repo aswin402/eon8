@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeToggleButton } from '@/components/ThemeToggleButton';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, Phone, Mail, MapPin } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 
 interface SubItem {
   name: string;
@@ -11,11 +11,13 @@ interface SubItem {
 
 interface MegaSubGroup {
   title: string;
+  href?: string;
   items: SubItem[];
 }
 
 interface MegaSection {
   title?: string;
+  href?: string;
   items?: SubItem[];
   subGroups?: MegaSubGroup[];
 }
@@ -32,14 +34,14 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   {
     label: 'AI-Agent',
-    href: '#',
+    href: '/ai-agent-development-services',
     submenu: [
       { name: 'AI Agent Development Services', href: '/ai-agent-development-services' }
     ]
   },
   {
     label: 'Crypto',
-    href: '#',
+    href: '/crptocurrency-marketing-agency',
     submenu: [
       { name: 'Crypto Marketing', href: '/crptocurrency-marketing-agency' },
       { name: 'Crypto PR Services', href: '/crypto-pr-services' },
@@ -59,7 +61,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Influencer',
-    href: '#',
+    href: '/influencer-marketing-agency',
     submenu: [
       { name: 'Influencer Marketing Agency', href: '/influencer-marketing-agency' },
       { name: 'Insta Influencer Marketing Agency', href: '/instagram-influencer-marketing-agency' },
@@ -70,11 +72,12 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'NFT',
-    href: '#',
+    href: '/nft-marketing-services',
     isMega: true,
     megaSections: [
       {
         title: 'NFT Marketing',
+        href: '/nft-marketing-services',
         items: [
           { name: 'NFT Marketing Services', href: '/nft-marketing-services' },
           { name: 'NFT Art Agency', href: '/nft-art-agency' },
@@ -92,6 +95,7 @@ const NAV_ITEMS: NavItem[] = [
       },
       {
         title: 'Discord Marketing',
+        href: '/discord-marketing-agency',
         items: [
           { name: 'Discord Marketing Agency', href: '/discord-marketing-agency' },
           { name: 'Discord Game Marketing Agency', href: '/discord-game-marketing-agency' },
@@ -101,6 +105,7 @@ const NAV_ITEMS: NavItem[] = [
       },
       {
         title: 'Community',
+        href: '/reddit-community-marketing-agency',
         items: [
           { name: 'Reddit Community Marketing Agency', href: '/reddit-community-marketing-agency' },
           { name: 'Discord Community Building Services', href: '/discord-community-building-services' },
@@ -113,11 +118,12 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Our Services',
-    href: '#',
+    href: '/digital-marketing-agency-in-chennai',
     isMega: true,
     megaSections: [
       {
         title: 'Digital Marketing Agency',
+        href: '/digital-marketing-agency-in-chennai',
         items: [
           { name: 'Digital Marketing Agency in Chennai', href: '/digital-marketing-agency-in-chennai' },
           { name: 'Search Engine Optimization SEO', href: '/search-engine-optimization-services-seo' },
@@ -135,6 +141,7 @@ const NAV_ITEMS: NavItem[] = [
         subGroups: [
           {
             title: 'Social Media Marketing',
+            href: '/social-media-marketing-company-chennai',
             items: [
               { name: 'Top Social Media Marketing Company', href: '/social-media-marketing-company-chennai' },
               { name: 'Social Media Brand Management Agency', href: '/social-media-brand-management-agency-chennai' },
@@ -148,6 +155,7 @@ const NAV_ITEMS: NavItem[] = [
           },
           {
             title: 'ORM Services',
+            href: '/reputation-management-services',
             items: [
               { name: 'Reputation management services', href: '/reputation-management-services' },
               { name: 'Online Reputation Management', href: '/online-reputation-management-agency' },
@@ -163,6 +171,7 @@ const NAV_ITEMS: NavItem[] = [
         subGroups: [
           {
             title: 'Pay-Per-Click',
+            href: '/ppc-company-chennai',
             items: [
               { name: 'PPC Services Agency in Chennai', href: '/ppc-company-chennai' },
               { name: 'Search Advertising Company', href: '/search-advertising-company' },
@@ -173,6 +182,7 @@ const NAV_ITEMS: NavItem[] = [
           },
           {
             title: 'App Marketing',
+            href: '/android-apps-marketing-services-marketing',
             items: [
               { name: 'Android App Marketing Services', href: '/android-apps-marketing-services-marketing' },
               { name: 'Apple App Store Optimization', href: '/apple-app-store-optimization-services-ios' },
@@ -181,6 +191,7 @@ const NAV_ITEMS: NavItem[] = [
           },
           {
             title: 'AR/VR Brand Innovation',
+            href: '/immersive-vr-marketing',
             items: [
               { name: 'Immersive Marketing with Augmented Reality', href: '/immersive-vr-marketing' },
               { name: 'End-to-End Augmented Reality Services', href: '/augmented-reality-agency' },
@@ -190,6 +201,7 @@ const NAV_ITEMS: NavItem[] = [
           },
           {
             title: 'Metaverse & Conversational',
+            href: '/metaverse',
             items: [
               { name: 'Strategic Branding in the Metaverse', href: '/metaverse' },
               { name: 'WhatsApp Marketing Services', href: '/whatsapp-marketing-services' }
@@ -285,14 +297,24 @@ export function Navbar() {
                 onMouseEnter={() => setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button
-                  className="flex items-center gap-1 text-xs lg:text-[13px] xl:text-[14px] font-semibold py-2 px-1.5 lg:px-2 xl:px-3 text-foreground/80 hover:text-primary transition-colors cursor-pointer whitespace-nowrap"
-                >
-                  <span>{item.label}</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                    activeDropdown === item.label ? 'rotate-180' : ''
-                  }`} />
-                </button>
+                <div className="flex items-center">
+                  <Link
+                    to={item.href}
+                    onClick={() => setActiveDropdown(null)}
+                    className="text-xs lg:text-[13px] xl:text-[14px] font-semibold py-2 pl-1.5 lg:pl-2 xl:pl-3 pr-1 text-foreground/80 hover:text-primary transition-colors cursor-pointer whitespace-nowrap"
+                  >
+                    {item.label}
+                  </Link>
+                  <button
+                    onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                    aria-label={`Toggle ${item.label} menu`}
+                    className="p-1 text-foreground/60 hover:text-primary transition-colors cursor-pointer"
+                  >
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                      activeDropdown === item.label ? 'rotate-180' : ''
+                    }`} />
+                  </button>
+                </div>
 
                 {/* Dropdown Box */}
                 <AnimatePresence>
@@ -324,9 +346,20 @@ export function Navbar() {
                                 {section.subGroups ? (
                                   section.subGroups.map((group) => (
                                     <div key={group.title} className="space-y-3">
-                                      <h5 className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 tracking-normal normal-case mb-1">
-                                        {group.title}
-                                      </h5>
+                                      {group.href ? (
+                                        <Link
+                                          to={group.href}
+                                          onClick={() => setActiveDropdown(null)}
+                                          className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-primary transition-colors tracking-normal normal-case mb-1 inline-flex items-center gap-1 group/title"
+                                        >
+                                          <span>{group.title}</span>
+                                          <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-primary" />
+                                        </Link>
+                                      ) : (
+                                        <h5 className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 tracking-normal normal-case mb-1">
+                                          {group.title}
+                                        </h5>
+                                      )}
                                       <ul className="space-y-1.5">
                                         {group.items.map((subitem) => (
                                           <li key={subitem.name}>
@@ -342,10 +375,21 @@ export function Navbar() {
                                   ))
                                 ) : (
                                   <div className="space-y-3">
-                                    {section.title && (
-                                      <h5 className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 tracking-normal normal-case mb-1">
-                                        {section.title}
-                                      </h5>
+                                    {section.href ? (
+                                      <Link
+                                        to={section.href}
+                                        onClick={() => setActiveDropdown(null)}
+                                        className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-primary transition-colors tracking-normal normal-case mb-1 inline-flex items-center gap-1 group/title"
+                                      >
+                                        <span>{section.title}</span>
+                                        <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-primary" />
+                                      </Link>
+                                    ) : (
+                                      section.title && (
+                                        <h5 className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 tracking-normal normal-case mb-1">
+                                          {section.title}
+                                        </h5>
+                                      )
                                     )}
                                     <ul className="space-y-1.5">
                                       {section.items?.map((subitem) => (
@@ -459,17 +503,26 @@ export function Navbar() {
                   {/* Dropdowns */}
                   {NAV_ITEMS.map((item) => (
                     <div key={item.label} className="border-b border-border/10 pb-2">
-                      <button
-                        onClick={() => setActiveMobileSubmenu(
-                          activeMobileSubmenu === item.label ? null : item.label
-                        )}
-                        className="flex items-center justify-between w-full text-base font-semibold py-2 text-foreground/80 hover:text-primary transition-all"
-                      >
-                        <span>{item.label}</span>
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${
-                          activeMobileSubmenu === item.label ? 'rotate-180' : ''
-                        }`} />
-                      </button>
+                      <div className="flex items-center justify-between w-full">
+                        <Link
+                          to={item.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="flex-1 text-base font-semibold py-2 text-foreground/80 hover:text-primary transition-all text-left"
+                        >
+                          {item.label}
+                        </Link>
+                        <button
+                          onClick={() => setActiveMobileSubmenu(
+                            activeMobileSubmenu === item.label ? null : item.label
+                          )}
+                          className="p-2 text-foreground/70 hover:text-primary transition-colors cursor-pointer"
+                          aria-label={`Toggle ${item.label} submenu`}
+                        >
+                          <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${
+                            activeMobileSubmenu === item.label ? 'rotate-180' : ''
+                          }`} />
+                        </button>
+                      </div>
 
                       {/* Sub-menu drawer collapse */}
                       <AnimatePresence>
@@ -486,7 +539,17 @@ export function Navbar() {
                                   {sect.subGroups ? (
                                     sect.subGroups.map((group) => (
                                       <div key={group.title} className="space-y-1.5">
-                                        <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mt-2">{group.title}</div>
+                                        {group.href ? (
+                                          <Link
+                                            to={group.href}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className="text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors block mt-2"
+                                          >
+                                            {group.title}
+                                          </Link>
+                                        ) : (
+                                          <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mt-2">{group.title}</div>
+                                        )}
                                         {group.items.map((sub) => (
                                           <span key={sub.name} className="block py-1">
                                             {renderLink(sub.name, sub.href, "text-[13px] font-medium text-slate-600 dark:text-slate-400 hover:text-primary block")}
@@ -496,8 +559,18 @@ export function Navbar() {
                                     ))
                                   ) : (
                                     <div className="space-y-1.5">
-                                      {sect.title && (
-                                        <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mt-2">{sect.title}</div>
+                                      {sect.href ? (
+                                        <Link
+                                          to={sect.href}
+                                          onClick={() => setIsMobileMenuOpen(false)}
+                                          className="text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors block mt-2"
+                                        >
+                                          {sect.title}
+                                        </Link>
+                                      ) : (
+                                        sect.title && (
+                                          <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mt-2">{sect.title}</div>
+                                        )
                                       )}
                                       {sect.items?.map((sub) => (
                                         <span key={sub.name} className="block py-1">
