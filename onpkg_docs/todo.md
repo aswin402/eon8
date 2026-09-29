@@ -167,13 +167,13 @@ This task list serves as the main checklist for building and verifying the Eon8 
   - [x] NFT Split Hero with inline lead capture form
   - [x] 3-Pillar Framework: Create Hype, Drive Value, Build Community
   - [x] Discord & Reddit moderation showcase deck & NFT FAQ
-- [ ] **Task 7: Upgrade Influencer Marketing Architecture (`InfluencerServicePage.tsx`)**
-  - [ ] Split Hero with influencer campaign metrics & inline consultation form
-  - [ ] Influencer Tiers Matrix (Nano, Micro, Macro, Mega, Celebrities)
-  - [ ] Platform channel showcases & 8-step campaign roadmap
-- [ ] **Task 8: Upgrade Blog Hub & Post Reader (`BlogListPage.tsx` & `BlogPostPage.tsx`)**
-  - [ ] Magazine layout for Blog Hub with category pills & featured post spotlight
-  - [ ] Article reader with sticky social share, auto Table of Contents, author bio, and sidebar consultation form
-- [ ] **Task 9: Final Quality Assurance & Performance Verification**
-  - [ ] Cross-device mobile/tablet/desktop verification
-  - [ ] Production build verification with zero warnings and all chunks < 300 kB
+- [x] **Task 7: Upgrade Influencer Marketing Architecture (`InfluencerServicePage.tsx`)**
+  - [x] Split Hero with influencer campaign metrics & inline consultation form
+  - [x] Influencer Tiers Matrix (Nano, Micro, Macro, Mega, Celebrities)
+  - [x] Platform channel showcases & 8-step campaign roadmap
+- [x] **Task 8: Upgrade Blog Hub & Post Reader (`BlogListPage.tsx` & `BlogPostPage.tsx`)**
+  - [x] Magazine layout for Blog Hub with category pills & featured post spotlight
+  - [x] Article reader with sticky social share, author bio, categories, and sidebar consultation form
+- [x] **Task 9: Final Quality Assurance & Performance Verification**
+  - [x] Cross-device mobile/tablet/desktop verification
+  - [x] Production build verification with zero warnings and all chunks < 300 kB

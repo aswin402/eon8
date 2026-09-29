@@ -217,10 +217,10 @@
    - Brand Analysis &rarr; Influencer Discovery &rarr; Shortlisting &rarr; Proposal Submission &rarr; Campaign Finalization &rarr; Content Creation &rarr; Launch &rarr; Monitor.
 5. **Influencer FAQ Accordion & Conversion Banner**.
 
-- [ ] **Step 1:** Audit live content from `https://www.eon8.com/influencer-marketing-agency/`.
-- [ ] **Step 2:** Refactor `InfluencerServicePage.tsx` with the tiers matrix, platform channels, and 8-step roadmap.
-- [ ] **Step 3:** Run `npm run build` to verify clean build.
-- [ ] **Step 4:** Commit changes (`feat(influencer): upgrade InfluencerServicePage with tiers matrix and 8-step roadmap`).
+- [x] **Step 1:** Audit live content from `https://www.eon8.com/influencer-marketing-agency/`.
+- [x] **Step 2:** Refactor `InfluencerServicePage.tsx` with the tiers matrix, platform channels, and 8-step roadmap.
+- [x] **Step 3:** Run `npm run build` to verify clean build.
+- [x] **Step 4:** Commit changes (`feat(influencer): upgrade InfluencerServicePage with tiers matrix and 8-step roadmap`).
 
 ---
 
@@ -248,10 +248,10 @@
      - Recent / Trending articles list.
    - Related articles grid at the bottom.
 
-- [ ] **Step 1:** Audit live magazine layout from `https://www.eon8.com/digital-marketing-blog/`.
-- [ ] **Step 2:** Upgrade `BlogListPage.tsx` and `BlogPostPage.tsx` with sticky social share, sidebar consultation form, and magazine typography.
-- [ ] **Step 3:** Run `npm run build` to verify clean build.
-- [ ] **Step 4:** Commit changes (`feat(blog): upgrade Blog hub and post reader with magazine layout and sidebar form`).
+- [x] **Step 1:** Audit live magazine layout from `https://www.eon8.com/digital-marketing-blog/`.
+- [x] **Step 2:** Upgrade `BlogListPage.tsx` and `BlogPostPage.tsx` with sticky social share, sidebar consultation form, and magazine typography.
+- [x] **Step 3:** Run `npm run build` to verify clean build.
+- [x] **Step 4:** Commit changes (`feat(blog): upgrade Blog hub and post reader with magazine layout and sidebar form`).
 
 ---
 
@@ -267,7 +267,7 @@
 - All routes match on mobile (375px), tablet (768px), and desktop (1280px+).
 - All chunks remain under 300 kB with zero rollup warnings.
 
-- [ ] **Step 1:** Run complete `npm run build` and verify bundle breakdown.
-- [ ] **Step 2:** Audit on responsive mobile simulator.
-- [ ] **Step 3:** Update project documentation (`onpkg_docs/todo.md` and `onpkg_docs/task.md`).
-- [ ] **Step 4:** Final git commit and tag.
+- [x] **Step 1:** Run complete `npm run build` and verify bundle breakdown.
+- [x] **Step 2:** Audit on responsive mobile simulator.
+- [x] **Step 3:** Update project documentation (`onpkg_docs/todo.md` and `onpkg_docs/task.md`).
+- [x] **Step 4:** Final git commit and tag.
