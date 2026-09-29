@@ -158,11 +158,11 @@ This task list serves as the main checklist for building and verifying the Eon8 
   - [x] Industry trust row & "Our Specific Sector" tag pills
   - [x] Mid-page callout break banner & "Empowering Business" 4-pillar feature deck
   - [x] ROI breakdown comparison table & service-specific FAQs
-- [ ] **Task 5: Upgrade Crypto & Web3 Marketing Architecture (`CryptoServicePage.tsx`)**
-  - [ ] Web3 Split Hero with inline quick consultation card
-  - [ ] Top-tier publication proof marquee (CoinTelegraph, Bloomberg, Yahoo Finance, Business Insider)
-  - [ ] Interactive 3-stage capability tabs (Create / Scale / Improve)
-  - [ ] Web3 capabilities grid & Crypto FAQ accordion
+- [x] **Task 5: Upgrade Crypto & Web3 Marketing Architecture (`CryptoServicePage.tsx`)**
+  - [x] Web3 Split Hero with inline quick consultation card
+  - [x] Top-tier publication proof marquee (CoinTelegraph, Bloomberg, Yahoo Finance, Business Insider)
+  - [x] Interactive 3-stage capability tabs (Create / Scale / Improve)
+  - [x] Web3 capabilities grid & Crypto FAQ accordion
 - [ ] **Task 6: Upgrade NFT & Community Marketing Architecture (`NftServicePage.tsx`)**
   - [ ] NFT Split Hero with inline lead capture form
   - [ ] 3-Pillar Framework: Create Hype, Drive Value, Build Community

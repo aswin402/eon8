@@ -166,10 +166,10 @@
 4. **Capabilities Grid**: Full breakdown of services (ICO/IDO/IEO, KOLs, Community Shilling, PR Syndication).
 5. **Callout Banner & Crypto FAQ Accordion**.
 
-- [ ] **Step 1:** Audit live content from `https://www.eon8.com/crptocurrency-marketing-agency/` and `https://www.eon8.com/crypto-pr-services/`.
-- [ ] **Step 2:** Refactor `CryptoServicePage.tsx` with the media publications row, 3-phase tabs, and Web3 enquiry card.
-- [ ] **Step 3:** Run `npm run build` to verify clean build.
-- [ ] **Step 4:** Commit changes (`feat(crypto): upgrade CryptoServicePage with media proof bar and 3-phase strategy tabs`).
+- [x] **Step 1:** Audit live content from `https://www.eon8.com/crptocurrency-marketing-agency/` and `https://www.eon8.com/crypto-pr-services/`.
+- [x] **Step 2:** Refactor `CryptoServicePage.tsx` with the media publications row, 3-phase tabs, and Web3 enquiry card.
+- [x] **Step 3:** Run `npm run build` to verify clean build.
+- [x] **Step 4:** Commit changes (`feat(crypto): upgrade CryptoServicePage with media proof bar and 3-phase strategy tabs`).
 
 ---
 
