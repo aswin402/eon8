@@ -110,10 +110,10 @@
    - Programming (Python, TypeScript), Frameworks (LangChain, LlamaIndex, AutoGen, CrewAI), LLMs (OpenAI GPT-4o, Gemini Pro, Claude 3.5), Cloud & Vector DBs (AWS, GCP, Pinecone, Qdrant).
 7. **Interactive AI FAQ Accordion & Closing Conversion Banner**.
 
-- [ ] **Step 1:** Extract exact copy, layout specs, and diagram assets from `https://www.eon8.com/ai-agent-development-services/`.
-- [ ] **Step 2:** Update `src/pages/AIAgentPage.tsx` with the signature split-hero lead form and 6-stage lifecycle.
-- [ ] **Step 3:** Run `npm run build` to verify clean bundle and typing.
-- [ ] **Step 4:** Commit changes (`feat(ai-agent): upgrade AI Agent page to exact Eon8 split-hero and lifecycle layout`).
+- [x] **Step 1:** Extract exact copy, layout specs, and diagram assets from `https://www.eon8.com/ai-agent-development-services/`.
+- [x] **Step 2:** Update `src/pages/AIAgentPage.tsx` with the signature split-hero lead form and 6-stage lifecycle.
+- [x] **Step 3:** Run `npm run build` to verify clean bundle and typing.
+- [x] **Step 4:** Commit changes (`feat(ai-agent): upgrade AI Agent page to exact Eon8 split-hero and lifecycle layout`).
 
 ---
 
