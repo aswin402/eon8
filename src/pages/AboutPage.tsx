@@ -1,44 +1,138 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/store/useAppStore';
-import { Button } from '@/components/ui/button';
-import { 
-  Award, Eye, Flame, Compass, 
-  ArrowRight, Quote 
-} from 'lucide-react';
+import { ChevronRight, Award, Flame, Eye, Plus, Minus, ArrowRight } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
+
+interface SkillItem {
+  title: string;
+  percent: number;
+}
+
+const SKILLS: SkillItem[] = [
+  { title: 'Web Analytics', percent: 98 },
+  { title: 'Pay-Per-Click', percent: 95 },
+  { title: 'SEO Services', percent: 93 },
+  { title: 'Link Building', percent: 90 },
+];
+
+const ACCORDION_ITEMS = [
+  {
+    id: 'history',
+    title: 'Our History',
+    icon: Award,
+    content: 'Started in 2012 and scaled to 1000+ projects globally. Over the last decade, EON8 has grown into an industry-dominating digital agency delivering high-velocity marketing architectures.',
+  },
+  {
+    id: 'mission',
+    title: 'Our Mission',
+    icon: Flame,
+    content: 'Deliver strategies that drive business growth. We challenge marketing norms and create new growth opportunities that empower brands to dominate search and social algorithms.',
+  },
+  {
+    id: 'vision',
+    title: 'Our Vision',
+    icon: Eye,
+    content: 'Become global leaders in Web3 marketing. Combining data-driven organic ranking power, decentralized community expansion, and autonomous marketing frameworks.',
+  },
+];
+
+const OPERATE_STEPS = [
+  {
+    step: '01',
+    title: 'Learn',
+    desc: 'We analyze your project thoroughly down to the last molecule to understand your unique requirement.',
+    icon: '/imgs/social-media-3.svg',
+  },
+  {
+    step: '02',
+    title: 'Strategize',
+    desc: 'Based on the inputs from our analysis, our Web 3.0 team will create the most relevant and effective marketing strategy.',
+    icon: '/imgs/presentation.svg',
+  },
+  {
+    step: '03',
+    title: 'Align',
+    desc: 'A fundamental exo-framework will be developed to implement the created strategy with disruptive efficiency.',
+    icon: '/imgs/content.svg',
+  },
+  {
+    step: '04',
+    title: 'Deploy',
+    desc: 'The team rapidly jumps into execution without wasting a microsecond and manages the project impressively.',
+    icon: '/imgs/amazon.svg',
+  },
+  {
+    step: '05',
+    title: 'Iterate',
+    desc: 'We learn from every output gained from the campaign and quickly apply an upgraded solution to maximize the impact.',
+    icon: '/imgs/technology.svg',
+  },
+];
+
+const TESTIMONIALS = [
+  {
+    name: 'Jullian Edisa',
+    role: 'Supervisor',
+    img: '/imgs/Jullian-Edisa.jpg',
+    text: 'EON8 has made a big difference to our brand with their excellent work and knowledge of Digital marketing techniques. Our brand awareness grew, the search engine rankings of our website are made better and eventually, our sales had gone high. Overall EON8 is a reliable and friendly firm to connect with for Digital marketing needs.',
+  },
+  {
+    name: 'Aaron P',
+    role: 'Supervisor',
+    img: '/imgs/testi_1.jpg',
+    text: 'EON8 did a wonderful job handling the design of our website. The team made sure to give extraordinary results as I’ve imagined and made my website more user-friendly for my visitors. I would recommend EON8 Digital Marketing company for anyone who looks to build their brand online or just in need of any digital marketing service.',
+  },
+];
 
 export function AboutPage() {
   const { setContactModalOpen } = useAppStore();
-  const [activeAccordion, setActiveAccordion] = useState<string | null>('history');
+  const [activeAccordion, setActiveAccordion] = useState<string>('history');
+  const [skillsVisible, setSkillsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
 
-  // GSAP animations
+  // Set page meta on mount
+  useEffect(() => {
+    document.title = 'About Eon8 Digital Marketing Agency | Eon8';
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        'content',
+        'At Eon8 you can get 360-degree Digital Marketing solution and online marketing services for brands and businesses to maintain digital presents.'
+      );
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
+  // GSAP animations & ScrollTrigger for skills
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero Title entrance
-      gsap.fromTo('.abt-hero-content',
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }
-      );
+      // Trigger skills animation
+      ScrollTrigger.create({
+        trigger: skillsRef.current,
+        start: 'top 80%',
+        onEnter: () => setSkillsVisible(true),
+      });
 
-      // Staggered operate cards reveal
-      gsap.fromTo('.abt-operate-card',
-        { opacity: 0, y: 50 },
+      // Staggered reveal for operation cards
+      gsap.fromTo(
+        '.operate-card-reveal',
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
+          duration: 0.6,
           stagger: 0.12,
           ease: 'power2.out',
           scrollTrigger: {
-            trigger: '.abt-operate-trigger',
+            trigger: '.operate-section-trigger',
             start: 'top 80%',
-          }
+          },
         }
       );
     }, containerRef);
@@ -46,254 +140,270 @@ export function AboutPage() {
     return () => ctx.revert();
   }, []);
 
-  const accordionItems = [
-    {
-      id: 'history',
-      title: 'Our History',
-      icon: Award,
-      content: 'Established in 2012, EON8 has grown from a boutique digital promotion setup into a major growth agency, having completed over 1,250 projects globally. We have spent the last decade scaling operations and positioning brands at the forefront of digital revolutions.'
-    },
-    {
-      id: 'mission',
-      title: 'Our Mission',
-      icon: Flame,
-      content: 'Our mission is to challenge standard marketing norms and design high-impact growth frameworks that deliver consistent business scaling, Web3 adoption, and automation efficiencies.'
-    },
-    {
-      id: 'vision',
-      title: 'Our Vision',
-      icon: Eye,
-      content: 'Our vision is to become the leading global partner for next-generation digital branding, combining data-driven performance campaigns with custom AI agent architectures and Web3 marketing systems.'
-    }
-  ];
-
-  const workflowSteps = [
-    {
-      title: 'Learn',
-      desc: 'We analyze your project thoroughly down to the last molecule to understand your unique operational and market requirements.',
-      icon: '/imgs/social-media-3.svg'
-    },
-    {
-      title: 'Strategize',
-      desc: 'Based on the inputs from our deep analysis, our specialized Web 3.0 team will create the most relevant and high-ROI marketing strategy.',
-      icon: '/imgs/presentation.svg'
-    },
-    {
-      title: 'Align',
-      desc: 'A fundamental exo-framework will be developed to implement the created strategy with disruptive campaign efficiency.',
-      icon: '/imgs/content.svg'
-    },
-    {
-      title: 'Deploy',
-      desc: 'The execution team rapidly launches campaigns and automation tools without wasting a microsecond, managing integrations seamlessly.',
-      icon: '/imgs/amazon.svg'
-    },
-    {
-      title: 'Iterate',
-      desc: 'We study every conversion log gained from campaigns and quickly deploy upgraded iterations to maximize overall brand impact.',
-      icon: '/imgs/technology.svg'
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: 'Jullian Edisa',
-      role: 'Supervisor',
-      text: 'EON8 has made a big difference to our brand with their excellent work and knowledge of Digital marketing techniques. Our brand awareness grew, the search engine rankings of our website are made better and eventually, our sales had gone high. Overall EON8 is a reliable and friendly firm to connect with for Digital marketing needs.',
-      img: '/imgs/Jullian-Edisa.jpg'
-    },
-    {
-      name: 'Aaron P',
-      role: 'Supervisor',
-      text: 'EON8 did a wonderful job handling the design of our website. The team made sure to give extraordinary results as I’ve imagined and made my website more user-friendly for my visitors. I would recommend EON8 Digital Marketing company for anyone who looks to build their brand online or just in need of any digital marketing service.',
-      img: '/imgs/testi_1.jpg'
-    }
-  ];
-
   return (
-    <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-body">
-      
-      {/* 1. Page Hero Section */}
-      <section className="relative py-28 md:py-36 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white border-b border-blue-500/10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
-        
-        <div className="max-w-5xl mx-auto px-6 text-center space-y-5 relative z-10 abt-hero-content">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 text-xs font-semibold uppercase tracking-wider">
-            <Compass className="w-3.5 h-3.5" />
-            <span>Growth Agency Pioneers</span>
+    <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-body pt-24 lg:pt-28">
+      {/* 1. Header Banner - Exact Eon8 Gradient */}
+      <header className="custom-page-header bg-gradient-to-r from-[#ff6a00] to-[#ff8c42] py-16 md:py-20 text-center text-white relative shadow-inner">
+        <div className="max-w-5xl mx-auto px-6 space-y-3">
+          <div className="flex items-center justify-center gap-2 text-xs font-semibold tracking-wider uppercase text-white/80">
+            <Link to="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-white/60" />
+            <span className="text-white font-bold">About Us</span>
           </div>
-
-          <h1 className="text-4xl sm:text-6xl font-heading font-black tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-heading font-black tracking-tight text-white drop-shadow-xs">
             About Us
           </h1>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
-            Challenging marketing norms and building the strategic foundation that positions brands at the top.
+          <p className="text-white/90 text-sm sm:text-base max-w-xl mx-auto font-medium">
+            Discover the powerhouse driving high-velocity digital marketing and Web 3.0 transformations.
           </p>
-          <div className="w-16 h-1 bg-orange-500 mx-auto rounded-full mt-4" />
+        </div>
+      </header>
+
+      {/* 2. Section 1: Why Do We Dominate The Web 3.0 Space? */}
+      <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Text & Interactive Accordion */}
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="space-y-3">
+              <span className="text-xs font-bold uppercase tracking-widest text-primary px-3 py-1 bg-primary/10 rounded-full border border-primary/20">
+                Pioneering Growth
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+                Why Do We Dominate{' '}
+                <span className="text-[#ff6a00]">The Web 3.0 Space?</span>
+              </h2>
+            </div>
+
+            <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+              EON8 leads the transition from Web 2.0 to Web 3.0 by building the strategic foundation that positions
+              brands at the top.
+            </p>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+              We challenge marketing norms and create new growth opportunities with disruptive campaign precision.
+            </p>
+
+            {/* Accordion Deck */}
+            <div className="space-y-3 pt-3">
+              {ACCORDION_ITEMS.map((item) => {
+                const isOpen = activeAccordion === item.id;
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.id}
+                    className="border border-border/40 rounded-xl overflow-hidden transition-all duration-200 shadow-xs"
+                  >
+                    <button
+                      onClick={() => setActiveAccordion(isOpen ? '' : item.id)}
+                      className={`w-full p-4.5 text-left flex items-center justify-between gap-4 font-heading font-bold text-sm md:text-base transition-colors cursor-pointer ${
+                        isOpen
+                          ? 'bg-[#fff3e6] dark:bg-slate-900 text-[#ff6a00]'
+                          : 'bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 hover:text-[#ff6a00]'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
+                            isOpen ? 'bg-[#ff6a00] text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
+                          }`}
+                        >
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <span>{item.title}</span>
+                      </div>
+                      <div className="text-slate-400">
+                        {isOpen ? <Minus className="w-4 h-4 text-[#ff6a00]" /> : <Plus className="w-4 h-4" />}
+                      </div>
+                    </button>
+
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="p-5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-950 border-l-4 border-[#ff6a00] leading-relaxed">
+                            {item.content}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right Image */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#ff6a00]/20 to-purple-600/20 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition-opacity" />
+              <img
+                src="/imgs/eon-softtech_2.jpg"
+                alt="Eon8 Team Web3 Leadership"
+                className="relative rounded-2xl shadow-xl w-full max-w-md object-cover border border-border/40 group-hover:scale-101 transition-transform duration-500"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 2. Why Do We Dominate the Web 3.0 Space */}
-      <section className="py-24 px-6 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        {/* Left: Text & Accordion */}
-        <div className="lg:col-span-7 text-left space-y-6">
-          <h2 className="text-3xl sm:text-5xl font-heading font-black tracking-tight leading-tight">
-            Why Do We Dominate <br />
-            <span className="bg-gradient-to-r from-orange-500 to-primary bg-clip-text text-transparent">
-              The Web 3.0 Space?
-            </span>
-          </h2>
-          
-          <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-            EON8 leads the transition from Web 2.0 to Web 3.0 by building the strategic foundation that positions brands at the top. We challenge marketing norms and create new growth opportunities.
-          </p>
+      {/* 3. Section 2: Our Skills & Scale Your Business */}
+      <section ref={skillsRef} className="py-20 md:py-28 bg-slate-50/70 dark:bg-slate-900/40 border-y border-border/30 px-6">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <h4 className="text-sm font-bold uppercase tracking-widest text-[#ff6a00]">Our Skills</h4>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-heading font-black text-slate-900 dark:text-white leading-tight">
+              Looking to Scale your Business on Digital Platform? <br />
+              <span className="text-[#ff6a00]">We are the transformative agency partner you can trust upon!</span>
+            </h2>
+            <div className="w-16 h-1 bg-[#ff6a00] mx-auto rounded-full mt-4" />
+          </div>
 
-          {/* Accordion panel */}
-          <div className="space-y-4 pt-4">
-            {accordionItems.map((item) => {
-              const Icon = item.icon;
-              const isOpen = activeAccordion === item.id;
-              return (
-                <div 
-                  key={item.id}
-                  className="border border-border/40 rounded-2xl bg-card/40 overflow-hidden shadow-sm"
-                >
-                  <button
-                    onClick={() => setActiveAccordion(isOpen ? null : item.id)}
-                    className={`w-full p-5 text-left flex items-center justify-between gap-4 font-heading font-bold transition-colors cursor-pointer ${
-                      isOpen ? 'bg-orange-500/10 text-orange-500' : 'text-foreground hover:text-primary'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <Icon className="w-5 h-5" />
-                      <span>{item.title}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Image Graphic */}
+            <div className="lg:col-span-6 flex justify-center">
+              <div className="relative">
+                <img
+                  src="/imgs/eon_abt_1.png"
+                  alt="Eon8 Strategy and Skills"
+                  className="w-full max-w-lg object-contain drop-shadow-xl hover:scale-102 transition-transform duration-500"
+                />
+              </div>
+            </div>
+
+            {/* Right Skills Progress Bars */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <div className="space-y-6">
+                {SKILLS.map((skill) => (
+                  <div key={skill.title} className="space-y-2">
+                    <div className="flex justify-between items-center text-sm font-heading font-bold text-slate-800 dark:text-slate-200">
+                      <span>{skill.title}</span>
+                      <span className="text-[#ff6a00] font-mono text-base">{skill.percent}%</span>
                     </div>
-                    <span className="text-xl font-bold">{isOpen ? '−' : '＋'}</span>
-                  </button>
-
-                  <AnimatePresence>
-                    {isOpen && (
+                    {/* Progress Bar Container */}
+                    <div className="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5 border border-border/40">
                       <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden"
-                      >
-                        <p className="p-5 pt-3 text-muted-foreground text-xs sm:text-sm leading-relaxed border-t border-border/10">
-                          {item.content}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                        initial={{ width: 0 }}
+                        animate={{ width: skillsVisible ? `${skill.percent}%` : 0 }}
+                        transition={{ duration: 1.2, ease: 'easeOut' }}
+                        className="h-full rounded-full bg-gradient-to-r from-[#ff6a00] to-[#ff9042] shadow-xs"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-4">
+                <button
+                  onClick={() => setContactModalOpen(true)}
+                  className="inline-flex items-center gap-2 bg-[#ff6a00] hover:bg-[#e55e00] text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-orange-500/20 hover:scale-102 transition-all cursor-pointer text-sm"
+                >
+                  <span>Request Full Capabilities Deck</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Section 3: How Do We Operate? */}
+      <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto operate-section-trigger">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-slate-900 dark:text-white">
+            How Do We Operate?
+          </h2>
+          <h4 className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+            EON8 has over 18 years of experience in preparing Web 3.0 brands for unprecedented success, while ensuring
+            57% ROMI.
+          </h4>
+          <div className="w-16 h-1 bg-[#ff6a00] mx-auto rounded-full mt-4" />
+        </div>
+
+        {/* 5 Process Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          {OPERATE_STEPS.map((step) => (
+            <div
+              key={step.title}
+              className="operate-card-reveal bg-white dark:bg-slate-950 border border-border/50 hover:border-[#ff6a00]/40 p-8 rounded-2xl shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between text-center group"
+            >
+              <div className="space-y-4 flex flex-col items-center">
+                <div className="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center p-3 group-hover:scale-110 transition-transform">
+                  <img
+                    src={step.icon}
+                    alt={step.title}
+                    className="w-full h-full object-contain filter group-hover:brightness-110"
+                  />
+                </div>
+                <div className="text-xs font-mono font-bold text-[#ff6a00] tracking-widest">{step.step}</div>
+                <h3 className="text-xl font-heading font-extrabold text-slate-900 dark:text-white">{step.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. Section 4: What Our Clients Say (Testimonials) */}
+      <section className="py-20 md:py-28 bg-[#fffaf5] dark:bg-slate-900/50 border-t border-border/30 px-6">
+        <div className="max-w-5xl mx-auto space-y-16">
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-slate-900 dark:text-white">
+              What Our Clients Say
+            </h2>
+            <div className="w-16 h-1 bg-[#ff6a00] mx-auto rounded-full mt-4" />
+          </div>
+
+          <div className="space-y-10">
+            {TESTIMONIALS.map((testi, idx) => {
+              const isEven = idx % 2 === 0;
+              return (
+                <div
+                  key={testi.name}
+                  className={`bg-white dark:bg-slate-950 border border-border/50 p-8 sm:p-10 rounded-3xl shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row items-center gap-8 ${
+                    !isEven ? 'md:flex-row-reverse' : ''
+                  }`}
+                >
+                  <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-[#ff6a00]/20 shrink-0 shadow-md">
+                    <img src={testi.img} alt={testi.name} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="space-y-3 text-left flex-1">
+                    <h3 className="text-xl font-heading font-bold text-slate-900 dark:text-white">{testi.name}</h3>
+                    <h5 className="text-xs font-bold text-[#ff6a00] uppercase tracking-wider">{testi.role}</h5>
+                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+                      "{testi.text}"
+                    </p>
+                  </div>
                 </div>
               );
             })}
           </div>
         </div>
-
-        {/* Right: Graphic Image */}
-        <div className="lg:col-span-5 flex justify-center">
-          <img 
-            src="/imgs/eon-softtech_2.jpg" 
-            alt="Web3 Space dominators"
-            className="w-full max-w-sm rounded-3xl object-contain shadow-2xl hover:scale-102 transition-transform duration-500"
-          />
-        </div>
-
       </section>
 
-      {/* 3. How Do We Operate section */}
-      <section className="py-24 bg-slate-50 dark:bg-slate-900/40 border-y border-border/30 px-6 abt-operate-trigger">
-        <div className="max-w-6xl mx-auto space-y-16">
-          <div className="text-center space-y-4 max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-5xl font-heading font-black">How Do We Operate?</h2>
-            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              EON8 has over 18 years of experience in preparing Web 3.0 brands for unprecedented success, while ensuring 57% ROMI.
-            </p>
-            <div className="w-16 h-1 bg-orange-500 mx-auto rounded-full mt-4" />
-          </div>
-
-          {/* Workflow Cards */}
-          <div className="flex flex-wrap justify-center gap-6">
-            {workflowSteps.map((step, idx) => (
-              <div 
-                key={idx}
-                className="abt-operate-card w-full sm:w-[280px] bg-white dark:bg-slate-950 border border-border/40 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow text-center flex flex-col items-center space-y-3"
-              >
-                <div className="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center p-2 mb-2">
-                  <img 
-                    src={step.icon} 
-                    alt={step.title} 
-                    className="w-full h-full object-contain filter grayscale dark:invert dark:opacity-80 group-hover:grayscale-0" 
-                  />
-                </div>
-                <h3 className="text-lg font-heading font-extrabold text-foreground">{step.title}</h3>
-                <p className="text-muted-foreground text-xs leading-relaxed max-w-[240px]">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. What Our Clients Say (Testimonials detail) */}
-      <section className="py-24 px-6 max-w-5xl mx-auto space-y-16">
-        <div className="text-center space-y-3">
-          <h2 className="text-3xl sm:text-5xl font-heading font-black">What Our Clients Say</h2>
-          <div className="w-16 h-1 bg-orange-500 mx-auto rounded-full mt-4" />
-        </div>
-
-        <div className="space-y-12">
-          {testimonials.map((test, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <div 
-                key={index}
-                className={`flex flex-col md:flex-row items-center gap-8 bg-card/30 border border-border/40 p-8 rounded-3xl backdrop-blur-sm shadow-md ${
-                  !isEven ? 'md:flex-row-reverse' : ''
-                }`}
-              >
-                <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-orange-500/20 shrink-0">
-                  <img src={test.img} alt={test.name} className="w-full h-full object-cover" />
-                </div>
-                <div className="text-left space-y-3 flex-1">
-                  <Quote className="w-10 h-10 text-orange-500/10" />
-                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed italic">
-                    "{test.text}"
-                  </p>
-                  <div>
-                    <h4 className="text-sm font-bold font-heading">{test.name}</h4>
-                    <span className="text-xs text-muted-foreground">{test.role}</span>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* 5. CTA Section */}
-      <section className="py-24 bg-slate-950 dark:bg-slate-900 text-white px-6 relative">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5" style={{ backgroundImage: "url('/imgs/achievement-bg.png')" }} />
-        
-        <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
-          <h2 className="text-3xl sm:text-5xl font-heading font-black text-white max-w-2xl mx-auto leading-tight">
+      {/* 6. Section 5: High Impact CTA Banner */}
+      <section className="get_traffic bg-gradient-to-r from-[#ff6a00] to-[#ff8c42] py-20 px-6 text-center text-white relative">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <h3 className="text-2xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight leading-tight drop-shadow-xs">
             Let’s Make Your Brand <br /> The Next Big Web 3.0 Phenomenon!
-          </h2>
+          </h3>
 
           <div className="flex justify-center">
-            <Button 
+            <button
               onClick={() => setContactModalOpen(true)}
-              size="lg"
-              className="rounded-full bg-gradient-to-r from-orange-500 to-primary text-white font-bold h-14 px-8 text-base shadow-xl shadow-orange-500/20 hover:scale-102 transition-transform cursor-pointer gap-2"
+              className="dt-eon-btn inline-flex items-center gap-3 bg-white text-[#ff6a00] font-heading font-extrabold text-sm sm:text-base py-4 px-9 rounded-full shadow-2xl hover:bg-slate-50 hover:scale-105 transition-all cursor-pointer"
             >
               <span>Talk with our Experts</span>
-              <ArrowRight className="w-5 h-5 animate-pulse" />
-            </Button>
+              <img src="/imgs/long-arrow.svg" alt="Arrow" className="w-5 h-5 object-contain" />
+            </button>
           </div>
         </div>
       </section>
-
     </div>
   );
 }
