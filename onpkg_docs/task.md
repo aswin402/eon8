@@ -177,3 +177,36 @@ This task list serves as the main checklist for building and verifying the Eon8 
 - [x] **Task 9: Final Quality Assurance & Performance Verification**
   - [x] Cross-device mobile/tablet/desktop verification
   - [x] Production build verification with zero warnings and all chunks < 300 kB
+
+---
+
+## 7. Phase 7: Complete Crypto Pages Redesign (Clean, Premium & Modern Web3) 💎
+- [x] **Step 1: Download & Localize Authentic Live Crypto Assets**
+  - [x] Download 3D Bitcoin floating coin (`public/imgs/bitcoin.png`)
+  - [x] Download 10 authentic Web3 client logos (`street-race`, `Galaxy-Fight-Club`, `space-park-freaks`, `rebe-world`, etc.)
+  - [x] Download 6 floating 3D crypto icons (`clock-crypto`, `gift-crypto`, `target-crypto`, `heart-crypto`, `crown-crypto`, `image-crypto`)
+- [x] **Step 2: Redesign Dark Gold Web3 Hero & Lead Capture Card**
+  - [x] Apply dark gold gradient canvas (`linear-gradient(120deg, #0f0f0f 0%, #1a1a1a 40%, #8a6b00 100%)`) with radial gold aura
+  - [x] 2x2 Feature check list (Measurable results, Competitor analysis, Scale without hiring, In-depth experience)
+  - [x] Gold action buttons with WhatsApp and Strategy Session triggers
+  - [x] Dark gold `#121212` lead form card with math captcha and direct store submission
+- [x] **Step 3: Build Web3 Client Logo Infinite Marquee**
+  - [x] Smooth continuous logo slider showing the 10 real Web3 client logos with pause on hover
+- [x] **Step 4: Build Viral Growth Section ("Attract, Engage & Convert")**
+  - [x] Floating 3D crypto icons with CSS float animations
+  - [x] Gold title & subtitle with animated movement
+- [x] **Step 5: Build 3-Step ROI Framework ("Attract, Engage, Convert")**
+  - [x] Clean step cards with vertical gold side-line reveal on hover
+- [x] **Step 6: Build "How We Bring Value To Your Cryptos" Section**
+  - [x] Interactive chip pill navigation to other Web3 & Crypto services
+  - [x] 3D floating Bitcoin graphic with gold glow
+- [x] **Step 7: Modernize Capabilities, Projects We Cover, & 5-Stage Roadmap**
+  - [x] Premium dark cards with gold border hover states and deliverable badges
+- [x] **Step 8: Performance Metrics & Modern FAQ Accordion**
+  - [x] 4 telemetry metrics and dark gold FAQ cards
+- [x] **Step 9: High-Impact Gold Closing Banner**
+  - [x] Radial ring gold banner with dual conversion buttons
+- [x] **Step 10: Build Verification & Cross-Route Testing**
+  - [x] Test all 15 crypto service routes
+  - [x] Verify `npm run build` passes with zero errors and all chunks < 300 kB
+
