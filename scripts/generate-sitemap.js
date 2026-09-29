@@ -130,6 +130,9 @@ const routes = [
   { path: 'performance-marketing-vs-traditional-marketing', priority: '0.7', changefreq: 'monthly' },
   { path: 'crm-software-development-trends-2026', priority: '0.7', changefreq: 'monthly' },
   { path: 'erp-software-development', priority: '0.7', changefreq: 'monthly' },
+  { path: 'top-seo-agency-south-india', priority: '0.8', changefreq: 'weekly' },
+  { path: 'seo-agency-south-india', priority: '0.8', changefreq: 'weekly' },
+  { path: 'digital-marketing-agency-south-india', priority: '0.8', changefreq: 'weekly' },
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

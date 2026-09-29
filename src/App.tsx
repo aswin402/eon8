@@ -442,6 +442,18 @@ const router = createBrowserRouter([
         element: <BlogPostPage slug="erp-software-development" />,
       },
       {
+        path: 'top-seo-agency-south-india',
+        element: <BlogPostPage slug="top-seo-agency-south-india" />,
+      },
+      {
+        path: 'seo-agency-south-india',
+        element: <BlogPostPage slug="seo-agency-south-india" />,
+      },
+      {
+        path: 'digital-marketing-agency-south-india',
+        element: <BlogPostPage slug="digital-marketing-agency-south-india" />,
+      },
+      {
         path: '*',
         element: <NotFoundPage />,
       },
