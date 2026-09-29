@@ -134,3 +134,46 @@ This task list serves as the main checklist for building and verifying the Eon8 
 - [x] Configure Vite manual chunking in `vite.config.ts` (all bundles < 300 kB, zero chunk size warnings)
 - [x] Generate production SEO assets (`public/robots.txt` and `public/sitemap.xml` with 104 routes)
 - [x] Integrate automated sitemap generation into npm build pipeline
+
+---
+
+## 6. Phase 6: Exact Page-by-Page UI Cloning from Live Eon8 Website 🎯
+- [ ] **Task 1: Rebuild About Us Page (`AboutPage.tsx`)**
+  - [ ] Cloned hero banner with breadcrumbs and background geometric styling
+  - [ ] "Why Do We Dominate The Web 3.0 Space?" tab system (History, Mission, Vision, Skills with % bars)
+  - [ ] "Scale your Business" high-conversion banner CTA
+  - [ ] 5-step operational workflow cards (Learn, Strategize, Align, Deploy, Iterate)
+  - [ ] Testimonials slider & bottom consultation ribbon
+- [ ] **Task 2: Rebuild Contact Us Page (`ContactPage.tsx`)**
+  - [ ] 4 strategic city cards (Mumbai, Chennai HQ, Bangalore, Hyderabad) with SVG silhouettes & contact details
+  - [ ] Interactive dual-column "Get Enquiry" form with service selector, budget, phone code, and math captcha
+  - [ ] Responsive full-width Google Maps embed with custom overlay
+- [ ] **Task 3: Upgrade Flagship AI Agent Page (`AIAgentPage.tsx`)**
+  - [ ] Authentic Eon8 Split Hero with inline "Reach Out To Us" lead capture card
+  - [ ] What Are AI Agents architecture graphic & 5 strategic business benefits
+  - [ ] 4 core AI Agent service modules & 6-stage development process
+  - [ ] Categorized tech stack matrix (Python, LangChain, OpenAI, AWS) & AI FAQ accordion
+- [ ] **Task 4: Upgrade Digital Marketing Service Architecture (`DigitalServicePage.tsx`)**
+  - [ ] Split Hero with inline "Request Free Quote / 5 Mins Call Back" form card
+  - [ ] Industry trust row & "Our Specific Sector" tag pills
+  - [ ] Mid-page callout break banner & "Empowering Business" 4-pillar feature deck
+  - [ ] ROI breakdown comparison table & service-specific FAQs
+- [ ] **Task 5: Upgrade Crypto & Web3 Marketing Architecture (`CryptoServicePage.tsx`)**
+  - [ ] Web3 Split Hero with inline quick consultation card
+  - [ ] Top-tier publication proof marquee (CoinTelegraph, Bloomberg, Yahoo Finance, Business Insider)
+  - [ ] Interactive 3-stage capability tabs (Create / Scale / Improve)
+  - [ ] Web3 capabilities grid & Crypto FAQ accordion
+- [ ] **Task 6: Upgrade NFT & Community Marketing Architecture (`NftServicePage.tsx`)**
+  - [ ] NFT Split Hero with inline lead capture form
+  - [ ] 3-Pillar Framework: Create Hype, Drive Value, Build Community
+  - [ ] Discord & Reddit moderation showcase deck & NFT FAQ
+- [ ] **Task 7: Upgrade Influencer Marketing Architecture (`InfluencerServicePage.tsx`)**
+  - [ ] Split Hero with influencer campaign metrics & inline consultation form
+  - [ ] Influencer Tiers Matrix (Nano, Micro, Macro, Mega, Celebrities)
+  - [ ] Platform channel showcases & 8-step campaign roadmap
+- [ ] **Task 8: Upgrade Blog Hub & Post Reader (`BlogListPage.tsx` & `BlogPostPage.tsx`)**
+  - [ ] Magazine layout for Blog Hub with category pills & featured post spotlight
+  - [ ] Article reader with sticky social share, auto Table of Contents, author bio, and sidebar consultation form
+- [ ] **Task 9: Final Quality Assurance & Performance Verification**
+  - [ ] Cross-device mobile/tablet/desktop verification
+  - [ ] Production build verification with zero warnings and all chunks < 300 kB
