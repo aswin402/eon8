@@ -46,11 +46,54 @@ export const OUR_SERVICES_SLUGS = [
   'metaverse',
 ] as const;
 
-export type OurServiceSlug = (typeof OUR_SERVICES_SLUGS)[number];
+export const ADDITIONAL_LANDING_SLUGS = [
+  'amazon-marketing-service-agency-chennai',
+  'amazon-seo-consultant-service-chennai',
+  'amazon-seo-consultants',
+  'best-seo-agency',
+  'clean-negative-search-results-2',
+  'community-marketing-agency',
+  'community-marketing-agency-2',
+  'content-marketing-company-chennai',
+  'd2c-branding-and-growth-agency',
+  'digital-marketing-for-app-store',
+  'digital-marketing-for-education',
+  'digital-marketing-for-healthcare-industry',
+  'digital-marketing-for-restaurants',
+  'home-new',
+  'instagram-markting-agency',
+  'instagram-reels-marketing-agency',
+  'mobile-app-marketing-agency',
+  'nft-influencer-marketing-agency',
+  'nft-instagram-marketing-agency',
+  'nft-marketing-services-testing',
+  'performance-marketing-agency',
+  'performance-marketing-funnel',
+  'quora-com-complaint-removal',
+  'quora-complaint-removal',
+  'remove-complaints-from-google-search',
+  'remove-negative-reviews-back',
+  'search-engine-marketing-service-chennai',
+  'search-engine-optimization-services-chennai',
+  'seo-agency-in-bangalore',
+  'seo-by-industry',
+  'twitter-community-management-services',
+  'twitter-trending-services',
+  'twitter-verification-services',
+  'video-creation-marketing-service-chennai',
+] as const;
+
+export const ALL_SERVICE_SLUGS = [
+  ...OUR_SERVICES_SLUGS,
+  ...ADDITIONAL_LANDING_SLUGS,
+] as const;
+
+export type OurServiceSlug = (typeof ALL_SERVICE_SLUGS)[number];
 
 export type ServiceHtmlTag =
   | 'div'
   | 'section'
+  | 'blockquote'
   | 'p'
   | 'span'
   | 'h1'
@@ -67,6 +110,7 @@ export type ServiceHtmlTag =
   | 'img'
   | 'video'
   | 'source'
+  | 'iframe'
   | 'figure'
   | 'figcaption'
   | 'strong'
@@ -111,6 +155,8 @@ export interface ServiceElementProps {
   loop?: boolean;
   muted?: boolean;
   playsInline?: boolean;
+  allow?: string;
+  allowFullScreen?: boolean;
   // SVG attributes
   xmlns?: string;
   viewBox?: string;
@@ -151,8 +197,13 @@ export interface ServiceElementNode {
 
 export interface ServiceFormNode {
   kind: 'form';
-  variant: 'proposal-5' | 'callback-3' | 'phone-callback';
-  innerId?: 'responsive-form' | 'nft-form';
+  variant:
+    | 'proposal-5'
+    | 'proposal-4'
+    | 'callback-3'
+    | 'phone-callback'
+    | 'influencer-8';
+  innerId?: 'responsive-form' | 'nft-form' | 'influencer-form';
   heading?: string;
   headingTag?: 'h3' | 'h4';
   submitLabel: string;
@@ -169,6 +220,17 @@ export interface ServiceElementorAccordionNode {
   kind: 'elementor-accordion';
   className?: string;
   items: ServiceElementorAccordionItem[];
+}
+
+export interface ServiceElementorTabItem {
+  title: string;
+  content: ServiceNode[];
+}
+
+export interface ServiceElementorTabsNode {
+  kind: 'elementor-tabs';
+  className?: string;
+  items: ServiceElementorTabItem[];
 }
 
 export interface ServiceBootstrapAccordionItem {
@@ -238,18 +300,24 @@ export interface ServiceCounterNode {
   displayValue: string;
 }
 
+export interface ServiceCalendlyNode {
+  kind: 'calendly';
+}
+
 export type ServiceNode =
   | ServiceTextNode
   | ServiceElementNode
   | ServiceFormNode
   | ServiceElementorAccordionNode
+  | ServiceElementorTabsNode
   | ServiceBootstrapAccordionNode
   | ServiceCustomFaqItemNode
   | ServiceLegacyFaqItemNode
   | ServiceTestimonialQuotesNode
   | ServiceCardsCarouselNode
   | ServiceLogoMarqueeNode
-  | ServiceCounterNode;
+  | ServiceCounterNode
+  | ServiceCalendlyNode;
 
 export interface ServicePageData {
   slug: OurServiceSlug;

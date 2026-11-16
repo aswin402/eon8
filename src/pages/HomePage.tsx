@@ -68,7 +68,7 @@ const SERVICES = [
     title: 'Digital Marketing & Conversion',
     img: '/wp-content/uploads/2026/06/Digital-markting.webp',
     alt: 'Digital Marketing',
-    to: '/web-development-services-company',
+    to: '/web-design-development-services-chennai',
     bullets: [
       'High-performance target websites',
       'Conversion-focused landing pages',
@@ -92,7 +92,7 @@ const SERVICES = [
     title: 'Performance Campaigning',
     img: '/wp-content/uploads/2026/06/Performance-Campaigning.webp',
     alt: 'Performance Marketing',
-    to: '/google-ads-management-ppc-agency',
+    to: '/ppc-company-chennai',
     bullets: [
       'Google Search & Display Ads',
       'Meta & Instagram Ad Scaling',
@@ -181,7 +181,7 @@ const WEB3_SPOTLIGHTS = [
     title: 'Website & Conversion Optimization',
     img: '/wp-content/uploads/2026/06/website.webp',
     alt: 'Website & Conversion Optimization',
-    to: '/web-development-services-company',
+    to: '/web-design-development-services-chennai',
     reverse: true,
     items: [
       { icon: Globe, text: 'High-performance websites' },
@@ -600,7 +600,7 @@ export function HomePage() {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/digital-marketing-services-chennai">
+            <Link to="/digital-marketing-agency-in-chennai">
               <Button className="rounded-xl bg-[#0053c6] hover:bg-[#0044a3] text-white font-bold h-12 px-8 text-sm cursor-pointer shadow-md">
                 Explore All Services <ArrowRight className="w-4 h-4 ml-1.5" />
               </Button>

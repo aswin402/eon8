@@ -3,6 +3,7 @@ import type {
   ServiceBootstrapAccordionNode,
   ServiceCustomFaqItemNode,
   ServiceElementorAccordionNode,
+  ServiceElementorTabsNode,
   ServiceLegacyFaqItemNode,
   ServiceNode,
 } from '../types';
@@ -228,6 +229,70 @@ export function ServicesLegacyFaqItem({
         }}
       >
         {renderNodes(node.answerNodes)}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Elementor horizontal/vertical tab switcher (.elementor-tabs) rendered with pure React state.
+ */
+export function ServicesElementorTabs({
+  node,
+  renderNodes,
+}: {
+  node: ServiceElementorTabsNode;
+  renderNodes: RenderNodesFn;
+}) {
+  const [activeIdx, setActiveIdx] = useState(0);
+  if (!node.items.length) return null;
+
+  return (
+    <div className={node.className || 'elementor-tabs'}>
+      <div className="elementor-tabs-wrapper" role="tablist">
+        {node.items.map((tab, idx) => {
+          const isActive = activeIdx === idx;
+          return (
+            <div
+              key={idx}
+              role="tab"
+              tabIndex={0}
+              aria-selected={isActive}
+              aria-expanded={isActive}
+              data-tab={idx + 1}
+              className={`elementor-tab-title elementor-tab-desktop-title ${
+                isActive ? 'elementor-active' : ''
+              }`}
+              onClick={() => setActiveIdx(idx)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActiveIdx(idx);
+                }
+              }}
+            >
+              {tab.title}
+            </div>
+          );
+        })}
+      </div>
+      <div className="elementor-tabs-content-wrapper">
+        {node.items.map((tab, idx) => {
+          const isActive = activeIdx === idx;
+          return (
+            <div
+              key={idx}
+              role="tabpanel"
+              data-tab={idx + 1}
+              className={`elementor-tab-content elementor-clearfix ${
+                isActive ? 'elementor-active is-open' : ''
+              }`}
+              style={{ display: isActive ? 'block' : 'none' }}
+            >
+              {renderNodes(tab.content)}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

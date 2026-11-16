@@ -1,5 +1,6 @@
-import { useState, useEffect, useMemo, type MouseEvent, type FormEvent } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useMemo, type FormEvent } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { ServiceNodeList } from '@/pages/services/components/ServiceNodeRenderer';
 import {
   blogPostsIndex,
   blogPostsBySlug,
@@ -51,7 +52,6 @@ interface BlogPostBodyProps {
 }
 
 function BlogPostBody({ summary, post, isLoading }: BlogPostBodyProps) {
-  const navigate = useNavigate();
   const { setContactModalOpen } = useAppStore();
   const [copied, setCopied] = useState(false);
 
@@ -111,27 +111,6 @@ function BlogPostBody({ summary, post, isLoading }: BlogPostBodyProps) {
       setFormContact('');
       setCaptchaAnswer('');
     }, 600);
-  };
-
-  const handleArticleLinkClick = (e: MouseEvent<HTMLDivElement>) => {
-    const target = (e.target as HTMLElement | null)?.closest('a');
-    if (!target) return;
-    const href = target.getAttribute('href');
-    if (!href) return;
-    if (href.startsWith('/') && !href.startsWith('//')) {
-      e.preventDefault();
-      navigate(href);
-      return;
-    }
-    if (href.startsWith('https://www.eon8.com') || href.startsWith('http://www.eon8.com')) {
-      e.preventDefault();
-      try {
-        const u = new URL(href);
-        navigate(`${u.pathname}${u.search}${u.hash}`);
-      } catch {
-        navigate('/');
-      }
-    }
   };
 
   const articleUrl = encodeURIComponent(window.location.href);
@@ -288,12 +267,10 @@ function BlogPostBody({ summary, post, isLoading }: BlogPostBodyProps) {
                 <div className="h-4 bg-muted rounded animate-pulse w-5/6" />
                 <div className="h-4 bg-muted rounded animate-pulse w-4/5" />
               </div>
-            ) : post?.contentHtml ? (
-              <div
-                className="wp-article-content text-foreground/90"
-                onClick={handleArticleLinkClick}
-                dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-              />
+            ) : post?.contentNodes?.length ? (
+              <div className="wp-article-content text-foreground/90">
+                <ServiceNodeList nodes={post.contentNodes} />
+              </div>
             ) : (
               <p className="text-base text-muted-foreground leading-relaxed">{summary.excerpt}</p>
             )}

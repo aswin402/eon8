@@ -1,36 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Check, X, ArrowRight, Sparkles } from 'lucide-react';
-import rawPackagesData from '@/data/packagesData.json';
+import {
+  packagesData as packagesMap,
+  type PackageSlug,
+  type PackageCell,
+} from './packagesData';
 import { useAppStore } from '@/store/useAppStore';
 
-export type PackageSlug =
-  | 'seo-packages'
-  | 'ppc-packages'
-  | 'facebook-packages'
-  | 'instagram-packages'
-  | 'linkedin-packages'
-  | 'twitter-packages';
-
-type CellObj = { text: string; isTh: boolean; class: string };
-type PackageCell = string | CellObj;
-
-interface PackageEntry {
-  slug: PackageSlug;
-  metaTitle: string;
-  metaDesc: string;
-  bannerTitle: string;
-  bannerParagraphs: string[];
-  overviewTitle: string;
-  overviewParagraphs: string[];
-  visualTitle: string;
-  visualParagraphs: string[];
-  visualImage: string;
-  packageTitle: string;
-  tables: PackageCell[][][];
-}
-
-const packagesMap = rawPackagesData as Record<PackageSlug, PackageEntry>;
+export type { PackageSlug };
 
 const PACKAGE_TABS: { slug: PackageSlug; label: string }[] = [
   { slug: 'seo-packages', label: 'SEO Packages' },

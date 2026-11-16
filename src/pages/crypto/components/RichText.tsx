@@ -25,7 +25,7 @@ interface RichTextProps {
   nodes: RichNode[];
 }
 
-/** Render structured rich text segments as native React JSX without dangerouslySetInnerHTML. */
+/** Render structured rich text segments as native React JSX elements. */
 export function RichText({ nodes }: RichTextProps) {
   return (
     <>

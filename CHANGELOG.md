@@ -6,6 +6,24 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [2.1.0] - 2026-11-16
+
+### Added
+- **100% Pure TypeScript & React TSX Migration Across Entire Codebase**:
+  - Migrated all **34 remaining WordPress & Elementor landing pages** (`best-seo-agency`, `d2c-branding-and-growth-agency`, `seo-by-industry`, `amazon-marketing-service-agency-chennai`, `amazon-seo-consultants`, `amazon-seo-consultant-service-chennai`, `nft-influencer-marketing-agency`, `nft-instagram-marketing-agency`, `performance-marketing-agency`, `performance-marketing-funnel`, `home-new`, industry SEO & ORM landing pages, etc.) into lazy-loaded, strongly typed TypeScript modules under `src/pages/services/data/` (`ALL_SERVICE_SLUGS` = **71 routes**) with scoped CSS in `src/styles/services-pages.css`.
+  - Added interactive React widgets for `.elementor-tabs` (`ServicesElementorTabs`), `proposal-4` & `influencer-8` math-quiz forms (`ServicesFormWidget.tsx`), Calendly discovery slot booking (`NftCalendlyWidget`), and repaired the legacy broken shortcode on `/seo-by-industry` with a working React audit callback form.
+  - Converted all **169 WordPress blog articles** and blog index metadata into strongly typed TypeScript modules (`src/pages/blog/posts/*.ts`, `src/pages/blog/posts/index.ts`, `src/pages/blog/blogIndexData.ts`) rendered as native React JSX via `<ServiceNodeList />` in `src/pages/blog/BlogPostPage.tsx`.
+  - Converted `packagesData` (`src/pages/packagesData.ts`), `policyPagesData` (`src/pages/policy/policyPagesData.ts`), and the XML sitemap generator (`scripts/generate-sitemap.ts`) to strict TypeScript.
+
+### Fixed
+- **Broken Internal Links on `HomePage.tsx` & Route Aliases (`src/App.tsx`)**:
+  - Updated 4 legacy links on `HomePage.tsx` to canonical routes (`/web-design-development-services-chennai`, `/ppc-company-chennai`, `/digital-marketing-agency-in-chennai`) and added route aliases for `/web-development-services-company`, `/google-ads-management-ppc-agency`, and `/digital-marketing-services-chennai`.
+
+### Removed
+- Removed `src/pages/LiveTemplatePage.tsx`, `src/data/` (all 113 raw HTML/CSS `livePages/*.json` blobs, `liveRoutes.json`, all 169 HTML `blogPosts/*.json` blobs, `blogIndex.json`), `scripts/generate-sitemap.js`, and every remaining `dangerouslySetInnerHTML` usage across `src/`.
+
+---
+
 ## [2.0.0] - 2026-11-16
 
 ### Added

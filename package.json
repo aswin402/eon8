@@ -43,8 +43,8 @@
   "name": "onpkg-vite-react",
   "private": true,
   "scripts": {
-    "build": "node scripts/generate-sitemap.js && tsc -b && vite build",
-    "sitemap": "node scripts/generate-sitemap.js",
+    "build": "node scripts/generate-sitemap.ts && tsc -b && vite build",
+    "sitemap": "node scripts/generate-sitemap.ts",
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview"

@@ -5,6 +5,7 @@ import {
   ServicesBootstrapAccordion,
   ServicesCustomFaqItem,
   ServicesElementorAccordion,
+  ServicesElementorTabs,
   ServicesLegacyFaqItem,
 } from './ServicesAccordions';
 import {
@@ -13,6 +14,7 @@ import {
   ServicesTestimonialQuotes,
 } from './ServicesCarousels';
 import { ServicesSmartLink } from './ServicesSmartLink';
+import { NftCalendlyWidget } from '@/pages/nft/components/NftCalendlyWidget';
 
 const VOID_TAGS = new Set(['img', 'br', 'hr', 'source']);
 
@@ -40,6 +42,8 @@ function buildDomProps(props?: ServiceElementProps): Record<string, unknown> {
   if (props.loop) out.loop = true;
   if (props.muted) out.muted = true;
   if (props.playsInline) out.playsInline = true;
+  if (props.allow) out.allow = props.allow;
+  if (props.allowFullScreen) out.allowFullScreen = true;
 
   // SVG attributes
   if (props.xmlns) out.xmlns = props.xmlns;
@@ -96,6 +100,17 @@ export function ServiceNodeView({ node }: { node: ServiceNode }) {
           renderNodes={renderServiceNodes}
         />
       );
+
+    case 'elementor-tabs':
+      return (
+        <ServicesElementorTabs
+          node={node}
+          renderNodes={renderServiceNodes}
+        />
+      );
+
+    case 'calendly':
+      return <NftCalendlyWidget />;
 
     case 'bootstrap-accordion':
       return (

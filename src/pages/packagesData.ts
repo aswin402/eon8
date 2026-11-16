@@ -1,0 +1,2453 @@
+export type PackageSlug =
+  | 'seo-packages'
+  | 'ppc-packages'
+  | 'facebook-packages'
+  | 'instagram-packages'
+  | 'linkedin-packages'
+  | 'twitter-packages';
+
+export type CellObj = { text: string; isTh: boolean; class: string };
+export type PackageCell = string | CellObj;
+
+export interface PackageEntry {
+  slug: PackageSlug;
+  metaTitle: string;
+  metaDesc: string;
+  bannerTitle: string;
+  bannerParagraphs: string[];
+  overviewTitle: string;
+  overviewParagraphs: string[];
+  visualTitle: string;
+  visualParagraphs: string[];
+  visualImage: string;
+  packageTitle: string;
+  tables: PackageCell[][][];
+}
+
+export const packagesData: Record<PackageSlug, PackageEntry> = {
+  "seo-packages": {
+    "slug": "seo-packages",
+    "metaTitle": "Affordable SEO Services Packages & Monthly Services Cost",
+    "metaDesc": "Eon8 provides cheap and best SEO services at an affordable cost. Choose your monthly SEO packages to boost your small businesses.",
+    "bannerTitle": "Affordable SEO Services Packages & Pricing",
+    "bannerParagraphs": [
+      "Buying products that are packed together is more affordable than buying them individually. Similarly, selecting the best SEO services package is far better than individually investing in different SEO strategies.",
+      "Your hunt for the best SEO packages ends here. We have conducted in-depth research and developed innovative SEO packages for businesses of all sizes, and we also offer customized SEO packages for all our clients."
+    ],
+    "overviewTitle": "What are SEO Packages?",
+    "overviewParagraphs": [
+      "SEO packages are modern-age subscriptions that SEO agencies charge to improve the rankings and visibility of their clients. If you want to set your own standards in the business, then you will have to conquer the digital market. If you want to conquer the internet, you must first impress Google, and our SEO packages will help you achieve this goal.",
+      "In simple words, SEO packages appeal to businesses that care for their bottom line and want to make the most from their digital assets. When you buy an SEO services package for your business, you get a chance to work with highly-experienced SEO analysts who will work hard to help you get faster results.",
+      "Like any other product or service in the market, the price of an SEO package varies depending on your business. Well, there is also no need to buy the most expensive SEO package for your business, as you need to buy the one that fits your brand's vision. You can also get in touch with our experts who will suggest the best measures."
+    ],
+    "visualTitle": "SEO Packages That Improve your Website’s Traffic, Rankings, and Visibility",
+    "visualParagraphs": [
+      "SEO is not a process that will get completed overnight. When you are investing in our SEO packages, you have to be patient. We can help you get the results from the very first month of your investment to ensure that you can count on us for the best SEO services.",
+      "As mentioned above, our SEO packages are filtered out into three tiers, and every tier is different from the other, and so are the results. We are not the average SEO company that works with the motto of “You Get What You Pay.” We work with the same passion and dedication irrespective of your selected SEO package.",
+      "If you really believe in us, we would recommend you to go with the advanced SEO package where you can view the results. We promise you that you will climb the ladder of SERPs and get desired results when you go with our advanced SEO package. So, what are you waiting for? Get the right SEO package from us and outperform your competitors on search engines right now."
+    ],
+    "visualImage": "/wp-content/uploads/2022/07/seo-package.png",
+    "packageTitle": "SEO Services Package",
+    "tables": [
+      [
+        [
+          {
+            "text": "SEO Services",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Basic",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Advance",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Premium",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ],
+        [
+          {
+            "text": "250$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "350$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "650$",
+            "isTh": true,
+            "class": "bg-black"
+          }
+        ],
+        [
+          {
+            "text": "WEBSITE REVIEW & ANALYSIS",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Keywords",
+            "isTh": false,
+            "class": "table-inner-title"
+          },
+          {
+            "text": "Max 5",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "Max 15",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "Max 25",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Website & Competitor Analysis",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Initial Ranking Report",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Keywords Research",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "ON PAGE SEO ANALYSIS",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Meta Tags Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Canonicalization",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "URL Structure",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Content Optimization",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Image Optimization",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Heading Tag Optimization",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Website Speed Optimization",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Robots.txt",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Sitemap Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Google Analytics & Search Console Setup",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Blog Optimization",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "2 Posts",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "5 Posts",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "5 Posts",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "LOCAL SEO SETUP",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Google Map Integration",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "GMB Page Setup & Optimization",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Local Citations",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "5",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "10",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "15",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Local Classifieds",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "2",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "5",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "10",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "CONTENT MARKETING",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Blog Posting",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(500 - 700 words) - 1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(500 - 700 words) - 2",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(500 - 700 words) - 3",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Article Writing",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(500 - 700 words) - 1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(500 - 700 words) - 2",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(500 - 700 words) - 3",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Onsite Blog",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(500 - 700 words) - 1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(500 - 700 words) - 2",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(500 - 700 words) - 3",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "EMAIL OUTREACH",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Guest Blogging",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Broken Backlink Building",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Resource Link Building",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Alerts and Mention",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Link Roundups",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Competitor Backlink Research",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "OFF PAGE SEO",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Social Sharing",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "30(Total)",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "40(Total)",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "50(Total)",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Blog Social Sharing",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Slide Submissions",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "2",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "2",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Competitor Backlink Research",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Text Infographic Creation",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "2",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "3",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Q & A",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "3",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "5",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "MONTHLY REPORTING",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Keyword Ranking Report",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Google Analytics Report",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Acquired Links Report",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "CLIENT SUPPORT",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Email",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Chat",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Call",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ]
+      ],
+      [
+        [
+          {
+            "text": "Note: The charges for all paid campaigns are not included Within The Subscription.",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ]
+      ]
+    ]
+  },
+  "ppc-packages": {
+    "slug": "ppc-packages",
+    "metaTitle": "PPC Paid Ads Management Cost & Packages - Eon8",
+    "metaDesc": "Attract your online consumers with our PPC Ad management services at an affordable cost to target your consumers on google and bing networks.",
+    "bannerTitle": "PPC Management Packages | Affordable Google Ad Management Services For Your Business",
+    "bannerParagraphs": [
+      "Running ads on a search engine is one of the essential aspects of your overall digital marketing campaign. We help you attract your online consumers with our pay-per-click services as it is the ultimate option to get noticed by your target consumers.",
+      "There is no doubt that PPC or search engine marketing services play a crucial role in the success of your digital marketing campaign. Our affordable PPC management packages play a crucial role in building a fortune for your business."
+    ],
+    "overviewTitle": "Say No to Expenses & Generate Sales with our PPC Management Packages",
+    "overviewParagraphs": [
+      "As mentioned above, pay-per-click advertising is one of the fastest ways to generate high-quality leads for your business. Running ads on notable search engines like Bing & Google brings your brand in front of your target audience, which increases the chances of generating quality leads.",
+      "Moreover, the cost of the PPC ad campaigns is a bit higher than other digital marketing packages as they have the ability to provide instant results. When you go with a PPC marketing package, you will have to pay a certain amount to a search engine for every click or action.",
+      "Our PPC experts ensure that you get high returns on low investment by optimizing your website and landing page with the best SEM practices to reduce your CPC or Cost Per Conversion."
+    ],
+    "visualTitle": "Get Quick Results & Highest ROI With Smart PPC Google Ads Management Packages",
+    "visualParagraphs": [
+      "We have taken our time to find out the monthly estimate or fixed cost which you need to run Google ads; therefore, all you have to do is select the right package to put our passionate ad specialists at work for running your ads.",
+      "We have a team of specialists who have helped us in devising the best PPC ad management packages in India. We closely monitor your ad campaign and optimize it to ensure that we can improve the quality score of your website, which in turn will reduce the cost per click.",
+      "What makes us different from your average PPC marketing agency is that we don’t help you run ads, but we help you drive quality leads & conversions while reducing your costs to ensure that it is a win-win deal from both ends.",
+      "At Eon8, we understand the value of the PPC campaign; therefore, we thrive forward to reducing the overall cost of the advertisement campaign. We also provide customized PPC Google Ads management packages that align with the scope of your business."
+    ],
+    "visualImage": "/wp-content/uploads/2022/07/ppc-package.png",
+    "packageTitle": "PPC Packages",
+    "tables": [
+      [
+        [
+          {
+            "text": "PPC Packages - Services Cost Only",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Basic",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Advance",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Premium",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ],
+        [
+          {
+            "text": "199$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "299$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "399$",
+            "isTh": true,
+            "class": "bg-black"
+          }
+        ],
+        [
+          {
+            "text": "AD Groups",
+            "isTh": false,
+            "class": "table-inner-title"
+          },
+          {
+            "text": "3",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "10",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "20",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Ad Copies",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "Upto 10",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "Upto 15",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "Upto 30",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "No. of Keywords",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "Max - 30",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "Max - 50",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "Max - 100",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Responsive Search Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Display Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Gmail Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Video Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Shopping Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "App Promotion Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Remarketing List",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Conversion Tracking",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "PPC CAMPAIGN MANAGEMENT",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Competitor Analysis",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Keyword Optimization",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Ad Copy Optimization",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "VALUE ADDS",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "ROI Analysis",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Landing Page Optimizationn",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "REPORTING",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Monthly Report",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "DEDICATED ACCOUUNT MANAGER",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Support - Email, Chat",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ]
+      ],
+      [
+        [
+          {
+            "text": "Note: The charges for all paid campaigns are not included Within The Subscription.",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ]
+      ]
+    ]
+  },
+  "facebook-packages": {
+    "slug": "facebook-packages",
+    "metaTitle": "Affordable Facebook Marketing Package & Pricing - Eon8",
+    "metaDesc": "Get cost-effective marketing services from the leading Facebook marketing company in Chennai, And choose your FB package from our pricing list.",
+    "bannerTitle": "Facebook Marketing & Promotion Packages",
+    "bannerParagraphs": [
+      "With over 2 billion users, Facebook is one of the best platforms to promote your brand on the internet. Our Facebook Marketing Packages help all our clients in attracting new customers on the social media platform.",
+      "Being the leading Facebook marketing company in the market, we help all our clients enhance their business’s reach & brand awareness on Facebook. We analyze & reach your target audience to help you get better conversions from your campaigns."
+    ],
+    "overviewTitle": "Get The Best Facebook Marketing Packages To Increase Your Leads",
+    "overviewParagraphs": [
+      "Facebook marketing packages are not only for MNCs, but they are also ideal for small businesses. They can help you identify your potential consumers on the platform. We also run targeted ads to optimize your Facebook advertising campaign.",
+      "Well, nobody comes to Facebook to view ads or learn about a brand, but they come to enjoy the content. We attract your potential consumers by elevating the application of quality content to generate traffic for your website.",
+      "Our content marketing solutions are long-lasting & we help you cope with the latest trends, which helps us in generating quality leads for your business. We also optimize your Facebook profile to increase your credibility and to help you develop trust with your target audience."
+    ],
+    "visualTitle": "Facebook Marketing Packages That Help You Drive Leads, Sales, & ROI",
+    "visualParagraphs": [
+      "In the digital world, it is never enough to only have a business profile on Facebook, as you must invest in Facebook marketing to outperform your competitors. Eon’s Facebook packages are uniquely designed to ensure that we can meet the scope & marketing budget for all the brands. Facebook offers one of the most sophisticated advertising platforms where marketers get complete control of their ads.",
+      "We have carefully crafted our marketing packages for Facebook to ensure all our clients get the highest ROI. What makes us different from your ordinary Facebook marketing agency is we have result-driven marketing strategies. We don’t run ads for awareness, but we run them to ensure that your target audience is transformed into paying consumers.",
+      "You can select the right Facebook marketing plan that aligns with your brand. If you want to target your local audience, you can go with a basic plan, whereas if you have an enterprise-class business, we suggest you go with either an advanced or premium facebook plan. We also offer customized Facebook marketing packages; therefore, when you hire us, you always have a marketing plan that fits your budget.",
+      "Are you still finding it challenging to find the right Facebook marketing package for your business? You can get in touch with our experts who will help you find one that fits your business."
+    ],
+    "visualImage": "/wp-content/uploads/2022/07/fb-package.png",
+    "packageTitle": "Facebook Promotion Packages",
+    "tables": [
+      [
+        [
+          {
+            "text": "Facebook Promotion & Advertising Packages",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Basic",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Advance",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Premium",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ],
+        [
+          {
+            "text": "199$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "299$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "399$",
+            "isTh": true,
+            "class": "bg-black"
+          }
+        ],
+        [
+          {
+            "text": "Organic Facebook Management Plan",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Facebook Page Creation",
+            "isTh": false,
+            "class": "table-inner-title"
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Facebook Cover And Profile Pic Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Facebook Tabs Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Facebook Page Optimization",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Post on Page",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(1 Per Week)",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(2 Per Week)",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "(3 Per Week)",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Creation Of Facebook Polls/ Quiz",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Responding To Comments",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "CTA Button Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Hashtag Research",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Influencer Research",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Page Monitoring",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Competitors Analysis",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Facebook Ads Management",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "FB Business Manager Setup",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Facebook Ads Campaign",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "2",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "3",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Ad Set",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "6",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "10",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Pixel Installation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Custom Conversion Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Remarketing",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Detailed Audience Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Custom Audience Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Creation Of Automated Rules",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Facebook Analytics Report Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Ad Campaign Monitoring",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Catalogue Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Dynamic Ads Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Customization Of Ad Placements",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "A/B Testing",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Carousel Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Traffic Monitoring",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Monthly Report",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ]
+      ],
+      [
+        [
+          {
+            "text": "Note: The charges for all paid campaigns are not included Within The Subscription.",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ]
+      ]
+    ]
+  },
+  "instagram-packages": {
+    "slug": "instagram-packages",
+    "metaTitle": "Best Instagram Marketing Package & Advertising Cost - Eon8",
+    "metaDesc": "Eon8 brings you the best Instagram marketing & promotion packages that are tailored to your brand’s vision & social media marketing goals.",
+    "bannerTitle": "Instagram Marketing & Promotion Packages",
+    "bannerParagraphs": [
+      "Do you want to establish your brand’s presence on Instagram? We have some of the best Instagram marketing packages which your business needs to build its brand presence on Instagram.",
+      "Eon8 brings you the best Instagram marketing & promotion packages that are tailored to your brand’s vision & social media marketing goals. We help you grow your Instagram profile by using the right tags and viral posts to drive your target audience."
+    ],
+    "overviewTitle": "Capture Your Audience's Attention With Best Instagram Marketing Packages",
+    "overviewParagraphs": [
+      "Instagram is one of the most engaging social media platforms, and a good Instagram marketing package is all you need to attract and engage your audience within your business.",
+      "The social media platform has over a billion users from all across the globe, therefore, making it the best in the business. Moreover, the platform is also quite different from Facebook & LinkedIn because most of the active audience on Instagram is aged 18 to 30.",
+      "The millennial generation loves to follow their favorite brands; therefore, if you can't impress them with your posts, then you have the chance of transforming them into your customers.",
+      "Our Instagram marketing package includes well-optimized posts and viral hashtags that can help you get more reach, likes, and followers for your brand on Instagram. You can choose any one out of the three social media packages based on your brand's budget and vision."
+    ],
+    "visualTitle": "Get Better Conversion Rates With Instagram Promotion Packages",
+    "visualParagraphs": [
+      "Instagram is a visual platform; therefore, you need innovation combined with marketing expertise to help you win your target audience. Apart from that, you also need a well-optimized, attractive, and engaging profile for your brand on Instagram. Our Instagram marketing packages play a decisive role in our clients' social media promotion strategy.",
+      "Moreover, when you work with us, we build a unique Instagram marketing strategy that is customized to your business needs. Our packages are affordable and result-oriented; therefore, we assure you that you will get the best results when you invest in our Instagram marketing packages in India.",
+      "Whether you want to partner with Instagram influencers or increase your traffic on Instagram, our experts can do it for you easily. You can count on us if you are looking for a highly-experienced & reliable Instagram marketing agency to help you achieve your goals. We help you grow your business on Instagram and build a community of loyal fans for your business on the platform."
+    ],
+    "visualImage": "/wp-content/uploads/2022/07/instagram-package.png",
+    "packageTitle": "Instagram Promotion Packages",
+    "tables": [
+      [
+        [
+          {
+            "text": "Instagram Promotion Packages",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Basic",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Advance",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Premium",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ],
+        [
+          {
+            "text": "199$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "299$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "399$",
+            "isTh": true,
+            "class": "bg-black"
+          }
+        ],
+        [
+          {
+            "text": "Instagram Marketing",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Business Profile Creation",
+            "isTh": false,
+            "class": "table-inner-title"
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Optimization Of Business Profile",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Instagram Stories Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Post Creation For Instagram Profile",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1 per week",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "2 per week",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "3 per week",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Hashtag Research",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Competitors Analysis",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Responding to comment",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Engagement Strategy",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Outreach With Influencers",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Link With Facebook Page",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Video Uploading",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Instagram Analytics & Monitoring",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Monthly Reporting",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Instagram Ads",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Instagram Ads Campaign",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "2",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "3",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Ad Set",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "3",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "6",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Ads",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "6",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "10",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Audience Research",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Instagram Ads Campaign Set up",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Instagram Ads Creative Creation & Design",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Instagram Ads Monitoring And Management",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ]
+      ],
+      [
+        [
+          {
+            "text": "Note: The charges for all paid campaigns are not included Within The Subscription.",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ]
+      ]
+    ]
+  },
+  "linkedin-packages": {
+    "slug": "linkedin-packages",
+    "metaTitle": "Affordable LinkedIn Marketing & Promotion Packages - Eon8",
+    "metaDesc": "Eon8 offers you the best LinkedIn marketing and promotion package at a low cost to generate B2B leads from LinkedIn to 2X your sales.",
+    "bannerTitle": "Increase Your B2B Sales With The Best LinkedIn Marketing & Promotion Packages",
+    "bannerParagraphs": [
+      "If your B2B business is not LinkedIn, then you are definitely missing a lot of sales & customers. LinkedIn is one of the best platforms to connect with business professionals who are really interested in your products.",
+      "Here you get a great chance to grab the best LinkedIn marketing package for your business. We help you build a strong network with prospective customers with tailored LinkedIn marketing services aligned with your business."
+    ],
+    "overviewTitle": "Linkedin - The PowerHouse For Marketing Your B2B business",
+    "overviewParagraphs": [
+      "Linkedin is a splendid network for business professionals. It is the platform through which businesses connect with one another, careers are propelled by relationships, and it is by far the finest social networking platform for business.",
+      "According to a recent study, over 60% of working professionals have a significant presence on LinkedIn. Furthermore, 90 percent of B2B marketing companies use LinkedIn to create quality leads for their clients.",
+      "When it comes to advertising your B2B company, you should look no further than LinkedIn. Our scalable LinkedIn marketing packages are specifically designed to help your brand develop on the social media site. Our LinkedIn marketing and promotion packages in India assist small and medium-sized enterprises in obtaining leads from LinkedIn."
+    ],
+    "visualTitle": "Linked Marketing Packages- The Key To Unlock Your B2B Success on LinkedIn",
+    "visualParagraphs": [
+      "Our low-cost, high-return LinkedIn marketing packages are an excellent approach to get your B2B company noticed on LinkedIn. We assist you in engaging your audience on LinkedIn by producing engaging content and improving your brand's LinkedIn page in order to help you build a positive reputation for your company.",
+      "We have been delivering results for all of our clients on LinkedIn, which has been a major factor in the success of our LinkedIn marketing packages in India. As you are well aware of the fact that LinkedIn is a platform for knowledgeable professionals, therefore, you need the right solution before you post anything on LinkedIn.",
+      "Our LinkedIn promotion packages don't make a sales pitch. We figure you as an industry leader because professionals on LinkedIn don’t believe in what sales pitches. They believe in your actions, and we convince them of your results.",
+      "In addition to that, we also help you run LinkedIn ads to ensure that you get rapid reach and build brand awareness for your business. Keep in mind that you will showcase your brand in front of CEOs and executives. Therefore, you must express yourself at your best, and our LinkedIn marketing packages can help you achieve this feat. All our LinkedIn marketing packages are also customizable, and therefore you can select the one that will work for your business."
+    ],
+    "visualImage": "/wp-content/uploads/2022/07/linkedin-package.png",
+    "packageTitle": "Linkedin Package",
+    "tables": [
+      [
+        [
+          {
+            "text": "Linkedin Package",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Basic",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Advance",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Premium",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ],
+        [
+          {
+            "text": "199$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "299$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "399$",
+            "isTh": true,
+            "class": "bg-black"
+          }
+        ],
+        [
+          {
+            "text": "LinkedIn Marketing",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "LinkedIn Business Page Creation",
+            "isTh": false,
+            "class": "table-inner-title"
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Goal Analysis",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Competitors Analysis",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Audience Research",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "LinkedIn Business Page Optimization",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Creation Of Group",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Invite Connection To Like Your Page",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Posting In LinkedIn Groups",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Image Posting",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "2 per week",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "4 per week",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "6 per week",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Hashtag Research",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Creation Of Showcase Page",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Responding To Comments",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "LinkedIn Ads Management",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Campaign Manager Account Set Up",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Creation Of Campaign",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "3",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "5",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Ad Set",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "3",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "6",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Ads",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "6",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "10",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "LinkedIn Insight Tag Installation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Creation Of Custom Conversion",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Ads Monitoring",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Monthly Report",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ]
+      ],
+      [
+        [
+          {
+            "text": "Note: The charges for all paid campaigns are not included Within The Subscription.",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ]
+      ]
+    ]
+  },
+  "twitter-packages": {
+    "slug": "twitter-packages",
+    "metaTitle": "Twitter Marketing Management & Promotion Package - Eon8",
+    "metaDesc": "Twitter marketing packages are enriched with the best marketing services to ensure that you get a comprehensive pricing package with monthly rates.",
+    "bannerTitle": "Twitter Marketing & Promotion Packages",
+    "bannerParagraphs": [
+      "Twitter marketing can help you grab your audience's attention and promote your products or help you drive traffic to your website. The social media platform offers you the advantage of promoting your brand’s Twitter account, or you can promote individual tweets.",
+      "Eon8’s Twitter marketing packages are enriched with the best Twitter marketing services to ensure that you get a comprehensive promotion package with monthly rates. The package is also aligned with the core aspects of your brand; therefore, you get a chance to generate quality leads from the platform."
+    ],
+    "overviewTitle": "Get The Best Twitter Marketing Packages For Your Brand",
+    "overviewParagraphs": [
+      "According to a recent survey, there are around 145 million daily users on Twitter, making it an ideal platform to promote your business, products, or services. Twitter has the highest audience engagement, making it a perfect fit for your marketing strategy.",
+      "Additionally, you can find 6000 new tweets every second on the platform, which we feel is quite convincing that your brand needs a Twitter promotion package to help you make the most of the digital world.",
+      "We help all our clients in attracting & engaging their target audience on Twitter. We post engaging tweets, optimize your brand’s Twitter space to give it a professional touch, and help you partner with the right Twitter influencers who can improve your reach and brand awareness on the platform."
+    ],
+    "visualTitle": "Affordable Twitter Marketing Packages For Your Business",
+    "visualParagraphs": [
+      "Twitter is not the first platform that will strike your mind when the concern is establishing your brand's online presence. At the same time, it is one of the essential social media platforms if you want to get rapid reach for your brand. Running a Twitter marketing campaign for your brand needs skill & experience.",
+      "Our Twitter marketing package is loaded with all the necessary services which your brand needs to maintain an active presence on the platform. As a well-experienced twitter marketing agency, we have combined our years of experience creating these packages. We will help you get a targeted following on the platform with the help of our engagement strategies.",
+      "Timing is the key to success on Twitter; therefore, we ensure that your content goes viral at the right time, and we also ensure that your content goes viral and your campaigns are targeted with the right code. Our twitter marketing packages in India are popular for the compelling content that helps all our clients grow. When you partner with us, you always have a strategy that will help you get desired results."
+    ],
+    "visualImage": "/wp-content/uploads/2022/07/twitter-package.png",
+    "packageTitle": "Twitter Advertising Packages",
+    "tables": [
+      [
+        [
+          {
+            "text": "Twitter Advertising Packages",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Basic",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Advance",
+            "isTh": true,
+            "class": "bg-color"
+          },
+          {
+            "text": "Premium",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ],
+        [
+          {
+            "text": "199$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "299$",
+            "isTh": true,
+            "class": "bg-black"
+          },
+          {
+            "text": "399$",
+            "isTh": true,
+            "class": "bg-black"
+          }
+        ],
+        [
+          {
+            "text": "Twitter Marketing",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Profile Creation",
+            "isTh": false,
+            "class": "table-inner-title"
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Tweet",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "2 Per Week",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "5 Per Week",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "10 Per Week",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Cover Pic Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Hashtag Research",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Active In Trending Hashtag",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Creation Of List",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Creation Of Poll",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Following Industry Related People",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Creation Of Moments",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Twitter Ads Management",
+            "isTh": true,
+            "class": "pack-midhead"
+          }
+        ],
+        [
+          {
+            "text": "Twitter Ads Set Up",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "2",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "5",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Ad Set",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "3",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "6",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Ads",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "1",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "6",
+            "isTh": false,
+            "class": ""
+          },
+          {
+            "text": "10",
+            "isTh": false,
+            "class": ""
+          }
+        ],
+        [
+          {
+            "text": "Tweet Engagement Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Video Or GIF View Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Awareness Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Website Conversion Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Follower Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "App Install Ads",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CROSS__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Audience Creation",
+            "isTh": false,
+            "class": ""
+          },
+          "__CROSS__",
+          "__CHECK__",
+          "__CHECK__"
+        ],
+        [
+          {
+            "text": "Monthly Report",
+            "isTh": false,
+            "class": ""
+          },
+          "__CHECK__",
+          "__CHECK__",
+          "__CHECK__"
+        ]
+      ],
+      [
+        [
+          {
+            "text": "Note: The charges for all paid campaigns are not included Within The Subscription.",
+            "isTh": true,
+            "class": "bg-color"
+          }
+        ]
+      ]
+    ]
+  }
+};

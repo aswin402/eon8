@@ -7,9 +7,12 @@ interface ServicesFormWidgetProps {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const YOU_ARE_OPTIONS = ['Brand / Business', 'Agency', 'NFT / Web3 Project', 'Creator'];
+const BUDGET_OPTIONS = ['Under $2,000', '$2,000 - $5,000', '$5,000 - $15,000', '$15,000+'];
+
 /**
- * Controlled React form component replacing all 36 legacy CF7 forms
- * across the 37 Our Services pages (proposal-5, callback-3, phone-callback).
+ * Controlled React form component replacing all legacy CF7 forms across all 71 service & landing pages
+ * (proposal-5, proposal-4, callback-3, phone-callback, influencer-8).
  */
 export function ServicesFormWidget({ node }: ServicesFormWidgetProps) {
   const {
@@ -25,6 +28,10 @@ export function ServicesFormWidget({ node }: ServicesFormWidgetProps) {
   const [email, setEmail] = useState('');
   const [country, setCountry] = useState('');
   const [phone, setPhone] = useState('');
+  const [youAre, setYouAre] = useState(YOU_ARE_OPTIONS[0]);
+  const [brandName, setBrandName] = useState('');
+  const [budget, setBudget] = useState(BUDGET_OPTIONS[0]);
+  const [quiz, setQuiz] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
@@ -34,14 +41,14 @@ export function ServicesFormWidget({ node }: ServicesFormWidgetProps) {
     e.preventDefault();
 
     if (variant === 'phone-callback') {
-      const digits = phone.replace(/\D/g, '');
-      if (digits.length < 7) {
-        setStatus({ type: 'error', text: 'Please enter a valid phone number.' });
+      const trimmed = phone.trim();
+      if (trimmed.length < 5) {
+        setStatus({ type: 'error', text: 'Please enter a valid phone number or website.' });
         return;
       }
       setStatus({
         type: 'success',
-        text: 'Thank you! Our specialist will call you back within 5 minutes.',
+        text: 'Thank you! Our specialist will reach out to you shortly.',
       });
       setPhone('');
       return;
@@ -62,6 +69,14 @@ export function ServicesFormWidget({ node }: ServicesFormWidgetProps) {
       return;
     }
 
+    if (variant === 'influencer-8' && quiz.trim() !== '15') {
+      setStatus({
+        type: 'error',
+        text: 'Please enter the correct verification answer (12 + 3 = 15).',
+      });
+      return;
+    }
+
     setStatus({
       type: 'success',
       text: 'Thank you! Your enquiry has been received. Our digital growth team will reach out shortly.',
@@ -70,6 +85,8 @@ export function ServicesFormWidget({ node }: ServicesFormWidgetProps) {
     setEmail('');
     setCountry('');
     setPhone('');
+    setBrandName('');
+    setQuiz('');
     setMessage('');
   };
 
@@ -80,12 +97,12 @@ export function ServicesFormWidget({ node }: ServicesFormWidgetProps) {
           <div className="flex flex-wrap items-center gap-3">
             <input
               className="wpcf7-form-control wpcf7-tel"
-              type="tel"
+              type="text"
               name="phone"
               placeholder={phonePlaceholder || 'Enter Phone Number'}
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              aria-label="Phone Number"
+              aria-label={phonePlaceholder || 'Phone Number'}
               required
             />
             <input
@@ -109,7 +126,16 @@ export function ServicesFormWidget({ node }: ServicesFormWidgetProps) {
     );
   }
 
-  const effectiveId = innerId || (variant === 'proposal-5' ? 'responsive-form' : 'nft-form');
+  const effectiveId =
+    innerId ||
+    (variant === 'influencer-8'
+      ? 'influencer-form'
+      : variant === 'callback-3'
+        ? 'nft-form'
+        : 'responsive-form');
+
+  const hasMessageField =
+    variant === 'proposal-5' || variant === 'proposal-4' || variant === 'influencer-8';
 
   return (
     <div className="wpcf7">
@@ -167,7 +193,7 @@ export function ServicesFormWidget({ node }: ServicesFormWidgetProps) {
               name="phone"
               placeholder={
                 phonePlaceholder ||
-                (variant === 'proposal-5' ? 'Mobile Number*' : 'Mobile Number')
+                (variant === 'callback-3' ? 'Mobile Number' : 'Mobile Number*')
               }
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -175,7 +201,52 @@ export function ServicesFormWidget({ node }: ServicesFormWidgetProps) {
               required
             />
           </p>
-          {variant === 'proposal-5' && (
+          {variant === 'influencer-8' && (
+            <>
+              <p>
+                <select
+                  className="wpcf7-form-control"
+                  name="Youare"
+                  value={youAre}
+                  onChange={(e) => setYouAre(e.target.value)}
+                  aria-label="You are"
+                >
+                  {YOU_ARE_OPTIONS.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+              </p>
+              <p>
+                <input
+                  className="wpcf7-form-control wpcf7-text"
+                  type="text"
+                  name="BrandName"
+                  placeholder="Brand / Project Name"
+                  value={brandName}
+                  onChange={(e) => setBrandName(e.target.value)}
+                  aria-label="Brand Name"
+                />
+              </p>
+              <p>
+                <select
+                  className="wpcf7-form-control"
+                  name="BudgetOption"
+                  value={budget}
+                  onChange={(e) => setBudget(e.target.value)}
+                  aria-label="Budget"
+                >
+                  {BUDGET_OPTIONS.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+              </p>
+            </>
+          )}
+          {hasMessageField && (
             <p>
               <textarea
                 className="wpcf7-form-control wpcf7-textarea"
@@ -185,6 +256,23 @@ export function ServicesFormWidget({ node }: ServicesFormWidgetProps) {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 aria-label="Message"
+              />
+            </p>
+          )}
+          {variant === 'influencer-8' && (
+            <p>
+              <label className="block text-sm font-semibold text-slate-800 px-2 pt-1 mb-1">
+                12 + 3 = ?
+              </label>
+              <input
+                className="wpcf7-form-control wpcf7-text"
+                type="text"
+                name="math-quiz"
+                placeholder="Enter Answer*"
+                value={quiz}
+                onChange={(e) => setQuiz(e.target.value)}
+                aria-label="Math Verification"
+                required
               />
             </p>
           )}

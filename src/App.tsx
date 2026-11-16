@@ -3,8 +3,7 @@ import { createBrowserRouter, RouterProvider, useParams } from 'react-router-dom
 import { RootLayout } from '@/layouts/RootLayout';
 import { HomePage } from '@/pages/HomePage';
 import { blogPostsBySlug } from '@/pages/blog/blogPostsData';
-import { OUR_SERVICES_SLUGS } from '@/pages/services/types';
-import liveRoutes from '@/data/liveRoutes.json';
+import { ALL_SERVICE_SLUGS } from '@/pages/services/types';
 
 const AboutPage = lazy(() => import('@/pages/AboutPage').then((m) => ({ default: m.AboutPage })));
 const ContactPage = lazy(() =>
@@ -34,9 +33,6 @@ const BlogListPage = lazy(() =>
 );
 const BlogPostPage = lazy(() =>
   import('@/pages/blog/BlogPostPage').then((m) => ({ default: m.BlogPostPage }))
-);
-const LiveTemplatePage = lazy(() =>
-  import('@/pages/LiveTemplatePage').then((m) => ({ default: m.LiveTemplatePage }))
 );
 const CryptoMarketingAgencyPage = lazy(() => import('@/pages/crypto/CryptoMarketingAgencyPage'));
 const IeoListingPage = lazy(() => import('@/pages/crypto/IeoListingPage'));
@@ -118,7 +114,7 @@ const nftElementorRoutes = NFT_ELEMENTOR_SLUGS.map((slug) => ({
   element: <ElementorNftPage key={slug} slug={slug} />,
 }));
 
-const ourServicesRoutes = OUR_SERVICES_SLUGS.map((slug) => ({
+const allServiceRoutes = ALL_SERVICE_SLUGS.map((slug) => ({
   path: slug,
   element: <OurServicesPage key={slug} slug={slug} />,
 }));
@@ -130,11 +126,6 @@ function DynamicSlugRoute() {
   }
   return <NotFoundPage />;
 }
-
-const liveTemplateRoutes = (liveRoutes as string[]).map((slug) => ({
-  path: slug,
-  element: <LiveTemplatePage slug={slug} />,
-}));
 
 const router = createBrowserRouter([
   {
@@ -220,11 +211,35 @@ const router = createBrowserRouter([
       ...nftServiceRoutes,
       ...nftElementorRoutes,
 
-      // Native Pure-React Our Services Pages (37 Digital, SEO, Social, ORM, PPC, App, AR/VR & Metaverse routes)
-      ...ourServicesRoutes,
-
-      // Tier 2 Exact 1:1 Cloned Live Pages (remaining WordPress routes from eon8.com)
-      ...liveTemplateRoutes,
+      // Native Pure-React Services & Landing Pages (all 71 Digital, SEO, Social, ORM, PPC, App, AR/VR, Metaverse, Amazon, D2C & Industry routes + aliases)
+      ...allServiceRoutes,
+      {
+        path: 'web-development-services-company',
+        element: (
+          <OurServicesPage
+            key="web-development-services-company"
+            slug="web-design-development-services-chennai"
+          />
+        ),
+      },
+      {
+        path: 'google-ads-management-ppc-agency',
+        element: (
+          <OurServicesPage
+            key="google-ads-management-ppc-agency"
+            slug="ppc-company-chennai"
+          />
+        ),
+      },
+      {
+        path: 'digital-marketing-services-chennai',
+        element: (
+          <OurServicesPage
+            key="digital-marketing-services-chennai"
+            slug="digital-marketing-agency-in-chennai"
+          />
+        ),
+      },
 
       // Root-level Blog Post Slugs (169 WordPress posts) + 404 fallback
       { path: ':slug', element: <DynamicSlugRoute /> },
