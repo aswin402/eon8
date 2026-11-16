@@ -11,7 +11,7 @@ export const keyToSuccessWeb3KolsMarketingPost: BlogPost = {
   "date": "June 05, 2025",
   "dateIso": "2025-06-05",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/06/Web3-KOLs-Agency-1.jpg",
   "excerpt": "Introduction: Welcome to the Era of Web3 Influence The digital world is rapidly shifting from centralized platforms to decentralized ecosystems.…",
   "contentNodes": [

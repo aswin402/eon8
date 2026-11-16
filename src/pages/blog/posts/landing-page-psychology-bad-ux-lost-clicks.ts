@@ -11,7 +11,7 @@ export const landingPagePsychologyBadUxLostClicksPost: BlogPost = {
   "date": "July 31, 2025",
   "dateIso": "2025-07-31",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/Bad-UX-Lost-Clicks-Landing-Page-Psychology.jpg",
   "excerpt": "You’ve written great ad copy, chosen the right keywords, and set a competitive bid. But users are clicking your ad…",
   "contentNodes": [

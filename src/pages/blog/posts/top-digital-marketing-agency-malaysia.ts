@@ -11,7 +11,7 @@ export const topDigitalMarketingAgencyMalaysiaPost: BlogPost = {
   "date": "March 11, 2021",
   "dateIso": "2021-03-11",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/03/top-digital-marketing-agency-malaysia.jpg",
   "excerpt": "No matter whether your business is a start-up or a well-established company envied in the market, finding a top digital…",
   "contentNodes": [

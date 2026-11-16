@@ -11,7 +11,7 @@ export const top10BestIcoMarketingCompany2023Post: BlogPost = {
   "date": "February 20, 2023",
   "dateIso": "2023-02-20",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2023/02/Top-10-Best-ICO-Marketing-Company-to-follow-in-2023.png",
   "excerpt": "Initial coin offering (ICO) is a method of fundraising in which companies or startups offer their own cryptocurrency or digital…",
   "contentNodes": [

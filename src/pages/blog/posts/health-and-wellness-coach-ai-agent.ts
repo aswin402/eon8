@@ -11,7 +11,7 @@ export const healthAndWellnessCoachAiAgentPost: BlogPost = {
   "date": "August 06, 2026",
   "dateIso": "2026-08-06",
   "readTime": "6 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/08/03-3.jpg",
   "excerpt": "Health and wellness have entered a new era. Instead of reacting to illness, individuals and organizations are investing in preventive…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const importanceOfSeoAndDigitalMarketingPost: BlogPost = {
   "date": "July 24, 2020",
   "dateIso": "2020-07-24",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2020/07/Importance.jpg",
   "excerpt": "During a pandemic like this, every business is undergoing a tough time. If there is one field that is least…",
   "contentNodes": [

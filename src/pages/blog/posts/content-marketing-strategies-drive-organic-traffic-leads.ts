@@ -11,7 +11,7 @@ export const contentMarketingStrategiesDriveOrganicTrafficLeadsPost: BlogPost = 
   "date": "June 21, 2026",
   "dateIso": "2026-06-21",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/Content-Marketing-Strategies.png",
   "excerpt": "In an increasingly competitive digital landscape, businesses need more than advertisements to attract customers. Today’s buyers conduct extensive research before…",
   "contentNodes": [

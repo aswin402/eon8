@@ -11,7 +11,7 @@ export const kaitoAiLeaderboardMarketersIn2025Post: BlogPost = {
   "date": "May 02, 2025",
   "dateIso": "2025-05-02",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/01/What-is-the-Kaito-AI.png",
   "excerpt": "The Kaito AI Leaderboard has recently emerged as a powerful tool in the artificial intelligence ecosystem, showcasing the top-performing AI…",
   "contentNodes": [

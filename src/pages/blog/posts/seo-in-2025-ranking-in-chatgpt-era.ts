@@ -11,7 +11,7 @@ export const seoIn2025RankingInChatgptEraPost: BlogPost = {
   "date": "July 30, 2025",
   "dateIso": "2025-07-30",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/06/SEO-in-2025-Ranking-in-the-ChatGPT-Era.jpg",
   "excerpt": "Search engine optimization (SEO) is no longer just about keywords and backlinks—2025 is witnessing a transformational shift where artificial intelligence,…",
   "contentNodes": [

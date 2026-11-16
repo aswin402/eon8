@@ -49,7 +49,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "October 22, 2026",
     "dateIso": "2026-10-22",
     "readTime": "6 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/10/ERP-software-development_EON-1024x538.jpg",
     "excerpt": "As businesses grow, managing daily operations across separate systems can become increasingly difficult. Sales teams maintain customer records, finance teams…"
   },
@@ -64,7 +64,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "October 22, 2026",
     "dateIso": "2026-10-22",
     "readTime": "7 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/10/CRM-Software-Development-_EON-1-1024x538.jpg",
     "excerpt": "Managing customer relationships becomes more challenging as a business grows. Enquiries arrive through websites, phone calls, emails, and social media,…"
   },
@@ -79,7 +79,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "October 22, 2026",
     "dateIso": "2026-10-22",
     "readTime": "7 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/10/Personalized-AI-Agent_EON-1024x538.jpg",
     "excerpt": "Businesses interact with different customers, employees, and partners every day. Each person has different needs, preferences, and expectations. Providing relevant…"
   },
@@ -95,7 +95,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 29, 2026",
     "dateIso": "2026-09-29",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/09/top-seo-agency-in-south-india_EON-1024x538.jpg",
     "excerpt": "Type “best SEO agency” into any search engine, and you’ll find dozens of companies claiming the title. Nearly every agency’s…"
   },
@@ -110,7 +110,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 29, 2026",
     "dateIso": "2026-09-29",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/09/seo-agency-in-south-india_SEO-1024x538.jpg",
     "excerpt": "Most business owners start their SEO journey with a simple goal — rank higher on Google. But somewhere along the…"
   },
@@ -125,7 +125,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 29, 2026",
     "dateIso": "2026-09-29",
     "readTime": "6 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/09/digital-marketing-ageny-in-south-india_EON-1-1024x538.jpg",
     "excerpt": "Businesses across South India — from Chennai’s tech corridors to Bangalore’s startup ecosystem, Coimbatore’s manufacturing hubs, and Kochi’s growing service…"
   },
@@ -140,7 +140,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 08, 2026",
     "dateIso": "2026-08-08",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/05.jpg",
     "excerpt": "Business operations have become more complex than ever. Organizations rely on multiple applications, cloud environments, internal systems, customer platforms, and…"
   },
@@ -155,7 +155,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 07, 2026",
     "dateIso": "2026-08-07",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/04.jpg",
     "excerpt": "Finance has evolved from simply tracking numbers to becoming one of the most strategic functions within modern organizations. Businesses today…"
   },
@@ -170,7 +170,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 06, 2026",
     "dateIso": "2026-08-06",
     "readTime": "6 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/03-3.jpg",
     "excerpt": "Health and wellness have entered a new era. Instead of reacting to illness, individuals and organizations are investing in preventive…"
   },
@@ -185,7 +185,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 05, 2026",
     "dateIso": "2026-08-05",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/02.jpg",
     "excerpt": "Customer expectations have changed dramatically over the past few years. People no longer expect businesses to respond within days or…"
   },
@@ -200,7 +200,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 04, 2026",
     "dateIso": "2026-08-04",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/01.jpg",
     "excerpt": "Content production has evolved beyond simply writing blog posts or publishing social media updates. Modern businesses manage hundreds—or even thousands—of…"
   },
@@ -215,7 +215,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 03, 2026",
     "dateIso": "2026-08-03",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/4-2.jpg",
     "excerpt": "Business growth rarely slows because of a lack of ideas. More often, it slows because internal operations cannot keep pace…"
   },
@@ -230,7 +230,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 02, 2026",
     "dateIso": "2026-08-02",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/5-2.jpg",
     "excerpt": "Sales organizations are evolving rapidly as customer expectations continue to rise. Modern buyers expect immediate responses, personalized communication, and seamless…"
   },
@@ -245,7 +245,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 01, 2026",
     "dateIso": "2026-08-01",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/3-2.jpg",
     "excerpt": "Artificial intelligence is moving beyond automation. Businesses are no longer looking for AI tools that simply answer questions or perform…"
   },
@@ -260,7 +260,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 31, 2026",
     "dateIso": "2026-07-31",
     "readTime": "6 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/2-2.jpg",
     "excerpt": "Customer relationships have evolved far beyond maintaining contact databases or recording sales activities. Today’s organizations expect CRM platforms to become…"
   },
@@ -275,7 +275,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 30, 2026",
     "dateIso": "2026-07-30",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/1-3.jpg",
     "excerpt": "Digital transformation has moved far beyond adopting cloud software or digitizing paperwork. Modern organizations now expect every department to work…"
   },
@@ -290,7 +290,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 30, 2026",
     "dateIso": "2026-06-30",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/online-reputation-management-services.png",
     "excerpt": "In today’s connected world, a brand’s reputation can influence customer decisions long before a direct interaction occurs. Potential customers often…"
   },
@@ -305,7 +305,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 29, 2026",
     "dateIso": "2026-06-29",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/marketing-automation-tools.png",
     "excerpt": "As digital marketing becomes more sophisticated, businesses are expected to engage customers across multiple channels while delivering personalized experiences at…"
   },
@@ -320,7 +320,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 28, 2026",
     "dateIso": "2026-06-28",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/YouTube-marketing-agency.png",
     "excerpt": "Building brand awareness is one of the most important objectives for businesses seeking long-term growth. Before customers make purchasing decisions,…"
   },
@@ -335,7 +335,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 27, 2026",
     "dateIso": "2026-06-27",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/Content-Marketing-Strategies-2.png",
     "excerpt": "For B2B companies, generating quality leads often requires a different approach than consumer-focused marketing. Decision-makers, business owners, executives, and industry…"
   },
@@ -350,7 +350,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 26, 2026",
     "dateIso": "2026-06-26",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/performance-marketing-agency.png",
     "excerpt": "Marketing has evolved significantly over the past decade. Businesses today have more channels, tools, and technologies available than ever before.…"
   },
@@ -365,7 +365,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 25, 2026",
     "dateIso": "2026-06-25",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/website-design-company.png",
     "excerpt": "Your website is often the first interaction potential customers have with your business. While attracting visitors through SEO, social media,…"
   },
@@ -380,7 +380,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 24, 2026",
     "dateIso": "2026-06-24",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/Google-Business-Profile-optimization-1.png",
     "excerpt": "For local businesses, visibility is everything. Even the best products and services can go unnoticed if potential customers cannot find…"
   },
@@ -395,7 +395,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 23, 2026",
     "dateIso": "2026-06-23",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/Google-Business-Profile-optimization.png",
     "excerpt": "Email remains one of the most effective digital marketing channels for building relationships, nurturing leads, and driving sales. While attracting…"
   },
@@ -410,7 +410,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 22, 2026",
     "dateIso": "2026-06-22",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/How-Social-Media-Marketing.png",
     "excerpt": "In today’s digital-first world, consumers expect more than just products and services. They want to connect with brands, understand their…"
   },
@@ -425,7 +425,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 21, 2026",
     "dateIso": "2026-06-21",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/Content-Marketing-Strategies.png",
     "excerpt": "In an increasingly competitive digital landscape, businesses need more than advertisements to attract customers. Today’s buyers conduct extensive research before…"
   },
@@ -440,7 +440,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 20, 2026",
     "dateIso": "2026-06-20",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/ChatGPT-Image-Jun-12-2026-01_23_52-PM.png",
     "excerpt": "Generating leads is easy. Generating high-quality leads that convert into paying customers is where the real challenge begins. As digital…"
   },
@@ -455,7 +455,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 06, 2025",
     "dateIso": "2025-08-06",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/08/WhatsApp-Marketing-Agency.jpg",
     "excerpt": "With over 2 billion active users globally, WhatsApp has rapidly evolved into more than just a messaging tool it’s a…"
   },
@@ -470,7 +470,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 02, 2025",
     "dateIso": "2025-08-02",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-04-at-1.17.08-PM.jpeg",
     "excerpt": "Introduction Artificial Intelligence (AI) has rapidly transformed the digital landscape, offering unmatched automation, scalability, and performance. However, with great power…"
   },
@@ -485,7 +485,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 01, 2025",
     "dateIso": "2025-08-01",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/08/Product-marketing-agency-using-AI-.png",
     "excerpt": "In today’s fast-paced digital world, product marketing isn’t just about creating awareness it’s about building smart, data-driven strategies that convert.…"
   },
@@ -500,7 +500,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 31, 2025",
     "dateIso": "2025-07-31",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Bad-UX-Lost-Clicks-Landing-Page-Psychology.jpg",
     "excerpt": "You’ve written great ad copy, chosen the right keywords, and set a competitive bid. But users are clicking your ad…"
   },
@@ -515,7 +515,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 30, 2025",
     "dateIso": "2025-07-30",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/06/AI-Powered-SEO-Predicting-Rankings-1.jpg",
     "excerpt": "Search engine optimization (SEO) has always been a dynamic and evolving field. In recent years, the biggest game-changer has been…"
   },
@@ -530,7 +530,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 30, 2025",
     "dateIso": "2025-07-30",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/06/SEO-in-2025-Ranking-in-the-ChatGPT-Era.jpg",
     "excerpt": "Search engine optimization (SEO) is no longer just about keywords and backlinks—2025 is witnessing a transformational shift where artificial intelligence,…"
   },
@@ -545,7 +545,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 29, 2025",
     "dateIso": "2025-07-29",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/LinkedIn-Funnels-B2B-Leads-from-Content.jpg",
     "excerpt": "For B2B companies, LinkedIn isn’t just a networking site—it’s a powerful sales machine. But simply posting on LinkedIn won’t drive…"
   },
@@ -560,7 +560,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 29, 2025",
     "dateIso": "2025-07-29",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Startup-Growth-with-Reddit-No-Ads.jpg",
     "excerpt": "When most startups think about digital growth, they often overlook Reddit. But with over 430 million active users and hyper-focused…"
   },
@@ -575,7 +575,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 28, 2025",
     "dateIso": "2025-07-28",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Google-Ads-for-Web3-Rules-Risks.jpg",
     "excerpt": "The world of Web3 — including blockchain, NFTs, crypto, and decentralized platforms — is evolving fast. So is the ad…"
   },
@@ -590,7 +590,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 27, 2025",
     "dateIso": "2025-07-27",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/7-Google-Ads-Metrics-That-Matter-Most.jpg",
     "excerpt": "Introduction: Why Metrics Matter in Google Ads Google Ads is one of the most powerful tools for online advertising, but…"
   },
@@ -605,7 +605,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 26, 2025",
     "dateIso": "2025-07-26",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Smart-Bidding-vs-Manual-2025-Showdown.jpg",
     "excerpt": "In the world of Google Ads, one of the most debated questions remains: Should you use Smart Bidding or Manual…"
   },
@@ -620,7 +620,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 25, 2025",
     "dateIso": "2025-07-25",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/cold-traffic.jpg",
     "excerpt": "Running a Google Ads campaign without a structured funnel is like pouring water into a leaky bucket. You may get…"
   },
@@ -635,7 +635,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 24, 2025",
     "dateIso": "2025-07-24",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/voice-seo.jpg",
     "excerpt": "The digital marketing landscape has experienced seismic shifts over the last decade, and voice search has been one of the…"
   },
@@ -650,7 +650,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 23, 2025",
     "dateIso": "2025-07-23",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Topical-Authority-vs-Backlinks-What-Works.jpg",
     "excerpt": "Introduction: The Changing SEO Landscape Search engine optimization has always been a mix of art and science. While backlinks once…"
   },
@@ -665,7 +665,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 22, 2025",
     "dateIso": "2025-07-22",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Top-Technical-SEO-Errors-Agencies-Still-Make.jpg",
     "excerpt": "Even in 2025, many digital agencies—including some claiming to be the best SEO marketing company—continue to make critical technical SEO…"
   },
@@ -680,7 +680,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 21, 2025",
     "dateIso": "2025-07-21",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/How-to-Build-a-Viral-Hook-in-the-First-3-Seconds-of-Any-Video.jpg",
     "excerpt": "In today’s fast-paced digital world, you have less than 3 seconds to grab a viewer’s attention before they scroll past…"
   },
@@ -695,7 +695,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 19, 2025",
     "dateIso": "2025-07-19",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Dark-Social-Explained-How-to-Track-the-Invisible-Shares.jpg",
     "excerpt": "In the world of digital marketing, not all user engagement is visible. In fact, a massive portion of online interactions…"
   },
@@ -710,7 +710,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 18, 2025",
     "dateIso": "2025-07-18",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/The-Rise-of-Micro-Communities-Why-You-Need-a-Niche-Social-Strategy.jpg",
     "excerpt": "In the digital age, broad marketing messages are quickly losing their impact. Today’s consumers crave relevance, connection, and authenticity. That’s…"
   },
@@ -725,7 +725,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 17, 2025",
     "dateIso": "2025-07-17",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/5.png",
     "excerpt": "Meta (formerly Facebook) remains one of the most powerful platforms for digital advertising. In 2025, as competition grows and audience…"
   },
@@ -740,7 +740,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 16, 2025",
     "dateIso": "2025-07-16",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/4.-Boosted-Posts-vs-Ads-Manager-Dont-Waste-Your-Budget.png",
     "excerpt": "In today’s competitive landscape, businesses looking to scale their digital presence often turn to social media advertising. Facebook and Instagram…"
   },
@@ -755,7 +755,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 15, 2025",
     "dateIso": "2025-07-15",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/3.-Instagram-Reels-vs-Stories-Ads-Which-Gets-More-ROI-in-2025.png",
     "excerpt": "In the fast-paced world of digital advertising, Instagram continues to evolve as a powerhouse for business marketing. With the rise…"
   },
@@ -770,7 +770,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 14, 2025",
     "dateIso": "2025-07-14",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/2.-Facebook-Ads-for-NFTs-Crypto-Avoid-Getting-Banned.png",
     "excerpt": "Running Facebook ads for NFTs and crypto projects in 2025 remains a high-risk, high-reward marketing endeavor. While Meta (Facebook’s parent…"
   },
@@ -785,7 +785,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 11, 2025",
     "dateIso": "2025-07-11",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/1.-Why-Metas-AI-Targeting-is-Failing-And-What-You-Can-Do-About-It.png",
     "excerpt": "Meta’s AI-powered advertising once promised marketers a futuristic blend of automation and results in an ecosystem where brands could effortlessly…"
   },
@@ -800,7 +800,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 10, 2025",
     "dateIso": "2025-07-10",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Gamified-Loyalty-in-Web3-Turning-Customers-into-Token-Holders.jpg",
     "excerpt": "In the evolving landscape of digital engagement, Web3 loyalty programs are redefining how brands interact with their communities. At the…"
   },
@@ -815,7 +815,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 07, 2025",
     "dateIso": "2025-07-07",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Bridging-Web2-Ads-with-Web3-Wallets-The-Future-of-Performance-Marketing.jpg",
     "excerpt": "The digital advertising world is on the cusp of a significant transformation. As Web3 technologies gain traction, marketers are exploring…"
   },
@@ -830,7 +830,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 04, 2025",
     "dateIso": "2025-07-04",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Crypto-Airdrops-as-a-Marketing-Funnel-Still-Relevant-or-Played-Out.jpg",
     "excerpt": "As the Web3 space matures in 2025, crypto airdrops remain one of the most discussed marketing strategies. Once hailed as…"
   },
@@ -845,7 +845,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 02, 2025",
     "dateIso": "2025-07-02",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/AI-Blockchain-Smart-Campaigns-A-New-Era-of-Predictive-Decentralized-Marketing.jpg",
     "excerpt": "The marketing landscape in 2025 is witnessing a profound transformation, powered by two of the most disruptive technologies of our…"
   },
@@ -860,7 +860,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 25, 2025",
     "dateIso": "2025-06-25",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/How-Vibe-Marketing-is-Evolving-in-the-Metaverse.jpg",
     "excerpt": "The metaverse is no longer a futuristic concept, it’s here and expanding. As more people engage with virtual spaces, brands…"
   },
@@ -875,7 +875,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 17, 2025",
     "dateIso": "2025-06-17",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Why-Meme-Culture-Is-the-New-SEO-Decoding-Internet-Virality.jpg",
     "excerpt": "Digital attention spans are shrinking, competition is exploding, and the one tool consistently breaking the algorithm barrier is memes. In…"
   },
@@ -890,7 +890,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 16, 2025",
     "dateIso": "2025-06-16",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Micro-Moments-Matter-Web2-Tactics-to-Dominate-Attention-Spans.jpg",
     "excerpt": "In today’s hyper-connected world, attention is the most expensive currency. With average user attention spans shrinking to under eight seconds,…"
   },
@@ -905,7 +905,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 15, 2025",
     "dateIso": "2025-06-15",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/71.png",
     "excerpt": "The concept of customer loyalty is undergoing a radical transformation. With the rise of Web3 technologies, brands are no longer…"
   },
@@ -920,7 +920,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 14, 2025",
     "dateIso": "2025-06-14",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/5.-Dark-Social-Is-Bright-Again-Leveraging-DMs-Communities-for-Web2-Growth.png",
     "excerpt": "In a digital world overflowing with metrics, analytics, and public engagement dashboards, a silent revolution is underway dark social. While…"
   },
@@ -935,7 +935,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 13, 2025",
     "dateIso": "2025-06-13",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/AI-Powered-Personalization-in-2025-How-Brands-are-Getting-Inside-Your-Head.jpg",
     "excerpt": "In 2025, personalization isn’t just about using someone’s name in an email — it’s about delivering the right message at…"
   },
@@ -950,7 +950,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 12, 2025",
     "dateIso": "2025-06-12",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/The-Rise-of-Vibe-Marketing-How-Emotion-Driven-Campaigns-Are-Beating-Algorithms.jpg",
     "excerpt": "In today’s digital world, consumers are constantly exposed to thousands of ads every day. Most of these ads rely on…"
   },
@@ -965,7 +965,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 09, 2025",
     "dateIso": "2025-06-09",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/TGE-marketing-Agency.jpg",
     "excerpt": "Introduction In the fast-paced world of Web3, a successful token launch can define the future of your blockchain project. With…"
   },
@@ -980,7 +980,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 06, 2025",
     "dateIso": "2025-06-06",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Crypto-Kol-agency.jpg",
     "excerpt": "Introduction In the crowded and competitive world of blockchain, credibility and visibility are everything. Whether you’re launching a new crypto…"
   },
@@ -995,7 +995,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 05, 2025",
     "dateIso": "2025-06-05",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/06/Web3-KOLs-Agency-1.jpg",
     "excerpt": "Introduction: Welcome to the Era of Web3 Influence The digital world is rapidly shifting from centralized platforms to decentralized ecosystems.…"
   },
@@ -1010,7 +1010,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "May 08, 2025",
     "dateIso": "2025-05-08",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/Twitter-KOL-Marketing.png",
     "excerpt": "In the fast-paced digital world, Twitter KOLs (Key Opinion Leaders) have become some of the most influential voices across industries.…"
   },
@@ -1025,7 +1025,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "May 07, 2025",
     "dateIso": "2025-05-07",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/What-is-the-Yapper-Leaderboard.png",
     "excerpt": "In the age of Web3, influence is no longer just about follower counts or viral posts—it’s about contributions, engagement, and…"
   },
@@ -1040,7 +1040,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "May 05, 2025",
     "dateIso": "2025-05-05",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/Twitter-Mindshare.png",
     "excerpt": "In today’s digitally native economy, where attention is fragmented and competition is fierce, gaining market share isn’t enough. You need…"
   },
@@ -1055,7 +1055,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "May 03, 2025",
     "dateIso": "2025-05-03",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/01/Kaito-PreTGE-Arena.png",
     "excerpt": "In the rapidly evolving landscape of artificial intelligence and decentralized technologies, platforms like Kaito are pushing the boundaries of what’s…"
   },
@@ -1070,7 +1070,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "May 02, 2025",
     "dateIso": "2025-05-02",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/01/What-is-the-Kaito-AI.png",
     "excerpt": "The Kaito AI Leaderboard has recently emerged as a powerful tool in the artificial intelligence ecosystem, showcasing the top-performing AI…"
   },
@@ -1085,7 +1085,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 16, 2024",
     "dateIso": "2024-11-16",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/3.png",
     "excerpt": "Imagine a world where your brand speaks, listens, and learns—across time zones and languages, 24/7. EON8’s Interactive AI Avatars are…"
   },
@@ -1100,7 +1100,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "October 16, 2024",
     "dateIso": "2024-10-16",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/1.png",
     "excerpt": "Why settle for plain when you can entertain? With EON8’s Personalized AI Videos, you can turn simple communications into extraordinary…"
   },
@@ -1115,7 +1115,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 09, 2024",
     "dateIso": "2024-09-09",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/Untitled-design.png",
     "excerpt": "In today’s borderless world, one voice can echo across continents — but only if everyone understands it. Whether you’re a…"
   },
@@ -1130,7 +1130,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 15, 2024",
     "dateIso": "2024-08-15",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/4.png",
     "excerpt": "In today’s fast world, text alone won’t cut it. People crave faces, emotions, real connections. At EON8, the leading AI…"
   },
@@ -1145,7 +1145,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 11, 2024",
     "dateIso": "2024-07-11",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2024/07/affordable-seo-agency-india-eon8.png",
     "excerpt": "In today’s digital age, a strong online presence is essential for any business in India. Search Engine Optimization (SEO) plays…"
   },
@@ -1160,7 +1160,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 01, 2024",
     "dateIso": "2024-07-01",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2024/07/top-seo-companies-for-small-business-Eon8.jpg",
     "excerpt": "How Top SEO Companies Drive Small Business Visibility and Growth In today’s digital age, having a strong online presence is…"
   },
@@ -1175,7 +1175,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "April 17, 2023",
     "dateIso": "2023-04-17",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-12.50.20-PM-1.jpeg",
     "excerpt": "NFTs (Non-Fungible Tokens) have revolutionized the way we think about digital assets. From digital artwork to music, sports collectibles to…"
   },
@@ -1190,7 +1190,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "April 17, 2023",
     "dateIso": "2023-04-17",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-12.50.20-PM.jpeg",
     "excerpt": "Welcome to the world of NFTs, where digital art and collectibles are being sold for millions of dollars! We all…"
   },
@@ -1207,7 +1207,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 09, 2023",
     "dateIso": "2023-03-09",
     "readTime": "6 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/03/Top-10.png",
     "excerpt": "NFTs, or non-fungible tokens, are digital assets that are unique and indivisible, meaning they cannot be exchanged for another token…"
   },
@@ -1222,7 +1222,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "February 20, 2023",
     "dateIso": "2023-02-20",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/02/Top-10-Best-ICO-Marketing-Company-to-follow-in-2023.png",
     "excerpt": "Initial coin offering (ICO) is a method of fundraising in which companies or startups offer their own cryptocurrency or digital…"
   },
@@ -1239,7 +1239,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "February 20, 2023",
     "dateIso": "2023-02-20",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/02/Top-IDO-Agencies-You-Should-Follow-in-2023.png",
     "excerpt": "Initial DEX Offerings (IDOs) have taken the world of blockchain and cryptocurrency by storm, offering a new way for projects…"
   },
@@ -1255,7 +1255,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "February 20, 2023",
     "dateIso": "2023-02-20",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/02/Top-10-ICO-Marketing-agency-in-2023.png",
     "excerpt": "As the cryptocurrency industry continues to grow and evolve, the importance of effective marketing for Initial Coin Offerings (ICOs) becomes…"
   },
@@ -1270,7 +1270,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "February 20, 2023",
     "dateIso": "2023-02-20",
     "readTime": "6 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/02/Top-5-Best-Community-Marketing-Company-in-2023-1.png",
     "excerpt": "Community marketing has become an essential part of brand building and customer engagement in recent years. With the rise of…"
   },
@@ -1286,7 +1286,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "February 20, 2023",
     "dateIso": "2023-02-20",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/02/Top-10-NFT-marketing-Company-to-follow-in-2023.png",
     "excerpt": "The world of non-fungible tokens (NFTs) has exploded in recent years, with artists, musicians, and creators of all kinds seeking…"
   },
@@ -1302,7 +1302,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "January 30, 2023",
     "dateIso": "2023-01-30",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/01/Why-and-How-You-Should-Use-The-AI.png",
     "excerpt": "The last few months have been hectic for everyone in the industry (in a good way). It was like the…"
   },
@@ -1317,7 +1317,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "January 06, 2023",
     "dateIso": "2023-01-06",
     "readTime": "6 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/01/unnamed-1.png",
     "excerpt": "NFTs, or Non-Fungible Tokens, have brought a new revolution in the field of artwork. They give an amazing opportunity to…"
   },
@@ -1333,7 +1333,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "January 05, 2023",
     "dateIso": "2023-01-05",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/01/google-dead.png",
     "excerpt": "In recent years, AI or artificial intelligence have made rapid advancements in the digital world. From optimizing chatbots to understanding…"
   },
@@ -1348,7 +1348,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "December 07, 2022",
     "dateIso": "2022-12-07",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/12/coke.png",
     "excerpt": "The FIFA fever is getting closer to the knockout stages, and it has started affecting almost every brand that wishes…"
   },
@@ -1363,7 +1363,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "December 07, 2022",
     "dateIso": "2022-12-07",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/12/bmw.png",
     "excerpt": "BMW, a prominent automobile manufacturer from Germany, has decided to get into the decentralized market and has filed for its…"
   },
@@ -1379,7 +1379,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 29, 2022",
     "dateIso": "2022-11-29",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/Essential-Tips-to-Get-Your-Brands-Instagram-Profile-Verified.jpg",
     "excerpt": "Getting verified on Instagram is one of the highest forms of validation one can get for managing a valuable and…"
   },
@@ -1395,7 +1395,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 29, 2022",
     "dateIso": "2022-11-29",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/Getting-Your-Brand-Twitter-Verifie-Things-You-Need-to-Know.jpg",
     "excerpt": "Getting Your Brand Twitter Verified: Things You Need to Know Twitter is one of the leading social media platforms with…"
   },
@@ -1413,7 +1413,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 25, 2022",
     "dateIso": "2022-11-25",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/p2e.png",
     "excerpt": "Promote Your NFT game Among Crypto Investors Play to Earn Model The decentralized gaming space is quickly gaining popularity among…"
   },
@@ -1428,7 +1428,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 25, 2022",
     "dateIso": "2022-11-25",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/how-to-promote.png",
     "excerpt": "How to promote NFT on Twitter Do you have NFTs that need to be marketed? Social media must be a…"
   },
@@ -1443,7 +1443,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 24, 2022",
     "dateIso": "2022-11-24",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/c.png",
     "excerpt": "If you are not living in a cave for the last 12 months, you have had some sort of experience…"
   },
@@ -1459,7 +1459,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 19, 2022",
     "dateIso": "2022-11-19",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/5a.png",
     "excerpt": "Influencers have the capacity to attract more people and collaborate with several brands perpetually to increase visibility for their services…"
   },
@@ -1475,7 +1475,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 19, 2022",
     "dateIso": "2022-11-19",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/Top-10-Crypto-NFT.jpg",
     "excerpt": "Launching a crypto or an NFT project is something familiar, as there are tons of projects already existing in the…"
   },
@@ -1492,7 +1492,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 18, 2022",
     "dateIso": "2022-11-18",
     "readTime": "6 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/Top-10-NFT-Marketing-Agencies-of-2022.jpg",
     "excerpt": "The adoption of blockchain technology changed the digital landscape for the better. One of the most notable concepts of blockchain…"
   },
@@ -1509,7 +1509,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 17, 2022",
     "dateIso": "2022-11-17",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/Community-marketing-with-real-time-example.png",
     "excerpt": "How community marketing works We all know the next step on web 3.0 will be community-based products, many brands will…"
   },
@@ -1526,7 +1526,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 17, 2022",
     "dateIso": "2022-11-17",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/3-3.png",
     "excerpt": "Creating a Discord bot may seem harder than it is but when it comes to it there can be a…"
   },
@@ -1542,7 +1542,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 11, 2022",
     "dateIso": "2022-11-11",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/web3.0-1.png",
     "excerpt": "There are stalwarts in every industry, irrespective of whether it is art or rocket science. The real world has exceptional…"
   },
@@ -1557,7 +1557,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 03, 2022",
     "dateIso": "2022-11-03",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/1.-What-are-Collectible-Avatars_.png",
     "excerpt": "Reddit created an active 2.3 million decentralized wallet for its active user base in a short span of 3 months…"
   },
@@ -1572,7 +1572,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 02, 2022",
     "dateIso": "2022-11-02",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/social-media-marketing-for-restaurants.png",
     "excerpt": "How To Make Your Restaurant Viral? Social Media Marketing Strategy For Restaurants: Social media plays a vital role if you…"
   },
@@ -1587,7 +1587,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "November 01, 2022",
     "dateIso": "2022-11-01",
     "readTime": "6 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/digital-marketing-agency-in-bangalore.png",
     "excerpt": "We are your online porter that delivers your potential customers to your business with the help of customized digital marketing…"
   },
@@ -1603,7 +1603,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "October 20, 2022",
     "dateIso": "2022-10-20",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/10/discord.png",
     "excerpt": "What is discord? Discord is a platform that can serve your brand as a community center! The application is specially…"
   },
@@ -1619,7 +1619,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "October 19, 2022",
     "dateIso": "2022-10-19",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/10/discord-2.png",
     "excerpt": "Discord, a platform that started off as a chat space for gamers, has become increasingly popular among brands and non-brands…"
   },
@@ -1635,7 +1635,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "October 19, 2022",
     "dateIso": "2022-10-19",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/10/SE0-and-its-Importance.png",
     "excerpt": "A search engine optimization (SEO) strategy is a plan to optimize your website for SEO . Building, implementing, and maintaining…"
   },
@@ -1651,7 +1651,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 28, 2022",
     "dateIso": "2022-09-28",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/Instagram-Advertising-Agency.png",
     "excerpt": "Instagram has never been popular in the past, like now, and it is one of the prominent reasons why every…"
   },
@@ -1666,7 +1666,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 27, 2022",
     "dateIso": "2022-09-27",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/How-instagram-marketing-agency-in-mumbai.png",
     "excerpt": "The world has become a tech-savvy box, and most organizations chase digital marketing to make their business profitable through online…"
   },
@@ -1681,7 +1681,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 21, 2022",
     "dateIso": "2022-09-21",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/Instagram-Growth-Agency.png",
     "excerpt": "There are 3.5 billion people who are using Instagram every day. One of the main reasons people love to spend…"
   },
@@ -1696,7 +1696,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 20, 2022",
     "dateIso": "2022-09-20",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/City-Buildings-Facebook-Cover.png",
     "excerpt": "Eon8 is an experienced Instagram marketing agency present in Banglore with 12+ years of experience and has done 30,000+ successful…"
   },
@@ -1711,7 +1711,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 19, 2022",
     "dateIso": "2022-09-19",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/Instagram-Marketing-Agency-In-Delh.png",
     "excerpt": "Do you want to know your Instagram audience better than ever before? You have landed at the right place, as…"
   },
@@ -1726,7 +1726,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 16, 2022",
     "dateIso": "2022-09-16",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/The-best-Influencer-1.png",
     "excerpt": "Now imagine! You own a brand and you need a powerful approach to grow it. The very first thought that…"
   },
@@ -1741,7 +1741,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 16, 2022",
     "dateIso": "2022-09-16",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/Best-instagram-marketing_-1.png",
     "excerpt": "Instagram has become an integral part of social media marketing campaigns for various brands on the internet. Whether the concern…"
   },
@@ -1758,7 +1758,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 15, 2022",
     "dateIso": "2022-07-15",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/07/Effective-sms.gif",
     "excerpt": "All social media marketing campaigns start with a great social media marketing campaign. Moreover, a brand that doesn’t exist on…"
   },
@@ -1775,7 +1775,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 26, 2022",
     "dateIso": "2022-03-26",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/03/Linkedin-Marketing-Strategy.gif",
     "excerpt": "If you are in the B2B field, LinkedIn is like a gold mine that can take your sales to new…"
   },
@@ -1790,7 +1790,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 17, 2022",
     "dateIso": "2022-03-17",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/03/How-can-Digital-Marketing-Grow-Business.gif",
     "excerpt": "The digital world is filled with modern technologies and competition; therefore, one must take the necessary steps to survive in…"
   },
@@ -1808,7 +1808,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 10, 2022",
     "dateIso": "2022-03-10",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/03/Digital-Marketing-Strategies-You-Should-Use-in-2022.gif",
     "excerpt": "Digital marketing has received a lot of attention since the intervention of the COVID-19 global pandemic. Consumers have showcased a…"
   },
@@ -1826,7 +1826,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 08, 2022",
     "dateIso": "2022-03-08",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/03/Artboard-1.png",
     "excerpt": "Digital marketing has become essential for any business, and with an exponential increase in customers, online marketing has become even…"
   },
@@ -1841,7 +1841,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 05, 2022",
     "dateIso": "2022-03-05",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/03/digital-m-arkiting-agency-1.png",
     "excerpt": "Digital Marketing is at the center of every brand’s effort to reach potential customers. The marketing strategies allow you to…"
   },
@@ -1856,7 +1856,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "February 16, 2022",
     "dateIso": "2022-02-16",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/02/Capture.png",
     "excerpt": "SEO or Search Engine Optimization is one of the best ways of increasing the traffic of a website by driving…"
   },
@@ -1871,7 +1871,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 03, 2021",
     "dateIso": "2021-09-03",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/09/5-fundamental-shifts-that-are-shaping-search-digital-marketing-5f7f23593ac21-1280x720-1.png",
     "excerpt": "What is App Store Optimization, and how does it work? App store optimization (ASO) is the most popular SEO technique…"
   },
@@ -1886,7 +1886,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 10, 2021",
     "dateIso": "2021-08-10",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/08/ga.png",
     "excerpt": "Google Analytics services For many businesses ranging from small to large, Google Analytics is serving as the best platform for…"
   },
@@ -1901,7 +1901,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 02, 2021",
     "dateIso": "2021-08-02",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/08/Social-Media-Marketing.png",
     "excerpt": "Why should you hire a social media marketing agency? It doesn’t matter if you are a start-up or an established…"
   },
@@ -1916,7 +1916,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 28, 2021",
     "dateIso": "2021-07-28",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/07/Eon-image.jpg",
     "excerpt": "Business owners, especially small business entrepreneurs, understand better than anybody that in order to stay successful in the market, they…"
   },
@@ -1931,7 +1931,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 23, 2021",
     "dateIso": "2021-07-23",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/07/EOn-blog.png",
     "excerpt": "Benefits of bad review removal You might often have wondered why your business reputation is average online when you are…"
   },
@@ -1946,7 +1946,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 21, 2021",
     "dateIso": "2021-07-21",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/07/1.png",
     "excerpt": "Without a doubt, your business is successful and caters to its customers’ needs efficiently. But it is always a good…"
   },
@@ -1961,7 +1961,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 13, 2021",
     "dateIso": "2021-07-13",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/07/unnamed-9.png",
     "excerpt": "To start with, let’s be clear that communication is a very powerful tool. With every day passing, we are looking…"
   },
@@ -1976,7 +1976,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 24, 2021",
     "dateIso": "2021-06-24",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/06/5540850.jpg",
     "excerpt": "Every business owner’s worst nightmare is not getting customers to either online or physical stores, where in online stores we…"
   },
@@ -1991,7 +1991,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 22, 2021",
     "dateIso": "2021-06-22",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/06/Content-writing.png",
     "excerpt": "It doesn’t matter if you are a small start-up or a well-established brand. Digital marketing and good content writing services…"
   },
@@ -2006,7 +2006,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 22, 2021",
     "dateIso": "2021-06-22",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/06/Conversion-rate-optimization.png",
     "excerpt": "With a solid conversion rate optimization plan, you can take your business to new heights, receive better Return on Investment…"
   },
@@ -2021,7 +2021,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "April 26, 2021",
     "dateIso": "2021-04-26",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/04/How-To-Delete-Google-Reviews.jpg",
     "excerpt": "I bet you all have wondered at least once, can google reviews be deleted? The answer is not quite simple…"
   },
@@ -2036,7 +2036,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "April 07, 2021",
     "dateIso": "2021-04-07",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/04/Remove-negative-Yelp-reviews-1.jpg",
     "excerpt": "It takes years to build a good reputation but just one negative review to sabotage it. This is why it’s…"
   },
@@ -2051,7 +2051,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 24, 2021",
     "dateIso": "2021-03-24",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/Remove-negative-complaints.jpg",
     "excerpt": "When customers approach your business to purchase your products or services, it helps to have a good reputation and brand…"
   },
@@ -2066,7 +2066,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 17, 2021",
     "dateIso": "2021-03-17",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/ORM-packages.jpg",
     "excerpt": "Is your brand struggling with a constant inflow of negative reviews? While it is possible to request the content host…"
   },
@@ -2081,7 +2081,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 11, 2021",
     "dateIso": "2021-03-11",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/top-digital-marketing-agency-malaysia.jpg",
     "excerpt": "No matter whether your business is a start-up or a well-established company envied in the market, finding a top digital…"
   },
@@ -2096,7 +2096,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 08, 2021",
     "dateIso": "2021-03-08",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/Singapore2.jpg",
     "excerpt": "Reviews and comments about your business can greatly influence the quality and quantity of your customers. It takes years to…"
   },
@@ -2111,7 +2111,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 03, 2021",
     "dateIso": "2021-03-03",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/Untitled-design3.jpg",
     "excerpt": "A complete guide to safeguard your online reputation from negative feedback Does your company have a Google My Business (GMB)…"
   },
@@ -2126,7 +2126,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 01, 2021",
     "dateIso": "2021-03-01",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/Negative-review-removal.jpg",
     "excerpt": "Negative content can be extremely damaging to the hard-earned reputation of a business. Even months or years after a blog…"
   },
@@ -2141,7 +2141,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "February 24, 2021",
     "dateIso": "2021-02-24",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/02/Digital-marketing-Agency-for-Restaurants.jpg",
     "excerpt": "Food and Restaurants is a booming business in the industry, and it might give you more business when it is…"
   },
@@ -2156,7 +2156,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "February 24, 2021",
     "dateIso": "2021-02-24",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/02/3-1.jpg",
     "excerpt": "Although most users consider Instagram to be a social media platform for sharing content, its role as a marketing platform…"
   },
@@ -2171,7 +2171,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "February 18, 2021",
     "dateIso": "2021-02-18",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/12/startup-business-teamwork-meeting-concept-scaled.jpg",
     "excerpt": "Negative content online can be very defamatory to your business’s reputation and could result in a loss of customers for…"
   },
@@ -2186,7 +2186,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "February 16, 2021",
     "dateIso": "2021-02-16",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/02/Why-your-business-needs-effective-ORM-services.jpg",
     "excerpt": "If you have been noticing a consistent downfall in your business’s reputation lately, then it means it’s time you invested…"
   },
@@ -2201,7 +2201,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 07, 2020",
     "dateIso": "2020-09-07",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/09/business-needs-orm-services-1.jpg",
     "excerpt": "There are many factors that make a company a ‘good’ company. From having an innovative business idea or the right…"
   },
@@ -2216,7 +2216,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 03, 2020",
     "dateIso": "2020-09-03",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/09/Remove-Consumer-Complaints-from-google.jpg",
     "excerpt": "Over 90% of consumers read online reviews before even thinking of buying a product or service. It is widely understood…"
   },
@@ -2231,7 +2231,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 01, 2020",
     "dateIso": "2020-09-01",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/09/delete-negative-reviews.jpg",
     "excerpt": "There is a feature called grievance board which are utilized all the while as it is the online stage which…"
   },
@@ -2246,7 +2246,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 28, 2020",
     "dateIso": "2020-08-28",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/09/eon8-helps-in-removing-negative-reviews.jpg",
     "excerpt": "Evacuating negative reviews is a great task which cannot be done single-handedly. Delete the negative reviews from Google or Facebook…"
   },
@@ -2261,7 +2261,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 26, 2020",
     "dateIso": "2020-08-26",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "A lot of people must be looking for your brand or business at this point. Who knows as you might…"
   },
@@ -2276,7 +2276,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 20, 2020",
     "dateIso": "2020-08-20",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "Search engine optimization is very important for any business. If you need to work on the improvement of your business…"
   },
@@ -2291,7 +2291,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 17, 2020",
     "dateIso": "2020-08-17",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "What do you think is the most used search engine? The answer is quite obvious as undoubtedly, it is Google.…"
   },
@@ -2306,7 +2306,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 14, 2020",
     "dateIso": "2020-08-14",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "Be it a franchise or school or IT company, if the company has got a good place amongst their competitors…"
   },
@@ -2321,7 +2321,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 10, 2020",
     "dateIso": "2020-08-10",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "The most forthcoming strategies are included and actualized to encourage a customer’s site from basic issues by an ORM company.…"
   },
@@ -2336,7 +2336,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "August 04, 2020",
     "dateIso": "2020-08-04",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "TTFB or ‘time to first byte’ is an important factor for SEO. Imagine that you wanted to know certain information…"
   },
@@ -2351,7 +2351,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 30, 2020",
     "dateIso": "2020-07-30",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "Search engine optimization is the greatest task of any digital marketing company. SEO is a significant idea with regards to…"
   },
@@ -2366,7 +2366,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 28, 2020",
     "dateIso": "2020-07-28",
     "readTime": "6 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "What is digital marketing? While in the times of pandemic, you would have doubts regarding developing your business. Many of…"
   },
@@ -2381,7 +2381,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 27, 2020",
     "dateIso": "2020-07-27",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "What are the negative reviews? Imagine you start a business. You will need basic support and much more after you…"
   },
@@ -2396,7 +2396,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 24, 2020",
     "dateIso": "2020-07-24",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/07/Importance.jpg",
     "excerpt": "During a pandemic like this, every business is undergoing a tough time. If there is one field that is least…"
   },
@@ -2411,7 +2411,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 23, 2020",
     "dateIso": "2020-07-23",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "When your company is stepping into a new business, it needs a lot of support system. The major drawback of…"
   },
@@ -2426,7 +2426,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 21, 2020",
     "dateIso": "2020-07-21",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "If you are new to the business world, there are high chances that you might get lost in the chaos…"
   },
@@ -2441,7 +2441,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "July 17, 2020",
     "dateIso": "2020-07-17",
     "readTime": "5 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "The whole world is affected. Affected by the deadly virus. Covid-19 seems to take away our spirits as it is…"
   },
@@ -2456,7 +2456,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 23, 2020",
     "dateIso": "2020-06-23",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
     "excerpt": "There is a simple idea behind the working of negative reviews. Consider you opened a restaurant with utmost difficulty but…"
   },
@@ -2471,7 +2471,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 15, 2020",
     "dateIso": "2020-06-15",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2019/07/eon-blog-1.jpg",
     "excerpt": "It is the primary duty of a brand or business service to maintain its business reputation in online platforms. Online…"
   },
@@ -2486,7 +2486,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "June 08, 2020",
     "dateIso": "2020-06-08",
     "readTime": "3 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/04/Reputation-Management-eon8softech.jpg",
     "excerpt": "It is basic knowledge that every business shall have its ups and downs. Compare it with a curve and you…"
   },
@@ -2501,7 +2501,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "May 27, 2020",
     "dateIso": "2020-05-27",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/04/Remove-Negative-Reviews-eon8-eonsofttecch.jpg",
     "excerpt": "When you read this, several customers would be probably googling or searching for your company. To develop a positive reputation…"
   },
@@ -2516,7 +2516,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "May 04, 2020",
     "dateIso": "2020-05-04",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/04/Online-Reputation-Monitoring-eon8.jpg",
     "excerpt": "Online Reputation Management Company that lets you Build and Maintain Brand on the Internet. Bring more price in your Brand!…"
   },
@@ -2531,7 +2531,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "April 29, 2020",
     "dateIso": "2020-04-29",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/04/online-reputation-management.png",
     "excerpt": "In the widespread internet world, it takes years to build a good online reputation among the audience. As digital media…"
   },
@@ -2546,7 +2546,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "April 08, 2020",
     "dateIso": "2020-04-08",
     "readTime": "4 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/themes/eon8/assets/img/orm/reputation.jpg",
     "excerpt": "Social media has made a space for itself with connecting potential audiences or customers with its engaging content proactively provided…"
   },
@@ -2561,7 +2561,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "March 21, 2020",
     "dateIso": "2020-03-21",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2019/07/eon-blog-1.jpg",
     "excerpt": "The battle between conventional marketing vs digital marketing has always been debated upon. In today’s modern world one needs to…"
   },
@@ -2576,7 +2576,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "December 07, 2019",
     "dateIso": "2019-12-07",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2019/12/online-marketing.jpg",
     "excerpt": "Gone are the days when online or Digital marketing seemed like new for businesses – for both product & service-based.…"
   },
@@ -2591,7 +2591,7 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 04, 2019",
     "dateIso": "2019-09-04",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2019/09/post_2.jpg",
     "excerpt": "Choosing the right way to market your product/service and reaching the right target audience has always been hard. And after…"
   },
@@ -2606,8 +2606,104 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "date": "September 04, 2019",
     "dateIso": "2019-09-04",
     "readTime": "2 min read",
-    "author": "Eon8 Editorial",
+    "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2019/09/post_1.jpg",
     "excerpt": "When everything is revolving around your fingers now-a-days, there needs a quick upgrade on building your business with a strong…"
+  }
+];
+
+export interface BlogCategoryPair {
+  slug: string;
+  name: string;
+}
+
+export const BLOG_CATEGORY_PAIRS: BlogCategoryPair[] = [
+  {
+    "slug": "art-agency",
+    "name": "Art Agency"
+  },
+  {
+    "slug": "b2b-marketing",
+    "name": "B2B Marketing"
+  },
+  {
+    "slug": "chat-gpt",
+    "name": "Chat GPT"
+  },
+  {
+    "slug": "community-marketing",
+    "name": "Community Marketing"
+  },
+  {
+    "slug": "digital-marketing",
+    "name": "Digital Marketing"
+  },
+  {
+    "slug": "discord-community",
+    "name": "Discord Community"
+  },
+  {
+    "slug": "discord-marketing",
+    "name": "Discord marketing"
+  },
+  {
+    "slug": "game-blog",
+    "name": "Game Blog"
+  },
+  {
+    "slug": "game-market",
+    "name": "Game Market"
+  },
+  {
+    "slug": "instagram-marketing",
+    "name": "Instagram Marketing"
+  },
+  {
+    "slug": "linkedin-marketing",
+    "name": "LinkedIn Marketing"
+  },
+  {
+    "slug": "nft-influencer",
+    "name": "NFT Influencer"
+  },
+  {
+    "slug": "nft-influencer-marketing",
+    "name": "NFT Influencer Marketing"
+  },
+  {
+    "slug": "nft-marketing",
+    "name": "NFT Marketing"
+  },
+  {
+    "slug": "orm",
+    "name": "ORM"
+  },
+  {
+    "slug": "reddit",
+    "name": "Reddit"
+  },
+  {
+    "slug": "responsive-web-design-and-developement",
+    "name": "Responsive Web Design and Developement"
+  },
+  {
+    "slug": "search-engine-marketing",
+    "name": "Search engine Marketing"
+  },
+  {
+    "slug": "search-engine-optimization",
+    "name": "Search engine Optimization"
+  },
+  {
+    "slug": "social-media-marketing",
+    "name": "Social Media Marketing"
+  },
+  {
+    "slug": "uncategorized",
+    "name": "Uncategorized"
+  },
+  {
+    "slug": "web3",
+    "name": "Web3"
   }
 ];

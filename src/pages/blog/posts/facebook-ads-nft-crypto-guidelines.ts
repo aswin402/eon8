@@ -11,7 +11,7 @@ export const facebookAdsNftCryptoGuidelinesPost: BlogPost = {
   "date": "July 14, 2025",
   "dateIso": "2025-07-14",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/2.-Facebook-Ads-for-NFTs-Crypto-Avoid-Getting-Banned.png",
   "excerpt": "Running Facebook ads for NFTs and crypto projects in 2025 remains a high-risk, high-reward marketing endeavor. While Meta (Facebook’s parent…",
   "contentNodes": [

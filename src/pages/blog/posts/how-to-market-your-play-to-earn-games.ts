@@ -14,7 +14,7 @@ export const howToMarketYourPlayToEarnGamesPost: BlogPost = {
   "date": "November 25, 2022",
   "dateIso": "2022-11-25",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/11/p2e.png",
   "excerpt": "Promote Your NFT game Among Crypto Investors Play to Earn Model The decentralized gaming space is quickly gaining popularity among…",
   "contentNodes": [

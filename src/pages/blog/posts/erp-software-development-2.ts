@@ -11,7 +11,7 @@ export const erpSoftwareDevelopment2Post: BlogPost = {
   "date": "October 22, 2026",
   "dateIso": "2026-10-22",
   "readTime": "6 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/10/ERP-software-development_EON-1024x538.jpg",
   "excerpt": "As businesses grow, managing daily operations across separate systems can become increasingly difficult. Sales teams maintain customer records, finance teams…",
   "contentNodes": [

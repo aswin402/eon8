@@ -11,7 +11,7 @@ export const microMomentsWeb2AttentionTacticsPost: BlogPost = {
   "date": "June 16, 2025",
   "dateIso": "2025-06-16",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/Micro-Moments-Matter-Web2-Tactics-to-Dominate-Attention-Spans.jpg",
   "excerpt": "In today’s hyper-connected world, attention is the most expensive currency. With average user attention spans shrinking to under eight seconds,…",
   "contentNodes": [

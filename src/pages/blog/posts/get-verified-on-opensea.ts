@@ -11,7 +11,7 @@ export const getVerifiedOnOpenseaPost: BlogPost = {
   "date": "April 17, 2023",
   "dateIso": "2023-04-17",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-12.50.20-PM.jpeg",
   "excerpt": "Welcome to the world of NFTs, where digital art and collectibles are being sold for millions of dollars! We all…",
   "contentNodes": [

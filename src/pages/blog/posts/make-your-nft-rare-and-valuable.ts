@@ -11,7 +11,7 @@ export const makeYourNftRareAndValuablePost: BlogPost = {
   "date": "November 24, 2022",
   "dateIso": "2022-11-24",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/11/c.png",
   "excerpt": "If you are not living in a cave for the last 12 months, you have had some sort of experience…",
   "contentNodes": [

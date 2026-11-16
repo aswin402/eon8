@@ -11,7 +11,7 @@ export const importanceOfSeoInTheBusinessWorldPost: BlogPost = {
   "date": "August 20, 2020",
   "dateIso": "2020-08-20",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "Search engine optimization is very important for any business. If you need to work on the improvement of your business…",
   "contentNodes": [

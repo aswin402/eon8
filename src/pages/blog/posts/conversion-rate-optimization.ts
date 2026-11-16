@@ -11,7 +11,7 @@ export const conversionRateOptimizationPost: BlogPost = {
   "date": "June 22, 2021",
   "dateIso": "2021-06-22",
   "readTime": "2 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/06/Conversion-rate-optimization.png",
   "excerpt": "With a solid conversion rate optimization plan, you can take your business to new heights, receive better Return on Investment…",
   "contentNodes": [

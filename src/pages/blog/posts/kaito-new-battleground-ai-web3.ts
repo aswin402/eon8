@@ -11,7 +11,7 @@ export const kaitoNewBattlegroundAiWeb3Post: BlogPost = {
   "date": "May 03, 2025",
   "dateIso": "2025-05-03",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/01/Kaito-PreTGE-Arena.png",
   "excerpt": "In the rapidly evolving landscape of artificial intelligence and decentralized technologies, platforms like Kaito are pushing the boundaries of what’s…",
   "contentNodes": [

@@ -6,6 +6,20 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [2.2.0] - 2026-11-16
+
+### Added
+- **`ChatGPT Ads Agency` Suite (`src/pages/chatgpt/`)**:
+  - Added the `ChatGPT Ads Agency` menu item under `AI-Agent` in `src/components/Navbar.tsx` (desktop dropdown & mobile drawer).
+  - Built 1:1 standalone pure-React TSX pages for `/chatgpt-ads-agency` (`ChatgptAdsAgencyPage.tsx`) and its `/chatgpt-ads-agency/blog` & `/chatgpt-ads-agency/education` sub-routes (`ChatgptAdsSubPage.tsx`) with scoped styles (`src/styles/chatgpt-ads.css`), interactive 4-industry AI answer/ad switcher (`Bakery`, `Interiors`, `Wedding venue`, `B2B software`), and interactive service & visibility audit dialog.
+- **1:1 Live Fidelity Rebuilds for `AI-Agent`, `Blog`, `About Us` & `Contact Us`**:
+  - Rebuilt `src/pages/AIAgentPage.tsx` (`/ai-agent-development-services`) 1:1 with live `https://www.eon8.com/ai-agent-development-services/` (royal-blue split hero, 19 tech stack badges, case study metrics, FAQ accordion, `<NftCalendlyWidget />`, and `#nft-form`).
+  - Rebuilt `src/pages/AIVideoPage.tsx` (`/ai-video-creation`) 1:1 with live `https://www.eon8.com/ai-video-creation/` (equalizer player hero, sticky service showcase, interactive `Our Work` `<video>` slider, vector SVG icon set, single-open FAQ accordion, `<NftCalendlyWidget />`, and `#nft-form`).
+  - Rebuilt `src/pages/blog/BlogListPage.tsx` (`/blog`, `/blog/page/:pageNum`, `/category/:categorySlug`) and `src/pages/blog/BlogPostPage.tsx` (`/blog/:slug`, `/:slug`) 1:1 with live `https://www.eon8.com/blog/` (`page_title_wrap` banner, 20-card `.bdpp-post-grid-wrap` 3-column archive with author `Aanya`, numbered pagination, `.sin_meta` post bar, and 22-category + 7-recent-post `.post-sidebar`).
+  - Rebuilt `src/pages/AboutPage.tsx` (`/about-us`, `/about`) and `src/pages/ContactPage.tsx` (`/contact`) 1:1 with live `https://www.eon8.com/about-us/` and `https://www.eon8.com/contact/` (`src/styles/ai-core-blog-pages.css`), including `12 + 4 = 16` math-quiz validation and Google Maps embed.
+
+---
+
 ## [2.1.0] - 2026-11-16
 
 ### Added

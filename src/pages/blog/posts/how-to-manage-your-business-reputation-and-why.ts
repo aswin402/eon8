@@ -11,7 +11,7 @@ export const howToManageYourBusinessReputationAndWhyPost: BlogPost = {
   "date": "July 21, 2020",
   "dateIso": "2020-07-21",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "If you are new to the business world, there are high chances that you might get lost in the chaos…",
   "contentNodes": [

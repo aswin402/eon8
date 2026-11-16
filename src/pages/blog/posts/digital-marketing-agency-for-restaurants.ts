@@ -11,7 +11,7 @@ export const digitalMarketingAgencyForRestaurantsPost: BlogPost = {
   "date": "February 24, 2021",
   "dateIso": "2021-02-24",
   "readTime": "2 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/02/Digital-marketing-Agency-for-Restaurants.jpg",
   "excerpt": "Food and Restaurants is a booming business in the industry, and it might give you more business when it is…",
   "contentNodes": [

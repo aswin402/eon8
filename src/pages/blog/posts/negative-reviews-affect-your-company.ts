@@ -11,7 +11,7 @@ export const negativeReviewsAffectYourCompanyPost: BlogPost = {
   "date": "June 23, 2020",
   "dateIso": "2020-06-23",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "There is a simple idea behind the working of negative reviews. Consider you opened a restaurant with utmost difficulty but…",
   "contentNodes": [

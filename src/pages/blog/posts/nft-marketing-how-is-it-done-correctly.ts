@@ -11,7 +11,7 @@ export const nftMarketingHowIsItDoneCorrectlyPost: BlogPost = {
   "date": "January 06, 2023",
   "dateIso": "2023-01-06",
   "readTime": "6 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2023/01/unnamed-1.png",
   "excerpt": "NFTs, or Non-Fungible Tokens, have brought a new revolution in the field of artwork. They give an amazing opportunity to…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const seoAgencySouthIndiaPost: BlogPost = {
   "date": "September 29, 2026",
   "dateIso": "2026-09-29",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/09/seo-agency-in-south-india_SEO-1024x538.jpg",
   "excerpt": "Most business owners start their SEO journey with a simple goal — rank higher on Google. But somewhere along the…",
   "contentNodes": [

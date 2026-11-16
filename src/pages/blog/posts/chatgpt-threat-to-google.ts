@@ -12,7 +12,7 @@ export const chatgptThreatToGooglePost: BlogPost = {
   "date": "January 05, 2023",
   "dateIso": "2023-01-05",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2023/01/google-dead.png",
   "excerpt": "In recent years, AI or artificial intelligence have made rapid advancements in the digital world. From optimizing chatbots to understanding…",
   "contentNodes": [

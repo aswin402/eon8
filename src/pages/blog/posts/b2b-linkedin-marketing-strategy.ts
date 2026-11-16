@@ -13,7 +13,7 @@ export const b2bLinkedinMarketingStrategyPost: BlogPost = {
   "date": "March 26, 2022",
   "dateIso": "2022-03-26",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/03/Linkedin-Marketing-Strategy.gif",
   "excerpt": "If you are in the B2B field, LinkedIn is like a gold mine that can take your sales to new…",
   "contentNodes": [

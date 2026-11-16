@@ -11,7 +11,7 @@ export const amplifyYourBlockchainCryptoKolAgencyPost: BlogPost = {
   "date": "June 06, 2025",
   "dateIso": "2025-06-06",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/Crypto-Kol-agency.jpg",
   "excerpt": "Introduction In the crowded and competitive world of blockchain, credibility and visibility are everything. Whether you’re launching a new crypto…",
   "contentNodes": [

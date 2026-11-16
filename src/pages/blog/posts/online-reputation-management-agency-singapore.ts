@@ -11,7 +11,7 @@ export const onlineReputationManagementAgencySingaporePost: BlogPost = {
   "date": "March 08, 2021",
   "dateIso": "2021-03-08",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/03/Singapore2.jpg",
   "excerpt": "Reviews and comments about your business can greatly influence the quality and quantity of your customers. It takes years to…",
   "contentNodes": [

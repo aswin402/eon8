@@ -11,7 +11,7 @@ export const howToBuildViralVideoHookPost: BlogPost = {
   "date": "July 21, 2025",
   "dateIso": "2025-07-21",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/How-to-Build-a-Viral-Hook-in-the-First-3-Seconds-of-Any-Video.jpg",
   "excerpt": "In today’s fast-paced digital world, you have less than 3 seconds to grab a viewer’s attention before they scroll past…",
   "contentNodes": [

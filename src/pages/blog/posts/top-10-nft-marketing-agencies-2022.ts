@@ -13,7 +13,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
   "date": "November 18, 2022",
   "dateIso": "2022-11-18",
   "readTime": "6 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/11/Top-10-NFT-Marketing-Agencies-of-2022.jpg",
   "excerpt": "The adoption of blockchain technology changed the digital landscape for the better. One of the most notable concepts of blockchain…",
   "contentNodes": [

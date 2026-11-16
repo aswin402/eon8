@@ -11,7 +11,7 @@ export const doesCoronavirusAffectDigitalMarketingPost: BlogPost = {
   "date": "July 17, 2020",
   "dateIso": "2020-07-17",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "The whole world is affected. Affected by the deadly virus. Covid-19 seems to take away our spirits as it is…",
   "contentNodes": [

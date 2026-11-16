@@ -11,7 +11,7 @@ export const customerSupportAiAgentPost: BlogPost = {
   "date": "August 05, 2026",
   "dateIso": "2026-08-05",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/08/02.jpg",
   "excerpt": "Customer expectations have changed dramatically over the past few years. People no longer expect businesses to respond within days or…",
   "contentNodes": [

@@ -22,6 +22,7 @@ const tier1Routes: SitemapEntry[] = [
   { path: 'contact', priority: '0.8', changefreq: 'monthly' },
   { path: 'ai-agent-development-services', priority: '0.9', changefreq: 'weekly' },
   { path: 'ai-video-creation', priority: '0.9', changefreq: 'weekly' },
+  { path: 'chatgpt-ads-agency', priority: '0.9', changefreq: 'weekly' },
   { path: 'crm-software-development', priority: '0.9', changefreq: 'weekly' },
   { path: 'erp-software-development', priority: '0.9', changefreq: 'weekly' },
   { path: 'works', priority: '0.8', changefreq: 'monthly' },

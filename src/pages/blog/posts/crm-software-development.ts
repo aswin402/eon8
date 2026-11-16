@@ -11,7 +11,7 @@ export const crmSoftwareDevelopmentPost: BlogPost = {
   "date": "October 22, 2026",
   "dateIso": "2026-10-22",
   "readTime": "7 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/10/CRM-Software-Development-_EON-1-1024x538.jpg",
   "excerpt": "Managing customer relationships becomes more challenging as a business grows. Enquiries arrive through websites, phone calls, emails, and social media,…",
   "contentNodes": [

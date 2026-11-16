@@ -11,7 +11,7 @@ export const pushDownNegativeReviewsPost: BlogPost = {
   "date": "July 27, 2020",
   "dateIso": "2020-07-27",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "What are the negative reviews? Imagine you start a business. You will need basic support and much more after you…",
   "contentNodes": [

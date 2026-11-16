@@ -13,7 +13,7 @@ export const socialMediaMarketingStrategyPost: BlogPost = {
   "date": "July 15, 2022",
   "dateIso": "2022-07-15",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/07/Effective-sms.gif",
   "excerpt": "All social media marketing campaigns start with a great social media marketing campaign. Moreover, a brand that doesn’t exist on…",
   "contentNodes": [

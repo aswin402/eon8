@@ -11,7 +11,7 @@ export const onlineReputationManagementProtectingYourBrandPost: BlogPost = {
   "date": "June 30, 2026",
   "dateIso": "2026-06-30",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/online-reputation-management-services.png",
   "excerpt": "In today’s connected world, a brand’s reputation can influence customer decisions long before a direct interaction occurs. Potential customers often…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const effectsOfNegativeGoogleReviewsPost: BlogPost = {
   "date": "August 17, 2020",
   "dateIso": "2020-08-17",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "What do you think is the most used search engine? The answer is quite obvious as undoubtedly, it is Google.…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const marketingAutomationToolsBusinessesShouldUse2026Post: BlogPost = {
   "date": "June 29, 2026",
   "dateIso": "2026-06-29",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/marketing-automation-tools.png",
   "excerpt": "As digital marketing becomes more sophisticated, businesses are expected to engage customers across multiple channels while delivering personalized experiences at…",
   "contentNodes": [

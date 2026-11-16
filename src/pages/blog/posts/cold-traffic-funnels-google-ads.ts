@@ -11,7 +11,7 @@ export const coldTrafficFunnelsGoogleAdsPost: BlogPost = {
   "date": "July 25, 2025",
   "dateIso": "2025-07-25",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/cold-traffic.jpg",
   "excerpt": "Running a Google Ads campaign without a structured funnel is like pouring water into a leaky bucket. You may get…",
   "contentNodes": [

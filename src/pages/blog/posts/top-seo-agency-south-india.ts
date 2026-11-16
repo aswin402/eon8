@@ -12,7 +12,7 @@ export const topSeoAgencySouthIndiaPost: BlogPost = {
   "date": "September 29, 2026",
   "dateIso": "2026-09-29",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/09/top-seo-agency-in-south-india_EON-1024x538.jpg",
   "excerpt": "Type “best SEO agency” into any search engine, and you’ll find dozens of companies claiming the title. Nearly every agency’s…",
   "contentNodes": [

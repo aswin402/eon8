@@ -11,7 +11,7 @@ export const hereIsAllYouNeedToKnowAboutTtfbPost: BlogPost = {
   "date": "August 04, 2020",
   "dateIso": "2020-08-04",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "TTFB or ‘time to first byte’ is an important factor for SEO. Imagine that you wanted to know certain information…",
   "contentNodes": [

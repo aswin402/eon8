@@ -11,7 +11,7 @@ export const ormPersonalBrandingServiceIndustryPost: BlogPost = {
   "date": "August 26, 2020",
   "dateIso": "2020-08-26",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "A lot of people must be looking for your brand or business at this point. Who knows as you might…",
   "contentNodes": [

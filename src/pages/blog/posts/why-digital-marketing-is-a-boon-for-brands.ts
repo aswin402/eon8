@@ -11,7 +11,7 @@ export const whyDigitalMarketingIsABoonForBrandsPost: BlogPost = {
   "date": "March 21, 2020",
   "dateIso": "2020-03-21",
   "readTime": "2 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2019/07/eon-blog-1.jpg",
   "excerpt": "The battle between conventional marketing vs digital marketing has always been debated upon. In today’s modern world one needs to…",
   "contentNodes": [

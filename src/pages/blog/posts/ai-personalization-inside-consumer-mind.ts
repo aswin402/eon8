@@ -11,7 +11,7 @@ export const aiPersonalizationInsideConsumerMindPost: BlogPost = {
   "date": "June 13, 2025",
   "dateIso": "2025-06-13",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/AI-Powered-Personalization-in-2025-How-Brands-are-Getting-Inside-Your-Head.jpg",
   "excerpt": "In 2025, personalization isn’t just about using someone’s name in an email — it’s about delivering the right message at…",
   "contentNodes": [

@@ -12,7 +12,7 @@ export const top3dNftArtDesignersPost: BlogPost = {
   "date": "November 11, 2022",
   "dateIso": "2022-11-11",
   "readTime": "2 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/11/web3.0-1.png",
   "excerpt": "There are stalwarts in every industry, irrespective of whether it is art or rocket science. The real world has exceptional…",
   "contentNodes": [

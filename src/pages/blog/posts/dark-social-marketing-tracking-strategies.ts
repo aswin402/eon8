@@ -11,7 +11,7 @@ export const darkSocialMarketingTrackingStrategiesPost: BlogPost = {
   "date": "July 19, 2025",
   "dateIso": "2025-07-19",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/Dark-Social-Explained-How-to-Track-the-Invisible-Shares.jpg",
   "excerpt": "In the world of digital marketing, not all user engagement is visible. In fact, a massive portion of online interactions…",
   "contentNodes": [

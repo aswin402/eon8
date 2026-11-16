@@ -11,7 +11,7 @@ export const howDigitalMarketingServiceHelpYourBusinessGrowPost: BlogPost = {
   "date": "July 28, 2021",
   "dateIso": "2021-07-28",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/07/Eon-image.jpg",
   "excerpt": "Business owners, especially small business entrepreneurs, understand better than anybody that in order to stay successful in the market, they…",
   "contentNodes": [

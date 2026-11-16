@@ -11,7 +11,7 @@ export const cryptoAirdropsAsAMarketingFunnel2025Post: BlogPost = {
   "date": "July 04, 2025",
   "dateIso": "2025-07-04",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/Crypto-Airdrops-as-a-Marketing-Funnel-Still-Relevant-or-Played-Out.jpg",
   "excerpt": "As the Web3 space matures in 2025, crypto airdrops remain one of the most discussed marketing strategies. Once hailed as…",
   "contentNodes": [

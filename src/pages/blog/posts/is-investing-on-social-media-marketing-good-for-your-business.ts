@@ -11,7 +11,7 @@ export const isInvestingOnSocialMediaMarketingGoodForYourBusinessPost: BlogPost 
   "date": "September 04, 2019",
   "dateIso": "2019-09-04",
   "readTime": "2 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2019/09/post_2.jpg",
   "excerpt": "Choosing the right way to market your product/service and reaching the right target audience has always been hard. And after…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const influencerAgencyPost: BlogPost = {
   "date": "September 16, 2022",
   "dateIso": "2022-09-16",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/09/The-best-Influencer-1.png",
   "excerpt": "Now imagine! You own a brand and you need a powerful approach to grow it. The very first thought that…",
   "contentNodes": [

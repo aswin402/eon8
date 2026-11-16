@@ -11,7 +11,7 @@ export const post3CommonStagesFollowedBySeoAgencyPost: BlogPost = {
   "date": "August 14, 2020",
   "dateIso": "2020-08-14",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "Be it a franchise or school or IT company, if the company has got a good place amongst their competitors…",
   "contentNodes": [

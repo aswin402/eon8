@@ -11,7 +11,7 @@ export const bridgingWeb2AdsWithWeb3WalletsFuturePerformanceMarketingPost: BlogP
   "date": "July 07, 2025",
   "dateIso": "2025-07-07",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/Bridging-Web2-Ads-with-Web3-Wallets-The-Future-of-Performance-Marketing.jpg",
   "excerpt": "The digital advertising world is on the cusp of a significant transformation. As Web3 technologies gain traction, marketers are exploring…",
   "contentNodes": [

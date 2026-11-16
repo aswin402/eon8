@@ -11,7 +11,7 @@ export const onlineReputationManagementGuidePost: BlogPost = {
   "date": "May 04, 2020",
   "dateIso": "2020-05-04",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2020/04/Online-Reputation-Monitoring-eon8.jpg",
   "excerpt": "Online Reputation Management Company that lets you Build and Maintain Brand on the Internet. Bring more price in your Brand!…",
   "contentNodes": [

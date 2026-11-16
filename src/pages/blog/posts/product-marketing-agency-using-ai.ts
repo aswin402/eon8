@@ -11,7 +11,7 @@ export const productMarketingAgencyUsingAiPost: BlogPost = {
   "date": "August 01, 2025",
   "dateIso": "2025-08-01",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/08/Product-marketing-agency-using-AI-.png",
   "excerpt": "In today’s fast-paced digital world, product marketing isn’t just about creating awareness it’s about building smart, data-driven strategies that convert.…",
   "contentNodes": [

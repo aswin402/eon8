@@ -38,6 +38,7 @@ const NAV_ITEMS: NavItem[] = [
     submenu: [
       { name: 'AI Agent Development Services', href: '/ai-agent-development-services' },
       { name: 'AI Video Creation Services', href: '/ai-video-creation' },
+      { name: 'ChatGPT Ads Agency', href: '/chatgpt-ads-agency' },
     ],
   },
   {

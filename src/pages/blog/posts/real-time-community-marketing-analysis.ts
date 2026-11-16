@@ -13,7 +13,7 @@ export const realTimeCommunityMarketingAnalysisPost: BlogPost = {
   "date": "November 17, 2022",
   "dateIso": "2022-11-17",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/11/Community-marketing-with-real-time-example.png",
   "excerpt": "How community marketing works We all know the next step on web 3.0 will be community-based products, many brands will…",
   "contentNodes": [

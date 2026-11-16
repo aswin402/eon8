@@ -11,7 +11,7 @@ export const instagramMarketingAgencyInMumbaiPost: BlogPost = {
   "date": "September 27, 2022",
   "dateIso": "2022-09-27",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/09/How-instagram-marketing-agency-in-mumbai.png",
   "excerpt": "The world has become a tech-savvy box, and most organizations chase digital marketing to make their business profitable through online…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const whatAreOrmServicesInDigitalMarketingAndHowAreTheyUsefulForBusinesse
   "date": "September 07, 2020",
   "dateIso": "2020-09-07",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2020/09/business-needs-orm-services-1.jpg",
   "excerpt": "There are many factors that make a company a ‘good’ company. From having an innovative business idea or the right…",
   "contentNodes": [

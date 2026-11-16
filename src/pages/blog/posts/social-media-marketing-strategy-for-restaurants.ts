@@ -11,7 +11,7 @@ export const socialMediaMarketingStrategyForRestaurantsPost: BlogPost = {
   "date": "November 02, 2022",
   "dateIso": "2022-11-02",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/11/social-media-marketing-for-restaurants.png",
   "excerpt": "How To Make Your Restaurant Viral? Social Media Marketing Strategy For Restaurants: Social media plays a vital role if you…",
   "contentNodes": [

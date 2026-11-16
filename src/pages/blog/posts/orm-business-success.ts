@@ -11,7 +11,7 @@ export const ormBusinessSuccessPost: BlogPost = {
   "date": "April 29, 2020",
   "dateIso": "2020-04-29",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2020/04/online-reputation-management.png",
   "excerpt": "In the widespread internet world, it takes years to build a good online reputation among the audience. As digital media…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const memeCultureNewSeoUnlockingViralityPost: BlogPost = {
   "date": "June 17, 2025",
   "dateIso": "2025-06-17",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/Why-Meme-Culture-Is-the-New-SEO-Decoding-Internet-Virality.jpg",
   "excerpt": "Digital attention spans are shrinking, competition is exploding, and the one tool consistently breaking the algorithm barrier is memes. In…",
   "contentNodes": [

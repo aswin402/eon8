@@ -11,7 +11,7 @@ export const websiteDesignMistakesReduceLeadsConversionsPost: BlogPost = {
   "date": "June 25, 2026",
   "dateIso": "2026-06-25",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/website-design-company.png",
   "excerpt": "Your website is often the first interaction potential customers have with your business. While attracting visitors through SEO, social media,…",
   "contentNodes": [

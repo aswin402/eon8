@@ -11,7 +11,7 @@ export const googleAdsStrategiesHighQualityLeadsPost: BlogPost = {
   "date": "June 20, 2026",
   "dateIso": "2026-06-20",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/ChatGPT-Image-Jun-12-2026-01_23_52-PM.png",
   "excerpt": "Generating leads is easy. Generating high-quality leads that convert into paying customers is where the real challenge begins. As digital…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const instagramMarketingAgencyInDelhiPost: BlogPost = {
   "date": "September 19, 2022",
   "dateIso": "2022-09-19",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/09/Instagram-Marketing-Agency-In-Delh.png",
   "excerpt": "Do you want to know your Instagram audience better than ever before? You have landed at the right place, as…",
   "contentNodes": [

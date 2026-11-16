@@ -11,7 +11,7 @@ export const hireSocialMediaMarketingAgencyPost: BlogPost = {
   "date": "August 02, 2021",
   "dateIso": "2021-08-02",
   "readTime": "2 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/08/Social-Media-Marketing.png",
   "excerpt": "Why should you hire a social media marketing agency? It doesn’t matter if you are a start-up or an established…",
   "contentNodes": [

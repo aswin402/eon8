@@ -11,7 +11,7 @@ export const personalizedAiAgentPost: BlogPost = {
   "date": "August 01, 2026",
   "dateIso": "2026-08-01",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/08/3-2.jpg",
   "excerpt": "Artificial intelligence is moving beyond automation. Businesses are no longer looking for AI tools that simply answer questions or perform…",
   "contentNodes": [

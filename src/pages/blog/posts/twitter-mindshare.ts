@@ -11,7 +11,7 @@ export const twitterMindsharePost: BlogPost = {
   "date": "May 05, 2025",
   "dateIso": "2025-05-05",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/05/Twitter-Mindshare.png",
   "excerpt": "In today’s digitally native economy, where attention is fragmented and competition is fierce, gaining market share isn’t enough. You need…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const interactiveAiAvatarsPost: BlogPost = {
   "date": "November 16, 2024",
   "dateIso": "2024-11-16",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/05/3.png",
   "excerpt": "Imagine a world where your brand speaks, listens, and learns—across time zones and languages, 24/7. EON8’s Interactive AI Avatars are…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const voiceSearchOptimization2025Post: BlogPost = {
   "date": "July 24, 2025",
   "dateIso": "2025-07-24",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/voice-seo.jpg",
   "excerpt": "The digital marketing landscape has experienced seismic shifts over the last decade, and voice search has been one of the…",
   "contentNodes": [

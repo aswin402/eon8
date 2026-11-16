@@ -11,7 +11,7 @@ export const salesAndLeadGenerationAgentPost: BlogPost = {
   "date": "August 02, 2026",
   "dateIso": "2026-08-02",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/08/5-2.jpg",
   "excerpt": "Sales organizations are evolving rapidly as customer expectations continue to rise. Modern buyers expect immediate responses, personalized communication, and seamless…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const buildTrustDriveSalesSocialMediaMarketingPost: BlogPost = {
   "date": "June 22, 2026",
   "dateIso": "2026-06-22",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/How-Social-Media-Marketing.png",
   "excerpt": "In today’s digital-first world, consumers expect more than just products and services. They want to connect with brands, understand their…",
   "contentNodes": [

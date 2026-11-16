@@ -11,7 +11,7 @@ export const topSeoCompaniesForSmallBusinessPost: BlogPost = {
   "date": "July 01, 2024",
   "dateIso": "2024-07-01",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2024/07/top-seo-companies-for-small-business-Eon8.jpg",
   "excerpt": "How Top SEO Companies Drive Small Business Visibility and Growth In today’s digital age, having a strong online presence is…",
   "contentNodes": [

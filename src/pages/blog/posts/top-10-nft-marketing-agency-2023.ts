@@ -12,7 +12,7 @@ export const top10NftMarketingAgency2023Post: BlogPost = {
   "date": "February 20, 2023",
   "dateIso": "2023-02-20",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2023/02/Top-10-NFT-marketing-Company-to-follow-in-2023.png",
   "excerpt": "The world of non-fungible tokens (NFTs) has exploded in recent years, with artists, musicians, and creators of all kinds seeking…",
   "contentNodes": [

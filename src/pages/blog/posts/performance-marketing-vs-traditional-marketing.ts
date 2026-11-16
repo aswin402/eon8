@@ -11,7 +11,7 @@ export const performanceMarketingVsTraditionalMarketingPost: BlogPost = {
   "date": "June 26, 2026",
   "dateIso": "2026-06-26",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/performance-marketing-agency.png",
   "excerpt": "Marketing has evolved significantly over the past decade. Businesses today have more channels, tools, and technologies available than ever before.…",
   "contentNodes": [

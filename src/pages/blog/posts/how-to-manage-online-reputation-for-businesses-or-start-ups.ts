@@ -11,7 +11,7 @@ export const howToManageOnlineReputationForBusinessesOrStartUpsPost: BlogPost = 
   "date": "July 13, 2021",
   "dateIso": "2021-07-13",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/07/unnamed-9.png",
   "excerpt": "To start with, let’s be clear that communication is a very powerful tool. With every day passing, we are looking…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const aiVideoTranslationAgencyPost: BlogPost = {
   "date": "September 09, 2024",
   "dateIso": "2024-09-09",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/05/Untitled-design.png",
   "excerpt": "In today’s borderless world, one voice can echo across continents — but only if everyone understands it. Whether you’re a…",
   "contentNodes": [

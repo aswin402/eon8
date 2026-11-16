@@ -11,7 +11,7 @@ export const howInstagramCanHelpSkyrocketYourBusinessPost: BlogPost = {
   "date": "February 24, 2021",
   "dateIso": "2021-02-24",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/02/3-1.jpg",
   "excerpt": "Although most users consider Instagram to be a social media platform for sharing content, its role as a marketing platform…",
   "contentNodes": [

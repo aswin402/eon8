@@ -11,7 +11,7 @@ export const buildingAResponsiveWebsiteMakesYouMoreProfitPost: BlogPost = {
   "date": "September 04, 2019",
   "dateIso": "2019-09-04",
   "readTime": "2 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2019/09/post_1.jpg",
   "excerpt": "When everything is revolving around your fingers now-a-days, there needs a quick upgrade on building your business with a strong…",
   "contentNodes": [

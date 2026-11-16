@@ -11,7 +11,7 @@ export const howToRemoveNegativeContentOnlinePost: BlogPost = {
   "date": "February 18, 2021",
   "dateIso": "2021-02-18",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2020/12/startup-business-teamwork-meeting-concept-scaled.jpg",
   "excerpt": "Negative content online can be very defamatory to your business’s reputation and could result in a loss of customers for…",
   "contentNodes": [

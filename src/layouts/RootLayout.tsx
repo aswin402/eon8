@@ -1,5 +1,5 @@
 import { useEffect, Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
@@ -25,6 +25,9 @@ function PageLoader() {
 }
 
 export function RootLayout() {
+  const location = useLocation();
+  const isStandaloneChatgptRoute = location.pathname.startsWith('/chatgpt-ads-agency');
+
   useEffect(() => {
     // Initialize Lenis
     const lenis = new Lenis({
@@ -38,6 +41,16 @@ export function RootLayout() {
       lenis.destroy();
     };
   }, []);
+
+  if (isStandaloneChatgptRoute) {
+    return (
+      <ThemeProvider>
+        <Suspense fallback={<PageLoader />}>
+          <Outlet />
+        </Suspense>
+      </ThemeProvider>
+    );
+  }
 
   return (
     <ThemeProvider>

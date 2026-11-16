@@ -14,7 +14,7 @@ export const importanceOfDigitalMarketingPost: BlogPost = {
   "date": "March 08, 2022",
   "dateIso": "2022-03-08",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/03/Artboard-1.png",
   "excerpt": "Digital marketing has become essential for any business, and with an exponential increase in customers, online marketing has become even…",
   "contentNodes": [

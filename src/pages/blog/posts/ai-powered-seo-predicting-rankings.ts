@@ -11,7 +11,7 @@ export const aiPoweredSeoPredictingRankingsPost: BlogPost = {
   "date": "July 30, 2025",
   "dateIso": "2025-07-30",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/06/AI-Powered-SEO-Predicting-Rankings-1.jpg",
   "excerpt": "Search engine optimization (SEO) has always been a dynamic and evolving field. In recent years, the biggest game-changer has been…",
   "contentNodes": [

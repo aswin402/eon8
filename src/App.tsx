@@ -15,6 +15,8 @@ const AIAgentPage = lazy(() =>
 const AIVideoPage = lazy(() =>
   import('@/pages/AIVideoPage').then((m) => ({ default: m.AIVideoPage }))
 );
+const ChatgptAdsAgencyPage = lazy(() => import('@/pages/chatgpt/ChatgptAdsAgencyPage'));
+const ChatgptAdsSubPage = lazy(() => import('@/pages/chatgpt/ChatgptAdsSubPage'));
 const SoftwarePage = lazy(() =>
   import('@/pages/SoftwarePage').then((m) => ({ default: m.SoftwarePage }))
 );
@@ -142,6 +144,14 @@ const router = createBrowserRouter([
       { path: 'contact', element: <ContactPage /> },
       { path: 'ai-agent-development-services', element: <AIAgentPage /> },
       { path: 'ai-video-creation', element: <AIVideoPage /> },
+      { path: 'chatgpt-ads-agency', element: <ChatgptAdsAgencyPage /> },
+      { path: 'chatgpt-ads-agency/blog', element: <ChatgptAdsSubPage mode="blog" /> },
+      { path: 'chatgpt-ads-agency/blog.html', element: <ChatgptAdsSubPage mode="blog" /> },
+      { path: 'chatgpt-ads-agency/education', element: <ChatgptAdsSubPage mode="education" /> },
+      {
+        path: 'chatgpt-ads-agency/education.html',
+        element: <ChatgptAdsSubPage mode="education" />,
+      },
       { path: 'crm-software-development', element: <SoftwarePage mode="crm" /> },
       { path: 'erp-software-development', element: <SoftwarePage mode="erp" /> },
 
@@ -167,9 +177,12 @@ const router = createBrowserRouter([
       { path: 'refund-policy', element: <PolicyPage slug="refund-policy" /> },
       { path: 'delivery-policy', element: <PolicyPage slug="delivery-policy" /> },
 
-      // Blog Archive & Posts
+      // Blog Archive, Pagination, Category Archives & Posts
       { path: 'blog', element: <BlogListPage /> },
+      { path: 'blog/page/:pageNum', element: <BlogListPage /> },
       { path: 'digital-marketing-blog', element: <BlogListPage /> },
+      { path: 'category/:categorySlug', element: <BlogListPage /> },
+      { path: 'category/:categorySlug/page/:pageNum', element: <BlogListPage /> },
       { path: 'blog/:slug', element: <BlogPostPage /> },
 
       // Native Pure-React Crypto Pages (14 menu pages + alias)

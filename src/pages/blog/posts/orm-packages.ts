@@ -11,7 +11,7 @@ export const ormPackagesPost: BlogPost = {
   "date": "March 17, 2021",
   "dateIso": "2021-03-17",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/03/ORM-packages.jpg",
   "excerpt": "Is your brand struggling with a constant inflow of negative reviews? While it is possible to request the content host…",
   "contentNodes": [

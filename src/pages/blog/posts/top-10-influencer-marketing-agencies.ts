@@ -12,7 +12,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
   "date": "November 19, 2022",
   "dateIso": "2022-11-19",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/11/5a.png",
   "excerpt": "Influencers have the capacity to attract more people and collaborate with several brands perpetually to increase visibility for their services…",
   "contentNodes": [

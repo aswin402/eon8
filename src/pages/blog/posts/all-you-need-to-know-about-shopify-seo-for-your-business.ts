@@ -11,7 +11,7 @@ export const allYouNeedToKnowAboutShopifySeoForYourBusinessPost: BlogPost = {
   "date": "June 24, 2021",
   "dateIso": "2021-06-24",
   "readTime": "2 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/06/5540850.jpg",
   "excerpt": "Every business owner’s worst nightmare is not getting customers to either online or physical stores, where in online stores we…",
   "contentNodes": [

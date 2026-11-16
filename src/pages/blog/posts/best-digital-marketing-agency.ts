@@ -11,7 +11,7 @@ export const bestDigitalMarketingAgencyPost: BlogPost = {
   "date": "March 05, 2022",
   "dateIso": "2022-03-05",
   "readTime": "2 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/03/digital-m-arkiting-agency-1.png",
   "excerpt": "Digital Marketing is at the center of every brand’s effort to reach potential customers. The marketing strategies allow you to…",
   "contentNodes": [

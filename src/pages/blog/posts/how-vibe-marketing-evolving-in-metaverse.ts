@@ -11,7 +11,7 @@ export const howVibeMarketingEvolvingInMetaversePost: BlogPost = {
   "date": "June 25, 2025",
   "dateIso": "2025-06-25",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2025/07/How-Vibe-Marketing-is-Evolving-in-the-Metaverse.jpg",
   "excerpt": "The metaverse is no longer a futuristic concept, it’s here and expanding. As more people engage with virtual spaces, brands…",
   "contentNodes": [

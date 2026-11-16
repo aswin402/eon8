@@ -11,7 +11,7 @@ export const businessOperationsAgentEnterpriseAutomationPost: BlogPost = {
   "date": "August 03, 2026",
   "dateIso": "2026-08-03",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/08/4-2.jpg",
   "excerpt": "Business growth rarely slows because of a lack of ideas. More often, it slows because internal operations cannot keep pace…",
   "contentNodes": [

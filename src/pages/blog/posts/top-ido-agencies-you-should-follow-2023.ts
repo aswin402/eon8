@@ -13,7 +13,7 @@ export const topIdoAgenciesYouShouldFollow2023Post: BlogPost = {
   "date": "February 20, 2023",
   "dateIso": "2023-02-20",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2023/02/Top-IDO-Agencies-You-Should-Follow-in-2023.png",
   "excerpt": "Initial DEX Offerings (IDOs) have taken the world of blockchain and cryptocurrency by storm, offering a new way for projects…",
   "contentNodes": [

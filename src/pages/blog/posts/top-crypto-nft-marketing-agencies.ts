@@ -12,7 +12,7 @@ export const topCryptoNftMarketingAgenciesPost: BlogPost = {
   "date": "November 19, 2022",
   "dateIso": "2022-11-19",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/11/Top-10-Crypto-NFT.jpg",
   "excerpt": "Launching a crypto or an NFT project is something familiar, as there are tons of projects already existing in the…",
   "contentNodes": [

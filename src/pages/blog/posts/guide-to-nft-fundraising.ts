@@ -11,7 +11,7 @@ export const guideToNftFundraisingPost: BlogPost = {
   "date": "April 17, 2023",
   "dateIso": "2023-04-17",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-12.50.20-PM-1.jpeg",
   "excerpt": "NFTs (Non-Fungible Tokens) have revolutionized the way we think about digital assets. From digital artwork to music, sports collectibles to…",
   "contentNodes": [

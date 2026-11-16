@@ -11,7 +11,7 @@ export const removeNegativeComplaintsOnlinePost: BlogPost = {
   "date": "March 24, 2021",
   "dateIso": "2021-03-24",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/03/Remove-negative-complaints.jpg",
   "excerpt": "When customers approach your business to purchase your products or services, it helps to have a good reputation and brand…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const erpSoftwareDevelopmentPost: BlogPost = {
   "date": "July 30, 2026",
   "dateIso": "2026-07-30",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/08/1-3.jpg",
   "excerpt": "Digital transformation has moved far beyond adopting cloud software or digitizing paperwork. Modern organizations now expect every department to work…",
   "contentNodes": [

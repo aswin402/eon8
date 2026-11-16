@@ -11,7 +11,7 @@ export const googleBusinessProfileOptimizationIncreasesCustomerCallsPost: BlogPo
   "date": "June 24, 2026",
   "dateIso": "2026-06-24",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/Google-Business-Profile-optimization-1.png",
   "excerpt": "For local businesses, visibility is everything. Even the best products and services can go unnoticed if potential customers cannot find…",
   "contentNodes": [

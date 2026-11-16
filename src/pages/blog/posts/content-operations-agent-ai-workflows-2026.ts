@@ -11,7 +11,7 @@ export const contentOperationsAgentAiWorkflows2026Post: BlogPost = {
   "date": "August 04, 2026",
   "dateIso": "2026-08-04",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/08/01.jpg",
   "excerpt": "Content production has evolved beyond simply writing blog posts or publishing social media updates. Modern businesses manage hundreds—or even thousands—of…",
   "contentNodes": [

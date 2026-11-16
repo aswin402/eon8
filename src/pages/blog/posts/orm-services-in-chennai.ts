@@ -11,7 +11,7 @@ export const ormServicesInChennaiPost: BlogPost = {
   "date": "August 10, 2020",
   "dateIso": "2020-08-10",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "The most forthcoming strategies are included and actualized to encourage a customer’s site from basic issues by an ORM company.…",
   "contentNodes": [

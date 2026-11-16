@@ -11,7 +11,7 @@ export const bestInstagramMarketingAgencyPost: BlogPost = {
   "date": "September 16, 2022",
   "dateIso": "2022-09-16",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/09/Best-instagram-marketing_-1.png",
   "excerpt": "Instagram has become an integral part of social media marketing campaigns for various brands on the internet. Whether the concern…",
   "contentNodes": [

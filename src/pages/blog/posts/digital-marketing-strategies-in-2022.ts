@@ -14,7 +14,7 @@ export const digitalMarketingStrategiesIn2022Post: BlogPost = {
   "date": "March 10, 2022",
   "dateIso": "2022-03-10",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/03/Digital-Marketing-Strategies-You-Should-Use-in-2022.gif",
   "excerpt": "Digital marketing has received a lot of attention since the intervention of the COVID-19 global pandemic. Consumers have showcased a…",
   "contentNodes": [

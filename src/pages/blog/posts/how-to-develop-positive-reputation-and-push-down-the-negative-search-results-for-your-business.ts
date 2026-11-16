@@ -11,7 +11,7 @@ export const howToDevelopPositiveReputationAndPushDownTheNegativeSearchResultsFo
   "date": "May 27, 2020",
   "dateIso": "2020-05-27",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2020/04/Remove-Negative-Reviews-eon8-eonsofttecch.jpg",
   "excerpt": "When you read this, several customers would be probably googling or searching for your company. To develop a positive reputation…",
   "contentNodes": [

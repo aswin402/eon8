@@ -11,7 +11,7 @@ export const whatIsTheBestSeoCompanyInChennaiPost: BlogPost = {
   "date": "July 30, 2020",
   "dateIso": "2020-07-30",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "Search engine optimization is the greatest task of any digital marketing company. SEO is a significant idea with regards to…",
   "contentNodes": [

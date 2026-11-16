@@ -11,7 +11,7 @@ export const googleAnalyticsServicesPost: BlogPost = {
   "date": "August 10, 2021",
   "dateIso": "2021-08-10",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/08/ga.png",
   "excerpt": "Google Analytics services For many businesses ranging from small to large, Google Analytics is serving as the best platform for…",
   "contentNodes": [

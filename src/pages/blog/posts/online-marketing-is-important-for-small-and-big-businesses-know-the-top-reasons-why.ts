@@ -11,7 +11,7 @@ export const onlineMarketingIsImportantForSmallAndBigBusinessesKnowTheTopReasons
   "date": "December 07, 2019",
   "dateIso": "2019-12-07",
   "readTime": "2 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2019/12/online-marketing.jpg",
   "excerpt": "Gone are the days when online or Digital marketing seemed like new for businesses – for both product & service-based.…",
   "contentNodes": [

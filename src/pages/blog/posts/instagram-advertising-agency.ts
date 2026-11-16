@@ -12,7 +12,7 @@ export const instagramAdvertisingAgencyPost: BlogPost = {
   "date": "September 28, 2022",
   "dateIso": "2022-09-28",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/09/Instagram-Advertising-Agency.png",
   "excerpt": "Instagram has never been popular in the past, like now, and it is one of the prominent reasons why every…",
   "contentNodes": [

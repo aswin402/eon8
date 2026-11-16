@@ -11,7 +11,7 @@ export const howCanDigitalMarketingAgencyHelpGrowABusinessPost: BlogPost = {
   "date": "March 17, 2022",
   "dateIso": "2022-03-17",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/03/How-can-Digital-Marketing-Grow-Business.gif",
   "excerpt": "The digital world is filled with modern technologies and competition; therefore, one must take the necessary steps to survive in…",
   "contentNodes": [

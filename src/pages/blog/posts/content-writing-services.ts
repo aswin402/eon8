@@ -11,7 +11,7 @@ export const contentWritingServicesPost: BlogPost = {
   "date": "June 22, 2021",
   "dateIso": "2021-06-22",
   "readTime": "2 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/06/Content-writing.png",
   "excerpt": "It doesn’t matter if you are a small start-up or a well-established brand. Digital marketing and good content writing services…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const howToUseInstagramInsightsToImproveYourBrandsGrowthOnInstagramPost: 
   "date": "September 21, 2022",
   "dateIso": "2022-09-21",
   "readTime": "5 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2022/09/Instagram-Growth-Agency.png",
   "excerpt": "There are 3.5 billion people who are using Instagram every day. One of the main reasons people love to spend…",
   "contentNodes": [

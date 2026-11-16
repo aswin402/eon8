@@ -11,7 +11,7 @@ export const digitalMarketingAgencySouthIndiaPost: BlogPost = {
   "date": "September 29, 2026",
   "dateIso": "2026-09-29",
   "readTime": "6 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/09/digital-marketing-ageny-in-south-india_EON-1-1024x538.jpg",
   "excerpt": "Businesses across South India — from Chennai’s tech corridors to Bangalore’s startup ecosystem, Coimbatore’s manufacturing hubs, and Kochi’s growing service…",
   "contentNodes": [

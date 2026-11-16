@@ -11,7 +11,7 @@ export const hireDigitalMarketingAgencyPost: BlogPost = {
   "date": "July 28, 2020",
   "dateIso": "2020-07-28",
   "readTime": "6 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
   "excerpt": "What is digital marketing? While in the times of pandemic, you would have doubts regarding developing your business. Many of…",
   "contentNodes": [

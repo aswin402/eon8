@@ -11,7 +11,7 @@ export const removeNegativeReviewsFromYelpPost: BlogPost = {
   "date": "April 07, 2021",
   "dateIso": "2021-04-07",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/04/Remove-negative-Yelp-reviews-1.jpg",
   "excerpt": "It takes years to build a good reputation but just one negative review to sabotage it. This is why it’s…",
   "contentNodes": [

@@ -11,7 +11,7 @@ export const removeNegativeContentFromGoogleSearchPost: BlogPost = {
   "date": "March 01, 2021",
   "dateIso": "2021-03-01",
   "readTime": "4 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/03/Negative-review-removal.jpg",
   "excerpt": "Negative content can be extremely damaging to the hard-earned reputation of a business. Even months or years after a blog…",
   "contentNodes": [

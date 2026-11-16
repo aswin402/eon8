@@ -11,7 +11,7 @@ export const badLinksRemovalAgencyPost: BlogPost = {
   "date": "July 21, 2021",
   "dateIso": "2021-07-21",
   "readTime": "3 min read",
-  "author": "Eon8 Editorial",
+  "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/07/1.png",
   "excerpt": "Without a doubt, your business is successful and caters to its customers’ needs efficiently. But it is always a good…",
   "contentNodes": [
