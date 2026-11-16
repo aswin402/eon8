@@ -1,697 +1,789 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppStore } from '@/store/useAppStore';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Star, Quote, Calendar, Award, Sparkles, CheckCircle } from 'lucide-react';
-import { gsap } from 'gsap';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {
+  ArrowRight,
+  BarChart3,
+  BookOpen,
+  Brain,
+  Check,
+  CheckCircle2,
+  Coins,
+  ExternalLink,
+  Globe,
+  ListChecks,
+  MessageCircle,
+  Monitor,
+  Palette,
+  Phone,
+  ShieldCheck,
+  Star,
+  Target,
+  TrendingUp,
+  Users,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useAppStore } from '@/store/useAppStore';
 
-// Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
+const ACHIEVEMENTS = [
+  {
+    id: 'projects',
+    label: 'Project Completed',
+    target: 1250,
+    suffix: '',
+    icon: '/wp-content/uploads/2026/06/Mask-grou.webp',
+    alt: 'Projects',
+  },
+  {
+    id: 'clients',
+    label: 'Our Happy Clients',
+    target: 548,
+    suffix: '',
+    icon: '/wp-content/uploads/2026/06/costume.webp',
+    alt: 'Happy Clients',
+  },
+  {
+    id: 'experience',
+    label: 'Years of Experience',
+    target: 12,
+    suffix: '+',
+    icon: '/wp-content/uploads/2026/06/calendar.webp',
+    alt: 'Experience',
+  },
+  {
+    id: 'experts',
+    label: 'Development Experts',
+    target: 250,
+    suffix: '+',
+    icon: '/wp-content/uploads/2026/06/blueprin.webp',
+    alt: 'Experts',
+  },
+];
+
+const SERVICES = [
+  {
+    title: 'Digital Marketing & Conversion',
+    img: '/wp-content/uploads/2026/06/Digital-markting.webp',
+    alt: 'Digital Marketing',
+    to: '/web-development-services-company',
+    bullets: [
+      'High-performance target websites',
+      'Conversion-focused landing pages',
+      'Advanced UX/UI improvements',
+      'Lead tracking & deep analytics',
+    ],
+  },
+  {
+    title: 'Search Engine Optimization',
+    img: '/wp-content/uploads/2026/06/SEO.webp',
+    alt: 'SEO',
+    to: '/search-engine-optimization-services-seo',
+    bullets: [
+      'Keyword discovery & strategy',
+      'Technical & on-page optimization',
+      'Authority & link building',
+      'Local & International SEO',
+    ],
+  },
+  {
+    title: 'Performance Campaigning',
+    img: '/wp-content/uploads/2026/06/Performance-Campaigning.webp',
+    alt: 'Performance Marketing',
+    to: '/google-ads-management-ppc-agency',
+    bullets: [
+      'Google Search & Display Ads',
+      'Meta & Instagram Ad Scaling',
+      'Data-driven ad creatives',
+      'Full Conversion tracking',
+    ],
+  },
+  {
+    title: 'Social Media Dominance',
+    img: '/wp-content/uploads/2026/06/Adllins-Media-Social-Marketing-Platforms.webp',
+    alt: 'Social Media',
+    to: '/social-media-management-agency-chennai',
+    bullets: [
+      'Content strategy formulation',
+      'Short-form video marketing',
+      'Active community management',
+      'Targeted brand collaborations',
+    ],
+  },
+  {
+    title: 'Content & AI Engineering',
+    img: '/wp-content/uploads/2026/06/Content-AI-Engineering.webp',
+    alt: 'Content Marketing',
+    to: '/ai-agent-development-services',
+    bullets: [
+      'Deep SEO & editorial content',
+      'AI automation workflows',
+      'Marketing automation hubs',
+      'Drip & Lead nurturing campaigns',
+    ],
+  },
+  {
+    title: 'Brand Strategy & Design',
+    img: '/wp-content/uploads/2026/06/Brand-Strategy-Design-scaled-1.webp',
+    alt: 'Branding',
+    to: '/works',
+    bullets: [
+      'Brand identity definition',
+      'World-class creative campaigns',
+      'Bespoke Website UI/UX design',
+      'Conversion-focused architecture',
+    ],
+  },
+];
+
+const WEB3_SPOTLIGHTS = [
+  {
+    title: 'NFT Marketing Optimization',
+    img: '/wp-content/uploads/2026/06/nft.webp',
+    alt: 'NFT Marketing',
+    to: '/nft-marketing-services',
+    reverse: false,
+    items: [
+      { icon: Coins, text: 'High-conversion NFT landing page optimization' },
+      { icon: Users, text: 'Community-first UX for collectors' },
+      { icon: BarChart3, text: 'Wallet & marketplace tracking analytics' },
+    ],
+  },
+  {
+    title: 'Crypto Marketing',
+    img: '/wp-content/uploads/2026/06/crypto.webp',
+    alt: 'Crypto',
+    to: '/crypto-marketing-agency',
+    reverse: true,
+    items: [
+      { icon: ShieldCheck, text: 'High-trust crypto websites & token platforms' },
+      { icon: Target, text: 'Conversion-focused landing pages' },
+      { icon: TrendingUp, text: 'UX/UI design for credibility & clarity' },
+      { icon: BarChart3, text: 'Advanced funnel analytics & user behavior insights' },
+    ],
+  },
+  {
+    title: 'AI Marketing',
+    img: '/wp-content/uploads/2026/06/ai.webp',
+    alt: 'AI',
+    to: '/ai-agent-development-services',
+    reverse: false,
+    items: [
+      { icon: Brain, text: 'High-performance websites for AI products' },
+      { icon: Users, text: 'Product-led landing page optimization' },
+      { icon: Monitor, text: 'UX/UI that simplifies complex AI solutions' },
+      { icon: BarChart3, text: 'Advanced analytics & conversion insights' },
+    ],
+  },
+  {
+    title: 'Website & Conversion Optimization',
+    img: '/wp-content/uploads/2026/06/website.webp',
+    alt: 'Website & Conversion Optimization',
+    to: '/web-development-services-company',
+    reverse: true,
+    items: [
+      { icon: Globe, text: 'High-performance websites' },
+      { icon: TrendingUp, text: 'Landing page optimization' },
+      { icon: Monitor, text: 'UX/UI improvements' },
+      { icon: BarChart3, text: 'Lead tracking & analytics' },
+    ],
+  },
+];
+
+const WHY_CHOOSE_ITEMS = [
+  { icon: ListChecks, text: 'Strategy first, execution second' },
+  { icon: BarChart3, text: 'Transparent reporting & real metrics' },
+  { icon: Palette, text: 'Creative meets performance marketing' },
+  { icon: Brain, text: 'AI-driven insights for faster scaling' },
+  { icon: BookOpen, text: 'Industry-specific marketing playbooks' },
+];
+
+const INDUSTRIES = [
+  { name: 'Hospitality & Hotels', img: '/wp-content/uploads/2026/06/hospitality.webp', alt: 'Hospitality Icon' },
+  { name: 'Healthcare', img: '/wp-content/uploads/2026/06/healthcare.webp', alt: 'Healthcare Icon' },
+  { name: 'Real Estate', img: '/wp-content/uploads/2026/06/realestate.webp', alt: 'Real Estate Icon' },
+  { name: 'Political Campaigns', img: '/wp-content/uploads/2026/06/political.webp', alt: 'Political Campaigns Icon' },
+  { name: 'Ecommerce', img: '/wp-content/uploads/2026/06/ecommerce.webp', alt: 'Ecommerce Icon' },
+  { name: 'SaaS & Tech Startups', img: '/wp-content/uploads/2026/06/saas.webp', alt: 'Tech Startups Icon' },
+  { name: 'Education', img: '/wp-content/uploads/2026/06/education.webp', alt: 'Education Icon' },
+];
+
+const CLIENT_LOGOS = [
+  { alt: 'VLCC Logo', src: '/wp-content/uploads/2026/06/vlcc.webp' },
+  { alt: 'TVS Logo', src: '/wp-content/uploads/2026/06/tvs.webp' },
+  { alt: 'Shell Logo', src: '/wp-content/uploads/2026/06/shell.webp' },
+  { alt: 'Li & Fung Logo', src: '/wp-content/uploads/2026/06/lifung.webp' },
+  { alt: 'NAC Logo', src: '/wp-content/uploads/2026/06/nac.webp' },
+  { alt: 'MCC Logo', src: '/wp-content/uploads/2026/06/mcc.webp' },
+  { alt: 'Apollo Logo', src: '/wp-content/uploads/2026/06/apollo.webp' },
+  { alt: 'Chettinad Logo', src: '/wp-content/uploads/2026/06/chettinad.webp' },
+  { alt: 'IBM Logo', src: '/wp-content/uploads/2026/06/ibm.webp' },
+  { alt: 'KVB Logo', src: '/wp-content/uploads/2026/06/kvb.webp' },
+  { alt: "McDonald's Logo", src: '/wp-content/uploads/2026/06/mcdelivery.webp' },
+  { alt: 'Vels Logo', src: '/wp-content/uploads/2026/06/vels.webp' },
+  { alt: 'Copper Chimney Logo', src: '/wp-content/uploads/2026/06/copperchimney.webp' },
+  { alt: 'Poorvika Logo', src: '/wp-content/uploads/2026/06/poorvika.webp' },
+  { alt: 'Ramraj Logo', src: '/wp-content/uploads/2026/06/ramraj.webp' },
+];
+
+const CASE_STUDIES = [
+  {
+    name: 'Poorvika Mobiles',
+    stat: 'Reached 1.1 million people in one week',
+    img: '/wp-content/uploads/2026/06/poorvik.webp',
+    alt: 'Poorvika Mobiles Logo',
+    to: '/case-study-poorvika',
+  },
+  {
+    name: 'Cake Square Chennai',
+    stat: 'Generated 10000+ Leads through online marketing',
+    img: '/wp-content/uploads/2026/06/coko.webp',
+    alt: 'Cake Square Chennai Logo',
+    to: '/case-study-cake-square-chennai',
+  },
+  {
+    name: 'Manju Groups',
+    stat: 'More than 20% Conversation from online leads',
+    img: '/wp-content/uploads/2026/06/manju.webp',
+    alt: 'Manju Groups Logo',
+    to: '/works',
+  },
+];
+
+const TESTIMONIALS = [
+  {
+    name: 'Jullian Edisa',
+    role: 'Client Partner',
+    avatar: '/wp-content/uploads/2026/06/Jullian-Edisa.webp',
+    quote:
+      '"EON8 has made a big difference to our brand with their excellent work and knowledge of Digital marketing techniques. Our brand awareness grew, the search engine rankings of our website are made better and eventually, our sales had gone high. Overall EON8 is a reliable and friendly firm to connect with for Digital marketing needs."',
+  },
+  {
+    name: 'Aaron P',
+    role: 'Project Owner',
+    avatar: '/wp-content/uploads/2026/06/testi_1.webp',
+    quote:
+      '"EON8 did a wonderful job handling the design of our website. The team made sure to give extraordinary results as I\'ve imagined and made my website more user-friendly for my visitors. I would recommend EON8 Digital Marketing company for anyone who looks to build their brand online or just in need of any digital marketing service."',
+  },
+  {
+    name: 'Shell',
+    role: 'Enterprise Client',
+    avatar: '/wp-content/uploads/2026/06/shell-1.webp',
+    quote:
+      '"Working with EON8 was a great experience. Their team perfectly understood our vision and delivered a website design that was both visually impressive and highly user-friendly. The final result exceeded our beyond expectations, and I\'d highly recommend them to anyone looking to grow their brand online or improve their digital presence super fast."',
+  },
+];
+
+const FEATURED_LAB_POSTS = [
+  {
+    tag: 'Marketing',
+    title: 'WhatsApp Marketing: Convert Conversations into Revenue',
+    desc: 'With over 2 billion active users globally, WhatsApp has evolved into a powerful sales tool...',
+    img: '/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp',
+    alt: 'WhatsApp Marketing Strategies',
+    to: '/blog/whatsapp-marketing-services',
+  },
+  {
+    tag: 'AI Engineering',
+    title: 'AI Deleted Its Database Without Warning - Lessons Learned',
+    desc: 'Understanding the risks of automation and how to build resilient AI infrastructures for your brand...',
+    img: '/wp-content/uploads/2026/06/Data-Loss-AI-Lessons.webp',
+    alt: 'Data Loss AI Lessons',
+    to: '/blog/data-loss-by-ai-lessons-and-prevention',
+  },
+  {
+    tag: 'Video AI',
+    title: 'Revolutionizing Video Marketing for Brands using AI',
+    desc: "In today's fast-paced digital world, product marketing is about building smart, data-driven strategies...",
+    img: '/wp-content/uploads/2026/06/Product-Marketing-with-AI-Illustration.webp',
+    alt: 'Product Marketing with AI Illustration',
+    to: '/blog/product-marketing-agency-using-ai',
+  },
+];
+
 export function HomePage() {
-  const { setContactModalOpen } = useAppStore();
-  const [reducedMotion, setReducedMotion] = useState(() =>
-    typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
-  );
   const containerRef = useRef<HTMLDivElement>(null);
+  const { setContactModalOpen } = useAppStore();
 
-  // Check accessibility reduced-motion preference
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    
-    const handleChange = (e: MediaQueryListEvent) => {
-      setReducedMotion(e.matches);
-    };
-    
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  // GSAP Entrance & ScrollTrigger Animations
-  useEffect(() => {
-    if (reducedMotion) return;
+    document.title = 'Best Digital Marketing Agency in India | Digital Marketing Services - Eon8';
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        'content',
+        'Top digital marketing agency in India offering 360-degree SEO, PPC, Social Media, Web3, NFT, AI Agent, and custom ERP/CRM growth solutions.'
+      );
+    }
+    window.scrollTo(0, 0);
 
     const ctx = gsap.context(() => {
-      // 1. Hero Text Reveal Animation
-      const heroTl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-      heroTl.fromTo('.hero-title-main', 
-        { opacity: 0, y: 50 }, 
-        { opacity: 1, y: 0, duration: 1.2 }
-      );
-      heroTl.fromTo('.hero-desc-main', 
-        { opacity: 0, y: 30 }, 
-        { opacity: 1, y: 0, duration: 0.8 }, 
-        '-=0.8'
-      );
-      heroTl.fromTo('.hero-bullets li', 
-        { opacity: 0, x: 30 }, 
-        { opacity: 1, x: 0, duration: 0.6, stagger: 0.15 }, 
-        '-=0.5'
-      );
-      heroTl.fromTo('.hero-cta-button', 
-        { opacity: 0, scale: 0.9 }, 
-        { opacity: 1, scale: 1, duration: 0.6 }, 
-        '-=0.4'
-      );
-
-      // 2. Staggered Service Cards Reveal
-      gsap.fromTo('.service-card-reveal',
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.12,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '.services-grid-trigger',
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          }
-        }
-      );
-
-      // 3. Staggered Achievements Card entrance
-      gsap.fromTo('.achieve-card-reveal',
-        { opacity: 0, scale: 0.9, y: 40 },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'back.out(1.4)',
-          scrollTrigger: {
-            trigger: '.achievements-trigger',
-            start: 'top 75%',
-          }
-        }
-      );
-
-      // 4. Counter Up Animators
-      const counters = document.querySelectorAll('.achievement-counter');
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target') || '0', 10);
+      document.querySelectorAll('.achievement-counter').forEach((el) => {
+        const target = Number(el.getAttribute('data-target') || '0');
         const counterObj = { val: 0 };
-
         gsap.to(counterObj, {
           val: target,
-          duration: 2.2,
-          ease: 'power3.out',
+          duration: 1.6,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: '.achievements-trigger',
-            start: 'top 75%',
+            start: 'top 85%',
+            once: true,
           },
           onUpdate: () => {
-            counter.textContent = Math.floor(counterObj.val).toString();
-          }
+            el.textContent = String(Math.round(counterObj.val));
+          },
         });
       });
-
-      // 5. Alternate Web3 Rows reveals
-      const rows = document.querySelectorAll('.web3-row-animate');
-      rows.forEach((row, idx) => {
-        const isEven = idx % 2 === 0;
-        gsap.fromTo(row.querySelector('.row-content'),
-          { opacity: 0, x: isEven ? -60 : 60 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: row,
-              start: 'top 80%',
-            }
-          }
-        );
-        gsap.fromTo(row.querySelector('.row-image'),
-          { opacity: 0, scale: 0.9, y: 40 },
-          {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            duration: 0.8,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: row,
-              start: 'top 80%',
-            }
-          }
-        );
-      });
-
     }, containerRef);
 
     return () => ctx.revert();
-  }, [reducedMotion]);
+  }, []);
 
-  // Clients logos list
-  const clients = [
-    { name: 'VLCC', img: '/imgs/vlcc.png' },
-    { name: 'TVS', img: '/imgs/tvs.png' },
-    { name: 'Shell', img: '/imgs/shell.png' },
-    { name: 'Li & Fung', img: '/imgs/lifung.png' },
-    { name: 'NAC', img: '/imgs/nac.png' },
-    { name: 'MCC', img: '/imgs/mcc.png' },
-    { name: 'Apollo', img: '/imgs/apollo.png' },
-    { name: 'Chettinad', img: '/imgs/chettinad.png' },
-    { name: 'IBM', img: '/imgs/ibm.png' },
-    { name: 'KVB', img: '/imgs/kvb.png' },
-    { name: 'McDelivery', img: '/imgs/mcdelivery.png' },
-    { name: 'Vels', img: '/imgs/vels.png' },
-    { name: 'Copper Chimney', img: '/imgs/copperchimney.png' },
-    { name: 'Poorvika', img: '/imgs/poorvika.png' },
-    { name: 'Ramraj', img: '/imgs/ramraj.png' }
-  ];
-
-  // Cases Studies Data
-  const cases = [
-    {
-      title: 'Poorvika Mobiles',
-      img: '/imgs/poorvik.png',
-      desc: 'Reached 1.1 million people in Chennai and South India in one week.'
-    },
-    {
-      title: 'Cake Square Chennai',
-      img: '/imgs/coko.png',
-      desc: 'Generated 10,000+ targeted leads through performance advertising.'
-    },
-    {
-      title: 'Manju Groups',
-      img: '/imgs/manju.png',
-      desc: 'Achieved more than 20% conversion rates from digital campaign traffic.'
+  const scrollToServices = () => {
+    const target = document.getElementById('home-services');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
     }
-  ];
-
-  // Testimonials
-  const testimonials = [
-    {
-      name: 'Jullian Edisa',
-      img: '/imgs/Jullian-Edisa.jpg',
-      stars: 5,
-      text: 'EON8 has made a big difference to our brand with their excellent work and knowledge of Digital marketing techniques. Our brand awareness grew, the search engine rankings of our website are made better and eventually, our sales had gone high. Overall EON8 is a reliable and friendly firm to connect with for Digital marketing needs.'
-    },
-    {
-      name: 'Aaron P',
-      img: '/imgs/testi_1.jpg',
-      stars: 5,
-      text: 'EON8 did a wonderful job handling the design of our website. The team made sure to give extraordinary results as I’ve imagined and made my website more user-friendly for my visitors. I would recommend EON8 Digital Marketing company for anyone who looks to build their brand online or just in need of any digital marketing service.'
-    },
-    {
-      name: 'Shell Representative',
-      img: '/imgs/shell.png',
-      stars: 5,
-      text: 'Working with EON8 was a great experience. Their team perfectly understood our vision and delivered a website design that was both visually impressive and highly user-friendly. The final result exceeded our beyond expectations, and I’d highly recommend them to anyone looking to grow their brand online or improve their digital presence super fast.'
-    }
-  ];
-
-  // Blogs list
-  const blogs = [
-    {
-      title: 'WhatsApp Marketing Services by EON8 Convert Conversations into Revenue',
-      desc: 'With over 2 billion active users globally, WhatsApp has rapidly evolved into more than just a messaging tool...',
-      img: '/imgs/WhatsApp-Marketing-Agency.jpg',
-      link: '/whatsapp-marketing-services'
-    },
-    {
-      title: 'AI Deleted Its Database Without Warning – What I Learned and How You Can Prevent It',
-      desc: 'Introduction Artificial Intelligence (AI) has rapidly transformed the digital landscape, offering unmatched automation, scalability, and performance...',
-      img: '/imgs/WhatsApp-Image-2025-08-04-at-1.17.08-PM.jpeg',
-      link: '/data-loss-by-ai-lessons-and-prevention'
-    },
-    {
-      title: 'AI-Powered Product Marketing Agency: Revolutionizing Video Marketing for Brands',
-      desc: 'In today’s fast-paced digital world, product marketing isn’t just about creating awareness it’s about building smart, data-driven strategies...',
-      img: '/imgs/Product-marketing-agency-using-AI-.png',
-      link: '/product-marketing-agency-using-ai'
-    }
-  ];
+  };
 
   return (
-    <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-body">
-      
-      {/* 1. Cinematic Hero Banner */}
-      <section className="relative min-h-screen min-h-[100dvh] flex items-center justify-center overflow-hidden pt-28 pb-16 lg:pt-32 lg:pb-16">
-        {/* Remote video background loop */}
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="https://www.eon8.com/wp-content/themes/eon8/assets/img/banner_vid.mp4" type="video/mp4" />
-        </video>
-        
-        {/* Dark Visual Overlay */}
-        <div className="absolute inset-0 bg-slate-950/70 z-10" />
+    <div ref={containerRef} className="bg-background text-foreground font-body overflow-x-clip">
+      {/* 1. Fullscreen Video Hero */}
+      <section className="relative min-h-screen min-h-[100dvh] flex items-center justify-center pt-28 pb-20 sm:pt-32 sm:pb-24 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/wp-content/uploads/2026/06/banner_vid.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+        </div>
 
-        {/* Foreground Content */}
-        <div className="max-w-6xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-20">
-          
-          {/* Left Text details */}
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-6 text-left hero-title-main">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 text-xs font-semibold uppercase tracking-wider w-fit">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>360° Growth Agency</span>
+        <div className="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col items-center text-center relative z-10 w-full mt-4 sm:mt-8">
+          <div className="space-y-6 sm:space-y-8 flex flex-col items-center w-full">
+            {/* Pill Badge */}
+            <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#FD5900] animate-pulse shadow-[0_0_10px_rgba(253,89,0,0.8)]" />
+              <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.18em] text-white">
+                Next-Gen Digital Forge
+              </span>
             </div>
-            <h1 className="text-4xl sm:text-6xl xl:text-7xl font-heading font-black tracking-tight leading-none text-white">
-              We <em className="text-orange-500 not-italic font-medium font-serif italic">Build</em> Brands <br />
-              <span className="bg-gradient-to-r from-orange-500 to-blue-400 bg-clip-text text-transparent">That Win</span>
+
+            {/* Responsive H1 — never overflows 375px viewports */}
+            <h1 className="text-[36px] sm:text-[56px] md:text-[72px] lg:text-[88px] font-heading font-black text-white leading-[1.06] tracking-tight drop-shadow-2xl">
+              We <span className="text-[#FD5900]">Build</span> Brands <br className="hidden sm:block" />
+              That Win
             </h1>
-            <p className="text-lg md:text-xl text-slate-300 font-semibold max-w-lg">
-              Attention, Traffic & Revenue Optimization
+
+            <p className="text-[16px] sm:text-[20px] md:text-[23px] leading-relaxed text-white/95 max-w-3xl font-medium drop-shadow-md">
+              Dominating Attention, Traffic &amp; Revenue through high-fidelity digital execution. Experience growth like never before.
             </p>
-            
-            <div className="hero-cta-button pt-4">
-              <Button 
+
+            {/* 3 Hero Highlights */}
+            <ul className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-5 text-[14px] sm:text-[16px] text-white pt-2">
+              {['360° Digital Marketing', 'ROI-Focused Campaigns', 'Creative Execution'].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-2.5 bg-white/10 backdrop-blur-md px-5 py-2.5 sm:px-6 sm:py-3 rounded-full border border-white/20 text-white font-medium shadow-sm"
+                >
+                  <CheckCircle2 className="w-4 h-4 text-[#FD5900] shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Primary CTAs */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-3 w-full sm:w-auto">
+              <Button
+                type="button"
                 onClick={() => setContactModalOpen(true)}
-                size="lg"
-                className="rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold h-14 px-8 text-base shadow-xl shadow-orange-500/20 hover:scale-102 transition-all cursor-pointer"
+                className="w-full sm:w-auto rounded-xl bg-[#FD5900] hover:bg-[#e55000] text-white font-bold h-12 sm:h-14 px-8 text-base shadow-lg shadow-orange-500/25 cursor-pointer"
               >
-                <span>Get Free Consultation</span>
-                <ArrowRight className="w-5 h-5 ml-1" />
+                <span>Get Started</span>
+                <ArrowRight className="w-4 h-4 ml-1.5" />
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={scrollToServices}
+                className="w-full sm:w-auto rounded-xl bg-white/10 hover:bg-white hover:text-slate-900 border-white/35 text-white font-bold h-12 sm:h-14 px-8 text-base backdrop-blur-md cursor-pointer"
+              >
+                View Services
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Powering Growth For Digital, AI & Web3 */}
+      <section className="py-16 sm:py-24 bg-[#eff4fb] dark:bg-card/40 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="lg:col-span-6 space-y-5 text-left">
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-heading font-black tracking-tight leading-[1.15] text-foreground">
+              Powering Growth For <span className="text-[#0053c6] dark:text-blue-400">Digital, AI &amp; Web3</span>
+            </h2>
+            <p className="text-base sm:text-lg text-foreground/85 font-medium leading-relaxed">
+              EON8 is a 360-degree marketing agency providing end-to-end digital solutions that transform attention into measurable revenue.
+            </p>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Our team blends creativity, data, and technology to drive consistent visibility and measurable growth for brands across digital, NFT, crypto, and AI ecosystems. From brand positioning to hyper-targeted lead generation, we manage every stage of your digital journey.
+            </p>
+            <div className="pt-2">
+              <Button
+                type="button"
+                onClick={() => setContactModalOpen(true)}
+                className="rounded-xl bg-[#0053c6] hover:bg-[#0044a3] text-white font-bold h-11 px-6 text-sm cursor-pointer"
+              >
+                Partner With Us <ArrowRight className="w-4 h-4 ml-1.5" />
               </Button>
             </div>
           </div>
 
-          {/* Right bullets box */}
-          <div className="lg:col-span-5 flex items-center lg:justify-end hero-desc-main">
-            <div className="bg-white/10 dark:bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-8 w-full max-w-sm">
-              <ul className="space-y-4 hero-bullets">
-                {[
-                  '360° Digital Marketing Experts',
-                  'ROI-Focused Campaigns',
-                  'Data-Driven + Creative Execution',
-                  'Trusted by Startups & Global Brands'
-                ].map((bullet, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-200 text-sm md:text-base font-semibold">
-                    <span className="w-5 h-5 bg-orange-500 text-white rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</span>
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="lg:col-span-6 flex justify-center">
+            <img
+              src="/wp-content/uploads/2026/06/modern_digital_globe.webp"
+              alt="Powering Growth Globe"
+              className="w-full max-w-md lg:max-w-lg rounded-3xl object-contain shadow-lg"
+            />
           </div>
-
         </div>
       </section>
 
-      {/* 2. Growth Section */}
-      <section className="py-24 px-6 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left Side illustration */}
-        <div className="lg:col-span-5 flex justify-center relative">
-          {/* Decorative Dot Matrix BG */}
-          <div className="absolute -top-6 -left-6 w-32 h-32 bg-[radial-gradient(circle,#ff5a00_1.5px,transparent_1.5px)] bg-[size:12px_12px] opacity-30 -z-10" />
-          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[radial-gradient(circle,#0066ff_1.5px,transparent_1.5px)] bg-[size:12px_12px] opacity-30 -z-10" />
-          
-          <img 
-            src="/imgs/digital-globe.png" 
-            alt="Digital globe structure" 
-            className="w-full max-w-md rounded-3xl object-contain shadow-lg hover:rotate-2 transition-transform duration-500"
-          />
-        </div>
-
-        {/* Right Side Text Content */}
-        <div className="lg:col-span-7 space-y-6 text-left">
-          <h2 className="text-3xl sm:text-5xl font-heading font-black tracking-tight leading-tight">
-            Powering Growth for Digital, <br />
-            <span className="bg-gradient-to-r from-orange-500 to-primary bg-clip-text text-transparent">AI, and Web3 Brands</span>
-          </h2>
-          
-          <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-            EON8 is a 360-degree marketing agency providing end-to-end digital solutions for brands across digital, NFT, crypto, and AI ecosystems. We help businesses strengthen their online presence through strategy-driven marketing, performance campaigns, and conversion-focused experiences.
-          </p>
-          <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-            Our team blends creativity, data, and technology to drive consistent visibility and measurable growth. From brand positioning to lead generation, we manage every stage of the digital journey. Each solution is designed to scale, adapt, and deliver long-term results.
-          </p>
-
-          <Button 
-            onClick={() => setContactModalOpen(true)}
-            variant="outline" 
-            className="rounded-full border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
-          >
-            <span>Partner with Us</span>
-          </Button>
-        </div>
-      </section>
-
-      {/* 3. Agency Value Section */}
-      <section className="py-24 bg-muted/30 px-6 border-y border-border/30">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Text */}
-          <div className="lg:col-span-7 space-y-6 text-left order-2 lg:order-1">
-            <h2 className="text-2xl sm:text-4xl font-heading font-black tracking-tight leading-tight">
-              A Distinctive Digital Marketing Company <br />
-              <span className="text-orange-500 font-serif italic">That Never Tires!</span>
-            </h2>
-            <h4 className="text-lg font-semibold text-foreground/90">
-              Not Just a Digital Marketing Agency — A Growth Partner
-            </h4>
-            <p className="italic text-muted-foreground border-l-2 border-orange-500 pl-4">
-              We just not talk. We believe, dive and strive to take your business marketing to infinity & beyond.
-            </p>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              At EON8, we don’t believe in random marketing tactics. We design custom digital growth systems that align branding, performance marketing, content, and technology to drive measurable business outcomes.
-            </p>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              From SEO and paid advertising to social media, AI-powered content, and Web3-ready marketing, we help brands stay relevant, visible, and profitable in a fast-moving digital world.
-            </p>
-          </div>
-
-          {/* Right Image */}
+      {/* 3. A Distinctive Digital Marketing Company That Never Tires */}
+      <section className="py-16 sm:py-24 bg-white dark:bg-background border-t border-border/50">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           <div className="lg:col-span-5 flex justify-center order-1 lg:order-2">
-            <img 
-              src="/imgs/growth-handshake.png" 
-              alt="Growth handshake illustration" 
-              className="w-full max-w-sm rounded-3xl object-contain shadow-2xl hover:scale-102 transition-transform duration-500"
+            <img
+              src="/wp-content/uploads/2026/06/Innovation-Handshake.webp"
+              alt="Innovation Handshake"
+              className="w-full max-w-md rounded-3xl object-contain shadow-xl"
             />
           </div>
 
-        </div>
-      </section>
+          <div className="lg:col-span-7 space-y-5 text-left order-2 lg:order-1">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-heading font-black tracking-tight leading-tight text-foreground">
+              A Distinctive Digital Marketing Company{' '}
+              <span className="text-[#FD5900]">That Never Tires!</span>
+            </h2>
+            <h3 className="text-lg sm:text-xl font-heading font-bold text-[#0053c6] dark:text-blue-400">
+              We are EON8. Not Just a Digital Marketing Agency — A Growth Partner
+            </h3>
+            <p className="italic text-foreground/85 border-l-4 border-[#FD5900] pl-4 text-sm sm:text-base">
+              We just not talk. We believe, dive and strive to take your business marketing to infinity &amp; beyond.
+            </p>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              At EON8, we don&apos;t believe in random marketing tactics. We design custom digital growth systems that align branding, performance marketing, content, and technology to drive measurable business outcomes. From SEO and paid advertising to social media, AI-powered content, and Web3-ready marketing, we help brands stay relevant, visible, and profitable in a fast-moving digital world.
+            </p>
 
-      {/* 4. Achievements Section */}
-      <section className="py-24 achievements-trigger bg-slate-950 dark:bg-slate-900 text-white px-6 relative">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5" style={{ backgroundImage: "url('/imgs/achievement-bg.png')" }} />
-        
-        <div className="max-w-6xl mx-auto text-center space-y-4 mb-20 relative z-10">
-          <h2 className="text-3xl sm:text-5xl font-heading font-black text-orange-500">Our Achievements</h2>
-          <p className="text-slate-400 font-semibold text-sm sm:text-base">We Make The Best Digital Promoter For Brands</p>
-        </div>
-
-        {/* Counter cards */}
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10">
-          {[
-            { label: 'Projects Completed', target: 1250, suffix: '', icon: '/imgs/Mask grou.png' },
-            { label: 'Happy Clients', target: 548, suffix: '', icon: '/imgs/costume.png' },
-            { label: 'Years of Experience', target: 12, suffix: '+', icon: '/imgs/calendar.png' },
-            { label: 'Development Experts', target: 250, suffix: '+', icon: '/imgs/blueprin.png' }
-          ].map((item, index) => (
-            <div 
-              key={index}
-              className="achieve-card-reveal bg-white/5 dark:bg-slate-950/40 backdrop-blur-md border border-white/10 p-6 rounded-2xl flex flex-col items-center justify-center text-center shadow-xl hover:-translate-y-2 hover:border-orange-500/40 transition-all duration-300"
-            >
-              <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain mb-4 filter brightness-110" />
-              <h3 className="text-4xl sm:text-5xl font-heading font-black text-white mb-2 flex items-center justify-center">
-                <span className="achievement-counter" data-target={item.target}>0</span>
-                <span>{item.suffix}</span>
-              </h3>
-              <p className="text-slate-400 text-xs sm:text-sm font-medium leading-tight whitespace-pre-line">{item.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 5. 360 Services Section */}
-      <section className="py-24 services-grid-trigger px-6 bg-slate-50 dark:bg-slate-900/50 border-b border-border/30">
-        <div className="max-w-6xl mx-auto text-center space-y-4 mb-16">
-          <p className="text-orange-500 font-bold uppercase tracking-wider text-xs">Full Suite Solutions</p>
-          <h2 className="text-3xl sm:text-5xl font-heading font-black tracking-tight">
-            Our Digital Marketing Services
-          </h2>
-          <div className="w-20 h-1 bg-orange-500 mx-auto rounded-full" />
-        </div>
-
-        {/* Services Grid */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: 'Digital Marketing & CRO',
-              img: '/imgs/service1.png',
-              list: [
-                'High-performance marketing websites',
-                'Landing pages built for lead generation',
-                'UX/UI improvements for higher engagement',
-                'Lead tracking, analytics & performance reporting'
-              ]
-            },
-            {
-              title: 'Search Engine Optimization (SEO)',
-              img: '/imgs/service2.png',
-              list: [
-                'Keyword research & content strategy',
-                'Technical SEO & on-page optimization',
-                'High-authority link building',
-                'Local & International SEO'
-              ]
-            },
-            {
-              title: 'Performance Marketing (Ads)',
-              img: '/imgs/service3.png',
-              list: [
-                'Google Search & Display campaigns',
-                'Meta & Instagram lead generation',
-                'Funnel-based high-ROI ad creatives',
-                'Advanced conversion tracking & analytics'
-              ]
-            },
-            {
-              title: 'Social Media Marketing',
-              img: '/imgs/service4.png',
-              list: [
-                'Content strategy & graphic calendars',
-                'Reels & short-form video marketing',
-                'Active community & comments management',
-                'Influencer & brand collaborations'
-              ]
-            },
-            {
-              title: 'Content & AI Marketing',
-              img: '/imgs/service5.png',
-              list: [
-                'SEO content creation & blog writing',
-                'AI-powered content marketing strategies',
-                'Email workflows & marketing automation',
-                'Lead nurturing campaigns & analytics'
-              ]
-            },
-            {
-              title: 'Brand Strategy & Design',
-              img: '/imgs/service6.png',
-              list: [
-                'Brand identity guidelines & custom logo design',
-                'Creative campaigns matching brand story',
-                'Website custom UI/UX mockups',
-                'Conversion-focused visual design templates'
-              ]
-            }
-          ].map((srv, idx) => (
-            <div 
-              key={idx}
-              className="service-card-reveal bg-white dark:bg-slate-950 border border-border/40 p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1.5 hover:border-blue-500/20 transition-all duration-300 flex flex-col justify-between"
-            >
-              <div className="space-y-4">
-                <img src={srv.img} alt={srv.title} className="w-full h-44 object-cover rounded-xl mb-4" />
-                <h3 className="text-xl font-heading font-extrabold text-foreground">{srv.title}</h3>
-                <ul className="space-y-2 pl-4 list-disc text-muted-foreground text-sm text-left">
-                  {srv.list.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3">
+              <div className="p-5 rounded-2xl bg-[#eff4fb] dark:bg-card border border-border">
+                <h4 className="font-heading font-bold text-foreground text-base mb-1">Strategy First</h4>
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                  Methodical execution based on deep data.
+                </p>
               </div>
-              
-              <div className="pt-6">
-                <Button 
-                  onClick={() => setContactModalOpen(true)}
-                  variant="ghost" 
-                  className="p-0 text-orange-500 hover:text-orange-600 hover:bg-transparent font-bold text-sm flex items-center gap-1 group cursor-pointer"
-                >
-                  <span>Inquire Now</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+              <div className="p-5 rounded-2xl bg-[#eff4fb] dark:bg-card border border-border">
+                <h4 className="font-heading font-bold text-foreground text-base mb-1">Real Metrics</h4>
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                  Transparent reporting and actual ROI tracking.
+                </p>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
-      {/* 6. Web3 & AI Alternating Sections */}
-      <section className="py-24 px-6 bg-slate-100 dark:bg-slate-900/30">
-        <div className="max-w-6xl mx-auto space-y-24">
-          
-          <h2 className="text-3xl sm:text-5xl font-heading font-black text-center text-orange-500 mb-16">
-            Powering Web3 Adoption Through Smart Marketing
-          </h2>
+      {/* 4. Our Achievements */}
+      <section className="py-16 sm:py-20 bg-[#f6f9ff] dark:bg-card/20 achievements-trigger">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="text-center mb-12 space-y-3">
+            <h2 className="text-3xl sm:text-5xl font-heading font-black text-[#0053c6] dark:text-blue-400 tracking-tight">
+              Our Achievements
+            </h2>
+            <h3 className="text-lg sm:text-2xl font-heading font-bold text-foreground">
+              We Make The Best Digital Promoter For Brands
+            </h3>
+          </div>
 
-          {[
-            {
-              title: 'NFT Marketing Optimization',
-              img: '/imgs/nft.png',
-              list: [
-                'NFT launch-ready websites & mint pages',
-                'High-conversion NFT landing page optimization',
-                'Community-first UX for collectors & investors',
-                'Wallet, mint & marketplace tracking analytics'
-              ],
-              link: '/nft-marketing-services'
-            },
-            {
-              title: 'Crypto Marketing Optimization',
-              img: '/imgs/crypto.png',
-              list: [
-                'High-trust crypto websites & token platforms',
-                'Conversion-focused landing pages',
-                'UX/UI design for credibility & clarity',
-                'Advanced funnel analytics & user behavior insights'
-              ],
-              link: '/crptocurrency-marketing-agency'
-            },
-            {
-              title: 'AI Marketing Optimization',
-              img: '/imgs/ai.png',
-              list: [
-                'High-performance websites for AI products',
-                'Product-led landing page optimization',
-                'UX/UI that simplifies complex AI solutions',
-                'Advanced analytics & conversion insights'
-              ],
-              link: '/ai-agent-development-services'
-            },
-            {
-              title: 'Website & Conversion Optimization',
-              img: '/imgs/website.png',
-              list: [
-                'High-performance marketing websites',
-                'Landing page optimization for higher signups',
-                'UX/UI improvements that solve conversion bottlenecks',
-                'Detailed lead tracking & analytics implementation'
-              ],
-              link: '/search-engine-optimization-services-seo'
-            }
-          ].map((row, idx) => (
-            <div 
-              key={idx}
-              className={`web3-row-animate grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ${
-                idx % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}
-            >
-              <div className={`lg:col-span-6 space-y-6 text-left row-content ${
-                idx % 2 === 1 ? 'lg:order-2' : ''
-              }`}>
-                <h3 className="text-2xl sm:text-3xl font-heading font-black text-foreground">{row.title}</h3>
-                <ul className="space-y-2.5 list-disc pl-5 text-muted-foreground text-sm md:text-base">
-                  {row.list.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-                <div className="pt-4">
-                  <Link to={row.link}>
-                    <Button className="rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 shadow-md hover:shadow-lg transition-all cursor-pointer">
-                      Read More
-                    </Button>
-                  </Link>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {ACHIEVEMENTS.map((card) => (
+              <div
+                key={card.id}
+                className="relative bg-white dark:bg-card rounded-[20px] shadow-md border border-border overflow-hidden flex flex-col items-center justify-center p-6 sm:p-8 pt-10 hover:-translate-y-1.5 transition-transform duration-300"
+              >
+                <div className="absolute top-0 left-0 w-full h-28 bg-gradient-to-b from-[#E2EFFF] dark:from-[#0053c6]/20 to-transparent opacity-80 pointer-events-none" />
+                <img
+                  src={card.icon}
+                  alt={card.alt}
+                  className="w-12 h-12 sm:w-14 sm:h-14 mb-5 relative z-10 object-contain drop-shadow-sm"
+                />
+                <div className="text-3xl sm:text-[42px] font-heading font-black text-foreground leading-none mb-2.5 relative z-10 flex items-center">
+                  <span className="achievement-counter" data-target={card.target}>
+                    {card.target}
+                  </span>
+                  <span>{card.suffix}</span>
+                </div>
+                <div className="text-xs sm:text-base text-muted-foreground font-medium text-center relative z-10">
+                  {card.label}
                 </div>
               </div>
-
-              <div className={`lg:col-span-6 flex justify-center row-image ${
-                idx % 2 === 1 ? 'lg:order-1' : ''
-              }`}>
-                <img 
-                  src={row.img} 
-                  alt={row.title} 
-                  className="w-full max-w-md object-contain" 
-                />
-              </div>
-            </div>
-          ))}
-
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 7. Why EON8 Section */}
-      <section className="py-24 px-6 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        {/* Left Side image */}
-        <div className="lg:col-span-6 flex justify-center">
-          <img 
-            src="/imgs/building.png" 
-            alt="Office building structure" 
-            className="w-full max-w-md object-contain" 
-          />
-        </div>
+      {/* 5. Our Digital Marketing Services */}
+      <section id="home-services" className="py-16 sm:py-24 bg-white dark:bg-background border-t border-border/50">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight text-foreground">
+              Our Digital Marketing <span className="text-[#FD5900]">Services</span>
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              We create high-fidelity digital footprints that capture attention and compel conversion through our advanced 360-degree marketing frameworks.
+            </p>
+          </div>
 
-        {/* Right Content */}
-        <div className="lg:col-span-6 space-y-6 text-left">
-          <h2 className="text-3xl sm:text-5xl font-heading font-black tracking-tight">
-            Why Brands Choose EON8
-          </h2>
-          <div className="w-20 h-1 bg-orange-500 rounded-full" />
-          
-          <ul className="space-y-4">
-            {[
-              'Strategy first, execution second',
-              'Transparent reporting & real metrics',
-              'Creative meets performance marketing',
-              'AI-driven insights for faster scaling',
-              'Industry-specific marketing playbooks'
-            ].map((text, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-sm md:text-base font-semibold text-foreground/80">
-                <CheckCircle className="w-5.5 h-5.5 text-orange-500 shrink-0 mt-0.5" />
-                <span>{text}</span>
-              </li>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+            {SERVICES.map((srv) => (
+              <div
+                key={srv.title}
+                className="bg-card border border-border rounded-3xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="overflow-hidden rounded-2xl mb-5 border border-border/50 bg-[#eff4fb] dark:bg-slate-900">
+                    <img
+                      src={srv.img}
+                      alt={srv.alt}
+                      loading="lazy"
+                      className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <h3 className="text-xl font-heading font-extrabold text-foreground mb-4">
+                    {srv.title}
+                  </h3>
+                  <ul className="space-y-2.5 text-sm text-muted-foreground">
+                    {srv.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5">
+                        <Check className="w-4 h-4 text-[#FD5900] shrink-0 mt-0.5" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-6 mt-6 border-t border-border/50 flex items-center justify-between">
+                  <Link
+                    to={srv.to}
+                    className="text-xs sm:text-sm font-bold text-[#0053c6] dark:text-blue-400 hover:text-[#FD5900] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <span>Explore Service</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setContactModalOpen(true)}
+                    className="text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer"
+                  >
+                    Get Quote
+                  </button>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/digital-marketing-services-chennai">
+              <Button className="rounded-xl bg-[#0053c6] hover:bg-[#0044a3] text-white font-bold h-12 px-8 text-sm cursor-pointer shadow-md">
+                Explore All Services <ArrowRight className="w-4 h-4 ml-1.5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Powering Web3 Adoption Through Smart Marketing */}
+      <section className="py-16 sm:py-24 bg-[#eff4fb] dark:bg-card/40">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 space-y-14 sm:space-y-20">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight text-foreground leading-tight">
+              Powering Web3 Adoption Through{' '}
+              <span className="text-[#0053c6] dark:text-blue-400">Smart Marketing.</span>
+            </h2>
+          </div>
+
+          <div className="space-y-14 sm:space-y-20">
+            {WEB3_SPOTLIGHTS.map((item) => (
+              <div
+                key={item.title}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white dark:bg-card border border-border rounded-3xl p-6 sm:p-10 shadow-sm"
+              >
+                <div
+                  className={`lg:col-span-6 space-y-5 text-left ${
+                    item.reverse ? 'lg:order-2' : 'lg:order-1'
+                  }`}
+                >
+                  <h3 className="text-2xl sm:text-3xl font-heading font-black text-foreground">
+                    {item.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {item.items.map((pt) => {
+                      const IconComp = pt.icon;
+                      return (
+                        <li
+                          key={pt.text}
+                          className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground"
+                        >
+                          <span className="w-8 h-8 rounded-lg bg-[#0053c6]/10 text-[#0053c6] dark:text-blue-400 flex items-center justify-center shrink-0">
+                            <IconComp className="w-4 h-4" />
+                          </span>
+                          <span className="pt-1 font-medium text-foreground/90">{pt.text}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <div className="pt-2">
+                    <Link
+                      to={item.to}
+                      className="inline-flex items-center gap-2 text-sm font-bold text-[#FD5900] hover:text-[#e55000] transition-colors"
+                    >
+                      <span>Read More</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+
+                <div
+                  className={`lg:col-span-6 flex justify-center ${
+                    item.reverse ? 'lg:order-1' : 'lg:order-2'
+                  }`}
+                >
+                  <img
+                    src={item.img}
+                    alt={item.alt}
+                    loading="lazy"
+                    className="w-full max-w-md rounded-2xl object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Why Brands Choose EON8 */}
+      <section className="py-16 sm:py-24 bg-white dark:bg-background">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-foreground">
+              Why Brands Choose <span className="text-[#FD5900]">EON8</span>
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground">
+              We don&apos;t just run campaigns — we build growth engines tailored to your brand.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="lg:col-span-6 flex justify-center">
+              <img
+                src="/wp-content/uploads/2026/06/building.webp"
+                alt="EON8 Office Building"
+                loading="lazy"
+                className="w-full rounded-3xl object-cover shadow-lg border border-border"
+              />
+            </div>
+
+            <div className="lg:col-span-6 space-y-6">
+              <h3 className="text-2xl sm:text-3xl font-heading font-bold text-foreground">
+                Why Brands Choose EON8
+              </h3>
+              <ul className="space-y-3.5">
+                {WHY_CHOOSE_ITEMS.map((item) => {
+                  const IconComp = item.icon;
+                  return (
+                    <li
+                      key={item.text}
+                      className="flex items-center gap-4 p-4 rounded-2xl bg-[#f6f9ff] dark:bg-card border border-border"
+                    >
+                      <span className="w-10 h-10 rounded-xl bg-[#FD5900]/10 text-[#FD5900] flex items-center justify-center shrink-0">
+                        <IconComp className="w-5 h-5" />
+                      </span>
+                      <span className="text-sm sm:text-base font-semibold text-foreground">
+                        {item.text}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+              <Button
+                type="button"
+                onClick={() => setContactModalOpen(true)}
+                className="rounded-xl bg-[#FD5900] hover:bg-[#e55000] text-white font-bold h-12 px-7 text-sm cursor-pointer shadow-md"
+              >
+                Partner With Us <ArrowRight className="w-4 h-4 ml-1.5" />
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 8. Industries We Serve */}
-      <section className="py-24 px-6 bg-slate-50 dark:bg-slate-900/30">
-        <div className="max-w-5xl mx-auto border border-orange-500/20 bg-white dark:bg-slate-950 rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
-          
-          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-44 h-44 bg-orange-500/10 rounded-full blur-2xl" />
-
-          <h2 className="text-3xl sm:text-4xl font-heading font-black text-center mb-12">
-            Industries We Serve
-          </h2>
-
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-            {[
-              { name: 'Hospitality & Hotels', icon: '/imgs/hospitality.png' },
-              { name: 'Healthcare', icon: '/imgs/healthcare.png' },
-              { name: 'Real Estate', icon: '/imgs/realestate.png' },
-              { name: 'Political Campaigns', icon: '/imgs/political.png' },
-              { name: 'Ecommerce', icon: '/imgs/ecommerce.png' },
-              { name: 'SaaS & Tech Startups', icon: '/imgs/saas.png' },
-              { name: 'Education', icon: '/imgs/education.png' }
-            ].map((ind, idx) => (
-              <div 
-                key={idx} 
-                className="w-32 sm:w-36 flex flex-col items-center text-center group"
-              >
-                <div className="w-16 h-16 bg-orange-500 hover:bg-orange-600 rounded-2xl flex items-center justify-center mb-3 transition-colors shadow-lg border border-orange-400/20 shrink-0">
-                  <img src={ind.icon} alt={ind.name} className="w-8 h-8 object-contain filter brightness-200" />
-                </div>
-                <p className="text-xs sm:text-sm font-semibold text-foreground/90 leading-tight">{ind.name}</p>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* 9. Prestigious Clients Grid */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900/40 border-y border-border/20">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-16 sm:py-24 bg-[#eff4fb] dark:bg-card/40">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-heading font-black text-slate-950 dark:text-white">
-              Our Prestigious Clients
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-foreground">
+              Industries We <span className="text-[#0053c6] dark:text-blue-400">Serve</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-            {clients.map((c, i) => (
-              <div 
-                key={i} 
-                className="flex items-center justify-center bg-white border border-blue-500/30 hover:border-blue-500 rounded-2xl p-6 h-28 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 sm:gap-5">
+            {INDUSTRIES.map((ind) => (
+              <div
+                key={ind.name}
+                className="bg-white dark:bg-card border border-border rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3 shadow-sm hover:-translate-y-1 hover:border-[#0053c6]/40 transition-all"
               >
-                <img 
-                  src={c.img} 
-                  alt={c.name} 
-                  className="max-w-full max-h-16 object-contain" 
+                <img
+                  src={ind.img}
+                  alt={ind.alt}
+                  loading="lazy"
+                  className="w-14 h-14 object-contain"
+                />
+                <h3 className="text-xs sm:text-sm font-heading font-bold text-foreground leading-snug">
+                  {ind.name}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Our Prestigious Clients */}
+      <section className="py-16 sm:py-24 bg-white dark:bg-background">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-foreground">
+              Our Prestigious <span className="text-[#FD5900]">Clients</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
+            {CLIENT_LOGOS.map((logo) => (
+              <div
+                key={logo.src}
+                className="bg-[#f8fafc] dark:bg-slate-900 border border-border rounded-2xl p-5 flex items-center justify-center h-24 sm:h-28 hover:shadow-md transition-shadow"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  loading="lazy"
+                  className="max-h-14 max-w-full object-contain"
                 />
               </div>
             ))}
@@ -699,194 +791,252 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 10. Client Satisfaction */}
-      <section className="py-20 px-6 bg-white dark:bg-slate-950">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Rating Image */}
-          <div className="max-w-md lg:max-w-full mx-auto">
-            <img 
-              src="/imgs/satisfaction.png" 
-              alt="Client Satisfaction rating slider" 
-              className="w-full h-auto object-contain" 
+      {/* 10. Client Satisfaction Spotlight */}
+      <section className="py-16 sm:py-24 bg-[#f6f9ff] dark:bg-card/30">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="lg:col-span-6 relative">
+            <img
+              src="/wp-content/uploads/2026/06/satisfaction.webp"
+              alt="Happy Clients Meeting"
+              loading="lazy"
+              className="w-full rounded-3xl object-cover shadow-lg border border-border"
             />
+            <div className="mt-4 sm:mt-0 sm:absolute sm:bottom-5 sm:right-5 bg-white dark:bg-slate-900 border border-border rounded-2xl px-6 py-4 shadow-xl inline-block">
+              <div className="text-2xl sm:text-3xl font-heading font-black text-[#FD5900]">10k+</div>
+              <p className="text-xs sm:text-sm font-semibold text-foreground">Leads Generated</p>
+            </div>
           </div>
 
-          {/* Right: Text Details */}
-          <div className="space-y-6 text-left">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-slate-950 dark:text-white leading-tight">
-              Client Satisfaction Is <br />
-              Our Prime Goal
+          <div className="lg:col-span-6 space-y-6 text-left">
+            <h2 className="text-3xl sm:text-4xl font-heading font-black text-foreground leading-tight">
+              Client Satisfaction is <span className="text-[#0053c6] dark:text-blue-400">Our Prime Goal</span>
             </h2>
-            <p className="text-slate-600 dark:text-slate-300 text-base md:text-lg leading-relaxed font-medium">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Be it a small or large business, we make sure to provide the best dedicated service to uplift your business value and returns while not forgetting to meet your expectations.
+            </p>
+
+            <div className="bg-white dark:bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-sm space-y-4">
+              <div className="flex items-center gap-1 text-[#FD5900]">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-current" />
+                ))}
+              </div>
+              <p className="text-sm sm:text-base text-foreground/90 italic leading-relaxed">
+                &ldquo;EON8 has made a big difference to our brand with their excellent work and knowledge of Digital marketing techniques. Our brand awareness grew, and eventually, our sales had gone high.&rdquo;
+              </p>
+              <div className="flex items-center gap-3 pt-2">
+                <img
+                  src="/wp-content/uploads/2026/06/Jullian-Edisa.webp"
+                  alt="Jullian Edisa"
+                  loading="lazy"
+                  className="w-12 h-12 rounded-full object-cover border border-border"
+                />
+                <div>
+                  <h4 className="text-sm font-heading font-bold text-foreground">Jullian Edisa</h4>
+                  <p className="text-xs text-muted-foreground">Business Owner</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. Featured Case Studies */}
+      <section className="py-16 sm:py-24 bg-[#eff4fb] dark:bg-card/50">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-foreground">
+              Client Satisfaction Is <span className="text-[#FD5900]">Our Prime Goal</span>
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground">
               Be it a small or large business, we make sure to provide the best dedicated service to uplift your business value and returns while not forgetting to meet your expectations.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* 10b. Case Studies */}
-      <section className="py-24 px-6 bg-slate-50 dark:bg-slate-900/50 border-t border-border/10">
-        <div className="max-w-6xl mx-auto space-y-16">
-          <div className="text-center space-y-4 max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-5xl font-heading font-black">Our Success Stories</h2>
-            <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-              We deliver passionate, tailor-made digital marketing services that generate increased sales & fetch outstanding business growth.
-            </p>
-          </div>
-
-          {/* Case Studies Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {cases.map((c, idx) => (
-              <div 
-                key={idx}
-                className="bg-white dark:bg-slate-950 border border-border/40 p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between text-center"
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {CASE_STUDIES.map((cs) => (
+              <Link
+                key={cs.name}
+                to={cs.to}
+                className="bg-white dark:bg-card border border-border rounded-3xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-[#FD5900]/40 transition-all group"
               >
-                <div className="flex flex-col items-center space-y-4">
-                  <img src={c.img} alt={c.title} className="h-16 object-contain mb-2" />
-                  <h3 className="text-xl font-heading font-extrabold text-foreground">{c.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: c.desc }} />
+                <div className="h-24 flex items-center justify-center mb-5">
+                  <img
+                    src={cs.img}
+                    alt={cs.alt}
+                    loading="lazy"
+                    className="max-h-20 max-w-[180px] object-contain"
+                  />
                 </div>
-                
-                <div className="pt-6">
-                  <Button 
-                    onClick={() => setContactModalOpen(true)}
-                    variant="outline" 
-                    className="w-full rounded-xl border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
-                  >
-                    View Results
-                  </Button>
-                </div>
-              </div>
+                <h3 className="text-xl font-heading font-bold text-foreground group-hover:text-[#0053c6] dark:group-hover:text-blue-400 transition-colors mb-2">
+                  {cs.name}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{cs.stat}</p>
+                <span className="mt-auto inline-flex items-center gap-1.5 text-xs font-bold text-[#FD5900]">
+                  View Case Study <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </Link>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* 11. Testimonials */}
-      <section className="py-24 bg-slate-100 dark:bg-slate-900/20 px-6">
-        <div className="max-w-6xl mx-auto space-y-16">
-          
-          <div className="text-center space-y-2">
-            <h2 className="text-3xl sm:text-5xl font-heading font-black text-orange-500">Testimonials</h2>
-            <p className="text-muted-foreground font-semibold text-sm">What clients say about our services</p>
+      {/* 12. Testimonials */}
+      <section className="py-16 sm:py-24 bg-white dark:bg-background">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="text-center mb-12 space-y-2">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-foreground">
+              Testimonial
+            </h2>
+            <p className="text-base sm:text-lg font-medium text-[#FD5900]">What client says!</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((test, index) => (
-              <div 
-                key={index}
-                className="bg-slate-50 dark:bg-slate-950 border border-border/40 rounded-2xl flex flex-col justify-between overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {TESTIMONIALS.map((t) => (
+              <div
+                key={t.name}
+                className="bg-[#f8fafc] dark:bg-card border border-border rounded-3xl p-7 flex flex-col justify-between space-y-6 shadow-sm"
               >
-                <div className="p-6 md:p-8 space-y-4 relative">
-                  <Quote className="w-10 h-10 text-orange-500/10 absolute top-4 right-4" />
-                  
-                  {/* Rating Stars */}
-                  <div className="flex items-center gap-1 text-orange-500">
-                    {[...Array(test.stars)].map((_, i) => (
+                <div className="space-y-4">
+                  <div className="flex items-center gap-1 text-[#FD5900]">
+                    {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-
-                  <p className="text-muted-foreground text-xs leading-relaxed text-left">
-                    "{test.text}"
-                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t.quote}</p>
                 </div>
 
-                <div className="bg-orange-500/90 p-4 px-6 flex items-center gap-4 text-white">
-                  <img src={test.img} alt={test.name} className="w-11 h-11 rounded-full object-cover border border-white/20 shrink-0" />
-                  <div className="text-left">
-                    <h4 className="text-xs font-bold font-heading">{test.name}</h4>
-                    <span className="text-[10px] text-white/80">Eon8 Client Partner</span>
+                <div className="flex items-center gap-3.5 pt-4 border-t border-border/60">
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    loading="lazy"
+                    className="w-12 h-12 rounded-full object-cover border border-border bg-white"
+                  />
+                  <div>
+                    <h5 className="text-sm font-heading font-bold text-foreground">{t.name}</h5>
+                    <p className="text-xs text-muted-foreground">{t.role}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* 12. Recent Blog Section */}
-      <section className="py-24 px-6 bg-white dark:bg-slate-950 border-t border-border/30">
-        <div className="max-w-6xl mx-auto space-y-16">
-          
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl sm:text-5xl font-heading font-black text-orange-500">Blog</h2>
-            <div className="w-16 h-1 bg-orange-500 mx-auto rounded-full" />
-          </div>
+      {/* 13. Latest From the Lab (Blog) */}
+      <section className="py-16 sm:py-24 bg-[#eff4fb] dark:bg-card/40">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <h2 className="text-3xl sm:text-4xl font-heading font-black text-foreground text-center mb-10 sm:mb-12">
+            Blog
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {blogs.map((blog, i) => (
-              <div 
-                key={i}
-                className="bg-card border border-border/40 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group"
-              >
-                <div className="space-y-4">
-                  <div className="overflow-hidden">
-                    <img 
-                      src={blog.img} 
-                      alt={blog.title} 
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
-                    />
-                  </div>
-                  <div className="p-5 space-y-3 text-left">
-                    <h4 className="text-base font-heading font-bold text-foreground line-clamp-2 leading-snug group-hover:text-primary transition-colors">
-                      <Link to={blog.link}>{blog.title}</Link>
-                    </h4>
-                    <p className="text-muted-foreground text-xs leading-relaxed line-clamp-3">
-                      {blog.desc}
-                    </p>
-                  </div>
-                </div>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-5">
+            <div>
+              <h3 className="text-3xl sm:text-4xl font-heading font-black text-foreground leading-tight mb-3">
+                Latest from <span className="text-[#0053c6] dark:text-blue-400">the Lab</span>
+              </h3>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl">
+                Insights, guides, and updates from the cutting edge of digital marketing.
+              </p>
+            </div>
 
-                <div className="p-5 pt-0 border-t border-border/10 flex items-center justify-between text-xs">
-                  <Link to={blog.link} className="font-bold text-orange-500 hover:underline">
-                    Read Article
-                  </Link>
-                  <div className="flex items-center gap-1.5 text-muted-foreground">
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>2026</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Link to="/blog">
-              <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded-xl px-8 h-12 cursor-pointer">
-                <span>View More Articles</span>
-              </Button>
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 font-bold text-sm text-[#0053c6] dark:text-blue-400 border-b-2 border-[#0053c6] pb-1 whitespace-nowrap hover:gap-3 transition-all"
+            >
+              <span>View All Posts</span>
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-        </div>
-      </section>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {FEATURED_LAB_POSTS.map((post) => (
+              <article
+                key={post.to}
+                className="bg-white dark:bg-card rounded-[28px] overflow-hidden shadow-sm border border-border hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col h-full"
+              >
+                <Link to={post.to} className="aspect-video overflow-hidden border-b border-border/50 block">
+                  <img
+                    src={post.img}
+                    alt={post.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </Link>
 
-      {/* 13. WhatsApp Contact CTA Section */}
-      <section className="py-24 px-6 bg-slate-50 dark:bg-slate-900/50">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-3xl sm:text-5xl font-heading font-black">Contact Us On WhatsApp</h2>
-          
-          <div className="bg-white dark:bg-slate-950 border border-orange-500/20 p-8 md:p-12 rounded-3xl shadow-xl relative overflow-hidden flex flex-col items-center gap-6">
-            <div className="absolute top-0 left-0 -translate-y-1/2 -translate-x-1/2 w-36 h-36 bg-orange-500/10 rounded-full blur-2xl" />
-            <Award className="w-12 h-12 text-orange-500" />
-            
-            <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
-              Don’t get left behind in the race to achieve business growth in the Digital Era. Get in Touch with us to explore new possibilities.
-            </p>
-            
-            <a href="https://wa.me/919042294007" target="_blank" rel="noreferrer">
-              <Button size="lg" className="rounded-full bg-green-500 hover:bg-green-600 text-white font-bold h-14 px-8 text-base shadow-xl shadow-green-500/10 gap-3">
-                <img src="/imgs/whatsapp.png" alt="WhatsApp Icon" className="w-6 h-6 object-contain" />
-                <span>+91 90422 94007</span>
-              </Button>
-            </a>
+                <div className="p-6 sm:p-7 flex flex-col flex-grow">
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#FD5900] bg-[#FD5900]/10 px-3 py-1 rounded-full">
+                      {post.tag}
+                    </span>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-heading font-bold leading-snug my-4 text-foreground group-hover:text-[#0053c6] dark:group-hover:text-blue-400 transition-colors">
+                    <Link to={post.to}>{post.title}</Link>
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-6 line-clamp-3 leading-relaxed">
+                    {post.desc}
+                  </p>
+                  <div className="mt-auto">
+                    <Link
+                      to={post.to}
+                      className="font-bold text-sm text-foreground inline-flex items-center gap-2 hover:text-[#0053c6] dark:hover:text-blue-400 transition-colors"
+                    >
+                      <span>Read More</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* 14. Full-Bleed Blue Pre-Footer CTA Band */}
+      <section className="py-12 sm:py-20 bg-white dark:bg-background">
+        <div
+          className="w-full py-14 sm:py-20 relative overflow-hidden shadow-lg"
+          style={{ background: 'linear-gradient(90deg, #0053c6, #0041c2, #0053c6)' }}
+        >
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-14">
+            <div className="text-center lg:text-left text-white max-w-3xl">
+              <h2 className="text-[26px] sm:text-[32px] md:text-[38px] font-heading font-black text-white leading-tight mb-4 tracking-tight">
+                Don&apos;t get left behind in the race <br className="hidden lg:block" />
+                to achieve business growth.
+              </h2>
+              <div className="flex flex-col md:flex-row items-center lg:items-start justify-center lg:justify-start gap-2 md:gap-3 text-sm text-white/90">
+                <p>Get in touch with us to explore new possibilities.</p>
+                <span className="hidden md:block w-1 h-1 rounded-full bg-white/50 mt-2" />
+                <a href="mailto:info@eon8.com" className="hover:underline font-medium">
+                  info@eon8.com
+                </a>
+                <span className="hidden md:block w-1 h-1 rounded-full bg-white/50 mt-2" />
+                <p>Mumbai, Hyderabad, Bangalore, Chennai</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row shrink-0 gap-4 w-full sm:w-auto">
+              <a
+                href="https://wa.me/919042294007"
+                target="_blank"
+                rel="noreferrer"
+                className="uppercase tracking-[0.14em] font-bold text-xs sm:text-[13px] py-4 px-7 border border-white/50 text-white hover:bg-white hover:text-[#0053c6] transition-all duration-300 text-center flex items-center justify-center gap-2 rounded-lg"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>CHAT WITH US</span>
+              </a>
+              <a
+                href="tel:+919042294007"
+                className="uppercase tracking-[0.14em] font-bold text-xs sm:text-[13px] py-4 px-7 bg-white text-[#0053c6] shadow-xl hover:bg-slate-100 transition-all duration-300 text-center flex items-center justify-center gap-2 rounded-lg"
+              >
+                <Phone className="w-4 h-4" />
+                <span>CALL NOW</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

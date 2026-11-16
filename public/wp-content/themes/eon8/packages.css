@@ -1,0 +1,228 @@
+section.package-banner{
+    /* background-color: #ff5e14; */
+    background: url(https://www.eon8.com/wp-content/uploads/2022/07/orange-bg.png) no-repeat;
+    padding: 200px 0 150px 0;
+    background-size: cover;
+}
+.package-banner h1{
+    color: #fff;
+}
+.package-banner p{
+    font-size: 18px;
+    line-height: 2;
+}
+.custom-padding{
+    padding: 90px 0;
+}
+.package-box{
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+.package-box h4, .package-box h2{
+    line-height: 1;
+}
+.package-box .package-price{
+    background-color: #ff5e14;
+    padding: 20px 0;
+    color: #fff;
+}
+.package-box .package-price p{
+    margin: 0;
+    font-size: 14px;
+}
+.package-box .package-price h4{
+    margin: 0 0 10px 0;
+}
+.package-price h4, .package-price h2{
+    color: #fff;
+}
+.package-box .package-description{
+    padding: 10px 0;
+}
+.package-overview{
+    padding: 90px 0;
+}
+.package-overview p{
+    font-size: 16px;
+    line-height: 2;
+}
+.package-btn {
+    background: #b73c03;
+    padding: 15px 35px;
+    display: inline-block;
+    margin-top: 25px;
+    color: #fff;
+    font-size: 16px;
+}
+.package-btn:hover {
+    background: #fff;
+    color: #000;
+}
+.packages h2{
+    line-height: 1.8;
+}
+.package-description h2{
+    line-height: 1.5;
+}
+
+/* Table */
+.table>tbody>tr>th,
+.table>tbody>tr>td {
+    padding: 20px 12px !important;
+    text-align: center;
+    align-items: center;
+    border: 1px solid #cccccc75;
+    /*font-family: 'Roboto';*/
+    /* border: 0px; */
+}
+
+.seo_package_sec {
+    padding-bottom: 90px;
+    padding-top: 90px;
+}
+
+.table-responsive {
+    min-height: 0.01%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0px;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.bg-color,
+table th {
+    background-image: linear-gradient(#09abe9, #156babe3);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    padding:12px !important;
+}
+.bg-color,
+table td {
+    padding:12px !important;
+}
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.2;
+    vertical-align: inherit;
+    border-top: 1px solid #ddd;
+    text-transform: capitalize;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.pack-table {
+    margin-bottom: 0px !important;
+}
+
+th.pack-midhead {
+    background: #f58220 !important;
+}
+
+i.fa-check {
+    color: green;
+}
+
+i.fa-times {
+    color: red;
+}
+
+.pack-panel {
+    background-color: #f58220 !important;
+}
+
+.pack-panel h3 {
+    color: white;
+}
+
+h3.plus-panel:after {
+    content: '\002B';
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    font-size: 18px;
+    margin-right: 15px;
+}
+.get-sec {
+    margin-bottom: 40px;
+}
+
+.white-color {
+    color: white;
+}
+
+.claim-box p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 1.4em;
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.bg-black {
+    background: black;
+}
+.pckg-eon-btn{
+    background: #b73c03;
+    padding: 15px 35px;
+    display: inline-block;
+    margin-top: 25px;
+    color: #fff;
+}
+.pckg-eon-btn:hover{
+    background: #fff;
+}
+.package-form p{
+    line-height: 1.6;
+    padding-top: 30px;
+}
+@media screen and (max-width: 767px){
+    .table-responsive>.table>tbody>tr>td {
+    white-space: normal;
+}
+}
+@media screen and (max-width: 767px){
+.table-responsive>.table>tbody>tr>th{
+    white-space: normal;
+}
+.custom-padding{
+    padding: 30px 0;
+}
+}
+/* Table Ends */
+
+.package-icon-btn{
+    background-color: #fff;
+    padding: 20px;
+    height: 100%;
+}
+.package-icon-btn:hover{
+    background-color: #ccd2ff;
+}
+.package-icon-btn img{
+    width: 50px;
+    padding-bottom: 20px;
+}
+.mb-2{
+    margin-bottom: 20px;
+}
+.package-form .banner_form{
+    margin-top: 50px;
+}

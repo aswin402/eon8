@@ -82,6 +82,7 @@ export function AIAgentPage() {
   const now = new Date();
   const currentMonthName = now.toLocaleString('default', { month: 'long', year: 'numeric' });
   const daysInCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+  const firstDayOffset = (new Date(now.getFullYear(), now.getMonth(), 1).getDay() + 6) % 7;
   const currentDayNumber = now.getDate();
 
   // Bottom Form State & Math Captcha
@@ -272,52 +273,56 @@ export function AIAgentPage() {
   return (
     <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-body">
       
-      {/* 1. Cinematic Hero Banner (Alternating Section - Blue Background) */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 text-white overflow-hidden text-left">
-        {/* Glow overlay */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-400/20 rounded-full blur-[160px] pointer-events-none" />
-        
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 ai-hero-content">
-          
+      {/* 1. Cinematic Hero Banner (Cobalt 3D Artwork Hero matching Live Eon8) */}
+      <section
+        className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 text-white overflow-hidden text-left"
+        style={{ background: 'linear-gradient(126deg, #0575E6 0%, #021B79 100%)' }}
+      >
+        <div
+          className="hidden md:block absolute inset-0 bg-cover bg-top opacity-90 pointer-events-none"
+          style={{ backgroundImage: "url('/wp-content/uploads/2022/07/discord-banner.png')" }}
+        />
+
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center relative z-10 ai-hero-content">
+
           {/* Left Column: Heading and Paragraphs */}
           <div className="space-y-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight leading-tight text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-heading font-black tracking-tight leading-tight text-white">
               AI Agent Development Services: <br />
               Powering The Future Of Intelligent Business Automation
             </h1>
-            
+
             <p className="text-blue-100 text-sm sm:text-base leading-relaxed">
-              In today's digital landscape, AI agents are transforming how businesses operate — handling complex tasks, making smart decisions, and enabling human-like interactions. At Eon8, we deliver customized, scalable AI agent solutions tailored to your business needs, helping you reduce costs and elevate customer experiences.
+              In today&apos;s digital landscape, AI agents are transforming how businesses operate — handling complex tasks, making smart decisions, and enabling human-like interactions. At Eon8, we deliver customized, scalable AI agent solutions tailored to your business needs, helping you reduce costs and elevate customer experiences.
             </p>
-            
+
             <p className="text-blue-100 text-sm sm:text-base leading-relaxed">
               From Personalised AI Agents to enterprise-grade customizable AI agent services, our solutions empower businesses to stay ahead of the curve, reduce operational overhead, and deliver superior customer experiences.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              <a href="https://wa.me/919042294007" target="_blank" rel="noreferrer">
-                <Button className="rounded-lg bg-[#062b66] hover:bg-[#08367c] text-white font-bold h-12 px-6 text-sm flex items-center gap-2 border border-blue-400/20 shadow-md transition-all">
+            <div className="flex flex-wrap gap-4 pt-2">
+              <a href="https://wa.link/cgw2xa" target="_blank" rel="noreferrer">
+                <Button className="rounded-lg bg-[#062b66] hover:bg-[#08367c] text-white font-bold h-12 px-6 text-sm flex items-center gap-2 border border-white/25 shadow-md transition-all cursor-pointer">
                   <svg className="w-5 h-5 fill-current text-green-400" viewBox="0 0 24 24">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 2.01 14.069.99 11.45 1.01 6.012 1.01 1.59 5.379 1.586 10.81c-.001 1.687.455 3.328 1.32 4.795l-1.017 3.714 3.764-1.013q.145.088.404.242zM17.06 14.382c-.272-.136-1.61-.794-1.86-.885-.25-.092-.432-.136-.613.136-.18.273-.703.885-.862 1.067-.158.182-.317.205-.59.07-2.316-1.012-3.66-2.158-5.122-4.664-.326-.56.326-.52.932-1.722.1-.205.05-.386-.025-.522-.075-.137-.613-1.477-.84-2.023-.222-.534-.44-.46-.613-.47h-.522c-.18 0-.477.067-.726.34-.25.272-.953.931-.953 2.27 0 1.338.975 2.633 1.11 2.815.137.18 1.92 2.93 4.653 4.114.65.28 1.157.447 1.553.573.653.208 1.248.179 1.718.109.524-.078 1.61-.658 1.838-1.294.228-.635.228-1.18.158-1.294-.068-.113-.25-.181-.522-.317z" />
                   </svg>
                   <span>Whatsapp Us</span>
                 </Button>
               </a>
-              <Button 
-                onClick={() => setContactModalOpen(true)}
-                className="rounded-lg bg-[#062b66] hover:bg-[#08367c] text-white font-bold h-12 px-6 text-sm border border-blue-400/20 shadow-md cursor-pointer transition-all"
-              >
-                Get Free Consultation
-              </Button>
+              <a href="#consult-form">
+                <Button className="rounded-lg bg-[#062b66] hover:bg-[#08367c] text-white font-bold h-12 px-6 text-sm border border-white/25 shadow-md cursor-pointer transition-all">
+                  Get Free Consultation
+                </Button>
+              </a>
             </div>
           </div>
-          
+
           {/* Right Column: AI Agent Development Illustration */}
           <div className="flex justify-center select-none">
-            <img 
-              src="/imgs/ai-agent-development-services.png" 
-              alt="AI Agent Development Services" 
-              className="w-full max-w-[500px] lg:max-w-[540px] rounded-3xl object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+            <img
+              src="/wp-content/uploads/2025/08/ai-agent-development-services.png"
+              alt="AI Agent Development Services"
+              className="w-full max-w-[460px] lg:max-w-[540px] rounded-3xl object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500"
             />
           </div>
 
@@ -341,7 +346,7 @@ export function AIAgentPage() {
             {/* Left Column: Tech Infographic Diagram */}
             <div className="flex justify-center select-none">
               <img 
-                src="/imgs/ai-agents.png" 
+                src="/wp-content/uploads/2025/08/ai-agents.png" 
                 alt="AI Agents Architecture Diagram" 
                 className="w-full max-w-[500px] lg:max-w-none rounded-2xl shadow-lg border border-border/30 hover:shadow-xl transition-shadow duration-300"
               />
@@ -659,7 +664,7 @@ export function AIAgentPage() {
           {/* Right Column: Case study generated image */}
           <div className="flex justify-center select-none">
             <img 
-              src="/imgs/casestudy-ai-agents.png" 
+              src="/wp-content/uploads/2025/08/casestudy-ai-agents.png" 
               alt="E-commerce AI Agent Case Study" 
               className="w-full max-w-[500px] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 border border-border/25"
             />
@@ -712,7 +717,7 @@ export function AIAgentPage() {
       </section>
 
       {/* 10. Book Free Consultation (Interactive Scheduler) */}
-      <section className="py-24 px-6 bg-slate-50 dark:bg-slate-950/20 text-center">
+      <section id="consult-form" className="py-24 px-6 bg-slate-50 dark:bg-slate-950/20 text-center scroll-mt-24">
         <div className="max-w-4xl mx-auto space-y-12">
           
           <div className="space-y-4">
@@ -771,6 +776,9 @@ export function AIAgentPage() {
                     <div className="grid grid-cols-7 gap-2 text-center text-xs font-bold border-t border-border/30 pt-4">
                       {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(d => (
                         <div key={d} className="text-slate-400 py-1">{d}</div>
+                      ))}
+                      {Array.from({ length: firstDayOffset }).map((_, i) => (
+                        <div key={`empty-${i}`} aria-hidden="true" />
                       ))}
                       {Array.from({ length: daysInCurrentMonth }).map((_, i) => {
                         const day = i + 1;
@@ -908,7 +916,7 @@ export function AIAgentPage() {
 
       {/* 11. Get Started Today / Lead Capture Form Section */}
       <section className="py-24 px-6 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 text-white relative">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5" style={{ backgroundImage: "url('/imgs/achievement-bg.png')" }} />
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff22_1px,transparent_1px)] [background-size:20px_20px] opacity-30 pointer-events-none" />
         
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           {/* Left Column: Heading and Stats grid */}

@@ -210,3 +210,13 @@ This task list serves as the main checklist for building and verifying the Eon8 
   - [x] Test all 15 crypto service routes
   - [x] Verify `npm run build` passes with zero errors and all chunks < 300 kB
 
+
+
+---
+
+## 8. Phase 8: Complete 1:1 Pure-React Migration of Crypto, Influencer, NFT & Our Services Menus 🚀
+- [x] **Crypto Menu (14 routes + alias)**: Pure React TSX (`CryptoMarketingAgencyPage`, `CryptoServicePage`, `IeoListingPage`) + `src/styles/crypto-pages.css`
+- [x] **Influencer Menu (5 routes)**: Pure React TSX (`InfluencerMarketingAgencyPage`, `InstagramInfluencerPage`, `ElementorInfluencerPage`, `TwitterInfluencerPage`) + `src/styles/influencer-pages.css`
+- [x] **NFT, Discord & Community Menu (21 routes + alias)**: Pure React TSX (`NftServicePage`, `ElementorNftPage`) + `src/styles/nft-pages.css` (verified 22/22 routes + 7/7 interactive Playwright tests)
+- [x] **Our Services Mega-Menu (39 routes across 7 sub-menus)**: Pure React TSX (`OurServicesPage`, `SoftwarePage`) + `src/styles/services-pages.css` (verified 39/39 routes × 3 viewports + 9/9 interactive Playwright tests)
+- [x] **SEO & Sitemap**: Regenerated `public/sitemap.xml` (301 URLs) and verified `npm run lint`, `npx tsc -b`, and `npm run build` with zero errors

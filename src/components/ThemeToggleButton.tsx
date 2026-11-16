@@ -1,7 +1,5 @@
-import { Moon, Sun} from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import { useThemeStore } from '../store/useThemeStore';
-import Button from './button';
-
 
 interface ThemeToggleButtonProps {
   className?: string;
@@ -10,34 +8,33 @@ interface ThemeToggleButtonProps {
 export function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
   const { theme, setTheme } = useThemeStore();
 
-  const cycleTheme = () => {
-    if (theme === 'light') setTheme('dark');
-    else setTheme('light');
+  const resolvedTheme =
+    theme === 'system'
+      ? typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+      : theme;
+
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
   };
 
   return (
-    <Button
-      variant="outline"
-      size="icon"
-      onClick={cycleTheme}
-      title={`Current: ${theme} • Click to cycle`}
-      className={className || "h-10 w-10 rounded-full relative"}
+    <button
+      type="button"
+      onClick={toggleTheme}
+      title={`Switch to ${resolvedTheme === 'light' ? 'dark' : 'light'} mode`}
+      aria-label={`Switch to ${resolvedTheme === 'light' ? 'dark' : 'light'} mode`}
+      className={
+        className ||
+        'relative inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer shrink-0'
+      }
     >
-      <Sun
-        className={`h-[1.2rem] w-[1.2rem] transition-all ${
-          theme === 'light'
-            ? 'rotate-0 scale-100'
-            : 'rotate-90 scale-0'
-        }`}
-      />
-      <Moon
-        className={`absolute h-[1.2rem] w-[1.2rem] transition-all ${
-          theme === 'dark'
-            ? 'rotate-0 scale-100'
-            : 'rotate-90 scale-0'
-        }`}
-      />
-      <span className="sr-only">Toggle theme</span>
-    </Button>
+      {resolvedTheme === 'dark' ? (
+        <Moon className="h-[1.15rem] w-[1.15rem]" />
+      ) : (
+        <Sun className="h-[1.15rem] w-[1.15rem]" />
+      )}
+    </button>
   );
 }

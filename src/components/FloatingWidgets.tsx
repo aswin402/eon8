@@ -1,21 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PhoneCall, MessageCircle, X, Send, CheckCircle2 } from 'lucide-react';
+import { PhoneCall, MessageCircle, X, Send, CheckCircle2, ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function FloatingWidgets() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 300);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!phone || !email) return;
     setSubmitted(true);
-    console.log('Sidebar Form Submitted:', { name, phone, email, message });
   };
 
   const handleOpenDrawer = () => {
@@ -29,145 +35,159 @@ export function FloatingWidgets() {
 
   return (
     <>
-      {/* Floating Badges (Bottom Left) */}
-      <div className="fixed bottom-6 left-6 z-40 flex flex-col gap-3.5">
-        
-        {/* WhatsApp widget */}
+      {/* Fixed Bottom-Left WhatsApp & Call Badges */}
+      <div className="fixed bottom-4 left-3 sm:bottom-8 sm:left-5 z-40 flex flex-col gap-2.5">
         <motion.a
-          whileHover={{ scale: 1.1, rotate: 6 }}
+          whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           href="https://wa.me/919042294007"
           target="_blank"
           rel="noreferrer"
-          className="w-12 h-12 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg shadow-green-500/20 transition-all border border-green-400/20"
+          className="w-11 h-11 bg-[#28d347] hover:bg-[#f16f00] rounded-full flex items-center justify-center text-white shadow-lg transition-colors"
           title="Chat on WhatsApp"
+          aria-label="Chat on WhatsApp"
         >
-          <img src="/imgs/whatsapp.png" alt="WhatsApp Icon" className="w-6 h-6 object-contain" />
+          <img src="/imgs/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain" />
         </motion.a>
 
-        {/* Call widget */}
         <motion.a
-          whileHover={{ scale: 1.1, rotate: -6 }}
+          whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          href="tel:9042294007"
-          className="w-12 h-12 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg shadow-blue-500/20 transition-all border border-blue-400/20"
+          href="tel:+919042294007"
+          className="w-11 h-11 bg-[#28d347] hover:bg-[#f16f00] rounded-full flex items-center justify-center text-white shadow-lg transition-colors"
           title="Call Us"
+          aria-label="Call Us"
         >
           <PhoneCall className="w-5 h-5" />
         </motion.a>
       </div>
 
-      {/* Sliding Tab Trigger (Right Side - Desktop Only) */}
+      {/* Vertical Contact Us Tab (Desktop & Tablet Right Edge) */}
       <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden md:block">
         {!isDrawerOpen && (
           <motion.button
+            type="button"
             onClick={handleOpenDrawer}
-            whileHover={{ x: -4 }}
-            className="bg-red-600 text-white font-bold text-xs uppercase tracking-wider py-4 px-2 rounded-l-2xl shadow-xl flex flex-col items-center gap-2 border border-red-500/20 cursor-pointer"
+            whileHover={{ x: -3 }}
+            className="bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold text-xs tracking-wider py-4 px-2.5 rounded-l-xl shadow-xl flex flex-col items-center gap-2 cursor-pointer transition-colors"
             style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
           >
             <MessageCircle className="w-4 h-4 rotate-90 mb-1" />
-            <span>Quick Contact</span>
+            <span>Contact Us</span>
           </motion.button>
         )}
       </div>
 
-      {/* Slide out right panel */}
+      {/* Back to Top Button (Bottom Right) */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            type="button"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            aria-label="Scroll to top"
+            className="fixed bottom-5 right-4 sm:bottom-7 sm:right-6 z-40 w-11 h-11 rounded-xl bg-white dark:bg-slate-800 text-[#0053C6] dark:text-blue-400 border border-slate-200 dark:border-slate-700 shadow-lg hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center transition-colors"
+          >
+            <ArrowUp className="w-5 h-5" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* Slide Out Quick Contact Drawer */}
       <AnimatePresence>
         {isDrawerOpen && (
           <>
-            {/* Backdrop overlay */}
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4 }}
+              animate={{ opacity: 0.45 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsDrawerOpen(false)}
               className="fixed inset-0 bg-black z-40"
             />
 
-            {/* Slide Drawer */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="fixed top-0 right-0 bottom-0 w-80 bg-card border-l border-border/40 p-6 z-50 flex flex-col shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-80 bg-card border-l border-border p-6 z-50 flex flex-col shadow-2xl"
             >
-              {/* Header */}
-              <div className="flex items-center justify-between border-b border-border/20 pb-4 mb-5">
+              <div className="flex items-center justify-between border-b border-border pb-4 mb-5">
                 <div>
-                  <h4 className="text-lg font-heading font-extrabold text-foreground">Quick Inquiry</h4>
-                  <p className="text-[10px] text-muted-foreground">Submit details for a prompt reply</p>
+                  <h4 className="text-lg font-heading font-extrabold text-foreground">Contact Us</h4>
+                  <p className="text-xs text-muted-foreground">Submit details for a prompt reply</p>
                 </div>
                 <button
+                  type="button"
                   onClick={() => setIsDrawerOpen(false)}
-                  className="p-1.5 hover:bg-muted/40 rounded-lg text-muted-foreground hover:text-foreground transition-all"
+                  aria-label="Close contact drawer"
+                  className="p-2 hover:bg-muted rounded-lg text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
               {!submitted ? (
-                // Form layout
                 <form onSubmit={handleSubmit} className="flex-1 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div className="space-y-1">
-                      <label className="text-[10px] font-bold text-foreground/80 uppercase">Name</label>
+                      <label className="text-xs font-bold text-foreground/80 uppercase">Name</label>
                       <input
                         type="text"
-                        placeholder="Name"
+                        placeholder="Your Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full h-10 bg-muted/20 border border-border/30 rounded-lg px-3 text-xs focus:outline-none focus:border-primary transition-all"
+                        className="w-full h-11 bg-muted/30 border border-border rounded-lg px-3 text-sm focus:outline-none focus:border-primary"
                       />
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-[10px] font-bold text-foreground/80 uppercase">Phone *</label>
+                      <label className="text-xs font-bold text-foreground/80 uppercase">Phone *</label>
                       <input
                         type="tel"
                         required
                         placeholder="Phone Number"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full h-10 bg-muted/20 border border-border/30 rounded-lg px-3 text-xs focus:outline-none focus:border-primary transition-all"
+                        className="w-full h-11 bg-muted/30 border border-border rounded-lg px-3 text-sm focus:outline-none focus:border-primary"
                       />
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-[10px] font-bold text-foreground/80 uppercase">Email *</label>
+                      <label className="text-xs font-bold text-foreground/80 uppercase">Email *</label>
                       <input
                         type="email"
                         required
                         placeholder="Email Address"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full h-10 bg-muted/20 border border-border/30 rounded-lg px-3 text-xs focus:outline-none focus:border-primary transition-all"
+                        className="w-full h-11 bg-muted/30 border border-border rounded-lg px-3 text-sm focus:outline-none focus:border-primary"
                       />
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-[10px] font-bold text-foreground/80 uppercase">Message</label>
+                      <label className="text-xs font-bold text-foreground/80 uppercase">Message</label>
                       <textarea
                         rows={4}
-                        placeholder="Message"
+                        placeholder="Tell us about your project"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        className="w-full bg-muted/20 border border-border/30 rounded-lg p-3 text-xs focus:outline-none focus:border-primary transition-all resize-none"
+                        className="w-full bg-muted/30 border border-border rounded-lg p-3 text-sm focus:outline-none focus:border-primary resize-none"
                       />
                     </div>
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full h-11 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl mt-6 gap-2"
+                    className="w-full h-11 bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold rounded-xl mt-6 gap-2"
                   >
-                    <Send className="w-3.5 h-3.5" />
+                    <Send className="w-4 h-4" />
                     <span>Submit</span>
                   </Button>
                 </form>
               ) : (
-                // Success screen
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -175,14 +195,10 @@ export function FloatingWidgets() {
                 >
                   <CheckCircle2 className="w-12 h-12 text-green-500" />
                   <h4 className="font-heading font-extrabold text-foreground">Thank You!</h4>
-                  <p className="text-xs text-muted-foreground max-w-[200px] leading-relaxed">
+                  <p className="text-sm text-muted-foreground max-w-[220px] leading-relaxed">
                     Our sales representative will get back to you shortly.
                   </p>
-                  <Button
-                    onClick={() => setIsDrawerOpen(false)}
-                    variant="outline"
-                    className="mt-4 rounded-xl"
-                  >
+                  <Button onClick={() => setIsDrawerOpen(false)} variant="outline" className="mt-4 rounded-xl">
                     Close
                   </Button>
                 </motion.div>

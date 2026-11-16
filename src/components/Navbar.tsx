@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ThemeToggleButton } from '@/components/ThemeToggleButton';
+import { useAppStore } from '@/store/useAppStore';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 
@@ -30,20 +31,20 @@ interface NavItem {
   megaSections?: MegaSection[];
 }
 
-// Navigation Data structure for mega-menus and dropdowns
 const NAV_ITEMS: NavItem[] = [
   {
     label: 'AI-Agent',
     href: '/ai-agent-development-services',
     submenu: [
-      { name: 'AI Agent Development Services', href: '/ai-agent-development-services' }
-    ]
+      { name: 'AI Agent Development Services', href: '/ai-agent-development-services' },
+      { name: 'AI Video Creation Services', href: '/ai-video-creation' },
+    ],
   },
   {
     label: 'Crypto',
-    href: '/crptocurrency-marketing-agency',
+    href: '/crypto-marketing-agency',
     submenu: [
-      { name: 'Crypto Marketing', href: '/crptocurrency-marketing-agency' },
+      { name: 'Crypto Marketing', href: '/crypto-marketing-agency' },
       { name: 'Crypto PR Services', href: '/crypto-pr-services' },
       { name: 'Crypto Influencer Marketing', href: '/crypto-influencer-marketing' },
       { name: 'Crypto Telegram Marketing', href: '/crypto-telegram-marketing' },
@@ -56,8 +57,8 @@ const NAV_ITEMS: NavItem[] = [
       { name: 'Crypto KOL Agency', href: '/crypto-kol-agency' },
       { name: 'STO Marketing Agency', href: '/sto-marketing-agency' },
       { name: 'ICO Listing Services', href: '/ico-listing-services' },
-      { name: 'IEO Listing Services', href: '/ieo-listing-services' },
-    ]
+      { name: 'Launch Your Token with Strategic IEO Listing Services', href: '/ieo-listing-services' },
+    ],
   },
   {
     label: 'Influencer',
@@ -67,8 +68,8 @@ const NAV_ITEMS: NavItem[] = [
       { name: 'Insta Influencer Marketing Agency', href: '/instagram-influencer-marketing-agency' },
       { name: 'TikTok Influencer Marketing', href: '/tiktok-influencer-marketing' },
       { name: 'Youtube Influencer Services', href: '/youtube-influencer-services' },
-      { name: 'Twitter Influencer Marketing', href: '/twitter-influencer-marketing' }
-    ]
+      { name: 'Twitter Influencer Marketing', href: '/twitter-influencer-marketing' },
+    ],
   },
   {
     label: 'NFT',
@@ -91,7 +92,7 @@ const NAV_ITEMS: NavItem[] = [
           { name: 'NFT Youtube Marketing', href: '/nft-youtube-marketing' },
           { name: 'NFT Reddit Marketing', href: '/nft-reddit-marketing' },
           { name: 'NFT Game Discord Marketing', href: '/nft-game-discord-marketing' },
-        ]
+        ],
       },
       {
         title: 'Discord Marketing',
@@ -101,7 +102,7 @@ const NAV_ITEMS: NavItem[] = [
           { name: 'Discord Game Marketing Agency', href: '/discord-game-marketing-agency' },
           { name: 'Discord server marketing', href: '/discord-server-marketing' },
           { name: 'Discord Moderation Services', href: '/discord-moderation-services' },
-        ]
+        ],
       },
       {
         title: 'Community',
@@ -111,10 +112,10 @@ const NAV_ITEMS: NavItem[] = [
           { name: 'Discord Community Building Services', href: '/discord-community-building-services' },
           { name: 'NFT Game Reddit Marketing', href: '/nft-game-reddit-marketing' },
           { name: 'PR Marketing Agency', href: '/pr-marketing-agency' },
-          { name: 'Free NFT Consultation', href: '/nft-free-consultation' }
-        ]
-      }
-    ]
+          { name: 'Free NFT Consultation', href: '/nft-free-consultation' },
+        ],
+      },
+    ],
   },
   {
     label: 'Our Services',
@@ -125,7 +126,6 @@ const NAV_ITEMS: NavItem[] = [
         title: 'Digital Marketing Agency',
         href: '/digital-marketing-agency-in-chennai',
         items: [
-          { name: 'Digital Marketing Agency in Chennai', href: '/digital-marketing-agency-in-chennai' },
           { name: 'Search Engine Optimization SEO', href: '/search-engine-optimization-services-seo' },
           { name: 'Local SEO services', href: '/local-seo-agency' },
           { name: 'eCommerce SEO services', href: '/ecommerce-seo-services' },
@@ -133,9 +133,11 @@ const NAV_ITEMS: NavItem[] = [
           { name: 'SEO for Small Business', href: '/small-business-seo-services' },
           { name: 'Link Building Service', href: '/link-building-services-for-high-rankings' },
           { name: 'Game Marketing Agency', href: '/game-marketing-agency-video-mobile-gaming' },
-          { name: 'Ecommerce Development Services', href: '/ecommerce-website-development-services' },
-          { name: 'Web Design & Development', href: '/web-design-development-services-chennai' }
-        ]
+          { name: 'Build High-Performing eCommerce Stores That Convert', href: '/ecommerce-website-development-services' },
+          { name: 'Web Design & Development', href: '/web-design-development-services-chennai' },
+          { name: 'ERP Software Development', href: '/erp-software-development' },
+          { name: 'CRM Software Development', href: '/crm-software-development' },
+        ],
       },
       {
         subGroups: [
@@ -143,29 +145,27 @@ const NAV_ITEMS: NavItem[] = [
             title: 'Social Media Marketing',
             href: '/social-media-marketing-company-chennai',
             items: [
-              { name: 'Top Social Media Marketing Company', href: '/social-media-marketing-company-chennai' },
               { name: 'Social Media Brand Management Agency', href: '/social-media-brand-management-agency-chennai' },
               { name: 'Best Social Media Management Agency', href: '/social-media-management-agency-chennai' },
-              { name: 'Facebook Marketing Agency', href: '/facebook-marketing-agency-in-chennai' },
+              { name: 'Facebook Marketing Agency in Chennai', href: '/facebook-marketing-agency-in-chennai' },
               { name: 'Twitter Marketing Agency', href: '/twitter-marketing-agency-in-chennai-marketing' },
               { name: 'Instagram Marketing Agency Insta', href: '/instagram-marketing-agency-services-instagram' },
               { name: 'LinkedIn marketing agency', href: '/linkedin-marketing-agency-chennai-services' },
-              { name: 'YouTube marketing company', href: '/youtube-marketing-company-chennai-eon8' }
-            ]
+              { name: 'YouTube marketing company', href: '/youtube-marketing-company-chennai-eon8' },
+            ],
           },
           {
             title: 'ORM Services',
-            href: '/reputation-management-services',
             items: [
               { name: 'Reputation management services', href: '/reputation-management-services' },
               { name: 'Online Reputation Management', href: '/online-reputation-management-agency' },
               { name: 'Clean Negative search results', href: '/clean-negative-search-results' },
               { name: 'Google Complaint Removal', href: '/google-complaint-removal' },
               { name: 'Complaints board removal', href: '/complaints-board-removal' },
-              { name: 'Consumer complaints removal', href: '/consumer-complaints-removal' }
-            ]
-          }
-        ]
+              { name: 'Consumer complaints removal', href: '/consumer-complaints-removal' },
+            ],
+          },
+        ],
       },
       {
         subGroups: [
@@ -173,82 +173,100 @@ const NAV_ITEMS: NavItem[] = [
             title: 'Pay-Per-Click',
             href: '/ppc-company-chennai',
             items: [
-              { name: 'PPC Services Agency in Chennai', href: '/ppc-company-chennai' },
               { name: 'Search Advertising Company', href: '/search-advertising-company' },
               { name: 'Display Advertising Agency', href: '/display-advertising-agency' },
               { name: 'Remarketing and Retargeting Ads', href: '/best-remarketing-ad-agency' },
-              { name: 'Product Listing Ads Agency', href: '/product-listing-ads-agency' }
-            ]
+              { name: 'Product Listing Ads Agency', href: '/product-listing-ads-agency' },
+            ],
           },
           {
             title: 'App Marketing',
-            href: '/android-apps-marketing-services-marketing',
             items: [
               { name: 'Android App Marketing Services', href: '/android-apps-marketing-services-marketing' },
               { name: 'Apple App Store Optimization', href: '/apple-app-store-optimization-services-ios' },
-              { name: 'Android Game Marketing Services', href: '/android-game-marketing-services-eon8-marketing' }
-            ]
+              { name: 'Android Game Marketing Services', href: '/android-game-marketing-services-eon8-marketing' },
+            ],
           },
           {
             title: 'AR/VR Brand Innovation',
-            href: '/immersive-vr-marketing',
             items: [
               { name: 'Immersive Marketing with Augmented Reality', href: '/immersive-vr-marketing' },
               { name: 'End-to-End Augmented Reality Services', href: '/augmented-reality-agency' },
               { name: 'Social Media AR Campaigns', href: '/social-ar-solutions' },
-              { name: 'Virtual Reality in Product Marketing', href: '/vr-product-marketing' }
-            ]
+              { name: 'Virtual Reality in Product Marketing', href: '/vr-product-marketing' },
+            ],
           },
           {
-            title: 'Metaverse & Conversational',
-            href: '/metaverse',
+            title: 'Metaverse Solutions',
             items: [
               { name: 'Strategic Branding in the Metaverse', href: '/metaverse' },
-              { name: 'WhatsApp Marketing Services', href: '/whatsapp-marketing-services' }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 const SIMPLE_LINKS = [
   { label: 'Blog', href: '/blog' },
   { label: 'About Us', href: '/about-us' },
-  { label: 'Contact Us', href: '/contact' }
+  { label: 'Contact Us', href: '/contact' },
 ];
 
 export function Navbar() {
+  const { setContactModalOpen } = useAppStore();
+  const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
 
-  // Monitor Scroll state to change capsule layout
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Helper to render relative Router Link or absolute anchor tag
+  const isNavItemActive = (item: NavItem) => {
+    if (pathname === item.href) return true;
+    if (item.submenu?.some((s) => s.href === pathname)) return true;
+    if (
+      item.megaSections?.some(
+        (m) =>
+          m.href === pathname ||
+          m.items?.some((s) => s.href === pathname) ||
+          m.subGroups?.some((g) => g.href === pathname || g.items.some((s) => s.href === pathname))
+      )
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   const renderLink = (name: string, href: string, className: string) => {
     if (href.startsWith('/')) {
       return (
-        <Link to={href} className={className} onClick={() => setIsMobileMenuOpen(false)}>
+        <Link
+          to={href}
+          className={className}
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            setActiveDropdown(null);
+          }}
+        >
           {name}
         </Link>
       );
     }
     return (
-      <a href={href} className={className} target={href !== '#' ? '_blank' : undefined} rel="noreferrer">
+      <a
+        href={href}
+        className={className}
+        target={href !== '#' ? '_blank' : undefined}
+        rel="noreferrer"
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
         {name}
       </a>
     );
@@ -257,215 +275,202 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed left-0 right-0 z-50 transition-all duration-500 flex items-center ${
-          isScrolled
-            ? 'top-0 w-full bg-white/95 dark:bg-slate-950/95 border-b border-border/40 shadow-md h-20 px-6 backdrop-blur-md'
-            : 'top-4 max-w-[1250px] mx-auto w-[calc(100%-2rem)] bg-white dark:bg-slate-900 shadow-lg h-24 rounded-full px-8 lg:px-10'
+        id="site-header"
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-black/8 dark:border-white/10 ${
+          isScrolled ? 'shadow-md' : 'shadow-xs'
         }`}
-        style={!isScrolled ? {
-          boxShadow: '0 8px 32px 0 rgba(0, 102, 255, 0.08)',
-        } : {}}
       >
-        {/* Animated Gradient Border Overlay for Floating Capsule */}
-        {!isScrolled && (
-          <div className="absolute inset-0 -z-10 rounded-full p-[2px] bg-gradient-to-r from-orange-500 via-purple-600 to-blue-600 pointer-events-none">
-            <div className="w-full h-full rounded-full bg-white dark:bg-slate-900" />
-          </div>
-        )}
+        <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8 h-[74px] sm:h-[82px] flex items-center justify-between gap-2 lg:gap-4">
+          {/* Logo */}
+          <Link to="/" className="flex items-center shrink-0 hover:opacity-95 transition-opacity">
+            <img
+              src="/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png"
+              alt="Eon8 Logo"
+              className="h-10 sm:h-12 w-auto object-contain dark:invert"
+            />
+          </Link>
 
-        <div className="flex items-center justify-between lg:justify-center w-full h-full relative lg:gap-8 xl:gap-12">
-          
-          {/* Logo - Left Block in Flex Flow */}
-          <div className="flex justify-start shrink-0 z-10 pl-6 lg:pl-0">
-            <Link to="/" className="flex items-center hover:opacity-95 transition-opacity">
-              <img
-                src="/imgs/Logo-White-BG-removebg-preview.png"
-                alt="Eon8 Logo"
-                className={`object-contain transition-all duration-500 ${
-                  isScrolled ? 'h-12' : 'h-14'
-                } dark:invert`}
-              />
-            </Link>
-          </div>
-
-          {/* Desktop Nav Items - Centered relative to capsule container */}
-          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2.5">
-            {NAV_ITEMS.map((item) => (
-              <div
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(item.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <div className="flex items-center">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-2" aria-label="Primary Navigation">
+            {NAV_ITEMS.map((item) => {
+              const active = isNavItemActive(item);
+              return (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown(item.label)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
                   <Link
                     to={item.href}
-                    onClick={() => setActiveDropdown(null)}
-                    className="text-xs lg:text-[13px] xl:text-[14px] font-semibold py-2 pl-1.5 lg:pl-2 xl:pl-3 pr-1 text-foreground/80 hover:text-primary transition-colors cursor-pointer whitespace-nowrap"
+                    className={`flex items-center gap-1 text-[14px] xl:text-[15.5px] font-semibold py-2.5 px-2.5 xl:px-3.5 rounded-lg transition-colors whitespace-nowrap ${
+                      active
+                        ? 'text-[#FD5900]'
+                        : 'text-[#171c21] dark:text-slate-100 hover:text-[#FD5900]'
+                    }`}
                   >
-                    {item.label}
-                  </Link>
-                  <button
-                    onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                    aria-label={`Toggle ${item.label} menu`}
-                    className="p-1 text-foreground/60 hover:text-primary transition-colors cursor-pointer"
-                  >
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                      activeDropdown === item.label ? 'rotate-180' : ''
-                    }`} />
-                  </button>
-                </div>
-
-                {/* Dropdown Box */}
-                <AnimatePresence>
-                  {activeDropdown === item.label && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                      className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 z-50 ${
-                        item.isMega ? 'w-[1000px] xl:w-[1150px]' : 'w-72'
+                    <span>{item.label}</span>
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        activeDropdown === item.label ? 'rotate-180 text-[#FD5900]' : 'opacity-70'
                       }`}
-                    >
-                      <div className="bg-popover border border-border/50 rounded-2xl shadow-xl shadow-black/10 p-7 backdrop-blur-md">
-                        {item.isMega ? (
-                          // Mega Menu Content - Dynamic columns depending on count
-                          <div className={`grid gap-8 ${
-                            item.megaSections?.length === 3
-                              ? 'grid-cols-1 md:grid-cols-3'
-                              : 'grid-cols-1 md:grid-cols-2'
-                          }`}>
-                            {item.megaSections?.map((section, idx) => (
-                              <div
-                                key={idx}
-                                className={`space-y-6 ${
-                                  idx > 0 ? 'md:pl-6' : ''
-                                }`}
-                              >
-                                {section.subGroups ? (
-                                  section.subGroups.map((group) => (
-                                    <div key={group.title} className="space-y-3">
-                                      {group.href ? (
+                    />
+                  </Link>
+
+                  <AnimatePresence>
+                    {activeDropdown === item.label && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.16, ease: 'easeOut' }}
+                        className={`absolute top-full pt-2 z-50 ${
+                          item.isMega
+                            ? 'left-1/2 -translate-x-1/2 w-[90vw] max-w-[960px] xl:max-w-[1060px]'
+                            : 'left-0 w-72'
+                        }`}
+                      >
+                        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 shadow-2xl rounded-2xl p-6 text-left">
+                          {item.isMega && item.megaSections ? (
+                            <div className="grid grid-cols-3 gap-6">
+                              {item.megaSections.map((section, sIdx) => (
+                                <div
+                                  key={sIdx}
+                                  className="space-y-4 border-r border-slate-100 dark:border-slate-800 last:border-r-0 pr-3 last:pr-0"
+                                >
+                                  {section.subGroups ? (
+                                    section.subGroups.map((group) => (
+                                      <div key={group.title} className="space-y-2 pb-2">
+                                        {group.href ? (
+                                          <Link
+                                            to={group.href}
+                                            onClick={() => setActiveDropdown(null)}
+                                            className="text-[14px] font-bold text-slate-900 dark:text-slate-100 hover:text-[#FD5900] transition-colors inline-flex items-center gap-1 group/title"
+                                          >
+                                            <span>{group.title}</span>
+                                            <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-[#FD5900]" />
+                                          </Link>
+                                        ) : (
+                                          <h5 className="text-[14px] font-bold text-slate-900 dark:text-slate-100">
+                                            {group.title}
+                                          </h5>
+                                        )}
+                                        <ul className="space-y-1">
+                                          {group.items.map((subitem) => (
+                                            <li key={subitem.name}>
+                                              {renderLink(
+                                                subitem.name,
+                                                subitem.href,
+                                                'text-[13px] font-medium text-slate-600 dark:text-slate-300 hover:text-[#0053C6] dark:hover:text-blue-400 transition-colors block py-0.5 leading-snug'
+                                              )}
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                    ))
+                                  ) : (
+                                    <div className="space-y-2">
+                                      {section.href ? (
                                         <Link
-                                          to={group.href}
+                                          to={section.href}
                                           onClick={() => setActiveDropdown(null)}
-                                          className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-primary transition-colors tracking-normal normal-case mb-1 inline-flex items-center gap-1 group/title"
+                                          className="text-[14px] font-bold text-slate-900 dark:text-slate-100 hover:text-[#FD5900] transition-colors inline-flex items-center gap-1 group/title"
                                         >
-                                          <span>{group.title}</span>
-                                          <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-primary" />
+                                          <span>{section.title}</span>
+                                          <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-[#FD5900]" />
                                         </Link>
                                       ) : (
-                                        <h5 className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 tracking-normal normal-case mb-1">
-                                          {group.title}
-                                        </h5>
+                                        section.title && (
+                                          <h5 className="text-[14px] font-bold text-slate-900 dark:text-slate-100">
+                                            {section.title}
+                                          </h5>
+                                        )
                                       )}
-                                      <ul className="space-y-1.5">
-                                        {group.items.map((subitem) => (
+                                      <ul className="space-y-1 max-h-[60vh] overflow-y-auto custom-scrollbar pr-1">
+                                        {section.items?.map((subitem) => (
                                           <li key={subitem.name}>
                                             {renderLink(
                                               subitem.name,
                                               subitem.href,
-                                              "text-[13px] md:text-[13.5px] font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-all hover:translate-x-1 duration-200 block py-0.5"
+                                              'text-[13px] font-medium text-slate-600 dark:text-slate-300 hover:text-[#0053C6] dark:hover:text-blue-400 transition-colors block py-0.5 leading-snug'
                                             )}
                                           </li>
                                         ))}
                                       </ul>
                                     </div>
-                                  ))
-                                ) : (
-                                  <div className="space-y-3">
-                                    {section.href ? (
-                                      <Link
-                                        to={section.href}
-                                        onClick={() => setActiveDropdown(null)}
-                                        className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-primary transition-colors tracking-normal normal-case mb-1 inline-flex items-center gap-1 group/title"
-                                      >
-                                        <span>{section.title}</span>
-                                        <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-primary" />
-                                      </Link>
-                                    ) : (
-                                      section.title && (
-                                        <h5 className="text-[14px] md:text-[15px] font-bold text-slate-900 dark:text-slate-100 tracking-normal normal-case mb-1">
-                                          {section.title}
-                                        </h5>
-                                      )
-                                    )}
-                                    <ul className="space-y-1.5">
-                                      {section.items?.map((subitem) => (
-                                        <li key={subitem.name}>
-                                          {renderLink(
-                                            subitem.name,
-                                            subitem.href,
-                                            "text-[13px] md:text-[13.5px] font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-all hover:translate-x-1 duration-200 block py-0.5"
-                                          )}
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        ) : (
-                          // Standard Dropdown List
-                          <ul className="space-y-2">
-                            {item.submenu?.map((subitem) => (
-                              <li key={subitem.name}>
-                                {renderLink(
-                                  subitem.name,
-                                  subitem.href,
-                                  "text-[13px] md:text-[13.5px] font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-all hover:translate-x-1 duration-200 block py-0.5"
-                                )}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
+                            <ul className="space-y-1.5 max-h-[65vh] overflow-y-auto custom-scrollbar">
+                              {item.submenu?.map((subitem) => (
+                                <li key={subitem.name}>
+                                  {renderLink(
+                                    subitem.name,
+                                    subitem.href,
+                                    'text-[13.5px] font-medium text-slate-600 dark:text-slate-300 hover:text-[#0053C6] dark:hover:text-blue-400 transition-colors block py-1 leading-snug'
+                                  )}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
 
-            {/* Simple static links */}
-            {SIMPLE_LINKS.map((link) => (
-              <span key={link.label}>
-                {renderLink(link.label, link.href, "text-xs lg:text-[13px] xl:text-[14px] font-semibold py-2 px-1.5 lg:px-2 xl:px-3 text-foreground/80 hover:text-primary hover:underline transition-all whitespace-nowrap")}
-              </span>
-            ))}
+            {SIMPLE_LINKS.map((link) => {
+              const active = pathname === link.href || (link.href === '/blog' && pathname === '/digital-marketing-blog');
+              return (
+                <span key={link.label}>
+                  {renderLink(
+                    link.label,
+                    link.href,
+                    `text-[14px] xl:text-[15.5px] font-semibold py-2.5 px-2.5 xl:px-3.5 rounded-lg transition-colors whitespace-nowrap ${
+                      active ? 'text-[#FD5900]' : 'text-[#171c21] dark:text-slate-100 hover:text-[#FD5900]'
+                    }`
+                  )}
+                </span>
+              );
+            })}
           </nav>
 
-          {/* Action Bar - Pinned Right */}
-          <div className="flex items-center justify-end shrink-0 pr-6 lg:pr-0">
-            {/* Desktop Theme Toggle (always visible near Contact Us) */}
-            <div className="hidden lg:block">
-              <ThemeToggleButton />
-            </div>
+          {/* Right Action Controls */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <ThemeToggleButton />
 
-            {/* Mobile/Tablet action buttons (always visible on smaller screens) */}
-            <div className="flex lg:hidden items-center gap-2">
-              <ThemeToggleButton />
-            </div>
+            <Link
+              to="/contact"
+              className="hidden lg:inline-flex items-center justify-center bg-[#FD5900] hover:bg-[#e55000] text-white font-semibold text-[15px] xl:text-[16px] px-5 py-2.5 min-h-[44px] rounded-[7px] transition-colors shadow-sm whitespace-nowrap"
+            >
+              Get Start
+            </Link>
 
-            {/* Mobile Menu Toggle button */}
+            {/* Mobile Hamburger Button */}
             <button
+              type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-foreground/80 hover:text-foreground hover:bg-muted/30 rounded-xl transition-all"
-              aria-label="Toggle menu"
+              className="lg:hidden inline-flex items-center justify-center h-11 w-11 text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-
         </div>
       </header>
 
-      {/* Mobile Offcanvas Drawer Menu */}
+      {/* Spacer for fixed header */}
+      <div className="h-[74px] sm:h-[82px]" aria-hidden="true" />
+
+      {/* Mobile Offcanvas Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Dark Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -474,151 +479,181 @@ export function Navbar() {
               className="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 lg:hidden"
             />
 
-            {/* Drawer Sheet */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="fixed top-0 right-0 bottom-0 w-80 sm:w-96 bg-card border-l border-border/40 z-50 p-6 flex flex-col justify-between shadow-2xl lg:hidden"
+              className="fixed top-0 right-0 bottom-0 w-[min(90vw,24rem)] bg-white dark:bg-slate-950 border-l border-border z-50 p-5 sm:p-6 flex flex-col justify-between shadow-2xl lg:hidden"
             >
-              <div>
-                {/* Header inside drawer */}
-                <div className="flex items-center justify-between mb-8">
+              <div className="flex flex-col min-h-0 flex-1">
+                <div className="flex items-center justify-between mb-6 shrink-0">
                   <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
-                    <img src="/imgs/Logo-White-BG-removebg-preview.png" alt="Eon8 Logo" className="h-9 dark:invert" />
+                    <img
+                      src="/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png"
+                      alt="Eon8 Logo"
+                      className="h-9 w-auto dark:invert"
+                    />
                   </Link>
                   <button
+                    type="button"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 text-foreground/70 hover:bg-muted/40 rounded-xl transition-all"
+                    className="h-11 w-11 inline-flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl"
+                    aria-label="Close navigation menu"
                   >
                     <X className="w-5 h-5" />
                   </button>
                 </div>
 
-                {/* Nav list */}
-                <nav className="space-y-4 max-h-[70vh] overflow-y-auto pr-2 custom-scrollbar">
-                  <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">Navigations</div>
-                  
-                  {/* Dropdowns */}
+                <nav className="space-y-2 overflow-y-auto pr-1 custom-scrollbar flex-1">
                   {NAV_ITEMS.map((item) => (
-                    <div key={item.label} className="border-b border-border/10 pb-2">
+                    <div key={item.label} className="border-b border-border/50 pb-2">
                       <div className="flex items-center justify-between w-full">
                         <Link
                           to={item.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="flex-1 text-base font-semibold py-2 text-foreground/80 hover:text-primary transition-all text-left"
+                          className="flex-1 text-[15px] font-semibold py-2.5 text-slate-800 dark:text-slate-100 hover:text-[#FD5900]"
                         >
                           {item.label}
                         </Link>
                         <button
-                          onClick={() => setActiveMobileSubmenu(
-                            activeMobileSubmenu === item.label ? null : item.label
-                          )}
-                          className="p-2 text-foreground/70 hover:text-primary transition-colors cursor-pointer"
+                          type="button"
+                          onClick={() =>
+                            setActiveMobileSubmenu(activeMobileSubmenu === item.label ? null : item.label)
+                          }
+                          className="h-11 w-11 inline-flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-[#FD5900]"
                           aria-label={`Toggle ${item.label} submenu`}
                         >
-                          <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${
-                            activeMobileSubmenu === item.label ? 'rotate-180' : ''
-                          }`} />
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              activeMobileSubmenu === item.label ? 'rotate-180' : ''
+                            }`}
+                          />
                         </button>
                       </div>
 
-                      {/* Sub-menu drawer collapse */}
                       <AnimatePresence>
                         {activeMobileSubmenu === item.label && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden pl-4 space-y-2 mt-1"
+                            className="overflow-hidden pl-3 space-y-2 pb-2"
                           >
-                            {item.isMega ? (
-                              item.megaSections?.map((sect, sIdx) => (
-                                <div key={sIdx} className="space-y-4 py-2 border-t border-border/5 first:border-t-0 first:pt-0">
-                                  {sect.subGroups ? (
-                                    sect.subGroups.map((group) => (
-                                      <div key={group.title} className="space-y-1.5">
-                                        {group.href ? (
-                                          <Link
-                                            to={group.href}
-                                            onClick={() => setIsMobileMenuOpen(false)}
-                                            className="text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors block mt-2"
-                                          >
-                                            {group.title}
-                                          </Link>
-                                        ) : (
-                                          <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mt-2">{group.title}</div>
-                                        )}
-                                        {group.items.map((sub) => (
-                                          <span key={sub.name} className="block py-1">
-                                            {renderLink(sub.name, sub.href, "text-[13px] font-medium text-slate-600 dark:text-slate-400 hover:text-primary block")}
-                                          </span>
-                                        ))}
-                                      </div>
-                                    ))
-                                  ) : (
-                                    <div className="space-y-1.5">
-                                      {sect.href ? (
-                                        <Link
-                                          to={sect.href}
-                                          onClick={() => setIsMobileMenuOpen(false)}
-                                          className="text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors block mt-2"
-                                        >
-                                          {sect.title}
-                                        </Link>
-                                      ) : (
-                                        sect.title && (
-                                          <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mt-2">{sect.title}</div>
-                                        )
+                            {item.isMega
+                              ? item.megaSections?.map((sect, sIdx) => (
+                                  <div key={sIdx} className="space-y-2.5 pt-2 border-t border-border/40 first:border-t-0 first:pt-0">
+                                    {sect.subGroups
+                                      ? sect.subGroups.map((group) => (
+                                          <div key={group.title} className="space-y-1">
+                                            {group.href ? (
+                                              <Link
+                                                to={group.href}
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                className="block text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200 hover:text-[#FD5900]"
+                                              >
+                                                {group.title}
+                                              </Link>
+                                            ) : (
+                                              <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200">
+                                                {group.title}
+                                              </div>
+                                            )}
+                                            {group.items.map((sub) => (
+                                              <span key={sub.name} className="block">
+                                                {renderLink(
+                                                  sub.name,
+                                                  sub.href,
+                                                  'text-[13.5px] font-medium text-slate-600 dark:text-slate-400 hover:text-[#0053C6] block py-1.5'
+                                                )}
+                                              </span>
+                                            ))}
+                                          </div>
+                                        ))
+                                      : (
+                                        <div className="space-y-1">
+                                          {sect.title && (
+                                            sect.href ? (
+                                              <Link
+                                                to={sect.href}
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                className="block text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200 hover:text-[#FD5900]"
+                                              >
+                                                {sect.title}
+                                              </Link>
+                                            ) : (
+                                              <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200">
+                                                {sect.title}
+                                              </div>
+                                            )
+                                          )}
+                                          {sect.items?.map((sub) => (
+                                            <span key={sub.name} className="block">
+                                              {renderLink(
+                                                sub.name,
+                                                sub.href,
+                                                'text-[13.5px] font-medium text-slate-600 dark:text-slate-400 hover:text-[#0053C6] block py-1.5'
+                                              )}
+                                            </span>
+                                          ))}
+                                        </div>
                                       )}
-                                      {sect.items?.map((sub) => (
-                                        <span key={sub.name} className="block py-1">
-                                          {renderLink(sub.name, sub.href, "text-[13px] font-medium text-slate-600 dark:text-slate-400 hover:text-primary block")}
-                                        </span>
-                                      ))}
-                                    </div>
-                                  )}
-                                </div>
-                              ))
-                            ) : (
-                              item.submenu?.map((sub) => (
-                                <span key={sub.name} className="block py-1">
-                                  {renderLink(sub.name, sub.href, "text-[13px] font-medium text-slate-600 dark:text-slate-400 hover:text-primary block")}
-                                </span>
-                              ))
-                            )}
+                                  </div>
+                                ))
+                              : item.submenu?.map((sub) => (
+                                  <span key={sub.name} className="block">
+                                    {renderLink(
+                                      sub.name,
+                                      sub.href,
+                                      'text-[13.5px] font-medium text-slate-600 dark:text-slate-400 hover:text-[#0053C6] block py-1.5'
+                                    )}
+                                  </span>
+                                ))}
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
                   ))}
 
-                  {/* Simple Links */}
                   {SIMPLE_LINKS.map((link) => (
-                    <span key={link.label} className="block">
-                      {renderLink(link.label, link.href, "block text-base font-semibold py-2 border-b border-border/10 text-foreground/80 hover:text-primary transition-all")}
+                    <span key={link.label} className="block border-b border-border/50">
+                      {renderLink(
+                        link.label,
+                        link.href,
+                        'block text-[15px] font-semibold py-3 text-slate-800 dark:text-slate-100 hover:text-[#FD5900]'
+                      )}
                     </span>
                   ))}
+
+                  <div className="pt-4">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        setContactModalOpen(true);
+                      }}
+                      className="w-full py-3 px-4 rounded-lg bg-[#FD5900] hover:bg-[#e55000] text-white font-semibold text-sm text-center"
+                    >
+                      Get Start
+                    </button>
+                  </div>
                 </nav>
               </div>
 
-              {/* Drawer Footer info */}
-              <div className="border-t border-border/40 pt-6 space-y-4">
-                <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                  <Phone className="w-4 h-4 text-primary" />
-                  <a href="tel:+919042294007" className="hover:text-primary">+91 90422 94007</a>
+              <div className="border-t border-border pt-4 mt-4 space-y-2.5 text-xs text-slate-600 dark:text-slate-400 shrink-0">
+                <div className="flex items-center gap-2.5">
+                  <Phone className="w-4 h-4 text-[#FD5900]" />
+                  <a href="tel:+919042294007" className="hover:text-[#0053C6] font-medium">+91 90422 94007</a>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                  <Mail className="w-4 h-4 text-primary" />
-                  <a href="mailto:info@eon8.com" className="hover:text-primary font-mono">info@eon8.com</a>
+                <div className="flex items-center gap-2.5">
+                  <Mail className="w-4 h-4 text-[#0053C6]" />
+                  <a href="mailto:info@eon8.com" className="hover:text-[#0053C6] font-medium">info@eon8.com</a>
                 </div>
-                <div className="flex items-start gap-3 text-xs text-muted-foreground">
-                  <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="w-4 h-4 text-[#0053C6] shrink-0 mt-0.5" />
                   <span>Mumbai, Hyderabad, Bangalore, Chennai</span>
                 </div>
               </div>
-
             </motion.div>
           </>
         )}

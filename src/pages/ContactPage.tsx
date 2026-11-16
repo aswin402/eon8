@@ -90,22 +90,22 @@ export function ContactPage() {
   const presenceCities = [
     { 
       name: 'Hyderabad', 
-      svg: '/imgs/hyderabad.svg',
+      svg: '/wp-content/uploads/2022/11/hyderabad.svg',
       desc: 'Tech & Digital Innovation Hub'
     },
     { 
       name: 'Bangalore', 
-      svg: '/imgs/bangalore.svg',
+      svg: '/wp-content/uploads/2022/11/bangalore.svg',
       desc: 'Silicon Valley of India Office'
     },
     { 
       name: 'Mumbai', 
-      svg: '/imgs/mumbai.svg',
+      svg: '/wp-content/uploads/2022/11/mumbai.svg',
       desc: 'Commercial & Media Headquarters'
     },
     { 
       name: 'Chennai', 
-      svg: '/imgs/chennai.svg',
+      svg: '/wp-content/uploads/2022/11/chennai.svg',
       desc: 'Registered Headquarters & Core Lab'
     }
   ];
@@ -113,26 +113,25 @@ export function ContactPage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
       
-      {/* 1. Header Banner with Eon8 Signature Gradient & Breadcrumbs */}
-      <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-r from-[#ff6a00] to-[#ff8c42] text-white">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+      {/* 1. Header Banner — Warm Cream (#fdf6ee) matching Live EON8 */}
+      <section className="relative overflow-hidden pt-28 pb-14 sm:pt-36 sm:pb-16 bg-[#fdf6ee] dark:bg-slate-900 border-b border-border/50">
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <nav className="flex items-center justify-center gap-2 text-xs md:text-sm font-semibold tracking-wider uppercase opacity-90 mb-4">
-            <Link to="/" className="hover:underline transition-opacity">Home</Link>
+          <nav className="flex items-center justify-center gap-2 text-xs md:text-sm font-semibold tracking-wider uppercase text-muted-foreground mb-4">
+            <Link to="/" className="hover:text-[#f97316] transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-white font-bold">Contact Us</span>
+            <span className="text-[#f97316] font-bold">Contact Us</span>
           </nav>
-          <h1 className="text-3xl md:text-5xl font-heading font-black tracking-tight drop-shadow-sm">
+          <h1 className="text-3xl md:text-[42px] font-heading font-bold tracking-tight text-slate-900 dark:text-white">
             Contact EON8 Digital Marketing Agency
           </h1>
-          <p className="mt-3 text-base md:text-lg text-white/90 max-w-2xl mx-auto font-medium">
-            We’d love to hear from you. Let’s connect and boost your business growth!
+          <p className="mt-3 text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-medium">
+            We’d love to hear from you. Let’s connect!
           </p>
         </div>
       </section>
 
       {/* 2. Three Main Contact Cards with Authentic Live Hover Behavior */}
-      <section className="py-16 md:py-20 bg-muted/20">
+      <section className="py-16 md:py-20 bg-[#fff7ed]/60 dark:bg-muted/20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
