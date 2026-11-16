@@ -1,24 +1,89 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, Mail, ShieldCheck } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { policyPagesData } from './policyPagesData';
-import { useAppStore } from '@/store/useAppStore';
+import {
+  policyPagesData,
+  type PolicyBlock,
+  type PolicyInlineNode,
+} from './policyPagesData';
+import '@/styles/legacy-eon8.css';
+import '@/styles/legacy-responsive-fixes.css';
+import '@/styles/policy-pages.css';
 
 interface PolicyPageProps {
   slug: string;
 }
 
-const LEGAL_NAV = [
-  { label: 'Privacy Policy', path: '/privacy-policy-2', slug: 'privacy-policy-2' },
-  { label: 'Terms & Conditions', path: '/terms-and-conditions', slug: 'terms-and-conditions' },
-  { label: 'Refund Policy', path: '/refund-policy', slug: 'refund-policy' },
-  { label: 'Delivery Policy', path: '/delivery-policy', slug: 'delivery-policy' },
-];
+function renderInlineNodes(nodes: PolicyInlineNode[]) {
+  return nodes.map((node, idx) => {
+    if (typeof node === 'string') {
+      return <Fragment key={idx}>{node}</Fragment>;
+    }
+    if (node.type === 'br') {
+      return <br key={idx} />;
+    }
+    if (node.type === 'strong') {
+      return <strong key={idx}>{node.text}</strong>;
+    }
+    if (node.type === 'italic') {
+      return <i key={idx}>{node.text}</i>;
+    }
+    if (node.type === 'link') {
+      if (node.href.startsWith('/') && !node.external) {
+        return (
+          <Link key={idx} to={node.href}>
+            {node.text}
+          </Link>
+        );
+      }
+      return (
+        <a
+          key={idx}
+          href={node.href}
+          target={node.external ? '_blank' : undefined}
+          rel={node.external ? 'noopener noreferrer' : undefined}
+        >
+          {node.text}
+        </a>
+      );
+    }
+    return null;
+  });
+}
+
+function renderBlocks(blocks: PolicyBlock[]) {
+  return blocks.map((block, idx) => {
+    if (block.type === 'h2') {
+      return <h2 key={idx}>{block.text}</h2>;
+    }
+    if (block.type === 'h3') {
+      return <h3 key={idx}>{block.text}</h3>;
+    }
+    if (block.type === 'p') {
+      return <p key={idx}>{renderInlineNodes(block.children)}</p>;
+    }
+    if (block.type === 'ul') {
+      return (
+        <ul key={idx}>
+          {block.items.map((item, itemIdx) => (
+            <li key={itemIdx}>{item}</li>
+          ))}
+        </ul>
+      );
+    }
+    if (block.type === 'security-group') {
+      return (
+        <div key={idx} className="security-content">
+          {block.heading && <h3>{block.heading}</h3>}
+          {renderBlocks(block.blocks)}
+        </div>
+      );
+    }
+    return null;
+  });
+}
 
 export function PolicyPage({ slug }: PolicyPageProps) {
   const data = policyPagesData[slug];
-  const setContactModalOpen = useAppStore((state) => state.setContactModalOpen);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,7 +99,9 @@ export function PolicyPage({ slug }: PolicyPageProps) {
   if (!data) {
     return (
       <div className="min-h-screen pt-32 pb-20 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-3xl font-heading font-bold text-foreground mb-4">Policy Page Not Found</h1>
+        <h1 className="text-3xl font-heading font-bold text-foreground mb-4">
+          Policy Page Not Found
+        </h1>
         <Link to="/" className="text-[#FD5900] hover:underline font-medium">
           Return to Home
         </Link>
@@ -43,166 +110,80 @@ export function PolicyPage({ slug }: PolicyPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Live EON8 Page Title Banner */}
-      <header
-        className="relative w-full min-h-[220px] sm:min-h-[260px] md:min-h-[280px] flex items-center pt-20 pb-10 bg-cover bg-center overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(11, 27, 63, 0.88), rgba(0, 83, 198, 0.72)), url('/wp-content/uploads/2019/08/page_title_bg.jpg')`,
-        }}
-      >
-        <div className="max-w-[1170px] mx-auto w-full px-5 sm:px-6 lg:px-8 relative z-10">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-white/80 hover:text-white transition-colors mb-5"
+    <div className="eon8-live-page policy-page-scope">
+      <div id="site-content">
+        <main>
+          <header className="page_title_wrap">
+            <div className="container">
+              <h1 className="page_title">{data.title}</h1>
+            </div>
+          </header>
+
+          <article
+            id={`page-${data.pageId}`}
+            className={`post-${data.pageId} page type-page status-publish hentry`}
           >
-            <ArrowLeft className="w-3.5 h-3.5" /> Back to Home
-          </Link>
-
-          <div className="relative inline-block pl-4 sm:pl-5 py-1">
-            <span
-              aria-hidden="true"
-              className="absolute left-0 -top-1 w-[54px] sm:w-[65px] h-[calc(100%+10px)] bg-[#f7821b] -z-10"
-            />
-            <h1 className="text-2xl sm:text-4xl font-heading font-bold uppercase tracking-wide text-white leading-tight m-0">
-              {data.title}
-            </h1>
-          </div>
-
-          <div className="mt-5 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-white/85">
-            <span className="inline-flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-[#f7821b]" />
-              EON8 Digital Agency — Legal &amp; Compliance
-            </span>
-            {data.lastUpdated && (
-              <span className="inline-flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-[#f7821b]" />
-                Updated {data.lastUpdated}
-              </span>
-            )}
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <div className="max-w-[1170px] mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-          {/* Article Column */}
-          <article className="lg:col-span-8 space-y-8">
-            <div className="bg-card border border-border rounded-2xl p-6 sm:p-10 shadow-sm space-y-8">
-              {data.sections.map((section, idx) => (
-                <section
-                  key={`${section.heading}-${idx}`}
-                  className={idx === 0 ? 'space-y-4' : 'space-y-3.5 pt-6 border-t border-border/70'}
-                >
-                  {idx === 0 ? (
-                    <h2 className="text-xl sm:text-2xl font-heading font-bold text-foreground">
-                      {section.heading}
-                    </h2>
-                  ) : (
-                    <h3 className="text-lg sm:text-xl font-heading font-bold text-foreground">
-                      {section.heading}
-                    </h3>
-                  )}
-
-                  <div className="space-y-3">
-                    {section.paragraphs.map((paragraph, pIdx) => {
-                      const isBullet = paragraph.startsWith('•');
-                      return (
-                        <p
-                          key={pIdx}
-                          className={`text-sm sm:text-[15px] text-muted-foreground leading-relaxed ${
-                            isBullet ? 'pl-4 relative text-foreground/90 font-normal' : ''
-                          }`}
-                        >
-                          {paragraph}
-                        </p>
-                      );
-                    })}
-                  </div>
+            {data.layout === 'privacy-standard' && data.blocks && (
+              <div className="page-content container">
+                <section className="policy-standard-section">
+                  {renderBlocks(data.blocks)}
                 </section>
-              ))}
-            </div>
-
-            {/* Bottom Contact Card */}
-            <div className="bg-[#eff4fb] dark:bg-card border border-[#0053c6]/15 dark:border-border p-6 sm:p-8 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div className="space-y-1.5 text-center sm:text-left">
-                <h3 className="text-lg font-heading font-bold text-foreground">
-                  Questions Regarding Our Policies?
-                </h3>
-                <p className="text-xs sm:text-sm text-muted-foreground max-w-md">
-                  Our compliance and client success team is available to clarify any terms, data protections, or deliverable standards.
-                </p>
               </div>
+            )}
 
-              <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
-                <Button
-                  onClick={() => setContactModalOpen(true)}
-                  className="bg-[#FD5900] hover:bg-[#e55000] text-white rounded-xl text-xs sm:text-sm font-bold px-5 h-10 shadow-sm cursor-pointer"
-                >
-                  Contact Legal Team
-                </Button>
-                <a href="mailto:info@eon8.com">
-                  <Button
-                    variant="outline"
-                    className="rounded-xl text-xs sm:text-sm font-semibold px-4 h-10 border-border bg-background hover:bg-muted cursor-pointer"
-                  >
-                    <Mail className="w-3.5 h-3.5 mr-1.5" />
-                    info@eon8.com
-                  </Button>
-                </a>
+            {data.layout === 'security-blocks' && data.blocks && (
+              <div className="page-content container policy-security-wrap">
+                {renderBlocks(data.blocks)}
               </div>
-            </div>
+            )}
+
+            {data.layout === 'elementor-delivery' && data.delivery && (
+              <div className="page-content container">
+                <div className="elementor elementor-41615 policy-delivery-box">
+                  <div className="policy-spacer-50" aria-hidden="true" />
+
+                  <div className="policy-delivery-grid">
+                    <div>
+                      <p>{data.delivery.intro}</p>
+                      <h3 className="delivery-policy-heading">
+                        {data.delivery.immediateHeading}
+                      </h3>
+                      <p className="delivery-policy-lead">
+                        {data.delivery.immediateLead}
+                      </p>
+                      <p>{renderInlineNodes(data.delivery.immediateBody)}</p>
+                    </div>
+
+                    <div>
+                      <img
+                        src={data.delivery.image.src}
+                        srcSet={data.delivery.image.srcSet}
+                        sizes={data.delivery.image.sizes}
+                        width={data.delivery.image.width}
+                        height={data.delivery.image.height}
+                        alt={data.delivery.image.alt}
+                        className="delivery-policy-img"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="security-content delivery-policy-subhead">
+                      {data.delivery.webDesignHeading}
+                    </div>
+                    <div className="security-content">
+                      {data.delivery.webDesignParagraphs.map((para, pIdx) => (
+                        <p key={pIdx}>{renderInlineNodes(para)}</p>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="policy-spacer-50" aria-hidden="true" />
+                </div>
+              </div>
+            )}
           </article>
-
-          {/* Sidebar */}
-          <aside className="lg:col-span-4 space-y-6">
-            <div className="bg-card border border-border rounded-2xl p-6 shadow-sm lg:sticky lg:top-28 space-y-6">
-              <div>
-                <h4 className="text-sm font-heading font-bold uppercase tracking-wider text-foreground mb-3">
-                  Legal Documents
-                </h4>
-                <nav className="space-y-1.5">
-                  {LEGAL_NAV.map((item) => {
-                    const isActive =
-                      slug === item.slug ||
-                      (slug === 'privacy-policy' && item.slug === 'privacy-policy-2');
-                    return (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className={`block px-3.5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                          isActive
-                            ? 'bg-[#FD5900]/10 text-[#FD5900] font-semibold'
-                            : 'text-muted-foreground hover:bg-muted hover:text-foreground'
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-                    );
-                  })}
-                </nav>
-              </div>
-
-              <div className="pt-5 border-t border-border/80 space-y-2.5 text-xs sm:text-sm text-muted-foreground">
-                <p className="font-semibold text-foreground">EON8 Digital Solutions</p>
-                <p>No: 52, Vijayaraghava Rd, T. Nagar, Chennai, Tamil Nadu 600017</p>
-                <p>
-                  Email:{' '}
-                  <a href="mailto:info@eon8.com" className="text-[#0053c6] dark:text-blue-400 hover:underline">
-                    info@eon8.com
-                  </a>
-                </p>
-                <p>
-                  Phone:{' '}
-                  <a href="tel:+919042294007" className="text-[#0053c6] dark:text-blue-400 hover:underline">
-                    +91 90422 94007
-                  </a>
-                </p>
-              </div>
-            </div>
-          </aside>
-        </div>
+        </main>
       </div>
     </div>
   );

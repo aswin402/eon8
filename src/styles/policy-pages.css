@@ -1,0 +1,227 @@
+/* === Eon8 Legal & Policy Pages 1:1 Scoped Styles === */
+
+.eon8-live-page.policy-page-scope {
+  background: #ffffff;
+  color: #222222;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.eon8-live-page.policy-page-scope header.page_title_wrap {
+  background: url('/wp-content/uploads/2019/08/page_title_bg.jpg') center center / cover no-repeat;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 280px;
+  height: auto;
+  padding: 112px 0 52px;
+}
+
+.eon8-live-page.policy-page-scope h1.page_title {
+  color: #ffffff;
+  font-family: 'Palanquin Dark', sans-serif;
+  font-size: 41px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  padding-left: 18px;
+  display: inline-block;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: 0.3px;
+}
+
+.eon8-live-page.policy-page-scope h1.page_title::before {
+  content: '';
+  width: 65px;
+  height: calc(100% + 14px);
+  background: #f7821b;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: -7px;
+}
+
+.eon8-live-page.policy-page-scope #site-content {
+  background: #ffffff;
+}
+
+.eon8-live-page.policy-page-scope #site-content .page-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222222;
+}
+
+.eon8-live-page.policy-page-scope #site-content .page-content h2,
+.eon8-live-page.policy-page-scope #site-content .page-content h3 {
+  font-family: 'Palanquin Dark', sans-serif;
+  font-weight: 600;
+  color: #333333;
+  letter-spacing: 0.3px;
+  margin: 0 0 20px 0;
+}
+
+.eon8-live-page.policy-page-scope #site-content .page-content h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+.eon8-live-page.policy-page-scope #site-content .page-content h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.eon8-live-page.policy-page-scope #site-content .page-content p,
+.eon8-live-page.policy-page-scope #site-content .page-content ul,
+.eon8-live-page.policy-page-scope #site-content .page-content ol {
+  margin: 0 0 20px 0;
+  color: #222222;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.eon8-live-page.policy-page-scope #site-content .page-content ul {
+  list-style: disc;
+  padding-left: 30px;
+}
+
+.eon8-live-page.policy-page-scope #site-content .page-content ul li {
+  margin-bottom: 4px;
+}
+
+.eon8-live-page.policy-page-scope #site-content .page-content a {
+  color: #0053c6;
+  text-decoration: none;
+  border-bottom: 1px solid #575757;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  word-break: break-word;
+}
+
+.eon8-live-page.policy-page-scope #site-content .page-content a:hover,
+.eon8-live-page.policy-page-scope #site-content .page-content a:focus {
+  color: #000000;
+  border-bottom-color: #3d3d3d;
+}
+
+/* Privacy Policy standard section spacing */
+.eon8-live-page.policy-page-scope .policy-standard-section {
+  position: relative;
+  padding-top: 70px;
+  padding-bottom: 50px;
+}
+
+/* Refund Policy & Terms And Conditions .security-content wrapper */
+.eon8-live-page.policy-page-scope .policy-security-wrap {
+  padding-top: 44px;
+  padding-bottom: 64px;
+}
+
+.eon8-live-page.policy-page-scope .security-content {
+  margin-bottom: 20px;
+}
+
+/* Delivery Policy (Elementor post-41615 2-column layout) */
+.eon8-live-page.policy-page-scope .policy-spacer-50 {
+  height: 50px;
+}
+
+.eon8-live-page.policy-page-scope .policy-delivery-box {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.eon8-live-page.policy-page-scope .policy-delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.eon8-live-page.policy-page-scope #site-content .page-content .delivery-policy-heading {
+  font-family: 'Palanquin Dark', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333333;
+  line-height: 1.4;
+  margin: 0 0 20px 0;
+}
+
+.eon8-live-page.policy-page-scope #site-content .page-content .delivery-policy-lead {
+  font-family: 'Palanquin Dark', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #222222;
+  line-height: 1.55;
+  margin: 0 0 20px 0;
+}
+
+.eon8-live-page.policy-page-scope .delivery-policy-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  object-fit: cover;
+}
+
+.eon8-live-page.policy-page-scope .delivery-policy-subhead {
+  color: #333333;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  line-height: 1.35;
+  margin: 20px 0 16px 0;
+}
+
+@media (max-width: 959px) {
+  .eon8-live-page.policy-page-scope #site-content .page-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .eon8-live-page.policy-page-scope #site-content .page-content h3,
+  .eon8-live-page.policy-page-scope #site-content .page-content .delivery-policy-heading,
+  .eon8-live-page.policy-page-scope .delivery-policy-subhead {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .eon8-live-page.policy-page-scope .policy-delivery-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .eon8-live-page.policy-page-scope .policy-standard-section {
+    padding-top: 44px;
+    padding-bottom: 40px;
+  }
+
+  .eon8-live-page.policy-page-scope .policy-security-wrap {
+    padding-top: 32px;
+    padding-bottom: 48px;
+  }
+
+  .eon8-live-page.policy-page-scope .policy-spacer-50 {
+    height: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .eon8-live-page.policy-page-scope header.page_title_wrap {
+    min-height: 205px;
+    padding: 96px 0 36px;
+  }
+
+  .eon8-live-page.policy-page-scope h1.page_title {
+    font-size: 26px;
+  }
+
+  .eon8-live-page.policy-page-scope #site-content .page-content h2 {
+    font-size: 1.4rem;
+  }
+}

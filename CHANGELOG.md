@@ -6,6 +6,18 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [2.3.0] - 2026-11-16
+
+### Added
+- **1:1 Pure-React Legal & Policy Footer Pages (`src/pages/policy/` & `src/styles/policy-pages.css`)**:
+  - Rebuilt `src/pages/policy/PolicyPage.tsx` and `src/pages/policy/policyPagesData.ts` 1:1 with live `https://www.eon8.com/` in pure TypeScript & React TSX across `/privacy-policy-2` (and `/privacy-policy`), `/refund-policy`, `/terms-and-conditions`, and `/delivery-policy` (including the 2-column Elementor layout and localized hero/service imagery, with zero `dangerouslySetInnerHTML`).
+
+### Changed
+- **Live `.neo-footer` Alignment (`src/components/Footer.tsx`)**:
+  - Aligned `Our Services` (`Digital Marketing`, `Social Media Marketing`) and `Other Links` (`Blog`, `Contact`, `Privacy Policy`, `Refund Policy`, `Terms And Conditions`, `Delivery Policy`), `2fr 1fr 1fr 1fr` column proportions, certification badges row, and floating contact bar 1:1 with live `https://www.eon8.com/`.
+
+---
+
 ## [2.2.0] - 2026-11-16
 
 ### Added
