@@ -238,7 +238,7 @@ export const hireSocialMediaMarketingAgencyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/social-media-marketing-agency-chennai"
+            "href": "/social-media-marketing-company-chennai"
           },
           "children": [
             {
@@ -331,7 +331,7 @@ export const hireSocialMediaMarketingAgencyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/social-media-marketing-agency-chennai"
+            "href": "/social-media-marketing-company-chennai"
           },
           "children": [
             {

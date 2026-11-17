@@ -41,7 +41,7 @@ export const negativeReviewsAffectYourCompanyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/remove-online-complaints"
+            "href": "/consumer-complaints-removal"
           },
           "children": [
             {
@@ -72,7 +72,7 @@ export const negativeReviewsAffectYourCompanyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/fix-google-autofill-auto-suggests"
+            "href": "/clean-negative-search-results"
           },
           "children": [
             {
@@ -129,7 +129,7 @@ export const negativeReviewsAffectYourCompanyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/online-reputation-management-services"
+            "href": "/online-reputation-management-agency"
           },
           "children": [
             {
@@ -266,7 +266,7 @@ export const negativeReviewsAffectYourCompanyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/remove-negative-reviews"
+            "href": "/remove-negative-reviews-back"
           },
           "children": [
             {
@@ -357,7 +357,7 @@ export const negativeReviewsAffectYourCompanyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/reputation-management"
+            "href": "/reputation-management-services"
           },
           "children": [
             {

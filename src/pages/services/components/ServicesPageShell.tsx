@@ -3,6 +3,7 @@ import type { OurServiceSlug } from '../types';
 import '@/styles/legacy-eon8.css';
 import '@/styles/legacy-responsive-fixes.css';
 import '@/styles/services-pages.css';
+import '@/styles/core-packages-works-pages.css';
 
 interface ServicesPageShellProps {
   slug: OurServiceSlug;

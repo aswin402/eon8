@@ -27,7 +27,7 @@ export const ormBusinessSuccessPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/online-reputation-management-services"
+            "href": "/online-reputation-management-agency"
           },
           "children": [
             {
@@ -176,7 +176,7 @@ export const ormBusinessSuccessPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/online-reputation-management-services"
+            "href": "/online-reputation-management-agency"
           },
           "children": [
             {

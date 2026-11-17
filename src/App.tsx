@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { createBrowserRouter, RouterProvider, useParams } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider, useParams } from 'react-router-dom';
 import { RootLayout } from '@/layouts/RootLayout';
 import { HomePage } from '@/pages/HomePage';
 import { blogPostsBySlug } from '@/pages/blog/blogPostsData';
@@ -17,16 +17,6 @@ const AIVideoPage = lazy(() =>
 );
 const ChatgptAdsAgencyPage = lazy(() => import('@/pages/chatgpt/ChatgptAdsAgencyPage'));
 const ChatgptAdsSubPage = lazy(() => import('@/pages/chatgpt/ChatgptAdsSubPage'));
-const SoftwarePage = lazy(() =>
-  import('@/pages/SoftwarePage').then((m) => ({ default: m.SoftwarePage }))
-);
-const WorksPage = lazy(() => import('@/pages/WorksPage').then((m) => ({ default: m.WorksPage })));
-const CaseStudyPage = lazy(() =>
-  import('@/pages/CaseStudyPage').then((m) => ({ default: m.CaseStudyPage }))
-);
-const PackagesPage = lazy(() =>
-  import('@/pages/PackagesPage').then((m) => ({ default: m.PackagesPage }))
-);
 const PolicyPage = lazy(() =>
   import('@/pages/policy/PolicyPage').then((m) => ({ default: m.PolicyPage }))
 );
@@ -121,6 +111,47 @@ const allServiceRoutes = ALL_SERVICE_SLUGS.map((slug) => ({
   element: <OurServicesPage key={slug} slug={slug} />,
 }));
 
+const LEGACY_WP_REDIRECTS: readonly [string, string][] = [
+  ['2020/08/26/orm-personal-branding-service-industry', '/blog/orm-personal-branding-service-industry'],
+  ['2020/09/01/eon8-helps-in-removing-negative-reviews', '/blog/eon8-helps-in-removing-negative-reviews'],
+  ['bring-your-brand-to-life-with-ai-avatars', '/blog/ai-avatar-video-agency'],
+  ['digital-marketing-service-chennai', '/digital-marketing-agency-in-chennai'],
+  ['fix-google-autofill-auto-suggests', '/clean-negative-search-results'],
+  ['game-marketing-agency', '/game-marketing-agency-video-mobile-gaming'],
+  ['how-do-the-negative-reviews-affect-your-company', '/blog/negative-reviews-affect-your-company'],
+  ['instagram-marketing-agency', '/instagram-marketing-agency-services-instagram'],
+  ['instagram-marketing-company-in-chennai', '/instagram-marketing-agency-services-instagram'],
+  ['link-building-services', '/link-building-services-for-high-rankings'],
+  ['linkedin-marketing-agency', '/linkedin-marketing-agency-chennai-services'],
+  ['mobile-seo-agency', '/mobile-seo-agency-eon8-seo-services'],
+  ['online-reputation-management-services', '/online-reputation-management-agency'],
+  ['online-reputation-monitoring', '/online-reputation-management-agency'],
+  ['orm', '/online-reputation-management-agency'],
+  ['remove-complaints', '/google-complaint-removal'],
+  ['remove-complaints-from-google-search-results', '/remove-complaints-from-google-search'],
+  ['remove-negative-reviews', '/remove-negative-reviews-back'],
+  ['remove-online-complaints', '/consumer-complaints-removal'],
+  ['reputation-management', '/reputation-management-services'],
+  ['safeguarding-repairing-reputation', '/reputation-management-services'],
+  ['search-engine-marketing', '/search-engine-marketing-service-chennai'],
+  ['search-engine-optimization', '/search-engine-optimization-services-seo'],
+  ['search-engine-optimization-service-chennai', '/search-engine-optimization-services-chennai'],
+  ['search-engine-optimization-services', '/search-engine-optimization-services-seo'],
+  ['social-media-brand-management-agency', '/social-media-brand-management-agency-chennai'],
+  ['social-media-management-agency', '/social-media-management-agency-chennai'],
+  ['social-media-marketing', '/social-media-marketing-company-chennai'],
+  ['social-media-marketing-agency-chennai', '/social-media-marketing-company-chennai'],
+  ['web-design-development', '/web-design-development-services-chennai'],
+  ['web-design-development-service-chennai', '/web-design-development-services-chennai'],
+  ['what-are-negative-links-and-how-are-they-affecting-the-orm', '/blog/negative-links-in-orm'],
+  ['youtube-marketing-company', '/youtube-marketing-company-chennai-eon8'],
+];
+
+const legacyRedirectRoutes = LEGACY_WP_REDIRECTS.map(([from, to]) => ({
+  path: from,
+  element: <Navigate to={to} replace />,
+}));
+
 function DynamicSlugRoute() {
   const { slug } = useParams();
   if (slug && blogPostsBySlug[slug]) {
@@ -137,6 +168,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: 'home-page', element: <HomePage /> },
       { path: 'new-home', element: <HomePage /> },
+      { path: 'gallery', element: <HomePage /> },
 
       // Core Brand & AI Pages
       { path: 'about', element: <AboutPage /> },
@@ -152,23 +184,6 @@ const router = createBrowserRouter([
         path: 'chatgpt-ads-agency/education.html',
         element: <ChatgptAdsSubPage mode="education" />,
       },
-      { path: 'crm-software-development', element: <SoftwarePage mode="crm" /> },
-      { path: 'erp-software-development', element: <SoftwarePage mode="erp" /> },
-
-      // Portfolio & Case Studies
-      { path: 'works', element: <WorksPage /> },
-      { path: 'gallery', element: <WorksPage /> },
-      { path: 'case-study-poorvika', element: <CaseStudyPage slug="poorvika" /> },
-      { path: 'case-study-cake-square-chennai', element: <CaseStudyPage slug="cake-square" /> },
-      { path: 'case-study-hidden-secret', element: <CaseStudyPage slug="hidden-secret" /> },
-
-      // Digital Marketing Packages
-      { path: 'seo-packages', element: <PackagesPage slug="seo-packages" /> },
-      { path: 'ppc-packages', element: <PackagesPage slug="ppc-packages" /> },
-      { path: 'facebook-packages', element: <PackagesPage slug="facebook-packages" /> },
-      { path: 'instagram-packages', element: <PackagesPage slug="instagram-packages" /> },
-      { path: 'linkedin-packages', element: <PackagesPage slug="linkedin-packages" /> },
-      { path: 'twitter-packages', element: <PackagesPage slug="twitter-packages" /> },
 
       // Legal & Policy
       { path: 'privacy-policy-2', element: <PolicyPage slug="privacy-policy-2" /> },
@@ -224,7 +239,7 @@ const router = createBrowserRouter([
       ...nftServiceRoutes,
       ...nftElementorRoutes,
 
-      // Native Pure-React Services & Landing Pages (all 71 Digital, SEO, Social, ORM, PPC, App, AR/VR, Metaverse, Amazon, D2C & Industry routes + aliases)
+      // Native Pure-React Services, ERP/CRM, Works, Case Studies, Packages & Landing Pages (all 83 routes + aliases)
       ...allServiceRoutes,
       {
         path: 'web-development-services-company',
@@ -253,6 +268,9 @@ const router = createBrowserRouter([
           />
         ),
       },
+
+      // Legacy WordPress 301-Redirect Short Slugs (prevents 404s from older inline blog/service links)
+      ...legacyRedirectRoutes,
 
       // Root-level Blog Post Slugs (169 WordPress posts) + 404 fallback
       { path: ':slug', element: <DynamicSlugRoute /> },

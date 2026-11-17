@@ -254,7 +254,7 @@ export const onlineReputationManagementAgencySingaporePost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/remove-negative-reviews"
+            "href": "/remove-negative-reviews-back"
           },
           "children": [
             {

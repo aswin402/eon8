@@ -27,7 +27,7 @@ export const onlineReputationManagementPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/online-reputation-management-services"
+            "href": "/online-reputation-management-agency"
           },
           "children": [
             {
@@ -142,7 +142,7 @@ export const onlineReputationManagementPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/online-reputation-management-services"
+            "href": "/online-reputation-management-agency"
           },
           "children": [
             {
@@ -287,7 +287,7 @@ export const onlineReputationManagementPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/remove-negative-reviews"
+                "href": "/remove-negative-reviews-back"
               },
               "children": [
                 {
@@ -363,7 +363,7 @@ export const onlineReputationManagementPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/fix-google-autofill-auto-suggests"
+                "href": "/clean-negative-search-results"
               },
               "children": [
                 {
@@ -484,7 +484,7 @@ export const onlineReputationManagementPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/how-do-the-negative-reviews-affect-your-company"
+                "href": "/blog/negative-reviews-affect-your-company"
               },
               "children": [
                 {

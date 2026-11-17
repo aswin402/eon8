@@ -41,7 +41,7 @@ export const howToDevelopPositiveReputationAndPushDownTheNegativeSearchResultsFo
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/remove-negative-reviews"
+            "href": "/remove-negative-reviews-back"
           },
           "children": [
             {
@@ -256,7 +256,7 @@ export const howToDevelopPositiveReputationAndPushDownTheNegativeSearchResultsFo
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/digital-marketing-service-chennai"
+            "href": "/digital-marketing-agency-in-chennai"
           },
           "children": [
             {

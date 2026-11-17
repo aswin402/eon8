@@ -325,7 +325,7 @@ export const cleanNegativeSearchResults2Data: ServicePageData = {
                                       "kind": "element",
                                       "tag": "a",
                                       "props": {
-                                        "href": "/reputation-management"
+                                        "href": "/reputation-management-services"
                                       },
                                       "children": [
                                         {
@@ -344,7 +344,7 @@ export const cleanNegativeSearchResults2Data: ServicePageData = {
                                       "kind": "element",
                                       "tag": "a",
                                       "props": {
-                                        "href": "/online-reputation-monitoring"
+                                        "href": "/online-reputation-management-agency"
                                       },
                                       "children": [
                                         {
@@ -363,7 +363,7 @@ export const cleanNegativeSearchResults2Data: ServicePageData = {
                                       "kind": "element",
                                       "tag": "a",
                                       "props": {
-                                        "href": "/remove-negative-reviews"
+                                        "href": "/remove-negative-reviews-back"
                                       },
                                       "children": [
                                         {
@@ -382,7 +382,7 @@ export const cleanNegativeSearchResults2Data: ServicePageData = {
                                       "kind": "element",
                                       "tag": "a",
                                       "props": {
-                                        "href": "/safeguarding-repairing-reputation"
+                                        "href": "/reputation-management-services"
                                       },
                                       "children": [
                                         {
@@ -420,7 +420,7 @@ export const cleanNegativeSearchResults2Data: ServicePageData = {
                                       "kind": "element",
                                       "tag": "a",
                                       "props": {
-                                        "href": "/fix-google-autofill-auto-suggests"
+                                        "href": "/clean-negative-search-results"
                                       },
                                       "children": [
                                         {

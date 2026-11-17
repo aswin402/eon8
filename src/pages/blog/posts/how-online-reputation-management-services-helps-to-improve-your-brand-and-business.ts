@@ -60,7 +60,7 @@ export const howOnlineReputationManagementServicesHelpsToImproveYourBrandAndBusi
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/online-reputation-management-services"
+            "href": "/online-reputation-management-agency"
           },
           "children": [
             {
@@ -109,7 +109,7 @@ export const howOnlineReputationManagementServicesHelpsToImproveYourBrandAndBusi
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/online-reputation-management-services"
+                "href": "/online-reputation-management-agency"
               },
               "children": [
                 {
@@ -170,7 +170,7 @@ export const howOnlineReputationManagementServicesHelpsToImproveYourBrandAndBusi
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/online-reputation-management-services"
+            "href": "/online-reputation-management-agency"
           },
           "children": [
             {
@@ -233,7 +233,7 @@ export const howOnlineReputationManagementServicesHelpsToImproveYourBrandAndBusi
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/online-reputation-management-services"
+                "href": "/online-reputation-management-agency"
               },
               "children": [
                 {

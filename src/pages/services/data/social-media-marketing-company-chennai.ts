@@ -478,7 +478,7 @@ export const socialMediaMarketingCompanyChennaiData: ServicePageData = {
                                       "tag": "a",
                                       "props": {
                                         "className": "link-color",
-                                        "href": "/social-media-management-agency"
+                                        "href": "/social-media-management-agency-chennai"
                                       },
                                       "children": [
                                         {
@@ -543,7 +543,7 @@ export const socialMediaMarketingCompanyChennaiData: ServicePageData = {
                                       "tag": "a",
                                       "props": {
                                         "className": "link-color",
-                                        "href": "/social-media-brand-management-agency"
+                                        "href": "/social-media-brand-management-agency-chennai"
                                       },
                                       "children": [
                                         {
@@ -905,7 +905,7 @@ export const socialMediaMarketingCompanyChennaiData: ServicePageData = {
                                           "kind": "element",
                                           "tag": "a",
                                           "props": {
-                                            "href": "/instagram-marketing-company-in-chennai"
+                                            "href": "/instagram-marketing-agency-services-instagram"
                                           },
                                           "children": [
                                             {
@@ -974,7 +974,7 @@ export const socialMediaMarketingCompanyChennaiData: ServicePageData = {
                                           "kind": "element",
                                           "tag": "a",
                                           "props": {
-                                            "href": "/linkedin-marketing-agency"
+                                            "href": "/linkedin-marketing-agency-chennai-services"
                                           },
                                           "children": [
                                             {
@@ -1043,7 +1043,7 @@ export const socialMediaMarketingCompanyChennaiData: ServicePageData = {
                                           "kind": "element",
                                           "tag": "a",
                                           "props": {
-                                            "href": "/youtube-marketing-company"
+                                            "href": "/youtube-marketing-company-chennai-eon8"
                                           },
                                           "children": [
                                             {

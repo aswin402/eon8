@@ -27,7 +27,7 @@ export const importanceOfSeoAndDigitalMarketingPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/search-engine-optimization-service-chennai"
+            "href": "/search-engine-optimization-services-chennai"
           },
           "children": [
             {
@@ -58,7 +58,7 @@ export const importanceOfSeoAndDigitalMarketingPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/search-engine-optimization-service-chennai"
+            "href": "/search-engine-optimization-services-chennai"
           },
           "children": [
             {
@@ -279,7 +279,7 @@ export const importanceOfSeoAndDigitalMarketingPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/search-engine-optimization-service-chennai"
+            "href": "/search-engine-optimization-services-chennai"
           },
           "children": [
             {
@@ -456,7 +456,7 @@ export const importanceOfSeoAndDigitalMarketingPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/remove-negative-reviews"
+                "href": "/remove-negative-reviews-back"
               },
               "children": [
                 {

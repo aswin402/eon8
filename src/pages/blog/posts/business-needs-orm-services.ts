@@ -230,7 +230,7 @@ export const businessNeedsOrmServicesPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/2020/08/26/orm-personal-branding-service-industry"
+                "href": "/blog/orm-personal-branding-service-industry"
               },
               "children": [
                 {

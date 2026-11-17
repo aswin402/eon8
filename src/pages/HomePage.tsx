@@ -308,12 +308,12 @@ export function HomePage() {
   const { setContactModalOpen } = useAppStore();
 
   useEffect(() => {
-    document.title = 'Best Digital Marketing Agency in India | Digital Marketing Services - Eon8';
+    document.title = 'Digital Marketing Agency | AI, SEO & Web3 Services | EON8';
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute(
         'content',
-        'Top digital marketing agency in India offering 360-degree SEO, PPC, Social Media, Web3, NFT, AI Agent, and custom ERP/CRM growth solutions.'
+        'Partner with EON8 for AI-powered digital marketing, SEO, web development, performance marketing, branding, Web3 solutions, and business growth strategies.'
       );
     }
     window.scrollTo(0, 0);

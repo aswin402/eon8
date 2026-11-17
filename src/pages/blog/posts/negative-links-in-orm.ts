@@ -31,7 +31,7 @@ export const negativeLinksInOrmPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/remove-negative-reviews"
+                "href": "/remove-negative-reviews-back"
               },
               "children": [
                 {
@@ -64,7 +64,7 @@ export const negativeLinksInOrmPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/reputation-management"
+            "href": "/reputation-management-services"
           },
           "children": [
             {
@@ -229,7 +229,7 @@ export const negativeLinksInOrmPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/remove-complaints-from-google-search-results"
+            "href": "/remove-complaints-from-google-search"
           },
           "children": [
             {

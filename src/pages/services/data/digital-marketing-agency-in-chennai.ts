@@ -1423,7 +1423,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
                                               "kind": "element",
                                               "tag": "a",
                                               "props": {
-                                                "href": "/search-engine-optimization-service-chennai",
+                                                "href": "/search-engine-optimization-services-chennai",
                                                 "target": "_blank"
                                               },
                                               "children": [
@@ -1661,7 +1661,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
                                               "kind": "element",
                                               "tag": "a",
                                               "props": {
-                                                "href": "/web-design-development",
+                                                "href": "/web-design-development-services-chennai",
                                                 "target": "_blank"
                                               },
                                               "children": [
@@ -2047,7 +2047,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
                                           "tag": "a",
                                           "props": {
                                             "className": "dt-Eon-btn btn-primary btn",
-                                            "href": "/search-engine-optimization"
+                                            "href": "/search-engine-optimization-services-seo"
                                           },
                                           "children": [
                                             {
@@ -2152,7 +2152,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
                                           "tag": "a",
                                           "props": {
                                             "className": "dt-Eon-btn btn-primary btn",
-                                            "href": "/social-media-marketing"
+                                            "href": "/social-media-marketing-company-chennai"
                                           },
                                           "children": [
                                             {
@@ -2257,7 +2257,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
                                           "tag": "a",
                                           "props": {
                                             "className": "dt-Eon-btn btn-primary btn",
-                                            "href": "/search-engine-marketing"
+                                            "href": "/search-engine-marketing-service-chennai"
                                           },
                                           "children": [
                                             {
@@ -2362,7 +2362,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
                                           "tag": "a",
                                           "props": {
                                             "className": "dt-Eon-btn btn-primary btn",
-                                            "href": "/orm"
+                                            "href": "/online-reputation-management-agency"
                                           },
                                           "children": [
                                             {

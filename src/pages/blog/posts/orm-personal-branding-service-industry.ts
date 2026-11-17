@@ -41,7 +41,7 @@ export const ormPersonalBrandingServiceIndustryPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/digital-marketing-service-chennai"
+            "href": "/digital-marketing-agency-in-chennai"
           },
           "children": [
             {
@@ -68,7 +68,7 @@ export const ormPersonalBrandingServiceIndustryPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/fix-google-autofill-auto-suggests"
+            "href": "/clean-negative-search-results"
           },
           "children": [
             {

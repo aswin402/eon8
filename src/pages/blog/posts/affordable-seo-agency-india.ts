@@ -27,7 +27,7 @@ export const affordableSeoAgencyIndiaPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/search-engine-optimization-services"
+            "href": "/search-engine-optimization-services-seo"
           },
           "children": [
             {
@@ -556,7 +556,7 @@ export const affordableSeoAgencyIndiaPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/search-engine-optimization-services"
+            "href": "/search-engine-optimization-services-seo"
           },
           "children": [
             {

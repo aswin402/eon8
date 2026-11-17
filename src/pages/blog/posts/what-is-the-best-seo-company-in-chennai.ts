@@ -55,7 +55,7 @@ export const whatIsTheBestSeoCompanyInChennaiPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/search-engine-optimization-service-chennai"
+            "href": "/search-engine-optimization-services-chennai"
           },
           "children": [
             {
@@ -309,7 +309,7 @@ export const whatIsTheBestSeoCompanyInChennaiPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/search-engine-optimization-service-chennai"
+            "href": "/search-engine-optimization-services-chennai"
           },
           "children": [
             {
@@ -326,7 +326,7 @@ export const whatIsTheBestSeoCompanyInChennaiPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/search-engine-optimization-service-chennai"
+            "href": "/search-engine-optimization-services-chennai"
           },
           "children": [
             {
@@ -528,7 +528,7 @@ export const whatIsTheBestSeoCompanyInChennaiPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/search-engine-optimization-service-chennai"
+            "href": "/search-engine-optimization-services-chennai"
           },
           "children": [
             {

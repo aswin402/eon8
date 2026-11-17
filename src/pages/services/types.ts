@@ -44,6 +44,22 @@ export const OUR_SERVICES_SLUGS = [
   'social-ar-solutions',
   'vr-product-marketing',
   'metaverse',
+  // ERP & CRM Software (2)
+  'erp-software-development',
+  'crm-software-development',
+] as const;
+
+export const PORTFOLIO_AND_PACKAGES_SLUGS = [
+  'works',
+  'case-study-poorvika',
+  'case-study-cake-square-chennai',
+  'case-study-hidden-secret',
+  'seo-packages',
+  'ppc-packages',
+  'facebook-packages',
+  'instagram-packages',
+  'linkedin-packages',
+  'twitter-packages',
 ] as const;
 
 export const ADDITIONAL_LANDING_SLUGS = [
@@ -85,6 +101,7 @@ export const ADDITIONAL_LANDING_SLUGS = [
 
 export const ALL_SERVICE_SLUGS = [
   ...OUR_SERVICES_SLUGS,
+  ...PORTFOLIO_AND_PACKAGES_SLUGS,
   ...ADDITIONAL_LANDING_SLUGS,
 ] as const;
 
@@ -92,6 +109,7 @@ export type OurServiceSlug = (typeof ALL_SERVICE_SLUGS)[number];
 
 export type ServiceHtmlTag =
   | 'div'
+  | 'header'
   | 'section'
   | 'blockquote'
   | 'p'

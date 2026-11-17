@@ -300,7 +300,7 @@ export const instagramMarketingAgencyInMumbaiPost: BlogPost = {
                                       "kind": "element",
                                       "tag": "a",
                                       "props": {
-                                        "href": "/instagram-marketing-agency"
+                                        "href": "/instagram-marketing-agency-services-instagram"
                                       },
                                       "children": [
                                         {

@@ -31,7 +31,7 @@ export const ormServicesInChennaiPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/online-reputation-management-services"
+                "href": "/online-reputation-management-agency"
               },
               "children": [
                 {
@@ -145,7 +145,7 @@ export const ormServicesInChennaiPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/online-reputation-management-services"
+                "href": "/online-reputation-management-agency"
               },
               "children": [
                 {
@@ -451,7 +451,7 @@ export const ormServicesInChennaiPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/what-are-negative-links-and-how-are-they-affecting-the-orm"
+                "href": "/blog/negative-links-in-orm"
               },
               "children": [
                 {

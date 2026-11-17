@@ -81,7 +81,7 @@ export const howToUseInstagramInsightsToImproveYourBrandsGrowthOnInstagramPost: 
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/instagram-marketing-agency",
+                "href": "/instagram-marketing-agency-services-instagram",
                 "target": "_blank",
                 "rel": "noreferrer noopener",
                 "dataId": "https://www.eon8.com/instagram-marketing-agency/"

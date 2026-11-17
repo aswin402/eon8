@@ -235,7 +235,7 @@ export const removeNegativeComplaintsOnlinePost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/remove-online-complaints"
+                "href": "/consumer-complaints-removal"
               },
               "children": [
                 {

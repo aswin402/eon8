@@ -36,7 +36,7 @@ export const buildingAResponsiveWebsiteMakesYouMoreProfitPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/web-design-development-service-chennai"
+                "href": "/web-design-development-services-chennai"
               },
               "children": [
                 {

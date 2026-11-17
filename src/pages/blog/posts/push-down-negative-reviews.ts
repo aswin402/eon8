@@ -47,7 +47,7 @@ export const pushDownNegativeReviewsPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/remove-negative-reviews"
+            "href": "/remove-negative-reviews-back"
           },
           "children": [
             {
@@ -106,7 +106,7 @@ export const pushDownNegativeReviewsPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/search-engine-optimization-service-chennai"
+            "href": "/search-engine-optimization-services-chennai"
           },
           "children": [
             {
@@ -168,7 +168,7 @@ export const pushDownNegativeReviewsPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/digital-marketing-service-chennai"
+            "href": "/digital-marketing-agency-in-chennai"
           },
           "children": [
             {
@@ -199,7 +199,7 @@ export const pushDownNegativeReviewsPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/remove-complaints-from-google-search-results"
+            "href": "/remove-complaints-from-google-search"
           },
           "children": [
             {

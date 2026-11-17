@@ -83,7 +83,7 @@ export const post3CommonStagesFollowedBySeoAgencyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/online-reputation-management-services"
+            "href": "/online-reputation-management-agency"
           },
           "children": [
             {
@@ -191,7 +191,7 @@ export const post3CommonStagesFollowedBySeoAgencyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/search-engine-optimization-service-chennai"
+            "href": "/search-engine-optimization-services-chennai"
           },
           "children": [
             {

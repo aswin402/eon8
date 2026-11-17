@@ -85,7 +85,7 @@ export const ormPackagesPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/remove-negative-reviews"
+                "href": "/remove-negative-reviews-back"
               },
               "children": [
                 {

@@ -148,7 +148,7 @@ export const howToRemoveNegativeContentOnlinePost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/2020/09/01/eon8-helps-in-removing-negative-reviews"
+                "href": "/blog/eon8-helps-in-removing-negative-reviews"
               },
               "children": [
                 {

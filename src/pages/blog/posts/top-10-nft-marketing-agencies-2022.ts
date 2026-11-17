@@ -369,7 +369,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/social-media-brand-management-agency"
+            "href": "/social-media-brand-management-agency-chennai"
           },
           "children": [
             {

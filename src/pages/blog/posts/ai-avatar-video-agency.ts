@@ -27,7 +27,7 @@ export const aiAvatarVideoAgencyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/bring-your-brand-to-life-with-ai-avatars"
+            "href": "/blog/ai-avatar-video-agency"
           },
           "children": [
             {

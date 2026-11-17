@@ -61,7 +61,7 @@ export const hireDigitalMarketingAgencyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/digital-marketing-service-chennai"
+            "href": "/digital-marketing-agency-in-chennai"
           },
           "children": [
             {

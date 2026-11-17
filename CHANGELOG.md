@@ -6,6 +6,19 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [2.4.0] - 2026-11-17
+
+### Added
+- **100% 1:1 Live Fidelity Completion Across All Remaining Core, Software, Portfolio, Case Study & Package Pages (`ALL_SERVICE_SLUGS` = 83 Routes)**:
+  - Migrated `erp-software-development`, `crm-software-development`, `works`, `case-study-poorvika`, `case-study-cake-square-chennai`, `case-study-hidden-secret`, `seo-packages`, `ppc-packages`, `facebook-packages`, `instagram-packages`, `linkedin-packages`, and `twitter-packages` into pure TypeScript `ServicePageData` modules (`src/pages/services/data/*.ts`) with scoped CSS (`src/styles/core-packages-works-pages.css`).
+  - Wired interactive React FAQ accordions, `<NftCalendlyWidget />` consultation booking, `#nft-form` / `#responsive-form` lead capture, and `#nft-client-slider` client logo marquee across the newly migrated pages.
+  - Rewrote all **110 inline legacy WordPress 301-redirect links** across **50** blog post and service TypeScript modules directly to their canonical routes, and added 33 `<Navigate replace />` fallback redirect routes in `src/App.tsx` (plus aligned `/gallery` and `HomePage.tsx` metadata 1:1 with live `https://www.eon8.com/`).
+
+### Removed
+- Removed earlier non-1:1 Tailwind placeholder components (`src/pages/SoftwarePage.tsx`, `src/pages/WorksPage.tsx`, `src/pages/CaseStudyPage.tsx`, `src/pages/PackagesPage.tsx`, and `src/pages/packagesData.ts`).
+
+---
+
 ## [2.3.0] - 2026-11-16
 
 ### Added

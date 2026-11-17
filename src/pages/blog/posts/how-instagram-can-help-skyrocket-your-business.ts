@@ -81,7 +81,7 @@ export const howInstagramCanHelpSkyrocketYourBusinessPost: BlogPost = {
                                   "kind": "element",
                                   "tag": "a",
                                   "props": {
-                                    "href": "/instagram-marketing-company-in-chennai"
+                                    "href": "/instagram-marketing-agency-services-instagram"
                                   },
                                   "children": [
                                     {
@@ -532,7 +532,7 @@ export const howInstagramCanHelpSkyrocketYourBusinessPost: BlogPost = {
                                           "kind": "element",
                                           "tag": "a",
                                           "props": {
-                                            "href": "/instagram-marketing-company-in-chennai"
+                                            "href": "/instagram-marketing-agency-services-instagram"
                                           },
                                           "children": [
                                             {

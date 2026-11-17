@@ -389,7 +389,7 @@ export const b2bLinkedinMarketingStrategyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/linkedin-marketing-agency"
+            "href": "/linkedin-marketing-agency-chennai-services"
           },
           "children": [
             {

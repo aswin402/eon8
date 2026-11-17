@@ -69,7 +69,7 @@ export const eon8HelpsInRemovingNegativeReviewsPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/online-reputation-management-services"
+            "href": "/online-reputation-management-agency"
           },
           "children": [
             {

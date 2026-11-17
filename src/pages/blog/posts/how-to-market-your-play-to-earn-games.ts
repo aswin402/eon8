@@ -365,7 +365,7 @@ export const howToMarketYourPlayToEarnGamesPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/game-marketing-agency"
+            "href": "/game-marketing-agency-video-mobile-gaming"
           },
           "children": [
             {

@@ -69,7 +69,7 @@ export const removeConsumerComplaintsFromGooglePost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/online-reputation-management-services"
+            "href": "/online-reputation-management-agency"
           },
           "children": [
             {
@@ -601,7 +601,7 @@ export const removeConsumerComplaintsFromGooglePost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/remove-complaints"
+                "href": "/google-complaint-removal"
               },
               "children": [
                 {

@@ -27,7 +27,7 @@ export const howToManageYourBusinessReputationAndWhyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/how-do-the-negative-reviews-affect-your-company"
+            "href": "/blog/negative-reviews-affect-your-company"
           },
           "children": [
             {
@@ -54,7 +54,7 @@ export const howToManageYourBusinessReputationAndWhyPost: BlogPost = {
           "kind": "element",
           "tag": "a",
           "props": {
-            "href": "/digital-marketing-service-chennai"
+            "href": "/digital-marketing-agency-in-chennai"
           },
           "children": [
             {
@@ -289,7 +289,7 @@ export const howToManageYourBusinessReputationAndWhyPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/remove-negative-reviews"
+                "href": "/remove-negative-reviews-back"
               },
               "children": [
                 {
@@ -358,7 +358,7 @@ export const howToManageYourBusinessReputationAndWhyPost: BlogPost = {
               "kind": "element",
               "tag": "a",
               "props": {
-                "href": "/what-are-negative-links-and-how-are-they-affecting-the-orm"
+                "href": "/blog/negative-links-in-orm"
               },
               "children": [
                 {
