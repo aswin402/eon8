@@ -128,3 +128,6 @@ dist-ssr/
 # Raw crawled files
 www.eon8.com/
 about-us-raw.html
+
+# CMS runtime auth secrets (auto-seeded from .env)
+data/cms-auth.json

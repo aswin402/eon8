@@ -6,6 +6,17 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.3.0] - 2026-11-18
+
+### Added
+- **Hidden Blog Editorial Admin Studio (`/admin-dashboard`)**:
+  - Built a standalone, unlinked, `noindex` editorial CMS portal (`src/pages/admin/AdminDashboardPage.tsx`, configurable via `VITE_ADMIN_PATH`) protected by email & password authentication (`scrypt` + constant-time verification + `HMAC-SHA256` `HttpOnly` session cookies + login rate limiting), seeded from `.env` (`CMS_ADMIN_EMAIL` / `CMS_ADMIN_PASSWORD`) with live credential rotation inside **Security & Account**.
+  - Added full CRUD across all 169 baseline blog articles and newly authored posts: **Visual Rich-Block Editor** (H2/H3/H4 headings, rich-text formatting bar for bold/italic/accent/links, bullet & numbered lists, interactive tables, blockquotes, CTA buttons, and inline images), one-click **Markdown Import/Export**, **Write / Split / Live Eon8 Preview** modes, **Draft vs Published** status, **Featured Editorial Picks** spotlight on `/blog`, **Category Manager**, **Media Library & Drag-and-Drop Image Uploader** (`public/uploads/blog/`), bulk actions, duplicate post, slug-rename redirects, and baseline post restore.
+  - Added **SEO & SERP Suite** with custom URL slug conflict validation, custom meta title & description, OpenGraph image overrides, live Google SERP snippet preview, auto word-count/read-time calculation, and a 7-point SEO Readiness score.
+  - Built self-contained Node API middleware (`server/cmsApi.ts` mounted in `vite.config.ts` for `npm run dev` / `npm run preview` and `server/prodServer.ts` for `npm start`) behind a provider adapter (`src/lib/cms/provider.ts`) with ready-to-run `supabase/schema.sql` for future Supabase migration.
+
+---
+
 ## [3.2.0] - 2026-11-18
 
 ### Added

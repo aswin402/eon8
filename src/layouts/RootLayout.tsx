@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import { CaptureModal } from '@/components/CaptureModal';
 import { FloatingWidgets } from '@/components/FloatingWidgets';
 import { NeonCursor } from '@/components/NeonCursor';
+import { ADMIN_DASHBOARD_PATH } from '@/lib/cms/blogStore';
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -26,9 +27,17 @@ function PageLoader() {
 
 export function RootLayout() {
   const location = useLocation();
-  const isStandaloneChatgptRoute = location.pathname.startsWith('/chatgpt-ads-agency');
+  const isAdminStudioRoute =
+    location.pathname === ADMIN_DASHBOARD_PATH ||
+    location.pathname.startsWith(`${ADMIN_DASHBOARD_PATH}/`);
+  const isStandaloneRoute =
+    location.pathname.startsWith('/chatgpt-ads-agency') || isAdminStudioRoute;
 
   useEffect(() => {
+    if (isAdminStudioRoute) {
+      return undefined;
+    }
+
     // Initialize Lenis
     const lenis = new Lenis({
       autoRaf: true, // Let Lenis handle its own RAF
@@ -40,9 +49,9 @@ export function RootLayout() {
     return () => {
       lenis.destroy();
     };
-  }, []);
+  }, [isAdminStudioRoute]);
 
-  if (isStandaloneChatgptRoute) {
+  if (isStandaloneRoute) {
     return (
       <ThemeProvider>
         <Suspense fallback={<PageLoader />}>

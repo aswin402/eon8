@@ -54,18 +54,23 @@
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
-    "sitemap": "node scripts/generate-sitemap.ts"
+    "sitemap": "node scripts/generate-sitemap.ts",
+    "start": "node server/prodServer.ts"
   },
   "sources": {
     "directories": [
       "scripts",
+      "server",
       "src",
       "src/components",
       "src/components/sections",
       "src/components/ui",
       "src/layouts",
       "src/lib",
+      "src/lib/cms",
       "src/pages",
+      "src/pages/admin",
+      "src/pages/admin/components",
       "src/pages/blog",
       "src/pages/blog/posts",
       "src/pages/chatgpt",

@@ -1,8 +1,8 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { createBrowserRouter, Navigate, RouterProvider, useParams } from 'react-router-dom';
 import { RootLayout } from '@/layouts/RootLayout';
 import { HomePage } from '@/pages/HomePage';
-import { blogPostsBySlug } from '@/pages/blog/blogPostsData';
+import { ADMIN_DASHBOARD_PATH, useBlogCmsStore } from '@/lib/cms/blogStore';
 import { ALL_SERVICE_SLUGS } from '@/pages/services/types';
 
 const AboutPage = lazy(() => import('@/pages/AboutPage').then((m) => ({ default: m.AboutPage })));
@@ -26,6 +26,7 @@ const BlogListPage = lazy(() =>
 const BlogPostPage = lazy(() =>
   import('@/pages/blog/BlogPostPage').then((m) => ({ default: m.BlogPostPage }))
 );
+const AdminDashboardPage = lazy(() => import('@/pages/admin/AdminDashboardPage'));
 const CryptoMarketingAgencyPage = lazy(() => import('@/pages/crypto/CryptoMarketingAgencyPage'));
 const IeoListingPage = lazy(() => import('@/pages/crypto/IeoListingPage'));
 const CryptoServicePage = lazy(() => import('@/pages/crypto/CryptoServicePage'));
@@ -169,8 +170,23 @@ const legacyRedirectRoutes = LEGACY_WP_REDIRECTS.map(([from, to]) => ({
 
 function DynamicSlugRoute() {
   const { slug } = useParams();
-  if (slug && blogPostsBySlug[slug]) {
+  const publicReady = useBlogCmsStore((s) => s.publicReady);
+  const publishedBySlug = useBlogCmsStore((s) => s.publishedBySlug);
+  const slugRedirects = useBlogCmsStore((s) => s.slugRedirects);
+  const initPublic = useBlogCmsStore((s) => s.initPublic);
+
+  useEffect(() => {
+    void initPublic();
+  }, [initPublic]);
+
+  if (slug && slugRedirects[slug]) {
+    return <Navigate to={`/blog/${slugRedirects[slug]}`} replace />;
+  }
+  if (slug && publishedBySlug[slug]) {
     return <BlogPostPage slug={slug} />;
+  }
+  if (!publicReady) {
+    return null;
   }
   return <NotFoundPage />;
 }
@@ -208,6 +224,12 @@ const router = createBrowserRouter([
       { path: 'terms-and-conditions', element: <PolicyPage slug="terms-and-conditions" /> },
       { path: 'refund-policy', element: <PolicyPage slug="refund-policy" /> },
       { path: 'delivery-policy', element: <PolicyPage slug="delivery-policy" /> },
+
+      // Hidden Blog CMS Admin Studio (unlinked, noindex, excluded from sitemap)
+      {
+        path: ADMIN_DASHBOARD_PATH.replace(/^\/+/, ''),
+        element: <AdminDashboardPage />,
+      },
 
       // Blog Archive, Pagination, Category Archives & Posts
       { path: 'blog', element: <BlogListPage /> },

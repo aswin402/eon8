@@ -39,7 +39,8 @@
     "sitemap": "node scripts/generate-sitemap.ts",
     "dev": "vite",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node server/prodServer.ts"
   },
   "type": "module",
   "version": "0.0.0"

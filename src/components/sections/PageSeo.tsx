@@ -5,6 +5,8 @@ interface PageSeoProps {
   title: string;
   description: string;
   canonicalPath?: string;
+  ogImage?: string;
+  noIndex?: boolean;
 }
 
 const SITE_ORIGIN = 'https://www.eon8.com';
@@ -29,7 +31,13 @@ function upsertCanonical(href: string) {
   link.setAttribute('href', href);
 }
 
-export function PageSeo({ title, description, canonicalPath }: PageSeoProps) {
+export function PageSeo({
+  title,
+  description,
+  canonicalPath,
+  ogImage,
+  noIndex = false,
+}: PageSeoProps) {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
@@ -61,10 +69,22 @@ export function PageSeo({ title, description, canonicalPath }: PageSeoProps) {
       upsertMeta('name', 'description', description);
       upsertMeta('property', 'og:description', description);
     }
+    upsertMeta(
+      'name',
+      'robots',
+      noIndex ? 'noindex, nofollow, noarchive' : 'index, follow'
+    );
+    if (ogImage) {
+      const resolvedImg =
+        ogImage.startsWith('http') || ogImage.startsWith('data:')
+          ? ogImage
+          : `${SITE_ORIGIN}${ogImage.startsWith('/') ? '' : '/'}${ogImage}`;
+      upsertMeta('property', 'og:image', resolvedImg);
+    }
     upsertMeta('property', 'og:url', canonicalUrl);
     upsertMeta('property', 'og:type', 'website');
     upsertCanonical(canonicalUrl);
-  }, [title, description, canonicalPath, pathname]);
+  }, [title, description, canonicalPath, pathname, ogImage, noIndex]);
 
   return null;
 }

@@ -1,11 +1,31 @@
-import { defineConfig } from 'vite'
+import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
+import { handleCmsApiRequest } from './server/cmsApi.ts'
+
+function eon8CmsApiPlugin(): Plugin {
+  return {
+    name: 'eon8-blog-cms-api',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const handled = await handleCmsApiRequest(req, res)
+        if (!handled) next()
+      })
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const handled = await handleCmsApiRequest(req, res)
+        if (!handled) next()
+      })
+    },
+  }
+}
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    eon8CmsApiPlugin(),
     react(),
     tailwindcss(),
   ],

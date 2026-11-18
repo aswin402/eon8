@@ -1,47 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Calendar, Clock, Tag, User } from 'lucide-react';
-import { PageSeo, SmartActionButton } from '@/components/sections';
-import { RichText } from '@/pages/crypto/components/RichText';
+import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Eye, Pencil, Tag, User } from 'lucide-react';
+import { PageSeo } from '@/components/sections';
 import {
-  BLOG_CATEGORY_PAIRS,
-  blogPostsBySlug,
-  blogPostsIndex,
-  getSlugForCategory,
-  loadBlogPost,
-  type ArticleBlock,
-  type BlogPost,
-} from './blogPostsData';
-
-function ArticleFigure({
-  src,
-  alt,
-  caption,
-}: {
-  src: string;
-  alt: string;
-  caption?: string;
-}) {
-  const [failed, setFailed] = useState(false);
-  if (failed) return null;
-
-  return (
-    <figure className="my-7 space-y-2">
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        onError={() => setFailed(true)}
-        className="w-full h-auto rounded-2xl border border-border shadow-sm mx-auto"
-      />
-      {caption && (
-        <figcaption className="text-center text-xs text-muted-foreground italic">
-          {caption}
-        </figcaption>
-      )}
-    </figure>
-  );
-}
+  ADMIN_DASHBOARD_PATH,
+  resolveCategorySlug,
+  useBlogCmsStore,
+} from '@/lib/cms/blogStore';
+import type { ManagedBlogPost } from '@/lib/cms/types';
+import { ArticleBlocksRenderer } from './ArticleBlocksRenderer';
 
 function formatDayMonthYear(dateIso: string, fallback: string): string {
   if (!dateIso) return fallback;
@@ -56,174 +23,87 @@ function formatDayMonthYear(dateIso: string, fallback: string): string {
   });
 }
 
-function renderArticleBlock(block: ArticleBlock, idx: number) {
-  switch (block.type) {
-    case 'heading':
-      if (block.level === 2) {
-        return (
-          <h2
-            key={idx}
-            className="text-xl sm:text-2xl font-heading font-extrabold text-foreground mt-8 mb-3.5 leading-snug"
-          >
-            {block.text}
-          </h2>
-        );
-      }
-      if (block.level === 3) {
-        return (
-          <h3
-            key={idx}
-            className="text-lg sm:text-xl font-heading font-bold text-foreground mt-6 mb-2.5 leading-snug"
-          >
-            {block.text}
-          </h3>
-        );
-      }
-      return (
-        <h4
-          key={idx}
-          className="text-base sm:text-lg font-heading font-bold text-foreground mt-5 mb-2"
-        >
-          {block.text}
-        </h4>
-      );
-
-    case 'paragraph':
-      return (
-        <p key={idx} className="text-[16px] sm:text-[17px] text-muted-foreground leading-[1.8] mb-5">
-          <RichText nodes={block.content} />
-        </p>
-      );
-
-    case 'list': {
-      const ListTag = block.ordered ? 'ol' : 'ul';
-      return (
-        <ListTag
-          key={idx}
-          className={`${
-            block.ordered ? 'list-decimal' : 'list-disc'
-          } pl-6 space-y-2.5 mb-6 text-[16px] text-muted-foreground`}
-        >
-          {block.items.map((item, iIdx) => (
-            <li key={iIdx} className="leading-[1.75]">
-              <RichText nodes={item} />
-            </li>
-          ))}
-        </ListTag>
-      );
-    }
-
-    case 'image':
-      return (
-        <ArticleFigure
-          key={idx}
-          src={block.src}
-          alt={block.alt}
-          caption={block.caption}
-        />
-      );
-
-    case 'blockquote':
-      return (
-        <blockquote
-          key={idx}
-          className="my-6 border-l-4 border-[#FD5900] bg-orange-500/[0.06] rounded-r-2xl py-4 px-6 italic text-foreground text-base leading-relaxed"
-        >
-          <RichText nodes={block.content} />
-        </blockquote>
-      );
-
-    case 'table':
-      return (
-        <div
-          key={idx}
-          className="my-7 rounded-2xl border border-border bg-card overflow-x-auto shadow-xs"
-        >
-          <table className="w-full min-w-[520px] border-collapse text-left">
-            {block.headers.length > 0 && (
-              <thead>
-                <tr className="bg-slate-900 text-white">
-                  {block.headers.map((h, hIdx) => (
-                    <th key={hIdx} className="py-3.5 px-5 text-sm font-heading font-bold">
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-            )}
-            <tbody className="divide-y divide-border">
-              {block.rows.map((row, rIdx) => (
-                <tr key={rIdx} className="hover:bg-slate-50/70 dark:hover:bg-slate-800/40">
-                  {row.map((cell, cIdx) => (
-                    <td key={cIdx} className="py-3 px-5 text-sm text-muted-foreground">
-                      {cell}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      );
-
-    case 'cta':
-      return (
-        <div key={idx} className="my-6">
-          <SmartActionButton
-            action={{
-              label: block.label,
-              href: block.href,
-              external: block.href.startsWith('http'),
-              variant: 'primary',
-            }}
-          />
-        </div>
-      );
-
-    default:
-      return null;
-  }
-}
-
 interface BlogPostPageProps {
   slug?: string;
 }
 
 export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
   const { slug: paramSlug } = useParams<{ slug: string }>();
-  const activeSlug = (propSlug || paramSlug || '').replace(/^\/+|\/+$/g, '');
-  const summary = blogPostsBySlug[activeSlug];
+  const [searchParams] = useSearchParams();
+  const isPreviewParam = searchParams.get('preview') === '1';
 
-  const [loaded, setLoaded] = useState<{ slug: string; post: BlogPost | null } | null>(null);
+  const activeSlug = (propSlug || paramSlug || '').replace(/^\/+|\/+$/g, '');
+
+  const publicReady = useBlogCmsStore((s) => s.publicReady);
+  const publishedPosts = useBlogCmsStore((s) => s.publishedPosts);
+  const publishedBySlug = useBlogCmsStore((s) => s.publishedBySlug);
+  const adminPosts = useBlogCmsStore((s) => s.adminPosts);
+  const categories = useBlogCmsStore((s) => s.categories);
+  const slugRedirects = useBlogCmsStore((s) => s.slugRedirects);
+  const session = useBlogCmsStore((s) => s.session);
+  const initPublic = useBlogCmsStore((s) => s.initPublic);
+  const checkSession = useBlogCmsStore((s) => s.checkSession);
+  const loadPostForDisplay = useBlogCmsStore((s) => s.loadPostForDisplay);
+
+  const [loaded, setLoaded] = useState<{
+    key: string;
+    post: ManagedBlogPost | null;
+  } | null>(null);
 
   useEffect(() => {
-    if (!activeSlug || !summary) return;
+    void initPublic();
+    if (isPreviewParam) {
+      void checkSession();
+    }
+  }, [initPublic, checkSession, isPreviewParam]);
+
+  const redirectTarget = slugRedirects[activeSlug];
+
+  const summary = useMemo(() => {
+    if (isPreviewParam && session.authenticated) {
+      const draftOrPub = adminPosts.find((p) => p.slug === activeSlug);
+      if (draftOrPub) return draftOrPub;
+    }
+    return publishedBySlug[activeSlug];
+  }, [activeSlug, isPreviewParam, session.authenticated, adminPosts, publishedBySlug]);
+
+  const loadKey = `${activeSlug}:${isPreviewParam && session.authenticated ? 'preview' : 'pub'}:${summary?.updatedAt || ''}`;
+
+  useEffect(() => {
+    if (!activeSlug || redirectTarget) return;
     let cancelled = false;
-    loadBlogPost(activeSlug).then((data) => {
+    loadPostForDisplay(activeSlug, isPreviewParam).then((data) => {
       if (!cancelled) {
-        setLoaded({ slug: activeSlug, post: data });
+        setLoaded({ key: loadKey, post: data });
       }
     });
     return () => {
       cancelled = true;
     };
-  }, [activeSlug, summary]);
+  }, [activeSlug, redirectTarget, isPreviewParam, loadKey, loadPostForDisplay]);
 
   const currentIndex = useMemo(
-    () => (summary ? blogPostsIndex.findIndex((p) => p.slug === summary.slug) : -1),
-    [summary]
+    () => (summary ? publishedPosts.findIndex((p) => p.slug === summary.slug) : -1),
+    [summary, publishedPosts]
   );
 
   const prevChronologicalPost =
-    currentIndex >= 0 && currentIndex < blogPostsIndex.length - 1
-      ? blogPostsIndex[currentIndex + 1]
+    currentIndex >= 0 && currentIndex < publishedPosts.length - 1
+      ? publishedPosts[currentIndex + 1]
       : undefined;
   const newerChronologicalPost =
-    currentIndex > 0 ? blogPostsIndex[currentIndex - 1] : undefined;
+    currentIndex > 0 ? publishedPosts[currentIndex - 1] : undefined;
 
-  const recentSidebarPosts = useMemo(() => blogPostsIndex.slice(0, 6), []);
+  const recentSidebarPosts = useMemo(() => publishedPosts.slice(0, 6), [publishedPosts]);
 
-  if (!summary) {
+  if (redirectTarget && redirectTarget !== activeSlug) {
+    return <Navigate to={`/blog/${redirectTarget}`} replace />;
+  }
+
+  const currentPost = loaded?.key === loadKey ? loaded.post : null;
+  const isLoading = !publicReady || loaded?.key !== loadKey;
+
+  if (!summary && !isLoading && !currentPost) {
     return (
       <div className="min-h-[65vh] pt-32 pb-24 flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-3xl font-heading font-bold text-foreground mb-4">Article Not Found</h1>
@@ -240,20 +120,53 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
     );
   }
 
-  const currentPost = loaded?.slug === activeSlug ? loaded.post : null;
-  const isLoading = loaded?.slug !== activeSlug;
-  const catSlug = getSlugForCategory(summary.category);
-  const formattedDate = formatDayMonthYear(summary.dateIso, summary.date);
+  const effectiveSummary = currentPost || summary;
+  if (!effectiveSummary) {
+    return (
+      <div className="min-h-[65vh] pt-32 pb-24 flex items-center justify-center">
+        <div className="w-9 h-9 border-3 border-[#FD5900] border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  const catSlug = resolveCategorySlug(effectiveSummary.category, categories);
+  const formattedDate = formatDayMonthYear(effectiveSummary.dateIso, effectiveSummary.date);
   const firstBlockIsImg = currentPost?.blocks[0]?.type === 'image';
-  const showTopThumb = Boolean(summary.thumbnail) && !firstBlockIsImg;
+  const showTopThumb = Boolean(effectiveSummary.thumbnail) && !firstBlockIsImg;
+  const seoTitle = effectiveSummary.seo?.metaTitle?.trim()
+    ? effectiveSummary.seo.metaTitle
+    : `${effectiveSummary.title} - Eon8`;
+  const seoDesc = effectiveSummary.seo?.metaDescription?.trim()
+    ? effectiveSummary.seo.metaDescription
+    : effectiveSummary.excerpt;
+  const seoImage = effectiveSummary.seo?.ogImage?.trim() || effectiveSummary.thumbnail;
+  const isDraftView = effectiveSummary.status === 'draft';
 
   return (
     <div className="bg-background text-foreground">
       <PageSeo
-        title={`${summary.title} - Eon8`}
-        description={summary.excerpt}
-        canonicalPath={`/blog/${summary.slug}`}
+        title={seoTitle}
+        description={seoDesc}
+        canonicalPath={`/blog/${effectiveSummary.slug}`}
+        ogImage={seoImage}
+        noIndex={isDraftView}
       />
+
+      {isDraftView && (
+        <div className="bg-amber-500 text-slate-950 px-4 py-2.5 text-xs sm:text-sm font-bold flex flex-wrap items-center justify-center gap-4">
+          <span className="inline-flex items-center gap-1.5">
+            <Eye className="w-4 h-4" />
+            Draft Preview — Hidden from public readers and search engines
+          </span>
+          <Link
+            to={`${ADMIN_DASHBOARD_PATH}?edit=${effectiveSummary.id}`}
+            className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-slate-950 text-white hover:bg-slate-800 transition-colors no-underline"
+          >
+            <Pencil className="w-3.5 h-3.5" />
+            Edit in Studio
+          </Link>
+        </div>
+      )}
 
       {/* Article Hero Header */}
       <header className="py-14 sm:py-18 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#06152d] via-[#0a2558] to-[#0053C6] text-white">
@@ -272,31 +185,31 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
               className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/15 text-white font-bold no-underline"
             >
               <Tag className="w-3.5 h-3.5 text-[#FD5900]" />
-              <span>{summary.category}</span>
+              <span>{effectiveSummary.category}</span>
             </Link>
           </div>
 
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-[1.16] tracking-tight">
-            {summary.title}
+            {effectiveSummary.title}
           </h1>
 
           <div className="flex flex-wrap items-center gap-5 text-xs sm:text-sm text-slate-200 pt-1">
             <span className="inline-flex items-center gap-1.5">
               <Calendar className="w-4 h-4 text-[#FD5900]" />
-              <time dateTime={summary.dateIso}>{formattedDate}</time>
+              <time dateTime={effectiveSummary.dateIso}>{formattedDate}</time>
             </span>
 
-            {summary.author && (
+            {effectiveSummary.author && (
               <span className="inline-flex items-center gap-1.5">
                 <User className="w-4 h-4 text-[#FD5900]" />
-                <span>{summary.author}</span>
+                <span>{effectiveSummary.author}</span>
               </span>
             )}
 
-            {summary.readTime && (
+            {effectiveSummary.readTime && (
               <span className="inline-flex items-center gap-1.5">
                 <Clock className="w-4 h-4 text-[#FD5900]" />
-                <span>{summary.readTime}</span>
+                <span>{effectiveSummary.readTime}</span>
               </span>
             )}
           </div>
@@ -310,8 +223,8 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
           <article className="lg:col-span-8 rounded-2xl bg-card border border-border p-6 sm:p-10 shadow-sm">
             {showTopThumb && (
               <img
-                src={summary.thumbnail}
-                alt={summary.title}
+                src={effectiveSummary.thumbnail}
+                alt={effectiveSummary.title}
                 className="w-full h-auto rounded-2xl border border-border mb-8 object-cover"
               />
             )}
@@ -322,7 +235,7 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
               </div>
             ) : (
               <div>
-                {currentPost?.blocks.map((block, idx) => renderArticleBlock(block, idx))}
+                <ArticleBlocksRenderer blocks={currentPost?.blocks ?? []} />
               </div>
             )}
 
@@ -391,7 +304,7 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
                 Categories
               </h2>
               <div className="flex flex-wrap gap-2">
-                {BLOG_CATEGORY_PAIRS.map((cat) => (
+                {categories.map((cat) => (
                   <Link
                     key={cat.slug}
                     to={`/category/${cat.slug}`}

@@ -94,9 +94,52 @@ for (const slug of ALL_SERVICE_SLUGS) {
   }
 }
 
-for (const post of BLOG_POSTS_SUMMARIES) {
+interface CmsSitemapContentState {
+  upsertedPosts?: Record<
+    string,
+    {
+      id: number;
+      slug: string;
+      status: 'published' | 'draft';
+    }
+  >;
+  deletedPostIds?: number[];
+  deletedSlugs?: string[];
+}
+
+function loadCmsContentState(): CmsSitemapContentState {
+  const cmsFile = path.resolve(scriptsDir, '../data/cms-content.json');
+  if (!fs.existsSync(cmsFile)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(cmsFile, 'utf-8')) as CmsSitemapContentState;
+  } catch {
+    return {};
+  }
+}
+
+const cmsState = loadCmsContentState();
+const deletedIds = new Set<number>(cmsState.deletedPostIds ?? []);
+const deletedSlugs = new Set<string>(cmsState.deletedSlugs ?? []);
+const upsertedById = cmsState.upsertedPosts ?? {};
+
+// Published CMS posts first (new + edited)
+for (const post of Object.values(upsertedById)) {
+  if (post.status !== 'published' || !post.slug) continue;
   const blogPath = `blog/${post.slug}`;
-  if (post.slug && !seen.has(blogPath)) {
+  if (!seen.has(blogPath)) {
+    seen.add(blogPath);
+    routes.push({ path: blogPath, priority: '0.7', changefreq: 'monthly' });
+  }
+}
+
+// Baseline static posts (excluding deleted or draft-overridden posts)
+for (const post of BLOG_POSTS_SUMMARIES) {
+  if (deletedIds.has(post.id) || deletedSlugs.has(post.slug)) continue;
+  const override = upsertedById[String(post.id)];
+  if (override && override.status === 'draft') continue;
+  const effectiveSlug = override ? override.slug : post.slug;
+  const blogPath = `blog/${effectiveSlug}`;
+  if (effectiveSlug && !seen.has(blogPath)) {
     seen.add(blogPath);
     routes.push({ path: blogPath, priority: '0.7', changefreq: 'monthly' });
   }

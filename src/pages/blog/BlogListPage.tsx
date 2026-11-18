@@ -1,13 +1,12 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Calendar, Clock, Search, Tag } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Search, Sparkles, Tag } from 'lucide-react';
 import { PageSeo, ServiceHeroSection } from '@/components/sections';
 import {
-  BLOG_CATEGORY_PAIRS,
-  blogPostsIndex,
-  getCategoryNameBySlug,
-  getSlugForCategory,
-} from './blogPostsData';
+  resolveCategoryNameFromSlug,
+  resolveCategorySlug,
+  useBlogCmsStore,
+} from '@/lib/cms/blogStore';
 
 const POSTS_PER_PAGE = 18;
 
@@ -43,20 +42,33 @@ export function BlogListPage() {
   const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
 
+  const publishedPosts = useBlogCmsStore((s) => s.publishedPosts);
+  const categories = useBlogCmsStore((s) => s.categories);
+  const initPublic = useBlogCmsStore((s) => s.initPublic);
+
+  useEffect(() => {
+    void initPublic();
+  }, [initPublic]);
+
   const queryCategory = searchParams.get('category');
   const activeCategoryName = useMemo(() => {
     if (categorySlug) {
-      return getCategoryNameBySlug(categorySlug);
+      return resolveCategoryNameFromSlug(categorySlug, categories);
     }
     if (queryCategory && queryCategory !== 'All') {
       return queryCategory;
     }
     return null;
-  }, [categorySlug, queryCategory]);
+  }, [categorySlug, queryCategory, categories]);
+
+  const featuredPosts = useMemo(
+    () => publishedPosts.filter((p) => p.featured).slice(0, 3),
+    [publishedPosts]
+  );
 
   const filteredPosts = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
-    return blogPostsIndex.filter((post) => {
+    return publishedPosts.filter((post) => {
       if (activeCategoryName) {
         const cats = post.categories?.length ? post.categories : [post.category];
         if (!cats.some((c) => c.toLowerCase() === activeCategoryName.toLowerCase())) {
@@ -67,12 +79,13 @@ export function BlogListPage() {
         return (
           post.title.toLowerCase().includes(q) ||
           post.excerpt.toLowerCase().includes(q) ||
-          post.category.toLowerCase().includes(q)
+          post.category.toLowerCase().includes(q) ||
+          post.author.toLowerCase().includes(q)
         );
       }
       return true;
     });
-  }, [activeCategoryName, searchQuery]);
+  }, [publishedPosts, activeCategoryName, searchQuery]);
 
   const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
   const parsedPage = pageNum ? parseInt(pageNum, 10) : 1;
@@ -99,6 +112,8 @@ export function BlogListPage() {
   };
 
   const paginationItems = buildPaginationItems(currentPage, totalPages);
+  const showFeaturedSpotlight =
+    featuredPosts.length > 0 && !activeCategoryName && !searchQuery.trim() && currentPage === 1;
 
   return (
     <div className="bg-background text-foreground">
@@ -118,7 +133,7 @@ export function BlogListPage() {
         badge="EON8 Knowledge Hub"
         heading={activeCategoryName || 'Insights, Playbooks & Growth Research'}
         paragraphs={[
-          `Explore ${blogPostsIndex.length} in-depth articles covering SEO, AI Agents, Performance Marketing, Reputation Management, and Web3 growth.`,
+          `Explore ${publishedPosts.length} in-depth articles covering SEO, AI Agents, Performance Marketing, Reputation Management, and Web3 growth.`,
         ]}
       />
 
@@ -143,7 +158,7 @@ export function BlogListPage() {
                 className="inline-flex items-center gap-2 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span>View All Articles ({blogPostsIndex.length})</span>
+                <span>View All Articles ({publishedPosts.length})</span>
               </Link>
             )}
           </div>
@@ -157,9 +172,9 @@ export function BlogListPage() {
                   : 'bg-card text-muted-foreground border-border hover:text-foreground'
               }`}
             >
-              All ({blogPostsIndex.length})
+              All ({publishedPosts.length})
             </Link>
-            {BLOG_CATEGORY_PAIRS.slice(0, 12).map((cat) => {
+            {categories.map((cat) => {
               const isSelected =
                 activeCategoryName?.toLowerCase() === cat.name.toLowerCase();
               return (
@@ -179,6 +194,41 @@ export function BlogListPage() {
           </div>
         </div>
       </section>
+
+      {/* Featured Spotlight (when featured posts exist) */}
+      {showFeaturedSpotlight && (
+        <section className="pt-12 pb-2 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto space-y-5">
+            <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[#FD5900]">
+              <Sparkles className="w-4 h-4" />
+              <span>Featured Editorial Picks</span>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {featuredPosts.map((post) => (
+                <Link
+                  key={`featured-${post.slug}`}
+                  to={`/blog/${post.slug}`}
+                  className="group relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#06152D] via-[#0B224B] to-[#0053C6] p-6 text-white border border-white/10 shadow-lg hover:shadow-xl transition-all no-underline flex flex-col justify-between min-h-[210px]"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="px-3 py-1 rounded-full bg-[#FD5900] text-white text-[11px] font-extrabold uppercase tracking-wider">
+                      Featured
+                    </span>
+                    <span className="text-xs text-slate-300">{post.readTime}</span>
+                  </div>
+                  <div className="space-y-2 mt-6">
+                    <span className="text-xs font-bold text-orange-300">{post.category}</span>
+                    <h2 className="text-lg sm:text-xl font-heading font-extrabold leading-snug group-hover:text-orange-200 transition-colors line-clamp-2">
+                      {post.title}
+                    </h2>
+                    <p className="text-xs text-slate-200/85 line-clamp-2">{post.excerpt}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 3. 3-Column Blog Cards Grid */}
       <section className="py-14 sm:py-18 pb-28 px-4 sm:px-6 lg:px-8">
@@ -203,7 +253,7 @@ export function BlogListPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
               {paginatedPosts.map((post) => {
                 const postUrl = `/blog/${post.slug}`;
-                const catSlug = getSlugForCategory(post.category);
+                const catSlug = resolveCategorySlug(post.category, categories);
                 const hasRealThumb = Boolean(
                   post.thumbnail && !post.thumbnail.includes('Logo_bg')
                 );
@@ -216,7 +266,7 @@ export function BlogListPage() {
                     <div>
                       <Link
                         to={postUrl}
-                        className="block aspect-[16/9] overflow-hidden bg-slate-900 no-underline"
+                        className="relative block aspect-[16/9] overflow-hidden bg-slate-900 no-underline"
                       >
                         {hasRealThumb ? (
                           <img
@@ -234,6 +284,11 @@ export function BlogListPage() {
                               {post.title}
                             </span>
                           </div>
+                        )}
+                        {post.featured && (
+                          <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#FD5900] text-white text-[10px] font-extrabold uppercase tracking-wider shadow-md">
+                            Featured
+                          </span>
                         )}
                       </Link>
 
