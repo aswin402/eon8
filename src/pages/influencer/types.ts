@@ -195,48 +195,36 @@ export interface InstagramInfluencerPageData {
   };
 }
 
-export interface ElementorStatItem {
-  colId: string;
-  headingWidgetId: string;
-  textWidgetId: string;
+export interface CreatorPlatformStatItem {
   number: number;
   suffix: string;
   label: string;
 }
 
-export interface ElementorAlternatingRow {
-  sectionId: string;
+export interface CreatorAlternatingRow {
   layout: 'text-left' | 'image-left';
-  leftColId: string;
-  rightColId: string;
-  textWidgetId: string;
   heading: string;
   body: RichNode[];
   image: ImageAsset;
 }
 
-export interface ElementorServiceCard {
-  colId: string;
-  widgetId: string;
+export interface CreatorServiceCard {
   iconSrc: string;
   iconAlt: string;
   title: string;
   description: string;
 }
 
-export interface ElementorApproachCard {
-  colId: string;
-  widgetId: string;
+export interface CreatorApproachCard {
   iconSrc: string;
   iconAlt: string;
   title: string;
 }
 
-export interface ElementorInfluencerPageData {
+export interface CreatorPlatformPageData {
   slug: 'tiktok-influencer-marketing' | 'youtube-influencer-services';
   title: string;
   metaDesc: string;
-  elementorPageClass: 'elementor-46516' | 'elementor-47266';
   hero: {
     heading: string;
     leadParagraphs: RichNode[][];
@@ -246,7 +234,7 @@ export interface ElementorInfluencerPageData {
   statsSection: {
     heading: string;
     subheading: string;
-    stats: ElementorStatItem[];
+    stats: CreatorPlatformStatItem[];
   };
   callbackBar: {
     heading: string;
@@ -257,22 +245,17 @@ export interface ElementorInfluencerPageData {
     logos: ImageAsset[];
   };
   whyAlternating?: {
-    outerSectionId: string;
-    innerColId: string;
-    headingWidgetId: string;
     heading: string;
-    rows: ElementorAlternatingRow[];
+    rows: CreatorAlternatingRow[];
   };
   servicesSection: {
     heading: string;
     rows: {
-      sectionId: string;
-      cards: ElementorServiceCard[];
+      cards: CreatorServiceCard[];
     }[];
   };
   centerEditorial: {
     heading: string;
-    textWidgetId: string;
     paragraphs: RichNode[][];
   };
   growthPartnerHeader: {
@@ -280,7 +263,6 @@ export interface ElementorInfluencerPageData {
   };
   growthPartnerFeatures: {
     items: {
-      widgetId: string;
       iconSrc: string;
       iconAlt: string;
       title: string;
@@ -291,8 +273,7 @@ export interface ElementorInfluencerPageData {
   approachGrid: {
     heading: string;
     rows: {
-      sectionId: string;
-      cards: ElementorApproachCard[];
+      cards: CreatorApproachCard[];
     }[];
   };
 }

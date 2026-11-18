@@ -24,11 +24,11 @@ export type NftWpSlug =
   | 'pr-marketing-agency'
   | 'nft-free-consultation';
 
-export type NftElementorSlug =
+export type NftCommunitySlug =
   | 'reddit-community-marketing-agency'
   | 'discord-community-building-services';
 
-export type NftSlug = NftWpSlug | NftElementorSlug;
+export type NftSlug = NftWpSlug | NftCommunitySlug;
 
 export interface NftImageAsset {
   src: string;
@@ -364,46 +364,37 @@ export interface NftServicePageData {
   };
 }
 
-export interface NftElementorStatItem {
-  colId: string;
-  headingWidgetId: string;
-  textWidgetId: string;
+export interface NftCommunityStatItem {
   number: string;
   suffix: string;
   label: string;
   isRed?: boolean;
 }
 
-export interface NftElementorProcessCard {
-  colId: string;
-  widgetId: string;
+export interface NftCommunityProcessCard {
   iconSrc: string;
   iconAlt: string;
   title: string;
   description: string;
 }
 
-export interface NftElementorGrowthFeature {
-  widgetId: string;
+export interface NftCommunityGrowthFeature {
   iconSrc: string;
   iconAlt: string;
   title: string;
   description: string;
 }
 
-export interface NftElementorApproachCard {
-  colId: string;
-  widgetId: string;
+export interface NftCommunityApproachCard {
   iconSrc: string;
   iconAlt: string;
   title: string;
 }
 
-export interface NftElementorPageData {
-  slug: NftElementorSlug;
+export interface NftCommunityPageData {
+  slug: NftCommunitySlug;
   title: string;
   metaDesc: string;
-  elementorPageClass: string;
   hero: {
     heading: string;
     paragraphs: RichNode[][];
@@ -413,46 +404,40 @@ export interface NftElementorPageData {
   statsSection: {
     heading: string;
     subheading: string;
-    stats: NftElementorStatItem[];
+    stats: NftCommunityStatItem[];
   };
   callbackBar: {
     heading: string;
     submitLabel: string;
   };
   brandCarousel: {
-    widgetId: string;
     logos: NftImageAsset[];
   };
   whyAlternating: {
     heading: string;
     subheading: string;
     rows: {
-      sectionId: string;
-      cards: NftElementorProcessCard[];
+      cards: NftCommunityProcessCard[];
     }[];
   };
   servicesSection: {
     heading: string;
-    textWidgetId: string;
     paragraphs: RichNode[][];
   };
   growthPartnerHeader: {
     heading: string;
   };
   growthPartnerFeatures: {
-    items: NftElementorGrowthFeature[];
+    items: NftCommunityGrowthFeature[];
     illustration: NftImageAsset;
   };
   approachGrid: {
     heading: string;
     rows: {
-      sectionId: string;
-      cards: NftElementorApproachCard[];
+      cards: NftCommunityApproachCard[];
     }[];
   };
   calendlySection: {
-    sectionId: string;
-    headingWidgetId: string;
     heading: string;
     callTitle: string;
     callDescription: string;

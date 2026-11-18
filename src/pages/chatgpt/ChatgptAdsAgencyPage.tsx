@@ -1,6 +1,7 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { PageSeo } from '@/components/sections';
+import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
 import '@/styles/chatgpt-ads.css';
 
 interface ShowcaseExample {
@@ -152,10 +153,12 @@ function getBrandInitials(brand: string): string {
 export function ChatgptAdsAgencyPage() {
   const [activeCaseIdx, setActiveCaseIdx] = useState(0);
   const [dialogMode, setDialogMode] = useState<DialogMode>(null);
+  const [contactDetail, setContactDetail] = useState('');
   const [website, setWebsite] = useState('');
   const [market, setMarket] = useState('');
   const [selectedFocus, setSelectedFocus] = useState<ServiceFocusKey>('visibility');
-  const [auditSubmitted, setAuditSubmitted] = useState(false);
+  const [submittingAudit, setSubmittingAudit] = useState(false);
+  const [leadResult, setLeadResult] = useState<LeadSubmissionResult | null>(null);
 
   useEffect(() => {
     if (!dialogMode) return;
@@ -170,20 +173,40 @@ export function ChatgptAdsAgencyPage() {
 
   const openServiceDialog = (focus: ServiceFocusKey) => {
     setSelectedFocus(focus);
-    setAuditSubmitted(false);
+    setLeadResult(null);
     setDialogMode({ type: 'service', focus });
   };
 
   const openAuditDialog = (focus: ServiceFocusKey = 'visibility', isPackage = false) => {
     setSelectedFocus(focus);
-    setAuditSubmitted(false);
+    setLeadResult(null);
     setDialogMode({ type: 'audit', focus, isPackage });
   };
 
-  const handleAuditSubmit = (e: FormEvent) => {
+  const handleAuditSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!website.trim() || !market.trim()) return;
-    setAuditSubmitted(true);
+    setSubmittingAudit(true);
+    try {
+      const trimmedContact = contactDetail.trim();
+      const isEmail = trimmedContact.includes('@');
+      const focusLabel = FOCUS_TITLES[selectedFocus];
+      const isPackage = dialogMode?.type === 'audit' && dialogMode.isPackage;
+
+      const result = await submitLeadEnquiry({
+        source: isPackage
+          ? `ChatGPT Package — ${focusLabel}`
+          : `ChatGPT Visibility Audit — ${focusLabel}`,
+        email: isEmail ? trimmedContact : undefined,
+        phone: !isEmail && trimmedContact ? trimmedContact : undefined,
+        website: website.trim(),
+        country: market.trim(),
+        message: `Requested ${isPackage ? 'package' : 'visibility audit'} for ${focusLabel}.`,
+      });
+      setLeadResult(result);
+    } finally {
+      setSubmittingAudit(false);
+    }
   };
 
   const buildMailtoHref = (isPackage: boolean) => {
@@ -798,7 +821,18 @@ export function ChatgptAdsAgencyPage() {
                   {dialogMode.isPackage ? 'Request a package' : 'Request a visibility audit'}
                 </h2>
                 <p>This prepares an inquiry to EON8 for you to review and send.</p>
-                <form onSubmit={handleAuditSubmit}>
+                <form onSubmit={(e) => void handleAuditSubmit(e)}>
+                  <label>
+                    Your email or WhatsApp number
+                    <input
+                      name="contact"
+                      required
+                      maxLength={160}
+                      placeholder="you@company.com or +91 98765 43210"
+                      value={contactDetail}
+                      onChange={(e) => setContactDetail(e.target.value)}
+                    />
+                  </label>
                   <label>
                     Business website
                     <input
@@ -838,8 +872,8 @@ export function ChatgptAdsAgencyPage() {
                     </select>
                   </label>
                   <div className="actions">
-                    <button type="submit" className="btn primary">
-                      Submit inquiry ↗
+                    <button type="submit" disabled={submittingAudit} className="btn primary">
+                      {submittingAudit ? 'Submitting…' : 'Submit inquiry ↗'}
                     </button>
                     <Link
                       className="btn outline"
@@ -859,10 +893,33 @@ export function ChatgptAdsAgencyPage() {
                     </a>
                     .
                   </p>
-                  {auditSubmitted && (
+                  {leadResult && (
                     <div role="status" className="chatgpt-ads-success">
-                      Thank you! Your AI visibility inquiry for <strong>{website}</strong> (
-                      {FOCUS_TITLES[selectedFocus]}) has been recorded.
+                      <p style={{ margin: '0 0 10px' }}>
+                        {leadResult.deliveredToWebhook
+                          ? `Thank you! Your AI visibility inquiry for ${website} (${FOCUS_TITLES[selectedFocus]}) has been delivered to EON8.`
+                          : `Inquiry prepared for ${website} (${FOCUS_TITLES[selectedFocus]}). Connect instantly via WhatsApp or Email below:`}
+                      </p>
+                      <div className="actions" style={{ marginTop: 8 }}>
+                        <a
+                          href={leadResult.whatsappHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn primary"
+                        >
+                          Send on WhatsApp ↗
+                        </a>
+                        <a href={leadResult.mailtoHref} className="btn outline">
+                          Send via Email
+                        </a>
+                        <Link
+                          to="/thank-you"
+                          className="btn outline"
+                          onClick={() => setDialogMode(null)}
+                        >
+                          Confirmation Page
+                        </Link>
+                      </div>
                     </div>
                   )}
                 </form>

@@ -36,14 +36,14 @@ const InfluencerMarketingAgencyPage = lazy(
 const InstagramInfluencerPage = lazy(
   () => import('@/pages/influencer/InstagramInfluencerPage')
 );
-const ElementorInfluencerPage = lazy(
-  () => import('@/pages/influencer/ElementorInfluencerPage')
+const CreatorPlatformPage = lazy(
+  () => import('@/pages/influencer/CreatorPlatformPage')
 );
 const TwitterInfluencerPage = lazy(
   () => import('@/pages/influencer/TwitterInfluencerPage')
 );
 const NftServicePage = lazy(() => import('@/pages/nft/NftServicePage'));
-const ElementorNftPage = lazy(() => import('@/pages/nft/ElementorNftPage'));
+const CommunityGrowthPage = lazy(() => import('@/pages/nft/CommunityGrowthPage'));
 const OurServicesPage = lazy(() => import('@/pages/services/OurServicesPage'));
 const WorksPage = lazy(() =>
   import('@/pages/PortfolioPages').then((m) => ({ default: m.WorksPage }))
@@ -101,7 +101,7 @@ const NFT_SERVICE_SLUGS = [
   'nft-free-consultation',
 ] as const;
 
-const NFT_ELEMENTOR_SLUGS = [
+const NFT_COMMUNITY_SLUGS = [
   'reddit-community-marketing-agency',
   'discord-community-building-services',
 ] as const;
@@ -111,9 +111,9 @@ const nftServiceRoutes = NFT_SERVICE_SLUGS.map((slug) => ({
   element: <NftServicePage key={slug} slug={slug} />,
 }));
 
-const nftElementorRoutes = NFT_ELEMENTOR_SLUGS.map((slug) => ({
+const nftCommunityRoutes = NFT_COMMUNITY_SLUGS.map((slug) => ({
   path: slug,
-  element: <ElementorNftPage key={slug} slug={slug} />,
+  element: <CommunityGrowthPage key={slug} slug={slug} />,
 }));
 
 const allServiceRoutes = ALL_SERVICE_SLUGS.map((slug) => ({
@@ -257,7 +257,7 @@ const router = createBrowserRouter([
       {
         path: 'tiktok-influencer-marketing',
         element: (
-          <ElementorInfluencerPage
+          <CreatorPlatformPage
             key="tiktok-influencer-marketing"
             slug="tiktok-influencer-marketing"
           />
@@ -266,7 +266,7 @@ const router = createBrowserRouter([
       {
         path: 'youtube-influencer-services',
         element: (
-          <ElementorInfluencerPage
+          <CreatorPlatformPage
             key="youtube-influencer-services"
             slug="youtube-influencer-services"
           />
@@ -276,7 +276,7 @@ const router = createBrowserRouter([
 
       // Native Pure-React NFT, Discord & Community Pages (21 canonical menu routes + 1 alias)
       ...nftServiceRoutes,
-      ...nftElementorRoutes,
+      ...nftCommunityRoutes,
 
       // Portfolio & Case Studies (4 dedicated native React routes)
       { path: 'works', element: <WorksPage /> },

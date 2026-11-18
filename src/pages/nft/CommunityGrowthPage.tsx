@@ -1,34 +1,55 @@
+import { useEffect, useState } from 'react';
 import {
   AlternatingSplitSection,
   BottomCtaBanner,
   ClientLogoMarquee,
+  DiscoveryCallSection,
   FeatureGridSection,
   PageSeo,
   QuickCallbackBanner,
   ServiceHeroSection,
   StatsCounterStrip,
 } from '@/components/sections';
-import { RichText } from '@/pages/crypto/components/RichText';
-import {
-  tiktokInfluencerData,
-  youtubeInfluencerData,
-} from './data/elementorInfluencerData';
-import type { ElementorInfluencerPageData } from './types';
+import { RichText } from '../crypto/components/RichText';
+import { NFT_COMMUNITY_LOADERS } from './data/community';
+import type { NftCommunityPageData, NftCommunitySlug } from './types';
 
-const PAGE_DATA_MAP: Record<
-  'tiktok-influencer-marketing' | 'youtube-influencer-services',
-  ElementorInfluencerPageData
-> = {
-  'tiktok-influencer-marketing': tiktokInfluencerData,
-  'youtube-influencer-services': youtubeInfluencerData,
-};
-
-interface ElementorInfluencerPageProps {
-  slug: 'tiktok-influencer-marketing' | 'youtube-influencer-services';
+interface CommunityGrowthPageProps {
+  slug: NftCommunitySlug;
 }
 
-export default function ElementorInfluencerPage({ slug }: ElementorInfluencerPageProps) {
-  const data = PAGE_DATA_MAP[slug];
+export default function CommunityGrowthPage({ slug }: CommunityGrowthPageProps) {
+  const [loaded, setLoaded] = useState<{
+    routeSlug: NftCommunitySlug;
+    data: NftCommunityPageData;
+  } | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    const loader = NFT_COMMUNITY_LOADERS[slug];
+    if (!loader) return undefined;
+
+    loader().then((pageData) => {
+      if (!cancelled) {
+        setLoaded({ routeSlug: slug, data: pageData });
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
+
+  const data = loaded?.routeSlug === slug ? loaded.data : null;
+
+  if (!data) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center bg-background">
+        <div className="h-9 w-9 animate-spin rounded-full border-4 border-purple-600 border-t-transparent" />
+      </div>
+    );
+  }
+
   const {
     title,
     metaDesc,
@@ -38,13 +59,13 @@ export default function ElementorInfluencerPage({ slug }: ElementorInfluencerPag
     brandCarousel,
     whyAlternating,
     servicesSection,
-    centerEditorial,
     growthPartnerHeader,
     growthPartnerFeatures,
     approachGrid,
+    calendlySection,
   } = data;
 
-  const serviceCards = servicesSection.rows.flatMap((r) => r.cards);
+  const strategyCards = whyAlternating.rows.flatMap((r) => r.cards);
   const approachCards = approachGrid.rows.flatMap((r) => r.cards);
 
   return (
@@ -53,21 +74,25 @@ export default function ElementorInfluencerPage({ slug }: ElementorInfluencerPag
 
       {/* 1. Split Hero + Funnel Form */}
       <ServiceHeroSection
-        theme="influencer"
+        theme="nft"
         layout="split-form"
-        badge={slug === 'tiktok-influencer-marketing' ? 'TikTok Creator Growth' : 'YouTube Creator Growth'}
+        badge={
+          slug === 'reddit-community-marketing-agency'
+            ? 'Reddit Community Growth'
+            : 'Discord Community Building'
+        }
         heading={hero.heading}
-        paragraphs={hero.leadParagraphs.map((nodes, idx) => (
+        paragraphs={hero.paragraphs.map((nodes, idx) => (
           <RichText key={idx} nodes={nodes} tone="on-dark" />
         ))}
-        bullets={[...hero.leftChecks, ...hero.rightChecks]}
-        formHeading="Get Custom Creator Proposal"
-        formSubmitLabel="Submit"
+        bullets={hero.bulletColumns.flat()}
+        formHeading="Get Community Growth Plan"
+        formSubmitLabel={hero.formSubmitLabel || 'Submit'}
       />
 
       {/* 2. Stats Counter Bar */}
       <StatsCounterStrip
-        theme="influencer"
+        theme="nft"
         heading={statsSection.heading}
         subheading={statsSection.subheading}
         stats={statsSection.stats.map((s) => ({
@@ -78,7 +103,7 @@ export default function ElementorInfluencerPage({ slug }: ElementorInfluencerPag
 
       {/* 3. 5-Minute Callback Bar */}
       <QuickCallbackBanner
-        theme="influencer"
+        theme="nft"
         heading={callbackBar.heading}
         submitLabel={callbackBar.submitLabel}
       />
@@ -86,32 +111,13 @@ export default function ElementorInfluencerPage({ slug }: ElementorInfluencerPag
       {/* 4. Brand Carousel */}
       <ClientLogoMarquee logos={brandCarousel.logos} />
 
-      {/* 5. Optional Alternating Rows (YouTube Influencer) */}
-      {whyAlternating && (
-        <div className="divide-y divide-border/50">
-          {whyAlternating.rows.map((row, idx) => (
-            <AlternatingSplitSection
-              key={row.sectionId}
-              theme="influencer"
-              surface={idx % 2 === 0 ? 'light' : 'muted'}
-              reverse={row.layout === 'image-left'}
-              badge={idx === 0 ? whyAlternating.heading : undefined}
-              heading={row.heading}
-              paragraphs={[<RichText key="body" nodes={row.body} />]}
-              imageSrc={row.image.src}
-              imageAlt={row.image.alt}
-            />
-          ))}
-        </div>
-      )}
-
-      {/* 6. 9 Creator Services Grid */}
+      {/* 5. Community Strategy Cards Grid */}
       <FeatureGridSection
-        theme="influencer"
+        theme="nft"
         surface="muted"
-        badge="End-to-End Execution"
-        heading={servicesSection.heading}
-        cards={serviceCards.map((c) => ({
+        badge={whyAlternating.subheading || 'Community Strategy'}
+        heading={whyAlternating.heading}
+        cards={strategyCards.map((c) => ({
           title: c.title,
           description: c.description,
           iconSrc: c.iconSrc,
@@ -120,17 +126,17 @@ export default function ElementorInfluencerPage({ slug }: ElementorInfluencerPag
         columns={3}
       />
 
-      {/* 7. Editorial Overview */}
+      {/* 6. Editorial Overview */}
       <AlternatingSplitSection
-        theme="influencer"
+        theme="nft"
         surface="light"
-        heading={centerEditorial.heading}
-        paragraphs={centerEditorial.paragraphs.map((nodes, idx) => (
+        heading={servicesSection.heading}
+        paragraphs={servicesSection.paragraphs.map((nodes, idx) => (
           <RichText key={idx} nodes={nodes} />
         ))}
       />
 
-      {/* 8. Why Eon8 Is Your Ideal Growth Partner */}
+      {/* 7. Growth Partner Features + Illustration */}
       <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-12">
@@ -143,10 +149,10 @@ export default function ElementorInfluencerPage({ slug }: ElementorInfluencerPag
             <div className="lg:col-span-7 space-y-5">
               {growthPartnerFeatures.items.map((item) => (
                 <div
-                  key={item.widgetId}
+                  key={item.title}
                   className="rounded-2xl bg-card border border-border p-6 flex items-start gap-4 shadow-xs"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-rose-50 dark:bg-slate-800 p-2.5 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-purple-50 dark:bg-slate-800 p-2.5 flex items-center justify-center shrink-0">
                     <img
                       src={item.iconSrc}
                       alt={item.iconAlt}
@@ -176,9 +182,9 @@ export default function ElementorInfluencerPage({ slug }: ElementorInfluencerPag
         </div>
       </section>
 
-      {/* 9. Impeccable Approach 6-Card Grid */}
+      {/* 8. Impeccable Approach Grid */}
       <FeatureGridSection
-        theme="influencer"
+        theme="nft"
         surface="light"
         badge="Our Methodology"
         heading={approachGrid.heading}
@@ -190,11 +196,19 @@ export default function ElementorInfluencerPage({ slug }: ElementorInfluencerPag
         columns={3}
       />
 
-      {/* 10. Bottom CTA */}
+      {/* 9. Discovery Call */}
+      <DiscoveryCallSection
+        theme="nft"
+        heading={calendlySection.heading}
+        callTitle={calendlySection.callTitle}
+        callDescription={calendlySection.callDescription}
+      />
+
+      {/* 10. Bottom Enquiry */}
       <BottomCtaBanner
-        theme="influencer"
-        heading="Ready To Launch High-Impact Creator Campaigns?"
-        description="Partner with EON8 to shortlist high-engagement creators, produce authentic content, and track measurable ROI."
+        theme="nft"
+        heading="Build An Engaged, High-Retention Community"
+        description="Connect with EON8's Reddit and Discord community architects to turn passive members into loyal brand advocates."
       />
     </div>
   );

@@ -157,7 +157,7 @@ export function PolicyPage({ slug }: PolicyPageProps) {
             <article className="space-y-6">{renderBlocks(data.blocks)}</article>
           )}
 
-          {data.layout === 'elementor-delivery' && data.delivery && (
+          {data.layout === 'split-delivery' && data.delivery && (
             <article className="space-y-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-2xl bg-card border border-border p-6 sm:p-8 shadow-sm">
                 <div className="lg:col-span-7 space-y-4">

@@ -35,7 +35,7 @@ export interface PolicyData {
   title: string;
   metaTitle: string;
   metaDesc: string;
-  layout: 'privacy-standard' | 'security-blocks' | 'elementor-delivery';
+  layout: 'privacy-standard' | 'security-blocks' | 'split-delivery';
   blocks?: PolicyBlock[];
   delivery?: PolicyDeliveryContent;
 }
@@ -591,7 +591,7 @@ export const policyPagesData: Record<string, PolicyData> = {
     metaTitle: 'Delivery Policy Details and Service Terms Guide | Eon8',
     metaDesc:
       'The delivery policy is committed to delivering the promised Digital marketing services as per the best quality package chosen by the client. EON8 is aimed at',
-    layout: 'elementor-delivery',
+    layout: 'split-delivery',
     delivery: {
       intro:
         'The delivery policy is committed to delivering the promised Digital marketing services as per the best quality package chosen by the client. EON8 is aimed at delivering time-efficient and reliable marketing services within the stipulated time.',

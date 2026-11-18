@@ -15,6 +15,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   - Added **SEO & SERP Suite** with custom URL slug conflict validation, custom meta title & description, OpenGraph image overrides, live Google SERP snippet preview, auto word-count/read-time calculation, and a 7-point SEO Readiness score.
   - Built self-contained Node API middleware (`server/cmsApi.ts` mounted in `vite.config.ts` for `npm run dev` / `npm run preview` and `server/prodServer.ts` for `npm start`) behind a provider adapter (`src/lib/cms/provider.ts`) with ready-to-run `supabase/schema.sql` for future Supabase migration.
 
+### Fixed & Refactored
+- **Wired ChatGPT Ads Agency Audit & Package Modal (`src/pages/chatgpt/ChatgptAdsAgencyPage.tsx`)**:
+  - Connected `handleAuditSubmit` to `submitLeadEnquiry()` with email/WhatsApp capture plus instant webhook delivery, pre-filled WhatsApp/mailto handoff, and `/thank-you` link.
+- **Removed Remaining Scraper `"Elementor"` Naming & Hex Widget IDs**:
+  - Renamed `ElementorInfluencerPage.tsx` -> `CreatorPlatformPage.tsx` (`creatorPlatformData.ts`), `ElementorNftPage.tsx` -> `CommunityGrowthPage.tsx` (`src/pages/nft/data/community/`), and `'elementor-delivery'` -> `'split-delivery'` in `PolicyPage.tsx` / `policyPagesData.ts`, stripping all dead `elementorPageClass`, `widgetId`, `colId`, `headingWidgetId`, and `textWidgetId` scraper metadata.
+
 ---
 
 ## [3.2.0] - 2026-11-18
