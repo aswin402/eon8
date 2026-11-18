@@ -48,7 +48,7 @@ export const mobileSeoAgencyEon8SeoServicesData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "Core Pillars of Our Mobile SEO Strategy",
       "cards": [
         {
           "title": "1. Mobile Technical Optimization",
@@ -57,7 +57,8 @@ export const mobileSeoAgencyEon8SeoServicesData: ServicePageData = {
             "Ensure responsive design on all screen sizes",
             "Fix mobile usability issues flagged by Google",
             "Optimize navigation and layout for faster browsing"
-          ]
+          ],
+          "description": "Core Web Vitals, responsive viewports, fast server response, and clean mobile crawlability."
         },
         {
           "title": "2. Search Performance Enhancement",
@@ -66,7 +67,8 @@ export const mobileSeoAgencyEon8SeoServicesData: ServicePageData = {
             "On-page optimization including titles, headers, meta tags",
             "Structured data implementation for rich results",
             "Local SEO alignment for better nearby visibility"
-          ]
+          ],
+          "description": "Structured schema markup, voice-search readiness, and mobile SERP click-through optimization."
         },
         {
           "title": "3. Content Alignment with Mobile Behavior",
@@ -74,7 +76,8 @@ export const mobileSeoAgencyEon8SeoServicesData: ServicePageData = {
             "Craft mobile-friendly messaging",
             "Use engaging content formats",
             "Align content with voice search trends"
-          ]
+          ],
+          "description": "Scannable mobile-first layouts, concise answers, and tap-friendly conversion CTAs."
         },
         {
           "title": "4. Analytics and Conversion Tracking",
@@ -82,7 +85,8 @@ export const mobileSeoAgencyEon8SeoServicesData: ServicePageData = {
             "Monitor clicks, scroll depth, and conversions",
             "Identify drop-off points",
             "Optimize high-impact pages"
-          ]
+          ],
+          "description": "Granular mobile funnel attribution tracking calls, WhatsApp taps, app installs, and sales."
         },
         {
           "title": "Improve Rankings in Mobile Search",

@@ -15,7 +15,7 @@ export const socialArSolutionsData: ServicePageData = {
     "bullets": [],
     "actions": [
       {
-        "label": "Talk with out Experts",
+        "label": "Talk with our Experts",
         "href": "/contact",
         "opensModal": false,
         "external": false,
@@ -41,8 +41,17 @@ export const socialArSolutionsData: ServicePageData = {
     {
       "type": "split",
       "heading": "Enhancing User Engagement with Social AR",
-      "paragraphs": [],
-      "bullets": [],
+      "paragraphs": [
+        [
+          "Static social posts compete for split-second attention, whereas Social AR turns passive scrolling into active participation. By letting users virtually try on products, play branded mini-games, or place 3D objects in their living room, brands achieve dramatically higher share rates and brand recall."
+        ]
+      ],
+      "bullets": [
+        "Virtual try-on lenses for eyewear, cosmetics, fashion, and accessories",
+        "World-facing 3D product visualization directly inside Instagram & Snapchat cameras",
+        "Gamified face & gesture filters engineered for viral user-generated stories",
+        "Real-time analytics tracking impressions, captures, shares, and click-throughs"
+      ],
       "actions": []
     },
     {
@@ -62,49 +71,71 @@ export const socialArSolutionsData: ServicePageData = {
       "subheading": "We harness the power of Social Augmented Reality (AR) to enhance your marketing strategy across industries, driving engagement, brand awareness, and conversions.",
       "cards": [
         {
-          "title": "Real Estate Showcase properties with virtual tours and AR overlays for immersive experiences.",
+          "title": "Real Estate",
           "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-48.png",
-          "iconAlt": "Mask Group 48"
+          "iconAlt": "Real Estate",
+          "description": "Showcase properties with virtual tours and AR overlays for immersive experiences."
         },
         {
-          "title": "Automotive Let customers explore vehicle features and customization through AR visualization.",
+          "title": "Automotive",
           "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-54.png",
-          "iconAlt": "Mask Group 54"
+          "iconAlt": "Automotive",
+          "description": "Let customers explore vehicle features and customization through AR visualization."
         },
         {
-          "title": "Food & Beverage Enhance dining with interactive AR menus and engaging visuals.",
+          "title": "Food & Beverage",
           "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-49.png",
-          "iconAlt": "Mask Group 49"
+          "iconAlt": "Food & Beverage",
+          "description": "Enhance dining with interactive AR menus and engaging visuals."
         },
         {
-          "title": "Sports & Fitness Create interactive fan experiences and enhance live events with AR.",
+          "title": "Sports & Fitness",
           "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-55.png",
-          "iconAlt": "Mask Group 55"
+          "iconAlt": "Sports & Fitness",
+          "description": "Create interactive fan experiences and enhance live events with AR."
         },
         {
-          "title": "Technology & Startups Demonstrate innovative products with engaging AR visual experiences.",
+          "title": "Technology & Startups",
           "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-50.png",
-          "iconAlt": "Mask Group 50"
+          "iconAlt": "Technology & Startups",
+          "description": "Demonstrate innovative products with engaging AR visual experiences."
         },
         {
-          "title": "Home Decor Let customers preview furniture and decor in their space before buying.",
+          "title": "Home Decor",
           "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-56.png",
-          "iconAlt": "Mask Group 56"
+          "iconAlt": "Home Decor",
+          "description": "Let customers preview furniture and decor in their space before buying."
         }
       ],
       "columns": 3,
       "actions": []
     },
     {
-      "type": "split",
+      "type": "process",
       "heading": "Process Behind Our Social Media AR Magic",
-      "paragraphs": [
-        [
-          "We create engaging Social Media AR experiences that bring brands to life through a structured, step-by-step process."
-        ]
-      ],
-      "bullets": [],
-      "actions": []
+      "subheading": "We create engaging Social Media AR experiences that bring brands to life through a structured 4-step workflow.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Creative Concept & UX Flow",
+          "description": "Define campaign goals, user gestures, camera triggers, and shareable hooks aligned with your brand."
+        },
+        {
+          "step": "02",
+          "title": "3D Modeling & Shader Art",
+          "description": "Craft lightweight, photorealistic 3D assets, textures, and animations optimized for mobile GPUs."
+        },
+        {
+          "step": "03",
+          "title": "AR Filter Engineering & QA",
+          "description": "Build and test across Instagram, Snapchat Lens Studio, and TikTok Effect House for smooth tracking."
+        },
+        {
+          "step": "04",
+          "title": "Launch, Creator Seeding & Tracking",
+          "description": "Publish effects, amplify reach with creators, and monitor opens, captures, shares, and conversions."
+        }
+      ]
     },
     {
       "type": "faq",

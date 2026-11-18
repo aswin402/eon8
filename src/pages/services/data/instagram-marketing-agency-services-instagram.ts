@@ -122,20 +122,27 @@ export const instagramMarketingAgencyServicesInstagramData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "Get the Most Out of Your Instagram Marketing Campaign",
       "subheading": "We help your brand become top-of-mind by building brand awareness to set you apart from the competition.",
       "cards": [
         {
-          "title": "Get the Most Out of Your Instagram Marketing Campaign"
+          "title": "Increase Brand Awareness",
+          "description": "Keep your brand top-of-mind with thumb-stopping Reels, carousels, and visual storytelling."
         },
         {
-          "title": "Increase Awareness",
-          "description": "We help your brand become top-of-mind by building brand awareness to set you apart from the competition. Engage and interact with your prospective customers through quality content that attracts likes, shares, and comments. We convert your Instagram audience into prospective customers to download your app or proceed to your website for shopping.",
-          "iconSrc": "/wp-content/uploads/2022/05/increase-awareness.svg",
-          "iconAlt": "crypto market attract"
+          "title": "Grow Authentic Followers",
+          "description": "Build a loyal community of engaged followers who actively interact with and share your content."
+        },
+        {
+          "title": "Creator & Influencer Collaborations",
+          "description": "Tap into trusted niche creators to expand reach and social proof across target demographics."
+        },
+        {
+          "title": "Drive Website & Shop Sales",
+          "description": "Convert engagement into measurable leads, product tag clicks, and direct checkout revenue."
         }
       ],
-      "columns": 2,
+      "columns": 4,
       "actions": []
     },
     {
@@ -305,7 +312,7 @@ export const instagramMarketingAgencyServicesInstagramData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "Overview & Capabilities",
+      "heading": "Your Trusted Global Instagram Marketing Partner",
       "paragraphs": [
         [
           "Eon8 is a trusted choice for Instagram marketing worldwide. As your Instagram marketing partner, you can rely on us to achieve your social media goals. Instagram advertising has never been so easy, and our in-house marketing experts devise the best solutions for your digital growth."

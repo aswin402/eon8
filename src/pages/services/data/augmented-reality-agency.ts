@@ -15,7 +15,7 @@ export const augmentedRealityAgencyData: ServicePageData = {
     "bullets": [],
     "actions": [
       {
-        "label": "Talk with out Experts",
+        "label": "Talk with our Experts",
         "href": "/contact",
         "opensModal": false,
         "external": false,

@@ -45,11 +45,8 @@ export const amazonMarketingServiceAgencyChennaiData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "How We Obtain Results on Amazon",
       "cards": [
-        {
-          "title": "How we obtain results"
-        },
         {
           "title": "Strong Strategy",
           "description": "We formulate and deliver adept Amazon marketing strategies."
@@ -63,7 +60,7 @@ export const amazonMarketingServiceAgencyChennaiData: ServicePageData = {
           "description": "Our goal is to boost your sales and grow your business. At EON8 we always deliver."
         }
       ],
-      "columns": 4,
+      "columns": 3,
       "actions": [
         {
           "label": "Strong Strategy",
@@ -162,7 +159,7 @@ export const amazonMarketingServiceAgencyChennaiData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "Overview & Capabilities",
+      "heading": "Full-Service Amazon Storefront & Advertising Mastery",
       "paragraphs": [],
       "bullets": [
         "Meet performance-based requirements to appear in the prime listing as an Amazon seller.",

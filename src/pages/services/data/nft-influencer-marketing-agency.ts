@@ -16,36 +16,64 @@ export const nftInfluencerMarketingAgencyData: ServicePageData = {
   },
   "sections": [
     {
-      "type": "split",
-      "heading": "Brand's we offered service for",
-      "paragraphs": [],
-      "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/09/big-bazaar.png",
-      "imageAlt": "Brand's we offered service for",
-      "actions": []
+      "type": "logo-marquee",
+      "heading": "Brands We Have Scaled",
+      "logos": [
+        {
+          "src": "/wp-content/uploads/2026/06/vlcc.webp",
+          "alt": "VLCC"
+        },
+        {
+          "src": "/wp-content/uploads/2026/06/tvs.webp",
+          "alt": "TVS"
+        },
+        {
+          "src": "/wp-content/uploads/2026/06/shell.webp",
+          "alt": "Shell"
+        },
+        {
+          "src": "/wp-content/uploads/2026/06/apollo.webp",
+          "alt": "Apollo Hospitals"
+        },
+        {
+          "src": "/wp-content/uploads/2026/06/ibm.webp",
+          "alt": "IBM"
+        },
+        {
+          "src": "/wp-content/uploads/2026/06/mcdelivery.webp",
+          "alt": "McDonald's"
+        },
+        {
+          "src": "/wp-content/uploads/2026/06/poorvika.webp",
+          "alt": "Poorvika Mobiles"
+        },
+        {
+          "src": "/wp-content/uploads/2026/06/ramraj.webp",
+          "alt": "Ramraj Cotton"
+        }
+      ]
     },
     {
-      "type": "feature-grid",
-      "heading": "Key Highlights",
-      "cards": [
+      "type": "stats",
+      "heading": "Our Global Web3 Creator Network in Numbers",
+      "stats": [
         {
-          "title": "20k+",
-          "description": "Registered influencers"
+          "value": "20k+",
+          "label": "Registered Influencers"
         },
         {
-          "title": "63+",
-          "description": "Brands"
+          "value": "63+",
+          "label": "Web3 Brands Scaled"
         },
         {
-          "title": "250+",
-          "description": "successful Campaigns"
+          "value": "250+",
+          "label": "Successful Campaigns"
         },
         {
-          "title": "Countless Content Created"
+          "value": "5000+",
+          "label": "Creator Content Pieces"
         }
-      ],
-      "columns": 4,
-      "actions": []
+      ]
     },
     {
       "type": "split",

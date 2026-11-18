@@ -195,22 +195,28 @@ export const reputationManagementServicesData: ServicePageData = {
       "heading": "Why Choose EON8 for Reputation Management?",
       "cards": [
         {
-          "title": "✔ Proactive Monitoring – We prevent issues before they escalate"
+          "title": "Proactive Monitoring",
+          "description": "We prevent issues before they escalate"
         },
         {
-          "title": "✔ Ethical Strategies – White-hat methods aligned with platform guidelines"
+          "title": "Ethical Strategies",
+          "description": "White — hat methods aligned with platform guidelines"
         },
         {
-          "title": "✔ Customized Approach – No one-size-fits-all solutions"
+          "title": "Customized Approach",
+          "description": "No one — size — fits — all solutions"
         },
         {
-          "title": "✔ Data-Backed Decisions – Insights driven by analytics"
+          "title": "Data",
+          "description": "Backed Decisions — Insights driven by analytics"
         },
         {
-          "title": "✔ Fast Response Team – Swift action during critical situations"
+          "title": "Fast Response Team",
+          "description": "Swift action during critical situations"
         },
         {
-          "title": "✔Long-Term Brand Building – Sustainable and strategic reputation growth"
+          "title": "Long",
+          "description": "Term Brand Building — Sustainable and strategic reputation growth"
         }
       ],
       "columns": 3,

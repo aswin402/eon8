@@ -159,7 +159,13 @@ export type SemanticServiceSection =
       type: 'pricing-matrix';
       heading: string;
       subheading?: string;
-      tiers: { name: string; highlighted?: boolean }[];
+      tiers: {
+        name: string;
+        price?: string;
+        subtitle?: string;
+        highlighted?: boolean;
+        ctaLabel?: string;
+      }[];
       rows: PricingRowItem[];
       footnote?: string;
     }

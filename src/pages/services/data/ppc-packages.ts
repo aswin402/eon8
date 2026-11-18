@@ -85,26 +85,21 @@ export const ppcPackagesData: ServicePageData = {
       "tiers": [
         {
           "name": "Basic",
-          "highlighted": false
+          "highlighted": false,
+          "price": "$199/mo"
         },
         {
           "name": "Advance",
-          "highlighted": true
+          "highlighted": true,
+          "price": "$299/mo"
         },
         {
           "name": "Premium",
-          "highlighted": false
+          "highlighted": false,
+          "price": "$399/mo"
         }
       ],
       "rows": [
-        {
-          "feature": "199$",
-          "values": [
-            "299$",
-            "399$",
-            ""
-          ]
-        },
         {
           "feature": "AD Groups",
           "values": [

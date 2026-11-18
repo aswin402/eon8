@@ -84,7 +84,7 @@ export const videoCreationMarketingServiceChennaiData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "VIDEO MARKETING",
+      "heading": "End-to-End Video Creation & Marketing",
       "paragraphs": [
         [
           "There are certain phases that we have to take our video content through to optimize it to the best potential. Firstly, we see your business and brand from within to exactly understand what you offer to your customers, how it adds value to them, how you pose a competition to other competitors etc to market our video content. We then move on to external factors like market, customers and various obstacles for your brand’s content engagement."
@@ -102,25 +102,45 @@ export const videoCreationMarketingServiceChennaiData: ServicePageData = {
           "When you choose video marketing services from our online video marketing company, we’ll help you with all aspects of your company’s video creation from start to finish, including:"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Corporate brand films & company profile videos",
+        "Animated 2D/3D product explainers & SaaS walkthroughs",
+        "High-converting Instagram Reels, YouTube Ads & social shorts",
+        "Customer testimonial, event & launch highlight reels"
+      ],
       "actions": []
     },
     {
-      "type": "feature-grid",
-      "heading": "Key Highlights",
-      "subheading": "We create video scripts that are professional and instantly enthrall potential customers when distributed among targeted audience",
-      "cards": [
+      "type": "process",
+      "heading": "Our Video Production Workflow",
+      "subheading": "From initial creative spark to multi-platform launch.",
+      "steps": [
         {
-          "title": "OUR WORKFLOW"
+          "step": "01",
+          "title": "Discovery & Creative Brief",
+          "description": "Align on your brand message, target audience, funnel stage, and distribution channels."
         },
         {
-          "title": "Script copywriting",
-          "description": "We create video scripts that are professional and instantly enthrall potential customers when distributed among targeted audience We make sure to bring a jaw-dropping output with our expert designers who tailor according to client’s needs Our team of professionals reaches the brand videos to the audience whom the client wishes to target.",
-          "iconSrc": "/wp-content/themes/eon8/assets/svg/script.svg"
+          "step": "02",
+          "title": "Script Copywriting",
+          "description": "Craft persuasive scripts and hooks tailored to hold viewer attention and inspire action."
+        },
+        {
+          "step": "03",
+          "title": "Storyboarding & Visual Direction",
+          "description": "Map scene-by-scene visuals, brand styling, voiceover tone, and motion pacing."
+        },
+        {
+          "step": "04",
+          "title": "Production, Animation & Editing",
+          "description": "Execute filming or 2D/3D/AI animation, color grading, sound design, and captions."
+        },
+        {
+          "step": "05",
+          "title": "Platform Optimization & Promotion",
+          "description": "Deliver aspect-ratio-optimized cuts for YouTube, Instagram, LinkedIn, and paid ad campaigns."
         }
-      ],
-      "columns": 2,
-      "actions": []
+      ]
     },
     {
       "type": "split",

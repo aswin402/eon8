@@ -28,28 +28,22 @@ export const socialMediaManagementAgencyChennaiData: ServicePageData = {
   },
   "sections": [
     {
-      "type": "feature-grid",
-      "heading": "Key Highlights",
-      "cards": [
-        {
-          "title": "Why Your Business Needs the Best Social Media Management Company",
-          "description": "Social media is no longer just about posting images or writing captions. It’s a complete growth engine."
-        },
-        {
-          "title": "What Social Media Really Means Today",
-          "bullets": [
-            "Brand positioning",
-            "Community building",
-            "Performance marketing",
-            "Data-driven content",
-            "Conversion optimization",
-            "Audience psychology",
-            "Low engagement",
-            "Inconsistent branding"
-          ]
-        }
+      "type": "split",
+      "heading": "Why Your Business Needs the Best Social Media Management Company",
+      "paragraphs": [
+        [
+          "Social media is no longer just about posting occasional updates — it is where modern customers discover brands, validate credibility, interact with founders, and make purchase decisions."
+        ],
+        [
+          "At EON8, our dedicated social media strategists, designers, short-form video editors, and paid media specialists manage your daily presence end to end so your brand stays consistent, culturally relevant, and conversion-ready."
+        ]
       ],
-      "columns": 2,
+      "bullets": [
+        "Platform-native content calendars across Instagram, LinkedIn, X, Facebook & YouTube",
+        "High-retention Reels, motion graphics & carousel storytelling",
+        "Active community management, DM automation & reputation monitoring",
+        "ROI-focused paid social amplification & lead generation"
+      ],
       "actions": []
     },
     {
@@ -181,18 +175,36 @@ export const socialMediaManagementAgencyChennaiData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "Industries We Serve",
       "cards": [
         {
-          "title": "Industries We Serve",
-          "description": "We work with brands across multiple industries to deliver scalable growth and high-quality leads."
+          "title": "Retail, Fashion & D2C eCommerce",
+          "description": "Shoppable Reels, creator seeding, and catalog campaigns that drive direct store orders."
         },
         {
-          "title": "Manufacturing & Engineering"
+          "title": "Healthcare, Clinics & Wellness",
+          "description": "Patient-trust educational content, doctor spotlights, and local appointment funnels."
+        },
+        {
+          "title": "Real Estate & Hospitality",
+          "description": "Virtual property walkthroughs, lifestyle reels, and hyper-targeted lead generation."
+        },
+        {
+          "title": "SaaS, IT & B2B Enterprises",
+          "description": "Executive thought leadership, LinkedIn demand generation, and product storytelling."
+        },
+        {
+          "title": "Education & EdTech",
+          "description": "Student community building, admission campaigns, and alumni success stories."
+        },
+        {
+          "title": "Manufacturing & Engineering",
+          "description": "Industrial brand authority, capability showcases, and B2B distributor outreach."
         }
       ],
-      "columns": 2,
-      "actions": []
+      "columns": 3,
+      "actions": [],
+      "subheading": "Tailored social media strategies across B2B, D2C, and enterprise verticals."
     },
     {
       "type": "split",

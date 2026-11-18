@@ -107,7 +107,7 @@ export const linkBuildingServicesForHighRankingsData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "Our 5-Step White-Hat Link Building Process",
       "cards": [
         {
           "title": "Competitor Backlink Analysis",
@@ -171,34 +171,24 @@ export const linkBuildingServicesForHighRankingsData: ServicePageData = {
       "heading": "Types of Backlinks We Build",
       "cards": [
         {
-          "title": "1.Guest Post Backlinks"
+          "title": "1. Guest Post Backlinks",
+          "description": "High-authority guest posts published on niche-relevant websites."
         },
         {
-          "title": "High-authority guest posts published on niche-relevant websites."
+          "title": "2. Editorial Links",
+          "description": "Naturally earned contextual links placed within real content."
         },
         {
-          "title": "2.Editorial Links"
+          "title": "3. Niche Edits",
+          "description": "Strategic placements in existing high-performing articles."
         },
         {
-          "title": "Naturally earned contextual links placed within real content."
+          "title": "4. Resource Page Links",
+          "description": "Placement in curated industry resource lists."
         },
         {
-          "title": "3.Niche Edits"
-        },
-        {
-          "title": "Strategic placements in existing high-performing articles."
-        },
-        {
-          "title": "4.Resource Page Links"
-        },
-        {
-          "title": "Placement in curated industry resource lists."
-        },
-        {
-          "title": "5.Digital PR Links"
-        },
-        {
-          "title": "Brand mentions from news and media websites."
+          "title": "5. Digital PR Links",
+          "description": "Brand mentions from news and media websites."
         }
       ],
       "columns": 3,
@@ -217,34 +207,27 @@ export const linkBuildingServicesForHighRankingsData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "Why High-Authority Backlinks Matter",
       "cards": [
         {
-          "title": "1.Higher Search Engine Rankings",
+          "title": "1. Higher Search Engine Rankings",
           "description": "Backlinks directly influence SERP positions."
         },
         {
-          "title": "2.Increased Organic Traffic",
+          "title": "2. Increased Organic Traffic",
           "description": "Authority links increase visibility for competitive keywords."
         },
         {
-          "title": "3.Stronger Domain Authority",
+          "title": "3. Stronger Domain Authority",
           "description": "High DA links improve your website credibility."
         },
         {
-          "title": "4.Better Brand Recognition",
+          "title": "4. Better Brand Recognition",
           "description": "Being featured on respected platforms builds trust."
         },
         {
-          "title": "5.Long-Term SEO Growth",
+          "title": "5. Long-Term SEO Growth",
           "description": "Unlike paid ads, backlinks provide compounding value."
-        },
-        {
-          "title": "Black Hat Practices (Risky)",
-          "description": "These may give short-term results but risk Google penalties."
-        },
-        {
-          "title": "White Hat Practices (Safe & Scalable)"
         }
       ],
       "columns": 3,

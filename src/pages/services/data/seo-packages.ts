@@ -77,26 +77,21 @@ export const seoPackagesData: ServicePageData = {
       "tiers": [
         {
           "name": "Basic",
-          "highlighted": false
+          "highlighted": false,
+          "price": "$250/mo"
         },
         {
           "name": "Advance",
-          "highlighted": true
+          "highlighted": true,
+          "price": "$350/mo"
         },
         {
           "name": "Premium",
-          "highlighted": false
+          "highlighted": false,
+          "price": "$650/mo"
         }
       ],
       "rows": [
-        {
-          "feature": "250$",
-          "values": [
-            "350$",
-            "650$",
-            ""
-          ]
-        },
         {
           "feature": "Keywords",
           "values": [

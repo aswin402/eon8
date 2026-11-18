@@ -45,28 +45,31 @@ export const amazonSeoConsultantsData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "Our Well-Crafted Amazon SEO Services",
       "cards": [
         {
-          "title": "Our well-crafted Amazon SEO services"
+          "title": "Amazon Product Description SEO",
+          "description": "Keyword-rich A+ copywriting that informs shoppers and boosts Amazon A9/A10 rankings."
         },
         {
-          "title": "Expert SEOs for Amazon Product Description"
+          "title": "Headline & Title Optimization",
+          "description": "High-CTR product titles structured with primary search terms, attributes, and benefits."
         },
         {
-          "title": "Headline Optimization"
+          "title": "Amazon Paid Promotions (PPC)",
+          "description": "Sponsored Products, Sponsored Brands, and Sponsored Display campaigns engineered for low ACoS."
         },
         {
-          "title": "Amazon Paid Promotions"
+          "title": "Backend & High-Intent Keyword Strategy",
+          "description": "Deep competitor ASIN reverse-engineering and backend search-term indexing."
         },
         {
-          "title": "Strong Amazon Keyword Strategy"
+          "title": "Competitive Price Optimization",
+          "description": "Buy-Box and margin-aware pricing intelligence calibrated to buyer conversion trends."
         },
         {
-          "title": "Price Optimization"
-        },
-        {
-          "title": "Ad Spend"
+          "title": "Ad Spend & TACoS Efficiency",
+          "description": "Disciplined budget allocation maximizing organic rank lift alongside profitable ad returns."
         }
       ],
       "columns": 3,

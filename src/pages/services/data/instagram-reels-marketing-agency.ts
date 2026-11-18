@@ -33,24 +33,26 @@ export const instagramReelsMarketingAgencyData: ServicePageData = {
   },
   "sections": [
     {
-      "type": "feature-grid",
+      "type": "stats",
       "heading": "1250",
-      "cards": [
+      "stats": [
         {
-          "title": "Projects Completed"
+          "value": "1250+",
+          "label": "Projects Completed"
         },
         {
-          "title": "Our Happy Clients"
+          "value": "548+",
+          "label": "Our Happy Clients"
         },
         {
-          "title": "Years of Experience"
+          "value": "12+",
+          "label": "Years of Experience"
         },
         {
-          "title": "Development Experts"
+          "value": "250+",
+          "label": "Growth Specialists"
         }
-      ],
-      "columns": 4,
-      "actions": []
+      ]
     },
     {
       "type": "logo-marquee",

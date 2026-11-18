@@ -117,7 +117,7 @@ export const socialMediaMarketingCompanyChennaiData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "Overview & Capabilities",
+      "heading": "Turning Social Attention Into Measurable Business Growth",
       "paragraphs": [
         [
           "One of the most common problems for the majority of the small and medium scale businesses is they hardly have investments to run their business. In such cases, hiring a social media marketing agency for small business can help your startup in competing with the business tycoons."

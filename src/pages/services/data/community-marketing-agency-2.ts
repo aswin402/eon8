@@ -25,13 +25,50 @@ export const communityMarketingAgency2Data: ServicePageData = {
   },
   "sections": [
     {
-      "type": "split",
+      "type": "logo-marquee",
       "heading": "We Helped Our Clients Take Their Biggest Step",
-      "paragraphs": [],
-      "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/11/street-race.png",
-      "imageAlt": "1",
-      "actions": []
+      "logos": [
+        {
+          "src": "/wp-content/uploads/2022/11/street-race.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/rebe-world.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/cryptorus.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/voganyangs.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/ths-logo.png",
+          "alt": "Web3 Client Partner"
+        }
+      ]
     },
     {
       "type": "split",
@@ -45,24 +82,26 @@ export const communityMarketingAgency2Data: ServicePageData = {
       "actions": []
     },
     {
-      "type": "feature-grid",
-      "heading": "Key Highlights",
-      "cards": [
+      "type": "stats",
+      "heading": "Proven Track Record Across Global Brands",
+      "stats": [
         {
-          "title": "1250+ Projects Completed"
+          "value": "1250+",
+          "label": "Projects Completed"
         },
         {
-          "title": "548+ Our Happy Clients"
+          "value": "548+",
+          "label": "Our Happy Clients"
         },
         {
-          "title": "12+ Years of Experience"
+          "value": "12+",
+          "label": "Years of Experience"
         },
         {
-          "title": "250+ Development Experts"
+          "value": "250+",
+          "label": "Growth Specialists"
         }
-      ],
-      "columns": 4,
-      "actions": []
+      ]
     }
   ]
 };

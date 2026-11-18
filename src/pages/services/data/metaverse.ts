@@ -44,15 +44,46 @@ export const metaverseData: ServicePageData = {
           "The metaverse offers businesses innovative ways to interact with customers, streamline operations, and create new revenue streams. Here are five key benefits of adopting the metaverse."
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Immersive 3D brand storytelling that boosts customer dwell time and recall",
+        "Global virtual storefronts and showrooms accessible 24/7 from any location",
+        "Interactive virtual product demonstrations and digital twin simulations",
+        "New digital commerce revenue streams via virtual goods, tokens, and loyalty passes",
+        "Borderless virtual events, product launches, and collaborative training hubs"
+      ],
       "actions": []
     },
     {
-      "type": "split",
-      "heading": "What We Can Do for You?",
-      "paragraphs": [],
-      "bullets": [],
-      "actions": []
+      "type": "feature-grid",
+      "heading": "What We Can Do for You in the Metaverse",
+      "subheading": "End-to-end strategy, 3D environment architecture, and interactive activation tailored to your brand.",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "Custom 3D Virtual Worlds",
+          "description": "Bespoke branded environments engineered for high frame rates, spatial audio, and real-time multi-user interaction."
+        },
+        {
+          "title": "Virtual Showrooms & Retail",
+          "description": "Interactive 3D product showcases where customers inspect, customize, and purchase products seamlessly."
+        },
+        {
+          "title": "Metaverse Events & Launches",
+          "description": "Host global keynotes, concerts, exhibitions, and VIP community launches with thousands of concurrent attendees."
+        },
+        {
+          "title": "Avatar & Wearable Design",
+          "description": "Custom 3D avatars, branded digital wearables, and cross-platform identity assets."
+        },
+        {
+          "title": "Web3 & Digital Collectibles",
+          "description": "Optional wallet login, token-gated VIP lounges, and POAP/collectible loyalty rewards."
+        },
+        {
+          "title": "Cross-Platform VR & WebGL",
+          "description": "Accessible across Meta Quest, Apple Vision, desktop browsers, and mobile devices without friction."
+        }
+      ]
     },
     {
       "type": "split",

@@ -38,13 +38,50 @@ export const nftInstagramMarketingAgencyData: ServicePageData = {
   },
   "sections": [
     {
-      "type": "split",
+      "type": "logo-marquee",
       "heading": "We Helped Our Clients Take Their Biggest Step",
-      "paragraphs": [],
-      "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/11/street-race.png",
-      "imageAlt": "1",
-      "actions": []
+      "logos": [
+        {
+          "src": "/wp-content/uploads/2022/11/street-race.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/rebe-world.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/cryptorus.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/voganyangs.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/ths-logo.png",
+          "alt": "Web3 Client Partner"
+        }
+      ]
     },
     {
       "type": "split",

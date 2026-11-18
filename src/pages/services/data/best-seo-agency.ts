@@ -312,9 +312,17 @@ export const bestSeoAgencyData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "SEO Services by Industry​",
-      "paragraphs": [],
-      "bullets": [],
+      "heading": "SEO Services by Industry",
+      "paragraphs": [
+        [
+          "Every industry has distinct buyer search intent, compliance standards, and competitive dynamics. EON8 builds tailored SEO roadmaps for healthcare, eCommerce, SaaS, real estate, education, hospitality, finance, and local multi-location brands."
+        ]
+      ],
+      "bullets": [
+        "Industry-specific keyword & competitor gap intelligence",
+        "Authoritative domain content & E-E-A-T optimization",
+        "Local, national & international search scaling"
+      ],
       "imageSrc": "/wp-content/uploads/2020/10/SEO-by-Industry-eon8.jpg",
       "imageAlt": "SEO by Industry",
       "actions": [

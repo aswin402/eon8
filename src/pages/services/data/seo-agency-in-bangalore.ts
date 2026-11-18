@@ -34,32 +34,38 @@ export const seoAgencyInBangaloreData: ServicePageData = {
   "sections": [
     {
       "type": "split",
-      "heading": "Before",
-      "paragraphs": [],
+      "heading": "Proven Before & After Organic Search Transformations",
+      "paragraphs": [
+        [
+          "See how EON8 transforms stagnant search impressions into #1 Google rankings, compounding organic traffic, and high-converting inbound leads for ambitious brands in Bangalore and across India."
+        ]
+      ],
       "bullets": [],
       "imageSrc": "/wp-content/uploads/2022/10/cake-square-before-1.png",
       "imageAlt": "Before",
       "actions": []
     },
     {
-      "type": "feature-grid",
+      "type": "stats",
       "heading": "1250",
-      "cards": [
+      "stats": [
         {
-          "title": "Projects Completed"
+          "value": "1250+",
+          "label": "Projects Completed"
         },
         {
-          "title": "Our Happy Clients"
+          "value": "548+",
+          "label": "Our Happy Clients"
         },
         {
-          "title": "Years of Experience"
+          "value": "12+",
+          "label": "Years of Experience"
         },
         {
-          "title": "Development Experts"
+          "value": "250+",
+          "label": "Growth Specialists"
         }
-      ],
-      "columns": 4,
-      "actions": []
+      ]
     },
     {
       "type": "logo-marquee",
@@ -128,20 +134,27 @@ export const seoAgencyInBangaloreData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "Get The Most Out Of Your SEO Marketing Campaign",
       "subheading": "Attract more potential customers to your business by making sure they can find your website with increased visibility.",
       "cards": [
         {
-          "title": "Get The Most Out Of Your SEO Marketing Campaign"
+          "title": "Increase Search Visibility",
+          "description": "Capture top page-one positions on Google for high-intent commercial keywords your buyers search daily."
         },
         {
-          "title": "Increase Visibility",
-          "description": "Attract more potential customers to your business by making sure they can find your website with increased visibility. Being ranked on the top of search results will make your brand more credible and help establish authority. SEO is inexpensive when you consider it in the long run. You can also expect a considerable ROI by implementing SEO.",
-          "iconSrc": "/wp-content/uploads/2022/05/increase-awareness.svg",
-          "iconAlt": "crypto market attract"
+          "title": "Drive Qualified Organic Traffic",
+          "description": "Attract ready-to-buy visitors actively researching your products and services in Bangalore and beyond."
+        },
+        {
+          "title": "Build Domain Authority",
+          "description": "Strengthen brand trust through technical excellence, authoritative content, and white-hat backlinks."
+        },
+        {
+          "title": "Compound Long-Term ROI",
+          "description": "Reduce reliance on paid ads with sustainable organic lead flow that compounds month over month."
         }
       ],
-      "columns": 2,
+      "columns": 4,
       "actions": []
     },
     {
@@ -265,7 +278,7 @@ export const seoAgencyInBangaloreData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "Overview & Capabilities",
+      "heading": "Why Partner With EON8 for SEO in Bangalore",
       "paragraphs": [
         [
           "EON8 is a trusted and renowned name in the SEO landscape. You can rely on our services to achieve your marketing goals in no time and without spending much. Our highly experienced experts will devise the perfect solution for your vision."

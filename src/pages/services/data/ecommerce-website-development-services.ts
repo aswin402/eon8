@@ -30,8 +30,8 @@ export const ecommerceWebsiteDevelopmentServicesData: ServicePageData = {
         "variant": "primary"
       },
       {
-        "label": "Whatsapp",
-        "href": "/contact",
+        "label": "WhatsApp Us",
+        "href": "https://wa.me/919042294007",
         "opensModal": false,
         "external": true,
         "variant": "whatsapp"
@@ -71,22 +71,28 @@ export const ecommerceWebsiteDevelopmentServicesData: ServicePageData = {
       "heading": "Why Choose Eon8",
       "cards": [
         {
-          "title": "Every store is custom-built for your brand, audience, and business model."
+          "title": "100% Custom-Built Architecture",
+          "description": "Every store is custom-built for your brand, audience, and business model."
         },
         {
-          "title": "Lightning-fast load times that improve rankings and conversions."
+          "title": "Lightning-Fast Load Times",
+          "description": "Core Web Vitals optimization that improves search rankings and checkout conversions."
         },
         {
-          "title": "PCI compliance, SSL encryption, and robust security practices."
+          "title": "Enterprise-Grade Security",
+          "description": "PCI compliance, SSL encryption, secure payment gateways, and robust data protection."
         },
         {
-          "title": "Optimized UI/UX designed to increase engagement and sales."
+          "title": "Conversion-Focused UI/UX",
+          "description": "Intuitive product discovery, smart filtering, and frictionless checkout journeys."
         },
         {
-          "title": "Continuous updates, maintenance, and expert support after launch."
+          "title": "Dedicated Post-Launch Support",
+          "description": "Continuous updates, performance monitoring, maintenance, and expert support after launch."
         },
         {
-          "title": "Built to scale your business with modern technology and strategy."
+          "title": "Built for Rapid Scale",
+          "description": "Engineered to handle peak festive traffic, large catalogs, and omnichannel integrations."
         }
       ],
       "columns": 3,

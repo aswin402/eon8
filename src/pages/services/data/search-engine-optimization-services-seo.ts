@@ -375,7 +375,7 @@ export const searchEngineOptimizationServicesSeoData: ServicePageData = {
           ]
         },
         {
-          "feature": "Keywords Analysis Reprot",
+          "feature": "Keywords Analysis Report",
           "values": [
             true,
             true,

@@ -27,31 +27,41 @@ export const twitterVerificationServicesData: ServicePageData = {
     {
       "type": "split",
       "heading": "Get a verified badge and drive millions of followers in an instant",
-      "paragraphs": [],
-      "bullets": [],
+      "paragraphs": [
+        [
+          "A verified X (Twitter) presence immediately signals authenticity, protects your brand from impersonation, and elevates trust among customers, journalists, and investors. EON8 handles profile readiness, press authority building, and verification support end to end."
+        ]
+      ],
+      "bullets": [
+        "Complete profile & brand identity compliance audit",
+        "Tier-1 digital PR & notable media coverage support",
+        "Impersonation protection & account security hardening"
+      ],
       "imageSrc": "/wp-content/uploads/2022/10/check.png",
       "imageAlt": "check",
       "actions": []
     },
     {
-      "type": "feature-grid",
+      "type": "stats",
       "heading": "Why Does Your Brand Need a Twitter Verification badge?",
-      "cards": [
+      "stats": [
         {
-          "title": "Projects Completed"
+          "value": "1250+",
+          "label": "Projects Completed"
         },
         {
-          "title": "Our Happy Clients"
+          "value": "548+",
+          "label": "Our Happy Clients"
         },
         {
-          "title": "Years of Experience"
+          "value": "12+",
+          "label": "Years of Experience"
         },
         {
-          "title": "Development Experts"
+          "value": "250+",
+          "label": "Growth Specialists"
         }
-      ],
-      "columns": 4,
-      "actions": []
+      ]
     },
     {
       "type": "callback-banner",

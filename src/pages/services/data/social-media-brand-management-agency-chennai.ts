@@ -71,23 +71,27 @@ export const socialMediaBrandManagementAgencyChennaiData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Our Services",
+      "heading": "What Our Brand Management Delivers",
       "subheading": "We build powerful social media strategies that grow your brand, engage your audience, and drive measurable results.",
       "cards": [
         {
-          "title": "🚀 Brand Positioning",
-          "description": "We craft a strong online identity that connects with your audience like a real relationship — not just a brand presence."
+          "title": "Distinctive Brand Persona",
+          "description": "Create a strong, memorable online voice and visual identity that builds real audience connection."
         },
         {
-          "title": "📊 Transparent Growth Tracking",
-          "description": "Detailed SEO and performance reports help you clearly understand your growth, engagement, and audience behavior."
+          "title": "Transparent Growth Analytics",
+          "description": "Clear weekly and monthly social & SEO performance reports tracking reach, sentiment, and leads."
         },
         {
-          "title": "🎯 Performance-Driven Marketing",
-          "description": "From organic reach to paid campaigns, we focus on strategies that drive real business results — not vanity metrics."
+          "title": "Full-Funnel Paid & Organic Campaigns",
+          "description": "Performance-driven creative campaigns engineered for awareness, community engagement, and sales."
+        },
+        {
+          "title": "Tailored Channel Playbooks",
+          "description": "Customized platform strategies calibrated to your exact industry, buyer persona, and growth targets."
         }
       ],
-      "columns": 3,
+      "columns": 2,
       "actions": []
     },
     {
@@ -116,23 +120,27 @@ export const socialMediaBrandManagementAgencyChennaiData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Our Services",
+      "heading": "What Our Brand Management Delivers",
       "subheading": "We are a top social media brand management company helping you grow, engage, and convert your audience into customers.",
       "cards": [
         {
-          "title": "Create a strong online persona that builds real audience connection."
+          "title": "Distinctive Brand Persona",
+          "description": "Create a strong, memorable online voice and visual identity that builds real audience connection."
         },
         {
-          "title": "Transparent SEO & growth reports to track real performance."
+          "title": "Transparent Growth Analytics",
+          "description": "Clear weekly and monthly social & SEO performance reports tracking reach, sentiment, and leads."
         },
         {
-          "title": "Performance-driven campaigns for awareness, engagement & sales."
+          "title": "Full-Funnel Paid & Organic Campaigns",
+          "description": "Performance-driven creative campaigns engineered for awareness, community engagement, and sales."
         },
         {
-          "title": "Customized strategies tailored to your exact business goals."
+          "title": "Tailored Channel Playbooks",
+          "description": "Customized platform strategies calibrated to your exact industry, buyer persona, and growth targets."
         }
       ],
-      "columns": 4,
+      "columns": 2,
       "actions": []
     },
     {

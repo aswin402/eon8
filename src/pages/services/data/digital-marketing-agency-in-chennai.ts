@@ -215,7 +215,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "Overview & Capabilities",
+      "heading": "Leading 360° Digital Growth Partner in Chennai",
       "paragraphs": [
         [
           "Leading Digital Marketing Agency In today’s advertising world, when it comes to digital marketing, our services are very precise to help you reach the potential customers for the growth of your organization. We as a group of experts are the digital face for your brand on all platforms. As a leading digital marketing agency in Chennai, we support you in each step of building your digital empire. We focus on new customers as well as in retaining the existing ones and make sure that you reach the top position among your competitors."

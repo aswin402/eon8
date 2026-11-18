@@ -122,7 +122,7 @@ export const productListingAdsAgencyData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "High-Impact Google Shopping Ad Formats",
       "cards": [
         {
           "title": "Showcase Shopping Ads",

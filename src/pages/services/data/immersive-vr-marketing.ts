@@ -15,7 +15,7 @@ export const immersiveVrMarketingData: ServicePageData = {
     "bullets": [],
     "actions": [
       {
-        "label": "Talk with out Experts",
+        "label": "Talk with our Experts",
         "href": "/contact",
         "opensModal": false,
         "external": false,
@@ -62,7 +62,7 @@ export const immersiveVrMarketingData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "Why Choose EON8 for Immersive VR Marketing",
       "cards": [
         {
           "title": "Talented VR Technology Professionals",

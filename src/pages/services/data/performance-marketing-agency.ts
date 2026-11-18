@@ -85,7 +85,7 @@ export const performanceMarketingAgencyData: ServicePageData = {
             "text": "Expert Advice:",
             "strong": true
           },
-          "Hire our performance marketing experts and get a chance to work with industry experts and learn from their invaluable inexperience."
+          "Hire our performance marketing experts and get a chance to work with industry specialists and benefit from their invaluable experience."
         ],
         [
           {
@@ -103,20 +103,44 @@ export const performanceMarketingAgencyData: ServicePageData = {
     {
       "type": "feature-grid",
       "heading": "Performance Marketing Services We Include",
-      "subheading": "Leave a lasting impression with expertly crafted native ads content and develop an emotional connection with your target audience.",
+      "subheading": "Full-funnel paid acquisition, organic search, and conversion channels engineered around measurable ROI.",
       "cards": [
         {
-          "title": "Native ads",
-          "description": "Leave a lasting impression with expertly crafted native ads content and develop an emotional connection with your target audience. Maximize the online reach of your products & services and raise awareness with hyper-targeted native ads. Innovate your market revenues with effective, targeted affiliate programs bringing sales and growth opportunities.",
+          "title": "Native Advertising",
+          "description": "Leave a lasting impression with expertly crafted native ad placements that blend seamlessly into editorial feeds and build audience trust.",
           "iconSrc": "/wp-content/uploads/2022/01/perform-mark-agen-native-icon1.png"
         },
         {
-          "title": "Social media",
-          "description": "Generate a wide audience for your business by implementing social media marketing strategies Generate high-quality traffic to your website by reaching relevant audiences with Search Engine Optimization. Instantly reach your prospective clients with highly efficient and optimized search engine marketing campaigns",
-          "iconSrc": "/wp-content/uploads/2022/01/perform-mark-agen-social-icon4.png"
+          "title": "Sponsored Content & Display",
+          "description": "Maximize the online reach of your products and services with hyper-targeted programmatic display and remarketing banners.",
+          "href": "/display-advertising-agency",
+          "ctaLabel": "Explore Display Ads"
+        },
+        {
+          "title": "Affiliate & Partner Programs",
+          "description": "Scale performance revenue through vetted affiliate publishers and creator partners where you pay strictly for verified conversions."
+        },
+        {
+          "title": "Paid Social Media Scaling",
+          "description": "Generate qualified leads and purchases across Meta, Instagram, LinkedIn, X, and YouTube with creative-led audience targeting.",
+          "iconSrc": "/wp-content/uploads/2022/01/perform-mark-agen-social-icon4.png",
+          "href": "/social-media-marketing-company-chennai",
+          "ctaLabel": "Explore Paid Social"
+        },
+        {
+          "title": "Search Engine Optimization (SEO)",
+          "description": "Generate compounding, high-intent organic traffic by ranking at the top of Google for commercial buyer keywords.",
+          "href": "/search-engine-optimization-services-seo",
+          "ctaLabel": "Explore SEO"
+        },
+        {
+          "title": "Search Engine Marketing (PPC)",
+          "description": "Instantly capture ready-to-buy prospects with precision-bid Google Search, Shopping, and Performance Max campaigns.",
+          "href": "/ppc-company-chennai",
+          "ctaLabel": "Explore PPC"
         }
       ],
-      "columns": 2,
+      "columns": 3,
       "actions": []
     },
     {

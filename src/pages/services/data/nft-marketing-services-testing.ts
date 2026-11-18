@@ -38,13 +38,50 @@ export const nftMarketingServicesTestingData: ServicePageData = {
   },
   "sections": [
     {
-      "type": "split",
+      "type": "logo-marquee",
       "heading": "We Helped Our Clients Take Their Biggest Step",
-      "paragraphs": [],
-      "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/11/street-race.png",
-      "imageAlt": "1",
-      "actions": []
+      "logos": [
+        {
+          "src": "/wp-content/uploads/2022/11/street-race.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/rebe-world.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/cryptorus.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/voganyangs.png",
+          "alt": "Web3 Client Partner"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/ths-logo.png",
+          "alt": "Web3 Client Partner"
+        }
+      ]
     },
     {
       "type": "split",
@@ -65,7 +102,11 @@ export const nftMarketingServicesTestingData: ServicePageData = {
     {
       "type": "split",
       "heading": "Our clients love us",
-      "paragraphs": [],
+      "paragraphs": [
+        [
+          "From sold-out NFT collections and 25,000+ whitelist registrations to viral NYC Times Square guerrilla campaigns, Web3 founders trust EON8 to turn ambitious token and NFT launches into global headlines."
+        ]
+      ],
       "bullets": [],
       "imageSrc": "/wp-content/uploads/2022/11/eliot.png",
       "imageAlt": "Our clients love us",
@@ -161,7 +202,11 @@ export const nftMarketingServicesTestingData: ServicePageData = {
     {
       "type": "split",
       "heading": "Influencers that helped us influence",
-      "paragraphs": [],
+      "paragraphs": [
+        [
+          "We partner with 200+ vetted crypto, NFT, and Web3 creators across X (Twitter), YouTube, Discord, and Instagram to spark authentic collector hype and drive qualified mint-day demand."
+        ]
+      ],
       "bullets": [],
       "imageSrc": "/wp-content/uploads/2022/11/nft-influencers.png",
       "imageAlt": "NFT Influencer",
@@ -334,24 +379,99 @@ export const nftMarketingServicesTestingData: ServicePageData = {
       "tiers": [
         {
           "name": "Basic",
-          "highlighted": false
+          "highlighted": false,
+          "price": "$999"
         },
         {
           "name": "Advance",
-          "highlighted": true
+          "highlighted": true,
+          "price": "$3,999"
         },
         {
           "name": "Premium",
-          "highlighted": false
+          "highlighted": false,
+          "price": "$7,999"
         }
       ],
       "rows": [
         {
-          "feature": "$999",
+          "feature": "Community Marketing (Discord & Telegram)",
           "values": [
-            "$3999",
-            "$7999",
-            ""
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "Content Marketing & Copywriting",
+          "values": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "Social Media Growth & Management",
+          "values": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "Organic PR & Media Outreach",
+          "values": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "Paid Content Syndication",
+          "values": [
+            false,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "Web3 Paid Advertising Campaigns",
+          "values": [
+            false,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "NFT Influencer & KOL Amplification",
+          "values": [
+            false,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "Promotional Video Marketing",
+          "values": [
+            false,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "Collector Email Marketing",
+          "values": [
+            false,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "Bounty / Airdrop & Tier-1 Paid PR",
+          "values": [
+            false,
+            false,
+            true
           ]
         }
       ]

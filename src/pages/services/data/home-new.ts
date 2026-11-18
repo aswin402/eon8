@@ -22,8 +22,17 @@ export const homeNewData: ServicePageData = {
     {
       "type": "split",
       "heading": "We believe that the future can be shaped.",
-      "paragraphs": [],
-      "bullets": [],
+      "paragraphs": [
+        [
+          "EON8 spearheads the evolution of decentralized and digital-first brands with end-to-end growth strategies spanning Web3, NFT, Crypto, DeFi, GameFi, and AI-engineered performance marketing."
+        ]
+      ],
+      "bullets": [
+        "Full-stack Web3 & Token Launch Marketing",
+        "Organic Discord, Telegram & Reddit Community Building",
+        "Global KOL, Influencer & Tier-1 Crypto PR Networks",
+        "ROI-Focused Performance & Conversion Architecture"
+      ],
       "actions": []
     },
     {
@@ -50,8 +59,12 @@ export const homeNewData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "IMPRESSIVE IMPRESSIONS",
-      "paragraphs": [],
+      "heading": "Impressive Impressions Across Every Channel",
+      "paragraphs": [
+        [
+          "From guerrilla NYC Times Square activations and viral Twitter Spaces to precision paid media and tier-1 press syndication, our campaigns capture millions of high-intent impressions that convert into active community members and buyers."
+        ]
+      ],
       "bullets": [],
       "imageSrc": "/wp-content/uploads/2022/11/ellipse_bg.png",
       "imageAlt": "IMPRESSIVE IMPRESSIONS",
@@ -59,49 +72,64 @@ export const homeNewData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "PROOF OVER PROMISE",
-      "paragraphs": [],
+      "heading": "Proof Over Promise",
+      "paragraphs": [
+        [
+          "We measure success in verifiable on-chain and off-chain outcomes — daily qualified traffic, whitelist signups, mint-day sell-through, community retention, and return on ad spend rather than vanity metrics."
+        ]
+      ],
       "bullets": [],
       "imageSrc": "/wp-content/uploads/2022/11/proof_bg.png",
       "imageAlt": "PROOF OVER PROMISE",
       "actions": []
     },
     {
-      "type": "split",
-      "heading": "NUMBERS",
-      "paragraphs": [
-        [
-          "Increase in daily website visits"
-        ],
-        [
-          "Return on AD spent"
-        ],
-        [
-          "Mint rate on Mint Day"
-        ],
-        [
-          "Impressions from the stunt campaigns"
-        ],
-        [
-          "Impressions from 25 Twitter Space sessions"
-        ],
-        [
-          "Return on Influencer's budget spent"
-        ]
-      ],
-      "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/11/mint.png",
-      "imageAlt": "NUMBERS",
-      "actions": []
+      "type": "stats",
+      "heading": "Verified Campaign Outcomes",
+      "stats": [
+        {
+          "value": "150%",
+          "label": "Increase in Daily Website Visits"
+        },
+        {
+          "value": "2x+",
+          "label": "Return on Ad Spend (ROAS)"
+        },
+        {
+          "value": "90%",
+          "label": "Mint Rate on Mint Day"
+        },
+        {
+          "value": "5M+",
+          "label": "Impressions From Stunt & Spaces Campaigns"
+        }
+      ]
     },
     {
-      "type": "split",
-      "heading": "OUR CLIENTS ARE FEATURED ON",
-      "paragraphs": [],
-      "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/11/NFT-now-1.png",
-      "imageAlt": "OUR CLIENTS ARE FEATURED ON",
-      "actions": []
+      "type": "logo-marquee",
+      "heading": "Our Clients Are Featured On",
+      "logos": [
+        {
+          "src": "/wp-content/uploads/2022/11/nft-now.png",
+          "alt": "NFT Now"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/cointelegraph.png",
+          "alt": "Cointelegraph"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/OpenSea.png",
+          "alt": "OpenSea"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/logoyahoo.png",
+          "alt": "Yahoo Finance"
+        },
+        {
+          "src": "/wp-content/uploads/2022/11/forbes.png",
+          "alt": "Forbes"
+        }
+      ]
     },
     {
       "type": "split",

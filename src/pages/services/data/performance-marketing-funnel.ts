@@ -92,9 +92,18 @@ export const performanceMarketingFunnelData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "Overview & Capabilities",
-      "paragraphs": [],
-      "bullets": [],
+      "heading": "Data-Driven Performance Marketing Built for Scale",
+      "paragraphs": [
+        [
+          "Every rupee and dollar in your ad budget should be accountable to revenue. EON8 engineers full-funnel paid search, paid social, remarketing, and landing page conversion systems backed by real-time attribution."
+        ]
+      ],
+      "bullets": [
+        "Granular audience segmentation & high-intent keyword bidding",
+        "Rapid A/B testing of ad creatives, hooks & landing pages",
+        "Multi-touch conversion tracking & ROAS optimization",
+        "Transparent weekly performance dashboards"
+      ],
       "imageSrc": "/wp-content/uploads/2022/09/m1.jpg",
       "imageAlt": "m1",
       "actions": []
@@ -164,8 +173,16 @@ export const performanceMarketingFunnelData: ServicePageData = {
     {
       "type": "split",
       "heading": "Performance-Based Digital Marketing That Advances Your Brand",
-      "paragraphs": [],
-      "bullets": [],
+      "paragraphs": [
+        [
+          "We align creative storytelling with rigorous performance analytics so your brand scales customer acquisition predictably across Google, Meta, Instagram, YouTube, LinkedIn, and programmatic networks."
+        ]
+      ],
+      "bullets": [
+        "Dedicated growth strategist & media buying pod",
+        "Conversion-rate-optimized funnel architecture",
+        "Continuous bid, budget & creative optimization"
+      ],
       "imageSrc": "/wp-content/uploads/2022/10/plan.png",
       "imageAlt": "plan",
       "actions": []

@@ -118,18 +118,36 @@ export const erpSoftwareDevelopmentData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "Industries We Serve",
       "cards": [
         {
-          "title": "Industries We Serve",
-          "description": "Eon8 develops ERP software for a wide range of industries, including:"
+          "title": "Manufacturing & Production",
+          "description": "Bill of materials (BOM), shop-floor scheduling, quality control, and supply chain tracking."
         },
         {
-          "title": "Manufacturing and Production"
+          "title": "Retail & Multi-Channel Distribution",
+          "description": "Centralized multi-warehouse inventory, POS sync, vendor replenishment, and order fulfillment."
+        },
+        {
+          "title": "Healthcare & Pharmaceuticals",
+          "description": "Batch traceability, regulatory compliance, procurement, billing, and asset management."
+        },
+        {
+          "title": "Logistics & Fleet Operations",
+          "description": "Dispatch planning, warehouse management, vendor SLAs, and real-time shipment visibility."
+        },
+        {
+          "title": "Construction & Real Estate",
+          "description": "Project costing, contractor billing, material procurement, and milestone tracking."
+        },
+        {
+          "title": "Professional Services & Finance",
+          "description": "Resource allocation, timesheets, automated invoicing, multi-entity accounting, and BI reports."
         }
       ],
-      "columns": 2,
-      "actions": []
+      "columns": 3,
+      "actions": [],
+      "subheading": "EON8 develops tailored ERP platforms engineered around the compliance, inventory, and operational workflows of key industries."
     },
     {
       "type": "feature-grid",

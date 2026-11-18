@@ -29,9 +29,18 @@ export const digitalMarketingForRestaurantsData: ServicePageData = {
   "sections": [
     {
       "type": "split",
-      "heading": "Digital marketing for restaurants",
-      "paragraphs": [],
-      "bullets": [],
+      "heading": "Turn Hungry Local Searchers Into Repeat Guests",
+      "paragraphs": [
+        [
+          "Diners discover where to eat on Google Maps, Instagram Reels, and local review platforms long before they walk through your doors. EON8 helps restaurants, cafes, cloud kitchens, and hospitality groups dominate local search, boost table reservations, and grow direct online orders."
+        ]
+      ],
+      "bullets": [
+        "Google Business Profile & \"near me\" Local SEO dominance",
+        "Mouth-watering Instagram, Facebook & Reels food campaigns",
+        "Online review management & 5-star guest reputation growth",
+        "Direct ordering & seasonal event promotions"
+      ],
       "imageSrc": "/wp-content/uploads/2020/11/Search-Advertising-Services​.jpg",
       "imageAlt": "Search Advertising Services​",
       "actions": []

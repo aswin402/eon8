@@ -25,25 +25,27 @@ export const digitalMarketingForAppStoreData: ServicePageData = {
   },
   "sections": [
     {
-      "type": "feature-grid",
+      "type": "stats",
       "heading": "Results-Oriented App Store Optimization",
       "subheading": "Our App Store Optimization Services are focused on increasing the download rates of your business apps by boosting the visibility and user appeal.",
-      "cards": [
+      "stats": [
         {
-          "title": "Projects Completed"
+          "value": "1250+",
+          "label": "Projects Completed"
         },
         {
-          "title": "Our Happy Clients"
+          "value": "548+",
+          "label": "Our Happy Clients"
         },
         {
-          "title": "Years of Experience"
+          "value": "12+",
+          "label": "Years of Experience"
         },
         {
-          "title": "Development Experts"
+          "value": "250+",
+          "label": "Growth Specialists"
         }
-      ],
-      "columns": 4,
-      "actions": []
+      ]
     },
     {
       "type": "callback-banner",

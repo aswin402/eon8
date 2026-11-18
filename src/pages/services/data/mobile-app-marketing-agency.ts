@@ -25,25 +25,27 @@ export const mobileAppMarketingAgencyData: ServicePageData = {
   },
   "sections": [
     {
-      "type": "feature-grid",
+      "type": "stats",
       "heading": "Insight Driven Performance Marketing Strategy",
       "subheading": "Since performance marketing offers a database that is directly related to your brand’s ROI indicators, it goes beyond simply showing impressions—and as we all know, numbers don’t lie.",
-      "cards": [
+      "stats": [
         {
-          "title": "Projects Completed"
+          "value": "1250+",
+          "label": "Projects Completed"
         },
         {
-          "title": "Our Happy Clients"
+          "value": "548+",
+          "label": "Our Happy Clients"
         },
         {
-          "title": "Years of Experience"
+          "value": "12+",
+          "label": "Years of Experience"
         },
         {
-          "title": "Development Experts"
+          "value": "250+",
+          "label": "Growth Specialists"
         }
-      ],
-      "columns": 4,
-      "actions": []
+      ]
     },
     {
       "type": "callback-banner",
@@ -94,9 +96,18 @@ export const mobileAppMarketingAgencyData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "Overview & Capabilities",
-      "paragraphs": [],
-      "bullets": [],
+      "heading": "Accelerate App Downloads, Ratings & Retention",
+      "paragraphs": [
+        [
+          "Launching an app is only the beginning. EON8 combines App Store Optimization (ASO), Apple Search Ads, Google App Campaigns, and creator UGC video ads to lower your Cost Per Install (CPI) while acquiring high-LTV active users."
+        ]
+      ],
+      "bullets": [
+        "Keyword & conversion optimization for Google Play and iOS App Store",
+        "High-converting video ad creatives & install campaigns",
+        "In-app event tracking, cohort retention & LTV analytics",
+        "Review velocity & app reputation management"
+      ],
       "imageSrc": "/wp-content/uploads/2022/09/m1.jpg",
       "imageAlt": "m1",
       "actions": []
@@ -166,8 +177,16 @@ export const mobileAppMarketingAgencyData: ServicePageData = {
     {
       "type": "split",
       "heading": "Performance-Based Digital Marketing That Advances Your Brand",
-      "paragraphs": [],
-      "bullets": [],
+      "paragraphs": [
+        [
+          "We align creative storytelling with rigorous performance analytics so your brand scales customer acquisition predictably across Google, Meta, Instagram, YouTube, LinkedIn, and programmatic networks."
+        ]
+      ],
+      "bullets": [
+        "Dedicated growth strategist & media buying pod",
+        "Conversion-rate-optimized funnel architecture",
+        "Continuous bid, budget & creative optimization"
+      ],
       "imageSrc": "/wp-content/uploads/2022/10/plan.png",
       "imageAlt": "plan",
       "actions": []

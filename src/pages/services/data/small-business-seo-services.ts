@@ -51,7 +51,7 @@ export const smallBusinessSeoServicesData: ServicePageData = {
     },
     {
       "type": "feature-grid",
-      "heading": "Key Highlights",
+      "heading": "Complete Small Business SEO Framework",
       "cards": [
         {
           "title": "Search-Driven Keyword Strategy",
