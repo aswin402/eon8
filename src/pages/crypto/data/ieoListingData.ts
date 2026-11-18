@@ -14,7 +14,6 @@ export const ieoListingData: IeoListingData = {
       "label": "TALK TO US",
       "href": "/contact",
       "kind": "route",
-      "className": "elementor-button elementor-button-link elementor-size-sm"
     },
     "formHeading": "Reach Out To Us"
   },

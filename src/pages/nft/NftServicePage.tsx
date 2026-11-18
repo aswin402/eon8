@@ -1,26 +1,38 @@
 import { useEffect, useState } from 'react';
-import { NFT_SERVICE_LOADERS } from './data/services';
-import type { NftServicePageData, NftWpSlug } from './types';
-import { NftPageShell } from './components/NftPageShell';
-import { NftHeroBanner, NftStickyOfferButton } from './components/NftHeroBanner';
-import { CryptoClientMarquee } from '../crypto/components/CryptoClientMarquee';
+import {
+  BottomCtaBanner,
+  ClientLogoMarquee,
+  PageSeo,
+  ServiceHeroSection,
+  type ActionItem,
+} from '@/components/sections';
+import { useAppStore } from '@/store/useAppStore';
+import { HeadingLines, RichText } from '../crypto/components/RichText';
 import { NftSectionRenderer } from './components/NftSectionRenderer';
-import { NftBottomEnquirySection } from './components/NftForms';
-import { NftConsultationModal } from './components/NftConsultationModal';
+import { NFT_SERVICE_LOADERS } from './data/services';
+import type { NftCtaButton, NftServicePageData, NftWpSlug } from './types';
 
 interface NftServicePageProps {
   slug: NftWpSlug;
 }
 
-/**
- * Pure React TSX page renderer for all WordPress NFT, Discord & PR service routes.
- */
+function mapNftCta(btn: NftCtaButton): ActionItem {
+  const isWhatsapp = /wa\.link|whatsapp/i.test(btn.href);
+  return {
+    label: btn.label,
+    href: btn.href,
+    opensModal: Boolean(btn.opensModal || btn.href === '#' || btn.href === '#myModal'),
+    external: Boolean(btn.isExternal || isWhatsapp),
+    variant: isWhatsapp ? 'whatsapp' : 'primary',
+  };
+}
+
 export default function NftServicePage({ slug }: NftServicePageProps) {
+  const { setContactModalOpen } = useAppStore();
   const [loaded, setLoaded] = useState<{
     routeSlug: NftWpSlug;
     data: NftServicePageData;
   } | null>(null);
-  const [modalSlug, setModalSlug] = useState<NftWpSlug | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -39,66 +51,97 @@ export default function NftServicePage({ slug }: NftServicePageProps) {
   }, [slug]);
 
   const data = loaded?.routeSlug === slug ? loaded.data : null;
-  const isModalOpen = modalSlug === slug;
-  const openModal = () => setModalSlug(slug);
-  const closeModal = () => setModalSlug(null);
+  const openModal = () => setContactModalOpen(true);
 
   if (!data) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center bg-slate-950 text-white">
-        <div className="h-9 w-9 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
+      <div className="min-h-[60vh] flex items-center justify-center bg-background">
+        <div className="h-9 w-9 animate-spin rounded-full border-4 border-purple-600 border-t-transparent" />
       </div>
     );
   }
 
   return (
-    <NftPageShell slug={slug} title={data.title} description={data.metaDesc}>
-      {data.stickyOffer && (
-        <NftStickyOfferButton
-          image={data.stickyOffer}
-          onOpenModal={openModal}
+    <div className="bg-background text-foreground">
+      <PageSeo title={data.title} description={data.metaDesc} />
+
+      {/* 1. Hero Section */}
+      {data.hero ? (
+        <ServiceHeroSection
+          theme="nft"
+          layout={data.hero.heroForm ? 'split-form' : data.hero.image ? 'split-media' : 'centered'}
+          badge={slug.startsWith('discord') ? 'Discord Community Growth' : 'NFT & Web3 Studio'}
+          heading={<HeadingLines lines={data.hero.headingLines} />}
+          paragraphs={data.hero.paragraphs.map((nodes, idx) => (
+            <RichText key={idx} nodes={nodes} tone="on-dark" />
+          ))}
+          bullets={data.hero.bulletColumns.flat()}
+          actions={data.hero.ctas.map(mapNftCta)}
+          mediaSrc={data.hero.image?.src}
+          mediaAlt={data.hero.image?.alt || data.title}
+          formHeading={data.hero.heroForm?.heading || 'Get Free NFT Proposal'}
+          formSubmitLabel={data.hero.heroForm?.submitLabel || 'Submit'}
+          onCustomModal={openModal}
+        />
+      ) : (
+        <ServiceHeroSection
+          theme="nft"
+          layout="split-form"
+          badge="Free Web3 Strategy Call"
+          heading={data.bottomEnquiry?.heading || data.title}
+          subheading={data.bottomEnquiry?.subheading}
+          paragraphs={[
+            ...(data.bottomEnquiry?.paragraphs || []),
+            ...(data.bottomEnquiry?.trailingParagraphs || []),
+          ].map((nodes, idx) => (
+            <RichText key={idx} nodes={nodes} tone="on-dark" />
+          ))}
+          bullets={data.bottomEnquiry?.bullets || []}
+          formHeading={data.bottomEnquiry?.formHeading || 'Book Free Consultation'}
+          formSubmitLabel={data.bottomEnquiry?.formSubmitLabel || 'Submit'}
+          onCustomModal={openModal}
         />
       )}
 
-      {data.hero && <NftHeroBanner hero={data.hero} onOpenModal={openModal} />}
-
+      {/* 2. Client Brand Marquee */}
       {data.clientSlider && (
-        <CryptoClientMarquee
+        <ClientLogoMarquee
           heading={data.clientSlider.heading}
-          logos={data.clientSlider.logos}
-          variant="nft-slider"
+          logos={data.clientSlider.logos.map((l) => ({ src: l.src, alt: l.name }))}
         />
       )}
 
+      {/* 3. Pure Tailwind NFT & Discord Section Blocks */}
       <NftSectionRenderer sections={data.sections} onOpenModal={openModal} />
 
-      {data.bottomEnquiry && (
-        <NftBottomEnquirySection data={data.bottomEnquiry} onOpenModal={openModal} />
-      )}
-
-      {data.disclaimer && (
-        <section className={data.disclaimer.sectionClass}>
-          <div className="container">
-            <div className="row disc-head">
-              <div className="col-md-12">
-                <div className="claim-box text-center">
-                  <p>{data.disclaimer.text}</p>
-                </div>
+      {/* 4. Bottom Enquiry + Disclaimer (skip duplicate form if hero already rendered bottomEnquiry) */}
+      {data.hero && (
+        <BottomCtaBanner
+          theme="nft"
+          heading={data.bottomEnquiry?.heading || 'Launch & Scale Your Web3 Collection With EON8'}
+          description={
+            data.bottomEnquiry && data.bottomEnquiry.paragraphs.length > 0 ? (
+              <div className="space-y-3">
+                {data.bottomEnquiry.paragraphs.map((nodes, idx) => (
+                  <p key={idx}>
+                    <RichText nodes={nodes} tone="on-dark" />
+                  </p>
+                ))}
               </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {data.hasConsultationModal && (
-        <NftConsultationModal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          variant={data.modalVariant}
-          heading={data.modalHeading}
-          submitLabel={data.modalSubmitLabel}
+            ) : (
+              'Partner with EON8 to build organic community hype, connect with tier-1 Web3 KOLs, and execute sold-out mint campaigns.'
+            )
+          }
+          stats={
+            data.bottomEnquiry?.stats.length
+              ? data.bottomEnquiry.stats
+              : undefined
+          }
+          formHeading={data.bottomEnquiry?.formHeading || 'Reach Out To Us'}
+          submitLabel={data.bottomEnquiry?.formSubmitLabel || 'Schedule Consultation'}
+          disclaimer={data.disclaimer?.text}
         />
       )}
-    </NftPageShell>
+    </div>
   );
 }

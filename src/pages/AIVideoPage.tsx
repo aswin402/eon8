@@ -1,19 +1,15 @@
-import { useState, useEffect, useRef, type CSSProperties, type FormEvent } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft,
   ArrowRight,
-  ArrowUpRight,
   CheckCircle2,
-  ChevronDown,
   Clapperboard,
-  Clock,
   Crosshair,
   FileText,
   Headphones,
   Lightbulb,
   ListChecks,
-  Lock,
   Maximize2,
   MonitorSmartphone,
   Palette,
@@ -28,778 +24,587 @@ import {
   Zap,
   type LucideIcon,
 } from 'lucide-react';
-import { NftCalendlyWidget } from '@/pages/nft/components/NftCalendlyWidget';
-import '@/styles/legacy-eon8.css';
-import '@/styles/legacy-responsive-fixes.css';
-import '@/styles/ai-core-blog-pages.css';
+import {
+  AlternatingSplitSection,
+  BottomCtaBanner,
+  DiscoveryCallSection,
+  FaqAccordionSection,
+  FeatureGridSection,
+  PageSeo,
+  ProcessRoadmapSection,
+  ServiceHeroSection,
+  type FaqItem,
+  type FeatureCardItem,
+  type ProcessStepItem,
+} from '@/components/sections';
 
-const AV_ICON_MAP: Record<string, LucideIcon> = {
-  arrow_forward: ArrowRight,
-  arrow_back: ArrowLeft,
-  arrow_outward: ArrowUpRight,
-  auto_awesome: Sparkles,
-  movie: Clapperboard,
-  play_arrow: Play,
-  bolt: Zap,
-  savings: PiggyBank,
-  palette: Palette,
-  edit_square: SquarePen,
-  groups: Users,
-  group: Users,
-  trending_up: TrendingUp,
-  open_in_full: Maximize2,
-  target: Crosshair,
-  devices: MonitorSmartphone,
-  checklist: ListChecks,
-  description: FileText,
-  task_alt: CheckCircle2,
-  share: Share2,
-  tune: SlidersHorizontal,
-  lightbulb: Lightbulb,
-  support_agent: Headphones,
-  check_circle: CheckCircle2,
-  expand_more: ChevronDown,
-  schedule: Clock,
-  lock: Lock,
-};
-
-function AvIcon({ name, size = 22 }: { name: string; size?: number }) {
-  const Icon = AV_ICON_MAP[name] || Sparkles;
-  return (
-    <span aria-hidden="true" className="ms" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-      <Icon size={size} strokeWidth={2} />
-    </span>
-  );
-}
-
-const EQUALIZER_HEIGHTS = [
-  '34%', '58%', '42%', '76%', '50%', '88%', '62%', '40%', '70%', '96%',
-  '54%', '36%', '66%', '82%', '46%', '60%', '32%', '72%', '52%', '44%',
-];
-
-const WHY_FEATURES = [
+const WHY_FEATURES: FeatureCardItem[] = [
   {
-    icon: 'bolt',
+    icon: Zap,
     title: 'Faster Video Production',
-    desc: 'Produce professional video content within shorter timelines using AI-powered production workflows.',
+    description:
+      'Produce professional video content within shorter timelines using AI-powered production workflows.',
   },
   {
-    icon: 'savings',
+    icon: PiggyBank,
     title: 'Cost-Effective Content Creation',
-    desc: 'Create high-quality business videos while reducing the costs involved in traditional production.',
+    description:
+      'Create high-quality business videos while reducing the costs involved in traditional production.',
   },
   {
-    icon: 'auto_awesome',
+    icon: Sparkles,
     title: 'Professional Visual Quality',
-    desc: 'Use AI-powered visuals, animations, transitions, and storytelling to create engaging content.',
+    description:
+      'Use AI-powered visuals, animations, transitions, and storytelling to create engaging content.',
   },
   {
-    icon: 'palette',
+    icon: Palette,
     title: 'Consistent Brand Messaging',
-    desc: 'Maintain a unified visual style and message across your business video content.',
+    description: 'Maintain a unified visual style and message across your business video content.',
   },
   {
-    icon: 'edit_square',
+    icon: SquarePen,
     title: 'Easy Content Updates',
-    desc: 'Update business information and video content more efficiently when requirements change.',
+    description:
+      'Update business information and video content more efficiently when requirements change.',
   },
   {
-    icon: 'groups',
+    icon: Users,
     title: 'Improved Audience Engagement',
-    desc: 'Communicate your message through engaging visual experiences designed to capture audience attention.',
+    description:
+      'Communicate your message through engaging visual experiences designed to capture audience attention.',
   },
   {
-    icon: 'trending_up',
+    icon: TrendingUp,
     title: 'Better Marketing Performance',
-    desc: 'Support marketing campaigns with compelling visual content that encourages engagement and conversions.',
+    description:
+      'Support marketing campaigns with compelling visual content that encourages engagement and conversions.',
   },
   {
-    icon: 'open_in_full',
+    icon: Maximize2,
     title: 'Scalable Video Production',
-    desc: 'Produce multiple videos for different campaigns, audiences, and business requirements.',
+    description:
+      'Produce multiple videos for different campaigns, audiences, and business requirements.',
   },
   {
-    icon: 'target',
+    icon: Crosshair,
     title: 'Multiple Business Goals',
-    desc: 'Create video content for marketing, branding, training, promotions, social media, and business communication.',
+    description:
+      'Create video content for marketing, branding, training, promotions, social media, and business communication.',
   },
   {
-    icon: 'devices',
+    icon: MonitorSmartphone,
     title: 'Quick Platform Adaptation',
-    desc: 'Adapt video content for websites, social media, presentations, digital campaigns, and other platforms.',
+    description:
+      'Adapt video content for websites, social media, presentations, digital campaigns, and other platforms.',
   },
 ];
 
-const VIDEO_SERVICES = [
+const VIDEO_SERVICES: FeatureCardItem[] = [
   {
+    icon: Sparkles,
     title: 'AI Promotional Videos',
-    desc: 'Promotional videos help businesses introduce products, services, offers, and campaigns in an engaging way. We create visually appealing AI-powered promotional videos that capture attention and encourage customer action.',
+    description:
+      'Promotional videos help businesses introduce products, services, offers, and campaigns in an engaging way. We create visually appealing AI-powered promotional videos that capture attention and encourage customer action.',
   },
   {
+    icon: Clapperboard,
     title: 'AI Product Videos',
-    desc: 'Present your products with attractive videos that highlight important features, benefits, and real-world applications, making it easier for potential customers to understand your offering.',
+    description:
+      'Present your products with attractive videos that highlight important features, benefits, and real-world applications, making it easier for potential customers to understand your offering.',
   },
   {
+    icon: Lightbulb,
     title: 'AI Explainer Videos',
-    desc: 'We create easy-to-understand AI videos that simplify complex ideas and clearly communicate your services, business processes, and unique value.',
+    description:
+      'We create easy-to-understand AI videos that simplify complex ideas and clearly communicate your services, business processes, and unique value.',
   },
   {
+    icon: Share2,
     title: 'AI Social Media Videos',
-    desc: 'Short-form AI-created videos designed to capture attention quickly while delivering your message in a creative and impactful way across digital platforms.',
+    description:
+      'Short-form AI-created videos designed to capture attention quickly while delivering your message in a creative and impactful way across digital platforms.',
   },
   {
+    icon: Users,
     title: 'AI Corporate Videos',
-    desc: 'From company introductions to internal communication and business presentations, we develop AI-powered videos that reflect professionalism and credibility.',
+    description:
+      'From company introductions to internal communication and business presentations, we develop AI-powered videos that reflect professionalism and credibility.',
   },
   {
+    icon: FileText,
     title: 'AI Training Videos',
-    desc: 'Engaging AI-powered training videos simplify learning and help organizations deliver consistent knowledge across teams.',
+    description:
+      'Engaging AI-powered training videos simplify learning and help organizations deliver consistent knowledge across teams.',
   },
   {
+    icon: TrendingUp,
     title: 'AI Marketing Videos',
-    desc: 'Compelling visual content designed to support lead generation, customer engagement, product awareness, and business growth.',
+    description:
+      'Compelling visual content designed to support lead generation, customer engagement, product awareness, and business growth.',
   },
 ];
 
 const VIDEO_SLIDES = [
-  '/wp-content/uploads/2026/10/1-1.mp4#t=0.5',
-  '/wp-content/uploads/2026/10/1-1.mp4#t=0.5',
-  '/wp-content/uploads/2026/10/1-1.mp4#t=0.5',
+  {
+    src: '/wp-content/uploads/2026/10/1-1.mp4#t=0.5',
+    label: 'Brand Storytelling Showreel',
+  },
+  {
+    src: '/wp-content/uploads/2022/10/reels-marketing.mp4',
+    label: 'Social Performance Ad Reel',
+  },
+  {
+    src: '/wp-content/uploads/2022/06/Comp-1_2.mp4',
+    label: 'Product Launch Motion Promo',
+  },
 ];
 
-const PROCESS_STEPS = [
+const PROCESS_STEPS: ProcessStepItem[] = [
   {
-    icon: 'target',
+    step: '01',
+    icon: Crosshair,
     title: 'Understanding Your Business',
-    desc: 'We understand your business objectives, target audience, and marketing goals so the video aligns with your overall strategy.',
+    description:
+      'We understand your business objectives, target audience, and marketing goals so the video aligns with your overall strategy.',
   },
   {
-    icon: 'checklist',
+    step: '02',
+    icon: ListChecks,
     title: 'Content Planning',
-    desc: 'We develop a clear content structure that communicates your message in an engaging and easy-to-understand format.',
+    description:
+      'We develop a clear content structure that communicates your message in an engaging and easy-to-understand format.',
   },
   {
-    icon: 'description',
+    step: '03',
+    icon: FileText,
     title: 'Script Creation',
-    desc: 'Our team prepares professional scripts that match your brand voice while delivering valuable information to your audience.',
+    description:
+      'Our team prepares professional scripts that match your brand voice while delivering valuable information to your audience.',
   },
   {
-    icon: 'movie',
+    step: '04',
+    icon: Clapperboard,
     title: 'AI Video Production',
-    desc: 'We create visuals, animations, transitions, voiceovers, and engaging video sequences using AI-powered workflows.',
+    description:
+      'We create visuals, animations, transitions, voiceovers, and engaging video sequences using AI-powered workflows.',
   },
   {
-    icon: 'task_alt',
+    step: '05',
+    icon: CheckCircle2,
     title: 'Quality Review',
-    desc: 'Every video is reviewed for visual consistency, content accuracy, and professional quality before delivery.',
+    description:
+      'Every video is reviewed for visual consistency, content accuracy, and professional quality before delivery.',
   },
   {
-    icon: 'share',
+    step: '06',
+    icon: Share2,
     title: 'Final Delivery',
-    desc: 'The completed video is optimized for websites, social media, presentations, digital campaigns, and other business platforms.',
+    description:
+      'The completed video is optimized for websites, social media, presentations, digital campaigns, and other business platforms.',
   },
 ];
 
-const WHY_EON8_CHIPS = [
-  { icon: 'tune', label: 'Customized video solutions' },
-  { icon: 'group', label: 'Experienced creative professionals' },
-  { icon: 'lightbulb', label: 'Business-focused storytelling' },
-  { icon: 'movie', label: 'High-quality visual production' },
-  { icon: 'description', label: 'Professional script development' },
-  { icon: 'bolt', label: 'Quick turnaround time' },
-  { icon: 'palette', label: 'Consistent brand communication' },
-  { icon: 'trending_up', label: 'Marketing-oriented content' },
-  { icon: 'open_in_full', label: 'Scalable production capabilities' },
-  { icon: 'support_agent', label: 'Dedicated project support' },
+const WHY_EON8_CHIPS: { icon: LucideIcon; label: string }[] = [
+  { icon: SlidersHorizontal, label: 'Customized video solutions' },
+  { icon: Users, label: 'Experienced creative professionals' },
+  { icon: Lightbulb, label: 'Business-focused storytelling' },
+  { icon: Clapperboard, label: 'High-quality visual production' },
+  { icon: FileText, label: 'Professional script development' },
+  { icon: Zap, label: 'Quick turnaround time' },
+  { icon: Palette, label: 'Consistent brand communication' },
+  { icon: TrendingUp, label: 'Marketing-oriented content' },
+  { icon: Maximize2, label: 'Scalable production capabilities' },
+  { icon: Headphones, label: 'Dedicated project support' },
 ];
 
-const BENEFIT_CARDS = [
+const BENEFIT_CARDS: FeatureCardItem[] = [
   {
+    icon: CheckCircle2,
     title: 'Increase Customer Engagement',
-    desc: 'Video content captures attention more effectively than text or static images, helping businesses connect with their audience.',
+    description:
+      'Video content captures attention more effectively than text or static images, helping businesses connect with their audience.',
   },
   {
+    icon: CheckCircle2,
     title: 'Improve Brand Awareness',
-    desc: 'Professional AI videos strengthen your brand identity and create a memorable experience for viewers.',
+    description:
+      'Professional AI videos strengthen your brand identity and create a memorable experience for viewers.',
   },
   {
+    icon: CheckCircle2,
     title: 'Faster Content Production',
-    desc: 'Produce multiple business videos within shorter timelines without compromising professional quality.',
+    description:
+      'Produce multiple business videos within shorter timelines without compromising professional quality.',
   },
   {
+    icon: CheckCircle2,
     title: 'Cost-Effective Solution',
-    desc: 'AI-powered production helps reduce production costs while maintaining professional standards.',
+    description:
+      'AI-powered production helps reduce production costs while maintaining professional standards.',
   },
   {
+    icon: CheckCircle2,
     title: 'Better Marketing Results',
-    desc: 'Videos can improve campaign performance by increasing engagement, customer interest, and conversions.',
+    description:
+      'Videos can improve campaign performance by increasing engagement, customer interest, and conversions.',
   },
   {
+    icon: CheckCircle2,
     title: 'Consistent Brand Communication',
-    desc: 'Maintain a unified visual style and messaging across all your business videos.',
+    description: 'Maintain a unified visual style and messaging across all your business videos.',
   },
   {
+    icon: CheckCircle2,
     title: 'Easy Content Updates',
-    desc: 'Business information changes over time. AI-generated videos can be updated more efficiently whenever new content is required.',
+    description:
+      'Business information changes over time. AI-generated videos can be updated more efficiently whenever new content is required.',
   },
 ];
 
-const AV_FAQS = [
+const AV_FAQS: FaqItem[] = [
   {
-    q: 'What is AI Video Creation?',
-    a: 'AI Video Creation is the process of using intelligent technology to assist in producing professional business videos more efficiently while maintaining creative quality.',
+    question: 'What is AI Video Creation?',
+    answer:
+      'AI Video Creation is the process of using intelligent technology to assist in producing professional business videos more efficiently while maintaining creative quality.',
   },
   {
-    q: 'What types of videos can EON8 create?',
-    a: 'We create promotional videos, product videos, explainer videos, marketing videos, corporate videos, training videos, social media videos, and customized business videos.',
+    question: 'What types of videos can EON8 create?',
+    answer:
+      'We create promotional videos, product videos, explainer videos, marketing videos, corporate videos, training videos, social media videos, and customized business videos.',
   },
   {
-    q: 'Can AI videos match my brand identity?',
-    a: 'Yes. Every video is customized according to your branding, messaging, style, and business objectives.',
+    question: 'Can AI videos match my brand identity?',
+    answer:
+      'Yes. Every video is customized according to your branding, messaging, style, and business objectives.',
   },
   {
-    q: 'Are AI videos suitable for marketing campaigns?',
-    a: 'Yes. AI-powered videos are highly effective for digital marketing, social media promotions, website content, product launches, and customer engagement campaigns.',
+    question: 'Are AI videos suitable for marketing campaigns?',
+    answer:
+      'Yes. AI-powered videos are highly effective for digital marketing, social media promotions, website content, product launches, and customer engagement campaigns.',
   },
   {
-    q: 'Can videos be created for different industries?',
-    a: 'Absolutely. We develop AI video solutions tailored to businesses across multiple industries and business models.',
+    question: 'Can videos be created for different industries?',
+    answer:
+      'Absolutely. We develop AI video solutions tailored to businesses across multiple industries and business models.',
   },
   {
-    q: 'Why choose EON8?',
-    a: 'EON8 combines creative expertise with AI-powered production to deliver professional, engaging, and business-focused videos that help brands communicate effectively.',
+    question: 'Why choose EON8?',
+    answer:
+      'EON8 combines creative expertise with AI-powered production to deliver professional, engaging, and business-focused videos that help brands communicate effectively.',
   },
 ];
+
+const EQUALIZER_BARS = [34, 58, 42, 76, 50, 88, 62, 40, 70, 94, 54, 38, 66, 82, 46, 60];
 
 export function AIVideoPage() {
-  const trackRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeSlide, setActiveSlide] = useState(0);
   const [playingIdx, setPlayingIdx] = useState<number | null>(null);
-  const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(null);
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [status, setStatus] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = 'AI Video Creation Services | AI Video Production Company | EON8';
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'Create engaging AI-powered videos for your business with EON8. We deliver high-quality AI video creation services for marketing, promotions, training, and social media.'
-      );
-    }
-  }, []);
-
-  const scrollToSlide = (index: number) => {
-    const clamped = Math.max(0, Math.min(VIDEO_SLIDES.length - 1, index));
-    setActiveSlide(clamped);
-    const track = trackRef.current;
-    if (!track || !track.children[0]) return;
-    const gap = parseFloat(window.getComputedStyle(track).columnGap || '0') || 24;
-    const step = (track.children[0] as HTMLElement).getBoundingClientRect().width + gap;
-    track.scrollTo({ left: clamped * step, behavior: 'smooth' });
+  const selectSlide = (nextIdx: number) => {
+    const bounded = Math.max(0, Math.min(VIDEO_SLIDES.length - 1, nextIdx));
+    setActiveSlide(bounded);
+    cardRefs.current[bounded]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   };
 
-  const handlePlaySlide = (idx: number) => {
-    videoRefs.current.forEach((vid, i) => {
-      if (vid && i !== idx && !vid.paused) {
-        vid.pause();
-      }
+  const handlePlay = (idx: number) => {
+    setActiveSlide(idx);
+    videoRefs.current.forEach((v, i) => {
+      if (v && i !== idx && !v.paused) v.pause();
     });
-    const target = videoRefs.current[idx];
-    if (target) {
+    const el = videoRefs.current[idx];
+    if (el) {
       setPlayingIdx(idx);
-      target.controls = true;
-      target.play().catch(() => {});
+      el.controls = true;
+      el.play().catch(() => {});
     }
-  };
-
-  const handleFormSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !email.includes('@') || phone.trim().length < 5) {
-      setStatus({ type: 'error', text: 'Please enter your name, valid email, and mobile number.' });
-      return;
-    }
-    setStatus({
-      type: 'success',
-      text: 'Thank you! Our AI Video production team will get back to you shortly.',
-    });
-    setName('');
-    setEmail('');
-    setPhone('');
   };
 
   return (
-    <div className="eon8-live-page ai-video-page-scope">
-      <div id="site-content">
-        <main className="av">
-          {/* HERO */}
-          <section className="av-sec av-dark av-hero" id="enquiry-top">
-            <div className="av-wrap">
-              <div className="av-hero-grid">
-                <div className="av-hero-copy">
-                  <h1>AI Video Creation Services</h1>
-                  <p className="lead">Transform Your Ideas into Engaging AI Videos</p>
-                  <p className="sub">
-                    Turn your ideas into professional AI-generated videos for marketing, promotions, training, and social media. Fast, creative, and customized by EON8.
-                  </p>
-                  <a className="av-btn" href="#consult-form">
-                    Request a Free Quote
-                    <AvIcon name="arrow_forward" size={18} />
-                  </a>
-                </div>
-                <div aria-hidden="true" className="av-visual">
-                  <div className="av-vbar">
-                    <i />
-                    <i />
-                    <i />
-                  </div>
-                  <div className="av-chip c1">
-                    <AvIcon name="auto_awesome" size={22} />
-                  </div>
-                  <div className="av-chip c2">
-                    <AvIcon name="movie" size={22} />
-                  </div>
-                  <div className="av-play">
-                    <AvIcon name="play_arrow" size={34} />
-                  </div>
-                  <div className="av-tl">
-                    {EQUALIZER_HEIGHTS.map((h, i) => (
-                      <span
-                        key={i}
-                        style={{ '--h': h, '--i': i } as CSSProperties}
-                      />
-                    ))}
-                  </div>
-                </div>
+    <div className="bg-background text-foreground">
+      <PageSeo
+        title="AI Video Creation Services | AI Video Production Company | EON8"
+        description="Create engaging AI-powered videos for your business with EON8. We deliver high-quality AI video creation services for marketing, promotions, training, and social media."
+      />
+
+      {/* 1. Studio Hero */}
+      <ServiceHeroSection
+        theme="ai"
+        layout="split-media"
+        badge="AI Video Studio"
+        heading="AI Video Creation Services"
+        subheading="Transform Your Ideas into Engaging AI Videos"
+        paragraphs={[
+          'Turn your ideas into professional AI-generated videos for marketing, promotions, training, and social media. Fast, creative, and customized by EON8.',
+        ]}
+        actions={[
+          { label: 'Request a Free Quote', href: '#consult-form', variant: 'primary' },
+          { label: 'View Our Work', href: '#our-work', variant: 'secondary' },
+        ]}
+        customRightSlot={
+          <div className="rounded-3xl border border-white/15 bg-slate-950/75 backdrop-blur-md p-6 sm:p-8 shadow-2xl space-y-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-rose-500" />
+                <span className="w-3 h-3 rounded-full bg-amber-400" />
+                <span className="w-3 h-3 rounded-full bg-emerald-500" />
               </div>
+              <span className="text-xs font-bold uppercase tracking-wider text-cyan-300">
+                AI Render Engine • 4K
+              </span>
             </div>
-          </section>
 
-          {/* WHY AI VIDEO */}
-          <section className="av-sec av-light">
-            <div className="av-wrap">
-              <div className="av-split">
-                <div className="av-head">
-                  <h2>Why Choose AI Video Creation?</h2>
-                  <p>
-                    Modern businesses need content that is fast, engaging, and adaptable across multiple platforms. AI-powered video creation helps organizations produce high-quality videos with greater speed while maintaining consistency and creativity.
-                  </p>
-                </div>
-                <div className="av-media av-media-why">
-                  <img
-                    alt="Marketing team reviewing AI-generated video content"
-                    className="av-mimg"
-                    decoding="async"
-                    loading="lazy"
-                    src="/wp-content/uploads/2026/06/satisfaction.webp"
-                  />
-                </div>
-              </div>
-              <div className="av-feats">
-                {WHY_FEATURES.map((feat) => (
-                  <div key={feat.title} className="av-feat">
-                    <div className="av-ico">
-                      <AvIcon name={feat.icon} size={22} />
-                    </div>
-                    <div>
-                      <h3>{feat.title}</h3>
-                      <p>{feat.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="av-callout">
-                AI Video Creation enables businesses to communicate their message more effectively while reducing the time involved in traditional video production.
-              </p>
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-slate-900 border border-white/10 flex items-center justify-center">
+              <img
+                src="/wp-content/uploads/2026/06/Product-Marketing-with-AI-Illustration.webp"
+                alt="AI Video Production Preview"
+                className="w-full h-full object-cover opacity-85"
+              />
+              <a
+                href="#our-work"
+                aria-label="Jump to video showreel"
+                className="absolute inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#FD5900] text-white shadow-xl hover:scale-105 transition-transform"
+              >
+                <Play className="w-7 h-7 fill-white ml-0.5" />
+              </a>
             </div>
-          </section>
 
-          {/* SERVICES */}
-          <section className="av-sec av-white">
-            <div className="av-wrap">
-              <div className="av-svc">
-                <div className="av-svc-left">
-                  <div className="av-head">
-                    <h2>Our AI Video Creation Services</h2>
-                    <p>
-                      From promotional campaigns to employee training, we create AI-powered videos tailored to your business objectives and audience.
-                    </p>
-                  </div>
-                  <div className="av-media av-media-services">
-                    <img
-                      alt="Video production setup with camera and lighting"
-                      className="av-mimg"
-                      decoding="async"
-                      loading="lazy"
-                      src="/wp-content/uploads/2026/10/young-woman-with-white-wig-in-blue-light-2026-09-23-00-17-58-utc-scaled.jpg"
-                    />
-                  </div>
-                </div>
-                <div className="av-index">
-                  {VIDEO_SERVICES.map((svc) => (
-                    <div key={svc.title} className="av-row">
-                      <h3>{svc.title}</h3>
-                      <p>{svc.desc}</p>
-                      <span className="av-arrow">
-                        <AvIcon name="arrow_outward" size={20} />
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* OUR WORK (VIDEO SLIDER) */}
-          <section aria-label="Our Work" className="av-sec av-light av-work" id="our-work">
-            <div className="av-wrap">
-              <div className="av-work-top">
-                <div className="av-head">
-                  <h2>Our Work</h2>
-                  <p>
-                    A selection of AI-powered videos we have created for brands across industries.
-                  </p>
-                </div>
-                <div className="av-snav">
-                  <button
-                    aria-label="Previous video"
-                    disabled={activeSlide === 0}
-                    type="button"
-                    onClick={() => scrollToSlide(activeSlide - 1)}
-                  >
-                    <AvIcon name="arrow_back" size={20} />
-                  </button>
-                  <button
-                    aria-label="Next video"
-                    disabled={activeSlide >= VIDEO_SLIDES.length - 1}
-                    type="button"
-                    onClick={() => scrollToSlide(activeSlide + 1)}
-                  >
-                    <AvIcon name="arrow_forward" size={20} />
-                  </button>
-                </div>
-              </div>
-
-              <div>
-                <div
-                  ref={trackRef}
-                  className="av-track"
-                  style={{ '--ratio': '16/9' } as CSSProperties}
-                >
-                  {VIDEO_SLIDES.map((src, idx) => (
-                    <div key={idx} className="av-slide">
-                      <div className={`av-vid ${playingIdx === idx ? 'playing' : ''}`}>
-                        <video
-                          ref={(el) => {
-                            videoRefs.current[idx] = el;
-                          }}
-                          playsInline
-                          preload="metadata"
-                          src={src}
-                          onEnded={() => setPlayingIdx(null)}
-                        />
-                        <button
-                          aria-label={`Play video ${idx + 1}`}
-                          className="av-vplay"
-                          type="button"
-                          onClick={() => handlePlaySlide(idx)}
-                        >
-                          <span className="ring">
-                            <AvIcon name="play_arrow" size={28} />
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div aria-label="Choose video" className="av-dots" role="group">
-                  {VIDEO_SLIDES.map((_, idx) => (
-                    <button
-                      key={idx}
-                      aria-current={activeSlide === idx ? 'true' : 'false'}
-                      aria-label={`Go to video ${idx + 1}`}
-                      className={activeSlide === idx ? 'on' : ''}
-                      type="button"
-                      onClick={() => scrollToSlide(idx)}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* PROCESS */}
-          <section className="av-sec av-dark">
-            <div className="av-wrap">
-              <div className="av-head center">
-                <h2>Our AI Video Creation Process</h2>
-                <p>
-                  A structured production process helps us turn your business ideas into clear, engaging, and professional AI-powered videos.
-                </p>
-              </div>
-              <div className="av-steps">
-                {PROCESS_STEPS.map((step) => (
-                  <div key={step.title} className="av-step">
-                    <div className="av-ico">
-                      <AvIcon name={step.icon} size={22} />
-                    </div>
-                    <h3>{step.title}</h3>
-                    <p>{step.desc}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="av-center-cta">
-                <a className="av-btn" href="#consult-form">
-                  Request a Free Quote
-                  <AvIcon name="arrow_forward" size={18} />
-                </a>
-              </div>
-            </div>
-          </section>
-
-          {/* WHY EON8 */}
-          <section className="av-sec av-light" id="choose-eon8">
-            <div className="av-wrap">
-              <div className="av-choose">
-                <div className="av-choose-left">
-                  <div className="av-head">
-                    <h2>Why Choose EON8 for AI Video Creation?</h2>
-                    <p>
-                      We combine creativity, technology, and strategic thinking to create videos that engage audiences and strengthen your brand.
-                    </p>
-                  </div>
-                  <div className="av-media av-media-choose">
-                    <img
-                      alt="Creative team collaborating on a video project"
-                      className="av-mimg"
-                      decoding="async"
-                      loading="lazy"
-                      src="/wp-content/uploads/2026/06/website.webp"
-                    />
-                  </div>
-                </div>
-                <ul className="av-chips">
-                  {WHY_EON8_CHIPS.map((chip) => (
-                    <li key={chip.label}>
-                      <AvIcon name={chip.icon} size={20} />
-                      <h3>{chip.label}</h3>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* BENEFITS */}
-          <section className="av-sec av-white">
-            <div className="av-wrap">
-              <div className="av-head center">
-                <h2>Benefits of AI Video Creation</h2>
-                <p>
-                  AI-powered video production helps businesses create engaging content faster while maintaining consistency across campaigns and platforms.
-                </p>
-              </div>
-              <div className="av-cards">
-                {BENEFIT_CARDS.map((card) => (
-                  <div key={card.title} className="av-card">
-                    <AvIcon name="check_circle" size={24} />
-                    <h3>{card.title}</h3>
-                    <p>{card.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* FAQ */}
-          <section aria-label="FAQ Section" className="av-sec av-dark">
-            <div className="av-wrap">
-              <div className="av-head center">
-                <h2>Frequently Asked Questions</h2>
-              </div>
-              <div className="av-faq">
-                {AV_FAQS.map((item, idx) => {
-                  const isOpen = openFaqIdx === idx;
-                  const qId = `av-q${idx + 1}`;
-                  const aId = `av-a${idx + 1}`;
-                  return (
-                    <div key={item.q} className="av-faq-item">
-                      <h3>
-                        <button
-                          type="button"
-                          aria-controls={aId}
-                          aria-expanded={isOpen}
-                          className="av-faq-q"
-                          id={qId}
-                          onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
-                        >
-                          <span>{item.q}</span>
-                          <AvIcon name="expand_more" size={22} />
-                        </button>
-                      </h3>
-                      <div
-                        aria-labelledby={qId}
-                        className={`av-faq-a ${isOpen ? 'open' : ''}`}
-                        id={aId}
-                        role="region"
-                      >
-                        <div>
-                          <p>{item.a}</p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-
-          {/* CONSULT / CALENDAR */}
-          <section className="av-sec av-light">
-            <div className="av-wrap">
-              <div className="av-consult-head">
-                <span className="av-badge">FREE QUOTE</span>
-                <h2>
-                  Ready to Create <span className="hl">High-Quality AI Videos?</span>
-                </h2>
-                <p>
-                  At EON8, we help businesses transform ideas into engaging AI-powered videos that inspire, educate, and convert.
-                </p>
-                <ul className="av-trust">
-                  <li>
-                    <AvIcon name="schedule" size={16} />
-                    Fast Production
-                  </li>
-                  <li>
-                    <AvIcon name="check_circle" size={16} />
-                    Customized Content
-                  </li>
-                  <li>
-                    <AvIcon name="lock" size={16} />
-                    Business-Focused
-                  </li>
-                </ul>
-              </div>
-              <div className="av-cal">
-                <NftCalendlyWidget
-                  callTitle="30-Min AI Video Production Strategy Call"
-                  callDescription="Discuss your campaign goals, scripts, visual style, and turnaround timeline with our AI video directors."
+            <div className="flex items-end justify-between gap-1.5 h-10 px-2" aria-hidden="true">
+              {EQUALIZER_BARS.map((h, idx) => (
+                <span
+                  key={idx}
+                  style={{ height: `${h}%` }}
+                  className="flex-1 rounded-full bg-gradient-to-t from-cyan-500 to-indigo-400 opacity-80"
                 />
-              </div>
+              ))}
             </div>
-          </section>
+          </div>
+        }
+      />
 
-          {/* ENQUIRY */}
-          <section className="av-sec av-enq" id="enquiry">
-            <div className="av-wrap">
-              <div className="av-enq-grid">
-                <div>
-                  <h2>Request a Free Quote</h2>
-                  <p className="intro">
-                    Ready to create professional AI-powered videos for your business? Partner with{' '}
-                    <Link to="/">EON8</Link> to turn your ideas into engaging visual experiences that elevate your brand, engage your audience, and support your business growth.
-                  </p>
-                  <div className="av-stats">
-                    <div className="av-stat">
-                      <strong>1250+</strong>
-                      <span>Projects Completed</span>
-                    </div>
-                    <div className="av-stat">
-                      <strong>548+</strong>
-                      <span>Happy Clients</span>
-                    </div>
-                    <div className="av-stat">
-                      <strong>12+</strong>
-                      <span>Years of Experience</span>
-                    </div>
-                    <div className="av-stat">
-                      <strong>250+</strong>
-                      <span>Development Experts</span>
-                    </div>
-                  </div>
-                </div>
+      {/* 2. Why Choose AI Video Creation */}
+      <AlternatingSplitSection
+        theme="ai"
+        badge="Next-Gen Production"
+        heading="Why Choose AI Video Creation?"
+        paragraphs={[
+          'Modern businesses need content that is fast, engaging, and adaptable across multiple platforms. AI-powered video creation helps organizations produce high-quality videos with greater speed while maintaining consistency and creativity.',
+          'AI Video Creation enables businesses to communicate their message more effectively while reducing the time involved in traditional video production.',
+        ]}
+        imageSrc="/wp-content/uploads/2026/06/satisfaction.webp"
+        imageAlt="Marketing team reviewing AI-generated video content"
+      />
 
-                <div className="av-form" id="consult-form">
-                  <div className="wpcf7">
-                    <form className="wpcf7-form" onSubmit={handleFormSubmit} noValidate>
-                      <div className="clearfix" id="nft-form">
-                        <h3>Reach Out To Us</h3>
-                        <div className="form-row">
-                          <div className="col-12">
-                            <input
-                              className="wpcf7-form-control wpcf7-text"
-                              name="fname"
-                              placeholder="Name*"
-                              type="text"
-                              value={name}
-                              onChange={(e) => setName(e.target.value)}
-                              required
-                            />
-                          </div>
-                          <div className="col-12">
-                            <input
-                              className="wpcf7-form-control wpcf7-email"
-                              name="email"
-                              placeholder="Email*"
-                              type="email"
-                              value={email}
-                              onChange={(e) => setEmail(e.target.value)}
-                              required
-                            />
-                          </div>
-                          <div className="col-12">
-                            <input
-                              className="wpcf7-form-control wpcf7-tel"
-                              name="phone"
-                              placeholder="Mobile Number"
-                              type="tel"
-                              value={phone}
-                              onChange={(e) => setPhone(e.target.value)}
-                              required
-                            />
-                          </div>
-                          <div className="col-12 quiz_cap">
-                            <input
-                              className="wpcf7-form-control wpcf7-submit"
-                              type="submit"
-                              value="Submit"
-                            />
-                          </div>
-                        </div>
-                        {status && (
-                          <div
-                            role="status"
-                            className={`ai-form-feedback ${
-                              status.type === 'success' ? 'is-success' : 'is-error'
-                            }`}
-                          >
-                            {status.text}
-                          </div>
-                        )}
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+      <FeatureGridSection
+        theme="ai"
+        surface="muted"
+        badge="Key Advantages"
+        heading="Built for Speed, Consistency & Scale"
+        cards={WHY_FEATURES}
+        columns={3}
+      />
 
-          {/* DISCLAIMER */}
-          <section className="av-disc">
-            <div className="av-wrap">
-              <p>
-                Disclaimer: The intended trademarks and logos are not our proprietary property and are owned by the respective brands. The mentioned names are strictly for creative and informative purposes.
+      {/* 3. AI Video Creation Services */}
+      <AlternatingSplitSection
+        theme="ai"
+        reverse
+        badge="Full-Spectrum Formats"
+        heading="Our AI Video Creation Services"
+        paragraphs={[
+          'From promotional campaigns to employee training, we create AI-powered videos tailored to your business objectives and audience.',
+        ]}
+        imageSrc="/wp-content/uploads/2026/06/ai.webp"
+        imageAlt="AI Video Creation Formats"
+      />
+
+      <FeatureGridSection
+        theme="ai"
+        surface="light"
+        heading="Tailored Video Formats for Every Funnel Stage"
+        cards={VIDEO_SERVICES}
+        columns={3}
+      />
+
+      {/* 4. Interactive Video Showreel */}
+      <section
+        id="our-work"
+        className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50"
+      >
+        <div className="max-w-7xl mx-auto space-y-10">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-2">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-[#FD5900]">
+                Showreel
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-foreground">
+                Our Work
+              </h2>
+              <p className="text-base text-muted-foreground">
+                A selection of AI-powered videos we have created for brands across industries.
               </p>
             </div>
-          </section>
-        </main>
-      </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                aria-label="Previous video"
+                onClick={() => selectSlide(activeSlide - 1)}
+                disabled={activeSlide === 0}
+                className="w-11 h-11 rounded-xl border border-border bg-card flex items-center justify-center disabled:opacity-40 hover:border-[#FD5900] cursor-pointer"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <button
+                type="button"
+                aria-label="Next video"
+                onClick={() => selectSlide(activeSlide + 1)}
+                disabled={activeSlide >= VIDEO_SLIDES.length - 1}
+                className="w-11 h-11 rounded-xl border border-border bg-card flex items-center justify-center disabled:opacity-40 hover:border-[#FD5900] cursor-pointer"
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {VIDEO_SLIDES.map((slide, idx) => (
+              <div
+                key={slide.label}
+                ref={(el) => {
+                  cardRefs.current[idx] = el;
+                }}
+                className={`rounded-2xl overflow-hidden border bg-card shadow-md transition-all ${
+                  activeSlide === idx ? 'border-[#FD5900] ring-2 ring-[#FD5900]/30' : 'border-border'
+                }`}
+              >
+                <div className="relative aspect-video bg-slate-950">
+                  <video
+                    ref={(el) => {
+                      videoRefs.current[idx] = el;
+                    }}
+                    src={slide.src}
+                    playsInline
+                    preload="metadata"
+                    onEnded={() => setPlayingIdx(null)}
+                    className="w-full h-full object-cover"
+                  />
+                  {playingIdx !== idx && (
+                    <button
+                      type="button"
+                      aria-label={`Play ${slide.label}`}
+                      onClick={() => handlePlay(idx)}
+                      className="absolute inset-0 bg-black/35 hover:bg-black/20 flex items-center justify-center transition-colors cursor-pointer"
+                    >
+                      <span className="w-14 h-14 rounded-full bg-[#FD5900] text-white flex items-center justify-center shadow-lg">
+                        <Play className="w-6 h-6 fill-white ml-0.5" />
+                      </span>
+                    </button>
+                  )}
+                </div>
+                <div className="p-4 text-sm font-heading font-bold text-foreground">
+                  {slide.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Production Process */}
+      <ProcessRoadmapSection
+        theme="ai"
+        surface="dark"
+        badge="Workflow"
+        heading="Our AI Video Creation Process"
+        subheading="A structured production process helps us turn your business ideas into clear, engaging, and professional AI-powered videos."
+        steps={PROCESS_STEPS}
+        bottomActions={[{ label: 'Request a Free Quote', href: '#consult-form', variant: 'primary' }]}
+      />
+
+      {/* 6. Why Choose EON8 */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-5 space-y-5">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-indigo-600 dark:text-cyan-400">
+              Creative + AI Precision
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-foreground leading-tight">
+              Why Choose EON8 for AI Video Creation?
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              We combine creativity, technology, and strategic thinking to create videos that engage audiences and strengthen your brand.
+            </p>
+            <div className="rounded-2xl overflow-hidden border border-border bg-slate-100 dark:bg-slate-800 p-3 shadow-md">
+              <img
+                src="/wp-content/uploads/2026/06/website.webp"
+                alt="Creative team collaborating on an AI video project"
+                className="w-full h-auto rounded-xl object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {WHY_EON8_CHIPS.map((chip) => {
+              const Icon = chip.icon;
+              return (
+                <div
+                  key={chip.label}
+                  className="flex items-center gap-3.5 rounded-2xl bg-card border border-border p-4.5 shadow-xs"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-indigo-600/10 dark:bg-cyan-500/15 text-indigo-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm sm:text-[15px] font-heading font-bold text-foreground">
+                    {chip.label}
+                  </h3>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Benefits */}
+      <FeatureGridSection
+        theme="ai"
+        surface="muted"
+        badge="Measurable ROI"
+        heading="Benefits of AI Video Creation"
+        subheading="AI-powered video production helps businesses create engaging content faster while maintaining consistency across campaigns and platforms."
+        cards={BENEFIT_CARDS}
+        columns={3}
+      />
+
+      {/* 8. FAQ */}
+      <FaqAccordionSection theme="ai" surface="dark" faqs={AV_FAQS} />
+
+      {/* 9. Strategy Call */}
+      <DiscoveryCallSection
+        theme="ai"
+        badge="Free Quote"
+        heading="Ready to Create High-Quality AI Videos?"
+        subheading="At EON8, we help businesses transform ideas into engaging AI-powered videos that inspire, educate, and convert."
+        callTitle="30-Min AI Video Production Strategy Call"
+        callDescription="Discuss your campaign goals, scripts, visual style, and turnaround timeline with our AI video directors."
+      />
+
+      {/* 10. Bottom Enquiry + Disclaimer */}
+      <BottomCtaBanner
+        theme="ai"
+        heading="Request a Free Quote"
+        description={
+          <>
+            Ready to create professional AI-powered videos for your business? Partner with{' '}
+            <Link to="/" className="text-[#FD5900] font-bold underline">
+              EON8
+            </Link>{' '}
+            to turn your ideas into engaging visual experiences that elevate your brand, engage your audience, and support your business growth.
+          </>
+        }
+        disclaimer="Disclaimer: The intended trademarks and logos are not our proprietary property and are owned by the respective brands. The mentioned names are strictly for creative and informative purposes."
+      />
     </div>
   );
 }

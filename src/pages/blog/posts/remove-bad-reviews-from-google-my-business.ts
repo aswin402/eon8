@@ -14,390 +14,137 @@ export const removeBadReviewsFromGoogleMyBusinessPost: BlogPost = {
   "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2021/03/Untitled-design3.jpg",
   "excerpt": "A complete guide to safeguard your online reputation from negative feedback Does your company have a Google My Business (GMB)…",
-  "contentNodes": [
+  "blocks": [
     {
-      "kind": "element",
-      "tag": "h1",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "strong",
-          "children": [
-            {
-              "kind": "text",
-              "value": "A complete guide to safeguard your online reputation from negative feedback"
-            }
-          ]
-        }
-      ]
+      "type": "heading",
+      "level": 2,
+      "text": "A complete guide to safeguard your online reputation from negative feedback"
     },
     {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
+      "type": "paragraph",
+      "content": [
+        "Does your company have a Google My Business (GMB) account but can’t control the inflow of negative reviews? Investing in ",
         {
-          "kind": "text",
-          "value": "Does your company have a Google My Business (GMB) account but can’t control the inflow of negative reviews? Investing in "
+          "text": "Google My Business review removal",
+          "strong": true
         },
+        "might be just what your business needs to secure a high rank in search results. To maintain authenticity and ensure that feedback about a brand is accurate, Google won’t simply let you remove reviews or feedback."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        "The need to invest in a digital marketing agency that specializes in Online Reputation Management (ORM) arises when neither Google nor the website owners are unwilling to ",
         {
-          "kind": "element",
-          "tag": "strong",
-          "children": [
-            {
-              "kind": "text",
-              "value": "Google My Business review removal "
-            }
-          ]
+          "text": "remove negative content",
+          "href": "/how-to-remove-negative-content-online"
         },
-        {
-          "kind": "text",
-          "value": "might be just what your business needs to secure a high rank in search results. To maintain authenticity and ensure that feedback about a brand is accurate, Google won’t simply let you remove reviews or feedback."
-        }
+        " upon your request. Read on to know how GMB reviews can be flagged to help safeguard your online reputation."
       ]
     },
     {
-      "kind": "text",
-      "value": " "
+      "type": "heading",
+      "level": 2,
+      "text": "Why remove GMB reviews?"
     },
     {
-      "kind": "element",
-      "tag": "p",
-      "children": [
+      "type": "paragraph",
+      "content": [
+        "Reviews play a major role in acquiring and retaining customers. Most often, customers will visit your website or trust your brand only after reading reviews on reliable platforms. Hence, ensuring that the first impression your audience gets of your brand is a good one is of paramount importance. Not only is GMB a crucial platform where people leave feedback, but it is also a place where people read feedback before making decisions."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        "At the same time, not all negative reviews can be removed as customers will assume they are fake. It is easy to add positive reviews to suppress negative ones. But strategizing arises when a balance needs to be struck between positive and negative reviews. Hence, having a few negative reviews is good for your business provided they aren’t fake accounts designed to sabotage your reputation."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How to flag GMB reviews?"
+    },
+    {
+      "type": "paragraph",
+      "content": [
         {
-          "kind": "text",
-          "value": "The need to invest in a digital marketing agency that specializes in Online Reputation Management (ORM) arises when neither Google nor the website owners are unwilling to "
+          "text": "Google My Business review removal",
+          "strong": true
         },
+        "is important because Google doesn’t verify reviews before publication. This means anyone can post a review provided they have a Gmail address. This also means that the chances of customers leaving unauthentic reviews or fake accounts being created to sabotage your business are high. This is where we come in to help you flag unauthentic reviews, especially from unverifiable sources."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        "By flagging a review, you are asking Google to moderate and check the authenticity of the review. This could include removing reviews written by customers who haven’t experienced your product or service firsthand, defamatory language intended to harm your reputation, irrelevant content, and targeted personal attacks at business owners or employees."
+      ]
+    },
+    {
+      "type": "blockquote",
+      "content": [
+        "Read Also ; How Do EON8 Helps in Removing the Negative Reviews?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Ways to remove GMB reviews"
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        "One way to tackle negative reviews is by responding with a polite response. Although this doesn’t change the negative review, it portrays your business in a positive light and might even change the customer’s mind. Another technique is to add positive reviews over negative reviews. This way, the negative review gets suppressed and is not the first comment prospects will view on your GMB page."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        "It takes time and effort to suppress legitimate negative comments and feedback with positive ones. Hence, the best way to prevent constructive negative reviews is to consider them and ensure the issues are rectified. Another method is to add a NOINDEX tag to the webpage featuring the negative content. This means the page won’t get featured during search results but depends entirely on the website owner or content creator."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Our services"
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        "If Google isn’t willing to remove the flagged content and the website owners are neither ready to take down nor alter the content, our ",
         {
-          "kind": "element",
-          "tag": "a",
-          "props": {
-            "href": "/how-to-remove-negative-content-online"
-          },
-          "children": [
-            {
-              "kind": "text",
-              "value": "remove negative content"
-            }
-          ]
+          "text": "Google My Business review removal",
+          "strong": true
         },
-        {
-          "kind": "text",
-          "value": " upon your request. Read on to know how GMB reviews can be flagged to help safeguard your online reputation."
-        }
+        "is the next best option for you. Unlike businesses, customers can alter their reviews. Keeping this in mind, you can request the review’s author to take down their review or alter their content. Else, you can request happy customers to leave a positive review on your page stating their personal experience."
       ]
     },
     {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "h2",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "strong",
-          "children": [
-            {
-              "kind": "text",
-              "value": "Why remove GMB reviews?"
-            }
-          ]
-        }
+      "type": "paragraph",
+      "content": [
+        "We specialize in adding NOINDEX tags, changing keywords or altering content to ensure they are no longer relevant with search queries, and changing backlinks or meta descriptions to prevent the defamatory content from appearing during search results. Local reviewers who have left positive reviews on your page can be requested to leave feedback on other sites. This includes positive blogs, guest posts, and other forms of content."
       ]
     },
     {
-      "kind": "text",
-      "value": " "
+      "type": "heading",
+      "level": 2,
+      "text": "Why Eon8?"
     },
     {
-      "kind": "element",
-      "tag": "p",
-      "children": [
+      "type": "paragraph",
+      "content": [
+        "We offer a 360-degree approach to ",
         {
-          "kind": "text",
-          "value": "Reviews play a major role in acquiring and retaining customers. Most often, customers will visit your website or trust your brand only after reading reviews on reliable platforms. Hence, ensuring that the first impression your audience gets of your brand is a good one is of paramount importance. Not only is GMB a crucial platform where people leave feedback, but it is also a place where people read feedback before making decisions."
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "text",
-          "value": "At the same time, not all negative reviews can be removed as customers will assume they are fake. It is easy to add positive reviews to suppress negative ones. But strategizing arises when a balance needs to be struck between positive and negative reviews. Hence, having a few negative reviews is good for your business provided they aren’t fake accounts designed to sabotage your reputation."
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "h2",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "strong",
-          "children": [
-            {
-              "kind": "text",
-              "value": "How to flag GMB reviews?"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "strong",
-          "children": [
-            {
-              "kind": "text",
-              "value": "Google My Business review removal "
-            }
-          ]
+          "text": "Online Reputation Management",
+          "href": "/online-reputation-management-agency"
         },
-        {
-          "kind": "text",
-          "value": "is important because Google doesn’t verify reviews before publication. This means anyone can post a review provided they have a Gmail address. This also means that the chances of customers leaving unauthentic reviews or fake accounts being created to sabotage your business are high. This is where we come in to help you flag unauthentic reviews, especially from unverifiable sources."
-        }
+        " and ensure that your business’s online reputation is protected. Our services are affordable and our packages can be altered to suit your specific business needs. We thoroughly analyze your business presence and citations on social platforms. This will help us determine how your audience perceives your business and alter the content as per their preferences. On the whole, we safeguard your reputation both to retain existing customers as well as to acquire new prospects."
       ]
     },
     {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "text",
-          "value": "By flagging a review, you are asking Google to moderate and check the authenticity of the review. This could include removing reviews written by customers who haven’t experienced your product or service firsthand, defamatory language intended to harm your reputation, irrelevant content, and targeted personal attacks at business owners or employees."
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "blockquote",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "h3",
-          "children": [
-            {
-              "kind": "element",
-              "tag": "a",
-              "props": {
-                "href": "/eon8-helps-in-removing-negative-reviews"
-              },
-              "children": [
-                {
-                  "kind": "text",
-                  "value": "Read Also ; How Do EON8 Helps in Removing the Negative Reviews?"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "h3",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "strong",
-          "children": [
-            {
-              "kind": "text",
-              "value": "Ways to remove GMB reviews"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "text",
-          "value": "One way to tackle negative reviews is by responding with a polite response. Although this doesn’t change the negative review, it portrays your business in a positive light and might even change the customer’s mind. Another technique is to add positive reviews over negative reviews. This way, the negative review gets suppressed and is not the first comment prospects will view on your GMB page."
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "text",
-          "value": "It takes time and effort to suppress legitimate negative comments and feedback with positive ones. Hence, the best way to prevent constructive negative reviews is to consider them and ensure the issues are rectified. Another method is to add a NOINDEX tag to the webpage featuring the negative content. This means the page won’t get featured during search results but depends entirely on the website owner or content creator."
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "h2",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "strong",
-          "children": [
-            {
-              "kind": "text",
-              "value": "Our services"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "text",
-          "value": "If Google isn’t willing to remove the flagged content and the website owners are neither ready to take down nor alter the content, our "
-        },
-        {
-          "kind": "element",
-          "tag": "strong",
-          "children": [
-            {
-              "kind": "text",
-              "value": "Google My Business review removal "
-            }
-          ]
-        },
-        {
-          "kind": "text",
-          "value": "is the next best option for you. Unlike businesses, customers can alter their reviews. Keeping this in mind, you can request the review’s author to take down their review or alter their content. Else, you can request happy customers to leave a positive review on your page stating their personal experience."
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "text",
-          "value": "We specialize in adding NOINDEX tags, changing keywords or altering content to ensure they are no longer relevant with search queries, and changing backlinks or meta descriptions to prevent the defamatory content from appearing during search results. Local reviewers who have left positive reviews on your page can be requested to leave feedback on other sites. This includes positive blogs, guest posts, and other forms of content."
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "h2",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "strong",
-          "children": [
-            {
-              "kind": "text",
-              "value": "Why Eon8?"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "text",
-          "value": "We offer a 360-degree approach to "
-        },
-        {
-          "kind": "element",
-          "tag": "a",
-          "props": {
-            "href": "/online-reputation-management-agency"
-          },
-          "children": [
-            {
-              "kind": "text",
-              "value": "Online Reputation Management"
-            }
-          ]
-        },
-        {
-          "kind": "text",
-          "value": " and ensure that your business’s online reputation is protected. Our services are affordable and our packages can be altered to suit your specific business needs. We thoroughly analyze your business presence and citations on social platforms. This will help us determine how your audience perceives your business and alter the content as per their preferences. On the whole, we safeguard your reputation both to retain existing customers as well as to acquire new prospects."
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "text",
-          "value": "Our monthly performance reports will indicate to you how your business is growing and help you gauge your progress. You will notice a significant change in your prospects and feedback, which will subsequently impact your sales and Return on Investment (ROI). Finally, our team is packed with dynamic writers, vibrant analysts, and eager customer staff who are available 24×7 via email, call, and online to consider your recommendations and clear your queries. Contact us today for a detailed consultation and a customizable strategy to help boost your business’s online presence. "
-        }
+      "type": "paragraph",
+      "content": [
+        "Our monthly performance reports will indicate to you how your business is growing and help you gauge your progress. You will notice a significant change in your prospects and feedback, which will subsequently impact your sales and Return on Investment (ROI). Finally, our team is packed with dynamic writers, vibrant analysts, and eager customer staff who are available 24×7 via email, call, and online to consider your recommendations and clear your queries. Contact us today for a detailed consultation and a customizable strategy to help boost your business’s online presence."
       ]
     }
   ]

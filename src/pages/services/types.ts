@@ -1,7 +1,8 @@
-import type { CSSProperties } from 'react';
+import type { ActionItem, PricingRowItem, TabPanelItem, VerticalTheme } from '../../components/sections/types';
+import type { RichNode } from '../crypto/types';
 
 export const OUR_SERVICES_SLUGS = [
-  // Digital Marketing & Development (10)
+  // Digital Marketing & Development (12)
   'digital-marketing-agency-in-chennai',
   'search-engine-optimization-services-seo',
   'local-seo-agency',
@@ -12,6 +13,8 @@ export const OUR_SERVICES_SLUGS = [
   'game-marketing-agency-video-mobile-gaming',
   'ecommerce-website-development-services',
   'web-design-development-services-chennai',
+  'erp-software-development',
+  'crm-software-development',
   // Social Media Marketing (8)
   'social-media-marketing-company-chennai',
   'social-media-brand-management-agency-chennai',
@@ -44,16 +47,9 @@ export const OUR_SERVICES_SLUGS = [
   'social-ar-solutions',
   'vr-product-marketing',
   'metaverse',
-  // ERP & CRM Software (2)
-  'erp-software-development',
-  'crm-software-development',
 ] as const;
 
-export const PORTFOLIO_AND_PACKAGES_SLUGS = [
-  'works',
-  'case-study-poorvika',
-  'case-study-cake-square-chennai',
-  'case-study-hidden-secret',
+export const PACKAGES_SLUGS = [
   'seo-packages',
   'ppc-packages',
   'facebook-packages',
@@ -63,6 +59,7 @@ export const PORTFOLIO_AND_PACKAGES_SLUGS = [
 ] as const;
 
 export const ADDITIONAL_LANDING_SLUGS = [
+  'ads-amazon-marketing-agency',
   'amazon-marketing-service-agency-chennai',
   'amazon-seo-consultant-service-chennai',
   'amazon-seo-consultants',
@@ -77,6 +74,7 @@ export const ADDITIONAL_LANDING_SLUGS = [
   'digital-marketing-for-healthcare-industry',
   'digital-marketing-for-restaurants',
   'home-new',
+  'instagram-marketing-funnel',
   'instagram-markting-agency',
   'instagram-reels-marketing-agency',
   'mobile-app-marketing-agency',
@@ -93,253 +91,140 @@ export const ADDITIONAL_LANDING_SLUGS = [
   'search-engine-optimization-services-chennai',
   'seo-agency-in-bangalore',
   'seo-by-industry',
+  'seo-services-funnel',
   'twitter-community-management-services',
   'twitter-trending-services',
   'twitter-verification-services',
   'video-creation-marketing-service-chennai',
+  'whatsapp-marketing-services',
 ] as const;
 
 export const ALL_SERVICE_SLUGS = [
   ...OUR_SERVICES_SLUGS,
-  ...PORTFOLIO_AND_PACKAGES_SLUGS,
+  ...PACKAGES_SLUGS,
   ...ADDITIONAL_LANDING_SLUGS,
 ] as const;
 
 export type OurServiceSlug = (typeof ALL_SERVICE_SLUGS)[number];
 
-export type ServiceHtmlTag =
-  | 'div'
-  | 'header'
-  | 'section'
-  | 'blockquote'
-  | 'p'
-  | 'span'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'ul'
-  | 'ol'
-  | 'li'
-  | 'a'
-  | 'button'
-  | 'img'
-  | 'video'
-  | 'source'
-  | 'iframe'
-  | 'figure'
-  | 'figcaption'
-  | 'strong'
-  | 'b'
-  | 'em'
-  | 'i'
-  | 'br'
-  | 'hr'
-  | 'label'
-  | 'table'
-  | 'thead'
-  | 'tbody'
-  | 'tr'
-  | 'th'
-  | 'td'
-  | 'svg'
-  | 'path'
-  | 'circle'
-  | 'rect';
+export interface SemanticHeroData {
+  badge?: string;
+  heading: string;
+  subheading?: string;
+  paragraphs: RichNode[][];
+  bullets: string[];
+  actions: ActionItem[];
+  layout: 'split-form' | 'split-media' | 'centered';
+  mediaSrc?: string;
+  mediaAlt?: string;
+  formHeading?: string;
+  formSubmitLabel?: string;
+}
 
-export interface ServiceElementProps {
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface SemanticCardData {
+  badge?: string;
+  title: string;
+  description?: string;
+  bullets?: string[];
+  iconSrc?: string;
+  iconAlt?: string;
   href?: string;
-  target?: string;
-  rel?: string;
-  src?: string;
-  alt?: string;
-  title?: string;
-  width?: string | number;
-  height?: string | number;
-  loading?: 'lazy' | 'eager';
-  decoding?: 'async' | 'auto' | 'sync';
-  type?: string;
-  role?: string;
-  ariaLabel?: string;
-  ariaHidden?: boolean;
-  colSpan?: number;
-  rowSpan?: number;
-  autoPlay?: boolean;
-  loop?: boolean;
-  muted?: boolean;
-  playsInline?: boolean;
-  allow?: string;
-  allowFullScreen?: boolean;
-  // SVG attributes
-  xmlns?: string;
-  viewBox?: string;
-  fill?: string;
-  fillRule?: 'nonzero' | 'evenodd' | 'inherit';
-  clipRule?: 'nonzero' | 'evenodd' | 'inherit';
-  stroke?: string;
-  strokeWidth?: string | number;
-  strokeLinecap?: 'butt' | 'round' | 'square' | 'inherit';
-  strokeLinejoin?: 'miter' | 'round' | 'bevel' | 'inherit';
-  d?: string;
-  cx?: string | number;
-  cy?: string | number;
-  r?: string | number;
-  x?: string | number;
-  y?: string | number;
-  rx?: string | number;
-  ry?: string | number;
-  // Scoped Elementor attributes for CSS selector parity
-  dataElementorType?: string;
-  dataElementorId?: string;
-  dataElementType?: string;
-  dataWidgetType?: string;
-  dataId?: string;
+  ctaLabel?: string;
 }
 
-export interface ServiceTextNode {
-  kind: 'text';
-  value: string;
-}
-
-export interface ServiceElementNode {
-  kind: 'element';
-  tag: ServiceHtmlTag;
-  props?: ServiceElementProps;
-  children?: ServiceNode[];
-}
-
-export interface ServiceFormNode {
-  kind: 'form';
-  variant:
-    | 'proposal-5'
-    | 'proposal-4'
-    | 'callback-3'
-    | 'phone-callback'
-    | 'influencer-8';
-  innerId?: 'responsive-form' | 'nft-form' | 'influencer-form';
-  heading?: string;
-  headingTag?: 'h3' | 'h4';
-  submitLabel: string;
-  phonePlaceholder?: string;
-}
-
-export interface ServiceElementorAccordionItem {
-  title: string;
-  content: ServiceNode[];
-  defaultOpen?: boolean;
-}
-
-export interface ServiceElementorAccordionNode {
-  kind: 'elementor-accordion';
-  className?: string;
-  items: ServiceElementorAccordionItem[];
-}
-
-export interface ServiceElementorTabItem {
-  title: string;
-  content: ServiceNode[];
-}
-
-export interface ServiceElementorTabsNode {
-  kind: 'elementor-tabs';
-  className?: string;
-  items: ServiceElementorTabItem[];
-}
-
-export interface ServiceBootstrapAccordionItem {
-  id: string;
-  title: string;
-  content: ServiceNode[];
-  defaultOpen?: boolean;
-}
-
-export interface ServiceBootstrapAccordionNode {
-  kind: 'bootstrap-accordion';
-  id?: string;
-  className?: string;
-  items: ServiceBootstrapAccordionItem[];
-}
-
-export interface ServiceCustomFaqItemNode {
-  kind: 'custom-faq-item';
-  wrapperClass: string;
-  defaultOpen?: boolean;
-  questionTag: 'button' | 'div' | 'h3' | 'h4';
-  questionProps?: ServiceElementProps;
-  questionNodes: ServiceNode[];
-  toggleSignClass?: string;
-  answerProps?: ServiceElementProps;
-  answerNodes: ServiceNode[];
-}
-
-export interface ServiceLegacyFaqItemNode {
-  kind: 'legacy-faq-item';
-  wrapperProps?: ServiceElementProps;
-  questionProps?: ServiceElementProps;
-  questionText: string;
-  answerProps?: ServiceElementProps;
-  answerNodes: ServiceNode[];
-  defaultOpen?: boolean;
-}
-
-export interface ServiceTestimonialQuotesNode {
-  kind: 'testimonial-quotes';
-  wrapperProps?: ServiceElementProps;
-  quoteProps?: ServiceElementProps;
-  quotes: string[];
-}
-
-export interface ServiceCarouselCard {
-  imgSrc: string;
-  imgAlt: string;
-  title: string;
-  description: string;
-}
-
-export interface ServiceCardsCarouselNode {
-  kind: 'cards-carousel';
-  cards: ServiceCarouselCard[];
-}
-
-export interface ServiceLogoMarqueeNode {
-  kind: 'logo-marquee';
-  logos: { src: string; alt: string }[];
-}
-
-export interface ServiceCounterNode {
-  kind: 'counter';
-  tag: 'span' | 'h3' | 'div';
-  props?: ServiceElementProps;
-  displayValue: string;
-}
-
-export interface ServiceCalendlyNode {
-  kind: 'calendly';
-}
-
-export type ServiceNode =
-  | ServiceTextNode
-  | ServiceElementNode
-  | ServiceFormNode
-  | ServiceElementorAccordionNode
-  | ServiceElementorTabsNode
-  | ServiceBootstrapAccordionNode
-  | ServiceCustomFaqItemNode
-  | ServiceLegacyFaqItemNode
-  | ServiceTestimonialQuotesNode
-  | ServiceCardsCarouselNode
-  | ServiceLogoMarqueeNode
-  | ServiceCounterNode
-  | ServiceCalendlyNode;
+export type SemanticServiceSection =
+  | {
+      type: 'callback-banner';
+      heading: string;
+      submitLabel?: string;
+    }
+  | {
+      type: 'logo-marquee';
+      heading?: string;
+      logos: { src: string; alt: string }[];
+    }
+  | {
+      type: 'stats';
+      heading?: string;
+      subheading?: string;
+      stats: { value: string; label: string; iconSrc?: string }[];
+    }
+  | {
+      type: 'tabs';
+      heading: string;
+      subheading?: string;
+      tabs: TabPanelItem[];
+    }
+  | {
+      type: 'pricing-matrix';
+      heading: string;
+      subheading?: string;
+      tiers: { name: string; highlighted?: boolean }[];
+      rows: PricingRowItem[];
+      footnote?: string;
+    }
+  | {
+      type: 'feature-grid';
+      heading: string;
+      subheading?: string;
+      cards: SemanticCardData[];
+      columns?: 2 | 3 | 4;
+      actions?: ActionItem[];
+    }
+  | {
+      type: 'process';
+      heading: string;
+      subheading?: string;
+      steps: { step?: string; title: string; description: string; iconSrc?: string }[];
+      actions?: ActionItem[];
+    }
+  | {
+      type: 'split';
+      heading: string;
+      subheading?: string;
+      paragraphs: RichNode[][];
+      bullets?: string[];
+      imageSrc?: string;
+      imageAlt?: string;
+      actions?: ActionItem[];
+    }
+  | {
+      type: 'cta-banner';
+      heading: string;
+      subtext?: string;
+      actions: ActionItem[];
+    }
+  | {
+      type: 'testimonials';
+      heading: string;
+      quotes: string[];
+    }
+  | {
+      type: 'blog-links';
+      heading: string;
+      posts: { title: string; href: string }[];
+    }
+  | {
+      type: 'faq';
+      heading: string;
+      faqs: {
+        question: string;
+        answerParagraphs: RichNode[][];
+        bullets?: string[];
+      }[];
+    }
+  | {
+      type: 'discovery-call';
+      heading: string;
+      subheading?: string;
+    };
 
 export interface ServicePageData {
   slug: OurServiceSlug;
+  theme: VerticalTheme;
   title: string;
   metaDesc: string;
-  nodes: ServiceNode[];
+  hero: SemanticHeroData;
+  sections: SemanticServiceSection[];
+  disclaimer?: string;
 }

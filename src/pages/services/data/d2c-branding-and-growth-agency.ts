@@ -1,629 +1,184 @@
 import type { ServicePageData } from '../types';
 
 export const d2cBrandingAndGrowthAgencyData: ServicePageData = {
-  "slug": "d2c-branding-and-growth-agency",
-  "title": "Expert D2C Branding & Growth Agency | Boost Your Online Sales",
-  "metaDesc": "Elevate your brand's online presence with our D2C branding and growth agency. We specialize in driving growth and visibility. Let's grow together!",
-  "nodes": [
-    {
-      "kind": "element",
-      "tag": "div",
-      "props": {
-        "id": "site-content"
+  slug: 'd2c-branding-and-growth-agency',
+  theme: 'brand',
+  title: 'Expert D2C Branding & Growth Agency | Boost Your Online Sales',
+  metaDesc:
+    "Elevate your brand's online presence with our D2C branding and growth agency. We specialize in driving growth, customer retention, and ROAS. Let's grow together!",
+  hero: {
+    badge: 'Direct-to-Consumer Growth Engine',
+    heading: 'D2C Branding and Growth Agency',
+    paragraphs: [
+      [
+        'Experience exponential growth with our tailored D2C branding and performance solutions. Let EON8 amplify your storefront visibility, repeat purchase rates, and profitable customer acquisition.',
+      ],
+    ],
+    bullets: [
+      'Scale Profitable Reach',
+      'Lower Blended CAC',
+      'Increase ROAS & AOV',
+      'Optimize Storefront Conversion',
+    ],
+    actions: [
+      {
+        label: 'Talk with our Experts',
+        href: '#',
+        opensModal: true,
+        external: false,
+        variant: 'primary',
       },
-      "children": [
+      {
+        label: 'Explore eCommerce Development',
+        href: '/ecommerce-website-development-services',
+        opensModal: false,
+        external: false,
+        variant: 'secondary',
+      },
+    ],
+    layout: 'split-form',
+    formHeading: 'Get Your Free D2C Growth Audit',
+    formSubmitLabel: 'Request D2C Roadmap',
+  },
+  sections: [
+    {
+      type: 'split',
+      heading: 'EON8: Engineer Success for Your D2C Brand',
+      paragraphs: [
+        [
+          'EON8 specializes in propelling direct-to-consumer (D2C) brands into market leaders through full-funnel branding, creative storytelling, and performance acquisition. Our strategists combine buyer psychology with data-backed ad execution to ensure your products stand out in crowded categories.',
+        ],
+        [
+          'We align your brand identity, storefront UX, paid social scaling, and lifecycle retention into one cohesive revenue engine — turning first-time shoppers into loyal brand advocates.',
+        ],
+      ],
+      bullets: [
+        'Category positioning & visual brand identity systems',
+        'High-converting Shopify & custom D2C storefront UX',
+        'UGC video creative studio & thumb-stopping ad hooks',
+        'WhatsApp, email & SMS retention lifecycle flows',
+      ],
+      imageSrc: '/wp-content/uploads/2026/06/ecommerce.webp',
+      imageAlt: 'D2C Branding and eCommerce Growth',
+      actions: [
         {
-          "kind": "element",
-          "tag": "div",
-          "props": {
-            "className": "elementor elementor-47835",
-            "dataElementorType": "wp-page",
-            "dataElementorId": "47835"
-          },
-          "children": [
-            {
-              "kind": "element",
-              "tag": "section",
-              "props": {
-                "className": "elementor-section elementor-top-section elementor-element elementor-element-b32b955 elementor-section-boxed elementor-section-height-default elementor-section-height-default",
-                "dataElementType": "section",
-                "dataId": "b32b955"
-              },
-              "children": [
-                {
-                  "kind": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "elementor-container elementor-column-gap-default"
-                  },
-                  "children": [
-                    {
-                      "kind": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5915522",
-                        "dataElementType": "column",
-                        "dataId": "5915522"
-                      },
-                      "children": [
-                        {
-                          "kind": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "elementor-widget-wrap elementor-element-populated"
-                          },
-                          "children": [
-                            {
-                              "kind": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "elementor-element elementor-element-2283c0f elementor-widget elementor-widget-heading",
-                                "dataElementType": "widget",
-                                "dataWidgetType": "heading.default",
-                                "dataId": "2283c0f"
-                              },
-                              "children": [
-                                {
-                                  "kind": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "elementor-widget-container"
-                                  },
-                                  "children": [
-                                    {
-                                      "kind": "element",
-                                      "tag": "h1",
-                                      "props": {
-                                        "className": "elementor-heading-title elementor-size-default"
-                                      },
-                                      "children": [
-                                        {
-                                          "kind": "text",
-                                          "value": "D2C Branding and Growth Agency"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "elementor-element elementor-element-764f36a elementor-widget elementor-widget-text-editor",
-                                "dataElementType": "widget",
-                                "dataWidgetType": "text-editor.default",
-                                "dataId": "764f36a"
-                              },
-                              "children": [
-                                {
-                                  "kind": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "elementor-widget-container"
-                                  },
-                                  "children": [
-                                    {
-                                      "kind": "element",
-                                      "tag": "p",
-                                      "children": [
-                                        {
-                                          "kind": "element",
-                                          "tag": "span",
-                                          "props": {
-                                            "style": {
-                                              "fontWeight": "400"
-                                            }
-                                          },
-                                          "children": [
-                                            {
-                                              "kind": "text",
-                                              "value": "Experience exponential growth with our tailored D2C branding solutions. Let our agency amplify your brand’s online presence and revenue."
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "elementor-element elementor-element-51f5a29 elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list",
-                                "dataElementType": "widget",
-                                "dataWidgetType": "icon-list.default",
-                                "dataId": "51f5a29"
-                              },
-                              "children": [
-                                {
-                                  "kind": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "elementor-widget-container"
-                                  },
-                                  "children": [
-                                    {
-                                      "kind": "element",
-                                      "tag": "ul",
-                                      "props": {
-                                        "className": "elementor-icon-list-items elementor-inline-items"
-                                      },
-                                      "children": [
-                                        {
-                                          "kind": "element",
-                                          "tag": "li",
-                                          "props": {
-                                            "className": "elementor-icon-list-item elementor-inline-item"
-                                          },
-                                          "children": [
-                                            {
-                                              "kind": "element",
-                                              "tag": "span",
-                                              "props": {
-                                                "className": "elementor-icon-list-icon"
-                                              },
-                                              "children": [
-                                                {
-                                                  "kind": "element",
-                                                  "tag": "i",
-                                                  "props": {
-                                                    "className": "fas fa-check",
-                                                    "ariaHidden": true
-                                                  }
-                                                }
-                                              ]
-                                            },
-                                            {
-                                              "kind": "text",
-                                              "value": " "
-                                            },
-                                            {
-                                              "kind": "element",
-                                              "tag": "span",
-                                              "props": {
-                                                "className": "elementor-icon-list-text"
-                                              },
-                                              "children": [
-                                                {
-                                                  "kind": "text",
-                                                  "value": "Scale Reach "
-                                                }
-                                              ]
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "kind": "element",
-                                          "tag": "li",
-                                          "props": {
-                                            "className": "elementor-icon-list-item elementor-inline-item"
-                                          },
-                                          "children": [
-                                            {
-                                              "kind": "element",
-                                              "tag": "span",
-                                              "props": {
-                                                "className": "elementor-icon-list-icon"
-                                              },
-                                              "children": [
-                                                {
-                                                  "kind": "element",
-                                                  "tag": "i",
-                                                  "props": {
-                                                    "className": "fas fa-check",
-                                                    "ariaHidden": true
-                                                  }
-                                                }
-                                              ]
-                                            },
-                                            {
-                                              "kind": "text",
-                                              "value": " "
-                                            },
-                                            {
-                                              "kind": "element",
-                                              "tag": "span",
-                                              "props": {
-                                                "className": "elementor-icon-list-text"
-                                              },
-                                              "children": [
-                                                {
-                                                  "kind": "text",
-                                                  "value": "Drive Growth"
-                                                }
-                                              ]
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "kind": "element",
-                                          "tag": "li",
-                                          "props": {
-                                            "className": "elementor-icon-list-item elementor-inline-item"
-                                          },
-                                          "children": [
-                                            {
-                                              "kind": "element",
-                                              "tag": "span",
-                                              "props": {
-                                                "className": "elementor-icon-list-icon"
-                                              },
-                                              "children": [
-                                                {
-                                                  "kind": "element",
-                                                  "tag": "i",
-                                                  "props": {
-                                                    "className": "fas fa-check",
-                                                    "ariaHidden": true
-                                                  }
-                                                }
-                                              ]
-                                            },
-                                            {
-                                              "kind": "text",
-                                              "value": " "
-                                            },
-                                            {
-                                              "kind": "element",
-                                              "tag": "span",
-                                              "props": {
-                                                "className": "elementor-icon-list-text"
-                                              },
-                                              "children": [
-                                                {
-                                                  "kind": "text",
-                                                  "value": "Increase ROI"
-                                                }
-                                              ]
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "kind": "element",
-                                          "tag": "li",
-                                          "props": {
-                                            "className": "elementor-icon-list-item elementor-inline-item"
-                                          },
-                                          "children": [
-                                            {
-                                              "kind": "element",
-                                              "tag": "span",
-                                              "props": {
-                                                "className": "elementor-icon-list-icon"
-                                              },
-                                              "children": [
-                                                {
-                                                  "kind": "element",
-                                                  "tag": "i",
-                                                  "props": {
-                                                    "className": "fas fa-check",
-                                                    "ariaHidden": true
-                                                  }
-                                                }
-                                              ]
-                                            },
-                                            {
-                                              "kind": "text",
-                                              "value": " "
-                                            },
-                                            {
-                                              "kind": "element",
-                                              "tag": "span",
-                                              "props": {
-                                                "className": "elementor-icon-list-text"
-                                              },
-                                              "children": [
-                                                {
-                                                  "kind": "text",
-                                                  "value": "Optimize Conversion"
-                                                }
-                                              ]
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "elementor-element elementor-element-dfd4891 bannft-btn elementor-widget elementor-widget-button",
-                                "dataElementType": "widget",
-                                "dataWidgetType": "button.default",
-                                "dataId": "dfd4891"
-                              },
-                              "children": [
-                                {
-                                  "kind": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "elementor-widget-container"
-                                  },
-                                  "children": [
-                                    {
-                                      "kind": "element",
-                                      "tag": "div",
-                                      "props": {
-                                        "className": "elementor-button-wrapper"
-                                      },
-                                      "children": [
-                                        {
-                                          "kind": "element",
-                                          "tag": "a",
-                                          "props": {
-                                            "className": "elementor-button elementor-button-link elementor-size-sm",
-                                            "href": "#"
-                                          },
-                                          "children": [
-                                            {
-                                              "kind": "element",
-                                              "tag": "span",
-                                              "props": {
-                                                "className": "elementor-button-content-wrapper"
-                                              },
-                                              "children": [
-                                                {
-                                                  "kind": "element",
-                                                  "tag": "span",
-                                                  "props": {
-                                                    "className": "elementor-button-text"
-                                                  },
-                                                  "children": [
-                                                    {
-                                                      "kind": "text",
-                                                      "value": " Talk with our Experts"
-                                                    }
-                                                  ]
-                                                }
-                                              ]
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-0743e1d",
-                        "dataElementType": "column",
-                        "dataId": "0743e1d"
-                      },
-                      "children": [
-                        {
-                          "kind": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "elementor-widget-wrap"
-                          }
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "kind": "element",
-              "tag": "section",
-              "props": {
-                "className": "elementor-section elementor-top-section elementor-element elementor-element-68d8f3b elementor-section-boxed elementor-section-height-default elementor-section-height-default",
-                "dataElementType": "section",
-                "dataId": "68d8f3b"
-              },
-              "children": [
-                {
-                  "kind": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "elementor-container elementor-column-gap-default"
-                  },
-                  "children": [
-                    {
-                      "kind": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5b07eee",
-                        "dataElementType": "column",
-                        "dataId": "5b07eee"
-                      },
-                      "children": [
-                        {
-                          "kind": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "elementor-widget-wrap elementor-element-populated"
-                          },
-                          "children": [
-                            {
-                              "kind": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "elementor-element elementor-element-cc97c1f elementor-widget elementor-widget-heading",
-                                "dataElementType": "widget",
-                                "dataWidgetType": "heading.default",
-                                "dataId": "cc97c1f"
-                              },
-                              "children": [
-                                {
-                                  "kind": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "elementor-widget-container"
-                                  },
-                                  "children": [
-                                    {
-                                      "kind": "element",
-                                      "tag": "h2",
-                                      "props": {
-                                        "className": "elementor-heading-title elementor-size-default"
-                                      },
-                                      "children": [
-                                        {
-                                          "kind": "text",
-                                          "value": "EON8: Engineer Success for Your D2C Brand"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "elementor-element elementor-element-3b27af5 elementor-widget elementor-widget-text-editor",
-                                "dataElementType": "widget",
-                                "dataWidgetType": "text-editor.default",
-                                "dataId": "3b27af5"
-                              },
-                              "children": [
-                                {
-                                  "kind": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "elementor-widget-container"
-                                  },
-                                  "children": [
-                                    {
-                                      "kind": "element",
-                                      "tag": "p",
-                                      "children": [
-                                        {
-                                          "kind": "element",
-                                          "tag": "span",
-                                          "props": {
-                                            "style": {
-                                              "fontWeight": "400"
-                                            }
-                                          },
-                                          "children": [
-                                            {
-                                              "kind": "text",
-                                              "value": "EON8 specializes in propelling direct-to-consumer (D2C) brands into the future through innovative branding and growth strategies. Our team of experts harnesses the power of digital marketing to empower your brand’s evolution, ensuring it stands out in today’s competitive landscape. "
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "elementor-element elementor-element-247901e elementor-widget elementor-widget-text-editor",
-                                "dataElementType": "widget",
-                                "dataWidgetType": "text-editor.default",
-                                "dataId": "247901e"
-                              },
-                              "children": [
-                                {
-                                  "kind": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "elementor-widget-container"
-                                  },
-                                  "children": [
-                                    {
-                                      "kind": "element",
-                                      "tag": "p",
-                                      "children": [
-                                        {
-                                          "kind": "element",
-                                          "tag": "span",
-                                          "props": {
-                                            "style": {
-                                              "fontWeight": "400"
-                                            }
-                                          },
-                                          "children": [
-                                            {
-                                              "kind": "text",
-                                              "value": "We understand the unique needs and goals of your business and craft bespoke solutions that drive tangible results, from increasing brand awareness to maximizing revenue."
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "elementor-element elementor-element-603441d elementor-widget elementor-widget-text-editor",
-                                "dataElementType": "widget",
-                                "dataWidgetType": "text-editor.default",
-                                "dataId": "603441d"
-                              },
-                              "children": [
-                                {
-                                  "kind": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "elementor-widget-container"
-                                  },
-                                  "children": [
-                                    {
-                                      "kind": "element",
-                                      "tag": "p",
-                                      "children": [
-                                        {
-                                          "kind": "element",
-                                          "tag": "span",
-                                          "props": {
-                                            "style": {
-                                              "fontWeight": "400"
-                                            }
-                                          },
-                                          "children": [
-                                            {
-                                              "kind": "text",
-                                              "value": "Whether you’re a startup looking to make a splash or an established brand aiming to stay ahead of the curve, EON8 is your trusted partner in navigating the ever-changing digital landscape and achieving sustained success."
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
+          label: 'Schedule Strategy Call',
+          href: '#consult-form',
+          opensModal: false,
+          external: false,
+          variant: 'primary',
+        },
+      ],
+    },
+    {
+      type: 'feature-grid',
+      heading: 'Full-Funnel D2C Growth Capabilities',
+      subheading:
+        'Every lever required to launch, scale, and compound direct-to-consumer revenue profitably.',
+      columns: 3,
+      cards: [
+        {
+          title: 'Brand Positioning & Identity',
+          description:
+            'Craft a unmistakable brand story, packaging aesthetic, and tone of voice that commands premium pricing and trust.',
+        },
+        {
+          title: 'Performance Paid Social & Search',
+          description:
+            'Scale Meta, Instagram Reels, YouTube, and Google Shopping campaigns with structured creative testing and ROAS guardrails.',
+          href: '/performance-marketing-agency',
+          ctaLabel: 'Explore Performance Ads',
+        },
+        {
+          title: 'Conversion Rate Optimization (CRO)',
+          description:
+            'Eliminate checkout friction, optimize product detail pages, and lift Average Order Value (AOV) with smart bundling.',
+          href: '/ecommerce-website-development-services',
+          ctaLabel: 'View Storefront Solutions',
+        },
+        {
+          title: 'Creator & UGC Seeding',
+          description:
+            'Partner with authentic niche creators to produce high-converting product demos, reviews, and social proof.',
+          href: '/influencer-marketing-agency',
+          ctaLabel: 'Creator Campaigns',
+        },
+        {
+          title: 'Marketplace & Organic SEO',
+          description:
+            'Capture high-intent non-branded search demand across Google and Amazon product listings.',
+          href: '/ecommerce-seo-services',
+          ctaLabel: 'eCommerce SEO',
+        },
+        {
+          title: 'Retention & WhatsApp Automation',
+          description:
+            'Recover abandoned carts, automate post-purchase upsells, and maximize Customer Lifetime Value (LTV).',
+          href: '/whatsapp-marketing-services',
+          ctaLabel: 'WhatsApp Flows',
+        },
+      ],
+    },
+    {
+      type: 'process',
+      heading: 'Our 4-Stage D2C Scaling Framework',
+      subheading: 'Built for predictable unit economics from day one.',
+      steps: [
+        {
+          step: '01',
+          title: 'Unit Economics & Funnel Audit',
+          description:
+            'Analyze margins, AOV, CAC targets, landing page drop-offs, and competitor creative angles.',
+        },
+        {
+          step: '02',
+          title: 'Brand & Creative Sprint',
+          description:
+            'Develop high-converting ad creatives, UGC scripts, and storefront landing pages tailored to buyer personas.',
+        },
+        {
+          step: '03',
+          title: 'Omnichannel Media Scaling',
+          description:
+            'Launch structured Meta, Google Shopping, and creator campaigns with real-time attribution tracking.',
+        },
+        {
+          step: '04',
+          title: 'LTV & Retention Compounding',
+          description:
+            'Deploy automated WhatsApp, email, and loyalty sequences to drive repeat orders and profitable scale.',
+        },
+      ],
+    },
+    {
+      type: 'faq',
+      heading: 'D2C Branding & Growth FAQs',
+      faqs: [
+        {
+          question: 'Which D2C categories does EON8 work with?',
+          answerParagraphs: [
+            [
+              'We partner with ambitious D2C brands across beauty & personal care, fashion & apparel, food & gourmet, health & wellness, consumer electronics, and home lifestyle.',
+            ],
+          ],
+        },
+        {
+          question: 'Do you handle both creative production and ad buying?',
+          answerParagraphs: [
+            [
+              'Yes. Creative is the #1 targeting lever in modern D2C advertising, so our strategists, designers, AI video producers, and media buyers work in one integrated pod.',
+            ],
+          ],
+        },
+        {
+          question: 'How do you measure D2C campaign success?',
+          answerParagraphs: [
+            [
+              'Beyond platform ROAS, we track Marketing Efficiency Ratio (MER), blended CAC, conversion rate, Average Order Value (AOV), and 60/90-day repeat purchase rates.',
+            ],
+          ],
+        },
+      ],
+    },
+  ],
 };
-
-export default d2cBrandingAndGrowthAgencyData;

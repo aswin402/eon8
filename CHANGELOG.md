@@ -6,6 +6,59 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.2.0] - 2026-11-18
+
+### Added
+- **Unified Lead Delivery Utility (`src/lib/leadSubmission.ts`)**:
+  - Wired `LeadCaptureCard`, `QuickCallbackBanner`, `CaptureModal`, `FloatingWidgets`, and `DiscoveryCallSection` through `submitLeadEnquiry()` with optional `VITE_LEAD_WEBHOOK_URL` / `VITE_API_URL` webhook delivery plus one-click WhatsApp, `mailto:`, and `/thank-you` confirmation links.
+- **Canonical & OpenGraph Metadata + Hash-Aware Scroll (`src/components/sections/PageSeo.tsx`)**:
+  - Added dynamic `<link rel="canonical">`, `og:title`, `og:description`, and `og:url` tags across all routes (including `HomePage`, `NotFoundPage`, `ChatgptAdsAgencyPage`, `ChatgptAdsSubPage`, and canonical `/blog/:slug` tags on `BlogPostPage`), plus automatic smooth scroll to `#hash` targets on cross-page navigation.
+
+### Fixed
+- **Repaired 100+ `#hash` & Relative CTA Buttons (`SmartActionButton.tsx` & `OurServicesPage.tsx`)**:
+  - Mapped `#enquiry`, `#consult-form`, `#contact`, `#consultation`, and `#bottom-lead-form` to scroll smoothly to the active consultation form (falling back to opening `CaptureModal`), added `id="package"` on `<PricingMatrixSection />` for package CTAs, and converted 7 relative `"contact"` hrefs to SPA `"/contact"` links.
+- **Canonical Blog Sitemap URLs (`scripts/generate-sitemap.ts` -> 309 URLs)**:
+  - Emitted all 169 blog posts under `/blog/<slug>/` in `public/sitemap.xml`, resolving the 3 slug collisions (`crm-software-development`, `erp-software-development`, `whatsapp-marketing-services`) that were previously omitted.
+- **UI, Accessibility & Content Fixes**:
+  - Updated `RichText.tsx` with accessible default (`#0053C6` / `dark:text-sky-400`) vs `tone="on-dark"` (`text-amber-300`) link contrast across all vertical suites and blog articles.
+  - Removed scraper-duplicated inline-link CTA buttons across 14 service data modules, expanded `d2c-branding-and-growth-agency.ts` and `top-digital-marketing-agency-malaysia.ts`, fixed duplicate Section 11 heading & `Manju Groups` showcase card (`HomePage.tsx` & `PortfolioPages.tsx`), wired 3 distinct local MP4 showreel videos in `AIVideoPage.tsx`, added resilient `onError` image handling in `BlogPostPage.tsx`, and fixed `"Get Start"` -> `"Get Started"` in `Navbar.tsx`.
+
+### Removed
+- **Purged ~117 MB of Legacy WordPress Snapshots, Orphaned Assets & Dead Template Code**:
+  - Removed `www.eon8.com/` (110 scraped WP files), 972 unreferenced files in `public/wp-content/` & `public/imgs/` (including `public/wp-content/plugins/`, 84 unused WP/Elementor/CF7 `.css` files, and 111 unused icon font files), duplicate unimported `src/assets/` & `assets/` folders, dead `.wp-article-content` / `.uagb-*` CSS in `src/index.css`, 11 unimported template files in `src/`, and 8 unused npm packages.
+
+---
+
+## [3.1.0] - 2026-11-18
+
+### Added
+- **5 Newly Built & Routed Live Eon8 Pages (`src/pages/ThankYouPage.tsx` & `src/pages/services/data/`)**:
+  - Built native React + Tailwind pages for `/whatsapp-marketing-services` (10-section WhatsApp Business API, AI Chatbot & CRM Automation suite), `/instagram-marketing-funnel`, `/seo-services-funnel`, `/ads-amazon-marketing-agency`, and `/thank-you` (`ThankYouPage.tsx`), expanding `ALL_SERVICE_SLUGS` to **83** routes and `public/sitemap.xml` to **305** canonical URLs.
+  - Added 6 legacy WordPress `-test` / `-new` fallback redirects in `src/App.tsx` (`LEGACY_WP_REDIRECTS` = **39** redirects).
+
+### Fixed
+- **Completed Full ORM Body Sections Across 4 Legacy ORM Routes**:
+  - Populated complete multi-section content, 5–6 step process roadmaps, local `/wp-content/uploads/2020/` imagery, and internal ORM cross-links for `/clean-negative-search-results-2`, `/quora-com-complaint-removal`, `/remove-complaints-from-google-search`, and `/remove-negative-reviews-back` (plus `1250+ / 548+ / 12+ / 250+` stats on `/performance-marketing-funnel`).
+
+---
+
+## [3.0.0] - 2026-11-17
+
+### Added
+- **Unified Native React + Tailwind CSS v4 Section Design System (`src/components/sections/`)**:
+  - Created 12 reusable, strongly typed, Light/Dark-mode-aware React section primitives across 5 vertical palettes (`brand`, `ai`, `crypto`, `nft`, `influencer`): `ServiceHeroSection`, `LeadCaptureCard`, `QuickCallbackBanner`, `ClientLogoMarquee`, `StatsCounterStrip`, `FeatureGridSection`, `AlternatingSplitSection`, `InteractiveTabsSection`, `ProcessRoadmapSection`, `PricingMatrixSection`, `TestimonialsSection`, `FaqAccordionSection`, `DiscoveryCallSection`, `BottomCtaBanner`, `PageSeo`, and `SmartActionButton`.
+  - Added `/ai-video-agency` route alias in `src/App.tsx` alongside `/ai-video-creation`, and created dedicated `PortfolioPages.tsx` (`WorksPage` + `CaseStudyPage`) for `/works`, `/case-study-poorvika`, `/case-study-cake-square-chennai`, and `/case-study-hidden-secret`.
+
+### Changed
+- **100% Pure React TSX + Tailwind CSS v4 Full-Site Rebuild (Zero WordPress DOM Replay)**:
+  - Rebuilt `AIAgentPage.tsx`, `AIVideoPage.tsx`, `AboutPage.tsx`, `ContactPage.tsx`, `PolicyPage.tsx`, the entire **Crypto** suite (15 routes), **Influencer** suite (5 routes), **NFT & Discord** suite (22 routes), **79 Service & Package** routes (`OurServicesPage.tsx` + semantic `ServicePageData` modules), and **Blog Hub + all 169 Blog Articles** (`BlogListPage.tsx`, `BlogPostPage.tsx`, and semantic `ArticleBlock[]` post modules) using clean Tailwind CSS v4 layouts and `lucide-react` icons while preserving all authentic Eon8 copy, metrics, pricing tables, and localized `/wp-content/` assets.
+
+### Removed
+- **Eliminated All Legacy WordPress DOM Renderers & 4.2 MB of Scraped CSS**:
+  - Deleted `src/pages/services/components/` (`ServiceNodeRenderer.tsx`, `ServicesPageShell.tsx`, `ServicesAccordions.tsx`, `ServicesCarousels.tsx`, `ServicesFormWidget.tsx`, `ServicesSmartLink.tsx`), obsolete legacy Crypto/Influencer/NFT widget wrappers, and all 9 scraped WordPress/Elementor/Bootstrap stylesheets (`legacy-eon8.css`, `legacy-responsive-fixes.css`, `services-pages.css`, `core-packages-works-pages.css`, `nft-pages.css`, `crypto-pages.css`, `influencer-pages.css`, `ai-core-blog-pages.css`, `policy-pages.css`), leaving only `src/index.css` and standalone `src/styles/chatgpt-ads.css`.
+
+---
+
 ## [2.4.0] - 2026-11-17
 
 ### Added

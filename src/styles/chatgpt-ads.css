@@ -1,6 +1,7 @@
 /* === ChatGPT Ads Agency Standalone Suite Styles === */
 
 .chatgpt-ads-scope {
+  color-scheme: light;
   --navy: #102044;
   --muted: #495975;
   --blue: #174ce9;
@@ -1359,6 +1360,7 @@
 /* === ChatGPT Subpages (Blog & Education) === */
 
 .chatgpt-sub-scope {
+  color-scheme: light;
   --ink: #102044;
   --muted: #495975;
   --blue: #174ce9;

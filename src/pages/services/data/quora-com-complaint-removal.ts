@@ -1,391 +1,133 @@
 import type { ServicePageData } from '../types';
 
 export const quoraComComplaintRemovalData: ServicePageData = {
-  "slug": "quora-com-complaint-removal",
-  "title": "Quora Complaints Removal | ORM Packages - Eon8",
-  "metaDesc": "For this very purpose, one should remove the online negative articles and complaints from Quora. Approach EON8, Digital marketing company located in Chennai",
-  "nodes": [
-    {
-      "kind": "element",
-      "tag": "div",
-      "props": {
-        "id": "site-content"
+  slug: 'quora-com-complaint-removal',
+  theme: 'brand',
+  title: 'Quora Complaints Removal | ORM Packages - Eon8',
+  metaDesc:
+    'Remove online negative articles, unfair answers, and complaints from Quora. Approach EON8, a trusted Online Reputation Management company in Chennai.',
+  hero: {
+    badge: 'Quora ORM & SERP Protection',
+    heading: 'Quora.com Complaint Removal',
+    paragraphs: [
+      [
+        'A positive reputation matters enormously — especially when buyers research your brand on Google and Quora, one of the world’s highest-ranking Q&A platforms.',
+      ],
+      [
+        'Unfiltered negative Quora threads or competitor-seeded answers frequently rank on Page 1 of Google for branded searches. EON8’s ORM specialists detect, address, and suppress damaging Quora complaints swiftly and affordably.',
+      ],
+    ],
+    bullets: [
+      'SERP & Quora Thread Detection Within Days',
+      'Policy-Based Reporting & Content Removal',
+      'Authoritative Positive Brand Answers',
+      'Affordable, Transparent ORM Packages',
+    ],
+    actions: [
+      {
+        label: 'Request Confidential Quora Audit',
+        href: '/contact',
+        opensModal: true,
+        external: false,
+        variant: 'primary',
       },
-      "children": [
+      {
+        label: 'View Quora ORM Solutions',
+        href: '/quora-complaint-removal',
+        opensModal: false,
+        external: false,
+        variant: 'secondary',
+      },
+    ],
+    layout: 'split-form',
+    formHeading: 'Quick Quora Removal Inquiry',
+    formSubmitLabel: 'Get Free ORM Assessment',
+  },
+  sections: [
+    {
+      type: 'split',
+      heading: 'What Can EON8 Do to Protect Your Brand on Quora?',
+      paragraphs: [
+        [
+          'Quora receives massive global readership and carries high domain authority on Google — meaning a single negative answer or complaint thread can harm buyer trust before your business even gets a chance to respond.',
+        ],
+        [
+          'Within the first week, EON8 detects every negative article, thread, and comment ranking across Google SERPs and Quora. Using structured moderation workflows, policy-violation escalations, and authoritative responses, our team works to remove inappropriate complaints and restore accurate brand perception — typically initiating measurable turnaround within 15 days.',
+        ],
+      ],
+      imageSrc: '/wp-content/uploads/2020/07/Quora.com-Complaint-Removal.jpg',
+      imageAlt: 'Quora.com Complaint Removal - EON8',
+    },
+    {
+      type: 'process',
+      heading: 'Steps We Follow in Our Quora ORM Packages',
+      subheading:
+        'Every step is executed with strict confidentiality and precision by EON8’s reputation management specialists.',
+      steps: [
         {
-          "kind": "element",
-          "tag": "section",
-          "props": {
-            "className": "banner_orm banner_inr"
-          },
-          "children": [
-            {
-              "kind": "element",
-              "tag": "div",
-              "props": {
-                "className": "container align-m"
-              },
-              "children": [
-                {
-                  "kind": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "col-md-12 col-sm-12 col-xs-12"
-                  },
-                  "children": [
-                    {
-                      "kind": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "ba_inr_cnt"
-                      },
-                      "children": [
-                        {
-                          "kind": "element",
-                          "tag": "h1",
-                          "children": [
-                            {
-                              "kind": "text",
-                              "value": "Quora.com Complaint Removal"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          step: '01',
+          title: 'Optimizing & Promoting Positive Reviews',
+          description:
+            'Highlighting verified customer experiences and helpful, factual Quora answers that address buyer questions.',
         },
         {
-          "kind": "element",
-          "tag": "section",
-          "props": {
-            "className": "orm_desc_inr"
-          },
-          "children": [
-            {
-              "kind": "element",
-              "tag": "div",
-              "props": {
-                "className": "container"
-              },
-              "children": [
-                {
-                  "kind": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "row"
-                  },
-                  "children": [
-                    {
-                      "kind": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "col-md-8"
-                      },
-                      "children": [
-                        {
-                          "kind": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "desc_cnt"
-                          },
-                          "children": [
-                            {
-                              "kind": "element",
-                              "tag": "img",
-                              "props": {
-                                "className": "img-custom",
-                                "src": "/wp-content/uploads/2020/07/Quora.com-Complaint-Removal.jpg",
-                                "alt": ""
-                              }
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "p",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "The answer is obvious. Positive reputation of a company matters a lot. Especially when the company is a newbie, it is very important to maintain a positive reputation. Along with Google, the most popular search engine, we should also take care of Quora, the international website which is used by almost everyone in the world for knowing more regarding anything and everything under the sky."
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "p",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "Needless to mention, if a consumer posts an online article or review with a negative tinge to it, it can harm your business. it might be doomed before it started to flourish. "
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "p",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "For this very purpose, one should remove the online negative articles and complaints from Quora. Approach EON8, the digital marketing company located in Chennai, without reluctance to seek help for your business.EON8 attempts to promote and maintain a positive reputation of your brand or business. Negative reviews have to be tackled and this is not a single-handed work. This is where EON8 comes for your rescue; in removing negative reviews and removing articles from Quora. "
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "h4",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "What can EON8 do? "
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "p",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "EON8 within a week or so shall detect all the negative articles and reviews posted on these search engine result pages (SERP) on Google especially Quora. Then with the efficient administration tools, we try to reply to the comments and start removing the inappropriate articles and reviews. It might take up to 15 days for the complete work to be done. "
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "h4",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "ORM packages "
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "p",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "Online Reputation Management(ORM Packages) is tied in with keeping up the standard of the goodwill of the brand by pushing down every single negative survey and negative quests. The expense of the procedure relies on the administration we bring to the table. Be that as it may, one thing EON8 offers is that the expenses would be moderate. Our point as the most client well disposed ORM specialist co-op isn't to plunder cash from you. We value your endeavour and that is EON8 for you. Moderate ORM packages are euphoria with regards to a period of a pandemic like this when conservative depression perseveres."
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "h4",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "Some of the steps we follow are"
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "ul",
-                              "children": [
-                                {
-                                  "kind": "element",
-                                  "tag": "li",
-                                  "children": [
-                                    {
-                                      "kind": "text",
-                                      "value": "Optimizing and promoting positive reviews "
-                                    },
-                                    {
-                                      "kind": "element",
-                                      "tag": "li",
-                                      "children": [
-                                        {
-                                          "kind": "text",
-                                          "value": "Page Titles Optimization"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "kind": "text",
-                                      "value": " "
-                                    },
-                                    {
-                                      "kind": "element",
-                                      "tag": "li",
-                                      "children": [
-                                        {
-                                          "kind": "text",
-                                          "value": "Review monitoring system"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "kind": "text",
-                                      "value": " "
-                                    },
-                                    {
-                                      "kind": "element",
-                                      "tag": "li",
-                                      "children": [
-                                        {
-                                          "kind": "text",
-                                          "value": "Setting up social platforms"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "kind": "text",
-                                      "value": " "
-                                    },
-                                    {
-                                      "kind": "element",
-                                      "tag": "li",
-                                      "children": [
-                                        {
-                                          "kind": "text",
-                                          "value": "Optimizing Website for Site Links"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "kind": "text",
-                                      "value": " "
-                                    },
-                                    {
-                                      "kind": "element",
-                                      "tag": "li",
-                                      "children": [
-                                        {
-                                          "kind": "text",
-                                          "value": "Guest Blogging on Authoritative Blogs"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "kind": "text",
-                                      "value": " "
-                                    },
-                                    {
-                                      "kind": "element",
-                                      "tag": "li",
-                                      "children": [
-                                        {
-                                          "kind": "text",
-                                          "value": "Setting up social profiles for exposure"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "p",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "These are extremely taken care of by EON8. Each step is executed with the utmost care by the efficient team working with EON8. "
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "p",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "Quora, as mentioned above is an international website with constant interaction from the readers, be it from India or anywhere in the world. There is no filter to the reviews, articles or the answers that are being posted. Eon8 does the job of filtering them and deleting negative complaints. Removing negative articles from Quora is not an easy job but is not impossible also when a trusted partner like EON8 does your job."
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "h4",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "Why is it necessary? "
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "p",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "The reputation is necessary for any business to be successful. Like you can envision this procedure is a strainful errand. With EON8, your reputation is protected in our grasp. EON8 additionally encourages you to accomplish a trustful picture by the expulsion of Google, Facebook and other online networking negative surveys like we had discussed regarding Quora answers, to the most extreme degree. Expelling Fake Reviews and Deleting Negative Reviews from significant media stages and articles from Quora, are a piece of ORM services, and EON8 is without a doubt the best ORM specialist co-op in and around Tamil Nadu. "
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "p",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "Buyer protests in an online stage like Quora or some other web-based sites cannot be stopped but could be controlled. It is, however, a platform where a client can record a grumbling and report about any little scope to enormous business is without a doubt a lot for the organizations. In fact, it is the negative comments that have a colossal flow. So, having an online negative article or a negative review in Quora about your business may bring down the odds of indicating your business in list items, which we unequivocally prompt against. This is the place EON8 is prepared to assist you with coming out of this difficult circumstance. We keep up the good reputation and also increment the positive audits by progressing in the direction of it with complete commitment. What we do is we help in fixing these by making positive input about your organization, since we know how significant and what risks online disrepute holds. "
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "element",
-                              "tag": "p",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "So, removing negative reviews and negative articles from Quora is vital for the upliftment of your business. Choose help wisely and approach them without reluctance. Eon8 promises to do everything that any ORM service providers in India can offer, within affordable prices. "
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "col-md-4"
-                      },
-                      "children": [
-                        {
-                          "kind": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "banner_form"
-                          },
-                          "children": [
-                            {
-                              "kind": "element",
-                              "tag": "h4",
-                              "children": [
-                                {
-                                  "kind": "text",
-                                  "value": "Quick Inquiry"
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "form",
-                              "variant": "proposal-4",
-                              "submitLabel": "Submit",
-                              "innerId": "responsive-form",
-                              "phonePlaceholder": "Phone"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
+          step: '02',
+          title: 'Page Titles & Branded SERP Optimization',
+          description:
+            'Strengthening your official website titles and sitelinks so owned pages hold top search positions.',
+        },
+        {
+          step: '03',
+          title: '24/7 Review & Q&A Monitoring System',
+          description:
+            'Continuous tracking of newly posted Quora questions, comments, and Google SERP movements.',
+        },
+        {
+          step: '04',
+          title: 'Authoritative Guest Blogging & Citations',
+          description:
+            'Publishing credible articles on authoritative industry blogs to outrank negative discussion threads.',
+        },
+        {
+          step: '05',
+          title: 'Social Media Profile Exposure',
+          description:
+            'Building high-trust social profiles across LinkedIn, Facebook, Instagram, and X to reinforce brand credibility.',
+        },
+        {
+          step: '06',
+          title: 'Policy Escalation & Fake Review Takedowns',
+          description:
+            'Flagging defamatory, spam, or policy-violating Quora answers, Facebook posts, and Google reviews for removal.',
+        },
+      ],
+    },
+    {
+      type: 'split',
+      heading: 'Why Proactive Quora Reputation Management Is Essential',
+      paragraphs: [
+        [
+          'While open Q&A platforms cannot be switched off, brand perception on them can be effectively managed. Negative threads attract disproportionate clicks and can lower your brand’s conversion rate across every marketing channel.',
+        ],
+        [
+          'As one of Tamil Nadu and India’s most trusted ORM partners, EON8 combines fake-review removal, Quora complaint mitigation, and positive brand storytelling within moderate, business-friendly ORM packages.',
+        ],
+      ],
+      bullets: [
+        'Delete Defamatory & Policy-Violating Quora Answers',
+        'Suppress Negative Quora URLs Off Google Page 1',
+        'Cross-Platform Google & Social Review Protection',
+        'Dedicated Chennai ORM Desk & Confidential Reporting',
+      ],
+      actions: [
+        {
+          label: 'Speak With Our ORM Team',
+          href: '/contact',
+          opensModal: true,
+          external: false,
+          variant: 'primary',
+        },
+      ],
+    },
+  ],
 };
-
-export default quoraComComplaintRemovalData;

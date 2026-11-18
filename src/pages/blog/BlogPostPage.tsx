@@ -1,21 +1,46 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ServiceNodeList } from '@/pages/services/components/ServiceNodeRenderer';
-import type { ServiceNode } from '@/pages/services/types';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Tag, User } from 'lucide-react';
+import { PageSeo, SmartActionButton } from '@/components/sections';
+import { RichText } from '@/pages/crypto/components/RichText';
 import {
   BLOG_CATEGORY_PAIRS,
-  blogPostsIndex,
   blogPostsBySlug,
+  blogPostsIndex,
   getSlugForCategory,
   loadBlogPost,
+  type ArticleBlock,
   type BlogPost,
 } from './blogPostsData';
-import '@/styles/legacy-eon8.css';
-import '@/styles/legacy-responsive-fixes.css';
-import '@/styles/ai-core-blog-pages.css';
 
-interface BlogPostPageProps {
-  slug?: string;
+function ArticleFigure({
+  src,
+  alt,
+  caption,
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+}) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return null;
+
+  return (
+    <figure className="my-7 space-y-2">
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onError={() => setFailed(true)}
+        className="w-full h-auto rounded-2xl border border-border shadow-sm mx-auto"
+      />
+      {caption && (
+        <figcaption className="text-center text-xs text-muted-foreground italic">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
 }
 
 function formatDayMonthYear(dateIso: string, fallback: string): string {
@@ -31,16 +56,137 @@ function formatDayMonthYear(dateIso: string, fallback: string): string {
   });
 }
 
-function startsWithImageOrFigure(nodes: ServiceNode[] | undefined): boolean {
-  if (!nodes) return false;
-  for (const node of nodes) {
-    if (node.kind === 'text' && !node.value.trim()) continue;
-    if (node.kind === 'element' && (node.tag === 'figure' || node.tag === 'img')) {
-      return true;
+function renderArticleBlock(block: ArticleBlock, idx: number) {
+  switch (block.type) {
+    case 'heading':
+      if (block.level === 2) {
+        return (
+          <h2
+            key={idx}
+            className="text-xl sm:text-2xl font-heading font-extrabold text-foreground mt-8 mb-3.5 leading-snug"
+          >
+            {block.text}
+          </h2>
+        );
+      }
+      if (block.level === 3) {
+        return (
+          <h3
+            key={idx}
+            className="text-lg sm:text-xl font-heading font-bold text-foreground mt-6 mb-2.5 leading-snug"
+          >
+            {block.text}
+          </h3>
+        );
+      }
+      return (
+        <h4
+          key={idx}
+          className="text-base sm:text-lg font-heading font-bold text-foreground mt-5 mb-2"
+        >
+          {block.text}
+        </h4>
+      );
+
+    case 'paragraph':
+      return (
+        <p key={idx} className="text-[16px] sm:text-[17px] text-muted-foreground leading-[1.8] mb-5">
+          <RichText nodes={block.content} />
+        </p>
+      );
+
+    case 'list': {
+      const ListTag = block.ordered ? 'ol' : 'ul';
+      return (
+        <ListTag
+          key={idx}
+          className={`${
+            block.ordered ? 'list-decimal' : 'list-disc'
+          } pl-6 space-y-2.5 mb-6 text-[16px] text-muted-foreground`}
+        >
+          {block.items.map((item, iIdx) => (
+            <li key={iIdx} className="leading-[1.75]">
+              <RichText nodes={item} />
+            </li>
+          ))}
+        </ListTag>
+      );
     }
-    return false;
+
+    case 'image':
+      return (
+        <ArticleFigure
+          key={idx}
+          src={block.src}
+          alt={block.alt}
+          caption={block.caption}
+        />
+      );
+
+    case 'blockquote':
+      return (
+        <blockquote
+          key={idx}
+          className="my-6 border-l-4 border-[#FD5900] bg-orange-500/[0.06] rounded-r-2xl py-4 px-6 italic text-foreground text-base leading-relaxed"
+        >
+          <RichText nodes={block.content} />
+        </blockquote>
+      );
+
+    case 'table':
+      return (
+        <div
+          key={idx}
+          className="my-7 rounded-2xl border border-border bg-card overflow-x-auto shadow-xs"
+        >
+          <table className="w-full min-w-[520px] border-collapse text-left">
+            {block.headers.length > 0 && (
+              <thead>
+                <tr className="bg-slate-900 text-white">
+                  {block.headers.map((h, hIdx) => (
+                    <th key={hIdx} className="py-3.5 px-5 text-sm font-heading font-bold">
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+            )}
+            <tbody className="divide-y divide-border">
+              {block.rows.map((row, rIdx) => (
+                <tr key={rIdx} className="hover:bg-slate-50/70 dark:hover:bg-slate-800/40">
+                  {row.map((cell, cIdx) => (
+                    <td key={cIdx} className="py-3 px-5 text-sm text-muted-foreground">
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+
+    case 'cta':
+      return (
+        <div key={idx} className="my-6">
+          <SmartActionButton
+            action={{
+              label: block.label,
+              href: block.href,
+              external: block.href.startsWith('http'),
+              variant: 'primary',
+            }}
+          />
+        </div>
+      );
+
+    default:
+      return null;
   }
-  return false;
+}
+
+interface BlogPostPageProps {
+  slug?: string;
 }
 
 export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
@@ -51,15 +197,6 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
   const [loaded, setLoaded] = useState<{ slug: string; post: BlogPost | null } | null>(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    if (summary) {
-      document.title = `${summary.title} - Eon8`;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', summary.excerpt);
-      }
-    }
-
     if (!activeSlug || !summary) return;
     let cancelled = false;
     loadBlogPost(activeSlug).then((data) => {
@@ -67,7 +204,6 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
         setLoaded({ slug: activeSlug, post: data });
       }
     });
-
     return () => {
       cancelled = true;
     };
@@ -85,18 +221,18 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
   const newerChronologicalPost =
     currentIndex > 0 ? blogPostsIndex[currentIndex - 1] : undefined;
 
-  const recentSidebarPosts = useMemo(() => blogPostsIndex.slice(0, 7), []);
+  const recentSidebarPosts = useMemo(() => blogPostsIndex.slice(0, 6), []);
 
   if (!summary) {
     return (
-      <div className="min-h-screen pt-32 pb-20 flex flex-col items-center justify-center text-center px-4">
+      <div className="min-h-[65vh] pt-32 pb-24 flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-3xl font-heading font-bold text-foreground mb-4">Article Not Found</h1>
         <p className="text-sm text-muted-foreground mb-6">
           The requested blog article could not be located.
         </p>
         <Link
           to="/blog"
-          className="px-6 py-2.5 rounded-full bg-[#FD5900] text-white font-bold text-sm hover:bg-[#e55000] transition-colors"
+          className="px-6 py-3 rounded-xl bg-[#FD5900] text-white font-bold text-sm hover:bg-[#e55000] transition-colors no-underline"
         >
           Back to All Articles
         </Link>
@@ -108,132 +244,167 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
   const isLoading = loaded?.slug !== activeSlug;
   const catSlug = getSlugForCategory(summary.category);
   const formattedDate = formatDayMonthYear(summary.dateIso, summary.date);
-  const showTopThumb =
-    Boolean(summary.thumbnail) && !startsWithImageOrFigure(currentPost?.contentNodes);
+  const firstBlockIsImg = currentPost?.blocks[0]?.type === 'image';
+  const showTopThumb = Boolean(summary.thumbnail) && !firstBlockIsImg;
 
   return (
-    <div className="eon8-live-page blog-page-scope is-single-post single">
-      <div id="site-content">
-        <main>
-          <header className="page_title_wrap">
-            <div className="container">
-              <h1 className="page_title">{summary.title}</h1>
-            </div>
-          </header>
+    <div className="bg-background text-foreground">
+      <PageSeo
+        title={`${summary.title} - Eon8`}
+        description={summary.excerpt}
+        canonicalPath={`/blog/${summary.slug}`}
+      />
 
-          <div className="blog-single-wrap">
-            <div className="blog-single-grid">
-              {/* Article Column */}
-              <div>
-                <div className="sin_meta">
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-                    <svg
-                      height="14"
-                      viewBox="0 0 20 20"
-                      width="14"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <circle cx="10" cy="10" fill="none" r="8.5" stroke="#f7821b" strokeWidth="1.5" />
-                      <path d="M10 5v5.2l3.4 2.2" fill="none" stroke="#f7821b" strokeWidth="1.5" />
-                    </svg>
-                    <time dateTime={summary.dateIso}>{formattedDate}</time>
-                  </span>
-
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-                    <svg
-                      height="14"
-                      viewBox="0 0 20 20"
-                      width="14"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M17.5,3.71 L17.5,7.72 C17.5,7.96 17.4,8.2 17.21,8.39 L8.39,17.2 C7.99,17.6 7.33,17.6 6.93,17.2 L2.8,13.07 C2.4,12.67 2.4,12.01 2.8,11.61 L11.61,2.8 C11.81,2.6 12.08,2.5 12.34,2.5 L16.19,2.5 C16.52,2.5 16.86,2.63 17.11,2.88 C17.35,3.11 17.48,3.4 17.5,3.71 Z"
-                        fill="none"
-                        stroke="#f7821b"
-                        strokeWidth="1.4"
-                      />
-                      <circle cx="14" cy="6" r="1.1" fill="#f7821b" />
-                    </svg>
-                    <Link to={`/category/${catSlug}`}>{summary.category}</Link>
-                  </span>
-                </div>
-
-                {showTopThumb && (
-                  <div className="sing_thmup">
-                    <img
-                      src={summary.thumbnail}
-                      alt={summary.title}
-                      style={{ width: '100%', height: 'auto', display: 'block' }}
-                    />
-                  </div>
-                )}
-
-                <article className="post">
-                  {isLoading && !currentPost ? (
-                    <div style={{ padding: '24px 0', color: '#64748b' }}>Loading article…</div>
-                  ) : currentPost?.contentNodes?.length ? (
-                    <div className="post-content">
-                      <ServiceNodeList nodes={currentPost.contentNodes} />
-                    </div>
-                  ) : (
-                    <div className="post-content">
-                      <p>{summary.excerpt}</p>
-                    </div>
-                  )}
-                </article>
-
-                {prevChronologicalPost && (
-                  <div className="post-nav-box">
-                    <Link to={`/blog/${prevChronologicalPost.slug}`} rel="prev">
-                      &lt; {prevChronologicalPost.title}
-                    </Link>
-                  </div>
-                )}
-
-                {newerChronologicalPost && (
-                  <div className="post-nav-box" style={{ marginTop: 14 }}>
-                    <Link to={`/blog/${newerChronologicalPost.slug}`} rel="next">
-                      {newerChronologicalPost.title} &gt;
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Right Sidebar */}
-              <aside className="sidebar post-sidebar">
-                <div className="widget widget_categories" id="categories-2">
-                  <p className="uk-h4">Categories</p>
-                  <ul>
-                    {BLOG_CATEGORY_PAIRS.map((cat) => (
-                      <li key={cat.slug} className="cat-item">
-                        <Link to={`/category/${cat.slug}`}>{cat.name}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="widget widget_recent_entries" id="recent-posts-3">
-                  <p className="uk-h4">Recent Posts</p>
-                  <ul>
-                    {recentSidebarPosts.map((rPost) => (
-                      <li key={rPost.slug}>
-                        <Link
-                          to={`/blog/${rPost.slug}`}
-                          aria-current={rPost.slug === summary.slug ? 'page' : undefined}
-                        >
-                          {rPost.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </aside>
-            </div>
+      {/* Article Hero Header */}
+      <header className="py-14 sm:py-18 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#06152d] via-[#0a2558] to-[#0053C6] text-white">
+        <div className="max-w-5xl mx-auto space-y-5">
+          <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-200">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-1.5 text-white/85 hover:text-[#FD5900] font-semibold no-underline"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Blog</span>
+            </Link>
+            <span>/</span>
+            <Link
+              to={`/category/${catSlug}`}
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/15 text-white font-bold no-underline"
+            >
+              <Tag className="w-3.5 h-3.5 text-[#FD5900]" />
+              <span>{summary.category}</span>
+            </Link>
           </div>
-        </main>
-      </div>
+
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-[1.16] tracking-tight">
+            {summary.title}
+          </h1>
+
+          <div className="flex flex-wrap items-center gap-5 text-xs sm:text-sm text-slate-200 pt-1">
+            <span className="inline-flex items-center gap-1.5">
+              <Calendar className="w-4 h-4 text-[#FD5900]" />
+              <time dateTime={summary.dateIso}>{formattedDate}</time>
+            </span>
+
+            {summary.author && (
+              <span className="inline-flex items-center gap-1.5">
+                <User className="w-4 h-4 text-[#FD5900]" />
+                <span>{summary.author}</span>
+              </span>
+            )}
+
+            {summary.readTime && (
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-[#FD5900]" />
+                <span>{summary.readTime}</span>
+              </span>
+            )}
+          </div>
+        </div>
+      </header>
+
+      {/* Main Article + Sidebar */}
+      <section className="py-12 sm:py-16 pb-28 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          {/* Article Body */}
+          <article className="lg:col-span-8 rounded-2xl bg-card border border-border p-6 sm:p-10 shadow-sm">
+            {showTopThumb && (
+              <img
+                src={summary.thumbnail}
+                alt={summary.title}
+                className="w-full h-auto rounded-2xl border border-border mb-8 object-cover"
+              />
+            )}
+
+            {isLoading ? (
+              <div className="py-20 flex items-center justify-center">
+                <div className="w-8 h-8 border-3 border-[#FD5900] border-t-transparent rounded-full animate-spin" />
+              </div>
+            ) : (
+              <div>
+                {currentPost?.blocks.map((block, idx) => renderArticleBlock(block, idx))}
+              </div>
+            )}
+
+            {/* Prev / Next Navigation */}
+            <nav
+              aria-label="Article navigation"
+              className="mt-12 pt-8 border-t border-border grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+              {prevChronologicalPost ? (
+                <Link
+                  to={`/blog/${prevChronologicalPost.slug}`}
+                  className="group rounded-xl border border-border p-4 hover:border-[#FD5900] transition-colors no-underline space-y-1"
+                >
+                  <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    <ArrowLeft className="w-3.5 h-3.5" /> Previous Article
+                  </span>
+                  <p className="text-sm font-heading font-bold text-foreground group-hover:text-[#FD5900] line-clamp-2">
+                    {prevChronologicalPost.title}
+                  </p>
+                </Link>
+              ) : (
+                <div />
+              )}
+
+              {newerChronologicalPost && (
+                <Link
+                  to={`/blog/${newerChronologicalPost.slug}`}
+                  className="group rounded-xl border border-border p-4 hover:border-[#FD5900] transition-colors no-underline sm:text-right space-y-1"
+                >
+                  <span className="inline-flex items-center sm:justify-end gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    Next Article <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                  <p className="text-sm font-heading font-bold text-foreground group-hover:text-[#FD5900] line-clamp-2">
+                    {newerChronologicalPost.title}
+                  </p>
+                </Link>
+              )}
+            </nav>
+          </article>
+
+          {/* Sidebar */}
+          <aside className="lg:col-span-4 space-y-6">
+            <div className="rounded-2xl bg-card border border-border p-6 shadow-xs space-y-4">
+              <h2 className="text-lg font-heading font-extrabold text-foreground pb-3 border-b border-border">
+                Recent Articles
+              </h2>
+              <ul className="space-y-3.5">
+                {recentSidebarPosts.map((item) => (
+                  <li key={item.slug}>
+                    <Link
+                      to={`/blog/${item.slug}`}
+                      className="group block space-y-1 no-underline"
+                    >
+                      <h3 className="text-sm font-heading font-bold text-foreground group-hover:text-[#FD5900] transition-colors leading-snug">
+                        {item.title}
+                      </h3>
+                      <span className="text-xs text-muted-foreground">{item.date}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl bg-card border border-border p-6 shadow-xs space-y-4">
+              <h2 className="text-lg font-heading font-extrabold text-foreground pb-3 border-b border-border">
+                Categories
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {BLOG_CATEGORY_PAIRS.map((cat) => (
+                  <Link
+                    key={cat.slug}
+                    to={`/category/${cat.slug}`}
+                    className="px-3 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-foreground hover:bg-[#FD5900] hover:text-white transition-colors no-underline"
+                  >
+                    {cat.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
     </div>
   );
 }

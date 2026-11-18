@@ -4,7 +4,7 @@ import type { RichNode } from '../types';
 
 export function HeadingLines({
   lines,
-  spanClassName = 'to',
+  spanClassName,
 }: {
   lines: string[];
   spanClassName?: string;
@@ -14,7 +14,7 @@ export function HeadingLines({
       {lines.map((line, idx) => (
         <Fragment key={idx}>
           {idx > 0 ? ' ' : null}
-          <span className={spanClassName}>{line}</span>
+          {spanClassName ? <span className={spanClassName}>{line}</span> : line}
         </Fragment>
       ))}
     </>
@@ -23,10 +23,15 @@ export function HeadingLines({
 
 interface RichTextProps {
   nodes: RichNode[];
+  tone?: 'default' | 'on-dark';
 }
 
-/** Render structured rich text segments as native React JSX elements. */
-export function RichText({ nodes }: RichTextProps) {
+export function RichText({ nodes, tone = 'default' }: RichTextProps) {
+  const linkCls =
+    tone === 'on-dark'
+      ? 'font-semibold text-amber-300 hover:text-white underline transition-colors'
+      : 'font-semibold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] underline transition-colors';
+
   return (
     <>
       {nodes.map((node, idx) => {
@@ -41,7 +46,7 @@ export function RichText({ nodes }: RichTextProps) {
           const isInternal = node.href.startsWith('/') && !node.href.startsWith('//');
           if (isInternal) {
             return (
-              <Link key={idx} to={node.href} className={node.className}>
+              <Link key={idx} to={node.href} className={linkCls}>
                 {node.strong ? <strong>{content}</strong> : content}
               </Link>
             );
@@ -50,7 +55,7 @@ export function RichText({ nodes }: RichTextProps) {
             <a
               key={idx}
               href={node.href}
-              className={node.className}
+              className={linkCls}
               target={node.href.startsWith('http') ? '_blank' : undefined}
               rel={node.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             >
@@ -60,21 +65,21 @@ export function RichText({ nodes }: RichTextProps) {
         }
         if (node.strong) {
           return (
-            <strong key={idx} className={node.className}>
+            <strong key={idx} className="font-bold">
               {content}
             </strong>
           );
         }
         if (node.em) {
           return (
-            <em key={idx} className={node.className}>
+            <em key={idx} className="italic">
               {content}
             </em>
           );
         }
-        if (node.accent || node.className) {
+        if (node.accent) {
           return (
-            <span key={idx} className={node.className || 'text-[#f58220]'}>
+            <span key={idx} className="text-[#FD5900] font-semibold">
               {content}
             </span>
           );

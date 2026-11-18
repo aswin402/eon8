@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { PageSeo } from '@/components/sections';
 import '@/styles/chatgpt-ads.css';
 
 interface ChatgptAdsSubPageProps {
@@ -7,17 +7,19 @@ interface ChatgptAdsSubPageProps {
 }
 
 export function ChatgptAdsSubPage({ mode }: ChatgptAdsSubPageProps) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (mode === 'blog') {
-      document.title = 'Blog | EON8';
-    } else {
-      document.title = 'AI Visibility Education | EON8';
-    }
-  }, [mode]);
-
   return (
     <div className="chatgpt-sub-scope">
+      <PageSeo
+        title={mode === 'blog' ? 'ChatGPT & AI Search Visibility Blog | EON8' : 'AI Visibility Education | EON8'}
+        description={
+          mode === 'blog'
+            ? 'Practical articles on AI search, ChatGPT visibility, local discovery, and paid placements by EON8.'
+            : 'A practical guide to checking how ChatGPT and AI search engines find and describe your business.'
+        }
+        canonicalPath={
+          mode === 'blog' ? '/chatgpt-ads-agency/blog' : '/chatgpt-ads-agency/education'
+        }
+      />
       <header className="shell nav">
         <Link className="logo" to="/" aria-label="EON8 home">
           <img
@@ -28,7 +30,8 @@ export function ChatgptAdsSubPage({ mode }: ChatgptAdsSubPageProps) {
           />
         </Link>
         <nav aria-label="Main navigation">
-          <Link to="/chatgpt-ads-agency">Home</Link>
+          <Link to="/">← Main Site</Link>
+          <Link to="/chatgpt-ads-agency">ChatGPT Hub</Link>
           <Link to="/chatgpt-ads-agency#packages">Packages</Link>
           <Link
             to="/chatgpt-ads-agency/blog"

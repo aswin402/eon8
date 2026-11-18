@@ -1,63 +1,87 @@
-import { Fragment } from 'react';
-import type { CryptoSectionBlock } from '../types';
-import { CryptoActionLink } from './CryptoActionLink';
-import { CryptoCalendlySection } from './CryptoCalendlySection';
-import { CryptoFaqAccordion } from './CryptoFaqAccordion';
+import { CheckCircle2 } from 'lucide-react';
+import {
+  AlternatingSplitSection,
+  DiscoveryCallSection,
+  FaqAccordionSection,
+  FeatureGridSection,
+  SmartActionButton,
+  type ActionItem,
+} from '@/components/sections';
+import type { CryptoSectionBlock, CtaAction, RichNode } from '../types';
 import { HeadingLines, RichText } from './RichText';
 
 interface CryptoSectionRendererProps {
   section: CryptoSectionBlock;
+  index?: number;
 }
 
-export function CryptoSectionRenderer({ section }: CryptoSectionRendererProps) {
+function mapCta(c: CtaAction): ActionItem {
+  const isWhatsapp = c.kind === 'whatsapp' || /wa\.link|whatsapp/i.test(c.href);
+  return {
+    label: c.label,
+    href: c.href,
+    opensModal: c.kind === 'modal' || c.href === '#' || c.href === '#myModal',
+    external: c.kind === 'external' || isWhatsapp,
+    variant: isWhatsapp ? 'whatsapp' : c.variant === 'secondary' ? 'secondary' : 'primary',
+  };
+}
+
+function flattenNodes(nodes: RichNode[]): string {
+  return nodes
+    .map((n) => (typeof n === 'string' ? n : n.br ? ' ' : n.text || ''))
+    .join('')
+    .trim();
+}
+
+export function CryptoSectionRenderer({ section, index = 0 }: CryptoSectionRendererProps) {
+  const altSurface = index % 2 === 0 ? 'light' : 'muted';
+
   switch (section.type) {
     case 'viral':
       return (
-        <section
-          className="text-white custom-padding viral nft-dark-bg"
-          style={section.background ? { background: section.background } : undefined}
-        >
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-md-2 viral-left">
-                {section.leftImages.map((src, idx) => (
-                  <img
-                    alt=""
-                    className={`img-fluid img-${idx + 1} floating`}
-                    src={src}
-                    key={idx}
-                    loading="lazy"
-                  />
-                ))}
-              </div>
-              <div className="col-md-8 text-center viral-inner">
-                <h2 className="reveal reveal-up">
-                  <span className="to">{section.heading}</span>
-                </h2>
-                {section.paragraphs.map((nodes, idx) => (
-                  <p className="p-3 text-dark reveal" style={{ color: '#000' }} key={idx}>
-                    <RichText nodes={nodes} />
-                  </p>
-                ))}
-                {section.ctas.length > 0 && (
-                  <div className="cta-buttons">
-                    {section.ctas.map((cta, idx) => (
-                      <CryptoActionLink action={cta} key={idx} />
-                    ))}
-                  </div>
-                )}
-              </div>
-              <div className="col-md-2 viral-right">
-                {section.rightImages.map((src, idx) => (
-                  <img
-                    alt=""
-                    className={`img-fluid img-${idx + 1} floating`}
-                    src={src}
-                    key={idx}
-                    loading="lazy"
-                  />
-                ))}
-              </div>
+        <section className="relative overflow-hidden py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0e1118] via-[#261f08] to-[#523d00] text-white">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="hidden lg:flex lg:col-span-2 flex-col items-center gap-5">
+              {section.leftImages.map((src, idx) => (
+                <img
+                  key={idx}
+                  src={src}
+                  alt=""
+                  className="w-16 h-16 object-contain animate-float"
+                />
+              ))}
+            </div>
+
+            <div className="lg:col-span-8 text-center space-y-5">
+              <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-white leading-tight">
+                {section.heading}
+              </h2>
+              {section.paragraphs.map((nodes, idx) => (
+                <p
+                  key={idx}
+                  className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-3xl mx-auto"
+                >
+                  <RichText nodes={nodes} tone="on-dark" />
+                </p>
+              ))}
+              {section.ctas.length > 0 && (
+                <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
+                  {section.ctas.map((cta, idx) => (
+                    <SmartActionButton key={idx} action={mapCta(cta)} theme="crypto" />
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="hidden lg:flex lg:col-span-2 flex-col items-center gap-5">
+              {section.rightImages.map((src, idx) => (
+                <img
+                  key={idx}
+                  src={src}
+                  alt=""
+                  className="w-16 h-16 object-contain animate-bounce-slow"
+                />
+              ))}
             </div>
           </div>
         </section>
@@ -65,433 +89,204 @@ export function CryptoSectionRenderer({ section }: CryptoSectionRendererProps) {
 
     case 'gold-intro':
       return (
-        <section className="gold-bg-section">
-          <div className="gold-container">
-            <div className="gold-content text-center reveal">
-              <h2 className="reveal">
-                <HeadingLines lines={section.headingLines} />
-              </h2>
-              {section.paragraphs.map((nodes, idx) => (
-                <p key={idx}>
-                  <RichText nodes={nodes} />
-                </p>
-              ))}
-              {section.cta && <CryptoActionLink action={section.cta} />}
-            </div>
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#1b1606] via-[#3b2c04] to-[#634800] text-white text-center">
+          <div className="max-w-4xl mx-auto space-y-5">
+            <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-white leading-tight">
+              <HeadingLines lines={section.headingLines} />
+            </h2>
+            {section.paragraphs.map((nodes, idx) => (
+              <p key={idx} className="text-base sm:text-lg text-amber-50/90 leading-relaxed">
+                <RichText nodes={nodes} tone="on-dark" />
+              </p>
+            ))}
+            {section.cta && (
+              <div className="pt-2">
+                <SmartActionButton action={mapCta(section.cta)} theme="crypto" />
+              </div>
+            )}
           </div>
         </section>
       );
 
     case 'dark-intro-split':
       return (
-        <section className="section-wrap">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-md-12 col-lg-6">
-                <div className="content-box">
-                  <h2 className="reveal">
-                    <span className="to">{section.heading}</span>
-                  </h2>
-                  {section.paragraphs.map((nodes, idx) => (
-                    <p className="reveal" key={idx}>
+        <AlternatingSplitSection
+          theme="crypto"
+          surface="dark"
+          heading={section.heading}
+          paragraphs={section.paragraphs.map((nodes, idx) => (
+            <RichText key={idx} nodes={nodes} tone="on-dark" />
+          ))}
+          imageSrc={section.imageSrc}
+          imageAlt={section.imageAlt}
+          actions={section.cta ? [mapCta(section.cta)] : []}
+        />
+      );
+
+    case 'card-grid':
+      return (
+        <FeatureGridSection
+          theme="crypto"
+          surface={
+            /dark|black|navy/i.test(section.variantClass) ? 'dark' : altSurface
+          }
+          heading={<HeadingLines lines={section.headingLines} />}
+          subheading={section.subheading}
+          cards={section.cards.map((card) => ({
+            badge: card.metricHeading,
+            title: card.title,
+            description:
+              card.paragraphs.length > 0 ? (
+                <div className="space-y-2">
+                  {card.paragraphs.map((nodes, pIdx) => (
+                    <p key={pIdx}>
                       <RichText nodes={nodes} />
                     </p>
                   ))}
-                  {section.cta && <CryptoActionLink action={section.cta} />}
                 </div>
-              </div>
-              <div className="col-md-12 col-lg-6 text-center">
-                {section.imageSrc && (
-                  <img
-                    src={section.imageSrc}
-                    alt={section.imageAlt}
-                    className="img-fluid rounded"
-                    loading="lazy"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
+              ) : undefined,
+            bullets: card.bullets.map(flattenNodes).filter(Boolean),
+            iconSrc: card.iconImg,
+            iconAlt: card.iconAlt || card.title,
+          }))}
+          columns={section.cards.length === 4 ? 2 : 3}
+          bottomActions={section.footerCta ? [mapCta(section.footerCta)] : []}
+        />
       );
-
-    case 'card-grid': {
-      const renderCards = () =>
-        section.cards.map((card, idx) => {
-          const innerCard = (
-            <div className={section.cardClass}>
-              {(card.iconImg || card.svgPath) && (
-                <div className={section.iconWrapClass || 'icon-wrap'}>
-                  {card.svgPath ? (
-                    <svg viewBox={card.svgViewBox || '0 0 24 24'}>
-                      <path d={card.svgPath} />
-                    </svg>
-                  ) : (
-                    <img
-                      src={card.iconImg}
-                      alt={card.iconAlt || card.title}
-                      style={card.iconImgWidth ? { width: `${card.iconImgWidth}px` } : undefined}
-                      loading="lazy"
-                    />
-                  )}
-                </div>
-              )}
-              {card.title && <h3>{card.title}</h3>}
-              {card.metricHeading && <h4>{card.metricHeading}</h4>}
-              {card.paragraphs.map((nodes, pIdx) => (
-                <p key={pIdx}>
-                  <RichText nodes={nodes} />
-                </p>
-              ))}
-              {card.bullets.length > 0 && (
-                <ul>
-                  {card.bullets.map((b, bIdx) => (
-                    <li key={bIdx}>
-                      <RichText nodes={b} />
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          );
-
-          if (section.cardOuterClass?.includes('pr-card-wrapper')) {
-            return (
-              <div className={section.cardOuterClass} key={idx}>
-                <div className="pr-card-outer">{innerCard}</div>
-              </div>
-            );
-          }
-
-          return section.cardOuterClass ? (
-            <div className={section.cardOuterClass} key={idx}>
-              {innerCard}
-            </div>
-          ) : (
-            <Fragment key={idx}>{innerCard}</Fragment>
-          );
-        });
-
-      const headerBlock = (
-        <div className={section.headerClass}>
-          <h2 className="reveal reveal-up">
-            <HeadingLines lines={section.headingLines} />
-          </h2>
-          {section.subheading && <p className="reveal">{section.subheading}</p>}
-        </div>
-      );
-
-      // Variant without grid wrapper inside container (e.g. .pr-row contains header + cards)
-      if (!section.gridClass) {
-        return (
-          <section className={section.variantClass}>
-            <div className={section.containerClass}>
-              <div className="pr-row">
-                {headerBlock}
-                {renderCards()}
-              </div>
-            </div>
-          </section>
-        );
-      }
-
-      // Variant without container wrapper (e.g. .ci-section / .cm-section / .cv-section)
-      if (!section.containerClass) {
-        return (
-          <section className={section.variantClass}>
-            {headerBlock}
-            <div className={section.gridClass}>{renderCards()}</div>
-          </section>
-        );
-      }
-
-      return (
-        <section className={section.variantClass}>
-          <div className={section.containerClass}>
-            {headerBlock}
-            <div className={section.gridClass}>{renderCards()}</div>
-            {section.footerNote && <p className="text-center mt-4">{section.footerNote}</p>}
-            {section.footerCta && (
-              <div className="text-center mt-4">
-                <CryptoActionLink action={section.footerCta} />
-              </div>
-            )}
-          </div>
-        </section>
-      );
-    }
 
     case 'cta-band':
       return (
-        <section className={section.variant}>
-          <div className="container">
-            <div className="row">
-              {section.variant === 'nft-cta-2' && <div className="col-lg-5" />}
-              <div className="col-md-12 col-lg-7">
-                <div id="submitProp">
-                  <div className="form-heading">
-                    <h3 className="reveal">
-                      <HeadingLines lines={section.headingLines} spanClassName="big-font text-white to" />
-                      {section.subtext && (
-                        <>
-                          <br />
-                          <span className="paragraph text-white">{section.subtext}</span>
-                        </>
-                      )}
-                    </h3>
-                  </div>
-                  <div className="center call-btn mobile-center">
-                    <div className="cta-buttons">
-                      {section.ctas.map((cta, idx) => (
-                        <CryptoActionLink action={cta} key={idx} />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#141720] via-[#362905] to-[#614800] text-white">
+          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div className="space-y-2">
+              <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-white leading-tight">
+                <HeadingLines lines={section.headingLines} />
+              </h2>
+              {section.subtext && (
+                <p className="text-base text-amber-200 font-medium">{section.subtext}</p>
+              )}
             </div>
+            {section.ctas.length > 0 && (
+              <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+                {section.ctas.map((cta, idx) => (
+                  <SmartActionButton key={idx} action={mapCta(cta)} theme="crypto" />
+                ))}
+              </div>
+            )}
           </div>
         </section>
       );
 
     case 'specialized-3col':
       return (
-        <section className="common-spc our_specialized">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 col-sm-12 col-xs-12">
-                <div className="sec_tit text-center">
-                  <h2 className="reveal reveal-up">
-                    <HeadingLines lines={section.headingLines} />
-                  </h2>
-                </div>
-              </div>
-            </div>
-            <br />
-            <div className="row reveal">
-              {section.columns.map((col, idx) => (
-                <div className="col-md-4 mb-3" key={idx}>
-                  <div className="parag">
-                    {col.iconImg && (
-                      <div className="headinghub">
-                        <img
-                          src={col.iconImg}
-                          alt={col.iconAlt || col.title}
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
-                    <h2>{col.title}</h2>
-                    <div className="serv_descparag">
-                      {col.paragraphs.map((nodes, pIdx) => (
-                        <p key={pIdx}>
-                          <RichText nodes={nodes} />
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      );
-
-    case 'service-4col':
-      return (
-        <section className={section.sectionClass || 'our_serv_inr nft-light-bg'}>
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 col-sm-12 col-xs-12">
-                <div className="sec_tit text-center">
-                  <h2 className="reveal">
-                    <HeadingLines lines={section.headingLines} />
-                  </h2>
-                </div>
-                {section.introParagraphs.map((nodes, idx) => (
-                  <p className="text-center reveal" key={idx}>
+        <FeatureGridSection
+          theme="crypto"
+          surface={altSurface}
+          heading={<HeadingLines lines={section.headingLines} />}
+          cards={section.columns.map((col) => ({
+            title: col.title,
+            description: (
+              <div className="space-y-2">
+                {col.paragraphs.map((nodes, pIdx) => (
+                  <p key={pIdx}>
                     <RichText nodes={nodes} />
                   </p>
                 ))}
               </div>
-            </div>
-            <div className="row">
-              {section.items.map((item, idx) => (
-                <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 reveal" key={idx}>
-                  <div className="feature-items equal-height">
-                    {item.iconImg && (
-                      <img
-                        className="child"
-                        src={item.iconImg}
-                        alt={item.iconAlt || item.title}
-                        loading="lazy"
-                      />
-                    )}
-                    <h3>{item.title}</h3>
-                    {item.paragraphs.map((nodes, pIdx) => (
-                      <p key={pIdx}>
-                        <RichText nodes={nodes} />
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+            ),
+            iconSrc: col.iconImg,
+            iconAlt: col.iconAlt || col.title,
+          }))}
+          columns={3}
+        />
       );
 
-    case 'split-feature': {
-      const contentEl = (
-        <div className={section.contentColClass || 'sky-ido-content'}>
-          <h2 className="reveal">
-            <HeadingLines lines={section.headingLines} />
-          </h2>
-          {section.paragraphs.map((nodes, idx) => (
-            <p className="reveal" key={idx}>
-              <RichText nodes={nodes} />
-            </p>
-          ))}
-          {section.listHeading && <h4>{section.listHeading}</h4>}
-          {section.listItems.length > 0 && (
-            <ul className={section.listClass || 'reveal'}>
-              {section.listItems.map((li, idx) => (
-                <li key={idx}>
-                  <RichText nodes={li} />
-                </li>
-              ))}
-            </ul>
-          )}
-          {section.cta && <CryptoActionLink action={section.cta} />}
-        </div>
-      );
-
-      const imageEl = (
-        <div className={section.imageColClass || 'sky-ido-image'}>
-          {section.imageSrc && (
-            <img
-              src={section.imageSrc}
-              alt={section.imageAlt}
-              className="img-fluid"
-              loading="lazy"
-            />
-          )}
-        </div>
-      );
-
-      // Bootstrap .abt_desc_inr / .spectaular split structure vs CSS grid structure
-      if (section.containerClass === 'container') {
-        const isSpectacular = section.sectionClass.includes('spectaular');
-        return (
-          <section className={section.sectionClass}>
-            <div className="container">
-              {isSpectacular ? (
-                <div className="row">
-                  <div className="col-md-12 text-center">
-                    <div className="sec_tit">
-                      <h2 className="reveal">
-                        <HeadingLines lines={section.headingLines} />
-                      </h2>
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-lg-6 text-center img-border reveal">
-                    <img
-                      src={section.imageSrc}
-                      alt={section.imageAlt}
-                      style={{ width: '360px', maxWidth: '100%' }}
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="desc_cnt col-md-6">
-                    {section.paragraphs.map((nodes, idx) => (
-                      <p className="reveal" key={idx}>
-                        <RichText nodes={nodes} />
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <div className="row">
-                  <div className="col-md-12 col-lg-6 col-sm-12">
-                    <div className="sec_tit">
-                      <h2 className="reveal reveal-up">
-                        <HeadingLines lines={section.headingLines} />
-                      </h2>
-                    </div>
-                    <div className="desc_cnt">
-                      {section.paragraphs.map((nodes, idx) => (
-                        <p className="reveal" key={idx}>
-                          <RichText nodes={nodes} />
-                        </p>
-                      ))}
-                      {section.listItems.length > 0 && (
-                        <ul className={section.listClass || 'list-unstyled'}>
-                          {section.listItems.map((li, idx) => (
-                            <li key={idx}>
-                              <RichText nodes={li} />
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {section.cta && <CryptoActionLink action={section.cta} />}
-                    </div>
-                  </div>
-                  <div className="col-md-12 col-lg-6 text-center">
-                    {section.imageSrc && (
-                      <img
-                        src={section.imageSrc}
-                        alt={section.imageAlt}
-                        className="img-fluid"
-                        loading="lazy"
-                      />
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-          </section>
-        );
-      }
-
+    case 'service-4col':
       return (
-        <section className={section.sectionClass}>
-          <div className={section.containerClass}>
-            <div className={section.gridClass}>
-              {section.reverseCols ? (
-                <>
-                  {imageEl}
-                  {contentEl}
-                </>
-              ) : (
-                <>
-                  {contentEl}
-                  {imageEl}
-                </>
-              )}
-            </div>
-          </div>
-        </section>
+        <FeatureGridSection
+          theme="crypto"
+          surface={altSurface}
+          heading={<HeadingLines lines={section.headingLines} />}
+          subheading={
+            section.introParagraphs.length > 0 ? (
+              <div className="space-y-2">
+                {section.introParagraphs.map((nodes, idx) => (
+                  <p key={idx}>
+                    <RichText nodes={nodes} />
+                  </p>
+                ))}
+              </div>
+            ) : undefined
+          }
+          cards={section.items.map((item) => ({
+            title: item.title,
+            description: (
+              <div className="space-y-2">
+                {item.paragraphs.map((nodes, pIdx) => (
+                  <p key={pIdx}>
+                    <RichText nodes={nodes} />
+                  </p>
+                ))}
+              </div>
+            ),
+            iconSrc: item.iconImg,
+            iconAlt: item.iconAlt || item.title,
+          }))}
+          columns={2}
+        />
       );
-    }
+
+    case 'split-feature':
+      return (
+        <AlternatingSplitSection
+          theme="crypto"
+          surface={altSurface}
+          reverse={Boolean(section.reverseCols)}
+          heading={<HeadingLines lines={section.headingLines} />}
+          subheading={section.listHeading}
+          paragraphs={section.paragraphs.map((nodes, idx) => (
+            <RichText key={idx} nodes={nodes} />
+          ))}
+          bullets={section.listItems.map(flattenNodes).filter(Boolean)}
+          imageSrc={section.imageSrc}
+          imageAlt={section.imageAlt}
+          actions={section.cta ? [mapCta(section.cta)] : []}
+        />
+      );
 
     case 'kol-network':
       return (
-        <section className="kol-network-section">
-          <div className="kol-container">
-            <div className="kol-header text-center">
-              <h2 className="kol-title reveal reveal-up">
-                <span className="to">{section.heading}</span>
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-amber-600 dark:text-amber-400">
+                Global Creator Reach
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-foreground">
+                {section.heading}
               </h2>
-              <p className="kol-subtitle reveal">{section.subheading}</p>
+              <p className="text-base text-muted-foreground">{section.subheading}</p>
             </div>
-            <div className="kol-grid">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {section.groups.map((grp, idx) => (
-                <div className="kol-card" key={idx}>
-                  <h3 className="kol-card-title">{grp.title}</h3>
-                  <ul className="kol-list">
+                <div
+                  key={idx}
+                  className="rounded-2xl bg-card border border-border p-6 sm:p-7 shadow-xs space-y-4"
+                >
+                  <h3 className="text-lg sm:text-xl font-heading font-bold text-foreground">
+                    {grp.title}
+                  </h3>
+                  <ul className="space-y-2.5">
                     {grp.items.map((item, iIdx) => (
-                      <li key={iIdx}>
-                        <RichText nodes={item} />
+                      <li
+                        key={iIdx}
+                        className="flex items-start gap-2.5 text-sm text-muted-foreground leading-relaxed"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                        <span>
+                          <RichText nodes={item} />
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -504,36 +299,63 @@ export function CryptoSectionRenderer({ section }: CryptoSectionRendererProps) {
 
     case 'comparison-table':
       return (
-        <section className="kol-table-section py-12 px-4">
-          <div className="kol-table-wrap text-center">
-            {section.heading && (
-              <h2 className="reveal reveal-up mb-3 text-3xl font-bold text-slate-900">
-                <span className="to">{section.heading}</span>
-              </h2>
-            )}
-            {section.intro && (
-              <p className="reveal mb-6 text-slate-600">{section.intro}</p>
-            )}
-            <table className="kol-advantage-table text-left">
-              <thead>
-                <tr>
-                  {section.headers.map((h, idx) => (
-                    <th key={idx}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {section.rows.map((row, rIdx) => (
-                  <tr key={rIdx}>
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx}>{cell}</td>
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+          <div className="max-w-6xl mx-auto space-y-8">
+            <div className="max-w-3xl mx-auto text-center space-y-3">
+              {section.heading && (
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-foreground">
+                  {section.heading}
+                </h2>
+              )}
+              {section.intro && (
+                <p className="text-base text-muted-foreground">{section.intro}</p>
+              )}
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card shadow-lg overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[600px] border-collapse text-left">
+                  <thead>
+                    <tr className="bg-slate-900 text-white">
+                      {section.headers.map((h, idx) => (
+                        <th
+                          key={idx}
+                          className="py-4 px-6 text-sm sm:text-base font-heading font-bold"
+                        >
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    {section.rows.map((row, rIdx) => (
+                      <tr
+                        key={rIdx}
+                        className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors"
+                      >
+                        {row.map((cell, cIdx) => (
+                          <td
+                            key={cIdx}
+                            className={`py-4 px-6 text-sm sm:text-[15px] ${
+                              cIdx === 0
+                                ? 'font-semibold text-foreground'
+                                : 'text-muted-foreground'
+                            }`}
+                          >
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
                     ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
             {section.closingNote && (
-              <p className="reveal mt-6 text-slate-600">{section.closingNote}</p>
+              <p className="text-center text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto">
+                {section.closingNote}
+              </p>
             )}
           </div>
         </section>
@@ -541,22 +363,43 @@ export function CryptoSectionRenderer({ section }: CryptoSectionRendererProps) {
 
     case 'faq':
       return (
-        <CryptoFaqAccordion
-          variant={section.variant}
-          sectionClass={section.sectionClass}
-          containerClass={section.containerClass}
+        <FaqAccordionSection
+          theme="crypto"
+          surface={altSurface}
           heading={section.heading}
           subheading={section.subheading}
-          items={section.items}
+          faqs={section.items.map((f) => ({
+            question: f.question,
+            answer: (
+              <div className="space-y-3">
+                {f.paragraphs.map((nodes, pIdx) => (
+                  <p key={pIdx}>
+                    <RichText nodes={nodes} />
+                  </p>
+                ))}
+                {f.bullets.length > 0 && (
+                  <ul className="list-disc pl-5 space-y-1.5">
+                    {f.bullets.map((b, bIdx) => (
+                      <li key={bIdx}>
+                        <RichText nodes={b} />
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ),
+          }))}
         />
       );
 
     case 'calendly':
       return (
-        <CryptoCalendlySection
-          variant={section.variant}
+        <DiscoveryCallSection
+          theme="crypto"
           heading={section.heading}
           subheading={section.subheading}
+          callTitle="30-Min Crypto Strategy Call"
+          callDescription="Schedule a 30-minute consultation with our Web3 & token growth specialists."
         />
       );
 

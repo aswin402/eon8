@@ -1,8 +1,5 @@
-import { useState, useEffect, type FormEvent } from 'react';
-import { MapPin, Phone, Mail } from 'lucide-react';
-import '@/styles/legacy-eon8.css';
-import '@/styles/legacy-responsive-fixes.css';
-import '@/styles/ai-core-blog-pages.css';
+import { Mail, MapPin, Phone } from 'lucide-react';
+import { LeadCaptureCard, PageSeo, ServiceHeroSection } from '@/components/sections';
 
 const PRESENCE_CITIES = [
   { name: 'Hyderabad', img: '/wp-content/uploads/2022/11/hyderabad.svg' },
@@ -11,259 +8,124 @@ const PRESENCE_CITIES = [
   { name: 'Chennai', img: '/wp-content/uploads/2022/11/chennai.svg' },
 ];
 
-const DIAL_CODES = [
-  { label: '🇮🇳 +91', value: '+91' },
-  { label: '🇺🇸 +1', value: '+1' },
-  { label: '🇬🇧 +44', value: '+44' },
-  { label: '🇦🇪 +971', value: '+971' },
-  { label: '🇸🇬 +65', value: '+65' },
-  { label: '🇦🇺 +61', value: '+61' },
-];
-
 export function ContactPage() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [dialCode, setDialCode] = useState('+91');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
-  const [mathQuiz, setMathQuiz] = useState('');
-  const [status, setStatus] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = "Contact Us | Let's Build Your Brand - Eon8";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'At Eon8, we take your business to the next level with digital marketing and branding. Contact EON8 in Chennai, Bangalore, Hyderabad, and Mumbai.'
-      );
-    }
-  }, []);
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !email.includes('@') || phone.trim().length < 5) {
-      setStatus({
-        type: 'error',
-        text: 'Please fill out your Name, valid Email, and Phone number.',
-      });
-      return;
-    }
-    if (mathQuiz.trim() !== '16') {
-      setStatus({
-        type: 'error',
-        text: 'Please enter the correct security answer (12 + 4 = 16).',
-      });
-      return;
-    }
-    setStatus({
-      type: 'success',
-      text: 'Thank you for contacting EON8! Our team will respond within 24 hours.',
-    });
-    setName('');
-    setEmail('');
-    setPhone('');
-    setMessage('');
-    setMathQuiz('');
-  };
-
   return (
-    <div className="eon8-live-page contact-page-scope">
-      <div id="site-content">
-        <section className="contact-section">
-          <div className="container">
-            <div className="row text-center" style={{ marginBottom: 40 }}>
-              <div className="col-md-12">
-                <h1 className="contact-title reveal active">
-                  <span className="to">Contact EON8 Digital Marketing Agency</span>
-                </h1>
-                <p className="contact-subtitle reveal active">
-                  We’d love to hear from you. Let’s connect!
-                </p>
-              </div>
+    <div className="bg-background text-foreground">
+      <PageSeo
+        title="Contact Us | Let's Build Your Brand - Eon8"
+        description="At Eon8, we take your business to the next level with digital marketing and branding. Contact EON8 in Chennai, Bangalore, Hyderabad, and Mumbai."
+      />
+
+      {/* 1. Hero Header */}
+      <ServiceHeroSection
+        theme="brand"
+        layout="centered"
+        badge="Get In Touch"
+        heading="Contact EON8 Digital Marketing Agency"
+        paragraphs={["We'd love to hear from you. Let's connect and build your next growth milestone!"]}
+      />
+
+      {/* 2. Contact Channels */}
+      <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="rounded-2xl bg-card border border-border p-7 text-center shadow-xs hover:shadow-lg transition-shadow space-y-3">
+            <div className="w-13 h-13 mx-auto rounded-2xl bg-[#FD5900]/12 text-[#FD5900] flex items-center justify-center">
+              <MapPin className="w-6 h-6" />
             </div>
-
-            <div className="row reveal active">
-              <div className="col-md-4" style={{ marginBottom: 20 }}>
-                <div className="contact-card">
-                  <MapPin className="w-8 h-8 contact-card-icon" aria-hidden="true" />
-                  <h4 style={{ fontSize: 20, fontWeight: 700, marginBottom: 10 }}>
-                    Our Locations
-                  </h4>
-                  <p style={{ margin: 0, lineHeight: 1.6 }}>
-                    Mumbai, Hyderabad,
-                    <br />
-                    Bangalore, Chennai
-                  </p>
-                </div>
-              </div>
-
-              <div className="col-md-4" style={{ marginBottom: 20 }}>
-                <div className="contact-card">
-                  <Phone className="w-8 h-8 contact-card-icon" aria-hidden="true" />
-                  <h4 style={{ fontSize: 20, fontWeight: 700, marginBottom: 10 }}>Call Us</h4>
-                  <p style={{ margin: 0 }}>
-                    <a href="tel:+919042294007">+91 90422 94007</a>
-                  </p>
-                </div>
-              </div>
-
-              <div className="col-md-4" style={{ marginBottom: 20 }}>
-                <div className="contact-card">
-                  <Mail className="w-8 h-8 contact-card-icon" aria-hidden="true" />
-                  <h4 style={{ fontSize: 20, fontWeight: 700, marginBottom: 10 }}>Email Us</h4>
-                  <p style={{ margin: 0 }}>
-                    <a href="mailto:info@eon8.com">info@eon8.com</a>
-                  </p>
-                </div>
-              </div>
-            </div>
+            <h2 className="text-lg font-heading font-bold text-foreground">Our Locations</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Mumbai, Hyderabad, Bangalore, Chennai
+            </p>
           </div>
-        </section>
 
-        <section className="location-section">
-          <div className="container">
-            <h3
-              className="text-center reveal active"
-              style={{ fontSize: 28, marginBottom: 36 }}
-            >
-              <span className="to">Our Presence</span>
-            </h3>
-            <div className="row reveal active">
-              {PRESENCE_CITIES.map((city) => (
-                <div
-                  key={city.name}
-                  className="col-md-3 col-sm-6 col-xs-6"
-                  style={{ marginBottom: 20 }}
-                >
-                  <div className="location-card">
-                    <img alt={city.name} src={city.img} />
-                    <p style={{ margin: 0 }}>{city.name}</p>
-                  </div>
-                </div>
-              ))}
+          <div className="rounded-2xl bg-card border border-border p-7 text-center shadow-xs hover:shadow-lg transition-shadow space-y-3">
+            <div className="w-13 h-13 mx-auto rounded-2xl bg-[#0053C6]/12 dark:bg-sky-500/15 text-[#0053C6] dark:text-sky-400 flex items-center justify-center">
+              <Phone className="w-6 h-6" />
             </div>
+            <h2 className="text-lg font-heading font-bold text-foreground">Call Us</h2>
+            <p className="text-sm sm:text-base">
+              <a
+                href="tel:+919042294007"
+                className="font-semibold text-foreground hover:text-[#FD5900] transition-colors no-underline"
+              >
+                +91 90422 94007
+              </a>
+            </p>
           </div>
-        </section>
 
-        <section className="enquiry-section">
-          <div className="container">
-            <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-              <div className="col-md-6 col-sm-12" style={{ marginBottom: 24 }}>
-                <div className="form-box">
-                  <h3>Get Enquiry</h3>
-                  <div className="wpcf7">
-                    <form className="wpcf7-form" onSubmit={handleSubmit} noValidate>
-                      <label>
-                        Name
-                        <input
-                          name="your-name"
-                          type="text"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          required
-                        />
-                      </label>
+          <div className="rounded-2xl bg-card border border-border p-7 text-center shadow-xs hover:shadow-lg transition-shadow space-y-3">
+            <div className="w-13 h-13 mx-auto rounded-2xl bg-[#0053C6]/12 dark:bg-sky-500/15 text-[#0053C6] dark:text-sky-400 flex items-center justify-center">
+              <Mail className="w-6 h-6" />
+            </div>
+            <h2 className="text-lg font-heading font-bold text-foreground">Email Us</h2>
+            <p className="text-sm sm:text-base">
+              <a
+                href="mailto:info@eon8.com"
+                className="font-semibold text-foreground hover:text-[#FD5900] transition-colors no-underline"
+              >
+                info@eon8.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
 
-                      <label>
-                        Email
-                        <input
-                          name="your-email"
-                          type="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
-                        />
-                      </label>
+      {/* 3. Our Presence Landmarks */}
+      <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10 space-y-2">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-[#FD5900]">
+              Regional Hubs
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-foreground">
+              Our Presence
+            </h2>
+          </div>
 
-                      <label>
-                        Phone
-                        <span className="contact-phone-row">
-                          <select
-                            aria-label="Country code"
-                            value={dialCode}
-                            onChange={(e) => setDialCode(e.target.value)}
-                          >
-                            {DIAL_CODES.map((c) => (
-                              <option key={c.value} value={c.value}>
-                                {c.label}
-                              </option>
-                            ))}
-                          </select>
-                          <input
-                            name="phone"
-                            type="tel"
-                            placeholder="98765 43210"
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                            required
-                          />
-                        </span>
-                      </label>
-
-                      <label>
-                        Message
-                        <textarea
-                          name="your-message"
-                          rows={5}
-                          value={message}
-                          onChange={(e) => setMessage(e.target.value)}
-                        />
-                      </label>
-
-                      <div className="q_cnt_frm">
-                        <label>
-                          <span className="wpcf7-quiz-label">12 + 4=?</span>
-                          <input
-                            name="math-quiz"
-                            type="text"
-                            autoComplete="off"
-                            value={mathQuiz}
-                            onChange={(e) => setMathQuiz(e.target.value)}
-                            required
-                          />
-                        </label>
-                      </div>
-
-                      <div className="text-center" style={{ marginTop: 12 }}>
-                        <input
-                          className="wpcf7-form-control wpcf7-submit"
-                          type="submit"
-                          value="Send"
-                        />
-                      </div>
-
-                      {status && (
-                        <div
-                          role="status"
-                          className={`ai-form-feedback ${
-                            status.type === 'success' ? 'is-success' : 'is-error'
-                          }`}
-                        >
-                          {status.text}
-                        </div>
-                      )}
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-md-6 col-sm-12">
-                <div className="map-box">
-                  <iframe
-                    title="Eon8 Chennai Office Map"
-                    allowFullScreen
-                    height="450"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15548.177756903395!2d80.2441769!3d13.0328421!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x913aa71c2be6fe75!2sEon8%20-%20Digital%20Marketing%20Agency%20in%20Chennai!5e0!3m2!1sen!2sin!4v1627393345427!5m2!1sen!2sin"
-                    style={{ border: 0, width: '100%' }}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {PRESENCE_CITIES.map((city) => (
+              <div
+                key={city.name}
+                className="rounded-2xl bg-card border border-border p-6 flex flex-col items-center justify-center gap-4 shadow-xs hover:shadow-md transition-shadow"
+              >
+                <div className="w-20 h-20 rounded-2xl bg-white p-3 flex items-center justify-center shadow-2xs">
+                  <img
+                    src={city.img}
+                    alt={city.name}
+                    className="w-14 h-14 object-contain"
                   />
                 </div>
+                <p className="text-base font-heading font-bold text-foreground">{city.name}</p>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {/* 4. Enquiry Form + Office Map */}
+      <section className="py-16 sm:py-20 pb-28 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div className="lg:col-span-6">
+            <LeadCaptureCard
+              id="contact-enquiry-form"
+              heading="Get Enquiry"
+              subheading="Fill out the form below and our team will respond within 24 hours."
+              submitLabel="Send Message"
+              showMathChallenge
+            />
+          </div>
+
+          <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-border shadow-xl bg-card h-[460px] lg:h-[540px]">
+            <iframe
+              title="Eon8 Chennai Office Map"
+              allowFullScreen
+              loading="lazy"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15548.177756903395!2d80.2441769!3d13.0328421!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x913aa71c2be6fe75!2sEon8%20-%20Digital%20Marketing%20Agency%20in%20Chennai!5e0!3m2!1sen!2sin!4v1627393345427!5m2!1sen!2sin"
+              className="w-full h-full border-0"
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PhoneCall, MessageCircle, X, Send, CheckCircle2, ArrowUp } from 'lucide-react';
+import { PhoneCall, MessageCircle, X, Send, CheckCircle2, ArrowUp, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
 
 export function FloatingWidgets() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -11,6 +12,7 @@ export function FloatingWidgets() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [submissionResult, setSubmissionResult] = useState<LeadSubmissionResult | null>(null);
 
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 300);
@@ -18,14 +20,23 @@ export function FloatingWidgets() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!phone || !email) return;
+    const result = await submitLeadEnquiry({
+      source: 'Floating Quick Contact Drawer',
+      name: name.trim() || undefined,
+      phone: phone.trim(),
+      email: email.trim(),
+      message: message.trim() || undefined,
+    });
+    setSubmissionResult(result);
     setSubmitted(true);
   };
 
   const handleOpenDrawer = () => {
     setSubmitted(false);
+    setSubmissionResult(null);
     setName('');
     setPhone('');
     setEmail('');
@@ -195,10 +206,32 @@ export function FloatingWidgets() {
                 >
                   <CheckCircle2 className="w-12 h-12 text-green-500" />
                   <h4 className="font-heading font-extrabold text-foreground">Thank You!</h4>
-                  <p className="text-sm text-muted-foreground max-w-[220px] leading-relaxed">
-                    Our sales representative will get back to you shortly.
+                  <p className="text-sm text-muted-foreground max-w-[230px] leading-relaxed">
+                    {submissionResult?.deliveredToWebhook
+                      ? 'Our sales representative will get back to you shortly.'
+                      : 'Send your pre-filled enquiry directly via WhatsApp or Email:'}
                   </p>
-                  <Button onClick={() => setIsDrawerOpen(false)} variant="outline" className="mt-4 rounded-xl">
+                  {submissionResult && (
+                    <div className="flex flex-col w-full gap-2 pt-1">
+                      <a
+                        href={submissionResult.whatsappHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-[#16a34a] hover:bg-[#15803d] text-white text-xs font-bold no-underline"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        <span>Send on WhatsApp</span>
+                      </a>
+                      <a
+                        href={submissionResult.mailtoHref}
+                        className="inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold no-underline"
+                      >
+                        <Mail className="w-4 h-4" />
+                        <span>Send via Email</span>
+                      </a>
+                    </div>
+                  )}
+                  <Button onClick={() => setIsDrawerOpen(false)} variant="outline" className="mt-2 rounded-xl">
                     Close
                   </Button>
                 </motion.div>

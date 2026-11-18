@@ -44,6 +44,15 @@ const TwitterInfluencerPage = lazy(
 const NftServicePage = lazy(() => import('@/pages/nft/NftServicePage'));
 const ElementorNftPage = lazy(() => import('@/pages/nft/ElementorNftPage'));
 const OurServicesPage = lazy(() => import('@/pages/services/OurServicesPage'));
+const WorksPage = lazy(() =>
+  import('@/pages/PortfolioPages').then((m) => ({ default: m.WorksPage }))
+);
+const CaseStudyPage = lazy(() =>
+  import('@/pages/PortfolioPages').then((m) => ({ default: m.CaseStudyPage }))
+);
+const ThankYouPage = lazy(() =>
+  import('@/pages/ThankYouPage').then((m) => ({ default: m.ThankYouPage }))
+);
 const NotFoundPage = lazy(() =>
   import('@/pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage }))
 );
@@ -145,6 +154,12 @@ const LEGACY_WP_REDIRECTS: readonly [string, string][] = [
   ['web-design-development-service-chennai', '/web-design-development-services-chennai'],
   ['what-are-negative-links-and-how-are-they-affecting-the-orm', '/blog/negative-links-in-orm'],
   ['youtube-marketing-company', '/youtube-marketing-company-chennai-eon8'],
+  ['influencer-marketing-services-new', '/influencer-marketing-agency'],
+  ['influencer-marketing-services-test', '/influencer-marketing-agency'],
+  ['influencer-marketing-test', '/influencer-marketing-agency'],
+  ['ecommerce-services-test', '/ecommerce-website-development-services'],
+  ['nft-marketing-test', '/nft-marketing-services'],
+  ['nft-test', '/nft-marketing-services'],
 ];
 
 const legacyRedirectRoutes = LEGACY_WP_REDIRECTS.map(([from, to]) => ({
@@ -174,8 +189,10 @@ const router = createBrowserRouter([
       { path: 'about', element: <AboutPage /> },
       { path: 'about-us', element: <AboutPage /> },
       { path: 'contact', element: <ContactPage /> },
+      { path: 'thank-you', element: <ThankYouPage /> },
       { path: 'ai-agent-development-services', element: <AIAgentPage /> },
       { path: 'ai-video-creation', element: <AIVideoPage /> },
+      { path: 'ai-video-agency', element: <AIVideoPage /> },
       { path: 'chatgpt-ads-agency', element: <ChatgptAdsAgencyPage /> },
       { path: 'chatgpt-ads-agency/blog', element: <ChatgptAdsSubPage mode="blog" /> },
       { path: 'chatgpt-ads-agency/blog.html', element: <ChatgptAdsSubPage mode="blog" /> },
@@ -239,7 +256,19 @@ const router = createBrowserRouter([
       ...nftServiceRoutes,
       ...nftElementorRoutes,
 
-      // Native Pure-React Services, ERP/CRM, Works, Case Studies, Packages & Landing Pages (all 83 routes + aliases)
+      // Portfolio & Case Studies (4 dedicated native React routes)
+      { path: 'works', element: <WorksPage /> },
+      { path: 'case-study-poorvika', element: <CaseStudyPage slug="case-study-poorvika" /> },
+      {
+        path: 'case-study-cake-square-chennai',
+        element: <CaseStudyPage slug="case-study-cake-square-chennai" />,
+      },
+      {
+        path: 'case-study-hidden-secret',
+        element: <CaseStudyPage slug="case-study-hidden-secret" />,
+      },
+
+      // Native Pure-React Services, ERP/CRM, Packages & Landing Pages (all 79 routes + aliases)
       ...allServiceRoutes,
       {
         path: 'web-development-services-company',

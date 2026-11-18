@@ -444,12 +444,13 @@ export function Navbar() {
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <ThemeToggleButton />
 
-            <Link
-              to="/contact"
-              className="hidden lg:inline-flex items-center justify-center bg-[#FD5900] hover:bg-[#e55000] text-white font-semibold text-[15px] xl:text-[16px] px-5 py-2.5 min-h-[44px] rounded-[7px] transition-colors shadow-sm whitespace-nowrap"
+            <button
+              type="button"
+              onClick={() => setContactModalOpen(true)}
+              className="hidden lg:inline-flex items-center justify-center bg-[#FD5900] hover:bg-[#e55000] text-white font-semibold text-[15px] xl:text-[16px] px-5 py-2.5 min-h-[44px] rounded-[7px] transition-colors shadow-sm whitespace-nowrap cursor-pointer"
             >
-              Get Start
-            </Link>
+              Get Started
+            </button>
 
             {/* Mobile Hamburger Button */}
             <button
@@ -635,7 +636,7 @@ export function Navbar() {
                       }}
                       className="w-full py-3 px-4 rounded-lg bg-[#FD5900] hover:bg-[#e55000] text-white font-semibold text-sm text-center"
                     >
-                      Get Start
+                      Get Started
                     </button>
                   </div>
                 </nav>

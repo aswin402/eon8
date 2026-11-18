@@ -14,226 +14,88 @@ export const deleteNegativeReviewsPost: BlogPost = {
   "author": "Aanya",
   "thumbnail": "/wp-content/uploads/2020/09/eon8-helps-in-removing-negative-reviews.jpg",
   "excerpt": "Evacuating negative reviews is a great task which cannot be done single-handedly. Delete the negative reviews from Google or Facebook…",
-  "contentNodes": [
+  "blocks": [
     {
-      "kind": "element",
-      "tag": "p",
-      "children": [
+      "type": "paragraph",
+      "content": [
+        "Evacuating negative reviews is a great task which cannot be done single-handedly. ",
         {
-          "kind": "text",
-          "value": "Evacuating negative reviews is a great task which cannot be done single-handedly. "
+          "text": "Delete the negative reviews from Google",
+          "href": "/effects-of-negative-google-reviews"
         },
+        " or Facebook is a time-consuming process. Online Reputation Management is done by every digital marketing agencies but EON8 stands out from every company with its efficient team and uniqueness."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        "Delete google reviews and negative keywords from the search results are important to build your online reputation. Recovering and supervising Online Reputation is really, a strenuous strategy. For significant clients, online disrespect is a genuine issue. The heads’ pack will be ensured to recover their electronic standing. The ORM organizations decrease the seeing of negative reviews and complaints by controlling the appropriate keywords by removing the negative keywords. The fact of the matter is to wipe the record just as give one greater chance to the client to exhibit their characteristics. ",
         {
-          "kind": "element",
-          "tag": "a",
-          "props": {
-            "href": "/effects-of-negative-google-reviews"
+          "text": "EON8",
+          "href": "/"
+        },
+        " is organized by clients’ needs and necessities. How are they done and what ought to be dealt with?"
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          "First of every, online stage consolidates the most exceptional media called social media life. It fuses ",
+          {
+            "text": "Facebook",
+            "href": "https://www.facebook.com/"
           },
-          "children": [
-            {
-              "kind": "text",
-              "value": "Delete the negative reviews from Google"
-            }
-          ]
+          ", Instagram, Twitter and many. Build a better than average closeness in web-based life. Discard the ghost fans yet invigorate dynamic supporters. Do give them the latest news concerning your association in a creative manner."
+        ]
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          "Creating a top-quality blog. Your character will be gone on through your words. In case the blog is followed and cherished by people, there are high prospects that people will start dismissing the terrible comments if any in various stages."
+        ]
+      ]
+    },
+    {
+      "type": "blockquote",
+      "content": [
+        {
+          "text": "Read Also; How do the negative reviews affect your company ?",
+          "href": "/negative-reviews-affect-your-company"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          "Next is a huge technique to fabricate your reputation and acclaim. This is a time of paid affiliations. Find influencers, geniuses and people who have a better than average online proximity and has various fans to propel your picture. Don’t direct them to gloat about your thing since people may not believe that it is very trustworthy. Hence, the pervasiveness will augment doubly."
+        ],
+        [
+          "Next is a perilous factor. Regardless, to collect trust among the customers, this is the best way. It is to be clear. Customers posting negative reviews can be made overlooked by others through this. Your picture straightforwardness is a thing that will be surprising and will serve the customers with a moving stance. We can beyond question tell that people love reliability."
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        "Presently, every one of these components is to be dealt with on the off chance that you have to keep up your business notoriety. To have a quicker turn of events, you have to move toward an advanced advertising organization or a decent ",
+        {
+          "text": "ORM specialist",
+          "href": "/online-reputation-management-agency"
         },
-        {
-          "kind": "text",
-          "value": " or Facebook is a time-consuming process. Online Reputation Management is done by every digital marketing agencies but EON8 stands out from every company with its efficient team and uniqueness."
-        }
+        " co-op. Here is where EON8 has an upper-hand amongst every company."
       ]
     },
     {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "text",
-          "value": "Delete google reviews and negative keywords from the search results are important to build your online reputation. Recovering and supervising Online Reputation is really, a strenuous strategy. For significant clients, online disrespect is a genuine issue. The heads’ pack will be ensured to recover their electronic standing. The ORM organizations decrease the seeing of negative reviews and complaints by controlling the appropriate keywords by removing the negative keywords. The fact of the matter is to wipe the record just as give one greater chance to the client to exhibit their characteristics. "
-        },
-        {
-          "kind": "element",
-          "tag": "a",
-          "props": {
-            "href": "/"
-          },
-          "children": [
-            {
-              "kind": "text",
-              "value": "EON8"
-            }
-          ]
-        },
-        {
-          "kind": "text",
-          "value": " is organized by clients’ needs and necessities. How are they done and what ought to be dealt with?"
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "ul",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "li",
-          "children": [
-            {
-              "kind": "text",
-              "value": "First of every, online stage consolidates the most exceptional media called social media life. It fuses "
-            },
-            {
-              "kind": "element",
-              "tag": "a",
-              "props": {
-                "href": "https://www.facebook.com/",
-                "target": "_blank",
-                "rel": "noopener"
-              },
-              "children": [
-                {
-                  "kind": "text",
-                  "value": "Facebook"
-                }
-              ]
-            },
-            {
-              "kind": "text",
-              "value": ", Instagram, Twitter and many. Build a better than average closeness in web-based life. Discard the ghost fans yet invigorate dynamic supporters. Do give them the latest news concerning your association in a creative manner."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "ul",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "li",
-          "children": [
-            {
-              "kind": "text",
-              "value": "Creating a top-quality blog. Your character will be gone on through your words. In case the blog is followed and cherished by people, there are high prospects that people will start dismissing the terrible comments if any in various stages."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "blockquote",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "p",
-          "children": [
-            {
-              "kind": "element",
-              "tag": "a",
-              "props": {
-                "href": "/negative-reviews-affect-your-company"
-              },
-              "children": [
-                {
-                  "kind": "text",
-                  "value": "Read Also; How do the negative reviews affect your company ?"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "ul",
-      "children": [
-        {
-          "kind": "element",
-          "tag": "li",
-          "children": [
-            {
-              "kind": "text",
-              "value": "Next is a huge technique to fabricate your reputation and acclaim. This is a time of paid affiliations. Find influencers, geniuses and people who have a better than average online proximity and has various fans to propel your picture. Don’t direct them to gloat about your thing since people may not believe that it is very trustworthy. Hence, the pervasiveness will augment doubly."
-            }
-          ]
-        },
-        {
-          "kind": "element",
-          "tag": "li",
-          "children": [
-            {
-              "kind": "text",
-              "value": "Next is a perilous factor. Regardless, to collect trust among the customers, this is the best way. It is to be clear. Customers posting negative reviews can be made overlooked by others through this. Your picture straightforwardness is a thing that will be surprising and will serve the customers with a moving stance. We can beyond question tell that people love reliability."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "text",
-          "value": "Presently, every one of these components is to be dealt with on the off chance that you have to keep up your business notoriety. To have a quicker turn of events, you have to move toward an advanced advertising organization or a decent "
-        },
-        {
-          "kind": "element",
-          "tag": "a",
-          "props": {
-            "href": "/online-reputation-management-agency"
-          },
-          "children": [
-            {
-              "kind": "text",
-              "value": "ORM specialist"
-            }
-          ]
-        },
-        {
-          "kind": "text",
-          "value": " co-op. Here is where EON8 has an upper-hand amongst every company."
-        }
-      ]
-    },
-    {
-      "kind": "text",
-      "value": " "
-    },
-    {
-      "kind": "element",
-      "tag": "p",
-      "children": [
-        {
-          "kind": "text",
-          "value": "Evacuating Google surveys that are negative and distinguishing counterfeit audits are pivotal for keeping up online notoriety. The reviews presented in respects on a thing can crush or create it. ORM organizations are managed by the association you will approach. Find an association that offers you the best ORM groups and that fuse deleting and removing stigmatizing and negative reviews and deleting negative contribution from customers. Regardless, an association ought to understand that the fakery and scepticism of comments go with most of the notable things. This is why EON8 is your answer. "
-        }
+      "type": "paragraph",
+      "content": [
+        "Evacuating Google surveys that are negative and distinguishing counterfeit audits are pivotal for keeping up online notoriety. The reviews presented in respects on a thing can crush or create it. ORM organizations are managed by the association you will approach. Find an association that offers you the best ORM groups and that fuse deleting and removing stigmatizing and negative reviews and deleting negative contribution from customers. Regardless, an association ought to understand that the fakery and scepticism of comments go with most of the notable things. This is why EON8 is your answer."
       ]
     }
   ]

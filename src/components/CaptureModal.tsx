@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, CheckCircle2, RefreshCw } from 'lucide-react';
+import { X, Send, CheckCircle2, RefreshCw, MessageCircle, Mail } from 'lucide-react';
 import { useAppStore } from '@/store/useAppStore';
 import { Button } from '@/components/ui/button';
+import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
 
 export function CaptureModal() {
   const { isContactModalOpen, setContactModalOpen } = useAppStore();
@@ -23,6 +24,7 @@ export function CaptureModal() {
 
   // Form Submission Status
   const [submitted, setSubmitted] = useState(false);
+  const [submissionResult, setSubmissionResult] = useState<LeadSubmissionResult | null>(null);
   const [generalError, setGeneralError] = useState('');
 
   // Reset form fields and captcha on modal open
@@ -35,6 +37,7 @@ export function CaptureModal() {
         setCountry('');
         setMessage('');
         setSubmitted(false);
+        setSubmissionResult(null);
         setGeneralError('');
         setNum1(Math.floor(Math.random() * 15) + 3);
         setNum2(Math.floor(Math.random() * 10) + 2);
@@ -53,7 +56,7 @@ export function CaptureModal() {
     setCaptchaError(false);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -72,10 +75,18 @@ export function CaptureModal() {
       return;
     }
 
-    // Success Mock submit
+    const result = await submitLeadEnquiry({
+      source: 'Quick Consultation Modal',
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone.trim(),
+      country: country.trim() || undefined,
+      message: message.trim() || undefined,
+    });
+
+    setSubmissionResult(result);
     setSubmitted(true);
     setGeneralError('');
-    console.log('Form Submitted successfully:', { name, email, phone, country, message });
   };
 
   const triggerShake = () => {
@@ -242,11 +253,35 @@ export function CaptureModal() {
                 <div className="inline-flex w-16 h-16 bg-green-500/10 text-green-500 border border-green-500/20 rounded-full items-center justify-center mb-2">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-heading font-extrabold text-foreground">Proposal Request Sent!</h3>
+                <h3 className="text-2xl font-heading font-extrabold text-foreground">
+                  {submissionResult?.deliveredToWebhook ? 'Proposal Request Sent!' : 'Proposal Details Ready!'}
+                </h3>
                 <p className="text-sm text-muted-foreground max-w-xs mx-auto leading-relaxed">
-                  Thank you for contacting Eon8. One of our growth marketing consultants will contact you on WhatsApp or email shortly.
+                  {submissionResult?.deliveredToWebhook
+                    ? 'Thank you for contacting Eon8. One of our growth marketing consultants will contact you shortly.'
+                    : 'Connect directly with our growth desk on WhatsApp or email with your pre-filled brief:'}
                 </p>
-                <div className="pt-4">
+                {submissionResult && (
+                  <div className="flex flex-wrap items-center justify-center gap-2.5 pt-1">
+                    <a
+                      href={submissionResult.whatsappHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#16a34a] hover:bg-[#15803d] text-white text-xs font-bold no-underline"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      <span>Send via WhatsApp</span>
+                    </a>
+                    <a
+                      href={submissionResult.mailtoHref}
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold no-underline"
+                    >
+                      <Mail className="w-4 h-4" />
+                      <span>Send via Email</span>
+                    </a>
+                  </div>
+                )}
+                <div className="pt-2">
                   <Button
                     onClick={() => setContactModalOpen(false)}
                     variant="outline"

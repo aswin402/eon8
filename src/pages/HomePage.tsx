@@ -24,6 +24,7 @@ import {
   Users,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { PageSeo } from '@/components/sections';
 import { useAppStore } from '@/store/useAppStore';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -245,10 +246,10 @@ const CASE_STUDIES = [
   },
   {
     name: 'Manju Groups',
-    stat: 'More than 20% Conversation from online leads',
+    stat: 'More than 20% Conversion from online leads',
     img: '/wp-content/uploads/2026/06/manju.webp',
     alt: 'Manju Groups Logo',
-    to: '/works',
+    to: '/works#manju-groups',
   },
 ];
 
@@ -308,16 +309,6 @@ export function HomePage() {
   const { setContactModalOpen } = useAppStore();
 
   useEffect(() => {
-    document.title = 'Digital Marketing Agency | AI, SEO & Web3 Services | EON8';
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'Partner with EON8 for AI-powered digital marketing, SEO, web development, performance marketing, branding, Web3 solutions, and business growth strategies.'
-      );
-    }
-    window.scrollTo(0, 0);
-
     const ctx = gsap.context(() => {
       document.querySelectorAll('.achievement-counter').forEach((el) => {
         const target = Number(el.getAttribute('data-target') || '0');
@@ -350,8 +341,13 @@ export function HomePage() {
 
   return (
     <div ref={containerRef} className="bg-background text-foreground font-body overflow-x-clip">
+      <PageSeo
+        title="Digital Marketing Agency | AI, SEO & Web3 Services | EON8"
+        description="Partner with EON8 for AI-powered digital marketing, SEO, web development, performance marketing, branding, Web3 solutions, and business growth strategies."
+        canonicalPath="/"
+      />
       {/* 1. Fullscreen Video Hero */}
-      <section className="relative min-h-screen min-h-[100dvh] flex items-center justify-center pt-28 pb-20 sm:pt-32 sm:pb-24 overflow-hidden">
+      <section className="relative min-h-screen min-h-[100dvh] flex items-center justify-center pt-28 pb-20 sm:pt-32 sm:pb-24 overflow-hidden bg-slate-950">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -846,10 +842,10 @@ export function HomePage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-foreground">
-              Client Satisfaction Is <span className="text-[#FD5900]">Our Prime Goal</span>
+              Proven Growth <span className="text-[#FD5900]">Case Studies</span>
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground">
-              Be it a small or large business, we make sure to provide the best dedicated service to uplift your business value and returns while not forgetting to meet your expectations.
+              Explore how EON8 engineers measurable reach, qualified lead pipelines, and omnichannel revenue across retail, eCommerce, and enterprise brands.
             </p>
           </div>
 

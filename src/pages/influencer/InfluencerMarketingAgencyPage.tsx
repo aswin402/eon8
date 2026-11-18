@@ -1,25 +1,19 @@
+import {
+  AlternatingSplitSection,
+  BottomCtaBanner,
+  ClientLogoMarquee,
+  FaqAccordionSection,
+  FeatureGridSection,
+  PageSeo,
+  ProcessRoadmapSection,
+  ServiceHeroSection,
+  StatsCounterStrip,
+} from '@/components/sections';
 import { HeadingLines, RichText } from '@/pages/crypto/components/RichText';
-import { InfluencerFaqAccordion } from './components/InfluencerFaqAccordion';
-import { InfluencerQuoteForm } from './components/InfluencerForms';
-import { InfluencerClientMarquee } from './components/InfluencerMarquee';
-import { InfluencerPageShell } from './components/InfluencerPageShell';
 import { influencerAgencyData } from './data/influencerAgencyData';
-import type { RichNode } from './types';
 
-function renderParagraphs(paragraphs: RichNode[][], pClassName?: string) {
-  return paragraphs.map((nodes, idx) => (
-    <p className={pClassName} key={idx}>
-      <RichText nodes={nodes} />
-    </p>
-  ));
-}
-
-/**
- * Native React clone of /influencer-marketing-agency.
- */
 export default function InfluencerMarketingAgencyPage() {
   const {
-    slug,
     title,
     metaDesc,
     hero,
@@ -39,341 +33,197 @@ export default function InfluencerMarketingAgencyPage() {
   } = influencerAgencyData;
 
   return (
-    <InfluencerPageShell slug={slug} title={title} description={metaDesc}>
-      {/* Section 0: Hero Banner */}
-      <section className="banner_inr banner-inr-digital">
-        <div className="container" style={{ marginTop: '-60px' }}>
-          <div className="row">
-            <div className="col-md-6">
-              <div className="ba_inr_cnt">
-                <h1 className="reveal">
-                  <HeadingLines lines={hero.headingLines} />
-                </h1>
-                {renderParagraphs(hero.paragraphs, 'reveal')}
-                <div className="row list-nft">
-                  <div className="col-md-12 col-sm-12 col-xs-12">
-                    {hero.bulletColumns.map((col, colIdx) => (
-                      <div className="col-md-6 col-sm-6 col-xs-12" key={colIdx}>
-                        <ul>
-                          {col.map((item, idx) => (
-                            <li key={idx}>
-                              <i aria-hidden="true" className="fa fa-check-circle" /> {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="nft-eon-btn">
-                  <a className="btn-one" href={hero.ctaHref}>
-                    {hero.ctaLabel}
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="ba_inr_img">
-                <img
-                  alt={hero.image.alt}
-                  className={hero.image.className || 'img-fluid'}
-                  src={hero.image.src}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="bg-background text-foreground">
+      <PageSeo title={title} description={metaDesc} />
 
-      {/* Section 1: Agency Intro */}
-      <section>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 col-sm-12 col-xs-12">
-              <div className="sec_tit text-center">
-                <h2 className="reveal reveal-up">
-                  <span className="to">{introSection.heading}</span>
-                </h2>
-                {renderParagraphs(introSection.paragraphs, 'reveal')}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: Project Counters */}
-      <section className="bg-white box text-center non-pading" id="our-projects">
-        <div className="container">
-          <div className="row reveal">
-            {counters.map((counter, idx) => (
-              <div className="col-md-4" key={idx}>
-                <h1
-                  className={`${counter.removePlus ? 'remove ' : ''}${
-                    counter.isRed ? 'red ' : ''
-                  }count-digit`.trim()}
-                >
-                  {counter.value}
-                </h1>
-                <p>{counter.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3: Client Logo Marquee */}
-      <InfluencerClientMarquee heading={clientSliderHeading} logos={clientLogos} />
-
-      {/* Section 4: Why Essential */}
-      <section className="common-spc abt_desc_inr yellow_shad">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 col-sm-12 col-xs-12">
-              <div className="sec_tit text-center">
-                <h2 className="reveal reveal-up">
-                  <span className="to">{whyEssential.heading}</span>
-                </h2>
-              </div>
-              <div className="desc_cnt text-center">
-                {renderParagraphs(whyEssential.paragraphs, 'reveal')}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 5: 9 Influencer Marketing Services */}
-      <section className="spectaular">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 col-sm-12 col-xs-12">
-              <div className="sec_tit text-center">
-                <h3 className="reveal">
-                  <span className="to">{services.heading}</span>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div className="row our_media_row">
-            {services.items.map((item, idx) => (
-              <div className="col-md-6 col-lg-4 col-sm-12 reveal" key={idx}>
-                <div className="h-100">
-                  <div className="item text-center mb-md30" id="mni-hght">
-                    <div className="type">
-                      <span className={item.iconSpanClass}>
-                        <img
-                          alt={item.iconAlt}
-                          className="type-trust"
-                          src={item.iconSrc}
-                          loading="lazy"
-                        />
-                      </span>
-                      <h4 className={item.titleClass}>{item.title}</h4>
-                    </div>
-                    <p>{item.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 6: 12 Influencer Marketing Categories */}
-      <section className="yellow_shad">
-        <div className="container text-center pb-5">
-          <div className="row">
-            <div className="col-md-12">
-              <h2 className="reveal">
-                <span className="to">{categories.heading}</span>
-              </h2>
-            </div>
-            {categories.items.map((cat, idx) => (
-              <div className="col-md-3 icon-section reveal" key={idx}>
-                <img alt={cat.iconAlt} src={cat.iconSrc} loading="lazy" />
-                <h5>{cat.label}</h5>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 7: Advantages 3x2 Grid */}
-      <section className="zxqv-influencer-wrap">
-        <div className="zxqv-container">
-          <h2 className="zxqv-title reveal">
-            <span className="to">{advantages.heading}</span>
-          </h2>
-          <div className="zxqv-grid">
-            {advantages.items.map((adv, idx) => (
-              <div className="zxqv-card-box" key={idx}>
-                <h3>{adv.title}</h3>
-                <p>{adv.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 8: Roadmap Timeline */}
-      <section className="common-spc abt_desc_inr ourspecificSector">
-        <div className="container-fluid">
-          <div className="section-title text-center underline">
-            <div className="sec_tit">
-              <h2 className="reveal">
-                <span className="to">{roadmap.heading}</span>
-              </h2>
-            </div>
-          </div>
-          <ul className="timeline">
-            {roadmap.steps.map((step, idx) => (
-              <li className={step.inverted ? 'timeline-inverted' : undefined} key={idx}>
-                <div className="timeline-image">
-                  <img
-                    alt={step.iconAlt}
-                    className="rounded-circle img-fluid"
-                    src={step.iconSrc}
-                    loading="lazy"
-                  />
-                </div>
-                <div className="timeline-panel">
-                  <div className="timeline-heading">
-                    <h3 className="subheading">{step.title}</h3>
-                  </div>
-                  <div className="timeline-body">
-                    <p className="text-muted">{step.description}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="text-center">
-            <div className="nft-eon-btn">
-              <a className="btn-one" href={roadmap.ctaHref}>
-                {roadmap.ctaLabel}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 9a: What Influencers Can Do For Your Business (Desktop) */}
-      <section className="yellow_shad" id="mobile-hide">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12 text-center">
-              <h2 className="reveal">
-                <span className="to">{influencerValue.heading}</span>
-              </h2>
-            </div>
-            <div className="col-md-12 pb-5">
-              <div className="story-content">
-                {influencerValue.desktopCards.map((card, idx) => (
-                  <div className="story-description" key={idx}>
-                    <img alt={card.iconAlt} src={card.iconSrc} loading="lazy" />
-                    <h4>{card.title}</h4>
-                    <p>{card.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 9b: What Influencers Can Do For Your Business (Mobile/Tablet) */}
-      <section className="yellow_shad" id="desktop-hide" style={{ marginBottom: '20px' }}>
-        <div className="container" style={{ marginBottom: '20px' }}>
-          <div className="row">
-            <div className="col-md-12 text-center">
-              <h2 className="reveal">
-                <span className="to">{influencerValue.heading}</span>
-              </h2>
-            </div>
-            {influencerValue.mobileCards.map((card, idx) => (
-              <div className="col-md-6" key={idx}>
-                <div className="story-mobile-description">
-                  <img alt={card.iconAlt} src={card.iconSrc} loading="lazy" />
-                  <h4>{card.title}</h4>
-                  <p>{card.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 10: On-Demand Solutions Split */}
-      <section className="common-spc abt_desc_inr">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 col-sm-12">
-              <div className="sec_tit">
-                <h4 className="reveal">
-                  <HeadingLines lines={solutions.headingLines} />
-                </h4>
-              </div>
-              <div className="desc_cnt">
-                {renderParagraphs(solutions.paragraphs)}
-              </div>
-              <div className="row list-nft">
-                <div className="col-md-12 col-sm-12 col-xs-12">
-                  {solutions.bulletColumns.map((col, colIdx) => (
-                    <div className="col-md-6 col-sm-6 col-xs-12" key={colIdx}>
-                      <ul>
-                        {col.map((item, idx) => (
-                          <li key={idx}>
-                            <i aria-hidden="true" className="fa fa-check-circle" /> {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-sm-12">
-              <div className="desc_img">
-                <img
-                  alt={solutions.image.alt}
-                  className={solutions.image.className || 'img-fluid'}
-                  src={solutions.image.src}
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 11: FAQ Accordion */}
-      <InfluencerFaqAccordion
-        variant="faq"
-        heading={faq.heading}
-        items={faq.items}
+      {/* 1. Split Hero with Local Creator Graphic */}
+      <ServiceHeroSection
+        theme="influencer"
+        layout="split-media"
+        badge="Creator Economy Growth"
+        heading={<HeadingLines lines={hero.headingLines} />}
+        paragraphs={hero.paragraphs.map((nodes, idx) => (
+          <RichText key={idx} nodes={nodes} tone="on-dark" />
+        ))}
+        bullets={hero.bulletColumns.flat()}
+        mediaSrc={hero.image.src}
+        mediaAlt={hero.image.alt}
+        actions={[{ label: hero.ctaLabel, href: hero.ctaHref, variant: 'primary' }]}
       />
 
-      {/* Section 12: Enquiry Quote Form */}
-      <section className="pb-70 contact-nft" id="enquiry">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 col-xs-12">
-              <img
-                alt={enquiry.image.alt}
-                className={enquiry.image.className || 'img-fluid'}
-                src={enquiry.image.src}
-                loading="lazy"
-              />
-            </div>
-            <div className="col-md-6 col-xs-12">
-              <InfluencerQuoteForm
-                heading={enquiry.formHeading}
-                submitLabel={enquiry.submitLabel}
-              />
-            </div>
+      {/* 2. Agency Intro + Counters */}
+      <StatsCounterStrip
+        theme="influencer"
+        badge="Proven Creator Impact"
+        heading={introSection.heading}
+        subheading={introSection.paragraphs
+          .map((p) => p.map((n) => (typeof n === 'string' ? n : n.text || '')).join(''))
+          .join(' ')}
+        stats={counters.map((c) => ({
+          value: c.removePlus ? c.value : `${c.value}+`,
+          label: c.label,
+        }))}
+      />
+
+      {/* 3. Client Logo Marquee */}
+      <ClientLogoMarquee heading={clientSliderHeading} logos={clientLogos} />
+
+      {/* 4. Why Essential */}
+      <AlternatingSplitSection
+        theme="influencer"
+        surface="muted"
+        badge="Social Proof At Scale"
+        heading={whyEssential.heading}
+        paragraphs={whyEssential.paragraphs.map((nodes, idx) => (
+          <RichText key={idx} nodes={nodes} />
+        ))}
+      />
+
+      {/* 5. 9 Influencer Marketing Services */}
+      <FeatureGridSection
+        theme="influencer"
+        surface="light"
+        badge="Full-Service Creator Ops"
+        heading={services.heading}
+        cards={services.items.map((item) => ({
+          title: item.title,
+          description: item.description,
+          iconSrc: item.iconSrc,
+          iconAlt: item.iconAlt,
+        }))}
+        columns={3}
+      />
+
+      {/* 6. 12 Influencer Categories */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-rose-600 dark:text-pink-400">
+              Niche Verticals
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-foreground">
+              {categories.heading}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+            {categories.items.map((cat, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl bg-card border border-border p-5 flex flex-col items-center text-center gap-3 shadow-xs hover:shadow-md transition-shadow"
+              >
+                <div className="w-12 h-12 rounded-xl bg-rose-50 dark:bg-slate-800 p-2.5 flex items-center justify-center">
+                  <img
+                    src={cat.iconSrc}
+                    alt={cat.iconAlt}
+                    className="w-7 h-7 object-contain"
+                  />
+                </div>
+                <h3 className="text-sm font-heading font-bold text-foreground leading-snug">
+                  {cat.label}
+                </h3>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-    </InfluencerPageShell>
+
+      {/* 7. Advantages 3x2 Grid */}
+      <FeatureGridSection
+        theme="influencer"
+        surface="dark"
+        badge="Why Creator Campaigns Win"
+        heading={advantages.heading}
+        cards={advantages.items.map((adv) => ({
+          title: adv.title,
+          description: adv.description,
+        }))}
+        columns={3}
+      />
+
+      {/* 8. Roadmap Timeline */}
+      <ProcessRoadmapSection
+        theme="influencer"
+        surface="light"
+        variant="timeline"
+        badge="Campaign Execution"
+        heading={roadmap.heading}
+        steps={roadmap.steps.map((step, i) => ({
+          step: String(i + 1).padStart(2, '0'),
+          title: step.title,
+          description: step.description,
+          iconSrc: step.iconSrc,
+        }))}
+        bottomActions={[{ label: roadmap.ctaLabel, href: roadmap.ctaHref, variant: 'primary' }]}
+      />
+
+      {/* 9. What Influencers Can Do (Single unified responsive grid — no duplicate desktop/mobile DOM!) */}
+      <FeatureGridSection
+        theme="influencer"
+        surface="muted"
+        badge="Brand Amplification"
+        heading={influencerValue.heading}
+        cards={influencerValue.desktopCards.map((c) => ({
+          title: c.title,
+          description: c.description,
+          iconSrc: c.iconSrc,
+          iconAlt: c.iconAlt,
+        }))}
+        columns={3}
+      />
+
+      {/* 10. On-Demand Solutions Split */}
+      <AlternatingSplitSection
+        theme="influencer"
+        surface="light"
+        badge="Tailored Partnerships"
+        heading={<HeadingLines lines={solutions.headingLines} />}
+        paragraphs={solutions.paragraphs.map((nodes, idx) => (
+          <RichText key={idx} nodes={nodes} />
+        ))}
+        bullets={solutions.bulletColumns.flat()}
+        bulletsColumns={2}
+        imageSrc={solutions.image.src}
+        imageAlt={solutions.image.alt}
+      />
+
+      {/* 11. FAQ Accordion */}
+      <FaqAccordionSection
+        theme="influencer"
+        surface="muted"
+        heading={faq.heading}
+        faqs={faq.items.map((f) => ({
+          question: f.question,
+          answer: (
+            <div className="space-y-3">
+              {f.answers.map((nodes, aIdx) => (
+                <p key={aIdx}>
+                  <RichText nodes={nodes} />
+                </p>
+              ))}
+              {f.bullets && f.bullets.length > 0 && (
+                <ul className="list-disc pl-5 space-y-1.5">
+                  {f.bullets.map((b, bIdx) => (
+                    <li key={bIdx}>
+                      <RichText nodes={b} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ),
+        }))}
+      />
+
+      {/* 12. Bottom Quote Section */}
+      <BottomCtaBanner
+        id="enquiry"
+        theme="influencer"
+        heading="Launch High-ROI Influencer Campaigns Today"
+        description="Connect your brand with vetted macro, micro, and niche creators engineered for authentic conversions."
+        formHeading={enquiry.formHeading}
+        submitLabel={enquiry.submitLabel}
+      />
+    </div>
   );
 }

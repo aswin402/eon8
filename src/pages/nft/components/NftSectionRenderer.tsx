@@ -1,788 +1,186 @@
-import { Fragment, useState } from 'react';
 import { Target } from 'lucide-react';
-import type { NftSectionBlock, NftThemedCard } from '../types';
-import { CryptoClientMarquee } from '../../crypto/components/CryptoClientMarquee';
-import { RichText, HeadingLines } from '../../crypto/components/RichText';
-import { NftActionButton } from './NftActionButton';
-import { NftCalendlyWidget } from './NftCalendlyWidget';
 import {
-  NftPackageTableSection,
-  NftTestimonialsSection,
-  NftVideoFeatureSection,
-} from './NftTestimonialsAndPackages';
+  AlternatingSplitSection,
+  ClientLogoMarquee,
+  DiscoveryCallSection,
+  FaqAccordionSection,
+  FeatureGridSection,
+  PricingMatrixSection,
+  ProcessRoadmapSection,
+  SmartActionButton,
+  TestimonialsSection,
+  type ActionItem,
+} from '@/components/sections';
+import { HeadingLines, RichText } from '../../crypto/components/RichText';
+import type { NftCtaButton, NftSectionBlock, RichNode } from '../types';
 
 interface NftSectionRendererProps {
   sections: NftSectionBlock[];
   onOpenModal: () => void;
 }
 
-interface FloatingHeroLayout {
-  wrapperClass: string;
-  leftClass: string;
-  centerOuterClass: string;
-  contentClass: string;
-  rightClass: string;
-  titleClass?: string;
-  subtitleClass?: string;
-  descClass?: string;
-}
-
-const FLOATING_HERO_LAYOUTS: Record<string, FloatingHeroLayout> = {
-  'blue-viral-section': {
-    wrapperClass: 'blue-viral-wrapper',
-    leftClass: 'blue-viral-left',
-    centerOuterClass: '',
-    contentClass: 'blue-viral-content',
-    rightClass: 'blue-viral-right',
-  },
-  'pink-viral-section': {
-    wrapperClass: 'pink-viral-wrapper',
-    leftClass: 'pink-viral-left',
-    centerOuterClass: '',
-    contentClass: 'pink-viral-content',
-    rightClass: 'pink-viral-right',
-  },
-  'community-pink-section': {
-    wrapperClass: 'community-pink-wrapper',
-    leftClass: 'community-pink-left',
-    centerOuterClass: '',
-    contentClass: 'community-pink-content',
-    rightClass: 'community-pink-right',
-  },
-  'gaming-marketing-section': {
-    wrapperClass: 'row',
-    leftClass: 'col-md-2 gaming-left-icons',
-    centerOuterClass: 'col-md-8 text-center gaming-content',
-    contentClass: '',
-    rightClass: 'col-md-2 gaming-right-icons',
-    titleClass: 'gaming-title',
-    subtitleClass: 'gaming-subtitle',
-    descClass: 'gaming-description',
-  },
-  'telegram-pink-section': {
-    wrapperClass: 'telegram-pink-wrapper',
-    leftClass: 'telegram-pink-left',
-    centerOuterClass: '',
-    contentClass: 'telegram-pink-content',
-    rightClass: 'telegram-pink-right',
-  },
-  'discord-blue-section': {
-    wrapperClass: 'row align-items-center',
-    leftClass: 'col-md-2 discord-blue-left',
-    centerOuterClass: 'col-md-8',
-    contentClass: 'discord-blue-content',
-    rightClass: 'col-md-2 discord-blue-right',
-  },
-  'violet-pr-section': {
-    wrapperClass: 'row align-items-center',
-    leftClass: 'col-md-2 violet-left',
-    centerOuterClass: 'col-md-8 text-center violet-content',
-    contentClass: '',
-    rightClass: 'col-md-2 violet-right',
-  },
-  default: {
-    wrapperClass: 'row',
-    leftClass: 'col-md-2 viral-left',
-    centerOuterClass: 'col-md-8 text-center viral-inner',
-    contentClass: '',
-    rightClass: 'col-md-2 viral-right',
-  },
-};
-
-function getFloatingLayout(sectionClass: string): FloatingHeroLayout {
-  for (const key of Object.keys(FLOATING_HERO_LAYOUTS)) {
-    if (key !== 'default' && sectionClass.includes(key)) {
-      return FLOATING_HERO_LAYOUTS[key];
-    }
-  }
-  return FLOATING_HERO_LAYOUTS.default;
-}
-
-function renderHeadingWithAccent(
-  heading: string,
-  highlight: string | undefined,
-  headingBrLines?: string[]
-) {
-  if (headingBrLines && headingBrLines.length > 0) {
-    return headingBrLines.map((line, i) => (
-      <Fragment key={i}>
-        {i > 0 && <br />}
-        {line}
-      </Fragment>
-    ));
-  }
-  if (!highlight) return heading;
-  return (
-    <>
-      {heading} <span>{highlight}</span>
-    </>
-  );
-}
-
-function getThemedCardClasses(sectionClass: string) {
-  const isOrangeWhite = sectionClass.includes('orange-white-card-section');
-  const isPinkProcess = sectionClass.includes('pink-pr-expertise');
+function mapNftBtn(btn: NftCtaButton): ActionItem {
+  const isWhatsapp = /wa\.link|whatsapp/i.test(btn.href);
   return {
-    titleClass: isOrangeWhite ? 'orange-card-title' : undefined,
-    tagClass: isOrangeWhite ? 'orange-card-tag' : undefined,
-    textClass: isOrangeWhite ? 'orange-card-text' : undefined,
-    isPinkProcess,
+    label: btn.label,
+    href: btn.href,
+    opensModal: Boolean(btn.opensModal || btn.href === '#' || btn.href === '#myModal'),
+    external: Boolean(btn.isExternal || isWhatsapp),
+    variant: isWhatsapp ? 'whatsapp' : 'primary',
   };
 }
 
-function renderViralHero(
-  section: Extract<NftSectionBlock, { kind: 'viral-hero' }>,
-  onOpenModal: () => void
-) {
-  if (section.layout === 'floating-center') {
-    const layout = getFloatingLayout(section.sectionClass);
-    const hasBlueBtnWrap = section.buttons?.some((b) =>
-      (b.className || '').includes('blue-cta-btn')
-    );
-
-    const innerContent = (
-      <>
-        {section.badge && <span className="violet-tagline">{section.badge}</span>}
-        {section.subtitle && (
-          <h4 className={layout.subtitleClass}>{section.subtitle}</h4>
-        )}
-        <h2 className={layout.titleClass}>
-          {renderHeadingWithAccent(
-            section.heading,
-            undefined,
-            section.headingBrLines
-          )}
-        </h2>
-        {section.paragraphs.map((nodes, i) => (
-          <p key={i} className={layout.descClass}>
-            <RichText nodes={nodes} />
-          </p>
-        ))}
-        {section.buttons && section.buttons.length > 0 && (
-          <div className={hasBlueBtnWrap ? 'blue-cta-buttons' : 'center call-btn'}>
-            {section.buttons.map((btn, i) => (
-              <NftActionButton key={i} button={btn} onOpenModal={onOpenModal} />
-            ))}
-          </div>
-        )}
-      </>
-    );
-
-    return (
-      <section className={section.sectionClass}>
-        <div className={section.containerClass}>
-          <div className={layout.wrapperClass}>
-            <div className={layout.leftClass}>
-              {section.sideLeftImages?.map((im, i) => (
-                <img
-                  key={i}
-                  src={im.src}
-                  alt={im.alt}
-                  className={im.className}
-                  loading="lazy"
-                />
-              ))}
-            </div>
-
-            {layout.centerOuterClass ? (
-              <div className={layout.centerOuterClass}>
-                {layout.contentClass ? (
-                  <div className={layout.contentClass}>{innerContent}</div>
-                ) : (
-                  innerContent
-                )}
-              </div>
-            ) : (
-              <div className={layout.contentClass}>{innerContent}</div>
-            )}
-
-            <div className={layout.rightClass}>
-              {section.sideRightImages?.map((im, i) => (
-                <img
-                  key={i}
-                  src={im.src}
-                  alt={im.alt}
-                  className={im.className}
-                  loading="lazy"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className={section.sectionClass}>
-      <div className={section.containerClass}>
-        <div className="row align-items-center">
-          <div className={section.contentColClass || 'col-md-6'}>
-            <h2>
-              {renderHeadingWithAccent(
-                section.heading,
-                undefined,
-                section.headingBrLines
-              )}
-            </h2>
-            {section.paragraphs.map((nodes, i) => (
-              <p key={i}>
-                <RichText nodes={nodes} />
-              </p>
-            ))}
-            {section.buttons && section.buttons.length > 0 && (
-              <div className="center call-btn">
-                {section.buttons.map((btn, i) => (
-                  <NftActionButton key={i} button={btn} onOpenModal={onOpenModal} />
-                ))}
-              </div>
-            )}
-          </div>
-          {section.image && (
-            <div className={section.imageColClass || 'col-md-6 text-center'}>
-              <img
-                src={section.image.src}
-                alt={section.image.alt}
-                className={section.image.className || 'img-fluid'}
-                loading="lazy"
-              />
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
+function flattenNodes(nodes: RichNode[]): string {
+  return nodes
+    .map((n) => (typeof n === 'string' ? n : n.br ? ' ' : n.text || ''))
+    .join('')
+    .trim();
 }
 
-function renderThemedCard(
-  card: NftThemedCard,
-  cardClass: string,
-  sectionClass: string,
-  onOpenModal: () => void,
-  idx: number
-) {
-  const { titleClass, tagClass, textClass, isPinkProcess } =
-    getThemedCardClasses(sectionClass);
-
-  const iconNode = card.iconWrapClass ? (
-    <div className={card.iconWrapClass}>
-      {card.iconClass ? (
-        <i className={card.iconClass} aria-hidden="true" />
-      ) : card.iconImg ? (
-        <img
-          src={card.iconImg.src}
-          alt={card.iconImg.alt}
-          className={card.iconImg.className}
-          loading="lazy"
-        />
-      ) : card.emoji ? (
-        <span>{card.emoji}</span>
-      ) : null}
-    </div>
-  ) : null;
-
-  const textBody = (
-    <>
-      {card.tag && <span className={tagClass}>{card.tag}</span>}
-      <h3 className={titleClass}>{card.title}</h3>
-      {card.paragraphs.map((nodes, pIdx) => (
-        <p key={pIdx} className={textClass}>
-          <RichText nodes={nodes} />
-        </p>
-      ))}
-      {card.button && <NftActionButton button={card.button} onOpenModal={onOpenModal} />}
-    </>
-  );
-
-  const cardInner = (
-    <div className={cardClass} key={card.colClass ? undefined : idx}>
-      {card.topBarClass && <div className={card.topBarClass} />}
-      {iconNode}
-      {isPinkProcess ? <div className="pink-process-text">{textBody}</div> : textBody}
-    </div>
-  );
-
-  return card.colClass ? (
-    <div className={card.colClass} key={idx}>
-      {cardInner}
-    </div>
-  ) : (
-    cardInner
-  );
-}
-
-function renderThemedCardGrid(
-  section: Extract<NftSectionBlock, { kind: 'themed-card-grid' }>,
-  onOpenModal: () => void
-) {
-  const headerNode =
-    section.heading || section.subheading || section.badge ? (
-      <div className={section.headingWrapClass || 'section-title text-center'}>
-        {section.badge && <span className="pink-badge">{section.badge}</span>}
-        {section.heading && (
-          <h2>
-            {renderHeadingWithAccent(section.heading, section.headingHighlight)}
-          </h2>
-        )}
-        {section.subheading && <p>{section.subheading}</p>}
-      </div>
-    ) : null;
-
-  const gridNode = (
-    <div className={section.gridClass}>
-      {section.cards.map((card, i) =>
-        renderThemedCard(
-          card,
-          section.cardClass,
-          section.sectionClass,
-          onOpenModal,
-          i
-        )
-      )}
-    </div>
-  );
-
-  if (section.isSplitProcess) {
-    return (
-      <section className={section.sectionClass}>
-        <div className={section.containerClass || 'container'}>
-          <div className="pink-pr-box">
-            <div className="row align-items-center">
-              <div className="col-lg-5">{headerNode}</div>
-              <div className="col-lg-7">{gridNode}</div>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className={section.sectionClass}>
-      {section.containerClass ? (
-        <div className={section.containerClass}>
-          {headerNode}
-          {gridNode}
-        </div>
-      ) : (
-        <>
-          {headerNode}
-          {gridNode}
-        </>
-      )}
-    </section>
-  );
-}
-
-function renderPrWhiteEditorial(
-  section: Extract<NftSectionBlock, { kind: 'pr-white-editorial' }>
-) {
-  if (section.variant === 'global-white') {
-    return (
-      <section className={section.sectionClass}>
-        <div className="container">
-          <div className="nft-global-row">
-            <div className="nft-global-content">
-              <div className="nft-global-heading">
-                <h2>
-                  {renderHeadingWithAccent(
-                    section.headingPrefix,
-                    section.headingAccent
-                  )}
-                </h2>
-                {section.subheading && <p className="top-text">{section.subheading}</p>}
-              </div>
-              <div className="nft-feature-card">
-                <div className="feature-line" />
-                <div className="feature-content">
-                  {section.paragraphs.map((nodes, i) => (
-                    <p key={i}>
-                      <RichText nodes={nodes} />
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-            {section.image && (
-              <div className="nft-global-image">
-                <img
-                  src={section.image.src}
-                  alt={section.image.alt}
-                  className={section.image.className}
-                  loading="lazy"
-                />
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className={section.sectionClass}>
-      <div className="container">
-        <div className="row nft-row">
-          {section.image && (
-            <div className="nft-image">
-              <img
-                src={section.image.src}
-                alt={section.image.alt}
-                className={section.image.className}
-                loading="lazy"
-              />
-            </div>
-          )}
-          <div className="nft-content">
-            <div className="nft-heading">
-              <h2>
-                {renderHeadingWithAccent(
-                  section.headingPrefix,
-                  section.headingAccent
-                )}
-              </h2>
-              {section.subheading && <p className="sub-text">{section.subheading}</p>}
-            </div>
-            <div className="nft-card">
-              {section.paragraphs.map((nodes, i) => (
-                <p key={i}>
-                  <RichText nodes={nodes} />
-                </p>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function renderCtaBand(
-  section: Extract<NftSectionBlock, { kind: 'cta-band' }>,
-  onOpenModal: () => void
-) {
-  if (section.variant === 'blue-cta') {
-    return (
-      <section className={section.sectionClass}>
-        <div className="blue-cta-container">
-          <div className="blue-cta-box">
-            <div className="blue-cta-content">
-              <h2>{section.heading}</h2>
-              {section.subtext && <p>{section.subtext}</p>}
-              {section.buttons.length > 0 && (
-                <div className="blue-cta-buttons">
-                  {section.buttons.map((btn, i) => (
-                    <NftActionButton key={i} button={btn} onOpenModal={onOpenModal} />
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (section.variant === 'cta1') {
-    return (
-      <section className={section.sectionClass}>
-        <div className="container">
-          <div className="row align-items-center">
-            {section.image && (
-              <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12 ct_a">
-                <div className="clone-nft">
-                  <img
-                    src={section.image.src}
-                    alt={section.image.alt}
-                    className={section.image.className}
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            )}
-            <div className="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-              <div className="section-title">
-                <h3 className="white-color">
-                  {section.heading}
-                  {section.headingAccent && (
-                    <span className="red-txt"> {section.headingAccent}</span>
-                  )}
-                </h3>
-                {section.subtext && <p>{section.subtext}</p>}
-              </div>
-              <div className="center call-btn">
-                {section.buttons.map((btn, i) => (
-                  <NftActionButton key={i} button={btn} onOpenModal={onOpenModal} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (section.variant === 'nft-cta-2') {
-    return (
-      <section className={section.sectionClass}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-5" />
-            <div className="col-md-12 col-lg-7">
-              <div id="submitProp">
-                <div className="form-heading">
-                  <h3>
-                    <span className="big-font text-white">{section.heading}</span>
-                    {section.subtext && (
-                      <>
-                        <br />
-                        <span className="paragraph text-white">{section.subtext}</span>
-                      </>
-                    )}
-                  </h3>
-                </div>
-                <div className="center call-btn mobile-center">
-                  {section.buttons.map((btn, i) => (
-                    <NftActionButton key={i} button={btn} onOpenModal={onOpenModal} />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  const isSubProposal = section.variant === 'subPerposal';
-  return (
-    <section className={section.sectionClass}>
-      <div className="container">
-        <div className="row">
-          <div className={isSubProposal ? 'col-md-12' : 'col-md-12 col-lg-7'}>
-            <div id="submitProp">
-              <div className="form-heading">
-                <h3>
-                  {section.heading}
-                  {section.headingAccent && (
-                    <>
-                      {' '}
-                      <span className="red-txt">{section.headingAccent}</span>
-                    </>
-                  )}
-                </h3>
-                {section.subtext && <p>{section.subtext}</p>}
-              </div>
-              <div className="center call-btn">
-                {section.buttons.map((btn, i) => (
-                  <NftActionButton key={i} button={btn} onOpenModal={onOpenModal} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function NftFaqSection({
-  section,
-}: {
-  section: Extract<NftSectionBlock, { kind: 'faq' }>;
-}) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const isWhite = section.variant === 'white-faq';
-  const groupId = isWhite ? 'whiteFaqAccordion' : 'accordion';
-
-  return (
-    <section className={section.sectionClass}>
-      {isWhite ? (
-        <div className="container">
-          <div className="white-faq-title">
-            <h2>{section.heading}</h2>
-            {section.subheading && <p>{section.subheading}</p>}
-          </div>
-          <div className="white-faq-wrapper">
-            <div id={groupId} className="panel-group" role="tablist" aria-multiselectable="true">
-              {section.items.map((item, idx) => {
-                const isOpen = openIndex === idx;
-                const collapseId = `whiteFaqCollapse-${idx}`;
-                return (
-                  <div className="white-faq-card panel" key={idx}>
-                    <div className="white-faq-question panel-heading" role="tab">
-                      <h3 className="panel-title">
-                        <a
-                          href={`#${collapseId}`}
-                          className={isOpen ? '' : 'collapsed'}
-                          aria-expanded={isOpen}
-                          aria-controls={collapseId}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setOpenIndex(isOpen ? null : idx);
-                          }}
-                        >
-                          {item.question}
-                        </a>
-                      </h3>
-                    </div>
-                    <div
-                      id={collapseId}
-                      className={`panel-collapse collapse ${isOpen ? 'show' : ''}`}
-                      role="tabpanel"
-                    >
-                      <div className="white-faq-answer panel-body">
-                        {item.paragraphs.map((nodes, pIdx) => (
-                          <p key={pIdx}>
-                            <RichText nodes={nodes} />
-                          </p>
-                        ))}
-                        {item.bullets.length > 0 && (
-                          <ul>
-                            {item.bullets.map((bNodes, bIdx) => (
-                              <li key={bIdx}>
-                                <RichText nodes={bNodes} />
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      ) : (
-        <>
-          <div className="row">
-            <div className="col-md-12 col-sm-12 col-xs-12">
-              <div className="sec_tit text-center">
-                <h2>{section.heading}</h2>
-                {section.subheading && <p>{section.subheading}</p>}
-              </div>
-            </div>
-          </div>
-          <div className="container">
-            <div id={groupId} className="panel-group" role="tablist" aria-multiselectable="true">
-              {section.items.map((item, idx) => {
-                const isOpen = openIndex === idx;
-                const collapseId = `nftFaqCollapse-${idx}`;
-                return (
-                  <div className="panel panel-nft panel-default" key={idx}>
-                    <div className="panel-heading p-3 mb-3" role="tab">
-                      <h3 className="panel-title">
-                        <a
-                          href={`#${collapseId}`}
-                          className={isOpen ? '' : 'collapsed'}
-                          aria-expanded={isOpen}
-                          aria-controls={collapseId}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setOpenIndex(isOpen ? null : idx);
-                          }}
-                        >
-                          {item.question}
-                        </a>
-                      </h3>
-                    </div>
-                    <div
-                      id={collapseId}
-                      className={`panel-collapse collapse ${isOpen ? 'show' : ''}`}
-                      role="tabpanel"
-                    >
-                      <div className="panel-body px-3 mb-4">
-                        {item.paragraphs.map((nodes, pIdx) => (
-                          <p key={pIdx}>
-                            <RichText nodes={nodes} />
-                          </p>
-                        ))}
-                        {item.bullets.length > 0 && (
-                          <ul>
-                            {item.bullets.map((bNodes, bIdx) => (
-                              <li key={bIdx}>
-                                <RichText nodes={bNodes} />
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </>
-      )}
-    </section>
-  );
-}
-
-/**
- * Dispatches structured NftSectionBlock entries to their exact native TSX section layouts.
- */
 export function NftSectionRenderer({ sections, onOpenModal }: NftSectionRendererProps) {
   return (
     <>
       {sections.map((section, idx) => {
+        const altSurface = idx % 2 === 0 ? 'light' : 'muted';
+
         switch (section.kind) {
           case 'intro-centered':
             return (
-              <section key={idx} className="custom-padding">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-12 text-center">
-                      {section.headingTag === 'h1' ? (
-                        <h1>{section.heading}</h1>
-                      ) : (
-                        <h2>{section.heading}</h2>
+              <AlternatingSplitSection
+                key={idx}
+                theme="nft"
+                surface={altSurface}
+                heading={section.heading}
+                paragraphs={section.paragraphs.map((nodes, pIdx) => (
+                  <RichText key={pIdx} nodes={nodes} />
+                ))}
+                actions={(section.buttons || []).map(mapNftBtn)}
+                onCustomModal={onOpenModal}
+              />
+            );
+
+          case 'viral-hero':
+            if (section.layout === 'floating-center') {
+              return (
+                <section
+                  key={idx}
+                  className="relative overflow-hidden py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#120829] via-[#2e1065] to-[#701a75] text-white"
+                >
+                  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div className="hidden lg:flex lg:col-span-2 flex-col items-center gap-5">
+                      {section.sideLeftImages?.map((im, i) => (
+                        <img
+                          key={i}
+                          src={im.src}
+                          alt={im.alt}
+                          className="w-16 h-16 object-contain animate-float"
+                        />
+                      ))}
+                    </div>
+
+                    <div className="lg:col-span-8 text-center space-y-5">
+                      {(section.badge || section.subtitle) && (
+                        <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-fuchsia-300">
+                          {section.badge || section.subtitle}
+                        </span>
                       )}
-                      {section.paragraphs.map((nodes, i) => (
-                        <p key={i}>
-                          <RichText nodes={nodes} />
+                      <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-white leading-tight">
+                        {section.headingBrLines?.length
+                          ? section.headingBrLines.join(' ')
+                          : section.heading}
+                      </h2>
+                      {section.paragraphs.map((nodes, pIdx) => (
+                        <p
+                          key={pIdx}
+                          className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-3xl mx-auto"
+                        >
+                          <RichText nodes={nodes} tone="on-dark" />
                         </p>
                       ))}
                       {section.buttons && section.buttons.length > 0 && (
-                        <div className="center call-btn">
-                          {section.buttons.map((btn, i) => (
-                            <NftActionButton key={i} button={btn} onOpenModal={onOpenModal} />
+                        <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
+                          {section.buttons.map((btn, bIdx) => (
+                            <SmartActionButton
+                              key={bIdx}
+                              action={mapNftBtn(btn)}
+                              theme="nft"
+                              onCustomModal={onOpenModal}
+                            />
                           ))}
                         </div>
                       )}
                     </div>
-                  </div>
-                </div>
-              </section>
-            );
 
-          case 'viral-hero':
+                    <div className="hidden lg:flex lg:col-span-2 flex-col items-center gap-5">
+                      {section.sideRightImages?.map((im, i) => (
+                        <img
+                          key={i}
+                          src={im.src}
+                          alt={im.alt}
+                          className="w-16 h-16 object-contain animate-bounce-slow"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              );
+            }
+
             return (
-              <Fragment key={idx}>{renderViralHero(section, onOpenModal)}</Fragment>
+              <AlternatingSplitSection
+                key={idx}
+                theme="nft"
+                surface="dark"
+                badge={section.subtitle || section.badge}
+                heading={
+                  section.headingBrLines?.length
+                    ? section.headingBrLines.join(' ')
+                    : section.heading
+                }
+                paragraphs={section.paragraphs.map((nodes, pIdx) => (
+                  <RichText key={pIdx} nodes={nodes} tone="on-dark" />
+                ))}
+                imageSrc={section.image?.src}
+                imageAlt={section.image?.alt || section.heading}
+                actions={(section.buttons || []).map(mapNftBtn)}
+                onCustomModal={onOpenModal}
+              />
             );
 
           case 'strategy-split':
             return (
-              <section key={idx} id={section.sectionId} className={section.sectionClass}>
-                <div className={section.containerClass}>
-                  <div className={section.wrapperClass}>
-                    <div className={section.leftClass}>
-                      <h2>
-                        <HeadingLines lines={section.headingLines} />
-                      </h2>
-                      {section.subheading && <h4>{section.subheading}</h4>}
-                    </div>
-                    <div className={section.rightClass}>
-                      {section.items.map((item, i) => (
-                        <div className={section.itemClass} key={i}>
-                          <div className={section.contentClass}>
-                            <h3>{item.title}</h3>
-                            <p>{item.description}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+              <section
+                key={idx}
+                id={section.sectionId}
+                className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#2e1065] via-[#581c87] to-[#9d174d] text-white"
+              >
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                  <div className="lg:col-span-5 space-y-4">
+                    <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-pink-200">
+                      Strategic Pillars
+                    </span>
+                    <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-white leading-tight">
+                      <HeadingLines lines={section.headingLines} />
+                    </h2>
+                    <p className="text-base sm:text-lg text-pink-100/90 leading-relaxed">
+                      {section.subheading}
+                    </p>
+                  </div>
+
+                  <div className="lg:col-span-7 space-y-4">
+                    {section.items.map((item, i) => (
+                      <div
+                        key={i}
+                        className="rounded-2xl bg-white/10 border border-white/15 backdrop-blur-xs p-6 space-y-1.5"
+                      >
+                        <h3 className="text-lg sm:text-xl font-heading font-bold text-white">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm sm:text-[15px] text-pink-100/90 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </section>
@@ -790,623 +188,442 @@ export function NftSectionRenderer({ sections, onOpenModal }: NftSectionRenderer
 
           case 'themed-card-grid':
             return (
-              <Fragment key={idx}>
-                {renderThemedCardGrid(section, onOpenModal)}
-              </Fragment>
-            );
-
-          case 'nft-overview':
-            return (
-              <section key={idx} id="nft-overview" className={section.sectionClass}>
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-12 nft-overview-bg">
-                      <div className="row nft-overview-padding">
-                        <div className="col-md-5">
-                          <div className="approach-1">
-                            <h2>{section.heading}</h2>
-                            {section.subheading && <h4>{section.subheading}</h4>}
-                          </div>
-                        </div>
-                        <div className="col-md-7">
-                          {section.items.map((item, i) => (
-                            <div className="row mb-4 align-items-start" key={i}>
-                              <div className="col-md-1">
-                                {item.useTargetSvg ? (
-                                  <Target
-                                    className="w-7 h-7 text-white"
-                                    aria-label={item.iconAlt}
-                                  />
-                                ) : (
-                                  <img
-                                    src={item.iconSrc}
-                                    alt={item.iconAlt}
-                                    loading="lazy"
-                                  />
-                                )}
-                              </div>
-                              <div className="col-md-11">
-                                <h3>{item.title}</h3>
-                                <p>{item.description}</p>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            );
-
-          case 'nova-steps':
-            return (
-              <section key={idx} className={section.sectionClass}>
-                <div className="nova-container">
-                  <div className="nova-header text-center">
-                    <h2 className="reveal">
-                      <span className="to">{section.heading}</span>
-                    </h2>
-                    {section.subheading && <p className="reveal">{section.subheading}</p>}
-                  </div>
-                  <div className="nova-timeline">
-                    {section.steps.map((st, i) => (
-                      <div className="nova-step" key={i}>
-                        <div className="nova-number">{st.number}</div>
-                        <div className="nova-card">
-                          <h3>{st.title}</h3>
-                          <p>{st.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-            );
-
-          case 'timeline-roadmap':
-            return (
-              <section key={idx} className={section.sectionClass}>
-                <div className="container-fluid">
-                  <div className="section-title text-center underline">
-                    <div className="sec_tit">
-                      <h2>{section.heading}</h2>
-                      {section.subheading && <p>{section.subheading}</p>}
-                    </div>
-                  </div>
-                  <ul className="timeline">
-                    {section.steps.map((step, i) => (
-                      <li
-                        key={i}
-                        className={step.inverted ? 'timeline-inverted' : undefined}
-                      >
-                        <div className="timeline-image">
-                          <img
-                            src={step.iconSrc}
-                            alt={step.iconAlt}
-                            className="rounded-circle img-fluid"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div className="timeline-panel">
-                          <div className="timeline-heading">
-                            <h3 className="subheading">{step.title}</h3>
-                          </div>
-                          <div className="timeline-body">
-                            <p className="text-muted">{step.description}</p>
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                  {section.buttons && section.buttons.length > 0 && (
-                    <div className="center call-btn text-center">
-                      {section.buttons.map((btn, i) => (
-                        <NftActionButton key={i} button={btn} onOpenModal={onOpenModal} />
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </section>
-            );
-
-          case 'evolution-cards': {
-            const chunks = [section.cards.slice(0, 2), section.cards.slice(2)].filter(
-              (c) => c.length > 0
-            );
-            return (
-              <section key={idx} className={section.sectionClass}>
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-12 text-center">
-                      <h2>{section.heading}</h2>
-                    </div>
-                  </div>
-                </div>
-                <div className="container">
-                  {chunks.map((group, gIdx) => (
-                    <div className="row" key={gIdx}>
-                      {group.map((card, cIdx) => (
-                        <div className="card" key={cIdx}>
-                          <div className="title" />
-                          <div className="circle">
-                            <img src={card.iconSrc} alt={card.iconAlt} loading="lazy" />
-                          </div>
-                          <div className="content">
-                            <h3>{card.title}</h3>
-                            <p>{card.description}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </section>
-            );
-          }
-
-          case 'pr-white-editorial':
-            return <Fragment key={idx}>{renderPrWhiteEditorial(section)}</Fragment>;
-
-          case 'spectacular-split': {
-            const isFluid = section.sectionClass.includes('p-0');
-            const imgCol = section.image ? (
-              <div
-                className={
-                  isFluid ? 'col-md-6' : 'col-md-12 col-lg-6 text-center img-border'
+              <FeatureGridSection
+                key={idx}
+                theme="nft"
+                surface={/dark|black/i.test(section.sectionClass) ? 'dark' : altSurface}
+                badge={section.badge}
+                heading={
+                  section.headingHighlight
+                    ? `${section.heading} ${section.headingHighlight}`
+                    : section.heading || 'Core NFT & Web3 Capabilities'
                 }
-              >
-                <img
-                  src={section.image.src}
-                  alt={section.image.alt}
-                  className={section.image.className}
-                  loading="lazy"
-                />
-              </div>
-            ) : null;
-
-            const textCol = (
-              <div className={isFluid ? 'col-md-6 p-4' : 'col-md-12 col-lg-6'}>
-                <div className="sec_tit">
-                  <h2>{section.heading}</h2>
-                  {section.subheadings?.map((sub, i) => (
-                    <h4 key={i}>{sub}</h4>
-                  ))}
-                </div>
-                <div className="desc_cnt">
-                  {section.paragraphs.map((nodes, i) => (
-                    <p key={i}>
-                      <RichText nodes={nodes} />
-                    </p>
-                  ))}
-                  {section.checklistColumns && section.checklistColumns.length > 0 && (
-                    <div className="row list-nft">
-                      {section.checklistColumns.map((col, cIdx) => (
-                        <div className="col-md-6 col-xs-12" key={cIdx}>
-                          <ul>
-                            {col.map((item, liIdx) => (
-                              <li key={liIdx}>
-                                <i
-                                  className="fa fa-check-square"
-                                  aria-hidden="true"
-                                />{' '}
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  {section.bullets && section.bullets.length > 0 && (
-                    <ul>
-                      {section.bullets.map((nodes, i) => (
-                        <li key={i}>
-                          <RichText nodes={nodes} />
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {section.buttons && section.buttons.length > 0 && (
-                    <div className="col-md-12 center call-btn">
-                      {section.buttons.map((btn, i) => (
-                        <NftActionButton key={i} button={btn} onOpenModal={onOpenModal} />
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            );
-
-            return (
-              <section key={idx} className={section.sectionClass}>
-                <div className={isFluid ? 'container-fluid' : 'container'}>
-                  <div className="row align-items-center">
-                    {section.imageOnRight ? (
-                      <>
-                        {textCol}
-                        {imgCol}
-                      </>
-                    ) : (
-                      <>
-                        {imgCol}
-                        {textCol}
-                      </>
-                    )}
-                  </div>
-                </div>
-              </section>
-            );
-          }
-
-          case 'service-cards': {
-            const isSectorBadges = Boolean(section.rowWrapClass?.includes('desc_cnt'));
-            const cardNodes = section.cards.map((card, i) => {
-              const cardMarkup = (
-                <div className={card.cardClass} key={card.colClass ? undefined : i}>
-                  {card.iconImg &&
-                    (card.iconSpanClass ? (
-                      <div className={card.iconSpanClass}>
-                        <img
-                          src={card.iconImg.src}
-                          alt={card.iconImg.alt}
-                          className={card.iconImg.className}
-                          loading="lazy"
-                        />
-                      </div>
-                    ) : (
-                      <img
-                        src={card.iconImg.src}
-                        alt={card.iconImg.alt}
-                        className={card.iconImg.className}
-                        loading="lazy"
-                      />
-                    ))}
-                  {card.headingTag === 'h5' ? (
-                    <div className={isSectorBadges ? 'serv_head' : undefined}>
-                      <h5>{card.title}</h5>
-                    </div>
-                  ) : (
-                    <h3>{card.title}</h3>
-                  )}
-                  {card.paragraphs.map((nodes, pIdx) => (
-                    <p key={pIdx}>
-                      <RichText nodes={nodes} />
-                    </p>
-                  ))}
-                </div>
-              );
-              return card.colClass ? (
-                <div className={card.colClass} key={i}>
-                  {cardMarkup}
-                </div>
-              ) : (
-                cardMarkup
-              );
-            });
-
-            if (isSectorBadges) {
-              return (
-                <section key={idx} className={section.sectionClass}>
-                  <div className="container-fluid">
-                    <div className="row">
-                      <div className="col-md-10 div_center">
-                        <div className="sec_tit text-center">
-                          <h2>{section.heading}</h2>
-                          {section.subheading && <p>{section.subheading}</p>}
-                        </div>
-                        <div className={section.rowWrapClass}>{cardNodes}</div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              );
-            }
-
-            return (
-              <section key={idx} className={section.sectionClass}>
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-12 col-sm-12 col-xs-12">
-                      <div className="sec_tit text-center">
-                        <h2>{section.heading}</h2>
-                        {section.subheading && <p>{section.subheading}</p>}
-                        {section.paragraphs?.map((nodes, pIdx) => (
+                subheading={section.subheading}
+                cards={section.cards.map((c) => ({
+                  badge: c.tag,
+                  title: c.title,
+                  description:
+                    c.paragraphs.length > 0 ? (
+                      <div className="space-y-2">
+                        {c.paragraphs.map((nodes, pIdx) => (
                           <p key={pIdx}>
                             <RichText nodes={nodes} />
                           </p>
                         ))}
                       </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    {section.rowWrapClass ? (
-                      <div className={section.rowWrapClass}>{cardNodes}</div>
-                    ) : (
-                      cardNodes
-                    )}
-                  </div>
-                  {section.buttons && section.buttons.length > 0 && (
-                    <div className="center call-btn text-center mt-4">
-                      {section.buttons.map((btn, i) => (
-                        <NftActionButton key={i} button={btn} onOpenModal={onOpenModal} />
+                    ) : undefined,
+                  iconSrc: c.iconImg?.src,
+                  iconAlt: c.iconImg?.alt || c.title,
+                  href: c.button && !c.button.opensModal ? c.button.href : undefined,
+                  ctaLabel: c.button?.label,
+                }))}
+                columns={section.cards.length === 4 ? 2 : 3}
+                onCustomModal={onOpenModal}
+              />
+            );
+
+          case 'nft-overview':
+            return (
+              <FeatureGridSection
+                key={idx}
+                theme="nft"
+                surface={altSurface}
+                heading={section.heading}
+                subheading={section.subheading}
+                cards={section.items.map((item) => ({
+                  icon: item.useTargetSvg ? Target : undefined,
+                  iconSrc: item.useTargetSvg ? undefined : item.iconSrc || undefined,
+                  iconAlt: item.iconAlt || item.title,
+                  title: item.title,
+                  description: item.description,
+                }))}
+                columns={section.items.length === 4 ? 2 : 3}
+              />
+            );
+
+          case 'nova-steps':
+            return (
+              <ProcessRoadmapSection
+                key={idx}
+                theme="nft"
+                surface="muted"
+                heading={section.heading}
+                subheading={section.subheading}
+                steps={section.steps.map((s) => ({
+                  step: s.number,
+                  title: s.title,
+                  description: s.description,
+                }))}
+              />
+            );
+
+          case 'timeline-roadmap':
+            return (
+              <ProcessRoadmapSection
+                key={idx}
+                theme="nft"
+                surface={altSurface}
+                variant="timeline"
+                badge="Step-by-Step Roadmap"
+                heading={section.heading}
+                subheading={section.subheading}
+                steps={section.steps.map((s, sIdx) => ({
+                  step: String(sIdx + 1).padStart(2, '0'),
+                  title: s.title,
+                  description: s.description,
+                  iconSrc: s.iconSrc,
+                }))}
+                bottomActions={(section.buttons || []).map(mapNftBtn)}
+                onCustomModal={onOpenModal}
+              />
+            );
+
+          case 'evolution-cards':
+            return (
+              <FeatureGridSection
+                key={idx}
+                theme="nft"
+                surface={altSurface}
+                heading={section.heading}
+                cards={section.cards.map((c) => ({
+                  title: c.title,
+                  description: c.description,
+                  iconSrc: c.iconSrc,
+                  iconAlt: c.iconAlt,
+                }))}
+                columns={section.cards.length === 4 ? 2 : 3}
+              />
+            );
+
+          case 'pr-white-editorial':
+            return (
+              <AlternatingSplitSection
+                key={idx}
+                theme="nft"
+                surface={altSurface}
+                subheading={section.subheading}
+                heading={`${section.headingPrefix} ${section.headingAccent}`.trim()}
+                paragraphs={section.paragraphs.map((nodes, pIdx) => (
+                  <RichText key={pIdx} nodes={nodes} />
+                ))}
+                imageSrc={section.image?.src}
+                imageAlt={section.image?.alt || section.headingPrefix}
+              />
+            );
+
+          case 'spectacular-split':
+            return (
+              <AlternatingSplitSection
+                key={idx}
+                theme="nft"
+                surface={altSurface}
+                reverse={section.imageOnRight === false}
+                heading={section.heading}
+                subheading={section.subheadings?.[0]}
+                paragraphs={section.paragraphs.map((nodes, pIdx) => (
+                  <RichText key={pIdx} nodes={nodes} />
+                ))}
+                bullets={[
+                  ...(section.checklistColumns ? section.checklistColumns.flat() : []),
+                  ...(section.bullets ? section.bullets.map(flattenNodes).filter(Boolean) : []),
+                ]}
+                bulletsColumns={section.checklistColumns ? 2 : 1}
+                imageSrc={section.image?.src}
+                imageAlt={section.image?.alt || section.heading}
+                actions={(section.buttons || []).map(mapNftBtn)}
+                onCustomModal={onOpenModal}
+              />
+            );
+
+          case 'service-cards':
+            return (
+              <FeatureGridSection
+                key={idx}
+                theme="nft"
+                surface={altSurface}
+                heading={section.heading}
+                subheading={
+                  section.subheading ||
+                  (section.paragraphs?.length ? (
+                    <div className="space-y-2">
+                      {section.paragraphs.map((nodes, pIdx) => (
+                        <p key={pIdx}>
+                          <RichText nodes={nodes} />
+                        </p>
                       ))}
                     </div>
-                  )}
-                </div>
-              </section>
+                  ) : undefined)
+                }
+                cards={section.cards.map((c) => ({
+                  title: c.title,
+                  description: (
+                    <div className="space-y-2">
+                      {c.paragraphs.map((nodes, pIdx) => (
+                        <p key={pIdx}>
+                          <RichText nodes={nodes} />
+                        </p>
+                      ))}
+                    </div>
+                  ),
+                  iconSrc: c.iconImg?.src,
+                  iconAlt: c.iconImg?.alt || c.title,
+                }))}
+                columns={section.cards.length === 4 ? 2 : 3}
+                bottomActions={(section.buttons || []).map(mapNftBtn)}
+                onCustomModal={onOpenModal}
+              />
             );
-          }
 
-          case 'editorial-copy': {
-            const hasRightplaceCenter =
-              !section.image &&
-              (section.sectionClass.includes('rightplace') ||
-                section.sectionClass.includes('our_serv_inr'));
+          case 'editorial-copy':
             return (
-              <section key={idx} className={section.sectionClass}>
-                <div className={hasRightplaceCenter ? 'container-fluid' : 'container'}>
-                  {section.image ? (
-                    <div className="row align-items-center">
-                      <div className="col-md-12 col-lg-6 col-sm-12">
-                        <div className="sec_tit">
-                          <h2>{section.heading}</h2>
-                          {section.subheading && <p>{section.subheading}</p>}
-                        </div>
-                        <div className="desc_cnt">
-                          {section.paragraphs.map((nodes, i) => (
-                            <p key={i}>
-                              <RichText nodes={nodes} />
-                            </p>
-                          ))}
-                        </div>
-                        {section.checklistColumns &&
-                          section.checklistColumns.length > 0 && (
-                            <div className="row list-nft why-nft-eon8">
-                              {section.checklistColumns.map((col, cIdx) => (
-                                <div className="col-md-6 col-xs-12" key={cIdx}>
-                                  <ul>
-                                    {col.map((item, liIdx) => (
-                                      <li key={liIdx}>
-                                        <i
-                                          className="fa fa-check-square"
-                                          aria-hidden="true"
-                                        />{' '}
-                                        {item}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        {section.buttons && section.buttons.length > 0 && (
-                          <div className="center call-btn">
-                            {section.buttons.map((btn, i) => (
-                              <NftActionButton
-                                key={i}
-                                button={btn}
-                                onOpenModal={onOpenModal}
-                              />
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                      <div className="col-md-12 col-lg-6 text-center">
-                        <img
-                          src={section.image.src}
-                          alt={section.image.alt}
-                          className={section.image.className || 'img-fluid'}
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="row">
-                      <div
-                        className={
-                          hasRightplaceCenter ? 'col-md-10 div_center' : 'col-md-12'
-                        }
-                      >
-                        <div className="sec_tit text-center">
-                          <h2>{section.heading}</h2>
-                          {section.subheading && <p>{section.subheading}</p>}
-                        </div>
-                        <div className="desc_cnt text-center">
-                          {section.paragraphs.map((nodes, i) => (
-                            <p key={i}>
-                              <RichText nodes={nodes} />
-                            </p>
-                          ))}
-                          {section.buttons && section.buttons.length > 0 && (
-                            <div className="center call-btn">
-                              {section.buttons.map((btn, i) => (
-                                <NftActionButton
-                                  key={i}
-                                  button={btn}
-                                  onOpenModal={onOpenModal}
-                                />
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </section>
+              <AlternatingSplitSection
+                key={idx}
+                theme="nft"
+                surface={altSurface}
+                heading={section.heading}
+                subheading={section.subheading}
+                paragraphs={section.paragraphs.map((nodes, pIdx) => (
+                  <RichText key={pIdx} nodes={nodes} />
+                ))}
+                bullets={section.checklistColumns ? section.checklistColumns.flat() : []}
+                bulletsColumns={2}
+                imageSrc={section.image?.src}
+                imageAlt={section.image?.alt || section.heading}
+                actions={(section.buttons || []).map(mapNftBtn)}
+                onCustomModal={onOpenModal}
+              />
             );
-          }
 
           case 'cta-band':
-            return <Fragment key={idx}>{renderCtaBand(section, onOpenModal)}</Fragment>;
+            return (
+              <section
+                key={idx}
+                className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#2e1065] via-[#6b21a8] to-[#be185d] text-white"
+              >
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                  <div className={section.image ? 'lg:col-span-7 space-y-4' : 'lg:col-span-12 text-center space-y-4'}>
+                    <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-white leading-tight">
+                      {section.heading}{' '}
+                      {section.headingAccent && (
+                        <span className="text-[#FD5900]">{section.headingAccent}</span>
+                      )}
+                    </h2>
+                    {section.subtext && (
+                      <p className="text-base text-fuchsia-100 leading-relaxed">{section.subtext}</p>
+                    )}
+                    <div
+                      className={`flex flex-wrap items-center gap-3.5 pt-1 ${
+                        section.image ? '' : 'justify-center'
+                      }`}
+                    >
+                      {section.buttons.map((btn, bIdx) => (
+                        <SmartActionButton
+                          key={bIdx}
+                          action={mapNftBtn(btn)}
+                          theme="nft"
+                          onCustomModal={onOpenModal}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  {section.image && (
+                    <div className="lg:col-span-5 flex justify-center">
+                      <img
+                        src={section.image.src}
+                        alt={section.image.alt || section.heading}
+                        className="max-h-56 w-auto object-contain drop-shadow-xl"
+                      />
+                    </div>
+                  )}
+                </div>
+              </section>
+            );
 
           case 'testimonials-slider':
             return (
-              <NftTestimonialsSection
+              <TestimonialsSection
                 key={idx}
+                theme="nft"
                 heading={section.heading}
                 subheading={section.subheading}
-                cards={section.cards}
-                videoFeature={section.videoFeature}
-                ctaButtons={section.ctaButtons}
-                onOpenModal={onOpenModal}
+                testimonials={section.cards.map((c) => ({
+                  name: c.name || 'Web3 Project Founder',
+                  avatarSrc: c.avatarSrc,
+                  rating: c.stars || 5,
+                  quote: c.quote,
+                  caseStudyHref:
+                    c.button && c.button.href.startsWith('/') ? c.button.href : undefined,
+                  caseStudyLabel: c.button?.label,
+                }))}
+                videoSpotlight={
+                  section.videoFeature
+                    ? {
+                        heading: section.videoFeature.heading,
+                        description: section.videoFeature.description,
+                        embedUrl: section.videoFeature.videoSrc,
+                      }
+                    : undefined
+                }
+                actions={section.ctaButtons.map(mapNftBtn)}
+                onCustomModal={onOpenModal}
               />
             );
 
           case 'video-feature':
             return (
-              <NftVideoFeatureSection
+              <TestimonialsSection
                 key={idx}
-                sectionClass={section.sectionClass}
+                theme="nft"
                 heading={section.heading}
-                description={section.description}
-                videoSrc={section.videoSrc}
-                videoTitle={section.videoTitle}
+                testimonials={[]}
+                videoSpotlight={{
+                  heading: section.heading,
+                  description: section.description,
+                  embedUrl: section.videoSrc,
+                }}
               />
             );
 
           case 'image-banner':
             return (
-              <section key={idx} className={section.sectionClass}>
-                <div className={section.containerClass}>
-                  <div className="row">
-                    {section.heading && (
-                      <div className="col-md-12 sec_tit text-center pb-4">
-                        <h2>{section.heading}</h2>
-                      </div>
-                    )}
-                    <div className="col-md-12">
-                      <img
-                        src={section.image.src}
-                        alt={section.image.alt}
-                        className={section.image.className || 'img-fluid'}
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
+              <section key={idx} className="py-16 px-4 sm:px-6 lg:px-8 bg-background text-center">
+                <div className="max-w-5xl mx-auto space-y-8">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-foreground">
+                    {section.heading}
+                  </h2>
+                  <img
+                    src={section.image.src}
+                    alt={section.image.alt || section.heading}
+                    className="w-full h-auto rounded-2xl border border-border shadow-md mx-auto"
+                  />
                 </div>
               </section>
             );
 
           case 'discord-cards':
             return (
-              <section
+              <FeatureGridSection
                 key={idx}
                 id={section.sectionId}
-                className={section.sectionClass}
-              >
-                <div className="container">
-                  <div className="row discord-card">
-                    <div className="col-md-12">
-                      <div className="sec_tit text-center">
-                        <h2>{section.heading}</h2>
-                      </div>
-                    </div>
-                    {section.cards.map((card, i) => (
-                      <div className="card-wrap" key={i}>
-                        <div className={card.headerClass}>
-                          <img
-                            src={card.iconImg.src}
-                            alt={card.iconImg.alt}
-                            className={card.iconImg.className}
-                            loading="lazy"
-                          />
-                        </div>
-                        <div className="card-content">
-                          <h3 className="card-title">{card.title}</h3>
-                          <p className="card-text">{card.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-            );
-
-          case 'package-table':
-            return (
-              <NftPackageTableSection
-                key={idx}
-                sectionId={section.sectionId}
-                sectionClass={section.sectionClass}
+                theme="nft"
+                surface={altSurface}
+                badge="Web3 Verticals"
                 heading={section.heading}
-                mainRows={section.mainRows}
-                noteText={section.noteText}
+                cards={section.cards.map((c) => ({
+                  title: c.title,
+                  description: c.description,
+                  iconSrc: c.iconImg.src,
+                  iconAlt: c.iconImg.alt || c.title,
+                }))}
+                columns={3}
               />
             );
 
+          case 'package-table': {
+            const tierHeadCells = section.mainRows[0]?.cells.slice(1) || [];
+            const priceRowCells =
+              section.mainRows[1]?.isHeader && section.mainRows[1].cells.length === tierHeadCells.length
+                ? section.mainRows[1].cells
+                : [];
+            const tiers = tierHeadCells.map((c, tIdx) => ({
+              name: c.text || `Tier ${tIdx + 1}`,
+              price: priceRowCells[tIdx]?.text,
+              highlighted: tIdx === 1,
+            }));
+
+            const ADVANCE_ONLY = /paid content|paid advertising|influencer|video marketing|email marketing/i;
+            const PREMIUM_ONLY = /bounty|airdrop|paid pr/i;
+
+            const dataRows = section.mainRows.slice(priceRowCells.length ? 2 : 1).map((row) => {
+              const feat = row.cells[0]?.text || '';
+              if (row.cells.length > 1) {
+                return {
+                  feature: feat,
+                  values: row.cells.slice(1).map((cell) => {
+                    if (cell.icon === 'check') return true;
+                    if (cell.icon === 'times') return false;
+                    return cell.text || true;
+                  }),
+                };
+              }
+              if (PREMIUM_ONLY.test(feat)) {
+                return { feature: feat, values: [false, false, true] };
+              }
+              if (ADVANCE_ONLY.test(feat)) {
+                return { feature: feat, values: [false, true, true] };
+              }
+              return { feature: feat, values: [true, true, true] };
+            });
+
+            return (
+              <PricingMatrixSection
+                key={idx}
+                id={section.sectionId || 'package'}
+                theme="nft"
+                badge="Transparent Web3 Packages"
+                heading={section.heading}
+                tiers={tiers}
+                rows={dataRows}
+                footnote={section.noteText}
+                onSelectTier={() => onOpenModal()}
+              />
+            );
+          }
+
           case 'extra-slider':
             return (
-              <CryptoClientMarquee
+              <ClientLogoMarquee
                 key={idx}
-                heading={section.heading ?? ''}
-                logos={section.logos}
-                variant="nft-slider"
+                heading={section.heading || 'Influencers & Partners'}
+                logos={section.logos.map((l) => ({ src: l.src, alt: l.name }))}
               />
             );
 
           case 'faq':
-            return <NftFaqSection key={idx} section={section} />;
+            return (
+              <FaqAccordionSection
+                key={idx}
+                theme="nft"
+                surface={altSurface}
+                heading={section.heading}
+                subheading={section.subheading}
+                faqs={section.items.map((f) => ({
+                  question: f.question,
+                  answer: (
+                    <div className="space-y-3">
+                      {f.paragraphs.map((nodes, pIdx) => (
+                        <p key={pIdx}>
+                          <RichText nodes={nodes} />
+                        </p>
+                      ))}
+                      {f.bullets.length > 0 && (
+                        <ul className="list-disc pl-5 space-y-1.5">
+                          {f.bullets.map((b, bIdx) => (
+                            <li key={bIdx}>
+                              <RichText nodes={b} />
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ),
+                }))}
+              />
+            );
 
           case 'calendly':
-            if (section.sectionClass.includes('pink-calendly-section')) {
-              return (
-                <section key={idx} className={section.sectionClass}>
-                  <div className="pink-calendly-container">
-                    <div className="pink-calendly-box">
-                      <div className="pink-calendly-heading">
-                        <h2>{section.heading}</h2>
-                        {section.subheading && <p>{section.subheading}</p>}
-                      </div>
-                      <div className="pink-calendly-widget">
-                        <NftCalendlyWidget
-                          callTitle={section.callTitle}
-                          callDescription={section.callDescription}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              );
-            }
-            if (section.sectionClass.includes('light-calendly-section')) {
-              return (
-                <section key={idx} className={section.sectionClass}>
-                  <div className="light-container">
-                    <div className="light-calendly-header text-center">
-                      <h2 className="reveal reveal-up">
-                        <span className="to">{section.heading}</span>
-                      </h2>
-                      {section.subheading && <p className="reveal">{section.subheading}</p>}
-                    </div>
-                    <div className="light-calendly-box">
-                      <NftCalendlyWidget
-                        callTitle={section.callTitle}
-                        callDescription={section.callDescription}
-                      />
-                    </div>
-                  </div>
-                </section>
-              );
-            }
             return (
-              <div key={idx} className={section.sectionClass || 'col-md-12'}>
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-12 text-center pt-5 pb-4">
-                      <h2>{section.heading}</h2>
-                      {section.subheading && <p>{section.subheading}</p>}
-                    </div>
-                    <div className="col-md-12 pb-5">
-                      <NftCalendlyWidget
-                        callTitle={section.callTitle}
-                        callDescription={section.callDescription}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <DiscoveryCallSection
+                key={idx}
+                theme="nft"
+                heading={section.heading}
+                subheading={section.subheading}
+                callTitle={section.callTitle || '30-Min NFT & Web3 Discovery Call'}
+                callDescription={
+                  section.callDescription ||
+                  'Schedule a consultation with our NFT & Discord community specialists.'
+                }
+              />
             );
 
           default:

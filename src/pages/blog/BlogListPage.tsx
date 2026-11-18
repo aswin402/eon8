@@ -1,15 +1,15 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Search, Tag } from 'lucide-react';
+import { PageSeo, ServiceHeroSection } from '@/components/sections';
 import {
+  BLOG_CATEGORY_PAIRS,
   blogPostsIndex,
   getCategoryNameBySlug,
   getSlugForCategory,
 } from './blogPostsData';
-import '@/styles/legacy-eon8.css';
-import '@/styles/legacy-responsive-fixes.css';
-import '@/styles/ai-core-blog-pages.css';
 
-const POSTS_PER_PAGE = 20;
+const POSTS_PER_PAGE = 18;
 
 function buildPaginationItems(current: number, total: number): (number | 'dots')[] {
   if (total <= 6) {
@@ -41,6 +41,7 @@ function buildPaginationItems(current: number, total: number): (number | 'dots')
 export function BlogListPage() {
   const { pageNum, categorySlug } = useParams<{ pageNum?: string; categorySlug?: string }>();
   const [searchParams] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState('');
 
   const queryCategory = searchParams.get('category');
   const activeCategoryName = useMemo(() => {
@@ -54,43 +55,42 @@ export function BlogListPage() {
   }, [categorySlug, queryCategory]);
 
   const filteredPosts = useMemo(() => {
-    if (!activeCategoryName) return blogPostsIndex;
-    const target = activeCategoryName.toLowerCase();
+    const q = searchQuery.trim().toLowerCase();
     return blogPostsIndex.filter((post) => {
-      const cats = post.categories?.length ? post.categories : [post.category];
-      return cats.some((c) => c.toLowerCase() === target);
+      if (activeCategoryName) {
+        const cats = post.categories?.length ? post.categories : [post.category];
+        if (!cats.some((c) => c.toLowerCase() === activeCategoryName.toLowerCase())) {
+          return false;
+        }
+      }
+      if (q) {
+        return (
+          post.title.toLowerCase().includes(q) ||
+          post.excerpt.toLowerCase().includes(q) ||
+          post.category.toLowerCase().includes(q)
+        );
+      }
+      return true;
     });
-  }, [activeCategoryName]);
+  }, [activeCategoryName, searchQuery]);
 
   const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
   const parsedPage = pageNum ? parseInt(pageNum, 10) : 1;
   const currentPage =
-    Number.isFinite(parsedPage) && parsedPage >= 1 ? Math.min(parsedPage, totalPages) : 1;
+    searchQuery.trim().length > 0
+      ? 1
+      : Number.isFinite(parsedPage) && parsedPage >= 1
+        ? Math.min(parsedPage, totalPages)
+        : 1;
 
   const paginatedPosts = useMemo(() => {
     const start = (currentPage - 1) * POSTS_PER_PAGE;
     return filteredPosts.slice(start, start + POSTS_PER_PAGE);
   }, [filteredPosts, currentPage]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = activeCategoryName
-      ? `${activeCategoryName} Archives - Eon8`
-      : 'Digital Marketing Blogs & Social Media Blogs Provider in Chennai';
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'Stay updated with the latest news, events, and other interesting information on Digital Marketing, AI Agents, SEO, Social Media, and Web3 from Eon8.'
-      );
-    }
-  }, [activeCategoryName, currentPage]);
-
   const pageUrl = (page: number) => {
     if (categorySlug) {
-      return page === 1
-        ? `/category/${categorySlug}`
-        : `/category/${categorySlug}/page/${page}`;
+      return page === 1 ? `/category/${categorySlug}` : `/category/${categorySlug}/page/${page}`;
     }
     if (queryCategory) {
       return `/blog?category=${encodeURIComponent(queryCategory)}`;
@@ -101,147 +101,242 @@ export function BlogListPage() {
   const paginationItems = buildPaginationItems(currentPage, totalPages);
 
   return (
-    <div className="eon8-live-page blog-page-scope">
-      <div id="site-content">
-        <main>
-          <header className="page_title_wrap">
-            <div className="container">
-              <h1 className="page_title">{activeCategoryName || 'Blog'}</h1>
-            </div>
-          </header>
+    <div className="bg-background text-foreground">
+      <PageSeo
+        title={
+          activeCategoryName
+            ? `${activeCategoryName} Archives - Eon8`
+            : 'Digital Marketing Blogs & Social Media Blogs Provider in Chennai'
+        }
+        description="Stay updated with the latest news, events, and other interesting information on Digital Marketing, AI Agents, SEO, Social Media, and Web3 from Eon8."
+      />
 
-          <section className="blog-hub-section">
-            <div className="container">
-              {activeCategoryName && (
-                <div style={{ marginBottom: 24, textAlign: 'center' }}>
-                  <Link
-                    to="/blog"
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 600,
-                      color: '#0022ff',
-                      textDecoration: 'none',
-                    }}
+      {/* 1. Hero Header */}
+      <ServiceHeroSection
+        theme="brand"
+        layout="centered"
+        badge="EON8 Knowledge Hub"
+        heading={activeCategoryName || 'Insights, Playbooks & Growth Research'}
+        paragraphs={[
+          `Explore ${blogPostsIndex.length} in-depth articles covering SEO, AI Agents, Performance Marketing, Reputation Management, and Web3 growth.`,
+        ]}
+      />
+
+      {/* 2. Search & Category Filter Bar */}
+      <section className="py-10 px-4 sm:px-6 lg:px-8 border-b border-border bg-slate-50/70 dark:bg-slate-900/40">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+            <div className="relative flex-1 max-w-md">
+              <Search className="w-4 h-4 text-muted-foreground absolute left-4 top-1/2 -translate-y-1/2" />
+              <input
+                type="search"
+                placeholder="Search articles, topics, or strategies..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full rounded-xl border border-border bg-card pl-11 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0053C6]"
+              />
+            </div>
+
+            {activeCategoryName && (
+              <Link
+                to="/blog"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>View All Articles ({blogPostsIndex.length})</span>
+              </Link>
+            )}
+          </div>
+
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 custom-scrollbar">
+            <Link
+              to="/blog"
+              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap border transition-colors no-underline ${
+                !activeCategoryName
+                  ? 'bg-[#FD5900] text-white border-[#FD5900]'
+                  : 'bg-card text-muted-foreground border-border hover:text-foreground'
+              }`}
+            >
+              All ({blogPostsIndex.length})
+            </Link>
+            {BLOG_CATEGORY_PAIRS.slice(0, 12).map((cat) => {
+              const isSelected =
+                activeCategoryName?.toLowerCase() === cat.name.toLowerCase();
+              return (
+                <Link
+                  key={cat.slug}
+                  to={`/category/${cat.slug}`}
+                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap border transition-colors no-underline ${
+                    isSelected
+                      ? 'bg-[#FD5900] text-white border-[#FD5900]'
+                      : 'bg-card text-muted-foreground border-border hover:text-foreground'
+                  }`}
+                >
+                  {cat.name}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. 3-Column Blog Cards Grid */}
+      <section className="py-14 sm:py-18 pb-28 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          {paginatedPosts.length === 0 ? (
+            <div className="text-center py-20 space-y-4">
+              <h2 className="text-2xl font-heading font-bold text-foreground">
+                No matching articles found
+              </h2>
+              <p className="text-muted-foreground">
+                Try clearing your search query or choosing another category.
+              </p>
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                className="px-5 py-2.5 rounded-xl bg-[#FD5900] text-white font-bold text-sm cursor-pointer"
+              >
+                Reset Search
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+              {paginatedPosts.map((post) => {
+                const postUrl = `/blog/${post.slug}`;
+                const catSlug = getSlugForCategory(post.category);
+                const hasRealThumb = Boolean(
+                  post.thumbnail && !post.thumbnail.includes('Logo_bg')
+                );
+
+                return (
+                  <article
+                    key={post.slug}
+                    className="group rounded-2xl bg-card border border-border overflow-hidden shadow-xs hover:shadow-xl transition-all duration-200 flex flex-col justify-between"
                   >
-                    ← View All Blog Posts ({blogPostsIndex.length})
-                  </Link>
-                </div>
+                    <div>
+                      <Link
+                        to={postUrl}
+                        className="block aspect-[16/9] overflow-hidden bg-slate-900 no-underline"
+                      >
+                        {hasRealThumb ? (
+                          <img
+                            src={post.thumbnail}
+                            alt={post.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-[#061229] via-[#0B224B] to-[#0053C6] p-6 flex flex-col justify-between text-white">
+                            <span className="inline-flex self-start items-center gap-1.5 px-3 py-1 rounded-full bg-white/12 border border-white/15 text-[11px] font-bold uppercase tracking-wider text-orange-300">
+                              EON8 Insights
+                            </span>
+                            <span className="text-base sm:text-lg font-heading font-extrabold leading-snug line-clamp-2 text-white">
+                              {post.title}
+                            </span>
+                          </div>
+                        )}
+                      </Link>
+
+                      <div className="p-6 space-y-3.5">
+                        <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                          <Link
+                            to={`/category/${catSlug}`}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#0053C6]/10 dark:bg-sky-500/15 text-[#0053C6] dark:text-sky-400 font-bold no-underline"
+                          >
+                            <Tag className="w-3 h-3" />
+                            <span>{post.category}</span>
+                          </Link>
+
+                          <span className="inline-flex items-center gap-1">
+                            <Calendar className="w-3.5 h-3.5" />
+                            <span>{post.date}</span>
+                          </span>
+
+                          {post.readTime && (
+                            <span className="inline-flex items-center gap-1">
+                              <Clock className="w-3.5 h-3.5" />
+                              <span>{post.readTime}</span>
+                            </span>
+                          )}
+                        </div>
+
+                        <h2 className="text-lg sm:text-xl font-heading font-bold text-foreground leading-snug group-hover:text-[#FD5900] transition-colors">
+                          <Link to={postUrl} className="no-underline text-inherit">
+                            {post.title}
+                          </Link>
+                        </h2>
+
+                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                          {post.excerpt}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="px-6 pb-6 pt-2">
+                      <Link
+                        to={postUrl}
+                        className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 group-hover:text-[#FD5900] transition-colors no-underline"
+                      >
+                        <span>Read More</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Pagination */}
+          {!searchQuery.trim() && totalPages > 1 && (
+            <nav
+              aria-label="Blog pagination"
+              className="mt-14 flex flex-wrap items-center justify-center gap-2"
+            >
+              {currentPage > 1 && (
+                <Link
+                  to={pageUrl(currentPage - 1)}
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-border bg-card text-sm font-bold text-foreground hover:border-[#FD5900] no-underline"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>Previous</span>
+                </Link>
               )}
 
-              <div
-                className="bdpp-wrap bdpp-lite bdpp-post-grid-wrap bdpp-post-data-wrap bdpp-design-1 bdpp-grid-3 bdpp-clearfix"
-                id="bdpp-post-grid-1"
-              >
-                <div className="bdpp-post-grid-inr-wrap bdpp-post-data-inr-wrap bdpp-clearfix">
-                  {paginatedPosts.map((post) => {
-                    const postUrl = `/blog/${post.slug}`;
-                    const catSlug = getSlugForCategory(post.category);
-                    const thumb =
-                      post.thumbnail || '/wp-content/uploads/2026/03/Logo_bg-1.png';
+              {paginationItems.map((item, idx) =>
+                item === 'dots' ? (
+                  <span key={`dots-${idx}`} className="px-2 text-muted-foreground font-bold">
+                    …
+                  </span>
+                ) : (
+                  <Link
+                    key={item}
+                    to={pageUrl(item)}
+                    aria-current={item === currentPage ? 'page' : undefined}
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold border transition-colors no-underline ${
+                      item === currentPage
+                        ? 'bg-[#FD5900] text-white border-[#FD5900] shadow-md'
+                        : 'bg-card text-foreground border-border hover:border-[#FD5900]'
+                    }`}
+                  >
+                    {item}
+                  </Link>
+                )
+              )}
 
-                    return (
-                      <div
-                        key={post.slug}
-                        className="bdpp-post-grid bdpp-col-3 bdpp-columns bdpp-post-standard bdpp-has-thumb"
-                      >
-                        <div className="bdpp-post-grid-content">
-                          <div className="bdpp-post-img-bg">
-                            <Link to={postUrl}>
-                              <img
-                                alt={post.title}
-                                className="bdpp-img bdpp-post-feat-img"
-                                decoding="async"
-                                loading="lazy"
-                                src={thumb}
-                              />
-                            </Link>
-                          </div>
-
-                          <div className="bdpp-post-cats">
-                            <Link
-                              className="bdpp-post-cat-link"
-                              to={`/category/${catSlug}`}
-                            >
-                              {post.category}
-                            </Link>
-                          </div>
-
-                          <h2 className="bdpp-post-title">
-                            <Link to={postUrl}>{post.title}</Link>
-                          </h2>
-
-                          <div className="bdpp-post-meta bdpp-post-meta-up">
-                            <span className="bdpp-post-meta-data bdpp-post-author">
-                              <i
-                                aria-hidden="true"
-                                className="bdpp-fa fa-solid fa-user"
-                                style={{ marginRight: 5 }}
-                              />
-                              {post.author}
-                            </span>
-                            <span className="bdpp-post-meta-sep">–</span>
-                            <span className="bdpp-post-meta-data bdpp-post-date">
-                              <i
-                                aria-hidden="true"
-                                className="bdpp-fa fa-regular fa-clock"
-                                style={{ marginRight: 5 }}
-                              />
-                              {post.date}
-                            </span>
-                          </div>
-
-                          <div className="bdpp-post-content">
-                            <div className="bdpp-post-desc">{post.excerpt}</div>
-                            <Link className="bdpp-rdmr-btn" to={postUrl}>
-                              Read More
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {totalPages > 1 && (
-                  <nav aria-label="Blog pagination" className="bdpp-paging bdpp-clearfix">
-                    {currentPage > 1 && (
-                      <Link className="prev page-numbers" to={pageUrl(currentPage - 1)}>
-                        « Previous
-                      </Link>
-                    )}
-
-                    {paginationItems.map((item, idx) =>
-                      item === 'dots' ? (
-                        <span key={`dots-${idx}`} className="page-numbers dots">
-                          …
-                        </span>
-                      ) : item === currentPage ? (
-                        <span
-                          key={item}
-                          aria-current="page"
-                          className="page-numbers current"
-                        >
-                          {item}
-                        </span>
-                      ) : (
-                        <Link key={item} className="page-numbers" to={pageUrl(item)}>
-                          {item}
-                        </Link>
-                      )
-                    )}
-
-                    {currentPage < totalPages && (
-                      <Link className="next page-numbers" to={pageUrl(currentPage + 1)}>
-                        Next »
-                      </Link>
-                    )}
-                  </nav>
-                )}
-              </div>
-            </div>
-          </section>
-        </main>
-      </div>
+              {currentPage < totalPages && (
+                <Link
+                  to={pageUrl(currentPage + 1)}
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-border bg-card text-sm font-bold text-foreground hover:border-[#FD5900] no-underline"
+                >
+                  <span>Next</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              )}
+            </nav>
+          )}
+        </div>
+      </section>
     </div>
   );
 }

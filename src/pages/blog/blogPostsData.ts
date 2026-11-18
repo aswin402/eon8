@@ -1,4 +1,4 @@
-import type { ServiceNode } from '@/pages/services/types';
+import type { RichNode } from '@/pages/crypto/types';
 import {
   BLOG_CATEGORIES_LIST,
   BLOG_CATEGORY_PAIRS,
@@ -11,8 +11,17 @@ import { BLOG_POST_LOADERS } from './posts';
 export type { BlogPostSummary, BlogCategoryPair };
 export { BLOG_CATEGORY_PAIRS };
 
+export type ArticleBlock =
+  | { type: 'heading'; level: 2 | 3 | 4; text: string }
+  | { type: 'paragraph'; content: RichNode[] }
+  | { type: 'list'; ordered: boolean; items: RichNode[][] }
+  | { type: 'image'; src: string; alt: string; caption?: string }
+  | { type: 'blockquote'; content: RichNode[] }
+  | { type: 'table'; headers: string[]; rows: string[][] }
+  | { type: 'cta'; label: string; href: string };
+
 export interface BlogPost extends BlogPostSummary {
-  contentNodes: ServiceNode[];
+  blocks: ArticleBlock[];
 }
 
 export const blogCategories: string[] = ['All', ...BLOG_CATEGORIES_LIST];

@@ -1,5 +1,6 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
+import { PageSeo } from '@/components/sections';
 import '@/styles/chatgpt-ads.css';
 
 interface ShowcaseExample {
@@ -157,18 +158,6 @@ export function ChatgptAdsAgencyPage() {
   const [auditSubmitted, setAuditSubmitted] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = 'ChatGPT Ads Agency in India | EON8';
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'EON8 is a ChatGPT Ads agency in India. We set up, run and optimise ChatGPT ads with AEO/GEO so your brand shows up in AI answers and ads.'
-      );
-    }
-  }, []);
-
-  useEffect(() => {
     if (!dialogMode) return;
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setDialogMode(null);
@@ -215,6 +204,11 @@ export function ChatgptAdsAgencyPage() {
 
   return (
     <div className="chatgpt-ads-scope">
+      <PageSeo
+        title="ChatGPT Ads Agency in India | EON8"
+        description="EON8 is a ChatGPT Ads agency in India. We set up, run and optimise ChatGPT ads with AEO/GEO so your brand shows up in AI answers and ads."
+        canonicalPath="/chatgpt-ads-agency"
+      />
       <a className="skip" href="#main">
         Skip to content
       </a>
@@ -229,6 +223,7 @@ export function ChatgptAdsAgencyPage() {
           />
         </Link>
         <nav aria-label="Main navigation">
+          <Link to="/">← Main Site</Link>
           <a href="#examples">Examples</a>
           <a href="#local-business">Local business</a>
           <a href="#traffic">Traffic</a>

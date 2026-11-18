@@ -23,6 +23,8 @@ const tier1Routes: SitemapEntry[] = [
   { path: 'ai-agent-development-services', priority: '0.9', changefreq: 'weekly' },
   { path: 'ai-video-creation', priority: '0.9', changefreq: 'weekly' },
   { path: 'chatgpt-ads-agency', priority: '0.9', changefreq: 'weekly' },
+  { path: 'chatgpt-ads-agency/blog', priority: '0.8', changefreq: 'weekly' },
+  { path: 'chatgpt-ads-agency/education', priority: '0.8', changefreq: 'monthly' },
   { path: 'crm-software-development', priority: '0.9', changefreq: 'weekly' },
   { path: 'erp-software-development', priority: '0.9', changefreq: 'weekly' },
   { path: 'works', priority: '0.8', changefreq: 'monthly' },
@@ -41,7 +43,6 @@ const tier1Routes: SitemapEntry[] = [
   { path: 'delivery-policy', priority: '0.5', changefreq: 'monthly' },
   { path: 'blog', priority: '0.9', changefreq: 'daily' },
   { path: 'crypto-marketing-agency', priority: '0.9', changefreq: 'weekly' },
-  { path: 'crptocurrency-marketing-agency', priority: '0.8', changefreq: 'weekly' },
   { path: 'crypto-pr-services', priority: '0.9', changefreq: 'weekly' },
   { path: 'crypto-influencer-marketing', priority: '0.9', changefreq: 'weekly' },
   { path: 'crypto-telegram-marketing', priority: '0.9', changefreq: 'weekly' },
@@ -94,9 +95,10 @@ for (const slug of ALL_SERVICE_SLUGS) {
 }
 
 for (const post of BLOG_POSTS_SUMMARIES) {
-  if (post.slug && !seen.has(post.slug)) {
-    seen.add(post.slug);
-    routes.push({ path: post.slug, priority: '0.7', changefreq: 'monthly' });
+  const blogPath = `blog/${post.slug}`;
+  if (post.slug && !seen.has(blogPath)) {
+    seen.add(blogPath);
+    routes.push({ path: blogPath, priority: '0.7', changefreq: 'monthly' });
   }
 }
 
