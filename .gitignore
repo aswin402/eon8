@@ -32,7 +32,7 @@ coverage
 # Bower dependency directory (https://bower.io/)
 bower_components
 
-# node-waf and o量
+# node-waf
 .lock-wscript
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
@@ -74,10 +74,8 @@ web_modules/
 
 # dotenv environment variable files
 .env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
+.env.*
+!.env.example
 
 # lerna script-generated files
 .lerna
@@ -118,16 +116,41 @@ out
 
 # Operating System Files
 .DS_Store
+._*
+Desktop.ini
 Thumbs.db
+
+# Local AI / Editor Tooling
+.claude/
+.cursor/
+.gemini/
 
 # Vite / Build outputs
 dist/
 dist-ssr/
+.vite/
 *.local
+
+# Test, Playwright & Temporary Outputs
+playwright-report/
+test-results/
+playwright/.cache/
+.playwright/
+tmp/
+temp/
+.tmp/
+*.tmp
+*.bak
+*.orig
+*~
 
 # Raw crawled files
 www.eon8.com/
 about-us-raw.html
 
-# CMS runtime auth secrets (auto-seeded from .env)
-data/cms-auth.json
+# CMS runtime data, auth secrets & user-uploaded blog media (auto-created at runtime)
+data/*.json
+data/*.tmp
+data/*.bak
+public/uploads/blog/*
+!public/uploads/blog/.gitkeep

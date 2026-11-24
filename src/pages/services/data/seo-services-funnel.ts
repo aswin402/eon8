@@ -6,6 +6,7 @@ export const seoServicesFunnelData: ServicePageData = {
   title: 'SEO Services Funnel | Full-Funnel Organic Search Growth – Eon8',
   metaDesc:
     'Dominate Page-1 Google rankings and convert high-intent organic searchers into qualified pipeline with EON8’s full-funnel SEO services.',
+  noIndex: true,
   hero: {
     badge: 'Full-Funnel Organic Search Engine',
     heading: 'Turn High-Intent Google Searches Into Predictable Revenue',

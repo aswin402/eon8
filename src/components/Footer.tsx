@@ -62,11 +62,11 @@ export function Footer() {
 
   return (
     <footer
-      className="neo-footer w-full text-white relative z-10 pt-[70px] mt-16 font-['Poppins',sans-serif]"
+      className="w-full text-white relative z-10 pt-[70px] mt-16 font-body"
       style={{ background: 'linear-gradient(135deg, #0b1220, #1e293b)' }}
     >
       {/* Floating Contact Bar */}
-      <div className="neo-contact-bar w-[calc(100%-32px)] max-w-[900px] lg:min-w-[700px] lg:w-max mx-auto -mt-[115px] mb-6 bg-[#f8fafc] text-[#111111] rounded-[12px] px-4 sm:px-[35px] py-[15px] shadow-[0_15px_35px_rgba(0,0,0,0.25)] flex flex-col lg:flex-row items-center justify-center gap-2.5 lg:gap-[50px]">
+      <div className="w-[calc(100%-32px)] max-w-[900px] lg:min-w-[700px] lg:w-max mx-auto -mt-[115px] mb-6 bg-[#f8fafc] text-[#111111] rounded-[12px] px-4 sm:px-[35px] py-[15px] shadow-[0_15px_35px_rgba(0,0,0,0.25)] flex flex-col lg:flex-row items-center justify-center gap-2.5 lg:gap-[50px]">
         <a
           href="tel:+919042294007"
           className="flex items-center gap-[10px] text-[#111111] hover:text-[#FD5900] transition-colors text-[16px] sm:text-[18px] whitespace-nowrap no-underline"
@@ -89,11 +89,11 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Main Columns — 2fr 1fr 1fr 1fr like live .neo-footer-container */}
-      <div className="neo-footer-container max-w-[1250px] mx-auto px-5 pt-10 pb-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 lg:gap-[60px] text-center sm:text-left">
+      {/* Main Columns — aligned with max-w-7xl container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 lg:gap-[60px] text-center sm:text-left">
         {/* About */}
-        <div className="neo-footer-col">
-          <h3 className="text-[22px] font-['Palanquin_Dark',sans-serif] font-semibold text-white mb-[15px] leading-[1.4]">
+        <div>
+          <h3 className="text-[22px] font-heading font-bold text-white mb-[15px] leading-[1.4]">
             Who We Are
           </h3>
           <p className="text-[#cbd5e1] text-[14px] leading-[1.7] max-w-[320px] mx-auto sm:mx-0">
@@ -106,8 +106,8 @@ export function Footer() {
         </div>
 
         {/* Services */}
-        <div className="neo-footer-col">
-          <h3 className="text-[22px] font-['Palanquin_Dark',sans-serif] font-semibold text-white mb-[15px] leading-[1.4]">
+        <div>
+          <h3 className="text-[22px] font-heading font-bold text-white mb-[15px] leading-[1.4]">
             Our Services
           </h3>
           <ul className="list-none p-0 m-0 space-y-[10px]">
@@ -125,11 +125,11 @@ export function Footer() {
         </div>
 
         {/* Other Links */}
-        <div className="neo-footer-col">
-          <h3 className="text-[22px] font-['Palanquin_Dark',sans-serif] font-semibold text-white mb-[15px] leading-[1.4]">
+        <div>
+          <h3 className="text-[22px] font-heading font-bold text-white mb-[15px] leading-[1.4]">
             Other Links
           </h3>
-          <ul className="neo-links list-none p-0 m-0 space-y-[10px]">
+          <ul className="list-none p-0 m-0 space-y-[10px]">
             {otherLinks.map((link) => (
               <li key={link.name}>
                 <Link
@@ -144,11 +144,11 @@ export function Footer() {
         </div>
 
         {/* Social */}
-        <div className="neo-footer-col">
-          <h3 className="text-[22px] font-['Palanquin_Dark',sans-serif] font-semibold text-white mb-[15px] leading-[1.4]">
+        <div>
+          <h3 className="text-[22px] font-heading font-bold text-white mb-[15px] leading-[1.4]">
             Social Media
           </h3>
-          <div className="neo-social flex flex-wrap justify-center sm:justify-start gap-[12px]">
+          <div className="flex flex-wrap justify-center sm:justify-start gap-[12px]">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -157,7 +157,7 @@ export function Footer() {
                 rel="noreferrer"
                 title={social.name}
                 aria-label={social.name}
-                className="neo-icon w-[52px] h-[52px] rounded-[12px] flex items-center justify-center hover:-translate-y-1 transition-transform duration-300"
+                className="w-[52px] h-[52px] rounded-[12px] flex items-center justify-center hover:-translate-y-1 transition-transform duration-300"
               >
                 <img
                   src={social.icon}
@@ -171,9 +171,9 @@ export function Footer() {
       </div>
 
       {/* Certifications & Logo */}
-      <div className="neo-logos-wrapper max-w-[1200px] mx-auto mt-[40px] px-5">
-        <div className="neo-logos-row flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div className="neo-logos flex flex-wrap items-center justify-center gap-[22px]">
+      <div className="max-w-7xl mx-auto mt-[40px] px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-[22px]">
             {certLogos.map((logo) => (
               <img
                 key={logo.alt}
@@ -184,7 +184,7 @@ export function Footer() {
             ))}
           </div>
 
-          <Link to="/" className="neo-main-logo shrink-0 flex items-center">
+          <Link to="/" className="shrink-0 flex items-center">
             <img
               src="/wp-content/uploads/2026/03/Logo_bg-1.png"
               alt="EON8 Logo"
@@ -195,7 +195,7 @@ export function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="neo-bottom border-t border-white/10 mt-[25px] p-[20px] text-center text-[#cbd5e1] text-[14px]">
+      <div className="border-t border-white/10 mt-[25px] p-[20px] text-center text-[#cbd5e1] text-[14px]">
         <p className="m-0">© 2026 EON8. All rights reserved.</p>
       </div>
     </footer>

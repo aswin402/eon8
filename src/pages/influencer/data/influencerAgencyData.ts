@@ -343,7 +343,7 @@ export const influencerAgencyData: InfluencerAgencyPageData = {
         "inverted": true
       },
       {
-        "iconSrc": "/wp-content/uploads/2022/11/Launch.svg",
+        "iconSrc": "/wp-content/uploads/2022/11/launch-influencer.svg",
         "iconAlt": "Launch",
         "title": "Launch",
         "description": "Now that we have the right influencers and content in hand, we launch the marketing campaign.",

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Eye, Pencil, Tag, User } from 'lucide-react';
-import { PageSeo } from '@/components/sections';
+import { LeadCaptureCard, PageSeo } from '@/components/sections';
 import {
   ADMIN_DASHBOARD_PATH,
   resolveCategorySlug,
@@ -150,6 +150,12 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
         canonicalPath={`/blog/${effectiveSummary.slug}`}
         ogImage={seoImage}
         noIndex={isDraftView}
+        article={{
+          publishedTime: effectiveSummary.dateIso,
+          modifiedTime: effectiveSummary.updatedAt,
+          author: effectiveSummary.author || 'EON8 Editorial Team',
+          section: effectiveSummary.category,
+        }}
       />
 
       {isDraftView && (
@@ -278,6 +284,14 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
 
           {/* Sidebar */}
           <aside className="lg:col-span-4 space-y-6">
+            <LeadCaptureCard
+              id="blog-sidebar-enquiry"
+              heading="Request Free Growth Audit"
+              subheading="Speak directly with an EON8 strategist about your brand goals."
+              submitLabel="Get Free Consultation"
+              compact
+            />
+
             <div className="rounded-2xl bg-card border border-border p-6 shadow-xs space-y-4">
               <h2 className="text-lg font-heading font-extrabold text-foreground pb-3 border-b border-border">
                 Recent Articles

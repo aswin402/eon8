@@ -87,8 +87,15 @@ const tier1Routes: SitemapEntry[] = [
 const seen = new Set<string>(tier1Routes.map((r) => r.path));
 const routes: SitemapEntry[] = [...tier1Routes];
 
+const EXCLUDED_SITEMAP_SLUGS = new Set<string>([
+  'nft-marketing-services-testing',
+  'ads-amazon-marketing-agency',
+  'instagram-marketing-funnel',
+  'seo-services-funnel',
+]);
+
 for (const slug of ALL_SERVICE_SLUGS) {
-  if (!seen.has(slug)) {
+  if (!seen.has(slug) && !EXCLUDED_SITEMAP_SLUGS.has(slug)) {
     seen.add(slug);
     routes.push({ path: slug, priority: '0.9', changefreq: 'weekly' });
   }

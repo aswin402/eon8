@@ -1,6 +1,8 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+Disallow: /admin-dashboard
+Disallow: /api/
 
 # Sitemaps
 Sitemap: https://www.eon8.com/sitemap.xml

@@ -277,34 +277,37 @@ export function Navbar() {
     <>
       <header
         id="site-header"
-        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-black/8 dark:border-white/10 ${
+        className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-300 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-black/8 dark:border-white/10 ${
           isScrolled ? 'shadow-md' : 'shadow-xs'
         }`}
       >
-        <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8 h-[74px] sm:h-[82px] flex items-center justify-between gap-2 lg:gap-4">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 xl:px-8 h-[74px] sm:h-[82px] flex items-center justify-between gap-2 xl:gap-4">
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0 hover:opacity-95 transition-opacity">
             <img
               src="/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png"
               alt="Eon8 Logo"
-              className="h-10 sm:h-12 w-auto object-contain dark:invert"
+              className="h-9 sm:h-10 lg:h-9 xl:h-11 w-auto max-w-[132px] xl:max-w-[170px] object-contain dark:invert"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-2" aria-label="Primary Navigation">
+          <nav
+            className="hidden lg:flex items-center justify-center gap-0 xl:gap-1 min-w-0"
+            aria-label="Primary Navigation"
+          >
             {NAV_ITEMS.map((item) => {
               const active = isNavItemActive(item);
               return (
                 <div
                   key={item.label}
-                  className="relative"
+                  className={item.isMega ? 'static' : 'relative'}
                   onMouseEnter={() => setActiveDropdown(item.label)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <Link
                     to={item.href}
-                    className={`flex items-center gap-1 text-[14px] xl:text-[15.5px] font-semibold py-2.5 px-2.5 xl:px-3.5 rounded-lg transition-colors whitespace-nowrap ${
+                    className={`flex items-center gap-1 text-[13px] xl:text-[14.5px] font-semibold py-2.5 px-2 xl:px-3 rounded-lg transition-colors whitespace-nowrap ${
                       active
                         ? 'text-[#FD5900]'
                         : 'text-[#171c21] dark:text-slate-100 hover:text-[#FD5900]'
@@ -312,7 +315,7 @@ export function Navbar() {
                   >
                     <span>{item.label}</span>
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                      className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${
                         activeDropdown === item.label ? 'rotate-180 text-[#FD5900]' : 'opacity-70'
                       }`}
                     />
@@ -327,7 +330,7 @@ export function Navbar() {
                         transition={{ duration: 0.16, ease: 'easeOut' }}
                         className={`absolute top-full pt-2 z-50 ${
                           item.isMega
-                            ? 'left-1/2 -translate-x-1/2 w-[90vw] max-w-[960px] xl:max-w-[1060px]'
+                            ? 'left-4 right-4 xl:left-8 xl:right-8 mx-auto max-w-[1060px]'
                             : 'left-0 w-72'
                         }`}
                       >
@@ -431,7 +434,7 @@ export function Navbar() {
                   {renderLink(
                     link.label,
                     link.href,
-                    `text-[14px] xl:text-[15.5px] font-semibold py-2.5 px-2.5 xl:px-3.5 rounded-lg transition-colors whitespace-nowrap ${
+                    `text-[13px] xl:text-[14.5px] font-semibold py-2.5 px-2 xl:px-3 rounded-lg transition-colors whitespace-nowrap ${
                       active ? 'text-[#FD5900]' : 'text-[#171c21] dark:text-slate-100 hover:text-[#FD5900]'
                     }`
                   )}
@@ -441,13 +444,13 @@ export function Navbar() {
           </nav>
 
           {/* Right Action Controls */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <ThemeToggleButton />
+          <div className="flex items-center gap-2 xl:gap-3 shrink-0">
+            <ThemeToggleButton className="relative inline-flex h-10 w-10 xl:h-11 xl:w-11 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer shrink-0" />
 
             <button
               type="button"
               onClick={() => setContactModalOpen(true)}
-              className="hidden lg:inline-flex items-center justify-center bg-[#FD5900] hover:bg-[#e55000] text-white font-semibold text-[15px] xl:text-[16px] px-5 py-2.5 min-h-[44px] rounded-[7px] transition-colors shadow-sm whitespace-nowrap cursor-pointer"
+              className="hidden lg:inline-flex items-center justify-center bg-[#FD5900] hover:bg-[#e55000] text-white font-semibold text-[13px] xl:text-[15px] px-3.5 xl:px-5 py-2 xl:py-2.5 min-h-[40px] xl:min-h-[44px] rounded-[7px] transition-colors shadow-sm whitespace-nowrap cursor-pointer shrink-0"
             >
               Get Started
             </button>

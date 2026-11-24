@@ -59,12 +59,20 @@ export default function OurServicesPage({ slug }: OurServicesPageProps) {
     );
   }
 
-  const { theme, title, metaDesc, hero, sections, disclaimer } = data;
+  const { theme, title, metaDesc, noIndex, hero, sections, disclaimer } = data;
   const palette = VERTICAL_THEMES[theme];
+  const firstSplitImage = sections.find((s) => s.type === 'split' && s.imageSrc);
+  const resolvedOgImage =
+    hero.mediaSrc || (firstSplitImage?.type === 'split' ? firstSplitImage.imageSrc : undefined);
 
   return (
     <div className="bg-background text-foreground" data-page-slug={slug}>
-      <PageSeo title={title} description={metaDesc} />
+      <PageSeo
+        title={title}
+        description={metaDesc}
+        ogImage={resolvedOgImage}
+        noIndex={noIndex}
+      />
 
       {/* 1. Native Tailwind Hero */}
       <ServiceHeroSection

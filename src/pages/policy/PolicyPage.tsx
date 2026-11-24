@@ -35,7 +35,7 @@ function renderInlineNodes(nodes: PolicyInlineNode[]) {
     }
     if (node.type === 'link') {
       const linkCls =
-        'font-semibold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] underline transition-colors';
+        'font-semibold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] underline transition-colors break-words [overflow-wrap:anywhere]';
       if (node.href.startsWith('/') && !node.external) {
         return (
           <Link key={idx} to={node.href} className={linkCls}>
@@ -65,7 +65,7 @@ function renderBlocks(blocks: PolicyBlock[]) {
       return (
         <h2
           key={idx}
-          className="text-xl sm:text-2xl font-heading font-extrabold text-foreground mt-8 mb-3"
+          className="text-xl sm:text-2xl font-heading font-extrabold text-foreground mt-8 first:mt-0 mb-3"
         >
           {block.text}
         </h2>
@@ -75,7 +75,7 @@ function renderBlocks(blocks: PolicyBlock[]) {
       return (
         <h3
           key={idx}
-          className="text-lg sm:text-xl font-heading font-bold text-foreground mt-6 mb-2.5"
+          className="text-lg sm:text-xl font-heading font-bold text-foreground mt-7 first:mt-0 mb-2.5"
         >
           {block.text}
         </h3>
@@ -83,14 +83,20 @@ function renderBlocks(blocks: PolicyBlock[]) {
     }
     if (block.type === 'p') {
       return (
-        <p key={idx} className="text-[15.5px] sm:text-base text-muted-foreground leading-relaxed mb-4">
+        <p
+          key={idx}
+          className="text-[15.5px] sm:text-base text-muted-foreground leading-relaxed mb-4 last:mb-0 break-words [overflow-wrap:anywhere]"
+        >
           {renderInlineNodes(block.children)}
         </p>
       );
     }
     if (block.type === 'ul') {
       return (
-        <ul key={idx} className="list-disc pl-6 space-y-2 mb-5 text-[15.5px] text-muted-foreground">
+        <ul
+          key={idx}
+          className="list-disc pl-6 space-y-2 mb-5 last:mb-0 text-[15.5px] text-muted-foreground break-words [overflow-wrap:anywhere]"
+        >
           {block.items.map((item, itemIdx) => (
             <li key={itemIdx} className="leading-relaxed">
               {item}
@@ -103,7 +109,7 @@ function renderBlocks(blocks: PolicyBlock[]) {
       return (
         <div
           key={idx}
-          className="rounded-2xl bg-card border border-border p-6 sm:p-8 shadow-xs mb-6"
+          className="rounded-2xl bg-card border border-border p-5 sm:p-8 shadow-xs"
         >
           {block.heading && (
             <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-foreground mb-4">
@@ -145,10 +151,10 @@ export function PolicyPage({ slug }: PolicyPageProps) {
         heading={data.title}
       />
 
-      <section className="py-14 sm:py-20 pb-28 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-20 pb-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {data.layout === 'privacy-standard' && data.blocks && (
-            <article className="rounded-2xl bg-card border border-border p-6 sm:p-10 shadow-sm">
+            <article className="rounded-2xl bg-card border border-border p-5 sm:p-10 shadow-sm overflow-hidden">
               {renderBlocks(data.blocks)}
             </article>
           )}

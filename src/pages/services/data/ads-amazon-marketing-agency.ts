@@ -6,6 +6,7 @@ export const adsAmazonMarketingAgencyData: ServicePageData = {
   title: 'Amazon Ads & Marketplace Marketing Agency | Lower ACoS & Scale Sales – Eon8',
   metaDesc:
     'Scale your Amazon Seller & Vendor Central revenue with EON8’s data-driven Amazon PPC Ads, Sponsored Brands, DSP retargeting, and A+ listing conversion optimization.',
+  noIndex: true,
   hero: {
     badge: 'Amazon PPC, DSP & Marketplace Growth',
     heading: 'Scale Profitable Amazon Sales & Slash Wasted Ad Spend',

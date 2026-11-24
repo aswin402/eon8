@@ -30,11 +30,14 @@ export function RootLayout() {
   const isAdminStudioRoute =
     location.pathname === ADMIN_DASHBOARD_PATH ||
     location.pathname.startsWith(`${ADMIN_DASHBOARD_PATH}/`);
-  const isStandaloneRoute =
-    location.pathname.startsWith('/chatgpt-ads-agency') || isAdminStudioRoute;
 
   useEffect(() => {
     if (isAdminStudioRoute) {
+      return undefined;
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
       return undefined;
     }
 
@@ -51,7 +54,7 @@ export function RootLayout() {
     };
   }, [isAdminStudioRoute]);
 
-  if (isStandaloneRoute) {
+  if (isAdminStudioRoute) {
     return (
       <ThemeProvider>
         <Suspense fallback={<PageLoader />}>

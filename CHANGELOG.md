@@ -6,6 +6,33 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.4.0] - 2026-11-24
+
+### Changed
+- **ChatGPT Ads Agency Full EON8 Theme UI Rebuild (`src/pages/chatgpt/ChatgptAdsAgencyPage.tsx`, `src/pages/chatgpt/ChatgptAdsSubPage.tsx`)**:
+  - Rebuilt `/chatgpt-ads-agency`, `/chatgpt-ads-agency/blog`, and `/chatgpt-ads-agency/education` in 100% native React TSX + Tailwind CSS v4 + Lucide React using EON8's `ai` navy/electric-blue + `#FD5900` orange design system, full Light + Dark mode support, and shared `Navbar`, `Footer`, `NeonCursor`, `FloatingWidgets`, and `CaptureModal` integration via `RootLayout.tsx`.
+  - Retained the interactive 4-industry AI search/ad preview, expandable package work-scope cards, FAQ accordion, process roadmap, and accessible audit modal wired to `submitLeadEnquiry()`, eliminating all `768px` horizontal overflow and `<12px` mobile text (`C21`).
+  - Removed standalone `src/styles/chatgpt-ads.css`.
+
+### Fixed
+- **Navbar `1024px`–`1280px` Overflow & Mega-Menu Viewport Clamping (`src/components/Navbar.tsx`, `src/components/Footer.tsx`)**:
+  - Aligned Navbar and Footer containers to `max-w-7xl`, tightened `lg` (`1024px`–`1279px`) nav sizing/spacing so `Get Started` never overflows right, and anchored the `Our Services` mega-menu cleanly within header bounds (`C10`, `C18`, `C26`).
+- **Invisible Cursor Bug & `NeonCursor` Performance (`src/components/NeonCursor.tsx`, `src/components/NeonCursor.css`, `src/layouts/RootLayout.tsx`)**:
+  - Scoped `cursor: none !important` strictly to `html.neon-cursor-active` under `@media (pointer: fine) and (prefers-reduced-motion: no-preference)`, keeping native cursors visible on `/admin-dashboard`, touch/reduced-motion devices, and all text inputs (`input`, `textarea`, `select`) (`C09`).
+  - Replaced React `useState` on `mousemove` with Framer Motion `useMotionValue` + `useSpring` (zero React re-renders per mouse move) and disabled `Lenis` smooth scrolling when `prefers-reduced-motion: reduce` is active (`C16`).
+- **Z-Index Scale & Accessible `CaptureModal` (`src/components/CaptureModal.tsx`, `src/components/FloatingWidgets.tsx`, `src/components/Navbar.tsx`)**:
+  - Standardized layering (`FloatingWidgets` `z-30`, `Navbar` `z-40`, `CaptureModal` `z-[60]`, `NeonCursor` `z-[99999+]`) and added `role="dialog"`, `aria-modal="true"`, `aria-labelledby`, accessible close label, and `Escape` dismissal to `CaptureModal` (`C14`, `C15`).
+- **Privacy Policy & Legal `320px` Layout Fixes (`src/pages/policy/PolicyPage.tsx`, `src/pages/policy/policyPagesData.ts`)**:
+  - Added `break-words [overflow-wrap:anywhere]` to prevent `https://policies.google.com/technologies/ads` from overflowing at `320px`, replaced the `www.website.com` placeholder with `www.eon8.com`, and formatted CCPA/GDPR rights as structured bullet lists (`C20`).
+- **Frontend SEO Structured Data, `og:image`, `noindex`, Robots/Sitemap & Blog Sidebar Form (`src/components/sections/PageSeo.tsx`, `src/pages/blog/BlogPostPage.tsx`, `src/pages/services/`, `public/robots.txt`, `scripts/generate-sitemap.ts`)**:
+  - Restored Schema.org `@graph` JSON-LD (`Organization`, `WebSite`, `WebPage`, `BreadcrumbList`, and `BlogPosting` on articles), default `og:image`, `og:site_name`, and Twitter Card tags across all routes.
+  - Preserved live `noindex` directives on `/ads-amazon-marketing-agency`, `/instagram-marketing-funnel`, and `/seo-services-funnel`, excluded them (plus `nft-marketing-services-testing`) from `public/sitemap.xml` (`305` URLs), and disallowed `/admin-dashboard` & `/api/` in `public/robots.txt`.
+  - Restored the sticky consultation enquiry form (`#blog-sidebar-enquiry`) in `BlogPostPage.tsx` (`B03`).
+- **Case-Colliding Asset & Node Engine (`public/wp-content/uploads/2022/11/launch-influencer.svg`, `src/pages/influencer/data/influencerAgencyData.ts`, `package.json`)**:
+  - Renamed `Launch.svg` -> `launch-influencer.svg` to eliminate the macOS/Windows case collision with `launch.svg` (`C23`) and declared `"engines": { "node": ">=22.18.0" }` (`C13`).
+
+---
+
 ## [3.3.0] - 2026-11-18
 
 ### Added

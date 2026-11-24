@@ -230,6 +230,7 @@ export interface ServicePageData {
   theme: VerticalTheme;
   title: string;
   metaDesc: string;
+  noIndex?: boolean;
   hero: SemanticHeroData;
   sections: SemanticServiceSection[];
   disclaimer?: string;

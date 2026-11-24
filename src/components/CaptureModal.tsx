@@ -48,6 +48,16 @@ export function CaptureModal() {
     }
   }, [isContactModalOpen]);
 
+  // Close on Escape key
+  useEffect(() => {
+    if (!isContactModalOpen) return undefined;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setContactModalOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isContactModalOpen, setContactModalOpen]);
+
   // Generate new captcha question
   const generateCaptcha = () => {
     setNum1(Math.floor(Math.random() * 15) + 3);
@@ -97,7 +107,12 @@ export function CaptureModal() {
   return (
     <AnimatePresence>
       {isContactModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="capture-modal-title"
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+        >
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -128,8 +143,10 @@ export function CaptureModal() {
 
             {/* Close Button */}
             <button
+              type="button"
+              aria-label="Close consultation modal"
               onClick={() => setContactModalOpen(false)}
-              className="absolute top-4 right-4 p-2 text-foreground/50 hover:text-foreground hover:bg-muted/40 rounded-xl transition-all"
+              className="absolute top-4 right-4 p-2 text-foreground/60 hover:text-foreground hover:bg-muted/40 rounded-xl transition-all"
             >
               <X className="w-5 h-5" />
             </button>
@@ -138,7 +155,7 @@ export function CaptureModal() {
               // Form Layout
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="text-center space-y-1 mb-2">
-                  <h3 className="text-2xl font-heading font-extrabold tracking-tight">Quick Consultation</h3>
+                  <h3 id="capture-modal-title" className="text-2xl font-heading font-extrabold tracking-tight">Quick Consultation</h3>
                   <p className="text-xs text-muted-foreground">Get a bespoke digital marketing proposal today</p>
                 </div>
 

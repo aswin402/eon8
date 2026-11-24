@@ -6,6 +6,7 @@ export const instagramMarketingFunnelData: ServicePageData = {
   title: 'Instagram Marketing Funnel | High-ROI Instagram Growth – Eon8',
   metaDesc:
     'Turn wasted social media spend into measurable ROI with Eon8’s full-funnel Instagram marketing, Reels creative studio, creator amplification, and paid conversion campaigns.',
+  noIndex: true,
   hero: {
     badge: 'Full-Funnel Instagram Growth',
     heading: 'Eon8 — The Only Instagram Marketing Agency You Can Trust',

@@ -132,7 +132,7 @@ const privacyPolicyBlocks: PolicyBlock[] = [
   {
     type: 'p',
     children: [
-      'Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.website.com and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – ',
+      'Google is one of the third-party vendors on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.eon8.com and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – ',
       {
         type: 'link',
         text: 'https://policies.google.com/technologies/ads',
@@ -179,20 +179,10 @@ const privacyPolicyBlocks: PolicyBlock[] = [
     children: ['Under the CCPA, among other rights, California consumers have the right to:'],
   },
   {
-    type: 'p',
-    children: [
+    type: 'ul',
+    items: [
       'Request that a business that collects a consumer’s personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.',
-    ],
-  },
-  {
-    type: 'p',
-    children: [
       'Request that a business delete any personal data about the consumer that a business has collected.',
-    ],
-  },
-  {
-    type: 'p',
-    children: [
       'Request that a business that sells a consumer’s personal data, not sell the consumer’s personal data.',
     ],
   },
@@ -210,38 +200,13 @@ const privacyPolicyBlocks: PolicyBlock[] = [
     ],
   },
   {
-    type: 'p',
-    children: [
+    type: 'ul',
+    items: [
       'The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.',
-    ],
-  },
-  {
-    type: 'p',
-    children: [
       'The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.',
-    ],
-  },
-  {
-    type: 'p',
-    children: [
       'The right to erasure – You have the right to request that we erase your personal data, under certain conditions.',
-    ],
-  },
-  {
-    type: 'p',
-    children: [
       'The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.',
-    ],
-  },
-  {
-    type: 'p',
-    children: [
       'The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.',
-    ],
-  },
-  {
-    type: 'p',
-    children: [
       'The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.',
     ],
   },
@@ -264,11 +229,10 @@ const privacyPolicyBlocks: PolicyBlock[] = [
       'EON8 does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.',
     ],
   },
+  { type: 'h3', text: 'Communications' },
   {
     type: 'p',
     children: [
-      { type: 'strong', text: 'Communications' },
-      { type: 'br' },
       'We may contact you via e-mail or phone number that you’ve registered with EON8. For some of the clients like you, system-generated e-mails such as confirmations can be received for the proper admin operation.',
       { type: 'br' },
       'For any kind of communication, please write us to ',

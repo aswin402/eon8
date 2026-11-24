@@ -47,7 +47,7 @@ export function FloatingWidgets() {
   return (
     <>
       {/* Fixed Bottom-Left WhatsApp & Call Badges */}
-      <div className="fixed bottom-4 left-3 sm:bottom-8 sm:left-5 z-40 flex flex-col gap-2.5">
+      <div className="fixed bottom-4 left-3 sm:bottom-8 sm:left-5 z-30 flex flex-col gap-2.5">
         <motion.a
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
@@ -74,7 +74,7 @@ export function FloatingWidgets() {
       </div>
 
       {/* Vertical Contact Us Tab (Desktop & Tablet Right Edge) */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden md:block">
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-30 hidden md:block">
         {!isDrawerOpen && (
           <motion.button
             type="button"
@@ -99,7 +99,7 @@ export function FloatingWidgets() {
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             aria-label="Scroll to top"
-            className="fixed bottom-5 right-4 sm:bottom-7 sm:right-6 z-40 w-11 h-11 rounded-xl bg-white dark:bg-slate-800 text-[#0053C6] dark:text-blue-400 border border-slate-200 dark:border-slate-700 shadow-lg hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center transition-colors"
+            className="fixed bottom-5 right-4 sm:bottom-7 sm:right-6 z-30 w-11 h-11 rounded-xl bg-white dark:bg-slate-800 text-[#0053C6] dark:text-blue-400 border border-slate-200 dark:border-slate-700 shadow-lg hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center transition-colors"
           >
             <ArrowUp className="w-5 h-5" />
           </motion.button>

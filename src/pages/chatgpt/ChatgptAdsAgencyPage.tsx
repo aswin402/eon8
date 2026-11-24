@@ -1,8 +1,33 @@
-import { useState, useEffect, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-import { PageSeo } from '@/components/sections';
+import {
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  BookOpen,
+  Building2,
+  CheckCircle2,
+  ChevronDown,
+  ExternalLink,
+  Globe,
+  GraduationCap,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Search,
+  Sparkles,
+  Store,
+  TrendingUp,
+  X,
+} from 'lucide-react';
+import {
+  BottomCtaBanner,
+  FaqAccordionSection,
+  PageSeo,
+  ProcessRoadmapSection,
+} from '@/components/sections';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
-import '@/styles/chatgpt-ads.css';
 
 interface ShowcaseExample {
   label: string;
@@ -15,7 +40,7 @@ interface ShowcaseExample {
   copy: string;
   cta: string;
   url?: string;
-  tone: string;
+  badgeBg: string;
 }
 
 const SHOWCASE_EXAMPLES: ShowcaseExample[] = [
@@ -31,7 +56,7 @@ const SHOWCASE_EXAMPLES: ShowcaseExample[] = [
     copy: 'Explore themed cakes for kids and adults. Choose a design and check delivery for your area.',
     cta: 'Browse cake designs',
     url: 'https://cakesquare.com/order-customised-designer-cakes/',
-    tone: '#fae5df',
+    badgeBg: 'from-rose-500 to-orange-500',
   },
   {
     label: 'Interiors',
@@ -43,7 +68,7 @@ const SHOWCASE_EXAMPLES: ShowcaseExample[] = [
     headline: 'Plan Your Chennai 3BHK Interiors',
     copy: 'Share your floor plan to discuss room-by-room scope, finishes, and a budget range.',
     cta: 'Request a design consultation',
-    tone: '#e3efe6',
+    badgeBg: 'from-emerald-500 to-teal-600',
   },
   {
     label: 'Wedding venue',
@@ -55,7 +80,7 @@ const SHOWCASE_EXAMPLES: ShowcaseExample[] = [
     headline: 'Tour an ECR Wedding Venue',
     copy: 'See sample seating plans, explore the indoor backup, and ask about dates for your wedding.',
     cta: 'Book a venue tour',
-    tone: '#efe7fa',
+    badgeBg: 'from-purple-500 to-indigo-600',
   },
   {
     label: 'B2B software',
@@ -67,7 +92,7 @@ const SHOWCASE_EXAMPLES: ShowcaseExample[] = [
     headline: 'Payroll for Growing India Teams',
     copy: 'See payroll approvals, employee self-service, and reporting in a product walkthrough.',
     cta: 'Book a payroll demo',
-    tone: '#dfeafa',
+    badgeBg: 'from-sky-500 to-blue-600',
   },
 ];
 
@@ -136,6 +161,181 @@ const FOCUS_TITLES: Record<ServiceFocusKey, string> = {
   ads: PACKAGE_TITLES.ads,
 };
 
+const CORE_SERVICES = [
+  {
+    id: 'visibility',
+    focus: 'visibility' as ServiceFocusKey,
+    icon: Search,
+    title: 'ChatGPT Visibility',
+    description:
+      'Test real buyer questions, identify which sources are cited, and improve the pages that answer high-intent commercial queries.',
+    cta: 'Explore visibility services',
+  },
+  {
+    id: 'business',
+    focus: 'business' as ServiceFocusKey,
+    icon: Store,
+    title: 'ChatGPT Local Business',
+    description:
+      'Check whether you can claim a Business Hub listing and improve the public information buyers find about your location.',
+    cta: 'Explore claiming & optimization',
+  },
+  {
+    id: 'traffic',
+    focus: 'traffic' as ServiceFocusKey,
+    icon: TrendingUp,
+    title: 'ChatGPT Traffic',
+    description:
+      'Track identifiable ChatGPT referrals and measure the phone calls, WhatsApp clicks, and bookings your site generates.',
+    cta: 'Explore traffic measurement',
+  },
+  {
+    id: 'ai-search',
+    focus: 'premium' as ServiceFocusKey,
+    icon: Globe,
+    title: 'Multi-Platform AI Visibility',
+    description:
+      'Compare how ChatGPT, Claude, Gemini, and Perplexity answer buyer questions and strengthen the content they cite.',
+    cta: 'Explore multi-platform visibility',
+  },
+];
+
+interface PackageCardItem {
+  id: string;
+  focus: 'visibility' | 'premium' | 'ads';
+  title: string;
+  badge?: string;
+  highlighted?: boolean;
+  fit: string;
+  price: string;
+  priceNote: string;
+  summaryRows: { label: string; value: string }[];
+  bullets: string[];
+  workDetails: { label: string; text: string }[];
+  ctaLabel: string;
+}
+
+const PACKAGES: PackageCardItem[] = [
+  {
+    id: 'pkg-visibility',
+    focus: 'visibility',
+    title: 'ChatGPT Visibility',
+    fit: 'For one business focused on one priority market.',
+    price: '₹9,900',
+    priceNote: 'per month · 3-month minimum',
+    summaryRows: [{ label: '3-month service fee', value: '₹29,700' }],
+    bullets: [
+      'Baseline and monthly checks across 10 to 15 buyer queries',
+      'Local business audit and Business Hub eligibility check for one location',
+      'One priority service or location page improvement per month',
+      'Monthly report on mentions, referrals, and measurable enquiries',
+    ],
+    workDetails: [
+      {
+        label: 'Setup',
+        text: 'Record starting answers and sources for 10 to 15 ChatGPT buyer queries. Check one location’s public business details, website crawl access, and Business Hub eligibility. Guide the owner through claiming where eligible.',
+      },
+      {
+        label: 'Each month',
+        text: 'Improve one service or location page, correct agreed business details on properties you control, and rerun the query set.',
+      },
+      {
+        label: 'Reporting',
+        text: 'Share mentions, citations, identifiable referral traffic, and measured enquiries where tracking is available.',
+      },
+    ],
+    ctaLabel: 'Request ChatGPT Visibility',
+  },
+  {
+    id: 'pkg-premium',
+    focus: 'premium',
+    title: 'AI Visibility Premium',
+    badge: 'Most Popular',
+    highlighted: true,
+    fit: 'For brands comparing how they appear across AI search platforms.',
+    price: '₹19,900',
+    priceNote: 'per month · 3-month minimum',
+    summaryRows: [{ label: '3-month service fee', value: '₹59,700' }],
+    bullets: [
+      'Includes all local business & Business Hub work in ChatGPT Visibility',
+      'Benchmark ChatGPT, Claude, Gemini, and Perplexity where applicable',
+      'Compare competitor mentions, cited sources, and inaccurate business details',
+      'Improve up to two priority pages per month',
+      'Monthly visibility and identifiable referral report by platform',
+    ],
+    workDetails: [
+      {
+        label: 'Setup',
+        text: 'Run the ChatGPT Visibility setup, then benchmark priority questions across the relevant AI platforms. Map competitor mentions and the sources each platform uses.',
+      },
+      {
+        label: 'Each month',
+        text: 'Improve up to two priority pages in total, address inaccurate business details, and rerun the priority questions.',
+      },
+      {
+        label: 'Reporting',
+        text: 'Compare sampled mentions, citations, and identifiable referral traffic by platform, with clear next actions.',
+      },
+    ],
+    ctaLabel: 'Request AI Visibility Premium',
+  },
+  {
+    id: 'chatgpt-ads',
+    focus: 'ads',
+    title: 'ChatGPT Ads Add-on',
+    badge: 'Paid Pilot',
+    fit: 'Optional 90-day paid lead-generation package for eligible businesses.',
+    price: '₹12,000',
+    priceNote: 'per month · management fee',
+    summaryRows: [
+      { label: '3-month management fee', value: '₹36,000' },
+      { label: '90-day ad budget', value: '₹65,250' },
+      { label: 'Planned 90-day total', value: '₹1,01,250' },
+    ],
+    bullets: [
+      'Eligibility check and one campaign for one priority offer',
+      'Two launch ad variations, landing-page review, and conversion tracking',
+      'Weekly pacing adjustments & cost-per-qualified-lead review with your team',
+    ],
+    workDetails: [
+      {
+        label: 'Setup',
+        text: 'Confirm eligibility and agree on the offer, audience, budget, and one conversion goal. Review the landing page, prepare two ad variations, and test conversion tracking.',
+      },
+      {
+        label: 'Over 90 days',
+        text: 'Manage one campaign for one offer, review performance weekly, and adjust within the agreed budget.',
+      },
+      {
+        label: 'Reporting',
+        text: 'Report monthly on spend, clicks, tracked conversions, and cost per qualified lead where lead quality can be confirmed.',
+      },
+    ],
+    ctaLabel: 'Request ChatGPT Ads Add-on',
+  },
+];
+
+const FIRST_90_DAYS = [
+  {
+    step: '01',
+    title: 'Month 1: Establish the Baseline',
+    description:
+      'Sample the exact questions your customers ask. Record brand mentions, cited sources, competitor visibility, and available referral data.',
+  },
+  {
+    step: '02',
+    title: 'Month 2: Improve Priority Pages',
+    description:
+      'Correct business details and strengthen your highest-value service or location pages with verified buyer answers and clear next steps.',
+  },
+  {
+    step: '03',
+    title: 'Month 3: Review What Changed',
+    description:
+      'Repeat the prompt checks across AI platforms, compare identifiable referral traffic, and review lead quality with your sales team.',
+  },
+];
+
 type DialogMode =
   | { type: 'service'; focus: ServiceFocusKey }
   | { type: 'audit'; focus: ServiceFocusKey; isPackage: boolean }
@@ -152,6 +352,7 @@ function getBrandInitials(brand: string): string {
 
 export function ChatgptAdsAgencyPage() {
   const [activeCaseIdx, setActiveCaseIdx] = useState(0);
+  const [expandedPkg, setExpandedPkg] = useState<string | null>(null);
   const [dialogMode, setDialogMode] = useState<DialogMode>(null);
   const [contactDetail, setContactDetail] = useState('');
   const [website, setWebsite] = useState('');
@@ -161,7 +362,7 @@ export function ChatgptAdsAgencyPage() {
   const [leadResult, setLeadResult] = useState<LeadSubmissionResult | null>(null);
 
   useEffect(() => {
-    if (!dialogMode) return;
+    if (!dialogMode) return undefined;
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setDialogMode(null);
     };
@@ -226,604 +427,726 @@ export function ChatgptAdsAgencyPage() {
   };
 
   return (
-    <div className="chatgpt-ads-scope">
+    <div className="bg-background text-foreground">
       <PageSeo
         title="ChatGPT Ads Agency in India | EON8"
         description="EON8 is a ChatGPT Ads agency in India. We set up, run and optimise ChatGPT ads with AEO/GEO so your brand shows up in AI answers and ads."
         canonicalPath="/chatgpt-ads-agency"
       />
-      <a className="skip" href="#main">
-        Skip to content
-      </a>
 
-      <header className="shell nav">
-        <Link className="brand" to="/" aria-label="EON8 home">
-          <img
-            src="/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png"
-            alt="EON8"
-            className="brand-img"
-            height={38}
-          />
-        </Link>
-        <nav aria-label="Main navigation">
-          <Link to="/">← Main Site</Link>
-          <a href="#examples">Examples</a>
-          <a href="#local-business">Local business</a>
-          <a href="#traffic">Traffic</a>
-          <a href="#packages">Packages</a>
-          <Link to="/chatgpt-ads-agency/blog">Blog</Link>
-          <Link to="/chatgpt-ads-agency/education">Education</Link>
-        </nav>
-        <button
-          type="button"
-          className="btn primary"
-          onClick={() => openAuditDialog('visibility', false)}
-        >
-          Request an audit <span aria-hidden="true">↗</span>
-        </button>
-      </header>
+      {/* 1. Hero + Interactive ChatGPT Search & Sponsored Ad Showcase */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#040D21] via-[#0B1C42] to-[#0053C6] text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-32 -left-16 h-80 w-80 rounded-full bg-[#FD5900]/15 blur-3xl"
+        />
 
-      <main id="main">
-        <section className="shell hero">
-          <div>
-            <p className="eyebrow">AI Visibility Agency</p>
-            <h1>
-              Get found
-              <br />
-              on <span>ChatGPT.</span>
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Hero Copy */}
+          <div className="lg:col-span-5 space-y-6">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-sky-300">
+              <Sparkles className="w-3.5 h-3.5 text-[#FD5900]" />
+              <span>AI Visibility &amp; ChatGPT Ads Agency</span>
+            </span>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-heading font-extrabold leading-[1.08] tracking-tight text-white">
+              Get Found on <span className="text-[#FD5900]">ChatGPT.</span>
             </h1>
-            <p className="intro">
-              See what ChatGPT says about your business. Improve the information it can find and track the visits and enquiries it sends.
+
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+              See what ChatGPT says about your business. Improve the verified information it can
+              cite, and track the visits, WhatsApp enquiries, and bookings AI search sends your way.
             </p>
-            <div className="actions">
+
+            <div className="flex flex-wrap items-center gap-3.5 pt-1">
               <button
                 type="button"
-                className="btn primary"
                 onClick={() => openAuditDialog('visibility', false)}
+                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-xl bg-[#FD5900] hover:bg-[#e55000] text-white font-bold text-sm sm:text-[15px] shadow-lg shadow-orange-500/25 transition-all cursor-pointer"
               >
-                Request a visibility audit <span aria-hidden="true">↗</span>
+                <span>Request a Visibility Audit</span>
+                <ArrowUpRight className="w-4 h-4 shrink-0" />
               </button>
-              <a className="link" href="#examples">
-                See search and ad examples ↓
+
+              <a
+                href="#examples"
+                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 text-white font-bold text-sm sm:text-[15px] no-underline transition-all"
+              >
+                <span>See Examples</span>
+                <ArrowDown className="w-4 h-4 shrink-0" />
               </a>
             </div>
-            <p className="hero-note">
-              See how a local business can appear in an AI answer, and where a paid ad can show up.
-            </p>
+
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 text-sm text-slate-300">
+              <Link
+                to="/chatgpt-ads-agency/blog"
+                className="inline-flex items-center gap-1.5 text-sky-300 hover:text-[#FD5900] font-semibold no-underline transition-colors"
+              >
+                <BookOpen className="w-4 h-4" />
+                <span>AI Search Blog</span>
+              </Link>
+              <Link
+                to="/chatgpt-ads-agency/education"
+                className="inline-flex items-center gap-1.5 text-sky-300 hover:text-[#FD5900] font-semibold no-underline transition-colors"
+              >
+                <GraduationCap className="w-4 h-4" />
+                <span>AI Visibility Guide</span>
+              </Link>
+              <a
+                href="#packages"
+                className="inline-flex items-center gap-1.5 text-slate-200 hover:text-[#FD5900] font-semibold no-underline transition-colors"
+              >
+                <span>View 90-Day Packages</span>
+              </a>
+            </div>
           </div>
 
-          <div className="visual" id="examples">
-            <div className="panel">
-              <div className="panel-head">
-                <span>One search, two ways to be found</span>
-                <span className="sample">Illustration</span>
-              </div>
-              <div className="case-switcher" aria-label="Choose a business example">
-                {SHOWCASE_EXAMPLES.map((item, idx) => (
-                  <button
-                    key={item.label}
-                    type="button"
-                    aria-pressed={idx === activeCaseIdx}
-                    onClick={() => setActiveCaseIdx(idx)}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-              <div className="conversation" aria-live="polite">
-                <p className="demo-label">Customer asks</p>
-                <p className="buyer-message" id="case-prompt">
-                  “{currentCase.prompt}”
-                </p>
-                <div className="answer">
-                  <p className="demo-label">
-                    <span className="organic-dot" /> Example organic answer
-                  </p>
-                  <p id="case-answer">{currentCase.answer}</p>
-                  {currentCase.sourceUrl ? (
-                    <a
-                      id="case-source"
-                      className="source-chip"
-                      href={currentCase.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Source: {currentCase.source} ↗
-                    </a>
-                  ) : (
-                    <span id="case-source" className="source-chip">
-                      {currentCase.source}
-                    </span>
-                  )}
+          {/* Interactive ChatGPT Answer + Sponsored Mock Ad Panel */}
+          <div className="lg:col-span-7 min-w-0" id="examples">
+            <div className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-3 sm:p-5 shadow-2xl">
+              <div className="rounded-2xl bg-card text-foreground border border-border overflow-hidden shadow-xl">
+                {/* Panel Header */}
+                <div className="flex flex-wrap items-center justify-between gap-2 px-4 sm:px-6 py-3.5 border-b border-border bg-slate-50 dark:bg-slate-900/70">
+                  <span className="text-sm font-heading font-extrabold text-foreground">
+                    One search, two ways to be found
+                  </span>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-[#0053C6]/10 dark:bg-sky-500/15 text-[#0053C6] dark:text-sky-300 text-xs font-bold">
+                    Interactive Illustration
+                  </span>
                 </div>
-                <div className="ad-example">
-                  <div className="ad-caption">
-                    <span>Sponsored</span>
-                    <span>Below the answer · Mock ad</span>
+
+                {/* Industry Switcher Pills */}
+                <div
+                  className="flex flex-wrap items-center gap-2 px-4 sm:px-6 py-3 border-b border-border bg-background"
+                  role="group"
+                  aria-label="Choose a business example"
+                >
+                  {SHOWCASE_EXAMPLES.map((item, idx) => {
+                    const isSelected = idx === activeCaseIdx;
+                    return (
+                      <button
+                        key={item.label}
+                        type="button"
+                        aria-pressed={isSelected}
+                        onClick={() => setActiveCaseIdx(idx)}
+                        className={`px-3.5 py-2 rounded-lg text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
+                          isSelected
+                            ? 'bg-[#0053C6] text-white border-[#0053C6] shadow-sm'
+                            : 'bg-slate-100 dark:bg-slate-800/80 text-foreground border-border hover:border-[#0053C6]'
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Simulated Conversation + Sponsored Card */}
+                <div className="p-4 sm:p-6 space-y-4" aria-live="polite">
+                  {/* Prompt */}
+                  <div className="space-y-1.5">
+                    <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                      Customer asks
+                    </span>
+                    <div className="rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-border px-4 py-3 text-sm sm:text-[15px] font-semibold text-foreground leading-snug">
+                      “{currentCase.prompt}”
+                    </div>
                   </div>
-                  <div className="ad-body">
+
+                  {/* Organic AI Answer */}
+                  <div className="rounded-xl border border-emerald-500/25 bg-emerald-500/[0.06] dark:bg-emerald-500/10 p-4 space-y-2.5">
+                    <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                      <span>Example organic AI answer</span>
+                    </div>
+                    <p className="text-sm text-foreground leading-relaxed">{currentCase.answer}</p>
                     <div>
-                      <p className="advertiser" id="case-brand">
-                        {currentCase.brand}
-                      </p>
-                      <h2 id="case-headline">{currentCase.headline}</h2>
-                      <p id="case-copy">{currentCase.copy}</p>
-                      {currentCase.url ? (
+                      {currentCase.sourceUrl ? (
                         <a
-                          id="case-cta"
-                          href={currentCase.url}
+                          href={currentCase.sourceUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card border border-border text-xs font-bold text-[#0053C6] dark:text-sky-400 hover:border-[#FD5900] no-underline transition-colors"
                         >
-                          {currentCase.cta} ↗
+                          <span>Source: {currentCase.source}</span>
+                          <ExternalLink className="w-3 h-3 shrink-0" />
                         </a>
                       ) : (
-                        <a id="case-cta">Example CTA: {currentCase.cta}</a>
-                      )}
-                    </div>
-                    <span
-                      className="ad-creative"
-                      id="case-art"
-                      aria-hidden="true"
-                      style={{ backgroundColor: currentCase.tone }}
-                    >
-                      {activeCaseIdx === 0 ? (
-                        <span className="cake-art" />
-                      ) : (
-                        <span className="industry-mark">
-                          {getBrandInitials(currentCase.brand)}
+                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-card border border-border text-xs font-semibold text-muted-foreground">
+                          {currentCase.source}
                         </span>
                       )}
-                    </span>
+                    </div>
                   </div>
+
+                  {/* Sponsored Card */}
+                  <div className="rounded-xl border border-[#0053C6]/25 dark:border-sky-500/30 bg-[#0053C6]/[0.04] dark:bg-slate-900/80 p-4 space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-muted-foreground border-b border-border/70 pb-2">
+                      <span className="text-[#FD5900] uppercase tracking-wider">Sponsored</span>
+                      <span>Below the answer · Mock ad</span>
+                    </div>
+
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="space-y-1.5 min-w-0">
+                        <p className="text-xs font-bold text-muted-foreground">
+                          {currentCase.brand}
+                        </p>
+                        <h2 className="text-base sm:text-lg font-heading font-extrabold text-foreground leading-snug">
+                          {currentCase.headline}
+                        </h2>
+                        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                          {currentCase.copy}
+                        </p>
+                        <div className="pt-1">
+                          {currentCase.url ? (
+                            <a
+                              href={currentCase.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
+                            >
+                              <span>{currentCase.cta}</span>
+                              <ArrowUpRight className="w-4 h-4 shrink-0" />
+                            </a>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-[#0053C6] dark:text-sky-400">
+                              <span>Example CTA: {currentCase.cta}</span>
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div
+                        aria-hidden="true"
+                        className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${currentCase.badgeBg} text-white font-heading font-black text-lg sm:text-xl flex items-center justify-center shrink-0 shadow-md`}
+                      >
+                        {getBrandInitials(currentCase.brand)}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* OpenAI Attribution Footnote */}
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Simulated answers and ads. Examples other than CakeSquare use fictional brands.
+                    Ads may appear below answers for eligible users.{' '}
+                    <a
+                      href="https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] underline"
+                    >
+                      See OpenAI’s ad format ↗
+                    </a>
+                  </p>
                 </div>
-                <p className="example-note">
-                  Simulated answers and ads. Examples other than CakeSquare use fictional brands. Ads may appear below answers for eligible users.{' '}
-                  <a
-                    href="https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    See OpenAI’s ad format ↗
-                  </a>
-                </p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <div className="strip">
-          <div className="shell">
-            <strong>10 years in business</strong>
+      {/* 2. Agency Presence Trust Strip */}
+      <section className="py-5 px-4 sm:px-6 lg:px-8 border-y border-border bg-slate-50 dark:bg-slate-900/60">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center md:justify-between gap-4 text-sm font-semibold text-foreground">
+          <div className="inline-flex items-center gap-2">
+            <Building2 className="w-4 h-4 text-[#FD5900] shrink-0" />
+            <strong className="font-heading font-extrabold">12+ Years in Digital Growth</strong>
+          </div>
+          <div className="inline-flex items-center gap-2 text-muted-foreground">
+            <MapPin className="w-4 h-4 text-[#0053C6] dark:text-sky-400 shrink-0" />
             <span>Chennai · Bengaluru · Hyderabad · Mumbai</span>
-            <a href="tel:+919042294007">Call +91 90422 94007</a>
+          </div>
+          <a
+            href="tel:+919042294007"
+            className="inline-flex items-center gap-2 text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] font-bold no-underline transition-colors"
+          >
+            <Phone className="w-4 h-4 shrink-0" />
+            <span>Call +91 90422 94007</span>
+          </a>
+        </div>
+      </section>
+
+      {/* 3. Services — From Answers to Action */}
+      <section id="services" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 space-y-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-[#0053C6] dark:text-sky-400">
+              Services
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-foreground leading-tight">
+              From AI Answers to Measurable Action
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              Start with an honest baseline. Then strengthen the pages, citations, and business
+              information buyers rely on across ChatGPT and major AI engines.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {CORE_SERVICES.map((svc) => {
+              const Icon = svc.icon;
+              return (
+                <article
+                  key={svc.id}
+                  id={svc.id}
+                  className="group rounded-2xl bg-card border border-border p-6 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6"
+                >
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 rounded-xl bg-sky-500/10 text-[#0053C6] dark:text-sky-400 flex items-center justify-center">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-heading font-bold text-foreground leading-snug">
+                      {svc.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {svc.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-border/60">
+                    <button
+                      type="button"
+                      onClick={() => openServiceDialog(svc.focus)}
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 group-hover:text-[#FD5900] transition-colors cursor-pointer"
+                    >
+                      <span>{svc.cta}</span>
+                      <ArrowUpRight className="w-4 h-4 shrink-0" />
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
+      </section>
 
-        <section className="shell services" id="services">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">Services</p>
-              <h2>From answers to action.</h2>
-            </div>
-            <p>
-              Start with a baseline. Then improve the pages and business information buyers rely on.
+      {/* 4. ChatGPT Local Business Section (Dark AI Navy Surface) */}
+      <section
+        id="local-business"
+        className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#061229] via-[#0B224B] to-[#0F2D66] text-white"
+      >
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="max-w-3xl mx-auto text-center space-y-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-[#FD5900]">
+              ChatGPT Local Business
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-white leading-tight">
+              Claim &amp; Optimize Your Business Presence
+            </h2>
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+              We verify listing eligibility and align the public business facts buyers and AI
+              assistants use to evaluate your company.
             </p>
           </div>
-          <div className="grid">
-            <article className="service" id="visibility">
-              <span className="icon" aria-hidden="true">
-                ⌕
-              </span>
-              <h3>ChatGPT Visibility</h3>
-              <p>
-                Test real buyer questions, identify which sources are cited, and improve the pages that could answer those questions.
-              </p>
-              <button type="button" onClick={() => openServiceDialog('visibility')}>
-                Explore visibility services ↗
-              </button>
-            </article>
-            <article className="service" id="business">
-              <span className="icon" aria-hidden="true">
-                ⌂
-              </span>
-              <h3>ChatGPT Local Business</h3>
-              <p>
-                Check whether you can claim a Business Hub listing and improve the public information people find about your location.
-              </p>
-              <button type="button" onClick={() => openServiceDialog('business')}>
-                Explore claiming and optimization ↗
-              </button>
-            </article>
-            <article className="service" id="traffic">
-              <span className="icon" aria-hidden="true">
-                ↗
-              </span>
-              <h3>ChatGPT Traffic</h3>
-              <p>
-                Track identifiable ChatGPT referrals and measure the calls, WhatsApp clicks, and bookings your site generates.
-              </p>
-              <button type="button" onClick={() => openServiceDialog('traffic')}>
-                Explore traffic measurement ↗
-              </button>
-            </article>
-            <article className="service" id="ai-search">
-              <span className="icon" aria-hidden="true">
-                ◎
-              </span>
-              <h3>Multi-Platform AI Visibility</h3>
-              <p>
-                Compare how ChatGPT, Claude, Gemini, and Perplexity answer buyer questions and improve the content they can draw from.
-              </p>
-              <button type="button" onClick={() => openServiceDialog('premium')}>
-                Explore multi-platform visibility ↗
-              </button>
-            </article>
-          </div>
-        </section>
 
-        <section className="shell local-section" id="local-business">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">ChatGPT local business</p>
-              <h2>Claim and optimize your business</h2>
-            </div>
-            <p>
-              We check your listing eligibility and improve the public information people use to find and choose your business.
-            </p>
-          </div>
-          <div className="local-grid">
-            <article>
-              <h3>Business Hub claim assistance</h3>
-              <ul>
-                <li>Check for an existing listing and available verification options.</li>
-                <li>Guide the owner or authorized representative through verification when eligible.</li>
-                <li>Help update the supported business information once access is approved.</li>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            <article className="rounded-2xl bg-white/[0.06] border border-white/15 p-6 sm:p-8 space-y-5">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-xl bg-[#FD5900]/20 text-[#FD5900] flex items-center justify-center shrink-0">
+                  <Store className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-heading font-bold text-white">
+                  Business Hub Claim Assistance
+                </h3>
+              </div>
+              <ul className="space-y-3">
+                {[
+                  'Check for an existing listing and available verification options.',
+                  'Guide the owner or authorized representative through verification when eligible.',
+                  'Help update all supported business information once access is approved.',
+                ].map((pt) => (
+                  <li key={pt} className="flex items-start gap-2.5 text-sm sm:text-[15px] text-slate-200">
+                    <CheckCircle2 className="w-4 h-4 text-[#FD5900] shrink-0 mt-1" />
+                    <span>{pt}</span>
+                  </li>
+                ))}
               </ul>
             </article>
-            <article>
-              <h3>Local visibility optimization</h3>
-              <ul>
-                <li>
-                  Check name, address, phone, hours, service areas, and links across your website and relevant listings.
-                </li>
-                <li>
-                  Improve the location or service page with buyer FAQs and clear call, WhatsApp, or booking links.
-                </li>
-                <li>Test local buyer questions and report mentions, sources, and identifiable referrals.</li>
+
+            <article className="rounded-2xl bg-white/[0.06] border border-white/15 p-6 sm:p-8 space-y-5">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-xl bg-sky-400/20 text-sky-300 flex items-center justify-center shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-heading font-bold text-white">
+                  Local Visibility Optimization
+                </h3>
+              </div>
+              <ul className="space-y-3">
+                {[
+                  'Audit name, address, phone, hours, service areas, and links across your website and key listings.',
+                  'Improve priority location or service pages with verified buyer FAQs and direct call, WhatsApp, or booking CTAs.',
+                  'Test local buyer prompts monthly and report mentions, cited sources, and identifiable referrals.',
+                ].map((pt) => (
+                  <li key={pt} className="flex items-start gap-2.5 text-sm sm:text-[15px] text-slate-200">
+                    <CheckCircle2 className="w-4 h-4 text-[#FD5900] shrink-0 mt-1" />
+                    <span>{pt}</span>
+                  </li>
+                ))}
               </ul>
             </article>
           </div>
-          <p className="eligibility">
-            OpenAI currently allows local stores and restaurants to claim only an existing U.S. listing. For India-based shops, we focus on local visibility improvements and check eligibility separately for other business types.{' '}
+
+          <div className="rounded-2xl bg-white/[0.08] border border-white/15 p-5 sm:p-6 text-sm text-slate-200 leading-relaxed max-w-4xl mx-auto text-center">
+            OpenAI currently allows local stores and restaurants to claim only an existing U.S.
+            listing. For India-based shops, we focus on local visibility optimization and check
+            eligibility separately for other business categories.{' '}
             <a
               href="https://help.openai.com/en/articles/20001635-setting-up-your-business-on-chatgpt"
               target="_blank"
               rel="noopener noreferrer"
+              className="font-bold text-sky-300 hover:text-[#FD5900] underline"
             >
               OpenAI eligibility guidance ↗
             </a>
-          </p>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section className="shell packages" id="packages">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">AI visibility packages</p>
-              <h2>Start with 90 days.</h2>
-            </div>
-            <p>
-              Each package starts with a three-month engagement. See the monthly rate and full commitment before you enquire.
+      {/* 5. 90-Day AI Visibility Packages */}
+      <section id="packages" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="max-w-3xl mx-auto text-center space-y-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-[#0053C6] dark:text-sky-400">
+              AI Visibility Packages
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-foreground">
+              Start With 90 Days.
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              Each package starts with a structured three-month engagement. Review the monthly fee
+              and full 90-day commitment transparently before you enquire.
             </p>
           </div>
-          <div className="package-grid">
-            <article className="package">
-              <h3>ChatGPT Visibility</h3>
-              <p className="fit">For one business focused on one priority market.</p>
-              <p className="fee">
-                ₹9,900<small>per month · 3-month minimum</small>
-              </p>
-              <dl>
-                <div>
-                  <dt>3-month service fee</dt>
-                  <dd>₹29,700</dd>
-                </div>
-              </dl>
-              <ul>
-                <li>Baseline and monthly checks across 10 to 15 buyer queries</li>
-                <li>Local business audit and Business Hub eligibility check for one location</li>
-                <li>One priority service or location page improvement per month</li>
-                <li>Monthly report on mentions, referrals, and measurable enquiries</li>
-              </ul>
-              <details>
-                <summary>See the work included</summary>
-                <p>
-                  <strong>Setup:</strong> Record the starting answers and sources for 10 to 15 ChatGPT buyer queries. Check one location’s public business details, website crawl access, and Business Hub eligibility. Guide the owner through claiming where eligible.
-                </p>
-                <p>
-                  <strong>Each month:</strong> Improve one service or location page, correct agreed business details on properties you control, and rerun the query set.
-                </p>
-                <p>
-                  <strong>Reporting:</strong> Share mentions, citations, identifiable referral traffic, and measured enquiries where tracking is available.
-                </p>
-              </details>
-              <button
-                type="button"
-                className="btn primary"
-                onClick={() => openAuditDialog('visibility', true)}
-              >
-                Request ChatGPT Visibility ↗
-              </button>
-            </article>
 
-            <article className="package">
-              <h3>AI Visibility Premium</h3>
-              <p className="fit">For brands comparing how they appear across AI search platforms.</p>
-              <p className="fee">
-                ₹19,900<small>per month · 3-month minimum</small>
-              </p>
-              <dl>
-                <div>
-                  <dt>3-month service fee</dt>
-                  <dd>₹59,700</dd>
-                </div>
-              </dl>
-              <ul>
-                <li>Includes the local business and Business Hub work in ChatGPT Visibility</li>
-                <li>Benchmark ChatGPT, Claude, Gemini, and Perplexity where applicable</li>
-                <li>Compare competitor mentions, cited sources, and inaccurate business details</li>
-                <li>Improve up to two priority pages per month</li>
-                <li>Monthly visibility and identifiable referral report by platform</li>
-              </ul>
-              <details>
-                <summary>See the work included</summary>
-                <p>
-                  <strong>Setup:</strong> Run the ChatGPT Visibility setup, then benchmark priority questions across the relevant AI platforms. Map competitor mentions and the sources each platform uses.
-                </p>
-                <p>
-                  <strong>Each month:</strong> Improve up to two priority pages in total, address inaccurate business details, and rerun the priority questions.
-                </p>
-                <p>
-                  <strong>Reporting:</strong> Compare sampled mentions, citations, and identifiable referral traffic by platform, with next actions.
-                </p>
-              </details>
-              <button
-                type="button"
-                className="btn outline"
-                onClick={() => openAuditDialog('premium', true)}
-              >
-                Request AI Visibility Premium ↗
-              </button>
-            </article>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+            {PACKAGES.map((pkg) => {
+              const isExpanded = expandedPkg === pkg.id;
+              return (
+                <article
+                  key={pkg.id}
+                  id={pkg.id === 'chatgpt-ads' ? 'chatgpt-ads' : undefined}
+                  className={`rounded-2xl bg-card border p-6 sm:p-8 flex flex-col justify-between gap-6 transition-all ${
+                    pkg.highlighted
+                      ? 'border-[#0053C6] dark:border-sky-500 shadow-xl ring-2 ring-[#0053C6]/15'
+                      : 'border-border shadow-sm hover:shadow-lg'
+                  }`}
+                >
+                  <div className="space-y-5">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-foreground">
+                          {pkg.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground mt-1">{pkg.fit}</p>
+                      </div>
+                      {pkg.badge && (
+                        <span
+                          className={`shrink-0 px-3 py-1 rounded-full text-xs font-bold ${
+                            pkg.highlighted
+                              ? 'bg-[#FD5900] text-white'
+                              : 'bg-sky-500/10 text-[#0053C6] dark:text-sky-400'
+                          }`}
+                        >
+                          {pkg.badge}
+                        </span>
+                      )}
+                    </div>
 
-            <article className="package" id="chatgpt-ads">
-              <h3>ChatGPT Ads Add-on</h3>
-              <p className="fit">Optional 90-day paid lead-generation package for eligible businesses.</p>
-              <p className="fee">
-                ₹12,000<small>per month · management fee</small>
-              </p>
-              <dl>
-                <div>
-                  <dt>3-month management fee</dt>
-                  <dd>₹36,000</dd>
-                </div>
-                <div>
-                  <dt>90-day ad budget</dt>
-                  <dd>₹65,250</dd>
-                </div>
-                <div>
-                  <dt>Planned 90-day total</dt>
-                  <dd>₹1,01,250</dd>
-                </div>
-              </dl>
-              <ul>
-                <li>Eligibility check and one campaign for one offer</li>
-                <li>Two launch ad variations, landing-page review, and conversion tracking</li>
-                <li>Cost-per-qualified-lead review with your team</li>
-              </ul>
-              <details>
-                <summary>See the work included</summary>
-                <p>
-                  <strong>Setup:</strong> Confirm eligibility and agree on the offer, audience, budget, and one conversion goal. Review the landing page, prepare two ad variations, and test conversion tracking.
-                </p>
-                <p>
-                  <strong>Over 90 days:</strong> Manage one campaign for one offer, review performance weekly, and adjust within the agreed budget.
-                </p>
-                <p>
-                  <strong>Reporting:</strong> Report monthly on spend, clicks, tracked conversions, and cost per qualified lead where lead quality can be confirmed.
-                </p>
-              </details>
-              <button
-                type="button"
-                className="btn outline"
-                onClick={() => openAuditDialog('ads', true)}
-              >
-                Request ChatGPT Ads add-on ↗
-              </button>
-            </article>
+                    <div className="pt-2 border-t border-border">
+                      <div className="text-3xl sm:text-4xl font-heading font-black text-foreground">
+                        {pkg.price}
+                      </div>
+                      <p className="text-xs sm:text-sm font-medium text-muted-foreground mt-1">
+                        {pkg.priceNote}
+                      </p>
+                    </div>
+
+                    <dl className="rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-border p-4 space-y-2 text-sm">
+                      {pkg.summaryRows.map((row) => (
+                        <div key={row.label} className="flex items-center justify-between gap-3">
+                          <dt className="text-muted-foreground">{row.label}</dt>
+                          <dd className="font-heading font-extrabold text-foreground">
+                            {row.value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+
+                    <ul className="space-y-2.5">
+                      {pkg.bullets.map((b) => (
+                        <li
+                          key={b}
+                          className="flex items-start gap-2.5 text-sm text-muted-foreground leading-relaxed"
+                        >
+                          <CheckCircle2 className="w-4 h-4 text-[#FD5900] shrink-0 mt-0.5" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Expandable Work Scope */}
+                    <div className="rounded-xl border border-border bg-background overflow-hidden">
+                      <button
+                        type="button"
+                        aria-expanded={isExpanded}
+                        onClick={() => setExpandedPkg(isExpanded ? null : pkg.id)}
+                        className="w-full flex items-center justify-between gap-2 px-4 py-3 text-left text-xs sm:text-sm font-bold text-foreground hover:text-[#FD5900] transition-colors cursor-pointer"
+                      >
+                        <span>See the work included</span>
+                        <ChevronDown
+                          className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+                            isExpanded ? 'rotate-180 text-[#FD5900]' : ''
+                          }`}
+                        />
+                      </button>
+                      {isExpanded && (
+                        <div className="px-4 pb-4 space-y-2.5 border-t border-border pt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                          {pkg.workDetails.map((d) => (
+                            <p key={d.label}>
+                              <strong className="text-foreground">{d.label}:</strong> {d.text}
+                            </p>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => openAuditDialog(pkg.focus, true)}
+                    className={`w-full inline-flex items-center justify-center gap-2 min-h-[48px] px-5 py-3 rounded-xl font-bold text-sm sm:text-[15px] transition-all cursor-pointer ${
+                      pkg.highlighted
+                        ? 'bg-[#FD5900] hover:bg-[#e55000] text-white shadow-md shadow-orange-500/25'
+                        : 'bg-[#0053C6] hover:bg-[#0044a3] text-white shadow-sm'
+                    }`}
+                  >
+                    <span>{pkg.ctaLabel}</span>
+                    <ArrowUpRight className="w-4 h-4 shrink-0" />
+                  </button>
+                </article>
+              );
+            })}
           </div>
-          <p className="package-note">
-            Proposed pricing, before applicable taxes. The optional ads add-on has a separate management fee and media budget. The ChatGPT Ads budget uses the published INR minimum of ₹725 per day. Scope and eligibility are confirmed before launch.{' '}
+
+          <p className="text-xs sm:text-sm text-muted-foreground text-center max-w-4xl mx-auto leading-relaxed">
+            Proposed pricing, before applicable taxes. The optional ads add-on has a separate
+            management fee and media budget. The ChatGPT Ads budget uses the published INR minimum
+            of ₹725 per day. Scope and eligibility are confirmed before launch.{' '}
             <a
               href="https://help.openai.com/en/articles/20001210-creating-campaigns-for-chatgpt-ads"
               target="_blank"
               rel="noopener noreferrer"
+              className="font-semibold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] underline"
             >
               OpenAI budget guidance ↗
             </a>
           </p>
-        </section>
+        </div>
+      </section>
 
-        <section className="process" id="process">
-          <div className="shell">
-            <div className="section-head">
-              <div>
-                <p className="eyebrow">How we work</p>
-                <h2>Your first 90 days</h2>
-              </div>
+      {/* 6. 90-Day Process Roadmap */}
+      <ProcessRoadmapSection
+        id="process"
+        theme="ai"
+        surface="dark"
+        badge="How We Work"
+        heading="Your First 90 Days With EON8"
+        subheading="A structured, transparent operating cadence from initial prompt benchmarking to measurable lead attribution."
+        steps={FIRST_90_DAYS}
+      />
+
+      {/* 7. Learn About AI Visibility */}
+      <section
+        aria-label="Learn about AI visibility"
+        className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50"
+      >
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Link
+            to="/chatgpt-ads-agency/blog"
+            className="group rounded-2xl bg-card border border-border p-7 sm:p-8 shadow-xs hover:shadow-xl hover:border-[#0053C6] transition-all flex items-start gap-5 no-underline"
+          >
+            <div className="w-12 h-12 rounded-xl bg-sky-500/10 text-[#0053C6] dark:text-sky-400 flex items-center justify-center shrink-0">
+              <BookOpen className="w-6 h-6" />
             </div>
-            <div className="steps">
-              <article>
-                <h3>Month 1: Establish the baseline</h3>
-                <p>
-                  Sample the questions your customers ask. Record mentions, cited sources, competitor visibility, and available referral data.
-                </p>
-              </article>
-              <article>
-                <h3>Month 2: Improve priority pages</h3>
-                <p>
-                  Correct business details and improve a priority service or location page with verified answers and a clear next step.
-                </p>
-              </article>
-              <article>
-                <h3>Month 3: Review what changed</h3>
-                <p>
-                  Repeat the prompt checks, compare identifiable referrals, and review lead quality with the team answering inquiries.
-                </p>
-              </article>
+            <div className="space-y-2">
+              <h3 className="text-xl font-heading font-extrabold text-foreground group-hover:text-[#FD5900] transition-colors">
+                EON8 AI Search Blog
+              </h3>
+              <p className="text-sm sm:text-[15px] text-muted-foreground leading-relaxed">
+                Practical articles on AI search visibility, local discovery, citations, and paid
+                ChatGPT placements.
+              </p>
+              <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 group-hover:text-[#FD5900] pt-1">
+                <span>Read the blog</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
             </div>
-          </div>
-        </section>
-
-        <section className="shell learn-links" aria-label="Learn about AI visibility">
-          <Link to="/chatgpt-ads-agency/blog">
-            <h3>EON8 Blog</h3>
-            <p>Articles on AI search, local discovery, and paid placements.</p>
-            <strong>Read the blog →</strong>
           </Link>
-          <Link to="/chatgpt-ads-agency/education">
-            <h3>AI Visibility Education</h3>
-            <p>A practical guide to checking how AI finds and describes your business.</p>
-            <strong>Start learning →</strong>
-          </Link>
-        </section>
 
-        <section className="shell faq" id="faq">
-          <div>
-            <p className="eyebrow">FAQ</p>
-            <h2>What to expect</h2>
-          </div>
-          <div>
-            <details>
-              <summary>Can you guarantee a ChatGPT recommendation?</summary>
-              <p>
-                Search results vary by query and context. We commit to the agreed improvements and report observed mentions, citations, and referrals.
+          <Link
+            to="/chatgpt-ads-agency/education"
+            className="group rounded-2xl bg-card border border-border p-7 sm:p-8 shadow-xs hover:shadow-xl hover:border-[#FD5900] transition-all flex items-start gap-5 no-underline"
+          >
+            <div className="w-12 h-12 rounded-xl bg-[#FD5900]/10 text-[#FD5900] flex items-center justify-center shrink-0">
+              <GraduationCap className="w-6 h-6" />
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-xl font-heading font-extrabold text-foreground group-hover:text-[#FD5900] transition-colors">
+                AI Visibility Education
+              </h3>
+              <p className="text-sm sm:text-[15px] text-muted-foreground leading-relaxed">
+                A step-by-step playbook to benchmark how ChatGPT and AI assistants find and describe
+                your business.
               </p>
-            </details>
-            <details>
-              <summary>Do you work with other AI platforms?</summary>
-              <p>
-                The premium package benchmarks answers across ChatGPT, Claude, Gemini, and Perplexity where applicable. We improve your public content and business information based on what those checks reveal.
-              </p>
-            </details>
-            <details>
-              <summary>Can you claim my business in ChatGPT?</summary>
-              <p>
-                We check eligibility and guide the business owner through verification where supported. OpenAI currently limits local stores and restaurants to existing U.S. listings. Local visibility optimization is available for businesses in India.{' '}
+              <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 group-hover:text-[#FD5900] pt-1">
+                <span>Start learning</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* 8. FAQ Accordion */}
+      <FaqAccordionSection
+        id="faq"
+        theme="ai"
+        surface="light"
+        badge="FAQ"
+        heading="What to Expect"
+        faqs={[
+          {
+            question: 'Can you guarantee a ChatGPT recommendation?',
+            answer:
+              'Search results vary by query and context. We commit to the agreed technical and content improvements and transparently report observed mentions, citations, and identifiable referrals.',
+          },
+          {
+            question: 'Do you work with other AI platforms?',
+            answer:
+              'Yes. The AI Visibility Premium package benchmarks buyer questions across ChatGPT, Claude, Gemini, and Perplexity where applicable, and prioritizes improvements based on what those checks reveal.',
+          },
+          {
+            question: 'Can you claim my business in ChatGPT?',
+            answer: (
+              <span>
+                We check eligibility and guide the business owner through verification where
+                supported. OpenAI currently limits local stores and restaurants to existing U.S.
+                listings. Local visibility optimization is available for businesses in India.{' '}
                 <a
                   href="https://openai.com/business/businesses-in-chatgpt/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="font-semibold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] underline"
                 >
-                  OpenAI Business Hub information
+                  OpenAI Business Hub information ↗
                 </a>
-              </p>
-            </details>
-            <details>
-              <summary>Are ChatGPT Ads the same as organic visibility?</summary>
-              <p>
-                ChatGPT Ads are paid placements. Organic visibility work improves the information available to search. We report the two separately and confirm campaign eligibility before proposing a test.
-              </p>
-            </details>
-            <details>
-              <summary>What can you measure?</summary>
-              <p>
-                We track sampled mentions and citations, identifiable referral sessions, and actions such as WhatsApp clicks or booking submissions. We work with your team to confirm which inquiries became qualified leads and bookings.
-              </p>
-            </details>
-          </div>
-        </section>
+              </span>
+            ),
+          },
+          {
+            question: 'Are ChatGPT Ads the same as organic visibility?',
+            answer:
+              'ChatGPT Ads are paid placements below AI answers. Organic visibility work improves the public information AI search can retrieve and cite. We measure the two separately and confirm campaign eligibility before proposing a paid test.',
+          },
+          {
+            question: 'What can you measure?',
+            answer:
+              'We track sampled mentions and citations, identifiable referral sessions, and conversion actions such as phone calls, WhatsApp clicks, or booking submissions — then reconcile qualified leads with your sales team.',
+          },
+        ]}
+      />
 
-        <section className="shell">
-          <div className="banner">
-            <div>
-              <h2>What does ChatGPT find about you?</h2>
-              <p>In your enquiry, include your business name, website, and target city or market.</p>
-            </div>
-            <div className="actions">
-              <Link className="btn primary" to="/contact">
-                Send an enquiry <span aria-hidden="true">↗</span>
-              </Link>
-              <a className="btn outline" href="tel:+919042294007">
-                Call EON8
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
+      {/* 9. Bottom Consultation Banner */}
+      <BottomCtaBanner
+        theme="ai"
+        heading="What Does ChatGPT Find About Your Business?"
+        description="Share your business website and target city or market — our AI visibility specialists will run an initial baseline and walk you through your quick wins."
+        formHeading="Request AI Visibility Audit"
+        submitLabel="Request Free Audit"
+        disclaimer="Independent agency · ChatGPT is a product of OpenAI. EON8 is not affiliated with or endorsed by OpenAI."
+      />
 
-      <footer className="shell footer">
-        <Link className="brand" to="/" aria-label="EON8 home">
-          <img
-            src="/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png"
-            alt="EON8"
-            className="brand-img"
-            height={30}
-            style={{ height: 30 }}
-          />
-        </Link>
-        <span>Independent agency · ChatGPT is a product of OpenAI</span>
-        <Link to="/chatgpt-ads-agency/blog">Blog</Link>
-        <Link to="/chatgpt-ads-agency/education">Education</Link>
-        <a href="mailto:info@eon8.com">info@eon8.com</a>
-        <Link to="/contact">Contact EON8 ↗</Link>
-      </footer>
-
+      {/* 10. Accessible Service & Audit Modal Dialog */}
       {dialogMode && (
         <div
-          className="chatgpt-ads-modal-backdrop"
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
-          aria-labelledby="dialog-title"
+          aria-labelledby="chatgpt-dialog-title"
           onClick={(e) => {
             if (e.target === e.currentTarget) setDialogMode(null);
           }}
         >
-          <div className="chatgpt-ads-modal-card">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-card text-foreground border border-border p-6 sm:p-8 shadow-2xl">
             <button
-              className="close"
               type="button"
               aria-label="Close dialog"
               onClick={() => setDialogMode(null)}
+              className="absolute top-4 right-4 h-9 w-9 inline-flex items-center justify-center rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer"
             >
-              ×
+              <X className="w-5 h-5" />
             </button>
 
             {dialogMode.type === 'service' ? (
-              <div>
-                <h2 id="dialog-title">{SERVICE_DETAILS[dialogMode.focus].title}</h2>
-                <ul className="detail-list">
+              <div className="space-y-5">
+                <div className="space-y-1.5 pr-8">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#FD5900]">
+                    Service Scope
+                  </span>
+                  <h2
+                    id="chatgpt-dialog-title"
+                    className="text-2xl font-heading font-extrabold text-foreground"
+                  >
+                    {SERVICE_DETAILS[dialogMode.focus].title}
+                  </h2>
+                </div>
+                <ul className="space-y-2.5">
                   {SERVICE_DETAILS[dialogMode.focus].items.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li
+                      key={item}
+                      className="flex items-start gap-2.5 text-sm sm:text-[15px] text-muted-foreground"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-[#FD5900] shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
                 <button
                   type="button"
-                  className="btn primary"
                   onClick={() => openAuditDialog(dialogMode.focus, false)}
+                  className="w-full inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-xl bg-[#FD5900] hover:bg-[#e55000] text-white font-bold text-sm sm:text-[15px] transition-all cursor-pointer"
                 >
-                  Request an audit ↗
+                  <span>Request an Audit</span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </button>
               </div>
             ) : (
-              <div>
-                <h2 id="dialog-title">
-                  {dialogMode.isPackage ? 'Request a package' : 'Request a visibility audit'}
-                </h2>
-                <p>This prepares an inquiry to EON8 for you to review and send.</p>
-                <form onSubmit={(e) => void handleAuditSubmit(e)}>
-                  <label>
-                    Your email or WhatsApp number
+              <div className="space-y-5">
+                <div className="space-y-1 pr-8">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#FD5900]">
+                    AI Visibility Desk
+                  </span>
+                  <h2
+                    id="chatgpt-dialog-title"
+                    className="text-2xl font-heading font-extrabold text-foreground"
+                  >
+                    {dialogMode.isPackage ? 'Request a Package' : 'Request a Visibility Audit'}
+                  </h2>
+                  <p className="text-sm text-muted-foreground">
+                    Share your website and target market — we’ll prepare your baseline brief.
+                  </p>
+                </div>
+
+                <form onSubmit={(e) => void handleAuditSubmit(e)} className="space-y-4">
+                  <label className="block space-y-1.5">
+                    <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                      Your Email or WhatsApp Number *
+                    </span>
                     <input
                       name="contact"
                       required
@@ -831,10 +1154,14 @@ export function ChatgptAdsAgencyPage() {
                       placeholder="you@company.com or +91 98765 43210"
                       value={contactDetail}
                       onChange={(e) => setContactDetail(e.target.value)}
+                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0053C6]"
                     />
                   </label>
-                  <label>
-                    Business website
+
+                  <label className="block space-y-1.5">
+                    <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                      Business Website *
+                    </span>
                     <input
                       name="website"
                       required
@@ -842,10 +1169,14 @@ export function ChatgptAdsAgencyPage() {
                       placeholder="example.com"
                       value={website}
                       onChange={(e) => setWebsite(e.target.value)}
+                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0053C6]"
                     />
                   </label>
-                  <label>
-                    Target market
+
+                  <label className="block space-y-1.5">
+                    <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                      Target Market *
+                    </span>
                     <input
                       name="market"
                       required
@@ -853,14 +1184,19 @@ export function ChatgptAdsAgencyPage() {
                       placeholder="Chennai, India"
                       value={market}
                       onChange={(e) => setMarket(e.target.value)}
+                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0053C6]"
                     />
                   </label>
-                  <label>
-                    What do you want to improve?
+
+                  <label className="block space-y-1.5">
+                    <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                      What Do You Want to Improve?
+                    </span>
                     <select
                       name="focus"
                       value={selectedFocus}
                       onChange={(e) => setSelectedFocus(e.target.value as ServiceFocusKey)}
+                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#0053C6]"
                     >
                       {Object.entries(dialogMode.isPackage ? PACKAGE_TITLES : FOCUS_TITLES).map(
                         ([key, title]) => (
@@ -871,53 +1207,69 @@ export function ChatgptAdsAgencyPage() {
                       )}
                     </select>
                   </label>
-                  <div className="actions">
-                    <button type="submit" disabled={submittingAudit} className="btn primary">
-                      {submittingAudit ? 'Submitting…' : 'Submit inquiry ↗'}
+
+                  <div className="flex flex-wrap items-center gap-3 pt-1">
+                    <button
+                      type="submit"
+                      disabled={submittingAudit}
+                      className="flex-1 inline-flex items-center justify-center gap-2 min-h-[46px] px-5 py-2.5 rounded-xl bg-[#FD5900] hover:bg-[#e55000] text-white font-bold text-sm transition-all cursor-pointer disabled:opacity-60"
+                    >
+                      <span>{submittingAudit ? 'Submitting…' : 'Submit Inquiry'}</span>
+                      <ArrowUpRight className="w-4 h-4" />
                     </button>
                     <Link
-                      className="btn outline"
                       to="/contact"
                       onClick={() => setDialogMode(null)}
+                      className="inline-flex items-center justify-center min-h-[46px] px-4 py-2.5 rounded-xl border border-border bg-background hover:border-[#0053C6] text-foreground font-bold text-sm no-underline transition-colors"
                     >
-                      EON8 contact page
+                      Contact Page
                     </Link>
                   </div>
-                  <p className="help">
+
+                  <p className="text-xs text-muted-foreground">
                     Or email directly via{' '}
                     <a
                       href={buildMailtoHref(dialogMode.isPackage)}
-                      style={{ color: 'var(--blue)', textDecoration: 'underline' }}
+                      className="font-semibold text-[#0053C6] dark:text-sky-400 underline"
                     >
                       info@eon8.com
                     </a>
                     .
                   </p>
+
                   {leadResult && (
-                    <div role="status" className="chatgpt-ads-success">
-                      <p style={{ margin: '0 0 10px' }}>
+                    <div
+                      role="status"
+                      className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4 space-y-3 text-sm"
+                    >
+                      <p className="font-medium text-foreground">
                         {leadResult.deliveredToWebhook
                           ? `Thank you! Your AI visibility inquiry for ${website} (${FOCUS_TITLES[selectedFocus]}) has been delivered to EON8.`
                           : `Inquiry prepared for ${website} (${FOCUS_TITLES[selectedFocus]}). Connect instantly via WhatsApp or Email below:`}
                       </p>
-                      <div className="actions" style={{ marginTop: 8 }}>
+                      <div className="flex flex-wrap gap-2">
                         <a
                           href={leadResult.whatsappHref}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="btn primary"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#16a34a] hover:bg-[#15803d] text-white text-xs font-bold no-underline"
                         >
-                          Send on WhatsApp ↗
+                          <MessageCircle className="w-3.5 h-3.5" />
+                          <span>Send on WhatsApp</span>
                         </a>
-                        <a href={leadResult.mailtoHref} className="btn outline">
-                          Send via Email
+                        <a
+                          href={leadResult.mailtoHref}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-950 text-xs font-bold no-underline"
+                        >
+                          <Mail className="w-3.5 h-3.5" />
+                          <span>Send via Email</span>
                         </a>
                         <Link
                           to="/thank-you"
-                          className="btn outline"
                           onClick={() => setDialogMode(null)}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-border bg-card text-foreground text-xs font-bold no-underline"
                         >
-                          Confirmation Page
+                          <span>Confirmation Page</span>
                         </Link>
                       </div>
                     </div>
