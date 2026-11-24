@@ -1,0 +1,39 @@
+name: CI — Lint, Typecheck & Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Type-check, build bundle & generate SEO manifest
+        run: npm run build
+
+      - name: Verify zero credential leaks in client bundle
+        run: |
+          if grep -rnE "Eon8Admin@2026|eon8_cms_fallback_auth_v1" dist/assets/; then
+            echo "ERROR: Forbidden credential/fallback string found in client JS bundle!"
+            exit 1
+          fi
+          test -f dist/index.html
+          test -f dist/seo-manifest.json
+          test -f public/sitemap.xml

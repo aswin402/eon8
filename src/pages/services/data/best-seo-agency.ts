@@ -188,47 +188,53 @@ export const bestSeoAgencyData: ServicePageData = {
       "heading": "On-Page SEO",
       "paragraphs": [
         [
-          "Our on-page SEO package includes optimizing the title tag, meta tags as well as the body text. Our detail-oriented approach to identify keyword management and optimize search results make us the ",
+          "Our on-page SEO package includes optimizing the title tag, meta tags, URL architecture, internal linking, and high-converting body copy. Our detail-oriented approach to search intent and keyword mapping makes us a ",
           {
             "text": "top Search Engine Optimization agency",
             "strong": true
           },
-          "in India."
-        ],
-        [
-          "Using link building and link creation strategies by using Web 2.0 sites, social bookmarking, article submission, guest blogging, directory submission, PDF submission, and image submission."
-        ],
-        [
-          "Our focus also lies in image optimization, heading tags, content optimization, broken link check, canonical tags, meta robot tags, website speed check, URL optimization, sitemap generation, and robots.txt files."
-        ],
-        [
-          "Being an ",
-          {
-            "text": "SEO agency in India,",
-            "strong": true
-          },
-          "we recommend that every page on your website be made W3C compliant. I Your site might get lower rankings if your website’s code isn’t compliant with W3C. Keeping this in mind, we don’t only offer W3C Compliancy, but also Schema tests and Website Speed tests."
+          " in India."
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Title tag, meta description, heading hierarchy & semantic content optimization",
+        "Keyword mapping aligned with commercial & informational search intent",
+        "Internal linking structure & conversion-ready landing page UX"
+      ],
       "imageSrc": "/wp-content/uploads/2020/10/On-page-SEO.jpg",
       "imageAlt": "On-page-SEO",
       "actions": [
         {
-          "label": "Read More",
-          "href": "#",
-          "opensModal": true,
-          "external": false,
-          "variant": "primary"
-        },
-        {
-          "label": "Read More",
-          "href": "#",
-          "opensModal": true,
+          "label": "Get Free Proposal Today",
+          "href": "#enquiry",
+          "opensModal": false,
           "external": false,
           "variant": "primary"
         }
       ]
+    },
+    {
+      "type": "feature-grid",
+      "heading": "Off-Page SEO, Technical SEO & W3C Compliance",
+      "subheading": "Complete search engineering beyond basic keywords — building domain authority, crawl health, and clean standards-compliant code.",
+      "cards": [
+        {
+          "title": "Off-Page SEO",
+          "description": "High-authority link building and brand outreach via editorial guest blogging, digital PR, Web 2.0 properties, directory citations, PDF/document sharing, and white-hat backlink acquisition.",
+          "href": "/link-building-services-for-high-rankings",
+          "ctaLabel": "Explore Link Building"
+        },
+        {
+          "title": "Technical SEO",
+          "description": "Comprehensive image optimization, canonical tags, meta robot directives, broken link remediation, XML sitemap generation, robots.txt tuning, Core Web Vitals speed engineering, and clean URL structure."
+        },
+        {
+          "title": "W3C Compliance",
+          "description": "Every page is audited for W3C HTML/CSS compliance, Schema.org structured data validation, and page-speed benchmarks so search engines crawl, render, and index your site without friction."
+        }
+      ],
+      "columns": 3,
+      "actions": []
     },
     {
       "type": "split",
@@ -269,40 +275,54 @@ export const bestSeoAgencyData: ServicePageData = {
           "id": "etab-2",
           "label": "Ecommerce SEO Service",
           "heading": "Ecommerce SEO Service",
-          "description": "",
-          "bullets": []
+          "description": "Scale organic store revenue across Shopify, WooCommerce, Magento, and custom marketplaces. We optimize category taxonomy, product schema, faceted navigation, internal link equity, and buyer-intent product copy to turn search traffic into recurring orders.",
+          "bullets": [
+            "Product & category page keyword architecture",
+            "Product, Review & Offer Schema markup for rich snippets",
+            "Technical crawl-budget & faceted-filter optimization"
+          ]
         },
         {
           "id": "etab-3",
           "label": "Small Business SEO Company",
           "heading": "Small Business SEO Company",
-          "description": "",
-          "bullets": []
+          "description": "Cost-effective, ROI-focused SEO tailored for growing businesses and startups. We focus on fast-win local and commercial keywords, Google Business Profile dominance, conversion-ready service pages, and transparent monthly ranking reports.",
+          "bullets": [
+            "Quick-win commercial keyword targeting without bloated budgets",
+            "Google Maps & local citation visibility",
+            "Monthly KPI dashboards tracking leads, calls & organic growth"
+          ]
         }
       ]
     },
     {
       "type": "feature-grid",
       "heading": "Our SEO Packages",
-      "subheading": "SEO Packages",
+      "subheading": "Transparent monthly SEO plans tailored for small businesses, mid-size brands, and high-SKU eCommerce stores (exclusive of applicable taxes).",
       "cards": [
         {
-          "title": "Small Business",
-          "description": "SEO Packages EXCLUSIVE OF ALL TAXES"
+          "title": "Small Business — 250 USD Monthly",
+          "description": "Ideal for local & emerging businesses: up to 15 targeted keywords, full on-page & technical audit, Google Business Profile optimization, quality backlinks, and monthly rank reporting.",
+          "href": "/seo-packages#package",
+          "ctaLabel": "Explore Small Business Plan"
         },
         {
-          "title": "Mid Size Business",
-          "description": "SEO Packages EXCLUSIVE OF ALL TAXES"
+          "title": "Mid Size Business — 350 USD Monthly",
+          "description": "Built for scaling regional & national brands: up to 30 competitive keywords, content marketing & blog publishing, authority guest outreach, schema markup, and bi-weekly strategy reviews.",
+          "href": "/seo-packages#package",
+          "ctaLabel": "Explore Mid-Size Plan"
         },
         {
-          "title": "Large or Ecommerce",
-          "description": "SEO Packages EXCLUSIVE OF ALL TAXES"
+          "title": "Large or Ecommerce — 650 USD Monthly",
+          "description": "Engineered for enterprise & eCommerce catalogs: 50+ commercial keywords, technical crawl & Core Web Vitals engineering, high-DR digital PR links, CRO tracking, and dedicated SEO lead.",
+          "href": "/seo-packages#package",
+          "ctaLabel": "Explore Enterprise Plan"
         }
       ],
       "columns": 3,
       "actions": [
         {
-          "label": "View More",
+          "label": "View Full Comparison Matrix",
           "href": "/seo-packages#package",
           "opensModal": false,
           "external": false,

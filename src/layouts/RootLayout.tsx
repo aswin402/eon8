@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import { CaptureModal } from '@/components/CaptureModal';
 import { FloatingWidgets } from '@/components/FloatingWidgets';
 import { NeonCursor } from '@/components/NeonCursor';
-import { ADMIN_DASHBOARD_PATH } from '@/lib/cms/blogStore';
+import { ADMIN_DASHBOARD_PATH } from '@/lib/cms/constants';
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

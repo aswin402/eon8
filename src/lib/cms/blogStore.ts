@@ -20,9 +20,8 @@ import type {
   ManagedBlogSummary,
 } from './types';
 
-export const ADMIN_DASHBOARD_PATH = (
-  import.meta.env.VITE_ADMIN_PATH || '/admin-dashboard'
-).replace(/\/+$/, '') || '/admin-dashboard';
+import { ADMIN_DASHBOARD_PATH } from './constants';
+export { ADMIN_DASHBOARD_PATH };
 
 const STATIC_IDS_SET = new Set<number>(blogPostsIndex.map((p) => p.id));
 

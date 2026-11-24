@@ -247,7 +247,7 @@ export function CaseStudyPage({ slug }: { slug: CaseStudySlug }) {
         <AlternatingSplitSection
           theme="brand"
           surface="light"
-          badge="Partnership Overview"
+          badge="BRAND – POORVIKA MOBILE PVT LTD"
           heading="Brand & Agency Collaboration"
           paragraphs={[
             'Poorvika partnered with S A EONSOFTTECH PVT LTD (EON8) — a digital marketing agency with a team of creative strategists and performance specialists — to establish a dominant online brand footprint and connect retail convenience with digital discovery.',
@@ -360,8 +360,14 @@ export function CaseStudyPage({ slug }: { slug: CaseStudySlug }) {
           badge="Multi-Channel Execution"
           heading="Interactive Storefront, Seasonal Social & Precision Google Ads"
           paragraphs={[
-            'EON8 built a dynamic, conversion-focused website for Cake Square and launched targeted Facebook Ad Campaigns designed to rapidly grow local brand popularity and follower engagement.',
-            'Seasonal festive campaigns across New Year, Diwali, and Christmas captured peak demand, while precision-bid Google Search Ads placed Cake Square at the top of search results for high-converting cake delivery keywords.',
+            'EON8 built a dynamic, conversion-focused eCommerce storefront for Cake Square engineered for instant custom-cake ordering, doorstep delivery scheduling, and mobile checkout speed across Chennai.',
+            'We paired high-engagement Facebook and Instagram campaigns around peak celebration windows (New Year, Valentine’s Day, Diwali, Christmas, and birthdays) with precision-bid Google Search Ads capturing ready-to-order local shoppers.',
+            'Dedicated landing pages, retargeting sequences for repeat family celebrations, and continuous local SEO cemented Cake Square at the #1 spot on Google for Chennai online cake delivery.',
+          ]}
+          bullets={[
+            'Custom conversion-focused eCommerce web development & local SEO foundation',
+            'High-intent Google Search & Shopping ads targeting Chennai cake-delivery keywords',
+            'Festive social campaigns & remarketing driving repeat celebration orders',
           ]}
           imageSrc="/wp-content/themes/eon8/assets/img/cake-square-execution.jpg"
           imageAlt="Cake Square Execution"
@@ -373,7 +379,12 @@ export function CaseStudyPage({ slug }: { slug: CaseStudySlug }) {
           badge="Verified Results"
           heading="1,60,000+ Fans & ₹30 Lakhs+ in Direct Online Revenue"
           paragraphs={[
-            'Through combined Facebook, Instagram, Twitter, and Google Search campaigns, Cake Square grew past 1,60,000 Facebook likes, dominated local search rankings, and converted online leads into over ₹30 lakhs in recurring business.',
+            'Through unified Facebook, Instagram, Twitter, SEO, and Google Search campaigns, Cake Square grew past 1,60,000 active Facebook fans, achieved #1 local Google rankings, and converted over 10,000 qualified leads into more than ₹30 lakhs in direct recurring business.',
+          ]}
+          bullets={[
+            '1,60,000+ engaged social community across Chennai',
+            '₹30 Lakhs+ in verified online lead-generated cake orders',
+            '#1 organic & paid visibility for high-converting celebration searches',
           ]}
           imageSrc="/wp-content/themes/eon8/assets/img/cake-square-result.jpg"
           imageAlt="Cake Square Results"
@@ -419,14 +430,14 @@ export function CaseStudyPage({ slug }: { slug: CaseStudySlug }) {
         ]}
       />
 
-      {/* 2. Overall Metrics */}
+      {/* 2. Project Highlights & Overall Metrics */}
       <StatsCounterStrip
         theme="nft"
-        badge="Overall Metrics"
-        heading="Quantifiable Web3 Launch Impact"
+        badge="Project Highlights"
+        heading="Project Highlights — Quantifiable Web3 Launch Impact"
         stats={[
-          { value: '150%', label: 'Increase in Daily Website Visits' },
-          { value: '2x+', label: 'Return on Ad Spend (ROAS)' },
+          { value: '300+', label: '300+ Press Releases Syndicated' },
+          { value: '30+', label: '30+ Influencer Campaigns on the Same Day' },
           { value: '90%', label: 'Mint Rate Achieved on Mint Day' },
           { value: '5M+', label: 'Impressions From NYC Truck Stunt' },
         ]}

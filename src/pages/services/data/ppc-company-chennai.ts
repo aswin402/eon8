@@ -7,8 +7,16 @@ export const ppcCompanyChennaiData: ServicePageData = {
   "metaDesc": "If you are looking for a PPC Company in Chennai, Eon8 offers the best PPC services to double your sales and leads with paid advertising services.",
   "hero": {
     "heading": "PPC Services Agency in Chennai",
-    "paragraphs": [],
-    "bullets": [],
+    "paragraphs": [
+      [
+        "Boost your sales and double your ROI with PPC advertising and management services tailored for high-intent search, display, shopping, and remarketing campaigns."
+      ]
+    ],
+    "bullets": [
+      "Google & Bing Certified PPC Specialists",
+      "Conversion-Tracked Landing Pages & Smart Bidding",
+      "Transparent Weekly ROI & CPA Reporting"
+    ],
     "actions": [
       {
         "label": "Get Free Consulting",
@@ -19,7 +27,7 @@ export const ppcCompanyChennaiData: ServicePageData = {
       }
     ],
     "layout": "split-form",
-    "formHeading": "Request Free Quote",
+    "formHeading": "Looking for a PPC Agency To Boost Your Sales? Let's Connect",
     "formSubmitLabel": "Submit"
   },
   "sections": [
@@ -95,52 +103,40 @@ export const ppcCompanyChennaiData: ServicePageData = {
       ]
     },
     {
-      "type": "split",
-      "heading": "We Provided Best PPC Services & Paid Campaign Management",
-      "paragraphs": [
-        [
-          "Being the ",
-          {
-            "text": "best PPC agency in Chennai,",
-            "strong": true
-          },
-          "we offer the best value for the money you spend on paid marketing. We have various techniques and types of ads that will work for your business. We entirely use paid ads strategies to make your campaign perform well and be good with our ads optimization."
-        ],
-        [
-          "Our Google shopping ads are represented in an engaging carousel ad format. They are a great platform for customers to compare customer review, ratings, price points, and options. Our Gmail sponsored ads are personalized and curated to attract customers. By placing the ads in a user’s inbox, we attract new users to visit your website. Our engaging content will drive your salesfrom organic results and paid promotions such as these."
-        ],
-        [
-          "One of the most common types of ads is Search Ads. Our ",
-          {
-            "text": "PPC Agency in Chennai",
-            "strong": true
-          },
-          "offers sponsored websites and ads on both the top and bottom of the search engine results page."
-        ],
-        [
-          "These are ads you see within a website and on Google partner websites. We identify people who have recently visited sites similar to you and are potentially interested in your products."
-        ],
-        [
-          "Our remarketing and retargeting ads will greatly benefit people who have already viewed your product or are interested in your services. We target and place your ads in such a way that you acquire potential customers."
-        ],
-        [
-          "Our product listing ads allow users to view your product image and price points via search results. We guarantee that people who visit your website are ready to purchase your product."
-        ]
-      ],
-      "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Search-Advertising.jpg",
-      "imageAlt": "Search-Advertising",
-      "actions": [
+      "type": "feature-grid",
+      "heading": "We Provide the Best PPC Services & Paid Campaign Management",
+      "subheading": "Full-spectrum Google Ads, Microsoft Ads, and programmatic paid campaigns engineered for lower CPC and higher sales velocity.",
+      "cards": [
         {
-          "label": "Read More",
+          "title": "Search Advertising Services",
+          "description": "Capture high-intent buyers at the exact moment they search on Google and Bing with tightly themed keyword groups, compelling ad copy, and negative-keyword pruning.",
           "href": "/search-advertising-company",
-          "opensModal": false,
-          "external": false,
-          "variant": "primary"
+          "ctaLabel": "Explore Search Ads"
         },
         {
-          "label": "Read More",
+          "title": "Display Advertising Services",
+          "description": "Expand brand visibility across the Google Display Network and partner publications with responsive rich banners targeted by affinity, placement, and in-market signals.",
           "href": "/display-advertising-agency",
+          "ctaLabel": "Explore Display Ads"
+        },
+        {
+          "title": "Remarketing & Retargeting Ads",
+          "description": "Re-engage website visitors and cart abandoners with sequenced dynamic offers across Search, Display, YouTube, and Gmail Sponsored Ads to recover lost conversions.",
+          "href": "/best-remarketing-ad-agency",
+          "ctaLabel": "Explore Remarketing"
+        },
+        {
+          "title": "Shopping Ads Services",
+          "description": "Showcase product photos, ratings, and live prices directly inside Google Shopping carousels with Merchant Center feed optimization built for ready-to-buy shoppers.",
+          "href": "/product-listing-ads-agency",
+          "ctaLabel": "Explore Shopping Ads"
+        }
+      ],
+      "columns": 2,
+      "actions": [
+        {
+          "label": "View PPC Packages",
+          "href": "/ppc-packages#package",
           "opensModal": false,
           "external": false,
           "variant": "primary"

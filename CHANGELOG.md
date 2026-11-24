@@ -6,6 +6,24 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.6.0] - 2026-11-24
+
+### Performance
+- **Compressed Hero & Showreel Videos (`F04`)**:
+  - Re-encoded `public/wp-content/uploads/2026/06/banner_vid.mp4` (`16 MB` → `899 KB`, `-94%`, faststart H.264, muted) and `public/wp-content/uploads/2026/10/1-1.mp4` (`55 MB` → `10.6 MB`, `-81%`, faststart 720p H.264/AAC), saving ~59.5 MB in media payload, and added `preload="metadata"` on `HomePage.tsx`.
+- **Lazy-Loaded 145 KB Blog Index Out of Main Bundle (`C17`)**:
+  - Extracted `ADMIN_DASHBOARD_PATH` to `src/lib/cms/constants.ts` and moved `DynamicSlugRoute` into lazy-loaded `src/pages/blog/DynamicSlugRoute.tsx` so `App.tsx` no longer eagerly bundles `blogIndexData.ts` onto non-blog routes.
+
+### Fixed
+- **Restored Missing High-Gap Page Sections (`Content Gaps` / `Missing Sections`)**:
+  - Restored pricing tiers (`250/350/650 USD`, `18000/35000/65000 INR`, `10000/20000/30000 INR`), separated `Off-Page SEO` / `Technical SEO` / `W3C Compliance`, filled empty SEO service tabs, restored the 5-step Performance Marketing campaign roadmap, restored the 4 PPC ad-type cards + hero subtitle, expanded AR & VR marketing sections/roadmaps, and enriched the Poorvika, Cake Square, and Hidden Secret case studies across `best-seo-agency.ts`, `performance-marketing-agency.ts`, `ppc-company-chennai.ts`, `instagram-marketing-agency-services-instagram.ts`, `instagram-markting-agency.ts`, `seo-agency-in-bangalore.ts`, `augmented-reality-agency.ts`, `vr-product-marketing.ts`, and `PortfolioPages.tsx`.
+
+### Added
+- **Production Deployment Package, CI & Updated Documentation (`E01`, `E03`, `E05`, `E08`, `C25`)**:
+  - Added multi-stage Node 22 `Dockerfile`, persistent-volume `docker-compose.yml`, PM2 `ecosystem.config.cjs`, hardened Nginx reverse-proxy template (`deploy/nginx.conf`), GitHub Actions CI workflow (`.github/workflows/ci.yml`), and rewrote `README.md` to accurately document the React 19 + Node CMS/Leads architecture and deployment steps.
+
+---
+
 ## [3.5.0] - 2026-11-24
 
 ### Security

@@ -30,11 +30,26 @@ export const vrProductMarketingData: ServicePageData = {
       "heading": "Next-Level Product Promotions Using VR",
       "paragraphs": [
         [
-          "We leverage virtual reality to create immersive product experiences that boost engagement, improve understanding, and drive conversions."
+          "Virtual reality lets prospective buyers step inside your brand world — inspecting complex hardware, walking through architectural spaces, or testing high-ticket products from anywhere in the world."
+        ],
+        [
+          "EON8 designs interactive VR showrooms, 360-degree product launches, and WebVR experiences compatible with Meta Quest, Apple Vision, desktop browsers, and mobile devices so your campaigns reach both enterprise buyers and mass consumers."
         ]
       ],
-      "bullets": [],
-      "actions": []
+      "bullets": [
+        "Interactive 3D virtual showrooms & real-time product configurators",
+        "Trade-show & experiential launch booths that maximize qualified demos",
+        "Cross-device WebVR delivery requiring zero specialized hardware for web visitors"
+      ],
+      "actions": [
+        {
+          "label": "Book a VR Strategy Session",
+          "href": "#enquiry",
+          "opensModal": false,
+          "external": false,
+          "variant": "primary"
+        }
+      ]
     },
     {
       "type": "feature-grid",
@@ -66,15 +81,40 @@ export const vrProductMarketingData: ServicePageData = {
       "actions": []
     },
     {
-      "type": "split",
+      "type": "process",
       "heading": "Start Your VR Product Marketing with EON8",
-      "paragraphs": [
-        [
-          "Embarking on your VR product marketing journey with EON8 is simple and straightforward. Our team transforms your marketing strategy through innovative VR solutions."
-        ]
+      "subheading": "From 3D environment design to cross-channel promotion, our team manages every stage of your VR launch.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Discovery & Experience Blueprint",
+          "description": "Map product highlights, customer objections, target platforms (headset & WebVR), and conversion goals."
+        },
+        {
+          "step": "02",
+          "title": "3D Environment & Spatial Design",
+          "description": "Craft high-fidelity product assets, branded environments, spatial audio, and intuitive guided interactions."
+        },
+        {
+          "step": "03",
+          "title": "Interactive Build & Device Optimization",
+          "description": "Engineer smooth frame rates across Meta Quest, desktop WebXR, and mobile browsers with embedded lead-capture touchpoints."
+        },
+        {
+          "step": "04",
+          "title": "Launch Amplification & Analytics",
+          "description": "Promote your VR showcase via paid social, PR, and event activations while tracking session depth and lead conversions."
+        }
       ],
-      "bullets": [],
-      "actions": []
+      "actions": [
+        {
+          "label": "Request a Custom VR Proposal",
+          "href": "#enquiry",
+          "opensModal": false,
+          "external": false,
+          "variant": "primary"
+        }
+      ]
     },
     {
       "type": "faq",

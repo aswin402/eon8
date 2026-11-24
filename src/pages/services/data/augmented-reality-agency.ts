@@ -26,14 +26,24 @@ export const augmentedRealityAgencyData: ServicePageData = {
   },
   "sections": [
     {
-      "type": "split",
+      "type": "feature-grid",
       "heading": "Our Next-Gen AR Marketing Solutions",
-      "paragraphs": [
-        [
-          "We leverage advanced augmented reality to create powerful, interactive experiences that drive engagement, enhance brand visibility, and deliver real results."
-        ]
+      "subheading": "We leverage advanced augmented reality across mobile web, social platforms, and physical retail to create interactive brand experiences that drive measurable conversions.",
+      "cards": [
+        {
+          "title": "Social AR Filters & Lenses",
+          "description": "Custom branded AR effects on Instagram, Facebook, Snapchat, and TikTok designed to spark organic shares, UGC challenges, and high brand recall."
+        },
+        {
+          "title": "WebAR Browser Experiences",
+          "description": "Zero-app-download AR activations triggered directly via QR codes or campaign links — maximizing completion rates on both iOS and Android devices."
+        },
+        {
+          "title": "Interactive Print & Packaging AR",
+          "description": "Bring retail packaging, billboards, brochures, and event booths to life with scannable 3D animations, tutorials, and instant checkout CTAs."
+        }
       ],
-      "bullets": [],
+      "columns": 3,
       "actions": []
     },
     {
@@ -41,34 +51,73 @@ export const augmentedRealityAgencyData: ServicePageData = {
       "heading": "Our Augmented Reality Marketing for Your E-commerce Growth",
       "paragraphs": [
         [
-          "At EON8, we leverage Augmented Reality to transform online shopping into immersive experiences that boost engagement, improve confidence, and drive conversions."
+          "At EON8, we leverage Augmented Reality to transform online shopping into immersive try-before-you-buy experiences that boost engagement, increase buyer confidence, and dramatically reduce product returns."
+        ],
+        [
+          "From virtual try-on for eyewear, cosmetics, apparel, and jewelry to true-to-scale 3D room placement for furniture and appliances, our WebAR integrations plug directly into Shopify, WooCommerce, and custom storefronts."
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "True-to-scale 3D product visualization inside customers' homes",
+        "Virtual face, wrist, and apparel try-on directly in mobile browsers",
+        "Higher add-to-cart rates and lower return rates across high-AOV catalogs"
+      ],
       "imageSrc": "/wp-content/uploads/2025/02/Mask-Group-11-Copy.png",
-      "imageAlt": "Mask Group 11 Copy",
-      "actions": []
+      "imageAlt": "Augmented Reality E-Commerce Growth",
+      "actions": [
+        {
+          "label": "Request an AR Prototype",
+          "href": "#enquiry",
+          "opensModal": false,
+          "external": false,
+          "variant": "primary"
+        }
+      ]
     },
     {
       "type": "split",
       "heading": "Location-Based AR Immersive Solutions",
       "paragraphs": [
         [
-          "Our AR solutions leverage geolocation to create interactive, real-world experiences that enhance engagement, boost visibility, and transform how users interact with your brand."
+          "Our geolocation AR campaigns turn retail stores, malls, festivals, real-estate developments, and city landmarks into interactive brand playgrounds."
+        ],
+        [
+          "By combining GPS anchors, visual positioning, and gamified reward mechanics, we drive measurable foot traffic, longer dwell time, and social sharing around physical activations."
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Geo-fenced treasure hunts, pop-up activations, and retail store gamification",
+        "Real-estate walkthrough overlays and tourism heritage experiences",
+        "Live engagement analytics tracking scans, dwell duration, and coupon redemptions"
+      ],
       "actions": []
     },
     {
-      "type": "split",
+      "type": "process",
       "heading": "Our Proven AR Development Approach",
-      "paragraphs": [
-        [
-          "We deliver location-based AR solutions through a structured process designed to create immersive, engaging, and high-performance experiences in real-world environments."
-        ]
+      "subheading": "A structured end-to-end delivery process engineered for smooth 60fps mobile performance and measurable campaign ROI.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Concept & Use-Case Strategy",
+          "description": "Define campaign KPIs, audience devices, distribution channels (WebAR vs. Social AR), and interactive storyboards."
+        },
+        {
+          "step": "02",
+          "title": "3D Asset Modeling & Optimization",
+          "description": "Build photorealistic, lightweight GLB/USDZ 3D models and shaders tuned for instant mobile loading even on 4G connections."
+        },
+        {
+          "step": "03",
+          "title": "Interactive Engineering & QA",
+          "description": "Develop tracking logic, gesture controls, CTA hooks, and cross-device QA across iOS Safari, Android Chrome, and social apps."
+        },
+        {
+          "step": "04",
+          "title": "Launch, Distribution & Analytics",
+          "description": "Deploy across QR touchpoints, paid social ads, and product pages with event-level analytics tracking engagement and conversions."
+        }
       ],
-      "bullets": [],
       "actions": []
     },
     {

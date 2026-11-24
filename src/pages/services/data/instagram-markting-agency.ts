@@ -227,16 +227,29 @@ export const instagramMarktingAgencyData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "“ You Cannot Buy Blue Tick On Instagram You Need To Earn It And Eon8 Can Help You With That.”",
+      "heading": "Get Your Instagram Account Verified Right Away!",
+      "subheading": "“You Cannot Buy a Blue Tick On Instagram — You Need To Earn It, And Eon8 Can Help You With That.”",
       "paragraphs": [
         [
-          "Every brand loves to have a blue checkmark next to its name, and we at Eon8 can help you achieve that by growing your brand’s Instagram account through meaningful connections. We encourage your followers by deploying the right strategies that drive growth and results."
+          "Every brand loves to have a blue checkmark next to its name, and we at Eon8 can help you achieve that by growing your brand’s Instagram authority through editorial PR coverage, consistent brand identity, and meaningful audience connections."
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Brand notability & authoritative press coverage strategy",
+        "Account hygiene, bio optimization & verification readiness review",
+        "Sustained follower growth and engagement authenticity"
+      ],
       "imageSrc": "/wp-content/uploads/2022/10/verified.png",
-      "imageAlt": "“ You Cannot Buy Blue Tick On Instagram You Need To Earn It And Eon8 Can Help You With That.”",
-      "actions": []
+      "imageAlt": "Instagram Blue Tick Verification Support",
+      "actions": [
+        {
+          "label": "Talk With Verification Experts",
+          "href": "#enquiry",
+          "opensModal": false,
+          "external": false,
+          "variant": "primary"
+        }
+      ]
     },
     {
       "type": "process",
@@ -331,25 +344,31 @@ export const instagramMarktingAgencyData: ServicePageData = {
     {
       "type": "feature-grid",
       "heading": "Our Instagram Promotion Packages",
-      "subheading": "Instagram Promotion Packages",
+      "subheading": "Flexible monthly Instagram growth retainers for startups, scaling D2C brands, and enterprise eCommerce (exclusive of applicable taxes).",
       "cards": [
         {
-          "title": "Small Business",
-          "description": "Instagram Promotion Packages EXCLUSIVE OF ALL TAXES"
+          "title": "Small Business — 18000 INR / Monthly",
+          "description": "Profile optimization, 12 curated static & carousel creatives, targeted hashtag strategy, Reels support, community engagement, and monthly analytics report.",
+          "href": "/instagram-packages#package",
+          "ctaLabel": "Explore Small Business"
         },
         {
-          "title": "Mid Size Business",
-          "description": "Instagram Promotion Packages EXCLUSIVE OF ALL TAXES"
+          "title": "Mid Size Business — 35000 INR / Monthly",
+          "description": "20+ monthly posts & high-retention Reels, Story highlight systems, Meta Ads campaign management, influencer outreach coordination, and bi-weekly KPI reviews.",
+          "href": "/instagram-packages#package",
+          "ctaLabel": "Explore Mid-Size"
         },
         {
-          "title": "Large or Ecommerce",
-          "description": "Instagram Promotion Packages EXCLUSIVE OF ALL TAXES"
+          "title": "Large or Ecommerce — 65000 INR / Monthly",
+          "description": "Full-scale Reels & catalog studio, Instagram Shop + dynamic retargeting ads, multi-tier creator campaigns, daily community management, and dedicated growth strategist.",
+          "href": "/instagram-packages#package",
+          "ctaLabel": "Explore Enterprise"
         }
       ],
       "columns": 3,
       "actions": [
         {
-          "label": "View All",
+          "label": "View Full Package Comparison",
           "href": "/instagram-packages#package",
           "opensModal": false,
           "external": false,

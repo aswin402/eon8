@@ -354,6 +354,7 @@ export function HomePage() {
             loop
             muted
             playsInline
+            preload="metadata"
             className="w-full h-full object-cover"
           >
             <source src="/wp-content/uploads/2026/06/banner_vid.mp4" type="video/mp4" />

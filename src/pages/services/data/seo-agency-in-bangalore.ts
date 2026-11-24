@@ -297,23 +297,37 @@ export const seoAgencyInBangaloreData: ServicePageData = {
     {
       "type": "feature-grid",
       "heading": "Our SEO Services Packages",
-      "subheading": "SEO Services Packages",
+      "subheading": "Transparent monthly SEO retainers for Bangalore startups, growth-stage companies, and national eCommerce stores (exclusive of applicable taxes).",
       "cards": [
         {
-          "title": "Small Business",
-          "description": "SEO Services Packages EXCLUSIVE OF ALL TAXES"
+          "title": "Small Business — 10000 INR / Monthly",
+          "description": "Local keyword research, full on-page optimization, Google Business Profile setup & citation building, technical health checks, and monthly rank tracking.",
+          "href": "/seo-packages#package",
+          "ctaLabel": "View Small Business Plan"
         },
         {
-          "title": "Mid Size Business",
-          "description": "SEO Services Packages EXCLUSIVE OF ALL TAXES"
+          "title": "Mid Size Business — 20000 INR / Monthly",
+          "description": "Multi-city & commercial keyword targeting, SEO blog publishing, editorial backlink outreach, schema markup, Core Web Vitals optimization, and bi-weekly reporting.",
+          "href": "/seo-packages#package",
+          "ctaLabel": "View Mid-Size Plan"
         },
         {
-          "title": "Large or Ecommerce",
-          "description": "SEO Services Packages EXCLUSIVE OF ALL TAXES"
+          "title": "Large or Ecommerce — 30000 INR / Monthly",
+          "description": "Enterprise technical SEO, large-catalog product & category optimization, high-authority digital PR links, conversion funnel optimization, and dedicated SEO strategist.",
+          "href": "/seo-packages#package",
+          "ctaLabel": "View Enterprise Plan"
         }
       ],
       "columns": 3,
-      "actions": []
+      "actions": [
+        {
+          "label": "Compare All SEO Packages",
+          "href": "/seo-packages#package",
+          "opensModal": false,
+          "external": false,
+          "variant": "primary"
+        }
+      ]
     }
   ]
 };

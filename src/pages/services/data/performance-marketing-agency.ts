@@ -144,24 +144,50 @@ export const performanceMarketingAgencyData: ServicePageData = {
       "actions": []
     },
     {
+      "type": "process",
+      "heading": "How Our Performance Marketing Campaign Works",
+      "subheading": "A disciplined 5-stage acquisition loop engineered to turn paid spend into predictable pipeline and compounding ROAS.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Goals & Strategy",
+          "description": "Performance marketing leaders aligned with your CAC, ROAS, and revenue targets to architect a full-funnel channel blueprint."
+        },
+        {
+          "step": "02",
+          "title": "Audiences & Targeting",
+          "description": "A sharp focus on high-intent buyer segments, custom lookalikes, first-party lists, and remarketing cohorts for sustainable scale."
+        },
+        {
+          "step": "03",
+          "title": "Messaging & Creative",
+          "description": "Custom ad creatives, video hooks, and conversion-focused landing pages crafted to communicate core value and lift click-through rates."
+        },
+        {
+          "step": "04",
+          "title": "Measurement, Testing, & Learning",
+          "description": "Server-side conversion tracking, multi-variant A/B testing, and transparent attribution dashboards to identify winning levers fast."
+        },
+        {
+          "step": "05",
+          "title": "Acceleration & Optimization",
+          "description": "Continuous bid refinement, budget reallocation toward top-ROAS ad sets, and emerging channel expansion to compound growth."
+        }
+      ],
+      "actions": [
+        {
+          "label": "Request A Quote",
+          "href": "#enquiry",
+          "opensModal": false,
+          "external": false,
+          "variant": "primary"
+        }
+      ]
+    },
+    {
       "type": "split",
       "heading": "Ready to grow your business? Give us a call today for a consultation!",
       "paragraphs": [
-        [
-          "Performance marketing leaders with a commitment to achieve shared goals."
-        ],
-        [
-          "A strong emphasis on targeting the ideal and sustainable audience for your business."
-        ],
-        [
-          "Custom marketing Content to communicate your core values and generate growth opportunities"
-        ],
-        [
-          "Leverage data analytics to measure performance indicators and implement strategic updates."
-        ],
-        [
-          "Reinforce emerging innovations to accelerate and optimize the performance of your campaigns"
-        ],
         [
           "The best ",
           {
@@ -176,7 +202,7 @@ export const performanceMarketingAgencyData: ServicePageData = {
             "text": "Top performance marketing agency,",
             "strong": true
           },
-          "you can promote your online presence and get faster leads. Instead of a constant streamline of cold leads, you will meet prospects who are genuinely interested in your services. With consistent efforts and updated strategies, you will notice long-term results and optimized sales. For example, A well-known mobile reselling brand was introduced to Google AdWords by our team of seasoned writers and analysts. By using selective keywords and incorporating modern remarketing and retargeting strategies, we were able to organically improve their online presence and reach."
+          " you can promote your online presence and get faster leads. Instead of a constant stream of cold leads, you will meet prospects who are genuinely interested in your services. With consistent efforts and updated strategies, you will notice long-term results and optimized sales. For example, a well-known mobile retail brand partnered with our team on Google Ads — using selective buyer keywords and modern remarketing strategies, we rapidly expanded their online reach and revenue."
         ]
       ],
       "bullets": [],
