@@ -1,0 +1,25 @@
+# Local development database for the EON8 backend.
+# Start:  docker compose up -d db      Stop:  docker compose down
+# The credentials below are for local development only; production uses its own DATABASE_URL.
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: eon8-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: eon8
+      POSTGRES_USER: eon8
+      POSTGRES_PASSWORD: eon8_local_dev
+    ports:
+      # 5433 on this machine, so it does not clash with a PostgreSQL already on 5432.
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - eon8_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U eon8 -d eon8"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  eon8_pgdata:

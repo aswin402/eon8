@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main, 'feature/**']
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: eon8_ci
+          POSTGRES_USER: eon8
+          POSTGRES_PASSWORD: eon8_ci_only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U eon8 -d eon8_ci"
+          --health-interval 5s --health-timeout 3s --health-retries 20
+
+    env:
+      DATABASE_URL: postgres://eon8:eon8_ci_only@127.0.0.1:5432/eon8_ci
+      CMS_ADMIN_EMAIL: ci-admin@eon8.test
+      CMS_ADMIN_PASSWORD: CiOnly-Test-Pass-2026!
+      PORT: '4173'
+      SITE_URL: http://127.0.0.1:4173
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run lint
+      - run: npm run build
+      - name: Start server
+        run: |
+          node server/prodServer.ts > server.log 2>&1 &
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:4173/api/health && break; sleep 1; done
+      - name: Backend end-to-end tests
+        run: npm run test:e2e
+        env:
+          E2E_BASE_URL: http://127.0.0.1:4173
+          E2E_ADMIN_EMAIL: ${{ env.CMS_ADMIN_EMAIL }}
+          E2E_ADMIN_PASSWORD: ${{ env.CMS_ADMIN_PASSWORD }}
+      - name: Server log
+        if: always()
+        run: cat server.log

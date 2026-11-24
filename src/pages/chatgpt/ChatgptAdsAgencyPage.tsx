@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { PageSeo } from '@/components/sections';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
 import '@/styles/chatgpt-ads.css';
+import { LeadHoneypot } from '@/components/LeadHoneypot';
 
 interface ShowcaseExample {
   label: string;
@@ -822,6 +823,7 @@ export function ChatgptAdsAgencyPage() {
                 </h2>
                 <p>This prepares an inquiry to EON8 for you to review and send.</p>
                 <form onSubmit={(e) => void handleAuditSubmit(e)}>
+                  <LeadHoneypot />
                   <label>
                     Your email or WhatsApp number
                     <input

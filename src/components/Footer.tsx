@@ -1,39 +1,41 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { telHref, useSiteSettings } from '@/lib/siteSettings';
 
 export function Footer() {
+  const { contact, social } = useSiteSettings();
   const socialLinks = [
     {
       name: 'Whatsapp',
       icon: '/wp-content/uploads/2026/03/Whatsapp-1.png',
-      href: 'https://api.whatsapp.com/send?phone=919042294007',
+      href: contact.whatsapp ? `https://api.whatsapp.com/send?phone=${contact.whatsapp}` : '',
     },
     {
       name: 'Instagram',
       icon: '/wp-content/uploads/2026/03/Instagram-1.png',
-      href: 'https://www.instagram.com/eon8_official/',
+      href: social.instagram,
     },
     {
       name: 'Facebook',
       icon: '/wp-content/uploads/2026/03/Facebook-1.png',
-      href: 'https://www.facebook.com/people/Eon8-The-Digital-Infinity/61588594388907/',
+      href: social.facebook,
     },
     {
       name: 'LinkedIn',
       icon: '/wp-content/uploads/2026/03/Linkedin-1.png',
-      href: 'https://www.linkedin.com/company/eon-8/',
+      href: social.linkedin,
     },
     {
       name: 'Twitter',
       icon: '/wp-content/uploads/2026/03/twitter-1.png',
-      href: 'https://x.com/eon8digital',
+      href: social.x,
     },
     {
       name: 'YouTube',
       icon: '/wp-content/uploads/2026/03/youtube.png',
-      href: 'https://www.youtube.com/@Eon8TheDigitalInfinity/videos',
+      href: social.youtube,
     },
-  ];
+  ].filter((link) => link.href);
 
   const servicesLinks = [
     { name: 'Digital Marketing', href: '/search-engine-optimization-services-seo' },
@@ -68,24 +70,24 @@ export function Footer() {
       {/* Floating Contact Bar */}
       <div className="neo-contact-bar w-[calc(100%-32px)] max-w-[900px] lg:min-w-[700px] lg:w-max mx-auto -mt-[115px] mb-6 bg-[#f8fafc] text-[#111111] rounded-[12px] px-4 sm:px-[35px] py-[15px] shadow-[0_15px_35px_rgba(0,0,0,0.25)] flex flex-col lg:flex-row items-center justify-center gap-2.5 lg:gap-[50px]">
         <a
-          href="tel:+919042294007"
+          href={telHref(contact.phone)}
           className="flex items-center gap-[10px] text-[#111111] hover:text-[#FD5900] transition-colors text-[16px] sm:text-[18px] whitespace-nowrap no-underline"
         >
           <Phone className="w-4 h-4 text-[#111111] shrink-0" />
-          <span>+91 90422 94007</span>
+          <span>{contact.phone}</span>
         </a>
 
         <a
-          href="mailto:info@eon8.com"
+          href={`mailto:${contact.email}`}
           className="flex items-center gap-[10px] text-[#111111] hover:text-[#0053C6] transition-colors text-[16px] sm:text-[18px] whitespace-nowrap no-underline"
         >
           <Mail className="w-4 h-4 text-[#111111] shrink-0" />
-          <span>info@eon8.com</span>
+          <span>{contact.email}</span>
         </a>
 
         <div className="flex items-center gap-[10px] text-[#111111] text-[15px] sm:text-[18px] text-center lg:text-left sm:whitespace-nowrap">
           <MapPin className="w-4 h-4 text-[#111111] shrink-0" />
-          <span>Mumbai, Hyderabad, Bangalore, Chennai</span>
+          <span>{contact.address}</span>
         </div>
       </div>
 

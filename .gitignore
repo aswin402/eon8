@@ -131,3 +131,12 @@ about-us-raw.html
 
 # CMS runtime auth secrets (auto-seeded from .env)
 data/cms-auth.json
+
+# Generated at build time (scripts/generate-route-manifest.ts)
+public/route-manifest.json
+
+# Local database/upload backups (deploy/backup.sh)
+backups/
+logs/
+# Images uploaded from the admin (runtime data, backed up by deploy/backup.sh)
+public/uploads/

@@ -3,8 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PhoneCall, MessageCircle, X, Send, CheckCircle2, ArrowUp, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
+import { telHref, useSiteSettings } from '@/lib/siteSettings';
+import { LeadHoneypot } from '@/components/LeadHoneypot';
 
 export function FloatingWidgets() {
+  const { contact } = useSiteSettings();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [name, setName] = useState('');
@@ -51,7 +54,7 @@ export function FloatingWidgets() {
         <motion.a
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          href="https://wa.me/919042294007"
+          href={`https://wa.me/${contact.whatsapp}`}
           target="_blank"
           rel="noreferrer"
           className="w-11 h-11 bg-[#28d347] hover:bg-[#f16f00] rounded-full flex items-center justify-center text-white shadow-lg transition-colors"
@@ -64,7 +67,7 @@ export function FloatingWidgets() {
         <motion.a
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          href="tel:+919042294007"
+          href={telHref(contact.phone)}
           className="w-11 h-11 bg-[#28d347] hover:bg-[#f16f00] rounded-full flex items-center justify-center text-white shadow-lg transition-colors"
           title="Call Us"
           aria-label="Call Us"
@@ -142,6 +145,7 @@ export function FloatingWidgets() {
 
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="flex-1 flex flex-col justify-between">
+                  <LeadHoneypot />
                   <div className="space-y-4">
                     <div className="space-y-1">
                       <label className="text-xs font-bold text-foreground/80 uppercase">Name</label>

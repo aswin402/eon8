@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { CheckCircle2, Mail, MessageCircle, PhoneCall, Send, ShieldCheck } from 'lucide-react';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
 import { VERTICAL_THEMES, type VerticalTheme } from './types';
+import { LeadHoneypot } from '@/components/LeadHoneypot';
 
 interface LeadCaptureCardProps {
   heading?: string;
@@ -119,6 +120,7 @@ export function LeadCaptureCard({
       </div>
 
       <form onSubmit={handleSubmit} noValidate className="space-y-3.5">
+        <LeadHoneypot />
         <div>
           <label className="sr-only" htmlFor={`${id || 'lead'}-name`}>
             Full Name
@@ -351,6 +353,7 @@ export function QuickCallbackBanner({
             onSubmit={onSubmit}
             className="w-full max-w-md flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5"
           >
+            <LeadHoneypot />
             <input
               type="tel"
               placeholder="Enter Mobile / WhatsApp Number"

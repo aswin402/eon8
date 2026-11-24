@@ -15,6 +15,7 @@ import {
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
 import { LeadCaptureCard } from './LeadCaptureCard';
 import { SmartActionButton } from './SmartActionButton';
+import { LeadHoneypot } from '@/components/LeadHoneypot';
 import {
   VERTICAL_THEMES,
   type ActionItem,
@@ -401,6 +402,7 @@ export function DiscoveryCallSection({
               </div>
             ) : (
               <form onSubmit={handleBook} className="space-y-5">
+                <LeadHoneypot />
                 <div>
                   <span className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
                     Select Preferred Day

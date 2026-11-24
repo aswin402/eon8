@@ -4,6 +4,7 @@ import { X, Send, CheckCircle2, RefreshCw, MessageCircle, Mail } from 'lucide-re
 import { useAppStore } from '@/store/useAppStore';
 import { Button } from '@/components/ui/button';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
+import { LeadHoneypot } from '@/components/LeadHoneypot';
 
 export function CaptureModal() {
   const { isContactModalOpen, setContactModalOpen } = useAppStore();
@@ -137,6 +138,7 @@ export function CaptureModal() {
             {!submitted ? (
               // Form Layout
               <form onSubmit={handleSubmit} className="space-y-5">
+                <LeadHoneypot />
                 <div className="text-center space-y-1 mb-2">
                   <h3 className="text-2xl font-heading font-extrabold tracking-tight">Quick Consultation</h3>
                   <p className="text-xs text-muted-foreground">Get a bespoke digital marketing proposal today</p>
