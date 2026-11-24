@@ -10,6 +10,11 @@ export interface BlogPostSummary {
   author: string;
   thumbnail: string;
   excerpt: string;
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    ogImage?: string;
+  };
 }
 
 export const BLOG_CATEGORIES_LIST: string[] = [
@@ -51,7 +56,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "6 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/10/ERP-software-development_EON-1024x538.jpg",
-    "excerpt": "As businesses grow, managing daily operations across separate systems can become increasingly difficult. Sales teams maintain customer records, finance teams…"
+    "excerpt": "As businesses grow, managing daily operations across separate systems can become increasingly difficult. Sales teams maintain customer records, finance teams…",
+    "seo": {
+      "metaTitle": "ERP Software Development: Building Smarter and More Connected Business Operations - Eon8",
+      "metaDescription": "As businesses grow, managing daily operations across separate systems can become increasingly difficult. Sales teams maintain customer records, finance teams"
+    }
   },
   {
     "id": 54172,
@@ -81,7 +90,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "7 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/10/Personalized-AI-Agent_EON-1024x538.jpg",
-    "excerpt": "Businesses interact with different customers, employees, and partners every day. Each person has different needs, preferences, and expectations. Providing relevant…"
+    "excerpt": "Businesses interact with different customers, employees, and partners every day. Each person has different needs, preferences, and expectations. Providing relevant…",
+    "seo": {
+      "metaTitle": "Personalized AI Agent Development: Creating Smarter Business Experiences - Eon8",
+      "metaDescription": "Businesses interact with different customers, employees, and partners every day. Each person has different needs, preferences, and expectations. Providing"
+    }
   },
   {
     "id": 53868,
@@ -97,7 +110,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/09/top-seo-agency-in-south-india_EON-1024x538.jpg",
-    "excerpt": "Type “best SEO agency” into any search engine, and you’ll find dozens of companies claiming the title. Nearly every agency’s…"
+    "excerpt": "Type “best SEO agency” into any search engine, and you’ll find dozens of companies claiming the title. Nearly every agency’s…",
+    "seo": {
+      "metaTitle": "Top SEO Agency in South India | EON8",
+      "metaDescription": "What makes a top SEO agency in South India stand out? EON8 breaks down the real criteria businesses should use before making their choice."
+    }
   },
   {
     "id": 53865,
@@ -112,7 +129,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/09/seo-agency-in-south-india_SEO-1024x538.jpg",
-    "excerpt": "Most business owners start their SEO journey with a simple goal — rank higher on Google. But somewhere along the…"
+    "excerpt": "Most business owners start their SEO journey with a simple goal — rank higher on Google. But somewhere along the…",
+    "seo": {
+      "metaTitle": "SEO Agency in South India | EON8",
+      "metaDescription": "Choosing an SEO agency in South India? EON8 explains what really drives sustainable rankings, traffic, and business growth — not just quick fixes."
+    }
   },
   {
     "id": 53860,
@@ -127,7 +148,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "6 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/09/digital-marketing-ageny-in-south-india_EON-1-1024x538.jpg",
-    "excerpt": "Businesses across South India — from Chennai’s tech corridors to Bangalore’s startup ecosystem, Coimbatore’s manufacturing hubs, and Kochi’s growing service…"
+    "excerpt": "Businesses across South India — from Chennai’s tech corridors to Bangalore’s startup ecosystem, Coimbatore’s manufacturing hubs, and Kochi’s growing service…",
+    "seo": {
+      "metaTitle": "Digital Marketing Agency in South India | EON8",
+      "metaDescription": "Searching for a reliable digital marketing agency in South India? EON8 shares what separates results-driven agencies from the rest."
+    }
   },
   {
     "id": 53812,
@@ -142,7 +167,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/05.jpg",
-    "excerpt": "Business operations have become more complex than ever. Organizations rely on multiple applications, cloud environments, internal systems, customer platforms, and…"
+    "excerpt": "Business operations have become more complex than ever. Organizations rely on multiple applications, cloud environments, internal systems, customer platforms, and…",
+    "seo": {
+      "metaTitle": "Operations Monitoring Agent: The AI System Keeping Modern Businesses Running 24/7 - Eon8",
+      "metaDescription": "Business operations have become more complex than ever. Organizations rely on multiple applications, cloud environments, internal systems, customer platforms,"
+    }
   },
   {
     "id": 53809,
@@ -157,7 +186,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/04.jpg",
-    "excerpt": "Finance has evolved from simply tracking numbers to becoming one of the most strategic functions within modern organizations. Businesses today…"
+    "excerpt": "Finance has evolved from simply tracking numbers to becoming one of the most strategic functions within modern organizations. Businesses today…",
+    "seo": {
+      "metaTitle": "Financial Assistant Agents in 2026: How AI Is Transforming Business Finance with Smarter Decision-Making - Eon8",
+      "metaDescription": "Finance has evolved from simply tracking numbers to becoming one of the most strategic functions within modern organizations. Businesses today process"
+    }
   },
   {
     "id": 53806,
@@ -172,7 +205,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "6 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/03-3.jpg",
-    "excerpt": "Health and wellness have entered a new era. Instead of reacting to illness, individuals and organizations are investing in preventive…"
+    "excerpt": "Health and wellness have entered a new era. Instead of reacting to illness, individuals and organizations are investing in preventive…",
+    "seo": {
+      "metaTitle": "Health and Wellness Coach AI Agent: The Future of Personalized Preventive Healthcare in 2026 - Eon8",
+      "metaDescription": "Health and wellness have entered a new era. Instead of reacting to illness, individuals and organizations are investing in preventive care, personalized"
+    }
   },
   {
     "id": 53803,
@@ -187,7 +224,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/02.jpg",
-    "excerpt": "Customer expectations have changed dramatically over the past few years. People no longer expect businesses to respond within days or…"
+    "excerpt": "Customer expectations have changed dramatically over the past few years. People no longer expect businesses to respond within days or…",
+    "seo": {
+      "metaTitle": "Customer Support AI Agents in 2026: Building Always-On Customer Experiences That Scale - Eon8",
+      "metaDescription": "Customer expectations have changed dramatically over the past few years. People no longer expect businesses to respond within days or even hours—they expect"
+    }
   },
   {
     "id": 53800,
@@ -202,7 +243,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/01.jpg",
-    "excerpt": "Content production has evolved beyond simply writing blog posts or publishing social media updates. Modern businesses manage hundreds—or even thousands—of…"
+    "excerpt": "Content production has evolved beyond simply writing blog posts or publishing social media updates. Modern businesses manage hundreds—or even thousands—of…",
+    "seo": {
+      "metaTitle": "Content Operations Agents for AI Workflow Automation | EON8",
+      "metaDescription": "Content production has evolved beyond simply writing blog posts or publishing social media updates. Modern businesses manage hundreds—or even thousands—of"
+    }
   },
   {
     "id": 53797,
@@ -217,7 +262,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/4-2.jpg",
-    "excerpt": "Business growth rarely slows because of a lack of ideas. More often, it slows because internal operations cannot keep pace…"
+    "excerpt": "Business growth rarely slows because of a lack of ideas. More often, it slows because internal operations cannot keep pace…",
+    "seo": {
+      "metaTitle": "Business Operations Agents for Smarter Business Growth | EON8",
+      "metaDescription": "Business growth rarely slows because of a lack of ideas. More often, it slows because internal operations cannot keep pace with increasing workloads. As"
+    }
   },
   {
     "id": 53794,
@@ -232,7 +281,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/5-2.jpg",
-    "excerpt": "Sales organizations are evolving rapidly as customer expectations continue to rise. Modern buyers expect immediate responses, personalized communication, and seamless…"
+    "excerpt": "Sales organizations are evolving rapidly as customer expectations continue to rise. Modern buyers expect immediate responses, personalized communication, and seamless…",
+    "seo": {
+      "metaTitle": "Sales & Lead Generation Agents for Business Growth | EON8",
+      "metaDescription": "Sales organizations are evolving rapidly as customer expectations continue to rise. Modern buyers expect immediate responses, personalized communication, and"
+    }
   },
   {
     "id": 53791,
@@ -247,7 +300,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/3-2.jpg",
-    "excerpt": "Artificial intelligence is moving beyond automation. Businesses are no longer looking for AI tools that simply answer questions or perform…"
+    "excerpt": "Artificial intelligence is moving beyond automation. Businesses are no longer looking for AI tools that simply answer questions or perform…",
+    "seo": {
+      "metaTitle": "Personalized AI Agents for Smarter User Experiences | EON8",
+      "metaDescription": "Artificial intelligence is moving beyond automation. Businesses are no longer looking for AI tools that simply answer questions or perform repetitive tasks."
+    }
   },
   {
     "id": 53788,
@@ -262,7 +319,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "6 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/08/2-2.jpg",
-    "excerpt": "Customer relationships have evolved far beyond maintaining contact databases or recording sales activities. Today’s organizations expect CRM platforms to become…"
+    "excerpt": "Customer relationships have evolved far beyond maintaining contact databases or recording sales activities. Today’s organizations expect CRM platforms to become…",
+    "seo": {
+      "metaTitle": "CRM Software Development Trends for Business Growth | EON8",
+      "metaDescription": "Customer relationships have evolved far beyond maintaining contact databases or recording sales activities. Today's organizations expect CRM platforms to"
+    }
   },
   {
     "id": 53784,
@@ -292,7 +353,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/online-reputation-management-services.png",
-    "excerpt": "In today’s connected world, a brand’s reputation can influence customer decisions long before a direct interaction occurs. Potential customers often…"
+    "excerpt": "In today’s connected world, a brand’s reputation can influence customer decisions long before a direct interaction occurs. Potential customers often…",
+    "seo": {
+      "metaTitle": "Online Reputation Management Services for Brands | EON8",
+      "metaDescription": "In today's connected world, a brand's reputation can influence customer decisions long before a direct interaction occurs. Potential customers often research"
+    }
   },
   {
     "id": 53742,
@@ -307,7 +372,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/marketing-automation-tools.png",
-    "excerpt": "As digital marketing becomes more sophisticated, businesses are expected to engage customers across multiple channels while delivering personalized experiences at…"
+    "excerpt": "As digital marketing becomes more sophisticated, businesses are expected to engage customers across multiple channels while delivering personalized experiences at…",
+    "seo": {
+      "metaTitle": "Marketing Automation Tools for Business Growth | EON8",
+      "metaDescription": "As digital marketing becomes more sophisticated, businesses are expected to engage customers across multiple channels while delivering personalized"
+    }
   },
   {
     "id": 53736,
@@ -322,7 +391,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/YouTube-marketing-agency.png",
-    "excerpt": "Building brand awareness is one of the most important objectives for businesses seeking long-term growth. Before customers make purchasing decisions,…"
+    "excerpt": "Building brand awareness is one of the most important objectives for businesses seeking long-term growth. Before customers make purchasing decisions,…",
+    "seo": {
+      "metaTitle": "YouTube Marketing Agency for Brand Growth | EON8",
+      "metaDescription": "Building brand awareness is one of the most important objectives for businesses seeking long-term growth. Before customers make purchasing decisions, they"
+    }
   },
   {
     "id": 53733,
@@ -337,7 +410,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/Content-Marketing-Strategies-2.png",
-    "excerpt": "For B2B companies, generating quality leads often requires a different approach than consumer-focused marketing. Decision-makers, business owners, executives, and industry…"
+    "excerpt": "For B2B companies, generating quality leads often requires a different approach than consumer-focused marketing. Decision-makers, business owners, executives, and industry…",
+    "seo": {
+      "metaTitle": "LinkedIn Marketing Agency for B2B Business Growth | EON8",
+      "metaDescription": "For B2B companies, generating quality leads often requires a different approach than consumer-focused marketing. Decision-makers, business owners, executives,"
+    }
   },
   {
     "id": 53730,
@@ -352,7 +429,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/performance-marketing-agency.png",
-    "excerpt": "Marketing has evolved significantly over the past decade. Businesses today have more channels, tools, and technologies available than ever before.…"
+    "excerpt": "Marketing has evolved significantly over the past decade. Businesses today have more channels, tools, and technologies available than ever before.…",
+    "seo": {
+      "metaTitle": "Performance Marketing Agency Guide for Better ROI | EON8",
+      "metaDescription": "Marketing has evolved significantly over the past decade. Businesses today have more channels, tools, and technologies available than ever before. While"
+    }
   },
   {
     "id": 53727,
@@ -367,7 +448,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/website-design-company.png",
-    "excerpt": "Your website is often the first interaction potential customers have with your business. While attracting visitors through SEO, social media,…"
+    "excerpt": "Your website is often the first interaction potential customers have with your business. While attracting visitors through SEO, social media,…",
+    "seo": {
+      "metaTitle": "Website Design Mistakes That Reduce Conversions | EON8",
+      "metaDescription": "Your website is often the first interaction potential customers have with your business. While attracting visitors through SEO, social media, or paid"
+    }
   },
   {
     "id": 53724,
@@ -382,7 +467,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/Google-Business-Profile-optimization-1.png",
-    "excerpt": "For local businesses, visibility is everything. Even the best products and services can go unnoticed if potential customers cannot find…"
+    "excerpt": "For local businesses, visibility is everything. Even the best products and services can go unnoticed if potential customers cannot find…",
+    "seo": {
+      "metaTitle": "Google Business Profile Optimization Services | EON8",
+      "metaDescription": "For local businesses, visibility is everything. Even the best products and services can go unnoticed if potential customers cannot find the business when"
+    }
   },
   {
     "id": 53640,
@@ -397,7 +486,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/Google-Business-Profile-optimization.png",
-    "excerpt": "Email remains one of the most effective digital marketing channels for building relationships, nurturing leads, and driving sales. While attracting…"
+    "excerpt": "Email remains one of the most effective digital marketing channels for building relationships, nurturing leads, and driving sales. While attracting…",
+    "seo": {
+      "metaTitle": "Email Marketing Services That Increase Customer Sales | EON8",
+      "metaDescription": "Email remains one of the most effective digital marketing channels for building relationships, nurturing leads, and driving sales. While attracting"
+    }
   },
   {
     "id": 53632,
@@ -412,7 +505,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/How-Social-Media-Marketing.png",
-    "excerpt": "In today’s digital-first world, consumers expect more than just products and services. They want to connect with brands, understand their…"
+    "excerpt": "In today’s digital-first world, consumers expect more than just products and services. They want to connect with brands, understand their…",
+    "seo": {
+      "metaTitle": "Social Media Marketing Services to Grow Your Business | EON8",
+      "metaDescription": "In today's digital-first world, consumers expect more than just products and services. They want to connect with brands, understand their values, and engage"
+    }
   },
   {
     "id": 53637,
@@ -427,7 +524,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/Content-Marketing-Strategies.png",
-    "excerpt": "In an increasingly competitive digital landscape, businesses need more than advertisements to attract customers. Today’s buyers conduct extensive research before…"
+    "excerpt": "In an increasingly competitive digital landscape, businesses need more than advertisements to attract customers. Today’s buyers conduct extensive research before…",
+    "seo": {
+      "metaTitle": "Content Marketing Services for Traffic & Lead Growth | EON8",
+      "metaDescription": "In an increasingly competitive digital landscape, businesses need more than advertisements to attract customers. Today's buyers conduct extensive research"
+    }
   },
   {
     "id": 53624,
@@ -442,7 +543,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/ChatGPT-Image-Jun-12-2026-01_23_52-PM.png",
-    "excerpt": "Generating leads is easy. Generating high-quality leads that convert into paying customers is where the real challenge begins. As digital…"
+    "excerpt": "Generating leads is easy. Generating high-quality leads that convert into paying customers is where the real challenge begins. As digital…",
+    "seo": {
+      "metaTitle": "Google Ads Agency for High-Quality Lead Generation | EON8",
+      "metaDescription": "Generating leads is easy. Generating high-quality leads that convert into paying customers is where the real challenge begins. As digital advertising becomes"
+    }
   },
   {
     "id": 49468,
@@ -472,7 +577,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-04-at-1.17.08-PM.jpeg",
-    "excerpt": "Introduction Artificial Intelligence (AI) has rapidly transformed the digital landscape, offering unmatched automation, scalability, and performance. However, with great power…"
+    "excerpt": "Introduction Artificial Intelligence (AI) has rapidly transformed the digital landscape, offering unmatched automation, scalability, and performance. However, with great power…",
+    "seo": {
+      "metaTitle": "Data Loss by AI: What to Learn & How to Prevent It",
+      "metaDescription": "Protect your digital assets from unexpected AI data loss. Explore key lessons, strategies, and preventive tips to secure systems from AI-related risks."
+    }
   },
   {
     "id": 49461,
@@ -487,7 +596,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/08/Product-marketing-agency-using-AI-.png",
-    "excerpt": "In today’s fast-paced digital world, product marketing isn’t just about creating awareness it’s about building smart, data-driven strategies that convert.…"
+    "excerpt": "In today’s fast-paced digital world, product marketing isn’t just about creating awareness it’s about building smart, data-driven strategies that convert.…",
+    "seo": {
+      "metaTitle": "AI Marketing Agency for Product Videos & Promotion",
+      "metaDescription": "Looking for an AI-driven product marketing agency? Eon8 offers AI video creation and marketing services to boost conversions and grow your brand."
+    }
   },
   {
     "id": 49457,
@@ -502,7 +615,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Bad-UX-Lost-Clicks-Landing-Page-Psychology.jpg",
-    "excerpt": "You’ve written great ad copy, chosen the right keywords, and set a competitive bid. But users are clicking your ad…"
+    "excerpt": "You’ve written great ad copy, chosen the right keywords, and set a competitive bid. But users are clicking your ad…",
+    "seo": {
+      "metaTitle": "Landing Page Psychology: How Bad UX Wastes Your PPC Budget",
+      "metaDescription": "Explore the impact of landing page UX on PPC performance. Learn how the best google ads agency uses psychology to improve conversions and reduce ad spend."
+    }
   },
   {
     "id": 49359,
@@ -517,7 +634,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/06/AI-Powered-SEO-Predicting-Rankings-1.jpg",
-    "excerpt": "Search engine optimization (SEO) has always been a dynamic and evolving field. In recent years, the biggest game-changer has been…"
+    "excerpt": "Search engine optimization (SEO) has always been a dynamic and evolving field. In recent years, the biggest game-changer has been…",
+    "seo": {
+      "metaTitle": "AI in SEO: How Machine Learning is Transforming SEO Strategies",
+      "metaDescription": "Discover how artificial intelligence in SEO and machine learning in SEO are revolutionizing search engine optimization. Learn how an expert SEO marketing agency can use AI to predict rankings and boost your visibility."
+    }
   },
   {
     "id": 49362,
@@ -532,7 +653,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/06/SEO-in-2025-Ranking-in-the-ChatGPT-Era.jpg",
-    "excerpt": "Search engine optimization (SEO) is no longer just about keywords and backlinks—2025 is witnessing a transformational shift where artificial intelligence,…"
+    "excerpt": "Search engine optimization (SEO) is no longer just about keywords and backlinks—2025 is witnessing a transformational shift where artificial intelligence,…",
+    "seo": {
+      "metaTitle": "SEO in 2025: Top AI-Driven Trends and Best SEO Practices in India",
+      "metaDescription": "Discover the future of SEO in 2025, including top SEO practices in India, the impact of ChatGPT and AI, and how to adapt to the latest SEO trends in 2025."
+    }
   },
   {
     "id": 49445,
@@ -547,7 +672,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/LinkedIn-Funnels-B2B-Leads-from-Content.jpg",
-    "excerpt": "For B2B companies, LinkedIn isn’t just a networking site—it’s a powerful sales machine. But simply posting on LinkedIn won’t drive…"
+    "excerpt": "For B2B companies, LinkedIn isn’t just a networking site—it’s a powerful sales machine. But simply posting on LinkedIn won’t drive…",
+    "seo": {
+      "metaTitle": "LinkedIn Content Funnels for B2B | Convert Posts into Leads",
+      "metaDescription": "Discover how to turn your LinkedIn posts into high-converting lead funnels with the help of expert social media marketing services and a trusted linkedin advertising agency like Eon8."
+    }
   },
   {
     "id": 49442,
@@ -562,7 +691,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Startup-Growth-with-Reddit-No-Ads.jpg",
-    "excerpt": "When most startups think about digital growth, they often overlook Reddit. But with over 430 million active users and hyper-focused…"
+    "excerpt": "When most startups think about digital growth, they often overlook Reddit. But with over 430 million active users and hyper-focused…",
+    "seo": {
+      "metaTitle": "Reddit Marketing for Startups | Growth Without Paid Ads",
+      "metaDescription": "Discover how startups can grow on Reddit without ads. Learn smart strategies from a leading reddit marketing agency like Eon8."
+    }
   },
   {
     "id": 49439,
@@ -577,7 +710,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Google-Ads-for-Web3-Rules-Risks.jpg",
-    "excerpt": "The world of Web3 — including blockchain, NFTs, crypto, and decentralized platforms — is evolving fast. So is the ad…"
+    "excerpt": "The world of Web3 — including blockchain, NFTs, crypto, and decentralized platforms — is evolving fast. So is the ad…",
+    "seo": {
+      "metaTitle": "Web3 Advertising Rules: What Google Allows and Flags in 2025",
+      "metaDescription": "Navigating Google Ads for Web3 brands in 2025 can be tricky. Learn what gets flagged and how a top ppc marketing company ensures compliant, high-ROI campaigns."
+    }
   },
   {
     "id": 49436,
@@ -592,7 +729,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/7-Google-Ads-Metrics-That-Matter-Most.jpg",
-    "excerpt": "Introduction: Why Metrics Matter in Google Ads Google Ads is one of the most powerful tools for online advertising, but…"
+    "excerpt": "Introduction: Why Metrics Matter in Google Ads Google Ads is one of the most powerful tools for online advertising, but…",
+    "seo": {
+      "metaTitle": "Top 7 Google Ads Metrics That Actually Matter - Eon8",
+      "metaDescription": "Google Ads is one of the most powerful tools for online advertising, but it can also be a money drain if you’re not tracking the right metrics. With"
+    }
   },
   {
     "id": 49432,
@@ -607,7 +748,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Smart-Bidding-vs-Manual-2025-Showdown.jpg",
-    "excerpt": "In the world of Google Ads, one of the most debated questions remains: Should you use Smart Bidding or Manual…"
+    "excerpt": "In the world of Google Ads, one of the most debated questions remains: Should you use Smart Bidding or Manual…",
+    "seo": {
+      "metaTitle": "Smart vs Manual Bidding Guide by PPC Experts | EON8",
+      "metaDescription": "Confused between Smart Bidding and Manual Bidding in Google Ads? Discover what works best in 2025 and how a ppc advertising agency chooses the right strategy for better ROI."
+    }
   },
   {
     "id": 49429,
@@ -622,7 +767,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/cold-traffic.jpg",
-    "excerpt": "Running a Google Ads campaign without a structured funnel is like pouring water into a leaky bucket. You may get…"
+    "excerpt": "Running a Google Ads campaign without a structured funnel is like pouring water into a leaky bucket. You may get…",
+    "seo": {
+      "metaTitle": "Cold Traffic Funnels in Google Ads That Convert | Eon8",
+      "metaDescription": "Running a Google Ads campaign without a structured funnel is like pouring water into a leaky bucket. You may get clicks, but conversions remain elusive —"
+    }
   },
   {
     "id": 49426,
@@ -637,7 +786,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/voice-seo.jpg",
-    "excerpt": "The digital marketing landscape has experienced seismic shifts over the last decade, and voice search has been one of the…"
+    "excerpt": "The digital marketing landscape has experienced seismic shifts over the last decade, and voice search has been one of the…",
+    "seo": {
+      "metaTitle": "Voice Search Optimization in 2025 - Is It Still Worth It.",
+      "metaDescription": "Discover whether voice search optimization is still relevant in 2025. Learn how to optimize for voice search & evolving role of voice search in digital marketing."
+    }
   },
   {
     "id": 49422,
@@ -652,7 +805,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Topical-Authority-vs-Backlinks-What-Works.jpg",
-    "excerpt": "Introduction: The Changing SEO Landscape Search engine optimization has always been a mix of art and science. While backlinks once…"
+    "excerpt": "Introduction: The Changing SEO Landscape Search engine optimization has always been a mix of art and science. While backlinks once…",
+    "seo": {
+      "metaTitle": "Topical Authority vs Backlink Strategy: What Drives SEO in 2025?",
+      "metaDescription": "Explore the battle between topical authority and backlinks in modern SEO. Learn which strategy works best today and how the best digital marketing agency can help boost your rankings."
+    }
   },
   {
     "id": 49418,
@@ -667,7 +824,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Top-Technical-SEO-Errors-Agencies-Still-Make.jpg",
-    "excerpt": "Even in 2025, many digital agencies—including some claiming to be the best SEO marketing company—continue to make critical technical SEO…"
+    "excerpt": "Even in 2025, many digital agencies—including some claiming to be the best SEO marketing company—continue to make critical technical SEO…",
+    "seo": {
+      "metaTitle": "Top Technical SEO Mistakes to Avoid in 2026 | EON8",
+      "metaDescription": "Discover the top technical SEO mistakes even expert agencies still make. Learn how the top SEO marketing company avoids these pitfalls to boost rankings and traffic."
+    }
   },
   {
     "id": 49413,
@@ -682,7 +843,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/How-to-Build-a-Viral-Hook-in-the-First-3-Seconds-of-Any-Video.jpg",
-    "excerpt": "In today’s fast-paced digital world, you have less than 3 seconds to grab a viewer’s attention before they scroll past…"
+    "excerpt": "In today’s fast-paced digital world, you have less than 3 seconds to grab a viewer’s attention before they scroll past…",
+    "seo": {
+      "metaTitle": "How to Build a Viral Hook in the First 3 Seconds of Video",
+      "metaDescription": "Learn how to craft powerful video hooks that captivate in 3 seconds. Discover expert tips from a top video marketing agency to boost engagement & viral reach."
+    }
   },
   {
     "id": 49409,
@@ -697,7 +862,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Dark-Social-Explained-How-to-Track-the-Invisible-Shares.jpg",
-    "excerpt": "In the world of digital marketing, not all user engagement is visible. In fact, a massive portion of online interactions…"
+    "excerpt": "In the world of digital marketing, not all user engagement is visible. In fact, a massive portion of online interactions…",
+    "seo": {
+      "metaTitle": "Dark Social Explained: How to Track the Invisible Shares",
+      "metaDescription": "Discover what dark social marketing is and how to measure its impact. Learn how to track private shares and optimize campaigns for invisible engagement in 2025."
+    }
   },
   {
     "id": 49405,
@@ -712,7 +881,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/The-Rise-of-Micro-Communities-Why-You-Need-a-Niche-Social-Strategy.jpg",
-    "excerpt": "In the digital age, broad marketing messages are quickly losing their impact. Today’s consumers crave relevance, connection, and authenticity. That’s…"
+    "excerpt": "In the digital age, broad marketing messages are quickly losing their impact. Today’s consumers crave relevance, connection, and authenticity. That’s…",
+    "seo": {
+      "metaTitle": "Rise of Micro-Communities-Why You Need Niche Social Strategy",
+      "metaDescription": "Explore how micro-communities are transforming community marketing. Discover why a niche social strategy is essential for trust, engagement & conversions."
+    }
   },
   {
     "id": 49401,
@@ -727,7 +900,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/5.png",
-    "excerpt": "Meta (formerly Facebook) remains one of the most powerful platforms for digital advertising. In 2025, as competition grows and audience…"
+    "excerpt": "Meta (formerly Facebook) remains one of the most powerful platforms for digital advertising. In 2025, as competition grows and audience…",
+    "seo": {
+      "metaTitle": "Retargeting Like a Pro: Building Meta Custom Audiences 2025",
+      "metaDescription": "Master Meta ads marketing in 2025 with powerful custom audience strategies. Learn how to retarget like a pro and maximize ad conversions with precision."
+    }
   },
   {
     "id": 49398,
@@ -742,7 +919,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/4.-Boosted-Posts-vs-Ads-Manager-Dont-Waste-Your-Budget.png",
-    "excerpt": "In today’s competitive landscape, businesses looking to scale their digital presence often turn to social media advertising. Facebook and Instagram…"
+    "excerpt": "In today’s competitive landscape, businesses looking to scale their digital presence often turn to social media advertising. Facebook and Instagram…",
+    "seo": {
+      "metaTitle": "Boosted Posts vs Ads Manager: Don’t Waste Your Budget",
+      "metaDescription": "Discover the key differences between boosted posts and Ads Manager. Learn how to optimize your digital advertising budget for maximum ROI in 2025."
+    }
   },
   {
     "id": 49395,
@@ -757,7 +938,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/3.-Instagram-Reels-vs-Stories-Ads-Which-Gets-More-ROI-in-2025.png",
-    "excerpt": "In the fast-paced world of digital advertising, Instagram continues to evolve as a powerhouse for business marketing. With the rise…"
+    "excerpt": "In the fast-paced world of digital advertising, Instagram continues to evolve as a powerhouse for business marketing. With the rise…",
+    "seo": {
+      "metaTitle": "Instagram Reels vs Stories Ads - Which Gets More ROI ?",
+      "metaDescription": "Discover whether Instagram Reels or Stories Ads drive more ROI. Learn expert strategies for maximizing Instagram ads for business and boosting performance."
+    }
   },
   {
     "id": 49392,
@@ -772,7 +957,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/2.-Facebook-Ads-for-NFTs-Crypto-Avoid-Getting-Banned.png",
-    "excerpt": "Running Facebook ads for NFTs and crypto projects in 2025 remains a high-risk, high-reward marketing endeavor. While Meta (Facebook’s parent…"
+    "excerpt": "Running Facebook ads for NFTs and crypto projects in 2025 remains a high-risk, high-reward marketing endeavor. While Meta (Facebook’s parent…",
+    "seo": {
+      "metaTitle": "Facebook Ads for NFTs & Crypto: Avoid Getting Banned",
+      "metaDescription": "Discover how to run compliant & successful Facebook ads for NFTs and crypto without getting banned. Learn Meta's policies, creative strategies, and expert tips."
+    }
   },
   {
     "id": 49386,
@@ -787,7 +976,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/1.-Why-Metas-AI-Targeting-is-Failing-And-What-You-Can-Do-About-It.png",
-    "excerpt": "Meta’s AI-powered advertising once promised marketers a futuristic blend of automation and results in an ecosystem where brands could effortlessly…"
+    "excerpt": "Meta’s AI-powered advertising once promised marketers a futuristic blend of automation and results in an ecosystem where brands could effortlessly…",
+    "seo": {
+      "metaTitle": "Meta’s AI Targeting Is Failing-And What You Can Do About It",
+      "metaDescription": "Discover why Meta’s AI ad targeting is underdelivering and how brands can respond. Explore actionable fixes and expert advice from a top Meta ads agency."
+    }
   },
   {
     "id": 49377,
@@ -802,7 +995,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Gamified-Loyalty-in-Web3-Turning-Customers-into-Token-Holders.jpg",
-    "excerpt": "In the evolving landscape of digital engagement, Web3 loyalty programs are redefining how brands interact with their communities. At the…"
+    "excerpt": "In the evolving landscape of digital engagement, Web3 loyalty programs are redefining how brands interact with their communities. At the…",
+    "seo": {
+      "metaTitle": "Gamified Loyalty in Web3: Token Rewards for Engagement",
+      "metaDescription": "Explore how gamified loyalty programs in Web3 are transforming traditional customer rewards into engaging, token-based ecosystems. Learn strategies & benefits"
+    }
   },
   {
     "id": 49374,
@@ -817,7 +1014,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Bridging-Web2-Ads-with-Web3-Wallets-The-Future-of-Performance-Marketing.jpg",
-    "excerpt": "The digital advertising world is on the cusp of a significant transformation. As Web3 technologies gain traction, marketers are exploring…"
+    "excerpt": "The digital advertising world is on the cusp of a significant transformation. As Web3 technologies gain traction, marketers are exploring…",
+    "seo": {
+      "metaTitle": "Web2 Ads Meet Web3 Wallets: Future of Performance Marketing",
+      "metaDescription": "Discover how bridging Web2 ads with Web3 wallets is transforming performance marketing using token incentives, on-chain engagement, and user-owned identity."
+    }
   },
   {
     "id": 49371,
@@ -832,7 +1033,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Crypto-Airdrops-as-a-Marketing-Funnel-Still-Relevant-or-Played-Out.jpg",
-    "excerpt": "As the Web3 space matures in 2025, crypto airdrops remain one of the most discussed marketing strategies. Once hailed as…"
+    "excerpt": "As the Web3 space matures in 2025, crypto airdrops remain one of the most discussed marketing strategies. Once hailed as…",
+    "seo": {
+      "metaTitle": "Crypto Airdrops as a Marketing Funnel in 2026 | Eon8",
+      "metaDescription": "Explore how crypto airdrops are evolving in 2025 as a marketing funnel. Uncover strategies, best practices, and whether they still drive real growth."
+    }
   },
   {
     "id": 49368,
@@ -847,7 +1052,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/AI-Blockchain-Smart-Campaigns-A-New-Era-of-Predictive-Decentralized-Marketing.jpg",
-    "excerpt": "The marketing landscape in 2025 is witnessing a profound transformation, powered by two of the most disruptive technologies of our…"
+    "excerpt": "The marketing landscape in 2025 is witnessing a profound transformation, powered by two of the most disruptive technologies of our…",
+    "seo": {
+      "metaTitle": "Predictive Decentralized Marketing with AI & Blockchain",
+      "metaDescription": "Explore how AI and blockchain are merging to create predictive, secure marketing. Discover Web3 trends and AI-driven targeting strategies for 2025 success."
+    }
   },
   {
     "id": 49365,
@@ -862,7 +1071,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/How-Vibe-Marketing-is-Evolving-in-the-Metaverse.jpg",
-    "excerpt": "The metaverse is no longer a futuristic concept, it’s here and expanding. As more people engage with virtual spaces, brands…"
+    "excerpt": "The metaverse is no longer a futuristic concept, it’s here and expanding. As more people engage with virtual spaces, brands…",
+    "seo": {
+      "metaTitle": "Vibe Marketing in the Metaverse: Future of Brand Experience",
+      "metaDescription": "Discover how Vibe Marketing evolves in the metaverse with immersive experiences, virtual branding, and new audience engagement trends in digital worlds."
+    }
   },
   {
     "id": 49356,
@@ -877,7 +1090,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Why-Meme-Culture-Is-the-New-SEO-Decoding-Internet-Virality.jpg",
-    "excerpt": "Digital attention spans are shrinking, competition is exploding, and the one tool consistently breaking the algorithm barrier is memes. In…"
+    "excerpt": "Digital attention spans are shrinking, competition is exploding, and the one tool consistently breaking the algorithm barrier is memes. In…",
+    "seo": {
+      "metaTitle": "Meme Culture in SEO: Unlocking Viral Growth | Eon8",
+      "metaDescription": "Explore how meme culture is transforming digital marketing. Discover top viral marketing strategies India brands use and upcoming meme marketing trends in India 2025."
+    }
   },
   {
     "id": 49353,
@@ -892,7 +1109,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Micro-Moments-Matter-Web2-Tactics-to-Dominate-Attention-Spans.jpg",
-    "excerpt": "In today’s hyper-connected world, attention is the most expensive currency. With average user attention spans shrinking to under eight seconds,…"
+    "excerpt": "In today’s hyper-connected world, attention is the most expensive currency. With average user attention spans shrinking to under eight seconds,…",
+    "seo": {
+      "metaTitle": "Micro Moments in Web2: Attention Tactics Guide | Eon8",
+      "metaDescription": "Learn proven Web2 marketing strategies in India to dominate micro-moments, engage users faster, and outperform your competition using effective web 2 marketing tactics."
+    }
   },
   {
     "id": 49454,
@@ -907,7 +1128,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/71.png",
-    "excerpt": "The concept of customer loyalty is undergoing a radical transformation. With the rise of Web3 technologies, brands are no longer…"
+    "excerpt": "The concept of customer loyalty is undergoing a radical transformation. With the rise of Web3 technologies, brands are no longer…",
+    "seo": {
+      "metaTitle": "From Brands to DAOs - How Web3 is Reshaping Community Loyalty",
+      "metaDescription": "Explore how Web3 loyalty programs and blockchain communities are reshaping brand loyalty through decentralized, community-driven engagement."
+    }
   },
   {
     "id": 49450,
@@ -922,7 +1147,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/5.-Dark-Social-Is-Bright-Again-Leveraging-DMs-Communities-for-Web2-Growth.png",
-    "excerpt": "In a digital world overflowing with metrics, analytics, and public engagement dashboards, a silent revolution is underway dark social. While…"
+    "excerpt": "In a digital world overflowing with metrics, analytics, and public engagement dashboards, a silent revolution is underway dark social. While…",
+    "seo": {
+      "metaTitle": "Dark Social Is Bright Again-DMs & Communities Powering Web2",
+      "metaDescription": "Discover how dark social marketing and DM marketing strategies are reshaping Web2 growth. Learn to harness private messages and communities to scale your brand."
+    }
   },
   {
     "id": 49349,
@@ -967,7 +1196,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/TGE-marketing-Agency.jpg",
-    "excerpt": "Introduction In the fast-paced world of Web3, a successful token launch can define the future of your blockchain project. With…"
+    "excerpt": "Introduction In the fast-paced world of Web3, a successful token launch can define the future of your blockchain project. With…",
+    "seo": {
+      "metaTitle": "TGE Marketing Agency - Launch Your Token with Strategic Impact",
+      "metaDescription": "Work with a trusted TGE Marketing Agency to create buzz, build investor confidence, and ensure a successful token launch. Power your TGE with expert strategy."
+    }
   },
   {
     "id": 49308,
@@ -982,7 +1215,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/07/Crypto-Kol-agency.jpg",
-    "excerpt": "Introduction In the crowded and competitive world of blockchain, credibility and visibility are everything. Whether you’re launching a new crypto…"
+    "excerpt": "Introduction In the crowded and competitive world of blockchain, credibility and visibility are everything. Whether you’re launching a new crypto…",
+    "seo": {
+      "metaTitle": "Crypto KOL Agency - Build Hype & Trust in the Crypto Space",
+      "metaDescription": "Looking for a reliable Crypto KOL Agency? Reach your ideal audience through influencer-driven campaigns in the blockchain space. Build visibility & trust now."
+    }
   },
   {
     "id": 49302,
@@ -997,7 +1234,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/06/Web3-KOLs-Agency-1.jpg",
-    "excerpt": "Introduction: Welcome to the Era of Web3 Influence The digital world is rapidly shifting from centralized platforms to decentralized ecosystems.…"
+    "excerpt": "Introduction: Welcome to the Era of Web3 Influence The digital world is rapidly shifting from centralized platforms to decentralized ecosystems.…",
+    "seo": {
+      "metaTitle": "Web3 KOLs Agency - Boost Your Project with Influencer Marketing",
+      "metaDescription": "Partner with a top Web3 KOLs Agency to drive community trust, visibility, and growth. Discover how influencer marketing helps Web3 projects succeed faster."
+    }
   },
   {
     "id": 49269,
@@ -1012,7 +1253,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/Twitter-KOL-Marketing.png",
-    "excerpt": "In the fast-paced digital world, Twitter KOLs (Key Opinion Leaders) have become some of the most influential voices across industries.…"
+    "excerpt": "In the fast-paced digital world, Twitter KOLs (Key Opinion Leaders) have become some of the most influential voices across industries.…",
+    "seo": {
+      "metaTitle": "Twitter KOL Marketing for Trust and Brand Authority",
+      "metaDescription": "Boost trust, drive real engagement, and grow brand visibility with EON8's Twitter KOL marketing—ideal for crypto, tech, Web3, and B2B brand campaigns"
+    }
   },
   {
     "id": 49266,
@@ -1027,7 +1272,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/What-is-the-Yapper-Leaderboard.png",
-    "excerpt": "In the age of Web3, influence is no longer just about follower counts or viral posts—it’s about contributions, engagement, and…"
+    "excerpt": "In the age of Web3, influence is no longer just about follower counts or viral posts—it’s about contributions, engagement, and…",
+    "seo": {
+      "metaTitle": "Boost Web3 Growth with Yapper Leaderboard Strategy",
+      "metaDescription": "Learn how the Yapper Leaderboard ranks Web3 influencers by real impact, not vanity. EON8 helps brands grow visibility through data-driven engagement."
+    }
   },
   {
     "id": 49277,
@@ -1042,7 +1291,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/Twitter-Mindshare.png",
-    "excerpt": "In today’s digitally native economy, where attention is fragmented and competition is fierce, gaining market share isn’t enough. You need…"
+    "excerpt": "In today’s digitally native economy, where attention is fragmented and competition is fierce, gaining market share isn’t enough. You need…",
+    "seo": {
+      "metaTitle": "Build Twitter Mindshare for Web3 Success | EON8 Strategy",
+      "metaDescription": "Explore how Twitter mindshare drives Web3 growth. Learn EON8's proven strategies to boost influence, engagement, and visibility in the crypto and AI space"
+    }
   },
   {
     "id": 49251,
@@ -1057,7 +1310,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/01/Kaito-PreTGE-Arena.png",
-    "excerpt": "In the rapidly evolving landscape of artificial intelligence and decentralized technologies, platforms like Kaito are pushing the boundaries of what’s…"
+    "excerpt": "In the rapidly evolving landscape of artificial intelligence and decentralized technologies, platforms like Kaito are pushing the boundaries of what’s…",
+    "seo": {
+      "metaTitle": "Kaito PreTGE Arena: Powering AI & Web3 Innovation 2025",
+      "metaDescription": "Discover how Kaito’s PreTGE Arena ranks AI agents before token launch. Get real-world insights, transparency, and early validation for Web3 growth."
+    }
   },
   {
     "id": 49248,
@@ -1072,7 +1329,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/01/What-is-the-Kaito-AI.png",
-    "excerpt": "The Kaito AI Leaderboard has recently emerged as a powerful tool in the artificial intelligence ecosystem, showcasing the top-performing AI…"
+    "excerpt": "The Kaito AI Leaderboard has recently emerged as a powerful tool in the artificial intelligence ecosystem, showcasing the top-performing AI…",
+    "seo": {
+      "metaTitle": "AI Meets Web3: What Marketers Can Learn from Kaito AI in 2025",
+      "metaDescription": "Discover how the Kaito AI Leaderboard helps marketers in 2025 optimize content, gain AI visibility, and track real-time insights from top-performing AI models."
+    }
   },
   {
     "id": 49245,
@@ -1087,7 +1348,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/3.png",
-    "excerpt": "Imagine a world where your brand speaks, listens, and learns—across time zones and languages, 24/7. EON8’s Interactive AI Avatars are…"
+    "excerpt": "Imagine a world where your brand speaks, listens, and learns—across time zones and languages, 24/7. EON8’s Interactive AI Avatars are…",
+    "seo": {
+      "metaTitle": "Step Into the Future of Digital Conversations - Eon8",
+      "metaDescription": "Imagine a world where your brand speaks, listens, and learns—across time zones and languages, 24/7."
+    }
   },
   {
     "id": 49240,
@@ -1102,7 +1367,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/1.png",
-    "excerpt": "Why settle for plain when you can entertain? With EON8’s Personalized AI Videos, you can turn simple communications into extraordinary…"
+    "excerpt": "Why settle for plain when you can entertain? With EON8’s Personalized AI Videos, you can turn simple communications into extraordinary…",
+    "seo": {
+      "metaTitle": "Make It Personal, Make It Magical! - Eon8",
+      "metaDescription": "Why settle for plain when you can entertain?"
+    }
   },
   {
     "id": 49232,
@@ -1117,7 +1386,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/Untitled-design.png",
-    "excerpt": "In today’s borderless world, one voice can echo across continents — but only if everyone understands it. Whether you’re a…"
+    "excerpt": "In today’s borderless world, one voice can echo across continents — but only if everyone understands it. Whether you’re a…",
+    "seo": {
+      "metaTitle": "Why Video Translation Matters More Than Ever - Eon8",
+      "metaDescription": "In today’s borderless world, one voice can echo across continents — but only if everyone understands it. Whether you’re a business expanding overseas, a"
+    }
   },
   {
     "id": 49225,
@@ -1132,7 +1405,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2025/05/4.png",
-    "excerpt": "In today’s fast world, text alone won’t cut it. People crave faces, emotions, real connections. At EON8, the leading AI…"
+    "excerpt": "In today’s fast world, text alone won’t cut it. People crave faces, emotions, real connections. At EON8, the leading AI…",
+    "seo": {
+      "metaTitle": "Why Settle for Ordinary? Make Your Message Extraordinary! - Eon8",
+      "metaDescription": "In today’s fast world, text alone won’t cut it. People crave faces, emotions, real connections. At EON8, the leading AI Avatar video creation agency, we"
+    }
   },
   {
     "id": 47864,
@@ -1147,7 +1424,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2024/07/affordable-seo-agency-india-eon8.png",
-    "excerpt": "In today’s digital age, a strong online presence is essential for any business in India. Search Engine Optimization (SEO) plays…"
+    "excerpt": "In today’s digital age, a strong online presence is essential for any business in India. Search Engine Optimization (SEO) plays…",
+    "seo": {
+      "metaTitle": "Benefits of Partnering with an Affordable SEO Agency India",
+      "metaDescription": "Explore the benefits of partnering with an affordable seo agency india. Reach new customers, boost website traffic & grow your business. Learn more about SEO."
+    }
   },
   {
     "id": 47858,
@@ -1162,7 +1443,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2024/07/top-seo-companies-for-small-business-Eon8.jpg",
-    "excerpt": "How Top SEO Companies Drive Small Business Visibility and Growth In today’s digital age, having a strong online presence is…"
+    "excerpt": "How Top SEO Companies Drive Small Business Visibility and Growth In today’s digital age, having a strong online presence is…",
+    "seo": {
+      "metaTitle": "How Top SEO Companies are Helping Small Businesses",
+      "metaDescription": "Discover how top SEO companies for small business are driving growth. Learn effective strategies and success stories to boost your online presence."
+    }
   },
   {
     "id": 47829,
@@ -1177,7 +1462,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-12.50.20-PM-1.jpeg",
-    "excerpt": "NFTs (Non-Fungible Tokens) have revolutionized the way we think about digital assets. From digital artwork to music, sports collectibles to…"
+    "excerpt": "NFTs (Non-Fungible Tokens) have revolutionized the way we think about digital assets. From digital artwork to music, sports collectibles to…",
+    "seo": {
+      "metaTitle": "NFT Fundraising: A Complete Guide For Projects",
+      "metaDescription": "Discover how to leverage NFTs for fundraising and social cause. A complete guide to learn the Know-hows of NFT Fundraising."
+    }
   },
   {
     "id": 47826,
@@ -1192,7 +1481,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-12.50.20-PM.jpeg",
-    "excerpt": "Welcome to the world of NFTs, where digital art and collectibles are being sold for millions of dollars! We all…"
+    "excerpt": "Welcome to the world of NFTs, where digital art and collectibles are being sold for millions of dollars! We all…",
+    "seo": {
+      "metaTitle": "Guide to get Verified on opensea",
+      "metaDescription": "Discover Opensea, a leading NFT Marketplace. Learn how to get verified and unlock the potential benefits of Opensea verification. Explore now!"
+    }
   },
   {
     "id": 47782,
@@ -1209,7 +1502,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "6 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/03/Top-10.png",
-    "excerpt": "NFTs, or non-fungible tokens, are digital assets that are unique and indivisible, meaning they cannot be exchanged for another token…"
+    "excerpt": "NFTs, or non-fungible tokens, are digital assets that are unique and indivisible, meaning they cannot be exchanged for another token…",
+    "seo": {
+      "metaTitle": "Top 10 best nft marketing agencies for 2023 that guarantee sales",
+      "metaDescription": "Navigate past the bear market with ease by working with the top NFT marketing agencies of 2023."
+    }
   },
   {
     "id": 47774,
@@ -1224,7 +1521,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/02/Top-10-Best-ICO-Marketing-Company-to-follow-in-2023.png",
-    "excerpt": "Initial coin offering (ICO) is a method of fundraising in which companies or startups offer their own cryptocurrency or digital…"
+    "excerpt": "Initial coin offering (ICO) is a method of fundraising in which companies or startups offer their own cryptocurrency or digital…",
+    "seo": {
+      "metaTitle": "Top 10 Best ICO Marketing Company to follow in 2023",
+      "metaDescription": "Marketing your coins can be challenging in the bear market! Hire these best ICO marketing companies in 2023."
+    }
   },
   {
     "id": 47769,
@@ -1241,7 +1542,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/02/Top-IDO-Agencies-You-Should-Follow-in-2023.png",
-    "excerpt": "Initial DEX Offerings (IDOs) have taken the world of blockchain and cryptocurrency by storm, offering a new way for projects…"
+    "excerpt": "Initial DEX Offerings (IDOs) have taken the world of blockchain and cryptocurrency by storm, offering a new way for projects…",
+    "seo": {
+      "metaTitle": "Top IDO Agencies You Should Follow in 2023",
+      "metaDescription": "Initial DEX Offerings (IDOs) have taken the world of blockchain and cryptocurrency by storm, offering a new way for projects to raise funds and attract"
+    }
   },
   {
     "id": 47766,
@@ -1257,7 +1562,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/02/Top-10-ICO-Marketing-agency-in-2023.png",
-    "excerpt": "As the cryptocurrency industry continues to grow and evolve, the importance of effective marketing for Initial Coin Offerings (ICOs) becomes…"
+    "excerpt": "As the cryptocurrency industry continues to grow and evolve, the importance of effective marketing for Initial Coin Offerings (ICOs) becomes…",
+    "seo": {
+      "metaTitle": "The top ICO marketing agencies in 2023",
+      "metaDescription": "As the cryptocurrency industry continues to grow and evolve, the importance of effective marketing for Initial Coin Offerings (ICOs) becomes increasingly"
+    }
   },
   {
     "id": 47763,
@@ -1272,7 +1581,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "6 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/02/Top-5-Best-Community-Marketing-Company-in-2023-1.png",
-    "excerpt": "Community marketing has become an essential part of brand building and customer engagement in recent years. With the rise of…"
+    "excerpt": "Community marketing has become an essential part of brand building and customer engagement in recent years. With the rise of…",
+    "seo": {
+      "metaTitle": "Top5 community marketing agencies - Eon8",
+      "metaDescription": "Community marketing has become an essential part of brand building and customer engagement in recent years. With the rise of social media and online"
+    }
   },
   {
     "id": 47760,
@@ -1288,7 +1601,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/02/Top-10-NFT-marketing-Company-to-follow-in-2023.png",
-    "excerpt": "The world of non-fungible tokens (NFTs) has exploded in recent years, with artists, musicians, and creators of all kinds seeking…"
+    "excerpt": "The world of non-fungible tokens (NFTs) has exploded in recent years, with artists, musicians, and creators of all kinds seeking…",
+    "seo": {
+      "metaTitle": "Top 10 NFT marketing agency in 2023",
+      "metaDescription": "Market your NFTs the right way in the bear market with these Top 10 NFT marketing agencies in 2023."
+    }
   },
   {
     "id": 47753,
@@ -1304,7 +1621,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/01/Why-and-How-You-Should-Use-The-AI.png",
-    "excerpt": "The last few months have been hectic for everyone in the industry (in a good way). It was like the…"
+    "excerpt": "The last few months have been hectic for everyone in the industry (in a good way). It was like the…",
+    "seo": {
+      "metaTitle": "Chat GPT | The Next Google | How To Use IT?",
+      "metaDescription": "Learn some of the best ways to use Chat GPT and find out whether it is the next Google and will it strive ahead in future."
+    }
   },
   {
     "id": 47708,
@@ -1319,7 +1640,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "6 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/01/unnamed-1.png",
-    "excerpt": "NFTs, or Non-Fungible Tokens, have brought a new revolution in the field of artwork. They give an amazing opportunity to…"
+    "excerpt": "NFTs, or Non-Fungible Tokens, have brought a new revolution in the field of artwork. They give an amazing opportunity to…",
+    "seo": {
+      "metaTitle": "Perfect NFT Marketing Technique -Eon 8",
+      "metaDescription": "So, how are our NFTs getting more value, or what is the reason behind the hype of the NFT market? At the same time, we will also share some of the best tips"
+    }
   },
   {
     "id": 47710,
@@ -1335,7 +1660,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2023/01/google-dead.png",
-    "excerpt": "In recent years, AI or artificial intelligence have made rapid advancements in the digital world. From optimizing chatbots to understanding…"
+    "excerpt": "In recent years, AI or artificial intelligence have made rapid advancements in the digital world. From optimizing chatbots to understanding…",
+    "seo": {
+      "metaTitle": "Is Chat GPT a Threat To Google?",
+      "metaDescription": "In recent years, AI or artificial intelligence have made rapid advancements in the digital world. From optimizing chatbots to understanding the human sense,"
+    }
   },
   {
     "id": 47673,
@@ -1350,7 +1679,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/12/coke.png",
-    "excerpt": "The FIFA fever is getting closer to the knockout stages, and it has started affecting almost every brand that wishes…"
+    "excerpt": "The FIFA fever is getting closer to the knockout stages, and it has started affecting almost every brand that wishes…",
+    "seo": {
+      "metaTitle": "Coca-Cola Enters NFT World With Crypto.com",
+      "metaDescription": "Coca Cola entered the NFT market and have decided to partner with crypto.com to launch a piece of magic NFT collection."
+    }
   },
   {
     "id": 47670,
@@ -1365,7 +1698,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/12/bmw.png",
-    "excerpt": "BMW, a prominent automobile manufacturer from Germany, has decided to get into the decentralized market and has filed for its…"
+    "excerpt": "BMW, a prominent automobile manufacturer from Germany, has decided to get into the decentralized market and has filed for its…",
+    "seo": {
+      "metaTitle": "Brand NFT Metaverse Filed By BMW",
+      "metaDescription": "German Automobile Manufacturer BMW Enters NFT Market By Filing Trademark Licence for NFTs of their brand."
+    }
   },
   {
     "id": 47627,
@@ -1381,7 +1718,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/Essential-Tips-to-Get-Your-Brands-Instagram-Profile-Verified.jpg",
-    "excerpt": "Getting verified on Instagram is one of the highest forms of validation one can get for managing a valuable and…"
+    "excerpt": "Getting verified on Instagram is one of the highest forms of validation one can get for managing a valuable and…",
+    "seo": {
+      "metaTitle": "How to Get Your Brand Verified on Instagram | Eon8",
+      "metaDescription": "Getting verified on Instagram is one of the highest forms of validation one can get for managing a valuable and sustainable presence on the platform."
+    }
   },
   {
     "id": 47624,
@@ -1397,7 +1738,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/Getting-Your-Brand-Twitter-Verifie-Things-You-Need-to-Know.jpg",
-    "excerpt": "Getting Your Brand Twitter Verified: Things You Need to Know Twitter is one of the leading social media platforms with…"
+    "excerpt": "Getting Your Brand Twitter Verified: Things You Need to Know Twitter is one of the leading social media platforms with…",
+    "seo": {
+      "metaTitle": "Getting Your Brand Twitter Verified - Eon8",
+      "metaDescription": "Getting Your Brand Twitter Verified: Things You Need to Know"
+    }
   },
   {
     "id": 47580,
@@ -1415,7 +1760,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/p2e.png",
-    "excerpt": "Promote Your NFT game Among Crypto Investors Play to Earn Model The decentralized gaming space is quickly gaining popularity among…"
+    "excerpt": "Promote Your NFT game Among Crypto Investors Play to Earn Model The decentralized gaming space is quickly gaining popularity among…",
+    "seo": {
+      "metaTitle": "How To Market Your Play To Earn Games for NFT Investors| Eon8",
+      "metaDescription": "There are diverse ways of promoting your play to earn games which you can find out here."
+    }
   },
   {
     "id": 47577,
@@ -1430,7 +1779,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/how-to-promote.png",
-    "excerpt": "How to promote NFT on Twitter Do you have NFTs that need to be marketed? Social media must be a…"
+    "excerpt": "How to promote NFT on Twitter Do you have NFTs that need to be marketed? Social media must be a…",
+    "seo": {
+      "metaTitle": "Promote Nft's On Twitter | Eon8",
+      "metaDescription": "Twitter is one of the best platforms to promote NFTs and here are few strategies you could follow."
+    }
   },
   {
     "id": 47534,
@@ -1445,7 +1798,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/c.png",
-    "excerpt": "If you are not living in a cave for the last 12 months, you have had some sort of experience…"
+    "excerpt": "If you are not living in a cave for the last 12 months, you have had some sort of experience…",
+    "seo": {
+      "metaTitle": "Here's how to Make your NFT rare and valuable",
+      "metaDescription": "Top Secrets That Make your NFT Rare & Valuable. Learn more about the best factors affecting the value of your NFTs."
+    }
   },
   {
     "id": 47469,
@@ -1461,7 +1818,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/5a.png",
-    "excerpt": "Influencers have the capacity to attract more people and collaborate with several brands perpetually to increase visibility for their services…"
+    "excerpt": "Influencers have the capacity to attract more people and collaborate with several brands perpetually to increase visibility for their services…",
+    "seo": {
+      "metaTitle": "Top 10 Influencer Marketing Agencies | Eon8",
+      "metaDescription": "An Influencer marketing agency provides comprehensive service which helps in hassle free promotion for your Service or Product."
+    }
   },
   {
     "id": 47466,
@@ -1477,7 +1838,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/Top-10-Crypto-NFT.jpg",
-    "excerpt": "Launching a crypto or an NFT project is something familiar, as there are tons of projects already existing in the…"
+    "excerpt": "Launching a crypto or an NFT project is something familiar, as there are tons of projects already existing in the…",
+    "seo": {
+      "metaTitle": "Top Crypto & NFT Marketing Strategies for Growth | EON8",
+      "metaDescription": "Top 10 Crypto & NFT Marketing Agencies - Partnering with the right marketing agency can help you build value for your web 3.0 project effectively."
+    }
   },
   {
     "id": 47412,
@@ -1494,7 +1859,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "6 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/Top-10-NFT-Marketing-Agencies-of-2022.jpg",
-    "excerpt": "The adoption of blockchain technology changed the digital landscape for the better. One of the most notable concepts of blockchain…"
+    "excerpt": "The adoption of blockchain technology changed the digital landscape for the better. One of the most notable concepts of blockchain…",
+    "seo": {
+      "metaTitle": "Top 10 NFT Marketing Agencies of 2022 - Eon8",
+      "metaDescription": "The adoption of blockchain technology changed the digital landscape for the better. One of the most notable concepts of blockchain is NFT."
+    }
   },
   {
     "id": 47398,
@@ -1511,7 +1880,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/Community-marketing-with-real-time-example.png",
-    "excerpt": "How community marketing works We all know the next step on web 3.0 will be community-based products, many brands will…"
+    "excerpt": "How community marketing works We all know the next step on web 3.0 will be community-based products, many brands will…",
+    "seo": {
+      "metaTitle": "Community Marketing Analysis - Real Time",
+      "metaDescription": "We all know the next step on web 3.0 will be community-based products, many brands will emerge based on the community business model. But how to build a"
+    }
   },
   {
     "id": 47318,
@@ -1528,7 +1901,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/3-3.png",
-    "excerpt": "Creating a Discord bot may seem harder than it is but when it comes to it there can be a…"
+    "excerpt": "Creating a Discord bot may seem harder than it is but when it comes to it there can be a…",
+    "seo": {
+      "metaTitle": "Steps to Create your own Discord Bot",
+      "metaDescription": "Learn the step-by-step process of creating Discord bots to automate critical activities of your server."
+    }
   },
   {
     "id": 46949,
@@ -1544,7 +1921,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/web3.0-1.png",
-    "excerpt": "There are stalwarts in every industry, irrespective of whether it is art or rocket science. The real world has exceptional…"
+    "excerpt": "There are stalwarts in every industry, irrespective of whether it is art or rocket science. The real world has exceptional…",
+    "seo": {
+      "metaTitle": "Top 3D NFT Art Designers for Creative Inspiration | EON8",
+      "metaDescription": "There are stalwarts in every industry, irrespective of whether it is art or rocket science. The real world has exceptional sports players, amazing actors, and"
+    }
   },
   {
     "id": 46943,
@@ -1559,7 +1940,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/1.-What-are-Collectible-Avatars_.png",
-    "excerpt": "Reddit created an active 2.3 million decentralized wallet for its active user base in a short span of 3 months…"
+    "excerpt": "Reddit created an active 2.3 million decentralized wallet for its active user base in a short span of 3 months…",
+    "seo": {
+      "metaTitle": "Reddit - An NFT Marketing Machine - Eon8",
+      "metaDescription": "How Reddit sold 84,000 NFTs and built the biggest community in the crypto space"
+    }
   },
   {
     "id": 46869,
@@ -1574,7 +1959,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/social-media-marketing-for-restaurants.png",
-    "excerpt": "How To Make Your Restaurant Viral? Social Media Marketing Strategy For Restaurants: Social media plays a vital role if you…"
+    "excerpt": "How To Make Your Restaurant Viral? Social Media Marketing Strategy For Restaurants: Social media plays a vital role if you…",
+    "seo": {
+      "metaTitle": "Social Media Marketing Strategy For Restaurants",
+      "metaDescription": "5 Best social media marketing for restaurant & food business. Drive more customers for your business and make your audience crave."
+    }
   },
   {
     "id": 46861,
@@ -1589,7 +1978,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "6 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/11/digital-marketing-agency-in-bangalore.png",
-    "excerpt": "We are your online porter that delivers your potential customers to your business with the help of customized digital marketing…"
+    "excerpt": "We are your online porter that delivers your potential customers to your business with the help of customized digital marketing…",
+    "seo": {
+      "metaTitle": "Digital Marketing Agency In Banglore | Eon8",
+      "metaDescription": "Best digital marketing company in Bangalore Partner with us to improve your digital presence effectively. PPC | SEO | SMM| Contact us today."
+    }
   },
   {
     "id": 46798,
@@ -1605,7 +1998,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/10/discord.png",
-    "excerpt": "What is discord? Discord is a platform that can serve your brand as a community center! The application is specially…"
+    "excerpt": "What is discord? Discord is a platform that can serve your brand as a community center! The application is specially…",
+    "seo": {
+      "metaTitle": "How to use discord for insane growth in 2022",
+      "metaDescription": "Discord is a platform that can serve your brand as a community center! The application is specially created for the private community. But how can you"
+    }
   },
   {
     "id": 46506,
@@ -1621,7 +2018,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/10/discord-2.png",
-    "excerpt": "Discord, a platform that started off as a chat space for gamers, has become increasingly popular among brands and non-brands…"
+    "excerpt": "Discord, a platform that started off as a chat space for gamers, has become increasingly popular among brands and non-brands…",
+    "seo": {
+      "metaTitle": "Learn how to Succeed With Discord Community",
+      "metaDescription": "Build The Ultimate Discord community for you brand that lasts long and grows bigger. Know the effective steps to build a community on Discord now ."
+    }
   },
   {
     "id": 46501,
@@ -1637,7 +2038,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/10/SE0-and-its-Importance.png",
-    "excerpt": "A search engine optimization (SEO) strategy is a plan to optimize your website for SEO . Building, implementing, and maintaining…"
+    "excerpt": "A search engine optimization (SEO) strategy is a plan to optimize your website for SEO . Building, implementing, and maintaining…",
+    "seo": {
+      "metaTitle": "What is SEO ? What is the Importance of SEO Agency",
+      "metaDescription": "With the prompt progression in search engine algorithms,our magnificent SEO Agency we enhance your brand's search ranking on top of SERP,"
+    }
   },
   {
     "id": 45938,
@@ -1653,7 +2058,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/Instagram-Advertising-Agency.png",
-    "excerpt": "Instagram has never been popular in the past, like now, and it is one of the prominent reasons why every…"
+    "excerpt": "Instagram has never been popular in the past, like now, and it is one of the prominent reasons why every…",
+    "seo": {
+      "metaTitle": "Top Instagram Advertising Agency - Eon8",
+      "metaDescription": "Eon8 Instagram advertising agency improves your leads and conversions by optimising your ad campaign and helps you maximize your budget."
+    }
   },
   {
     "id": 45811,
@@ -1668,7 +2077,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/How-instagram-marketing-agency-in-mumbai.png",
-    "excerpt": "The world has become a tech-savvy box, and most organizations chase digital marketing to make their business profitable through online…"
+    "excerpt": "The world has become a tech-savvy box, and most organizations chase digital marketing to make their business profitable through online…",
+    "seo": {
+      "metaTitle": "Instagram Marketing Agency In Mumbai - Eon8",
+      "metaDescription": "Eon8 has been recognized as the leading Instagram marketing company in Mumbai. our team will help to manage the social presence of your brand."
+    }
   },
   {
     "id": 45772,
@@ -1683,7 +2096,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/Instagram-Growth-Agency.png",
-    "excerpt": "There are 3.5 billion people who are using Instagram every day. One of the main reasons people love to spend…"
+    "excerpt": "There are 3.5 billion people who are using Instagram every day. One of the main reasons people love to spend…",
+    "seo": {
+      "metaTitle": "Top Instagram Growth Services & Agency - Eon8",
+      "metaDescription": "Eon8 is your ideal Instagram growth company providing innovative marketing services for instant growth on Instagram. Get more followers and reach."
+    }
   },
   {
     "id": 45744,
@@ -1698,7 +2115,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/City-Buildings-Facebook-Cover.png",
-    "excerpt": "Eon8 is an experienced Instagram marketing agency present in Banglore with 12+ years of experience and has done 30,000+ successful…"
+    "excerpt": "Eon8 is an experienced Instagram marketing agency present in Banglore with 12+ years of experience and has done 30,000+ successful…",
+    "seo": {
+      "metaTitle": "Instagram marketing agency in Bangalore - Eon8",
+      "metaDescription": "Eon8 Provides a prominent Instagram marketing services in Bangalore, Our smm team will create brand awareness for your product, Enquire now."
+    }
   },
   {
     "id": 45726,
@@ -1713,7 +2134,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/Instagram-Marketing-Agency-In-Delh.png",
-    "excerpt": "Do you want to know your Instagram audience better than ever before? You have landed at the right place, as…"
+    "excerpt": "Do you want to know your Instagram audience better than ever before? You have landed at the right place, as…",
+    "seo": {
+      "metaTitle": "Instagram Marketing Agency In Delhi - Eon8",
+      "metaDescription": "Promote your brand with top Instagram marketing services in Delhi, our creative strategies will help your brand to reach potential customers."
+    }
   },
   {
     "id": 45712,
@@ -1728,7 +2153,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/The-best-Influencer-1.png",
-    "excerpt": "Now imagine! You own a brand and you need a powerful approach to grow it. The very first thought that…"
+    "excerpt": "Now imagine! You own a brand and you need a powerful approach to grow it. The very first thought that…",
+    "seo": {
+      "metaTitle": "Finding The Best Influencer Agency - Eon8",
+      "metaDescription": "Now imagine! You own a brand and you need a powerful approach to grow it. The very first thought that will pop into your head right away is influencer"
+    }
   },
   {
     "id": 45701,
@@ -1743,7 +2172,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/09/Best-instagram-marketing_-1.png",
-    "excerpt": "Instagram has become an integral part of social media marketing campaigns for various brands on the internet. Whether the concern…"
+    "excerpt": "Instagram has become an integral part of social media marketing campaigns for various brands on the internet. Whether the concern…",
+    "seo": {
+      "metaTitle": "The Best Tips To Grow Your Audience On Instagram In 2022 - Eon8",
+      "metaDescription": "Instagram has become an integral part of social media marketing campaigns for various brands on the internet. Whether the concern is driving their audience to"
+    }
   },
   {
     "id": 44712,
@@ -1760,7 +2193,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/07/Effective-sms.gif",
-    "excerpt": "All social media marketing campaigns start with a great social media marketing campaign. Moreover, a brand that doesn’t exist on…"
+    "excerpt": "All social media marketing campaigns start with a great social media marketing campaign. Moreover, a brand that doesn’t exist on…",
+    "seo": {
+      "metaTitle": "Effective Social Media Marketing Strategy",
+      "metaDescription": "A social media marketing strategy is an outline of your goals and tactics you will use to build your brand across multiple social channels effectively."
+    }
   },
   {
     "id": 42561,
@@ -1777,7 +2214,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/03/Linkedin-Marketing-Strategy.gif",
-    "excerpt": "If you are in the B2B field, LinkedIn is like a gold mine that can take your sales to new…"
+    "excerpt": "If you are in the B2B field, LinkedIn is like a gold mine that can take your sales to new…",
+    "seo": {
+      "metaTitle": "Top 5 B2B linkedIn Marketing Strategy in 2022",
+      "metaDescription": "LinkedIn marketing strategy - Why and how you can promote your B2B brand on LinkedIn. The best LinkedIn marketing strategies for your business."
+    }
   },
   {
     "id": 42446,
@@ -1792,7 +2233,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/03/How-can-Digital-Marketing-Grow-Business.gif",
-    "excerpt": "The digital world is filled with modern technologies and competition; therefore, one must take the necessary steps to survive in…"
+    "excerpt": "The digital world is filled with modern technologies and competition; therefore, one must take the necessary steps to survive in…",
+    "seo": {
+      "metaTitle": "How Digital Marketing Helps to Grow Your Business",
+      "metaDescription": "Digital marketing helps to grow your business and brand value on internet."
+    }
   },
   {
     "id": 42401,
@@ -1810,7 +2255,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/03/Digital-Marketing-Strategies-You-Should-Use-in-2022.gif",
-    "excerpt": "Digital marketing has received a lot of attention since the intervention of the COVID-19 global pandemic. Consumers have showcased a…"
+    "excerpt": "Digital marketing has received a lot of attention since the intervention of the COVID-19 global pandemic. Consumers have showcased a…",
+    "seo": {
+      "metaTitle": "Top Digital marketing agency in Chennai | Eon8",
+      "metaDescription": "Are you looking for the best digital marketing strategies to grow your business? Eon8 the top digital marketing agency in Chennai has got the right solutions."
+    }
   },
   {
     "id": 42372,
@@ -1828,7 +2277,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/03/Artboard-1.png",
-    "excerpt": "Digital marketing has become essential for any business, and with an exponential increase in customers, online marketing has become even…"
+    "excerpt": "Digital marketing has become essential for any business, and with an exponential increase in customers, online marketing has become even…",
+    "seo": {
+      "metaTitle": "How is digital marketing important for business? - Eon8",
+      "metaDescription": "Digital marketing has become essential for any business, and with an exponential increase in customers, online marketing has become even more vital for"
+    }
   },
   {
     "id": 42357,
@@ -1843,7 +2296,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/03/digital-m-arkiting-agency-1.png",
-    "excerpt": "Digital Marketing is at the center of every brand’s effort to reach potential customers. The marketing strategies allow you to…"
+    "excerpt": "Digital Marketing is at the center of every brand’s effort to reach potential customers. The marketing strategies allow you to…",
+    "seo": {
+      "metaTitle": "Best Digital Marketing Agency in Planning and strategy",
+      "metaDescription": "EON8 is a Best digital marketing agency they have served top brands from various ventures and unlocked their complete marketing potential."
+    }
   },
   {
     "id": 42249,
@@ -1858,7 +2315,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2022/02/Capture.png",
-    "excerpt": "SEO or Search Engine Optimization is one of the best ways of increasing the traffic of a website by driving…"
+    "excerpt": "SEO or Search Engine Optimization is one of the best ways of increasing the traffic of a website by driving…",
+    "seo": {
+      "metaTitle": "Common SEO Mistakes That Can Hurt Your Business Website - Eon8",
+      "metaDescription": "SEO or Search Engine Optimization is one of the best ways of increasing the traffic of a website by driving organic or paid traffic. It is also one of the"
+    }
   },
   {
     "id": 41736,
@@ -1873,7 +2334,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/09/5-fundamental-shifts-that-are-shaping-search-digital-marketing-5f7f23593ac21-1280x720-1.png",
-    "excerpt": "What is App Store Optimization, and how does it work? App store optimization (ASO) is the most popular SEO technique…"
+    "excerpt": "What is App Store Optimization, and how does it work? App store optimization (ASO) is the most popular SEO technique…",
+    "seo": {
+      "metaTitle": "Digital Marketing for App Store chennai | Eon8",
+      "metaDescription": "Eon8 provides the best Digital Marketing for App Store chennai. Contact : +91 95005 55800"
+    }
   },
   {
     "id": 41718,
@@ -1888,7 +2353,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/08/ga.png",
-    "excerpt": "Google Analytics services For many businesses ranging from small to large, Google Analytics is serving as the best platform for…"
+    "excerpt": "Google Analytics services For many businesses ranging from small to large, Google Analytics is serving as the best platform for…",
+    "seo": {
+      "metaTitle": "Google Analytics Services - Eon8",
+      "metaDescription": "At EON8, we have our team of experts who can assist you with the proper Google Analytics account setup."
+    }
   },
   {
     "id": 41709,
@@ -1903,7 +2372,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/08/Social-Media-Marketing.png",
-    "excerpt": "Why should you hire a social media marketing agency? It doesn’t matter if you are a start-up or an established…"
+    "excerpt": "Why should you hire a social media marketing agency? It doesn’t matter if you are a start-up or an established…",
+    "seo": {
+      "metaTitle": "Hire a social media marketing agency - Eon8",
+      "metaDescription": "It doesn’t matter if you are a start-up or an established agency – your business will stand out from the crowd if you hire a social media marketing"
+    }
   },
   {
     "id": 41643,
@@ -1918,7 +2391,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/07/Eon-image.jpg",
-    "excerpt": "Business owners, especially small business entrepreneurs, understand better than anybody that in order to stay successful in the market, they…"
+    "excerpt": "Business owners, especially small business entrepreneurs, understand better than anybody that in order to stay successful in the market, they…",
+    "seo": {
+      "metaTitle": "How Digital Marketing Service Help your Business Grow - Eon8",
+      "metaDescription": "At Eon 8, a trailblazer in Digital Marketing Service in Chennai, we offer you the ways that online marketing methods can help your business to expand if"
+    }
   },
   {
     "id": 41605,
@@ -1933,7 +2410,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/07/EOn-blog.png",
-    "excerpt": "Benefits of bad review removal You might often have wondered why your business reputation is average online when you are…"
+    "excerpt": "Benefits of bad review removal You might often have wondered why your business reputation is average online when you are…",
+    "seo": {
+      "metaTitle": "Benefits of bad review removal - Eon8",
+      "metaDescription": "Meta description"
+    }
   },
   {
     "id": 41442,
@@ -1948,7 +2429,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/07/1.png",
-    "excerpt": "Without a doubt, your business is successful and caters to its customers’ needs efficiently. But it is always a good…"
+    "excerpt": "Without a doubt, your business is successful and caters to its customers’ needs efficiently. But it is always a good…",
+    "seo": {
+      "metaTitle": "Bad Links Removal Agency for Clean SEO Profile | Eon8",
+      "metaDescription": "Planning to invest in a bad links removal agency to safeguard your online presence? Eon8 is the ideal agency for all your unique business needs! Contact us to know more!"
+    }
   },
   {
     "id": 41427,
@@ -1963,7 +2448,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/07/unnamed-9.png",
-    "excerpt": "To start with, let’s be clear that communication is a very powerful tool. With every day passing, we are looking…"
+    "excerpt": "To start with, let’s be clear that communication is a very powerful tool. With every day passing, we are looking…",
+    "seo": {
+      "metaTitle": "Manage ORM for BUsinesses or Startups",
+      "metaDescription": "To start with, let’s be clear that communication is a very powerful tool. With every day passing, we are looking for ways to make our lives and other lives"
+    }
   },
   {
     "id": 41420,
@@ -1978,7 +2467,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/06/5540850.jpg",
-    "excerpt": "Every business owner’s worst nightmare is not getting customers to either online or physical stores, where in online stores we…"
+    "excerpt": "Every business owner’s worst nightmare is not getting customers to either online or physical stores, where in online stores we…",
+    "seo": {
+      "metaTitle": "All you need to know about Shopify SEO for your business - Eon8",
+      "metaDescription": "Every business owner’s worst nightmare is not getting customers to either online or physical stores, where in online stores we have a number of ways to"
+    }
   },
   {
     "id": 41417,
@@ -1993,7 +2486,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/06/Content-writing.png",
-    "excerpt": "It doesn’t matter if you are a small start-up or a well-established brand. Digital marketing and good content writing services…"
+    "excerpt": "It doesn’t matter if you are a small start-up or a well-established brand. Digital marketing and good content writing services…",
+    "seo": {
+      "metaTitle": "Content Writing Services | Eon8",
+      "metaDescription": "Eon8 is one of the top digital marketing agencies for content writing services. Be it content generation, SEO, SMM, ORM, or paid ads - you name it, we provide it best!"
+    }
   },
   {
     "id": 41414,
@@ -2008,7 +2505,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/06/Conversion-rate-optimization.png",
-    "excerpt": "With a solid conversion rate optimization plan, you can take your business to new heights, receive better Return on Investment…"
+    "excerpt": "With a solid conversion rate optimization plan, you can take your business to new heights, receive better Return on Investment…",
+    "seo": {
+      "metaTitle": "Conversion Rate Optimization | Eon8",
+      "metaDescription": "Looking for a top agency for conversion rate optimization? Eon8 is the best digital marketing agency for all your lead generation and RoI needs! Contact us to know more!"
+    }
   },
   {
     "id": 41388,
@@ -2023,7 +2524,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/04/How-To-Delete-Google-Reviews.jpg",
-    "excerpt": "I bet you all have wondered at least once, can google reviews be deleted? The answer is not quite simple…"
+    "excerpt": "I bet you all have wondered at least once, can google reviews be deleted? The answer is not quite simple…",
+    "seo": {
+      "metaTitle": "How to Delete Google Reviews Permanently? Eon8",
+      "metaDescription": "How to Delete Google Reviews? If you can delete the google review, by flagging or contacting google support, thus you can successfully delete a google review."
+    }
   },
   {
     "id": 41384,
@@ -2038,7 +2543,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/04/Remove-negative-Yelp-reviews-1.jpg",
-    "excerpt": "It takes years to build a good reputation but just one negative review to sabotage it. This is why it’s…"
+    "excerpt": "It takes years to build a good reputation but just one negative review to sabotage it. This is why it’s…",
+    "seo": {
+      "metaTitle": "How to Remove negative reviews From yelp - Eon8",
+      "metaDescription": "It takes years to build a good reputation but just one negative review to sabotage it. Remove negative yelp reviews and safeguard your business reputation online."
+    }
   },
   {
     "id": 41380,
@@ -2053,7 +2562,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/Remove-negative-complaints.jpg",
-    "excerpt": "When customers approach your business to purchase your products or services, it helps to have a good reputation and brand…"
+    "excerpt": "When customers approach your business to purchase your products or services, it helps to have a good reputation and brand…",
+    "seo": {
+      "metaTitle": "How to remove negative complaints online?",
+      "metaDescription": "We remove negative complaints from search results, social media, and online platforms to safeguard your reputation. Invest in our services for better brand awareness."
+    }
   },
   {
     "id": 41375,
@@ -2068,7 +2581,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/ORM-packages.jpg",
-    "excerpt": "Is your brand struggling with a constant inflow of negative reviews? While it is possible to request the content host…"
+    "excerpt": "Is your brand struggling with a constant inflow of negative reviews? While it is possible to request the content host…",
+    "seo": {
+      "metaTitle": "Effective ORM packages to skyrocket your brand - Eon8",
+      "metaDescription": "Eon8 have curated ORM packages in a plethora of plans and price points to safeguard your brand’s reputation online."
+    }
   },
   {
     "id": 41364,
@@ -2083,7 +2600,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/top-digital-marketing-agency-malaysia.jpg",
-    "excerpt": "No matter whether your business is a start-up or a well-established company envied in the market, finding a top digital…"
+    "excerpt": "No matter whether your business is a start-up or a well-established company envied in the market, finding a top digital…",
+    "seo": {
+      "metaTitle": "Top Digital Marketing Agency in Malaysia | Eon8",
+      "metaDescription": "Our top digital marketing agency in Malaysia specializes in curating personalized content. Partner with us to land your business a top rank in search results."
+    }
   },
   {
     "id": 41360,
@@ -2098,7 +2619,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/Singapore2.jpg",
-    "excerpt": "Reviews and comments about your business can greatly influence the quality and quantity of your customers. It takes years to…"
+    "excerpt": "Reviews and comments about your business can greatly influence the quality and quantity of your customers. It takes years to…",
+    "seo": {
+      "metaTitle": "Online Reputation Management Agency in Singapore",
+      "metaDescription": "Contact our experts at our online reputation agency in Singapore today to kickstart your digital marketing journey and cultivate a positive profile online."
+    }
   },
   {
     "id": 41343,
@@ -2113,7 +2638,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/Untitled-design3.jpg",
-    "excerpt": "A complete guide to safeguard your online reputation from negative feedback Does your company have a Google My Business (GMB)…"
+    "excerpt": "A complete guide to safeguard your online reputation from negative feedback Does your company have a Google My Business (GMB)…",
+    "seo": {
+      "metaTitle": "How to remove bad reviews from Google My Business",
+      "metaDescription": "Google My Business review removal is important because Google doesn’t verify reviews before publication. Eon8 offers a 360-degree approach to Online Reputation Management and ensure that your business’s online reputation is protected."
+    }
   },
   {
     "id": 41337,
@@ -2128,7 +2657,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/03/Negative-review-removal.jpg",
-    "excerpt": "Negative content can be extremely damaging to the hard-earned reputation of a business. Even months or years after a blog…"
+    "excerpt": "Negative content can be extremely damaging to the hard-earned reputation of a business. Even months or years after a blog…",
+    "seo": {
+      "metaTitle": "How to remove negative content from Google search?",
+      "metaDescription": "We effectively remove negative Google search results through ethical means and strategies that are updated to suit changing search engine algorithms."
+    }
   },
   {
     "id": 41270,
@@ -2143,7 +2676,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/02/Digital-marketing-Agency-for-Restaurants.jpg",
-    "excerpt": "Food and Restaurants is a booming business in the industry, and it might give you more business when it is…"
+    "excerpt": "Food and Restaurants is a booming business in the industry, and it might give you more business when it is…",
+    "seo": {
+      "metaTitle": "Digital marketing Agency for Restaurants - Eon8",
+      "metaDescription": "In this digital era; brands have started adopting various online marketing services to promote and increase their sales. It has been successful and one of the"
+    }
   },
   {
     "id": 41231,
@@ -2158,7 +2695,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/02/3-1.jpg",
-    "excerpt": "Although most users consider Instagram to be a social media platform for sharing content, its role as a marketing platform…"
+    "excerpt": "Although most users consider Instagram to be a social media platform for sharing content, its role as a marketing platform…",
+    "seo": {
+      "metaTitle": "How Instagram can help skyrocket your business - Eon8",
+      "metaDescription": "Grabbing and retaining the attention of potential prospects through palatable video bytes and interactive images are some of Instagram’s top assets. Certain"
+    }
   },
   {
     "id": 41210,
@@ -2173,7 +2714,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/12/startup-business-teamwork-meeting-concept-scaled.jpg",
-    "excerpt": "Negative content online can be very defamatory to your business’s reputation and could result in a loss of customers for…"
+    "excerpt": "Negative content online can be very defamatory to your business’s reputation and could result in a loss of customers for…",
+    "seo": {
+      "metaTitle": "How to remove negative content online? Eon8 digital Agency",
+      "metaDescription": "To safeguard your reputation online and remove negative content from website, it is always a good idea to invest in Online Reputation Management (ORM)."
+    }
   },
   {
     "id": 41207,
@@ -2188,7 +2733,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2021/02/Why-your-business-needs-effective-ORM-services.jpg",
-    "excerpt": "If you have been noticing a consistent downfall in your business’s reputation lately, then it means it’s time you invested…"
+    "excerpt": "If you have been noticing a consistent downfall in your business’s reputation lately, then it means it’s time you invested…",
+    "seo": {
+      "metaTitle": "Why your business needs effective ORM services?",
+      "metaDescription": "If you are looking for an effective Online Reputation Management (ORM) provider at affordable prices and to suit your particular business needs, check out Eon8."
+    }
   },
   {
     "id": 578,
@@ -2203,7 +2752,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/09/business-needs-orm-services-1.jpg",
-    "excerpt": "There are many factors that make a company a ‘good’ company. From having an innovative business idea or the right…"
+    "excerpt": "There are many factors that make a company a ‘good’ company. From having an innovative business idea or the right…",
+    "seo": {
+      "metaTitle": "ORM services in Digital Marketing is useful for Business",
+      "metaDescription": "The ORM services provider does this by creating new online content, thereby pushing undesirable content lower and preventing them from popping up as search results."
+    }
   },
   {
     "id": 576,
@@ -2218,7 +2771,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/09/Remove-Consumer-Complaints-from-google.jpg",
-    "excerpt": "Over 90% of consumers read online reviews before even thinking of buying a product or service. It is widely understood…"
+    "excerpt": "Over 90% of consumers read online reviews before even thinking of buying a product or service. It is widely understood…",
+    "seo": {
+      "metaTitle": "Remove Consumer Complaints from google - Eon8 Digital Agency",
+      "metaDescription": "Remind your customers to leave positive reviews on each of your social media pages. Remove Consumer complaints from google and social media contact eon8"
+    }
   },
   {
     "id": 573,
@@ -2233,7 +2790,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/09/delete-negative-reviews.jpg",
-    "excerpt": "There is a feature called grievance board which are utilized all the while as it is the online stage which…"
+    "excerpt": "There is a feature called grievance board which are utilized all the while as it is the online stage which…",
+    "seo": {
+      "metaTitle": "How Do EON8 Helps in Removing the Negative Reviews?",
+      "metaDescription": "We at EON8, not just make the online negative reviews and responses from client board deleted yet besides does the security -Eon 8 Digital agency"
+    }
   },
   {
     "id": 570,
@@ -2248,7 +2809,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/09/eon8-helps-in-removing-negative-reviews.jpg",
-    "excerpt": "Evacuating negative reviews is a great task which cannot be done single-handedly. Delete the negative reviews from Google or Facebook…"
+    "excerpt": "Evacuating negative reviews is a great task which cannot be done single-handedly. Delete the negative reviews from Google or Facebook…",
+    "seo": {
+      "metaTitle": "How to Delete the negative reviews - Eon8 orm specialist",
+      "metaDescription": "Delete the negative reviews from Google or Facebook is a time-consuming process. Online Reputation Management is done by every digital marketing agencies."
+    }
   },
   {
     "id": 567,
@@ -2263,7 +2828,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "A lot of people must be looking for your brand or business at this point. Who knows as you might…"
+    "excerpt": "A lot of people must be looking for your brand or business at this point. Who knows as you might…",
+    "seo": {
+      "metaTitle": "ORM for Personal Branding Service Industry - ORM specialist Eon8",
+      "metaDescription": "Reach eon8 to build Your Orm personal branding, The online reputation has to be managed and it is a duteous assignment like you contribute to developing your business."
+    }
   },
   {
     "id": 563,
@@ -2278,7 +2847,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "Search engine optimization is very important for any business. If you need to work on the improvement of your business…"
+    "excerpt": "Search engine optimization is very important for any business. If you need to work on the improvement of your business…",
+    "seo": {
+      "metaTitle": "Important of Seo in the Business World - Eon8 Diigital Agency",
+      "metaDescription": "With refreshed SEO procedures, the organization positions top among other SEO administration giving organizations in and around Chennai. Contact Eon8"
+    }
   },
   {
     "id": 561,
@@ -2293,7 +2866,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "What do you think is the most used search engine? The answer is quite obvious as undoubtedly, it is Google.…"
+    "excerpt": "What do you think is the most used search engine? The answer is quite obvious as undoubtedly, it is Google.…",
+    "seo": {
+      "metaTitle": "Know the After -Effects of Negative Google Reviews!",
+      "metaDescription": "what matters the most is the Google reviews, be it positive or negative, the reviews being posted helps you grow and build your business."
+    }
   },
   {
     "id": 555,
@@ -2308,7 +2885,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "Be it a franchise or school or IT company, if the company has got a good place amongst their competitors…"
+    "excerpt": "Be it a franchise or school or IT company, if the company has got a good place amongst their competitors…",
+    "seo": {
+      "metaTitle": "The 3 Common Stages Followed By Seo Agency - Eon8 Digital Agency",
+      "metaDescription": "Be it any company the three stages which an SEO agency must take care of are, Contact the Best Seo agency in chennai - Eon8 Digital Agency"
+    }
   },
   {
     "id": 553,
@@ -2323,7 +2904,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "The most forthcoming strategies are included and actualized to encourage a customer’s site from basic issues by an ORM company.…"
+    "excerpt": "The most forthcoming strategies are included and actualized to encourage a customer’s site from basic issues by an ORM company.…",
+    "seo": {
+      "metaTitle": "ORM Services In Chennai | EON8",
+      "metaDescription": "Are you looking for the best ORM services in Chennai? Reach EON8 to reach the top online position by removing all negative mentions of your brand."
+    }
   },
   {
     "id": 547,
@@ -2338,7 +2923,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "TTFB or ‘time to first byte’ is an important factor for SEO. Imagine that you wanted to know certain information…"
+    "excerpt": "TTFB or ‘time to first byte’ is an important factor for SEO. Imagine that you wanted to know certain information…",
+    "seo": {
+      "metaTitle": "Here is All you Need to Know About TTFB! - Eon8 Digital Agency",
+      "metaDescription": "TTFB or ‘time to first byte’ is an important factor for SEO. Imagine that you wanted to know certain information regarding a particular aspect."
+    }
   },
   {
     "id": 544,
@@ -2353,7 +2942,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "Search engine optimization is the greatest task of any digital marketing company. SEO is a significant idea with regards to…"
+    "excerpt": "Search engine optimization is the greatest task of any digital marketing company. SEO is a significant idea with regards to…",
+    "seo": {
+      "metaTitle": "How to Know what is the Best SEO Company in Chennai?",
+      "metaDescription": "Eon8, the best SEO company in Chennai provides you with various other top-notch SEO services that will help your business to flourish."
+    }
   },
   {
     "id": 542,
@@ -2368,7 +2961,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "6 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "What is digital marketing? While in the times of pandemic, you would have doubts regarding developing your business. Many of…"
+    "excerpt": "What is digital marketing? While in the times of pandemic, you would have doubts regarding developing your business. Many of…",
+    "seo": {
+      "metaTitle": "How to Hire a Digital Marketing agency? Eon8- Digital Agency",
+      "metaDescription": "Since one cannot do it single-handedly, hiring a digital marketing agency is the better option. The digital marketing services are support the Business."
+    }
   },
   {
     "id": 540,
@@ -2383,7 +2980,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "What are the negative reviews? Imagine you start a business. You will need basic support and much more after you…"
+    "excerpt": "What are the negative reviews? Imagine you start a business. You will need basic support and much more after you…",
+    "seo": {
+      "metaTitle": "How to push down the negative reviews? eon8 digital agency",
+      "metaDescription": "Eon8 offer you numerous approaches to evacuate negative surveys, erase the Ripoff reports, assuming any, Pushing down negative search results and reviews."
+    }
   },
   {
     "id": 533,
@@ -2398,7 +2999,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/07/Importance.jpg",
-    "excerpt": "During a pandemic like this, every business is undergoing a tough time. If there is one field that is least…"
+    "excerpt": "During a pandemic like this, every business is undergoing a tough time. If there is one field that is least…",
+    "seo": {
+      "metaTitle": "The Grave Importance of Seo and Digital Marketing!",
+      "metaDescription": "Now, if you will want to flourish in digital marketing, what is the most important aspect you need to take care is the technique of SEO. Contact Eon8"
+    }
   },
   {
     "id": 531,
@@ -2413,7 +3018,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "When your company is stepping into a new business, it needs a lot of support system. The major drawback of…"
+    "excerpt": "When your company is stepping into a new business, it needs a lot of support system. The major drawback of…",
+    "seo": {
+      "metaTitle": "Online Reputation Management and how is it affecting your brand ?",
+      "metaDescription": "To build an online reputation is not a simple task. But, it is neither impossible. Online Reputation Management is an important aspect . Contact eon8"
+    }
   },
   {
     "id": 524,
@@ -2428,7 +3037,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "If you are new to the business world, there are high chances that you might get lost in the chaos…"
+    "excerpt": "If you are new to the business world, there are high chances that you might get lost in the chaos…",
+    "seo": {
+      "metaTitle": "HOW TO MANAGE YOUR BUSINESS REPUTATION AND WHY?",
+      "metaDescription": "The major drawback or necessity and an equally stressful aspect of any business or branding is the maintenance of the positive reputation, Reach us Eon8"
+    }
   },
   {
     "id": 521,
@@ -2443,7 +3056,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "5 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "The whole world is affected. Affected by the deadly virus. Covid-19 seems to take away our spirits as it is…"
+    "excerpt": "The whole world is affected. Affected by the deadly virus. Covid-19 seems to take away our spirits as it is…",
+    "seo": {
+      "metaTitle": "Does Coronavirus affect Digital Marketing - eon8 digital Agency",
+      "metaDescription": "Now, there is one area which remains unaffected and in fact, the business would have been best-going for them. That is ‘Digital Marketing’.Reach us- eon8"
+    }
   },
   {
     "id": 482,
@@ -2458,7 +3075,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2026/06/WhatsApp-Marketing-Strategies.webp",
-    "excerpt": "There is a simple idea behind the working of negative reviews. Consider you opened a restaurant with utmost difficulty but…"
+    "excerpt": "There is a simple idea behind the working of negative reviews. Consider you opened a restaurant with utmost difficulty but…",
+    "seo": {
+      "metaTitle": "How do the negative reviews affect your company?",
+      "metaDescription": "To treat it right, it is always advised to approach a digital marketing company that can push down and removes negative complaints about you. EON8 helps you"
+    }
   },
   {
     "id": 474,
@@ -2473,7 +3094,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2019/07/eon-blog-1.jpg",
-    "excerpt": "It is the primary duty of a brand or business service to maintain its business reputation in online platforms. Online…"
+    "excerpt": "It is the primary duty of a brand or business service to maintain its business reputation in online platforms. Online…",
+    "seo": {
+      "metaTitle": "Negative Links in ORM and Their Business Impact | EON8",
+      "metaDescription": "The removal or deleting the negative reviews become very important for the maintenance of online reputation. No brand or business would like to have negative links or reviews floating online that will affect the mindfulness of the customers negatively through remove consumer complaints."
+    }
   },
   {
     "id": 461,
@@ -2488,7 +3113,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "3 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/04/Reputation-Management-eon8softech.jpg",
-    "excerpt": "It is basic knowledge that every business shall have its ups and downs. Compare it with a curve and you…"
+    "excerpt": "It is basic knowledge that every business shall have its ups and downs. Compare it with a curve and you…",
+    "seo": {
+      "metaTitle": "THE STEPS TAKEN TO SAFEGUARD YOUR BUSINESS REPUTATION. - Eon8",
+      "metaDescription": "we provide every service with an affordable price on orm package . The ORM cost varies for different services like removal of negative complaint and remove negative complaint."
+    }
   },
   {
     "id": 458,
@@ -2503,7 +3132,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/04/Remove-Negative-Reviews-eon8-eonsofttecch.jpg",
-    "excerpt": "When you read this, several customers would be probably googling or searching for your company. To develop a positive reputation…"
+    "excerpt": "When you read this, several customers would be probably googling or searching for your company. To develop a positive reputation…",
+    "seo": {
+      "metaTitle": "Push down Negative Search Result - Eon8",
+      "metaDescription": "We offer our services on affordable price you can think, the many ways to remove negative reviews, delete the Ripoff reports, if any, Pushing down negative reviews and search results."
+    }
   },
   {
     "id": 441,
@@ -2518,7 +3151,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/04/Online-Reputation-Monitoring-eon8.jpg",
-    "excerpt": "Online Reputation Management Company that lets you Build and Maintain Brand on the Internet. Bring more price in your Brand!…"
+    "excerpt": "Online Reputation Management Company that lets you Build and Maintain Brand on the Internet. Bring more price in your Brand!…",
+    "seo": {
+      "metaTitle": "Online Reputation Management for Business Success | EON8",
+      "metaDescription": "Online Reputation Management Company that lets you Build and Maintain Brand on Internet. Bring more price in your Brand! Enhance your brand's online reputation Management enterprise with our dependable Online Reputation Management service carrier customized consistent with your needs."
+    }
   },
   {
     "id": 438,
@@ -2533,7 +3170,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2020/04/online-reputation-management.png",
-    "excerpt": "In the widespread internet world, it takes years to build a good online reputation among the audience. As digital media…"
+    "excerpt": "In the widespread internet world, it takes years to build a good online reputation among the audience. As digital media…",
+    "seo": {
+      "metaTitle": "ORM Strategies to Build Business Trust Online | EON8",
+      "metaDescription": "In a world of freedom where we increase your business by increase positive reputation for your business from remove negative reviews, google negative remove removal, remove fake reviews and remove negative complaint etc. it’s your primary responsibility to maintain your reputation."
+    }
   },
   {
     "id": 350,
@@ -2548,7 +3189,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "4 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/themes/eon8/assets/img/orm/reputation.jpg",
-    "excerpt": "Social media has made a space for itself with connecting potential audiences or customers with its engaging content proactively provided…"
+    "excerpt": "Social media has made a space for itself with connecting potential audiences or customers with its engaging content proactively provided…",
+    "seo": {
+      "metaTitle": "ORM helps to Improve your Brand and Business",
+      "metaDescription": "online reputation management can help clients with featuring bad reviews, unfavorable competitors comparisons, negative articles, negative attacks, identity confusion, inaccurate public profiles"
+    }
   },
   {
     "id": 340,
@@ -2563,7 +3208,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2019/07/eon-blog-1.jpg",
-    "excerpt": "The battle between conventional marketing vs digital marketing has always been debated upon. In today’s modern world one needs to…"
+    "excerpt": "The battle between conventional marketing vs digital marketing has always been debated upon. In today’s modern world one needs to…",
+    "seo": {
+      "metaTitle": "Why Digital marketing is a boon for brands? - Eon8",
+      "metaDescription": "In today’s modern world one needs to strategize to increase brand awareness and find why digital marketing service is proven to be vital to businesses to achieve small to exponential growth."
+    }
   },
   {
     "id": 257,
@@ -2578,7 +3227,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2019/12/online-marketing.jpg",
-    "excerpt": "Gone are the days when online or Digital marketing seemed like new for businesses – for both product & service-based.…"
+    "excerpt": "Gone are the days when online or Digital marketing seemed like new for businesses – for both product & service-based.…",
+    "seo": {
+      "metaTitle": "Why Online Marketing Matters for Every Business | Eon8",
+      "metaDescription": "Gone are the days when online or Digital marketing seemed like new for businesses – for both product & service-based. As we all know, from day to dawn,"
+    }
   },
   {
     "id": 233,
@@ -2593,7 +3246,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2019/09/post_2.jpg",
-    "excerpt": "Choosing the right way to market your product/service and reaching the right target audience has always been hard. And after…"
+    "excerpt": "Choosing the right way to market your product/service and reaching the right target audience has always been hard. And after…",
+    "seo": {
+      "metaTitle": "Is Social Media Marketing Worth It for Business? | Eon8",
+      "metaDescription": "Choosing the right way to market your product/service and reaching the right target audience has always been hard. And after a long battle between the old and"
+    }
   },
   {
     "id": 230,
@@ -2608,7 +3265,11 @@ export const BLOG_POSTS_SUMMARIES: BlogPostSummary[] = [
     "readTime": "2 min read",
     "author": "Aanya",
     "thumbnail": "/wp-content/uploads/2019/09/post_1.jpg",
-    "excerpt": "When everything is revolving around your fingers now-a-days, there needs a quick upgrade on building your business with a strong…"
+    "excerpt": "When everything is revolving around your fingers now-a-days, there needs a quick upgrade on building your business with a strong…",
+    "seo": {
+      "metaTitle": "Building a responsive website makes you more profit! - Eon8",
+      "metaDescription": "When everything is revolving around your fingers now-a-days, there needs a quick upgrade on building your business with a strong and responsive website too."
+    }
   }
 ];
 

@@ -6,6 +6,29 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.5.0] - 2026-11-24
+
+### Security
+- **Removed Hardcoded Credentials & Browser-Only Production Fallback (`server/cmsApi.ts`, `src/lib/cms/provider.ts`, `src/pages/admin/components/`)**:
+  - Removed all hardcoded default admin credentials (`admin@eon8.com` / `Eon8Admin@2026`) from server and client code (`C01`), and removed `BrowserFallbackCmsProvider` so edits never silently fall back to browser `localStorage` (`C05`).
+  - Enforced startup credential & session-secret validation (`validateCmsSecurityConfig`): `server/prodServer.ts` refuses to start if `CMS_ADMIN_EMAIL`, `CMS_ADMIN_PASSWORD` (`>= 10` chars, non-placeholder), or `CMS_SESSION_SECRET` (`>= 32` chars, non-placeholder) are missing or weak, and automatically rotates stored secrets & invalidates old tokens when `CMS_SESSION_SECRET` changes (`C02`).
+  - Hardened login rate limiting (`C04`) to use `req.socket.remoteAddress` unless `TRUST_PROXY=true` and evict expired IP buckets; added `HttpOnly` + `Secure` cookies on HTTPS/production, strict `path.relative` directory containment checks (`C06`), binary magic-byte image signature validation on uploads (`C07`, `D05`), safe `decodeURIComponent` returning HTTP `400` instead of crashing (`C03`), and full security headers (`CSP`, `HSTS`, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`).
+- **Restricted Supabase RLS Policies (`supabase/schema.sql`)**:
+  - Added an allowlisted `public.cms_admins` table + `public.is_cms_admin()` security-definer helper so only explicitly allowlisted admins/editors can write blog content (`C08`).
+
+### Added
+- **Server-Side SEO HTML Injection, Real HTTP `404`/`301`, Dynamic `/sitemap.xml` & Compression (`scripts/build-seo-manifest.ts`, `server/prodServer.ts`)**:
+  - Added build-time `scripts/build-seo-manifest.ts` generating `dist/seo-manifest.json` across all 153 pages, 169 blog posts, and 41 legacy redirects.
+  - Updated `server/prodServer.ts` to inject exact per-route `<title>`, `<meta name="description">`, canonical, `robots`, OpenGraph, Twitter Cards, and Schema.org JSON-LD directly into raw HTML (`C02 SEO`), emit true HTTP `301` redirects for legacy WordPress slugs, root blog slugs (`/<slug>` -> `/blog/<slug>`), `/feed/`, `/author/`, `/tag/`, and `/?p=` (`C01`/`C08 SEO`), return true HTTP `404` for unknown routes & `/wp-admin` probes (`C03 SEO`), serve live dynamic `/sitemap.xml` synced with CMS edits (`A17`), and enable Brotli/Gzip compression (`E03`) + 1-year `immutable` caching on hashed `/assets/*` (`F06`).
+- **Synced 164 Live Rank Math Blog Titles & Meta Descriptions (`src/pages/blog/blogIndexData.ts`)**:
+  - Populated exact live WordPress Rank Math `metaTitle` and `metaDescription` fields onto all 164 non-colliding blog post entries (`C06 SEO`), flowing automatically into `BlogPostPage.tsx`, the Admin SEO Studio, and server-side HTML injection.
+- **Built-In Lead Capture Backend, Anti-Spam Protection & Admin Leads Inbox (`server/leadsApi.ts`, `src/lib/leadSubmission.ts`, `src/components/ui/SpamHoneypotField.tsx`, `src/pages/admin/components/AdminLeadsInbox.tsx`)**:
+  - Added `/api/leads` (mounted in both `vite.config.ts` and `server/prodServer.ts`) persisting every website form submission atomically to gitignored `data/leads.json` with optional server-side `LEAD_WEBHOOK_URL` forwarding (`B01`, `C11`).
+  - Added multi-layer anti-spam (`B02`) across all 6 website forms (`LeadCaptureCard`, `QuickCallbackBanner`, `CaptureModal`, `FloatingWidgets`, `DiscoveryCallSection`, and `ChatgptAdsAgencyPage`): off-screen honeypot trap (`companyFax`), minimum human timing check, per-IP rate limiting (10/15min), and strict field validation.
+  - Added **Leads Inbox** inside `/admin-dashboard` (`A10`) with live unread badge, KPI metrics, search & status filters (`New`, `Contacted`, `Qualified`, `Won`, `Archived`), internal sales notes, one-click WhatsApp/Email/Call outreach, and formula-injection-safe CSV export (`/api/leads/admin/export.csv`), plus `public.leads` RLS schema in `supabase/schema.sql`.
+
+---
+
 ## [3.4.0] - 2026-11-24
 
 ### Changed

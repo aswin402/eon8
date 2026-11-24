@@ -3,20 +3,23 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 import { handleCmsApiRequest } from './server/cmsApi.ts'
+import { handleLeadsApiRequest } from './server/leadsApi.ts'
 
 function eon8CmsApiPlugin(): Plugin {
   return {
     name: 'eon8-blog-cms-api',
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
-        const handled = await handleCmsApiRequest(req, res)
-        if (!handled) next()
+        if (await handleCmsApiRequest(req, res)) return
+        if (await handleLeadsApiRequest(req, res)) return
+        next()
       })
     },
     configurePreviewServer(server) {
       server.middlewares.use(async (req, res, next) => {
-        const handled = await handleCmsApiRequest(req, res)
-        if (!handled) next()
+        if (await handleCmsApiRequest(req, res)) return
+        if (await handleLeadsApiRequest(req, res)) return
+        next()
       })
     },
   }

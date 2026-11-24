@@ -15,7 +15,7 @@ export function AdminSettingsView() {
   const session = useBlogCmsStore((s) => s.session);
   const changeCredentials = useBlogCmsStore((s) => s.changeCredentials);
 
-  const [newEmail, setNewEmail] = useState(session.admin?.email || 'admin@eon8.com');
+  const [newEmail, setNewEmail] = useState(session.admin?.email || '');
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -32,10 +32,10 @@ export function AdminSettingsView() {
       setStatus({ type: 'error', message: 'Please enter your current password.' });
       return;
     }
-    if (newPassword.length < 8) {
+    if (newPassword.length < 10) {
       setStatus({
         type: 'error',
-        message: 'New password must be at least 8 characters long.',
+        message: 'New password must be at least 10 characters long.',
       });
       return;
     }
@@ -221,14 +221,14 @@ export function AdminSettingsView() {
 
           <div className="rounded-xl bg-muted/60 p-4 space-y-1.5">
             <p className="text-sm font-heading font-extrabold text-foreground">
-              {session.mode === 'node-api'
-                ? 'Active: Built-in Node File API'
-                : 'Active: Browser Local Fallback'}
+              {session.mode === 'supabase'
+                ? 'Active: Supabase Database Adapter'
+                : 'Active: Built-in Node File API'}
             </p>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              {session.mode === 'node-api'
-                ? 'All blog CRUD operations persist atomically to data/cms-content.json and uploaded images save to public/uploads/blog/.'
-                : 'Running without a Node server — changes are stored in browser localStorage until Node API or Supabase is connected.'}
+              {session.mode === 'supabase'
+                ? 'All blog CRUD operations persist to Supabase Postgres & Storage.'
+                : 'All blog CRUD operations persist atomically to gitignored data/cms-content.json and uploaded images save to public/uploads/blog/.'}
             </p>
           </div>
 

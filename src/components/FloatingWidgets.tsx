@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PhoneCall, MessageCircle, X, Send, CheckCircle2, ArrowUp, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { SpamHoneypotField } from '@/components/ui/SpamHoneypotField';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
 
 export function FloatingWidgets() {
@@ -11,6 +12,8 @@ export function FloatingWidgets() {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const drawerOpenedAtRef = useRef<number>(0);
   const [submitted, setSubmitted] = useState(false);
   const [submissionResult, setSubmissionResult] = useState<LeadSubmissionResult | null>(null);
 
@@ -29,6 +32,8 @@ export function FloatingWidgets() {
       phone: phone.trim(),
       email: email.trim(),
       message: message.trim() || undefined,
+      honeypot,
+      formStartedAt: drawerOpenedAtRef.current,
     });
     setSubmissionResult(result);
     setSubmitted(true);
@@ -41,6 +46,8 @@ export function FloatingWidgets() {
     setPhone('');
     setEmail('');
     setMessage('');
+    setHoneypot('');
+    drawerOpenedAtRef.current = Date.now();
     setIsDrawerOpen(true);
   };
 
@@ -141,7 +148,8 @@ export function FloatingWidgets() {
               </div>
 
               {!submitted ? (
-                <form onSubmit={handleSubmit} className="flex-1 flex flex-col justify-between">
+                <form onSubmit={handleSubmit} className="relative flex-1 flex flex-col justify-between">
+                  <SpamHoneypotField id="floating-drawer-fax" value={honeypot} onChange={setHoneypot} />
                   <div className="space-y-4">
                     <div className="space-y-1">
                       <label className="text-xs font-bold text-foreground/80 uppercase">Name</label>

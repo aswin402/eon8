@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, CheckCircle2, RefreshCw, MessageCircle, Mail } from 'lucide-react';
 import { useAppStore } from '@/store/useAppStore';
 import { Button } from '@/components/ui/button';
+import { SpamHoneypotField } from '@/components/ui/SpamHoneypotField';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
 
 export function CaptureModal() {
@@ -14,6 +15,8 @@ export function CaptureModal() {
   const [phone, setPhone] = useState('');
   const [country, setCountry] = useState('');
   const [message, setMessage] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const modalOpenedAtRef = useRef<number>(0);
   
   // Captcha State
   const [num1, setNum1] = useState(0);
@@ -36,6 +39,8 @@ export function CaptureModal() {
         setPhone('');
         setCountry('');
         setMessage('');
+        setHoneypot('');
+        modalOpenedAtRef.current = Date.now();
         setSubmitted(false);
         setSubmissionResult(null);
         setGeneralError('');
@@ -92,7 +97,15 @@ export function CaptureModal() {
       phone: phone.trim(),
       country: country.trim() || undefined,
       message: message.trim() || undefined,
+      honeypot,
+      formStartedAt: modalOpenedAtRef.current,
     });
+
+    if (result.error) {
+      setGeneralError(result.error);
+      triggerShake();
+      return;
+    }
 
     setSubmissionResult(result);
     setSubmitted(true);
@@ -153,7 +166,8 @@ export function CaptureModal() {
 
             {!submitted ? (
               // Form Layout
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="relative space-y-5">
+                <SpamHoneypotField id="capture-modal-fax" value={honeypot} onChange={setHoneypot} />
                 <div className="text-center space-y-1 mb-2">
                   <h3 id="capture-modal-title" className="text-2xl font-heading font-extrabold tracking-tight">Quick Consultation</h3>
                   <p className="text-xs text-muted-foreground">Get a bespoke digital marketing proposal today</p>

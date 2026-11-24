@@ -7,6 +7,7 @@ import {
   FileText,
   FolderKanban,
   Image as ImageIcon,
+  Inbox,
   LogOut,
   Moon,
   Pencil,
@@ -24,11 +25,12 @@ import type { CmsBlogPostRecord, ManagedBlogSummary } from '@/lib/cms/types';
 import { useThemeStore } from '@/store/useThemeStore';
 import { AdminArticleStudio } from './components/AdminArticleStudio';
 import { AdminCategoryManager } from './components/AdminCategoryManager';
+import { AdminLeadsInbox, type LeadStatusCounts } from './components/AdminLeadsInbox';
 import { AdminLoginView } from './components/AdminLoginView';
 import { AdminMediaLibrary } from './components/AdminMediaModal';
 import { AdminSettingsView } from './components/AdminSettingsView';
 
-type AdminSectionTab = 'articles' | 'categories' | 'media' | 'settings' | 'trash';
+type AdminSectionTab = 'articles' | 'leads' | 'categories' | 'media' | 'settings' | 'trash';
 type StatusFilterTab = 'all' | 'published' | 'draft' | 'featured' | 'custom';
 type SortOption = 'newest' | 'oldest' | 'title' | 'updated';
 
@@ -58,6 +60,7 @@ export function AdminDashboardPage() {
   const bulkMutate = useBlogCmsStore((s) => s.bulkMutate);
 
   const [activeTab, setActiveTab] = useState<AdminSectionTab>('articles');
+  const [leadCounts, setLeadCounts] = useState<LeadStatusCounts | null>(null);
   const [statusFilter, setStatusFilter] = useState<StatusFilterTab>('all');
   const [categoryFilter, setCategoryFilter] = useState<string>('ALL');
   const [sortBy, setSortBy] = useState<SortOption>('newest');
@@ -78,6 +81,28 @@ export function AdminDashboardPage() {
   useEffect(() => {
     void checkSession();
   }, [checkSession]);
+
+  // Fetch initial lead badge count once authenticated
+  useEffect(() => {
+    if (!session.authenticated) return;
+    let cancelled = false;
+    const headers = new Headers();
+    try {
+      const token = window.sessionStorage.getItem('eon8_cms_bearer_token');
+      if (token) headers.set('Authorization', `Bearer ${token}`);
+    } catch {
+      // Ignore storage errors
+    }
+    fetch('/api/leads/admin', { credentials: 'include', headers })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data: { counts?: LeadStatusCounts } | null) => {
+        if (!cancelled && data?.counts) setLeadCounts(data.counts);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [session.authenticated]);
 
   // Open ?edit=<id> automatically when linked from Draft Preview
   const editQueryId = searchParams.get('edit');
@@ -357,6 +382,32 @@ export function AdminDashboardPage() {
 
                 <button
                   type="button"
+                  onClick={() => setActiveTab('leads')}
+                  className={`flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-colors cursor-pointer ${
+                    activeTab === 'leads'
+                      ? 'bg-white/14 text-white'
+                      : 'text-slate-300 hover:bg-white/8 hover:text-white'
+                  }`}
+                >
+                  <span className="inline-flex items-center gap-2.5">
+                    <Inbox className="w-4 h-4 text-emerald-400" />
+                    <span>Leads Inbox</span>
+                  </span>
+                  {leadCounts && (
+                    <span
+                      className={`px-2 py-0.5 rounded-full text-[10px] ${
+                        leadCounts.new > 0
+                          ? 'bg-[#FD5900] text-white font-extrabold'
+                          : 'bg-white/10 text-slate-200'
+                      }`}
+                    >
+                      {leadCounts.new > 0 ? `${leadCounts.new} new` : leadCounts.total}
+                    </span>
+                  )}
+                </button>
+
+                <button
+                  type="button"
                   onClick={() => setActiveTab('categories')}
                   className={`flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-colors cursor-pointer ${
                     activeTab === 'categories'
@@ -463,6 +514,7 @@ export function AdminDashboardPage() {
               <div>
                 <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-foreground tracking-tight">
                   {activeTab === 'articles' && 'Blog Articles & Publications'}
+                  {activeTab === 'leads' && 'Website Leads & Enquiries Inbox'}
                   {activeTab === 'categories' && 'Topic & Category Architecture'}
                   {activeTab === 'media' && 'Editorial Media Library'}
                   {activeTab === 'settings' && 'Security & CMS Engine'}
@@ -471,6 +523,8 @@ export function AdminDashboardPage() {
                 <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                   {activeTab === 'articles' &&
                     'Create, edit, feature, draft, or delete articles with instant live synchronization.'}
+                  {activeTab === 'leads' &&
+                    'Review incoming website enquiries, track sales follow-up status, add internal notes, or export CSV.'}
                   {activeTab === 'categories' &&
                     'Organize Eon8 category archives and topic taxonomy.'}
                   {activeTab === 'media' &&
@@ -507,6 +561,8 @@ export function AdminDashboardPage() {
                 <span>Opening Article Studio…</span>
               </div>
             )}
+
+            {activeTab === 'leads' && <AdminLeadsInbox onCountsChange={setLeadCounts} />}
 
             {activeTab === 'categories' && <AdminCategoryManager />}
 

@@ -33,8 +33,62 @@ create table if not exists public.blog_posts (
 create index if not exists idx_blog_posts_status_date on public.blog_posts (status, is_deleted, date_iso desc);
 create index if not exists idx_blog_posts_slug on public.blog_posts (slug);
 
+create table if not exists public.leads (
+  id text primary key,
+  source text not null,
+  name text,
+  email text,
+  phone text,
+  country text,
+  website text,
+  message text,
+  preferred_slot text,
+  page_url text,
+  status text not null default 'new' check (status in ('new', 'contacted', 'qualified', 'won', 'archived')),
+  notes text,
+  webhook_forwarded boolean not null default false,
+  ip_hash text,
+  user_agent text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists idx_leads_status_created on public.leads (status, created_at desc);
+
+-- Allowlisted CMS administrators (managed exclusively via service_role / SQL Editor)
+create table if not exists public.cms_admins (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  email text not null unique,
+  role text not null default 'admin' check (role in ('admin', 'editor')),
+  created_at timestamptz not null default now()
+);
+
+alter table public.cms_admins enable row level security;
 alter table public.blog_categories enable row level security;
 alter table public.blog_posts enable row level security;
+alter table public.leads enable row level security;
+
+-- Authenticated users may check only their own allowlist entry; no client-side writes permitted
+create policy "Users can view own cms_admin record"
+  on public.cms_admins for select
+  to authenticated
+  using (auth.uid() = user_id);
+
+-- Helper predicate verifying caller is an allowlisted CMS admin/editor
+create or replace function public.is_cms_admin()
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1
+    from public.cms_admins
+    where user_id = auth.uid()
+      and role in ('admin', 'editor')
+  );
+$$;
 
 -- Public readers can view active categories and published non-deleted posts
 create policy "Public read blog_categories"
@@ -45,17 +99,32 @@ create policy "Public read published blog_posts"
   on public.blog_posts for select
   using (status = 'published' and is_deleted = false);
 
--- Authenticated Supabase admins can manage all categories and posts
-create policy "Authenticated admins full access blog_categories"
+-- Only allowlisted CMS admins/editors can manage categories and posts (including drafts)
+create policy "Allowlisted CMS admins full access blog_categories"
   on public.blog_categories for all
   to authenticated
-  using (true)
-  with check (true);
+  using (public.is_cms_admin())
+  with check (public.is_cms_admin());
 
-create policy "Authenticated admins full access blog_posts"
+create policy "Allowlisted CMS admins full access blog_posts"
   on public.blog_posts for all
   to authenticated
-  using (true)
-  with check (true);
+  using (public.is_cms_admin())
+  with check (public.is_cms_admin());
 
--- Optional: Create public storage bucket `blog-media` in Supabase Storage for uploaded images.
+-- Public visitors can submit new leads; only allowlisted admins can read/update/delete leads
+create policy "Public insert leads"
+  on public.leads for insert
+  to anon, authenticated
+  with check (status = 'new');
+
+create policy "Allowlisted CMS admins manage leads"
+  on public.leads for all
+  to authenticated
+  using (public.is_cms_admin())
+  with check (public.is_cms_admin());
+
+-- To grant an authenticated Supabase user CMS access, run in SQL Editor:
+-- insert into public.cms_admins (user_id, email, role)
+-- values ('<auth-user-uuid>', 'you@company.com', 'admin');
+-- Optional: Create public storage bucket `blog-media` in Supabase Storage with is_cms_admin() write policies.

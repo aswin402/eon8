@@ -1,6 +1,7 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, Mail, MessageCircle, PhoneCall, Send, ShieldCheck } from 'lucide-react';
+import { SpamHoneypotField } from '@/components/ui/SpamHoneypotField';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
 import { VERTICAL_THEMES, type VerticalTheme } from './types';
 
@@ -47,6 +48,11 @@ export function LeadCaptureCard({
   const [website, setWebsite] = useState('');
   const [message, setMessage] = useState('');
   const [mathAnswer, setMathAnswer] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const formStartedAtRef = useRef<number>(0);
+  useEffect(() => {
+    formStartedAtRef.current = Date.now();
+  }, []);
   const [submitting, setSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<{
     ok: boolean;
@@ -80,8 +86,15 @@ export function LeadCaptureCard({
       country: country.trim() || undefined,
       website: website.trim() || undefined,
       message: message.trim() || undefined,
+      honeypot,
+      formStartedAt: formStartedAtRef.current,
     });
     setSubmitting(false);
+
+    if (result.error) {
+      setFeedback({ ok: false, text: result.error, result });
+      return;
+    }
 
     setFeedback({
       ok: true,
@@ -97,6 +110,8 @@ export function LeadCaptureCard({
     setWebsite('');
     setMessage('');
     setMathAnswer('');
+    setHoneypot('');
+    formStartedAtRef.current = Date.now();
   };
 
   const inputCls =
@@ -118,7 +133,8 @@ export function LeadCaptureCard({
         )}
       </div>
 
-      <form onSubmit={handleSubmit} noValidate className="space-y-3.5">
+      <form onSubmit={handleSubmit} noValidate className="relative space-y-3.5">
+        <SpamHoneypotField id={`${id || 'lead'}-fax`} value={honeypot} onChange={setHoneypot} />
         <div>
           <label className="sr-only" htmlFor={`${id || 'lead'}-name`}>
             Full Name
@@ -303,6 +319,11 @@ export function QuickCallbackBanner({
 }: QuickCallbackBannerProps) {
   const palette = VERTICAL_THEMES[theme];
   const [phone, setPhone] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const startedAtRef = useRef<number>(0);
+  useEffect(() => {
+    startedAtRef.current = Date.now();
+  }, []);
   const [callbackResult, setCallbackResult] = useState<LeadSubmissionResult | null>(null);
 
   const onSubmit = async (e: FormEvent) => {
@@ -311,9 +332,15 @@ export function QuickCallbackBanner({
     const result = await submitLeadEnquiry({
       source: '5-Minute Callback Request',
       phone: phone.trim(),
+      honeypot,
+      formStartedAt: startedAtRef.current,
     });
     setCallbackResult(result);
-    setPhone('');
+    if (!result.error) {
+      setPhone('');
+      setHoneypot('');
+      startedAtRef.current = Date.now();
+    }
   };
 
   return (
@@ -349,8 +376,9 @@ export function QuickCallbackBanner({
         ) : (
           <form
             onSubmit={onSubmit}
-            className="w-full max-w-md flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5"
+            className="relative w-full max-w-md flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5"
           >
+            <SpamHoneypotField id="callback-fax" value={honeypot} onChange={setHoneypot} />
             <input
               type="tel"
               placeholder="Enter Mobile / WhatsApp Number"

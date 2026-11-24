@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowDown,
@@ -27,6 +27,7 @@ import {
   PageSeo,
   ProcessRoadmapSection,
 } from '@/components/sections';
+import { SpamHoneypotField } from '@/components/ui/SpamHoneypotField';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
 
 interface ShowcaseExample {
@@ -358,6 +359,8 @@ export function ChatgptAdsAgencyPage() {
   const [website, setWebsite] = useState('');
   const [market, setMarket] = useState('');
   const [selectedFocus, setSelectedFocus] = useState<ServiceFocusKey>('visibility');
+  const [honeypot, setHoneypot] = useState('');
+  const auditOpenedAtRef = useRef<number>(0);
   const [submittingAudit, setSubmittingAudit] = useState(false);
   const [leadResult, setLeadResult] = useState<LeadSubmissionResult | null>(null);
 
@@ -381,6 +384,8 @@ export function ChatgptAdsAgencyPage() {
   const openAuditDialog = (focus: ServiceFocusKey = 'visibility', isPackage = false) => {
     setSelectedFocus(focus);
     setLeadResult(null);
+    setHoneypot('');
+    auditOpenedAtRef.current = Date.now();
     setDialogMode({ type: 'audit', focus, isPackage });
   };
 
@@ -403,6 +408,8 @@ export function ChatgptAdsAgencyPage() {
         website: website.trim(),
         country: market.trim(),
         message: `Requested ${isPackage ? 'package' : 'visibility audit'} for ${focusLabel}.`,
+        honeypot,
+        formStartedAt: auditOpenedAtRef.current,
       });
       setLeadResult(result);
     } finally {
@@ -1142,7 +1149,8 @@ export function ChatgptAdsAgencyPage() {
                   </p>
                 </div>
 
-                <form onSubmit={(e) => void handleAuditSubmit(e)} className="space-y-4">
+                <form onSubmit={(e) => void handleAuditSubmit(e)} className="relative space-y-4">
+                  <SpamHoneypotField id="chatgpt-audit-fax" value={honeypot} onChange={setHoneypot} />
                   <label className="block space-y-1.5">
                     <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                       Your Email or WhatsApp Number *

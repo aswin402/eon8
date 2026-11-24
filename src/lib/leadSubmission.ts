@@ -8,10 +8,15 @@ export interface LeadSubmissionPayload {
   message?: string;
   preferredSlot?: string;
   pageUrl?: string;
+  honeypot?: string;
+  formStartedAt?: number;
 }
 
 export interface LeadSubmissionResult {
   deliveredToWebhook: boolean;
+  storedInInbox?: boolean;
+  leadId?: string;
+  error?: string;
   whatsappHref: string;
   mailtoHref: string;
 }
@@ -54,12 +59,54 @@ export async function submitLeadEnquiry(
   };
 
   const links = buildLeadSummaryLinks(enriched);
-  const endpoint =
+
+  // 1. Primary delivery: built-in Eon8 Node Leads API (persists to Inbox + forwards server webhook)
+  try {
+    const apiRes = await fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...enriched,
+        submittedAt: new Date().toISOString(),
+      }),
+    });
+
+    const contentType = apiRes.headers.get('content-type') || '';
+    if (contentType.includes('application/json')) {
+      const data = (await apiRes.json()) as {
+        ok?: boolean;
+        stored?: boolean;
+        id?: string;
+        error?: string;
+      };
+      if (apiRes.ok && data.ok) {
+        return {
+          deliveredToWebhook: true,
+          storedInInbox: Boolean(data.stored),
+          leadId: data.id,
+          ...links,
+        };
+      }
+      if (apiRes.status === 400 || apiRes.status === 429) {
+        return {
+          deliveredToWebhook: false,
+          storedInInbox: false,
+          error: data.error || 'Could not submit enquiry right now.',
+          ...links,
+        };
+      }
+    }
+  } catch {
+    // Fall through to optional client webhook or instant WhatsApp/Email links
+  }
+
+  // 2. Optional client-side webhook fallback (for static previews without Node server)
+  const fallbackEndpoint =
     import.meta.env.VITE_LEAD_WEBHOOK_URL || import.meta.env.VITE_API_URL || '';
 
-  if (endpoint && !endpoint.includes('api.example.com')) {
+  if (fallbackEndpoint && !fallbackEndpoint.includes('api.example.com')) {
     try {
-      const response = await fetch(endpoint, {
+      const response = await fetch(fallbackEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

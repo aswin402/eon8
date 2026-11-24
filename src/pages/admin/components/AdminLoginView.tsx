@@ -165,7 +165,7 @@ export function AdminLoginView({
                   type="email"
                   autoComplete="username"
                   required
-                  placeholder="admin@eon8.com"
+                  placeholder="you@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full rounded-xl bg-slate-900/90 border border-white/15 pl-11 pr-4 py-3.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#FD5900] focus:ring-2 focus:ring-[#FD5900]/30 transition-all"

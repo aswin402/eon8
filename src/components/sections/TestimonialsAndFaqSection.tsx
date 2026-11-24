@@ -1,4 +1,4 @@
-import { useState, type FormEvent, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -12,6 +12,7 @@ import {
   Star,
   Video,
 } from 'lucide-react';
+import { SpamHoneypotField } from '@/components/ui/SpamHoneypotField';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
 import { LeadCaptureCard } from './LeadCaptureCard';
 import { SmartActionButton } from './SmartActionButton';
@@ -290,6 +291,11 @@ export function DiscoveryCallSection({
   const [selectedSlot, setSelectedSlot] = useState('11:30 AM');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const startedAtRef = useRef<number>(0);
+  useEffect(() => {
+    startedAtRef.current = Date.now();
+  }, []);
   const [confirmed, setConfirmed] = useState(false);
   const [bookingResult, setBookingResult] = useState<LeadSubmissionResult | null>(null);
 
@@ -301,9 +307,13 @@ export function DiscoveryCallSection({
       name: name.trim(),
       email: email.trim(),
       preferredSlot: `${selectedDay} at ${selectedSlot}`,
+      honeypot,
+      formStartedAt: startedAtRef.current,
     });
     setBookingResult(result);
     setConfirmed(true);
+    setHoneypot('');
+    startedAtRef.current = Date.now();
   };
 
   return (
@@ -400,7 +410,8 @@ export function DiscoveryCallSection({
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleBook} className="space-y-5">
+              <form onSubmit={handleBook} className="relative space-y-5">
+                <SpamHoneypotField id="discovery-call-fax" value={honeypot} onChange={setHoneypot} />
                 <div>
                   <span className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
                     Select Preferred Day

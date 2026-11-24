@@ -21,6 +21,7 @@ interface StoredAuthState {
   passwordHash: string;
   passwordSalt: string;
   sessionSecret: string;
+  sessionSecretFingerprint?: string;
   authVersion: number;
   passwordChangedInDashboard: boolean;
   seededEnvFingerprint: string;
@@ -68,6 +69,50 @@ interface StoredContentState {
 }
 
 const loginAttemptsByIp = new Map<string, { count: number; resetAt: number }>();
+const MAX_RATE_LIMIT_ENTRIES = 5000;
+let ephemeralDevSecret: string | null = null;
+let hasWarnedWeakDevConfig = false;
+
+export function isPathInsideDir(targetPath: string, baseDir: string): boolean {
+  const resolvedBase = path.resolve(baseDir);
+  const resolvedTarget = path.resolve(targetPath);
+  const rel = path.relative(resolvedBase, resolvedTarget);
+  return rel !== '' && !rel.startsWith('..') && !path.isAbsolute(rel);
+}
+
+function safeDecodeUriComponent(value: string): string | null {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return null;
+  }
+}
+
+function isTruthyEnv(key: string): boolean {
+  const val = getEnvValue(key, '').toLowerCase();
+  return val === '1' || val === 'true' || val === 'yes';
+}
+
+function isProductionMode(): boolean {
+  return (process.env.NODE_ENV || '').toLowerCase() === 'production';
+}
+
+function isPlaceholderPassword(password: string): boolean {
+  const trimmed = password.trim();
+  if (trimmed.length < 10) return true;
+  return /^(changeme|password|admin123|eon8admin|12345678|replace-with)/i.test(trimmed) ||
+    /ChangeMe@Eon8/i.test(trimmed);
+}
+
+function isPlaceholderSecret(secret: string): boolean {
+  const trimmed = secret.trim();
+  if (trimmed.length < 32) return true;
+  return /(replace-with|changeme|your-secret|example|placeholder|default-secret)/i.test(trimmed);
+}
+
+function sha256Hex(value: string): string {
+  return crypto.createHash('sha256').update(value).digest('hex');
+}
 
 function loadDotEnvMap(): Record<string, string> {
   const envMap: Record<string, string> = {};
@@ -96,7 +141,7 @@ function loadDotEnvMap(): Record<string, string> {
   return envMap;
 }
 
-function getEnvValue(key: string, fallback: string): string {
+export function getEnvValue(key: string, fallback = ''): string {
   if (process.env[key] && process.env[key]!.trim().length > 0) {
     return process.env[key]!.trim();
   }
@@ -118,50 +163,149 @@ function verifyPassword(password: string, salt: string, expectedHex: string): bo
   return crypto.timingSafeEqual(computed, expected);
 }
 
-function atomicWriteJson(filePath: string, data: unknown): void {
+export function atomicWriteJson(filePath: string, data: unknown, mode?: number): void {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   const tmpFile = `${filePath}.${process.pid}.${Date.now()}.tmp`;
-  fs.writeFileSync(tmpFile, `${JSON.stringify(data, null, 2)}\n`, 'utf-8');
+  fs.writeFileSync(tmpFile, `${JSON.stringify(data, null, 2)}\n`, {
+    encoding: 'utf-8',
+    ...(mode ? { mode } : {}),
+  });
   fs.renameSync(tmpFile, filePath);
 }
 
-function ensureAuthState(): StoredAuthState {
-  const envEmail = getEnvValue('CMS_ADMIN_EMAIL', 'admin@eon8.com').toLowerCase();
-  const envPassword = getEnvValue('CMS_ADMIN_PASSWORD', 'Eon8Admin@2026');
-  const envSecret = getEnvValue(
-    'CMS_SESSION_SECRET',
-    crypto.randomBytes(32).toString('hex')
-  );
-  const envFingerprint = crypto
-    .createHash('sha256')
-    .update(`${envEmail}:${envPassword}`)
-    .digest('hex');
+function readExistingAuthFile(): StoredAuthState | null {
+  if (!fs.existsSync(AUTH_FILE)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(AUTH_FILE, 'utf-8')) as StoredAuthState;
+  } catch {
+    return null;
+  }
+}
 
-  if (fs.existsSync(AUTH_FILE)) {
-    try {
-      const parsed = JSON.parse(fs.readFileSync(AUTH_FILE, 'utf-8')) as StoredAuthState;
-      // If admin never manually changed password in dashboard and updated .env, sync automatically
-      if (
-        !parsed.passwordChangedInDashboard &&
-        parsed.seededEnvFingerprint !== envFingerprint
-      ) {
-        const salt = crypto.randomBytes(16).toString('hex');
-        const updated: StoredAuthState = {
-          ...parsed,
-          email: envEmail,
-          passwordSalt: salt,
-          passwordHash: hashPassword(envPassword, salt),
-          seededEnvFingerprint: envFingerprint,
-          authVersion: (parsed.authVersion || 1) + 1,
-          updatedAt: new Date().toISOString(),
-        };
-        atomicWriteJson(AUTH_FILE, updated);
-        return updated;
-      }
-      return parsed;
-    } catch {
-      // Fall through and recreate cleanly
+export function validateCmsSecurityConfig(strict = isProductionMode()): {
+  ok: boolean;
+  errors: string[];
+  warnings: string[];
+} {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  const existing = readExistingAuthFile();
+  const hasDashboardPassword = Boolean(existing?.passwordChangedInDashboard && existing.passwordHash);
+
+  const envEmail = getEnvValue('CMS_ADMIN_EMAIL', '').toLowerCase();
+  const envPassword = getEnvValue('CMS_ADMIN_PASSWORD', '');
+  const envSecret = getEnvValue('CMS_SESSION_SECRET', '');
+
+  if (!hasDashboardPassword) {
+    if (!envEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(envEmail)) {
+      errors.push('CMS_ADMIN_EMAIL must be set to a valid email address in the environment or .env.');
     }
+    if (!envPassword) {
+      errors.push('CMS_ADMIN_PASSWORD must be set in the environment or .env.');
+    } else if (isPlaceholderPassword(envPassword)) {
+      const msg =
+        'CMS_ADMIN_PASSWORD is too weak or uses a placeholder value (minimum 10 characters; avoid example/default passwords).';
+      if (strict) errors.push(msg);
+      else warnings.push(msg);
+    }
+  }
+
+  if (!envSecret || isPlaceholderSecret(envSecret)) {
+    const msg =
+      'CMS_SESSION_SECRET must be a unique random string of at least 32 characters (generate via `node -e "console.log(require(\'crypto\').randomBytes(32).toString(\'hex\'))"`).';
+    if (strict) errors.push(msg);
+    else warnings.push(msg);
+  }
+
+  return { ok: errors.length === 0, errors, warnings };
+}
+
+function resolveSessionSecret(strict: boolean): string {
+  const envSecret = getEnvValue('CMS_SESSION_SECRET', '');
+  if (envSecret && !isPlaceholderSecret(envSecret)) {
+    return envSecret;
+  }
+  if (strict) {
+    throw new Error(
+      'CMS_SESSION_SECRET is missing, shorter than 32 characters, or uses a placeholder value. Refusing to start CMS auth in production.'
+    );
+  }
+  if (!ephemeralDevSecret) {
+    ephemeralDevSecret = crypto.randomBytes(32).toString('hex');
+  }
+  return ephemeralDevSecret;
+}
+
+function ensureAuthState(): StoredAuthState {
+  const strict = isProductionMode();
+  const validation = validateCmsSecurityConfig(strict);
+  if (!validation.ok) {
+    throw new Error(`CMS security configuration error: ${validation.errors.join(' ')}`);
+  }
+  if (validation.warnings.length > 0 && !hasWarnedWeakDevConfig) {
+    hasWarnedWeakDevConfig = true;
+    console.warn(`[CMS Security Warning] ${validation.warnings.join(' ')}`);
+  }
+
+  const envEmail = getEnvValue('CMS_ADMIN_EMAIL', '').toLowerCase();
+  const envPassword = getEnvValue('CMS_ADMIN_PASSWORD', '');
+  const resolvedSecret = resolveSessionSecret(strict);
+  const secretFingerprint = sha256Hex(resolvedSecret);
+  const envFingerprint = envEmail && envPassword ? sha256Hex(`${envEmail}:${envPassword}`) : '';
+
+  const parsed = readExistingAuthFile();
+  if (parsed) {
+    let changed = false;
+    let next: StoredAuthState = { ...parsed };
+
+    // Rotate stored session secret immediately if placeholder or CMS_SESSION_SECRET changed in env
+    const storedSecretInvalid = !next.sessionSecret || isPlaceholderSecret(next.sessionSecret);
+    const envSecretRotated =
+      Boolean(getEnvValue('CMS_SESSION_SECRET', '')) &&
+      !isPlaceholderSecret(getEnvValue('CMS_SESSION_SECRET', '')) &&
+      next.sessionSecretFingerprint !== secretFingerprint;
+
+    if (storedSecretInvalid || envSecretRotated) {
+      next = {
+        ...next,
+        sessionSecret: resolvedSecret,
+        sessionSecretFingerprint: secretFingerprint,
+        authVersion: (next.authVersion || 1) + 1,
+        updatedAt: new Date().toISOString(),
+      };
+      changed = true;
+    }
+
+    // If admin never manually changed password in dashboard and updated .env, sync automatically
+    if (
+      !next.passwordChangedInDashboard &&
+      envEmail &&
+      envPassword &&
+      next.seededEnvFingerprint !== envFingerprint
+    ) {
+      const salt = crypto.randomBytes(16).toString('hex');
+      next = {
+        ...next,
+        email: envEmail,
+        passwordSalt: salt,
+        passwordHash: hashPassword(envPassword, salt),
+        seededEnvFingerprint: envFingerprint,
+        authVersion: (next.authVersion || 1) + 1,
+        updatedAt: new Date().toISOString(),
+      };
+      changed = true;
+    }
+
+    if (changed) {
+      atomicWriteJson(AUTH_FILE, next, 0o600);
+    }
+    return next;
+  }
+
+  if (!envEmail || !envPassword) {
+    throw new Error(
+      'CMS_ADMIN_EMAIL and CMS_ADMIN_PASSWORD must be configured in .env before signing in.'
+    );
   }
 
   const salt = crypto.randomBytes(16).toString('hex');
@@ -169,14 +313,45 @@ function ensureAuthState(): StoredAuthState {
     email: envEmail,
     passwordSalt: salt,
     passwordHash: hashPassword(envPassword, salt),
-    sessionSecret: envSecret,
+    sessionSecret: resolvedSecret,
+    sessionSecretFingerprint: secretFingerprint,
     authVersion: 1,
     passwordChangedInDashboard: false,
     seededEnvFingerprint: envFingerprint,
     updatedAt: new Date().toISOString(),
   };
-  atomicWriteJson(AUTH_FILE, initial);
+  atomicWriteJson(AUTH_FILE, initial, 0o600);
   return initial;
+}
+
+export function readCmsContentStateForServer(): StoredContentState {
+  if (fs.existsSync(CONTENT_FILE)) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(CONTENT_FILE, 'utf-8')) as Partial<StoredContentState>;
+      return {
+        version: parsed.version ?? 1,
+        upsertedPosts: parsed.upsertedPosts ?? {},
+        deletedPostIds: Array.isArray(parsed.deletedPostIds) ? parsed.deletedPostIds : [],
+        deletedSlugs: Array.isArray(parsed.deletedSlugs) ? parsed.deletedSlugs : [],
+        slugRedirects: parsed.slugRedirects ?? {},
+        customCategories: Array.isArray(parsed.customCategories) ? parsed.customCategories : [],
+        deletedCategorySlugs: Array.isArray(parsed.deletedCategorySlugs)
+          ? parsed.deletedCategorySlugs
+          : [],
+      };
+    } catch {
+      // Fall through to empty state
+    }
+  }
+  return {
+    version: 1,
+    upsertedPosts: {},
+    deletedPostIds: [],
+    deletedSlugs: [],
+    slugRedirects: {},
+    customCategories: [],
+    deletedCategorySlugs: [],
+  };
 }
 
 function ensureContentState(): StoredContentState {
@@ -266,11 +441,61 @@ function parseCookies(req: IncomingMessage): Record<string, string> {
     const idx = part.indexOf('=');
     if (idx > 0) {
       const k = part.slice(0, idx).trim();
-      const v = decodeURIComponent(part.slice(idx + 1).trim());
-      cookies[k] = v;
+      const decoded = safeDecodeUriComponent(part.slice(idx + 1).trim());
+      if (decoded !== null) {
+        cookies[k] = decoded;
+      }
     }
   }
   return cookies;
+}
+
+function isRequestSecure(req: IncomingMessage): boolean {
+  const forced = getEnvValue('CMS_COOKIE_SECURE', '').toLowerCase();
+  if (forced === 'true' || forced === '1') return true;
+  if (forced === 'false' || forced === '0') return false;
+  if ((req.socket as { encrypted?: boolean }).encrypted) return true;
+  if (isTruthyEnv('TRUST_PROXY')) {
+    const proto = String(req.headers['x-forwarded-proto'] || '')
+      .split(',')[0]
+      .trim()
+      .toLowerCase();
+    if (proto === 'https') return true;
+  }
+  return isProductionMode();
+}
+
+function buildSessionCookie(req: IncomingMessage, token: string, maxAgeSec: number): string {
+  const secureFlag = isRequestSecure(req) ? '; Secure' : '';
+  return `${SESSION_COOKIE_NAME}=${encodeURIComponent(token)}; HttpOnly; Path=/; Max-Age=${maxAgeSec}; SameSite=Lax${secureFlag}`;
+}
+
+export function getClientIp(req: IncomingMessage): string {
+  if (isTruthyEnv('TRUST_PROXY')) {
+    const forwarded = String(req.headers['x-forwarded-for'] || '')
+      .split(',')[0]
+      .trim();
+    if (forwarded) return forwarded;
+  }
+  return req.socket.remoteAddress || 'unknown';
+}
+
+function pruneLoginAttempts(now: number): void {
+  if (loginAttemptsByIp.size === 0) return;
+  for (const [key, entry] of loginAttemptsByIp.entries()) {
+    if (entry.resetAt <= now) {
+      loginAttemptsByIp.delete(key);
+    }
+  }
+  if (loginAttemptsByIp.size >= MAX_RATE_LIMIT_ENTRIES) {
+    const excess = loginAttemptsByIp.size - Math.floor(MAX_RATE_LIMIT_ENTRIES * 0.8);
+    let removed = 0;
+    for (const key of loginAttemptsByIp.keys()) {
+      loginAttemptsByIp.delete(key);
+      removed += 1;
+      if (removed >= excess) break;
+    }
+  }
 }
 
 function isRequestAuthenticated(req: IncomingMessage, auth: StoredAuthState): boolean {
@@ -285,7 +510,16 @@ function isRequestAuthenticated(req: IncomingMessage, auth: StoredAuthState): bo
   return false;
 }
 
-function sendJson(
+export function verifyAdminRequest(req: IncomingMessage): boolean {
+  try {
+    const auth = ensureAuthState();
+    return isRequestAuthenticated(req, auth);
+  } catch {
+    return false;
+  }
+}
+
+export function sendJson(
   res: ServerResponse,
   statusCode: number,
   body: unknown,
@@ -295,19 +529,20 @@ function sendJson(
   res.writeHead(statusCode, {
     'Content-Type': 'application/json; charset=utf-8',
     'Cache-Control': 'no-store',
+    'X-Content-Type-Options': 'nosniff',
     ...extraHeaders,
   });
   res.end(json);
 }
 
-function readJsonBody<T>(req: IncomingMessage): Promise<T> {
+export function readJsonBody<T>(req: IncomingMessage, maxBytes = MAX_BODY_BYTES): Promise<T> {
   return new Promise((resolve, reject) => {
     const chunks: Buffer[] = [];
     let total = 0;
     req.on('data', (chunk: Buffer) => {
       total += chunk.length;
-      if (total > MAX_BODY_BYTES) {
-        reject(new Error('Payload exceeds maximum size limit (12 MB)'));
+      if (total > maxBytes) {
+        reject(new Error(`Payload exceeds maximum size limit (${Math.round(maxBytes / 1024)} KB)`));
         req.destroy();
         return;
       }
@@ -348,6 +583,47 @@ const ALLOWED_IMAGE_MIMES: Record<string, string> = {
   'image/gif': '.gif',
   'image/avif': '.avif',
 };
+
+function detectImageExtensionFromMagicBytes(buf: Buffer): { mime: string; ext: string } | null {
+  if (buf.length < 12) return null;
+  // JPEG: FF D8 FF
+  if (buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff) {
+    return { mime: 'image/jpeg', ext: '.jpg' };
+  }
+  // PNG: 89 50 4E 47 0D 0A 1A 0A
+  if (
+    buf[0] === 0x89 &&
+    buf[1] === 0x50 &&
+    buf[2] === 0x4e &&
+    buf[3] === 0x47 &&
+    buf[4] === 0x0d &&
+    buf[5] === 0x0a &&
+    buf[6] === 0x1a &&
+    buf[7] === 0x0a
+  ) {
+    return { mime: 'image/png', ext: '.png' };
+  }
+  // GIF: GIF87a or GIF89a
+  const ascii6 = buf.subarray(0, 6).toString('ascii');
+  if (ascii6 === 'GIF87a' || ascii6 === 'GIF89a') {
+    return { mime: 'image/gif', ext: '.gif' };
+  }
+  // WebP: RIFF....WEBP
+  if (
+    buf.subarray(0, 4).toString('ascii') === 'RIFF' &&
+    buf.subarray(8, 12).toString('ascii') === 'WEBP'
+  ) {
+    return { mime: 'image/webp', ext: '.webp' };
+  }
+  // AVIF / HEIF ISO BMFF: ....ftyp(avif|avis|mif1)
+  if (buf.subarray(4, 8).toString('ascii') === 'ftyp') {
+    const brand = buf.subarray(8, 12).toString('ascii');
+    if (brand === 'avif' || brand === 'avis' || brand === 'mif1') {
+      return { mime: 'image/avif', ext: '.avif' };
+    }
+  }
+  return null;
+}
 
 function scanDirectoryImages(
   baseDir: string,
@@ -459,7 +735,11 @@ export async function handleCmsApiRequest(
 
     // 2. Public Full Single Post by Slug
     if (method === 'GET' && pathname.startsWith('/api/cms/public-post/')) {
-      const targetSlug = decodeURIComponent(pathname.slice('/api/cms/public-post/'.length));
+      const targetSlug = safeDecodeUriComponent(pathname.slice('/api/cms/public-post/'.length));
+      if (targetSlug === null) {
+        sendJson(res, 400, { error: 'Malformed post slug.' });
+        return true;
+      }
       const content = ensureContentState();
       const match = Object.values(content.upsertedPosts).find(
         (p) => p.slug === targetSlug && p.status === 'published'
@@ -485,11 +765,9 @@ export async function handleCmsApiRequest(
 
     // 4. Login
     if (method === 'POST' && pathname === '/api/cms/auth/login') {
-      const ip =
-        (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() ||
-        req.socket.remoteAddress ||
-        'local';
+      const ip = getClientIp(req);
       const now = Date.now();
+      pruneLoginAttempts(now);
       const bucket = loginAttemptsByIp.get(ip);
       if (bucket && bucket.resetAt > now && bucket.count >= 8) {
         const waitSec = Math.ceil((bucket.resetAt - now) / 1000);
@@ -526,9 +804,7 @@ export async function handleCmsApiRequest(
           admin: { email: auth.email, updatedAt: auth.updatedAt },
         },
         {
-          'Set-Cookie': `${SESSION_COOKIE_NAME}=${encodeURIComponent(
-            token
-          )}; HttpOnly; Path=/; Max-Age=${maxAgeSec}; SameSite=Lax`,
+          'Set-Cookie': buildSessionCookie(req, token, maxAgeSec),
         }
       );
       return true;
@@ -541,7 +817,7 @@ export async function handleCmsApiRequest(
         200,
         { ok: true },
         {
-          'Set-Cookie': `${SESSION_COOKIE_NAME}=; HttpOnly; Path=/; Max-Age=0; SameSite=Lax`,
+          'Set-Cookie': buildSessionCookie(req, '', 0),
         }
       );
       return true;
@@ -573,8 +849,10 @@ export async function handleCmsApiRequest(
         sendJson(res, 400, { error: 'Please enter a valid admin email address.' });
         return true;
       }
-      if (newPassword.length < 8) {
-        sendJson(res, 400, { error: 'New password must be at least 8 characters long.' });
+      if (isPlaceholderPassword(newPassword)) {
+        sendJson(res, 400, {
+          error: 'New password must be at least 10 characters and not a common/default password.',
+        });
         return true;
       }
 
@@ -588,7 +866,7 @@ export async function handleCmsApiRequest(
         passwordChangedInDashboard: true,
         updatedAt: new Date().toISOString(),
       };
-      atomicWriteJson(AUTH_FILE, updatedAuth);
+      atomicWriteJson(AUTH_FILE, updatedAuth, 0o600);
 
       const token = createSessionToken(updatedAuth);
       const maxAgeSec = Math.floor(SESSION_TTL_MS / 1000);
@@ -602,9 +880,7 @@ export async function handleCmsApiRequest(
           admin: { email: updatedAuth.email, updatedAt: updatedAuth.updatedAt },
         },
         {
-          'Set-Cookie': `${SESSION_COOKIE_NAME}=${encodeURIComponent(
-            token
-          )}; HttpOnly; Path=/; Max-Age=${maxAgeSec}; SameSite=Lax`,
+          'Set-Cookie': buildSessionCookie(req, token, maxAgeSec),
         }
       );
       return true;
@@ -631,7 +907,11 @@ export async function handleCmsApiRequest(
 
     // 8. Admin Single Post by ID
     if (method === 'GET' && pathname.startsWith('/api/cms/admin/post/')) {
-      const idKey = decodeURIComponent(pathname.slice('/api/cms/admin/post/'.length));
+      const idKey = safeDecodeUriComponent(pathname.slice('/api/cms/admin/post/'.length));
+      if (idKey === null) {
+        sendJson(res, 400, { error: 'Malformed post ID.' });
+        return true;
+      }
       const content = ensureContentState();
       sendJson(res, 200, { post: content.upsertedPosts[idKey] ?? null });
       return true;
@@ -793,7 +1073,11 @@ export async function handleCmsApiRequest(
 
     // 12. Delete Single Post
     if (method === 'DELETE' && pathname.startsWith('/api/cms/admin/posts/')) {
-      const idStr = decodeURIComponent(pathname.slice('/api/cms/admin/posts/'.length));
+      const idStr = safeDecodeUriComponent(pathname.slice('/api/cms/admin/posts/'.length));
+      if (idStr === null) {
+        sendJson(res, 400, { error: 'Malformed post ID.' });
+        return true;
+      }
       const idNum = Number(idStr);
       const querySlug = parsedUrl.searchParams.get('slug') || '';
       const content = ensureContentState();
@@ -842,7 +1126,11 @@ export async function handleCmsApiRequest(
     }
 
     if (method === 'PATCH' && pathname.startsWith('/api/cms/admin/categories/')) {
-      const oldSlug = decodeURIComponent(pathname.slice('/api/cms/admin/categories/'.length));
+      const oldSlug = safeDecodeUriComponent(pathname.slice('/api/cms/admin/categories/'.length));
+      if (oldSlug === null) {
+        sendJson(res, 400, { error: 'Malformed category slug.' });
+        return true;
+      }
       const body = await readJsonBody<{ newName?: string; oldName?: string }>(req);
       const newName = (body.newName || '').trim();
       const newSlug = slugifyServer(newName);
@@ -886,7 +1174,11 @@ export async function handleCmsApiRequest(
     }
 
     if (method === 'DELETE' && pathname.startsWith('/api/cms/admin/categories/')) {
-      const slug = decodeURIComponent(pathname.slice('/api/cms/admin/categories/'.length));
+      const slug = safeDecodeUriComponent(pathname.slice('/api/cms/admin/categories/'.length));
+      if (slug === null) {
+        sendJson(res, 400, { error: 'Malformed category slug.' });
+        return true;
+      }
       const content = ensureContentState();
       content.customCategories = content.customCategories.filter((c) => c.slug !== slug);
       if (!content.deletedCategorySlugs.includes(slug)) {
@@ -926,9 +1218,8 @@ export async function handleCmsApiRequest(
         base64Data?: string;
       }>(req);
 
-      const mimeType = (body.mimeType || '').toLowerCase();
-      const ext = ALLOWED_IMAGE_MIMES[mimeType];
-      if (!ext) {
+      const declaredMime = (body.mimeType || '').toLowerCase();
+      if (declaredMime && !ALLOWED_IMAGE_MIMES[declaredMime]) {
         sendJson(res, 400, {
           error: 'Unsupported image format. Please upload JPG, PNG, WEBP, GIF, or AVIF.',
         });
@@ -942,8 +1233,16 @@ export async function handleCmsApiRequest(
       }
 
       const buffer = Buffer.from(rawBase64, 'base64');
-      if (buffer.length > 8 * 1024 * 1024) {
-        sendJson(res, 400, { error: 'Image exceeds the 8 MB upload limit.' });
+      if (buffer.length === 0 || buffer.length > 8 * 1024 * 1024) {
+        sendJson(res, 400, { error: 'Image must be between 1 byte and 8 MB.' });
+        return true;
+      }
+
+      const detected = detectImageExtensionFromMagicBytes(buffer);
+      if (!detected) {
+        sendJson(res, 400, {
+          error: 'Uploaded file failed image signature validation. Only genuine JPG, PNG, WEBP, GIF, or AVIF binaries are accepted.',
+        });
         return true;
       }
 
@@ -951,10 +1250,14 @@ export async function handleCmsApiRequest(
         slugifyServer(path.basename(body.fileName || 'blog-image', path.extname(body.fileName || ''))) ||
         'blog-image';
       const uniqueSuffix = `${Date.now().toString(36)}-${crypto.randomBytes(3).toString('hex')}`;
-      const finalName = `${baseStem}-${uniqueSuffix}${ext}`;
+      const finalName = `${baseStem}-${uniqueSuffix}${detected.ext}`;
 
       fs.mkdirSync(UPLOADS_BLOG_DIR, { recursive: true });
-      const targetPath = path.join(UPLOADS_BLOG_DIR, finalName);
+      const targetPath = path.resolve(UPLOADS_BLOG_DIR, finalName);
+      if (!isPathInsideDir(targetPath, UPLOADS_BLOG_DIR)) {
+        sendJson(res, 400, { error: 'Invalid upload destination path.' });
+        return true;
+      }
       fs.writeFileSync(targetPath, buffer);
 
       sendJson(res, 200, {
@@ -977,7 +1280,7 @@ export async function handleCmsApiRequest(
       }
       const fileName = path.basename(url);
       const resolved = path.resolve(UPLOADS_BLOG_DIR, fileName);
-      if (!resolved.startsWith(UPLOADS_BLOG_DIR)) {
+      if (!isPathInsideDir(resolved, UPLOADS_BLOG_DIR)) {
         sendJson(res, 400, { error: 'Invalid file path.' });
         return true;
       }
