@@ -34,6 +34,8 @@ Edit `.env`:
 | `CMS_ADMIN_EMAIL` / `CMS_ADMIN_PASSWORD` | first admin; remove the password after first start |
 | `SMTP_*`, `MAIL_FROM` | mail service for lead notifications |
 | `LEAD_IP_SALT` | random value |
+| `DATA_ENCRYPTION_KEY` | `openssl rand -hex 32`; encrypts lead personal data in the database. **Store a copy in the company password manager before the first start**: if the key is lost, the lead details are lost (backups hold the same encrypted values). Never commit it. Use a different key for staging and production. |
+| `BACKUP_PASSPHRASE` | long random value (`openssl rand -base64 32`), also kept in the password manager; encrypts the backup files |
 
 `DATABASE_URL` is set by `docker-compose.prod.yml`; leave it out of `.env` there.
 
@@ -86,8 +88,34 @@ crontab -e
 30 2 * * * cd /srv/eon8 && BACKUP_MODE=docker deploy/backup.sh >> logs/backup.log 2>&1
 ```
 
-Set `BACKUP_RCLONE_REMOTE` to copy backups off the server. Test a restore once:
+Set `BACKUP_PASSPHRASE` in `.env` so the database dump and the uploads archive
+are encrypted while they are written (`backups/db-*.dump.enc`,
+`backups/uploads-*.tar.gz.enc`; openssl AES-256-CBC with PBKDF2, no unencrypted
+copy on disk). Set `BACKUP_RCLONE_REMOTE` to copy backups off the server; the
+script warns if that is set without a passphrase.
+
+Test a restore once (on staging or a scratch database):
+
+```bash
+read -rs BACKUP_PASSPHRASE && export BACKUP_PASSPHRASE     # paste it from the password manager
+# check the file decrypts and is a valid dump
+openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 -pass env:BACKUP_PASSPHRASE \
+  -in backups/db-YYYYMMDD-HHMMSS.dump.enc | pg_restore --list > /dev/null && echo OK
+# restore the database
+openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 -pass env:BACKUP_PASSPHRASE \
+  -in backups/db-YYYYMMDD-HHMMSS.dump.enc | pg_restore --clean --if-exists --no-owner -d "$DATABASE_URL"
+# restore uploaded images
+openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 -pass env:BACKUP_PASSPHRASE \
+  -in backups/uploads-YYYYMMDD-HHMMSS.tar.gz.enc | tar -xzf - -C public
+```
+
+With Docker, pipe the decrypted dump into the database container instead:
+`... | docker compose -f docker-compose.prod.yml exec -T db pg_restore --clean --if-exists --no-owner -U eon8 -d eon8`.
+Unencrypted backups (no passphrase) restore with
 `pg_restore --clean --if-exists --no-owner -d <db> backups/db-*.dump`.
+
+A restored database still needs the same `DATA_ENCRYPTION_KEY` to show lead
+details: keep both the key and the passphrase in the password manager.
 
 Monitor `https://www.eon8.com/api/health` with an uptime checker (UptimeRobot,
 Better Stack) and alert the team by email.

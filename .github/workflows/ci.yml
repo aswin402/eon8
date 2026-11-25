@@ -26,6 +26,8 @@ jobs:
       DATABASE_URL: postgres://eon8:eon8_ci_only@127.0.0.1:5432/eon8_ci
       CMS_ADMIN_EMAIL: ci-admin@eon8.test
       CMS_ADMIN_PASSWORD: CiOnly-Test-Pass-2026!
+      # CI-only test key (never use it anywhere else): lead details are encrypted at rest in the e2e run.
+      DATA_ENCRYPTION_KEY: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
       PORT: '4173'
       SITE_URL: http://127.0.0.1:4173
 

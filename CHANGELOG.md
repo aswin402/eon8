@@ -6,6 +6,19 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.9.0] - 2026-11-25
+
+### Added
+- **Lead encryption at rest**: lead personal data (name, email, phone, company, message and other form fields) is stored with AES-256-GCM (`server/lib/crypto.ts`, key in `DATA_ENCRYPTION_KEY`, optional `DATA_ENCRYPTION_KEY_OLD` for key rotation). Existing plain-text rows are encrypted on startup; admin search still works. Site Settings shows whether encryption is on.
+- **Encrypted backups**: `deploy/backup.sh` encrypts the database dump and uploads archive with `BACKUP_PASSPHRASE` (`.dump.enc`, `.tar.gz.enc`); the restore command is in `docs/DEPLOYMENT.md`.
+- **Old WordPress URLs**: old Rank Math / WordPress sitemap URLs (`sitemap_index.xml`, `*-sitemap.xml`, `wp-sitemap*.xml`) redirect to `/sitemap.xml`; dated post URLs (`/YYYY/MM/DD/<slug>`) and `/blog-<slug>` redirect to `/blog/<slug>/`.
+- Smoke test checks the sitemap redirect and lead encryption status; e2e covers the new redirects and encryption (140 checks).
+
+### Not encrypted, on purpose
+- Blog posts, news and pages stay plain text: they are public, and encrypting them would break search, the sitemap and SEO. Admin passwords remain scrypt hashes and sessions are stored as token hashes.
+
+---
+
 ## [3.8.0] - 2026-11-25
 
 ### Fixed

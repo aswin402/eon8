@@ -47,6 +47,16 @@ function resolveInside(baseDir: string, relPath: string): string | null {
   return resolved;
 }
 
+/** True if the URL path (without leading slash) is a real file in the build output. */
+function isDistFile(rel: string): boolean {
+  const file = resolveInside(DIST_DIR, rel);
+  try {
+    return Boolean(file && fs.statSync(file).isFile());
+  } catch {
+    return false;
+  }
+}
+
 function encodingFor(req: http.IncomingMessage): 'br' | 'gzip' | null {
   const accept = String(req.headers['accept-encoding'] || '');
   if (/\bbr\b/.test(accept)) return 'br';
@@ -196,9 +206,10 @@ const server = http.createServer(async (req, res) => {
       res.end('Not found');
       return;
     }
-    // Old WordPress URL patterns (?p=, feeds, tags, authors, /<post-slug>/) -> 301.
-    // Skipped for real files so assets are never redirected.
-    if (!/\.[a-z0-9]{2,5}$/i.test(rel) || /\.html?$/i.test(rel)) {
+    // Old WordPress URL patterns (?p=, feeds, tags, authors, /<post-slug>/, old
+    // sitemaps such as /sitemap_index.xml) -> 301. Skipped for real files so assets
+    // and /sitemap.xml itself are never redirected.
+    if (!/\.[a-z0-9]{2,5}$/i.test(rel) || /\.html?$/i.test(rel) || (/\.xml$/i.test(rel) && rel !== 'sitemap.xml' && !isDistFile(rel))) {
       const target = await legacyRedirect(decoded, url.searchParams);
       if (target) {
         res.writeHead(301, { Location: encodeForLocation(target), 'Cache-Control': 'public, max-age=3600' });
