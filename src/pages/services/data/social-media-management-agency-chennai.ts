@@ -68,7 +68,7 @@ export const socialMediaManagementAgencyChennaiData: ServicePageData = {
         "Platform selection",
         "Funnel-based strategy"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/Business-strategy-planning-marketing-tactic-or-winning-strategy-to-achieve-target-project-blocker-and-solution-to-be-success-concept-smart-businessman-presenting-business-strategy-on-whiteboard.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/Business-strategy-planning-whiteboard.jpg",
       "imageAlt": "Business strategy planning marketing tactic or winning strategy to achieve target project blocker and solution to be success concept smart businessman presenting business strategy on whiteboard",
       "actions": []
     },

@@ -66,6 +66,7 @@ More detail: [docs/BACKEND.md](docs/BACKEND.md) (API, data, security) and [docs/
 | `npm run build` | Generate `public/sitemap.xml` and the route manifest, type-check, build `dist/`, and generate `dist/seo-manifest.json` |
 | `npm start` | Production server (`server/prodServer.ts`) on `PORT` (default `4173`) |
 | `npm run test:e2e` | Backend end-to-end checks against a server with a **fresh test database** (see `tests/backend.e2e.mjs`) |
+| `npm run test:urls -- <base-url>` | Checks all 308 old WordPress URLs against a running site (read-only) |
 | `npm run db:up` / `npm run db:down` | Start / stop the local PostgreSQL container |
 | `npm run db:backup` | Database + uploads backup (`deploy/backup.sh`) |
 | `npm run sitemap` | Regenerate static `public/sitemap.xml` |
@@ -91,6 +92,8 @@ See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). In short:
 
 - **Docker:** `docker compose -f docker-compose.prod.yml up -d --build` (PostgreSQL + web, persistent volumes for the database and uploads).
 - **PM2 + Nginx:** `npm ci && npm run build && pm2 start deploy/ecosystem.config.cjs`, with `deploy/nginx/eon8.conf` as the reverse proxy (set `TRUST_PROXY=1`).
+- Staging uses `deploy/nginx/eon8-staging.conf` (noindex). Get the HTTPS certificate before enabling either Nginx file.
+- Updates: `deploy/deploy.sh main` (backup, pull, rebuild, health check, automatic rollback). Checks: `deploy/smoke-test.sh <url>`.
 - Back up the database and `public/uploads/` daily with `deploy/backup.sh`.
 
 ---

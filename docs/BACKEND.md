@@ -43,7 +43,7 @@ Back up the PostgreSQL database and `public/uploads/` daily.
 | Redirects | `/api/admin/redirects*` | Real 301/302/307/308/410 responses from the server. CSV import accepts the Rank Math export. |
 | Page SEO | `GET /api/seo`, `/api/admin/seo*` | Every route gets title, description, canonical (with trailing slash), Open Graph/Twitter tags and JSON-LD in the HTML from `dist/seo-manifest.json` (`scripts/build-seo-manifest.ts`, run by `npm run build`) plus live blog posts from the database (`server/seoManifest.ts`). Per-path overrides from the admin win over the manifest. |
 | Legacy WordPress URLs | all page URLs | 301s for `?p=<id>`, `/feed/`, `/tag/*`, `/author/*`, renamed pages from the SEO manifest, and old `/<post-slug>/` URLs → `/blog/<post-slug>/` (`BLOG_ROOT_REDIRECT=false` turns that last one off). Admin redirects are checked first. |
-| Site settings | `GET /api/settings`, `/api/admin/settings*` | Contact details and social links (used by the footer), lead recipients, GTM / Google Ads / verification codes (injected by the server). |
+| Site settings | `GET /api/settings`, `/api/admin/settings*` | Contact details and social links (used by the footer), lead recipients, GTM / Google Ads / verification codes and the Tawk.to live chat (injected by the server into public pages, never into the admin). |
 | Users | `/api/admin/users*` | Admin and editor roles, temporary passwords that must be changed, safeguards for the last admin. |
 | Activity log | `/api/admin/audit` | Every admin change is recorded. |
 | Sitemap | `/sitemap.xml` | Build-time sitemap plus posts published in the admin, minus hidden posts and noindex pages. |
@@ -53,6 +53,8 @@ Back up the PostgreSQL database and `public/uploads/` daily.
 | Health | `GET /api/health` | For uptime monitoring. |
 
 Lead forms include a hidden spam-trap field (`<SpamHoneypotField />`) and pass `honeypot` and `formStartedAt` to `submitLeadEnquiry`; do the same in any new form. If the server rejects a form (validation or rate limit) the result has an `error` message to show the visitor.
+
+When a lead is saved, the browser pushes a `generate_lead` event (with `lead_source` = form name and `page_path`) to the GTM data layer. Use it as the conversion trigger in Google Tag Manager; no personal details are sent.
 
 ## Tests
 

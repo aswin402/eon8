@@ -167,18 +167,24 @@ check('imported absolute same-site URL becomes path', imported.headers.get('loca
 const seo = await admin.req('PUT', '/api/admin/seo', { path: '/about-us/', title: 'About EON8 | Test Title', description: 'Test description', ogImage: '/og.png', noindex: true, schemaJson: '{"@context":"https://schema.org","@type":"Organization","name":"EON8"}' });
 check('save SEO override', seo.status === 200, JSON.stringify(seo.data));
 check('bad JSON-LD rejected', (await admin.req('PUT', '/api/admin/seo', { path: '/x', schemaJson: '{bad' })).status === 400);
-await admin.req('PUT', '/api/admin/settings/tracking', { gtmId: 'GTM-TEST123', googleAdsIds: 'AW-11015847979', googleSiteVerification: 'abcDEF_123' });
+await admin.req('PUT', '/api/admin/settings/tracking', { gtmId: 'GTM-TEST123', googleAdsIds: 'AW-11015847979', googleSiteVerification: 'abcDEF_123', tawkPropertyId: '6346b10737898912e96e3af1', tawkWidgetId: 'default' });
 check('invalid GTM id rejected', (await admin.req('PUT', '/api/admin/settings/tracking', { gtmId: '<script>' })).status === 400);
+check('invalid Tawk.to id rejected', (await admin.req('PUT', '/api/admin/settings/tracking', { tawkPropertyId: "x');alert(1)//" })).status === 400);
 const aboutHtml = await fetch(`${BASE}/about-us/`).then((r) => r.text());
 check('title injected into HTML', aboutHtml.includes('<title>About EON8 | Test Title</title>'));
 check('description, og:image, noindex injected', aboutHtml.includes('content="Test description"') && aboutHtml.includes('og:image" content="') && aboutHtml.includes('noindex'));
 check('JSON-LD injected', aboutHtml.includes('application/ld+json') && aboutHtml.includes('"Organization"'));
 check('GTM + Ads + verification injected', aboutHtml.includes("'GTM-TEST123'") && aboutHtml.includes('AW-11015847979') && aboutHtml.includes('google-site-verification'));
+check('Tawk.to chat injected when set', aboutHtml.includes('https://embed.tawk.to/6346b10737898912e96e3af1/default'));
+const adminHtml = await fetch(`${BASE}/admin-dashboard`).then((r) => r.text());
+check('no GTM, Ads or chat on the admin page', !adminHtml.includes('GTM-TEST123') && !adminHtml.includes('AW-11015847979') && !adminHtml.includes('embed.tawk.to'));
+check('CSP allows the Tawk.to chat', ((await fetch(`${BASE}/about-us/`)).headers.get('content-security-policy') || '').includes('https://embed.tawk.to'));
 const homeHtml = await fetch(`${BASE}/`).then((r) => r.text());
 check('override applies to its page only (home keeps its manifest title)', homeHtml.includes('<title>Digital Marketing Agency | AI, SEO &amp; Web3 Services | EON8</title>') && !homeHtml.includes('Test Title'), homeHtml.match(/<title>[^<]*<\/title>/)?.[0]);
 check('public SEO lookup', (await anon.req('GET', '/api/seo?path=/about-us')).data.seo?.noindex === true);
 check('public settings hide lead recipients', (await anon.req('GET', '/api/settings')).data.settings?.leads === undefined);
-await admin.req('PUT', '/api/admin/settings/tracking', { gtmId: '', googleAdsIds: '', googleSiteVerification: '' });
+await admin.req('PUT', '/api/admin/settings/tracking', { gtmId: '', googleAdsIds: '', googleSiteVerification: '', tawkPropertyId: '', tawkWidgetId: '' });
+await admin.req('DELETE', '/api/admin/seo?path=/about-us/');
 check('invalid recipient email rejected', (await admin.req('PUT', '/api/admin/settings/leads', { notifyEmails: 'ok@example.com\nnot-an-email' })).status === 400);
 
 // --- Users & roles ----------------------------------------------------------------

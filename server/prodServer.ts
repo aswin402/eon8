@@ -106,13 +106,13 @@ function serveFile(req: http.IncomingMessage, res: http.ServerResponse, filePath
  */
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net",
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "font-src 'self' data: https://fonts.gstatic.com",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://embed.tawk.to https://*.tawk.to",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.tawk.to",
+  "font-src 'self' data: https://fonts.gstatic.com https://*.tawk.to",
   "img-src 'self' data: blob: https:",
   "media-src 'self' data: blob: https:",
-  "frame-src 'self' https://www.google.com https://www.googletagmanager.com https://calendly.com https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com",
-  "connect-src 'self' https:",
+  "frame-src 'self' https://www.google.com https://www.googletagmanager.com https://calendly.com https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://*.tawk.to",
+  "connect-src 'self' https: wss://*.tawk.to",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

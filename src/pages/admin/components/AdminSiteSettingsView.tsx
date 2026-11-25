@@ -35,12 +35,14 @@ const FIELDS: Record<Group, { title: string; hint: string; fields: Array<{ key: 
   },
   tracking: {
     title: 'Tracking & verification',
-    hint: 'Added to every page by the server. Leave empty on staging so test visits are not counted.',
+    hint: 'Added to every public page by the server (not to the admin). Leave empty on staging so test visits are not counted.',
     fields: [
       { key: 'gtmId', label: 'Google Tag Manager ID', placeholder: 'GTM-XXXXXXX' },
       { key: 'googleAdsIds', label: 'Google Ads IDs (one per line)', placeholder: 'AW-1234567890', multiline: true },
       { key: 'googleSiteVerification', label: 'Google site verification code' },
       { key: 'facebookDomainVerification', label: 'Facebook domain verification code' },
+      { key: 'tawkPropertyId', label: 'Tawk.to live chat: property ID (leave empty to hide the chat)', placeholder: '6346b10737898912e96e3af1' },
+      { key: 'tawkWidgetId', label: 'Tawk.to live chat: widget ID', placeholder: 'default' },
     ],
   },
 };

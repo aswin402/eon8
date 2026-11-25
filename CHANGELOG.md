@@ -6,6 +6,28 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.8.0] - 2026-11-25
+
+### Fixed
+- **Deployment guide and Nginx**: get the HTTPS certificate before enabling the site (Nginx cannot load `listen 443 ssl` blocks without certificate files); `certbot certonly --standalone` with stop/start hooks so renewals stay automatic. Production config now has the certificate paths filled in.
+- **Blog posts at 320px**: long links (e.g. the Discord developer URL) wrap instead of widening the page.
+- **Capture modal and ChatGPT Ads audit dialog**: keyboard focus stays inside the dialog and returns to the opening button on close (`src/lib/useFocusTrap.ts`).
+- **Media file names**: 11 files with zero-width spaces, spaces, Cyrillic or decorative Unicode characters or a 231-character name renamed to plain ASCII names; references updated.
+
+### Added
+- `deploy/nginx/eon8-staging.conf` for stage.eon8.com (noindex header), and an optional office-IP allow-list for the admin in `eon8.conf`.
+- `deploy/deploy.sh` (backup, pull, rebuild, health check, automatic rollback) and `deploy/smoke-test.sh` (read-only checks after a deploy).
+- `tests/url-check.mjs` + `tests/live-urls.txt` (`npm run test:urls -- <url>`): checks all 308 old WordPress URLs on any environment.
+- Tawk.to live chat as a Site Settings option (property / widget ID), allowed in the CSP, shown on public pages only.
+- `generate_lead` event in the GTM data layer when a lead is saved, for conversion tracking.
+- Google Search Console verification files (`google2013d7c7aad306e8.html`, `googlea8dfcc88bc452faa.html`) carried over from WordPress.
+- `.gitattributes`: shell scripts and server configs always use LF line endings.
+
+### Changed
+- GTM, Google Ads and chat scripts are no longer added to the admin page, so staff visits are not counted.
+
+---
+
 ## [3.7.0] - 2026-11-25
 
 Merge of `main` (v3.4.0–v3.6.0) with `feature/backend-db-admin` into one codebase.

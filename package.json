@@ -54,7 +54,8 @@
     "test:e2e": "node tests/backend.e2e.mjs",
     "db:backup": "bash deploy/backup.sh",
     "db:up": "docker compose up -d db",
-    "db:down": "docker compose down"
+    "db:down": "docker compose down",
+    "test:urls": "node tests/url-check.mjs"
   },
   "type": "module",
   "version": "0.0.0"

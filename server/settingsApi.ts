@@ -77,6 +77,8 @@ export const SETTINGS: Record<string, SettingDef> = {
       googleAdsIds: [] as string[],
       googleSiteVerification: '',
       facebookDomainVerification: '',
+      tawkPropertyId: '',
+      tawkWidgetId: '',
     },
     validate: (i) => {
       const gtmId = text(i.gtmId, 20).toUpperCase();
@@ -94,6 +96,9 @@ export const SETTINGS: Record<string, SettingDef> = {
         googleAdsIds,
         googleSiteVerification: token(i.googleSiteVerification, 'Google verification code'),
         facebookDomainVerification: token(i.facebookDomainVerification, 'Facebook verification code'),
+        // Tawk.to live chat: Dashboard > Administration > Chat Widget shows https://embed.tawk.to/<property>/<widget>.
+        tawkPropertyId: token(i.tawkPropertyId, 'Tawk.to property ID'),
+        tawkWidgetId: token(i.tawkWidgetId, 'Tawk.to widget ID'),
       };
     },
   },

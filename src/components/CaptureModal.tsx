@@ -5,6 +5,7 @@ import { useAppStore } from '@/store/useAppStore';
 import { Button } from '@/components/ui/button';
 import { SpamHoneypotField } from '@/components/ui/SpamHoneypotField';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
+import { useFocusTrap } from '@/lib/useFocusTrap';
 
 export function CaptureModal() {
   const { isContactModalOpen, setContactModalOpen } = useAppStore();
@@ -17,6 +18,8 @@ export function CaptureModal() {
   const [message, setMessage] = useState('');
   const [honeypot, setHoneypot] = useState('');
   const modalOpenedAtRef = useRef<number>(0);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(isContactModalOpen, dialogRef);
   
   // Captcha State
   const [num1, setNum1] = useState(0);
@@ -121,6 +124,7 @@ export function CaptureModal() {
     <AnimatePresence>
       {isContactModalOpen && (
         <div
+          ref={dialogRef}
           role="dialog"
           aria-modal="true"
           aria-labelledby="capture-modal-title"

@@ -82,6 +82,18 @@ export function buildLeadSummaryLinks(payload: LeadSubmissionPayload): {
   };
 }
 
+/**
+ * Tells Google Tag Manager that a lead was saved ("generate_lead" event with the
+ * form name), so conversions can be set up in GTM without code changes. No
+ * personal details are sent. Does nothing when GTM is not on the page.
+ */
+function trackLeadConversion(source: string): void {
+  if (typeof window === 'undefined') return;
+  const w = window as unknown as { dataLayer?: Array<Record<string, unknown>> };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({ event: 'generate_lead', lead_source: source, page_path: window.location.pathname });
+}
+
 async function postJson(url: string, body: unknown): Promise<boolean> {
   try {
     const response = await fetch(url, {
@@ -132,6 +144,8 @@ export async function submitLeadEnquiry(
   } catch {
     // Network error: the visitor still gets the WhatsApp / email links below.
   }
+
+  if (saved) trackLeadConversion(lead.source);
 
   const webhook = import.meta.env.VITE_LEAD_WEBHOOK_URL || '';
   if (!error && webhook && !webhook.includes('api.example.com')) {

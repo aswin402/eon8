@@ -80,7 +80,7 @@ export const reputationManagementServicesData: ServicePageData = {
         "✔ Crisis response expertise",
         "✔ Positive content amplification"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/⌗𝐀𝐄𝐒𝐓𝐇𝐄𝐓𝐈𝐂.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/aesthetic.jpg",
       "imageAlt": "⌗𝐀𝐄𝐒𝐓𝐇𝐄𝐓𝐈𝐂",
       "actions": [
         {

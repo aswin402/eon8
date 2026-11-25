@@ -163,7 +163,7 @@ export const ieoListingData: IeoListingData = {
       "Ensuring transparency and communication"
     ],
     "closing": "Our team works closely with clients to ensure every aspect of the IEO launch is executed flawlessly",
-    "imageSrc": "/wp-content/uploads/2026/05/Bitcoin-demand-hits-2025-highs-–-So-why-hasnt-BTC-price-recovered_-1.jpg",
+    "imageSrc": "/wp-content/uploads/2026/05/Bitcoin-demand-hits-2025-highs-why-hasnt-BTC-price-recovered.jpg",
     "imageAlt": "Bitcoin demand hits 2025 highs – So why hasnt BTC price recovered 1"
   },
   "finalCta": {

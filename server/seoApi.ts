@@ -1,7 +1,7 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { audit, requireUser } from './lib/auth.ts';
 import { isDatabaseConfigured, query } from './lib/db.ts';
-import { env } from './lib/env.ts';
+import { adminPath, env } from './lib/env.ts';
 import { HttpError, readJsonBody, sendJson } from './lib/http.ts';
 import { normalizePath } from './redirectsApi.ts';
 import { jsonLdGraph, resetSeoCatalog, routeMeta, type OrgInfo, type RouteMeta } from './seoManifest.ts';
@@ -50,6 +50,8 @@ interface Tracking {
   googleAdsIds: string[];
   googleSiteVerification: string;
   facebookDomainVerification: string;
+  tawkPropertyId?: string;
+  tawkWidgetId?: string;
 }
 
 async function seoMap(): Promise<Map<string, PageSeo>> {
@@ -190,6 +192,12 @@ export async function injectHead(
   if (track?.facebookDomainVerification) {
     head.push(`<meta name="facebook-domain-verification" content="${escapeAttr(track.facebookDomainVerification)}" />`);
   }
+  // Analytics, ads and chat are for visitors: keep them off the admin so staff visits are not counted.
+  const adminKey = normalizePath(adminPath()) || '/admin-dashboard';
+  const pageKey = normalizePath(pathname) || '/';
+  if (track && (pageKey === adminKey || pageKey.startsWith(`${adminKey}/`))) {
+    track = { ...track, gtmId: '', googleAdsIds: [], tawkPropertyId: '' };
+  }
   if (track?.gtmId) {
     const id = track.gtmId.replace(/[^A-Z0-9-]/gi, '');
     head.push(
@@ -205,6 +213,14 @@ export async function injectHead(
     const id = adsId.replace(/[^A-Z0-9-]/gi, '');
     head.push(
       `<script async src="https://www.googletagmanager.com/gtag/js?id=${id}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${id}');</script>`
+    );
+  }
+  if (track?.tawkPropertyId) {
+    const property = track.tawkPropertyId.replace(/[^A-Za-z0-9]/g, '');
+    const widget = (track.tawkWidgetId || 'default').replace(/[^A-Za-z0-9]/g, '') || 'default';
+    // Tawk.to live chat, raised above the scroll-to-top button in the bottom-right corner.
+    head.push(
+      `<script>var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();Tawk_API.customStyle={visibility:{desktop:{position:'br',xOffset:20,yOffset:90},mobile:{position:'br',xOffset:12,yOffset:84}}};(function(){var s=document.createElement('script');s.async=true;s.src='https://embed.tawk.to/${property}/${widget}';s.charset='UTF-8';s.setAttribute('crossorigin','*');document.head.appendChild(s);})();</script>`
     );
   }
   const headHtml = `    ${head.join('\n    ')}\n  </head>`;

@@ -226,7 +226,8 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
       <section className="py-12 sm:py-16 pb-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Article Body */}
-          <article className="lg:col-span-8 rounded-2xl bg-card border border-border p-6 sm:p-10 shadow-sm">
+          {/* min-w-0 + overflow-wrap: long links and words wrap instead of widening the page on small phones */}
+          <article className="lg:col-span-8 min-w-0 break-words [overflow-wrap:anywhere] rounded-2xl bg-card border border-border p-6 sm:p-10 shadow-sm">
             {showTopThumb && (
               <img
                 src={effectiveSummary.thumbnail}

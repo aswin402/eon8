@@ -154,7 +154,7 @@ export const smallBusinessSeoServicesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2026/04/Секреты-отличного-сервиса_-ключ-к-успеху-бизнеса_.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/secrets-of-great-service-key-to-business-success.jpg",
       "imageAlt": "Секреты отличного сервиса ключ к успеху бизнеса",
       "actions": []
     },

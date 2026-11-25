@@ -41,7 +41,7 @@ export const searchAdvertisingCompanyData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Search-Advertising-Services​.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Search-Advertising-Services.jpg",
       "imageAlt": "Search Advertising Services​",
       "actions": []
     },
@@ -79,7 +79,7 @@ export const searchAdvertisingCompanyData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Search-Advertising-Services-Offered-By-Us​.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Search-Advertising-Services-Offered-By-Us.jpg",
       "imageAlt": "Search Advertising Services Offered By Us​",
       "actions": []
     },

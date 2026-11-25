@@ -78,7 +78,7 @@ export const displayAdvertisingAgencyData: ServicePageData = {
         "Support product launches",
         "Strengthen multi-channel marketing"
       ],
-      "imageSrc": "/wp-content/uploads/2020/11/Display-Advertising-for-Sustainable-Growth​.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Display-Advertising-for-Sustainable-Growth.jpg",
       "imageAlt": "Display Advertising for Sustainable Growth​",
       "actions": []
     },

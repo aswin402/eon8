@@ -29,6 +29,7 @@ import {
 } from '@/components/sections';
 import { SpamHoneypotField } from '@/components/ui/SpamHoneypotField';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
+import { useFocusTrap } from '@/lib/useFocusTrap';
 
 interface ShowcaseExample {
   label: string;
@@ -361,6 +362,8 @@ export function ChatgptAdsAgencyPage() {
   const [selectedFocus, setSelectedFocus] = useState<ServiceFocusKey>('visibility');
   const [honeypot, setHoneypot] = useState('');
   const auditOpenedAtRef = useRef<number>(0);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(Boolean(dialogMode), dialogRef);
   const [submittingAudit, setSubmittingAudit] = useState(false);
   const [leadResult, setLeadResult] = useState<LeadSubmissionResult | null>(null);
 
@@ -1081,6 +1084,7 @@ export function ChatgptAdsAgencyPage() {
       {/* 10. Accessible Service & Audit Modal Dialog */}
       {dialogMode && (
         <div
+          ref={dialogRef}
           className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"

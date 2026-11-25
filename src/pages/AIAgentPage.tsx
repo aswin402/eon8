@@ -163,15 +163,15 @@ const TECH_CATEGORIES = [
     items: [
       { name: 'TensorFlow', src: '/wp-content/uploads/2025/08/TensorFlow.png' },
       { name: 'PyTorch', src: '/wp-content/uploads/2025/08/PyTorch.png' },
-      { name: 'OpenAI API', src: '/wp-content/uploads/2025/08/OpenAI API.png' },
+      { name: 'OpenAI API', src: '/wp-content/uploads/2025/08/OpenAI-API.png' },
       { name: 'Dialogflow', src: '/wp-content/uploads/2025/08/Dialogflow.png' },
     ],
   },
   {
     title: 'NLP Engines',
     items: [
-      { name: 'Google BERT', src: '/wp-content/uploads/2025/08/Google BERT.png' },
-      { name: 'OpenAI GPT', src: '/wp-content/uploads/2025/08/OpenAI GPT.png' },
+      { name: 'Google BERT', src: '/wp-content/uploads/2025/08/Google-BERT.png' },
+      { name: 'OpenAI GPT', src: '/wp-content/uploads/2025/08/OpenAI-GPT.png' },
       { name: 'SpaCy', src: '/wp-content/uploads/2025/08/SpaCy.png' },
     ],
   },
@@ -195,7 +195,7 @@ const TECH_CATEGORIES = [
     title: 'Integration Tools',
     items: [
       { name: 'Zapier', src: '/wp-content/uploads/2025/08/Zapier.png' },
-      { name: 'API Gateways', src: '/wp-content/uploads/2025/08/API Gateways.png' },
+      { name: 'API Gateways', src: '/wp-content/uploads/2025/08/API-Gateways.png' },
       { name: 'Webhooks', src: '/wp-content/uploads/2025/08/Webhooks.png' },
     ],
   },

@@ -44,19 +44,40 @@ docker compose -f docker-compose.prod.yml up -d --build
 curl http://127.0.0.1:4173/api/health     # {"ok":true,"database":"ok"}
 ```
 
-## 4. Nginx and HTTPS
+## 4. DNS, HTTPS certificate and Nginx
+
+Point the DNS A record for stage.eon8.com at the VPS and wait until it resolves.
+Leave the **MX records alone**: email does not move with the website.
+
+Get the certificate **before** enabling the site: the Nginx config refers to the
+certificate files, and Nginx refuses to start without them.
 
 ```bash
+dig +short stage.eon8.com                          # must show the VPS IP
+sudo certbot certonly --standalone -d stage.eon8.com \
+     --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx"
+sudo certbot renew --dry-run                       # the hooks make renewals automatic
+
 sudo cp deploy/nginx/eon8-proxy.conf /etc/nginx/snippets/
-sudo cp deploy/nginx/eon8.conf /etc/nginx/sites-available/eon8.conf
-# staging: change the server_name values to stage.eon8.com and enable the X-Robots-Tag line
-sudo ln -s /etc/nginx/sites-available/eon8.conf /etc/nginx/sites-enabled/
+sudo cp deploy/nginx/eon8-staging.conf /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/eon8-staging.conf /etc/nginx/sites-enabled/
+sudo rm -f /etc/nginx/sites-enabled/default
 sudo nginx -t && sudo systemctl reload nginx
-sudo certbot --nginx -d stage.eon8.com
 ```
 
-Point the DNS A record for stage.eon8.com at the VPS before running certbot.
-Leave the **MX records alone**: email does not move with the website.
+`eon8-staging.conf` already uses stage.eon8.com and sends a noindex header. For
+production use `deploy/nginx/eon8.conf` and
+`certbot certonly --standalone -d www.eon8.com -d eon8.com` with the same hooks.
+
+To allow the admin only from office IPs, uncomment the `location` block marked
+"Optional" in `eon8.conf` and list the IPs.
+
+Then check the site from any computer:
+
+```bash
+deploy/smoke-test.sh https://stage.eon8.com        # health, redirects, 404, SEO tags, headers
+node tests/url-check.mjs https://stage.eon8.com    # all 308 old WordPress URLs
+```
 
 ## 5. Backups and monitoring
 
@@ -84,13 +105,13 @@ Better Stack) and alert the team by email.
 ## Updating
 
 ```bash
-cd /srv/eon8 && git pull
-docker compose -f docker-compose.prod.yml up -d --build
+cd /srv/eon8 && deploy/deploy.sh main
 ```
 
-Database migrations run automatically on start. To roll back, check out the
-previous commit and run the same command (migrations only add; restore from a
-backup if a migration must be undone).
+`deploy/deploy.sh` backs up the database and uploads, pulls the branch, rebuilds,
+waits for `/api/health`, and rolls back to the previous commit if the site does
+not come up. Database migrations run automatically on start; they only add
+tables and columns, so restore a backup if one must be undone.
 
 ## Without Docker (PM2)
 
