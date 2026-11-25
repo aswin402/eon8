@@ -6,6 +6,21 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.7.0] - 2026-11-25
+
+Merge of `main` (v3.4.0–v3.6.0) with `feature/backend-db-admin` into one codebase.
+
+### Changed
+- **Backend now runs on PostgreSQL** (`server/lib/db.ts`, `server/migrations/`): blog CMS, admin users with admin/editor roles, leads, redirects, page SEO, site settings, post revisions and audit log. Replaces the JSON-file storage (`data/cms-content.json`, `data/leads.json`) and the single-admin login.
+- **Leads**: forms keep the `SpamHoneypotField` + timing check from 3.5.0; the server stores spam with status `spam` instead of discarding it, emails real leads over SMTP, and returns validation / rate-limit errors that the forms show. The Leads Inbox is now the admin "Leads" tab (`AdminLeadsView`).
+- **Server-side SEO**: the 3.5.0 SEO manifest is kept and now feeds `server/seoManifest.ts`; admin Page SEO overrides apply on top, so each page gets one set of tags. Canonicals keep the WordPress trailing slash (also in `PageSeo.tsx`). Legacy WordPress 301s (`?p=`, `/feed/`, `/tag/`, `/author/`, manifest redirects, `/<post>/` → `/blog/<post>/`) run after admin redirects. CSP header kept and widened for Google Tag Manager / Ads.
+- **Deployment**: one set of deployment files — `Dockerfile` (Node 24), `docker-compose.yml` (local Postgres), `docker-compose.prod.yml`, `deploy/ecosystem.config.cjs`, `deploy/nginx/`, `deploy/backup.sh`, CI with Postgres + backend e2e tests. Removed the duplicate root `ecosystem.config.cjs` and `deploy/nginx.conf`.
+
+### Removed
+- `src/pages/admin/components/AdminLeadsInbox.tsx` (replaced by `AdminLeadsView.tsx`), `src/components/LeadHoneypot.tsx` (replaced by `SpamHoneypotField`).
+
+---
+
 ## [3.6.0] - 2026-11-24
 
 ### Performance

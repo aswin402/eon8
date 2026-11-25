@@ -51,10 +51,17 @@ export interface CmsAdminSession {
   authenticated: boolean;
   mode: 'node-api' | 'browser-fallback' | 'supabase';
   admin?: {
+    id?: number;
     email: string;
+    name?: string;
+    role?: AdminRole;
+    /** True after an admin set a temporary password; the user must change it first. */
+    mustChangePassword?: boolean;
     updatedAt: string;
   };
 }
+
+export type AdminRole = 'admin' | 'editor';
 
 export interface CmsMediaItem {
   url: string;

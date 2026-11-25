@@ -1,0 +1,52 @@
+# Production / staging stack on the VPS: website + PostgreSQL.
+# 1. Copy .env.example to .env and set the production values (see docs/DEPLOYMENT.md).
+# 2. docker compose -f docker-compose.prod.yml up -d --build
+# Nginx on the host terminates HTTPS and proxies to 127.0.0.1:4173.
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-eon8}
+      POSTGRES_USER: ${POSTGRES_USER:-eon8}
+      # Use letters and digits only (openssl rand -hex 32): it is placed in DATABASE_URL below.
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-eon8} -d ${POSTGRES_DB:-eon8}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    # Not published to the internet; only the web container reaches it.
+
+  web:
+    build:
+      context: .
+      args:
+        # Read from .env by Docker Compose; baked into the browser bundle.
+        VITE_ADMIN_PATH: ${VITE_ADMIN_PATH:-/admin-dashboard}
+        VITE_LEAD_WEBHOOK_URL: ${VITE_LEAD_WEBHOOK_URL:-}
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      PORT: 4173
+      TRUST_PROXY: 1
+      DATABASE_URL: postgres://${POSTGRES_USER:-eon8}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-eon8}
+    ports:
+      - "127.0.0.1:4173:4173"
+    volumes:
+      - uploads:/app/public/uploads
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+volumes:
+  pgdata:
+  uploads:

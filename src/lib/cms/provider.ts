@@ -13,36 +13,10 @@ import type {
   CmsPublicStatePayload,
 } from './types';
 
-const TOKEN_STORAGE_KEY = 'eon8_cms_bearer_token';
-
-function getStoredToken(): string | null {
-  try {
-    return window.sessionStorage.getItem(TOKEN_STORAGE_KEY);
-  } catch {
-    return null;
-  }
-}
-
-function setStoredToken(token: string | null): void {
-  try {
-    if (token) {
-      window.sessionStorage.setItem(TOKEN_STORAGE_KEY, token);
-    } else {
-      window.sessionStorage.removeItem(TOKEN_STORAGE_KEY);
-    }
-  } catch {
-    // Ignore storage errors
-  }
-}
-
 async function apiJsonFetch<T>(url: string, init?: RequestInit): Promise<T> {
-  const token = getStoredToken();
   const headers = new Headers(init?.headers);
   if (!headers.has('Content-Type') && init?.body) {
     headers.set('Content-Type', 'application/json');
-  }
-  if (token) {
-    headers.set('Authorization', `Bearer ${token}`);
   }
 
   const res = await fetch(url, {
@@ -53,7 +27,9 @@ async function apiJsonFetch<T>(url: string, init?: RequestInit): Promise<T> {
 
   const contentType = res.headers.get('content-type') || '';
   if (!contentType.includes('application/json')) {
-    throw new CmsApiUnavailableError('CMS API endpoint returned non-JSON response');
+    throw new CmsApiUnavailableError(
+      'The admin server is not reachable. Start the site with `npm run dev` or `npm start`.'
+    );
   }
 
   const data = (await res.json()) as T & { error?: string };
@@ -105,6 +81,7 @@ async function buildSeedPostFromStatic(
   };
 }
 
+/** Talks to the Node backend (server/api.ts). Sessions use an HttpOnly cookie. */
 class ApiBlogCmsProvider implements BlogCmsProvider {
   readonly mode = 'node-api' as const;
 
@@ -124,21 +101,13 @@ class ApiBlogCmsProvider implements BlogCmsProvider {
   }
 
   async login(email: string, password: string): Promise<CmsAdminSession> {
-    const res = await apiJsonFetch<CmsAdminSession & { token?: string }>(
-      '/api/cms/auth/login',
-      {
-        method: 'POST',
-        body: JSON.stringify({ email, password }),
-      }
-    );
-    if (res.token) {
-      setStoredToken(res.token);
-    }
-    return res;
+    return apiJsonFetch<CmsAdminSession>('/api/cms/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+    });
   }
 
   async logout(): Promise<void> {
-    setStoredToken(null);
     await apiJsonFetch('/api/cms/auth/logout', { method: 'POST' });
   }
 
@@ -147,17 +116,10 @@ class ApiBlogCmsProvider implements BlogCmsProvider {
     newEmail: string;
     newPassword: string;
   }): Promise<CmsAdminSession> {
-    const res = await apiJsonFetch<CmsAdminSession & { token?: string }>(
-      '/api/cms/auth/change-password',
-      {
-        method: 'POST',
-        body: JSON.stringify(params),
-      }
-    );
-    if (res.token) {
-      setStoredToken(res.token);
-    }
-    return res;
+    return apiJsonFetch<CmsAdminSession>('/api/cms/auth/change-password', {
+      method: 'POST',
+      body: JSON.stringify(params),
+    });
   }
 
   async fetchAdminState(): Promise<CmsAdminStatePayload> {

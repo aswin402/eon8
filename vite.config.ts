@@ -2,25 +2,30 @@ import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
-import { handleCmsApiRequest } from './server/cmsApi.ts'
-import { handleLeadsApiRequest } from './server/leadsApi.ts'
+import type { IncomingMessage, ServerResponse } from 'node:http'
+import { handleApiRequest } from './server/api.ts'
+import { applyRedirect } from './server/redirectsApi.ts'
 
-function eon8CmsApiPlugin(): Plugin {
+/** Serves the backend API and server redirects from the Vite dev and preview servers. */
+async function eon8Middleware(req: IncomingMessage, res: ServerResponse, next: () => void) {
+  try {
+    if (await handleApiRequest(req, res)) return
+    const url = new URL(req.url || '/', 'http://localhost')
+    if (await applyRedirect(req, res, url)) return
+  } catch {
+    // Malformed URLs fall through to Vite.
+  }
+  next()
+}
+
+function eon8BackendPlugin(): Plugin {
   return {
-    name: 'eon8-blog-cms-api',
+    name: 'eon8-backend',
     configureServer(server) {
-      server.middlewares.use(async (req, res, next) => {
-        if (await handleCmsApiRequest(req, res)) return
-        if (await handleLeadsApiRequest(req, res)) return
-        next()
-      })
+      server.middlewares.use((req, res, next) => void eon8Middleware(req, res, next))
     },
     configurePreviewServer(server) {
-      server.middlewares.use(async (req, res, next) => {
-        if (await handleCmsApiRequest(req, res)) return
-        if (await handleLeadsApiRequest(req, res)) return
-        next()
-      })
+      server.middlewares.use((req, res, next) => void eon8Middleware(req, res, next))
     },
   }
 }
@@ -28,7 +33,7 @@ function eon8CmsApiPlugin(): Plugin {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    eon8CmsApiPlugin(),
+    eon8BackendPlugin(),
     react(),
     tailwindcss(),
   ],

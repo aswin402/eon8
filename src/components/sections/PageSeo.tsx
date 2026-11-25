@@ -90,7 +90,8 @@ export function PageSeo({
 
   useEffect(() => {
     const cleanPath = (canonicalPath ?? pathname).replace(/\/+$/, '');
-    const canonicalUrl = cleanPath ? `${SITE_ORIGIN}${cleanPath}` : `${SITE_ORIGIN}/`;
+    // Trailing slash, as on the old WordPress site and in sitemap.xml.
+    const canonicalUrl = cleanPath ? `${SITE_ORIGIN}${cleanPath}/` : `${SITE_ORIGIN}/`;
     const resolvedImg = resolveAbsoluteUrl(ogImage?.trim() || DEFAULT_OG_IMAGE);
     const isArticle = Boolean(articlePublished || articleAuthor || articleSection);
 
@@ -138,7 +139,7 @@ export function PageSeo({
         '@type': 'ListItem',
         position: 2,
         name: 'Blog',
-        item: `${SITE_ORIGIN}/blog`,
+        item: `${SITE_ORIGIN}/blog/`,
       });
       breadcrumbItems.push({
         '@type': 'ListItem',

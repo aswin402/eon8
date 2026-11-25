@@ -6,9 +6,14 @@ import {
   ExternalLink,
   FileText,
   FolderKanban,
+  History,
   Image as ImageIcon,
   Inbox,
   LogOut,
+  Route,
+  ScanSearch,
+  SlidersHorizontal,
+  Users,
   Moon,
   Pencil,
   Plus,
@@ -25,12 +30,45 @@ import type { CmsBlogPostRecord, ManagedBlogSummary } from '@/lib/cms/types';
 import { useThemeStore } from '@/store/useThemeStore';
 import { AdminArticleStudio } from './components/AdminArticleStudio';
 import { AdminCategoryManager } from './components/AdminCategoryManager';
-import { AdminLeadsInbox, type LeadStatusCounts } from './components/AdminLeadsInbox';
 import { AdminLoginView } from './components/AdminLoginView';
 import { AdminMediaLibrary } from './components/AdminMediaModal';
+import { AdminLeadsView } from './components/AdminLeadsView';
+import { AdminRedirectsView } from './components/AdminRedirectsView';
+import { AdminSeoView } from './components/AdminSeoView';
 import { AdminSettingsView } from './components/AdminSettingsView';
+import { AdminSiteSettingsView } from './components/AdminSiteSettingsView';
+import { AdminActivityView, AdminUsersView } from './components/AdminUsersView';
 
-type AdminSectionTab = 'articles' | 'leads' | 'categories' | 'media' | 'settings' | 'trash';
+type AdminSectionTab =
+  | 'articles'
+  | 'categories'
+  | 'media'
+  | 'leads'
+  | 'redirects'
+  | 'seo'
+  | 'site'
+  | 'users'
+  | 'activity'
+  | 'settings'
+  | 'trash';
+
+/** Sections added for the backend; `adminOnly` ones are hidden from editors. */
+const BACKEND_TABS: Array<{
+  id: AdminSectionTab;
+  label: string;
+  icon: typeof Inbox;
+  color: string;
+  adminOnly?: boolean;
+  title: string;
+  description: string;
+}> = [
+  { id: 'leads', label: 'Leads', icon: Inbox, color: 'text-rose-300', title: 'Website Leads', description: 'Every enquiry from the website forms. Update status, add notes, export to CSV.' },
+  { id: 'redirects', label: 'Redirects', icon: Route, color: 'text-violet-300', title: 'URL Redirects', description: 'Permanent (301) and temporary redirects served by the server, including old WordPress URLs.' },
+  { id: 'seo', label: 'Page SEO', icon: ScanSearch, color: 'text-sky-300', title: 'Page SEO Overrides', description: 'Titles, descriptions, share images, noindex and structured data for any page.' },
+  { id: 'site', label: 'Site Settings', icon: SlidersHorizontal, color: 'text-teal-300', adminOnly: true, title: 'Site Settings', description: 'Contact details, social links, lead email recipients and tracking codes.' },
+  { id: 'users', label: 'Users', icon: Users, color: 'text-indigo-300', adminOnly: true, title: 'Admin Users', description: 'Add editors and admins, reset passwords and disable accounts.' },
+  { id: 'activity', label: 'Activity Log', icon: History, color: 'text-slate-300', adminOnly: true, title: 'Activity Log', description: 'Who changed what, and when.' },
+];
 type StatusFilterTab = 'all' | 'published' | 'draft' | 'featured' | 'custom';
 type SortOption = 'newest' | 'oldest' | 'title' | 'updated';
 
@@ -60,7 +98,6 @@ export function AdminDashboardPage() {
   const bulkMutate = useBlogCmsStore((s) => s.bulkMutate);
 
   const [activeTab, setActiveTab] = useState<AdminSectionTab>('articles');
-  const [leadCounts, setLeadCounts] = useState<LeadStatusCounts | null>(null);
   const [statusFilter, setStatusFilter] = useState<StatusFilterTab>('all');
   const [categoryFilter, setCategoryFilter] = useState<string>('ALL');
   const [sortBy, setSortBy] = useState<SortOption>('newest');
@@ -78,31 +115,12 @@ export function AdminDashboardPage() {
   } | null>(null);
   const [loadingEditor, setLoadingEditor] = useState(false);
 
+  const isAdmin = (session.admin?.role ?? 'admin') === 'admin';
+  const activeBackendTab = BACKEND_TABS.find((t) => t.id === activeTab);
+
   useEffect(() => {
     void checkSession();
   }, [checkSession]);
-
-  // Fetch initial lead badge count once authenticated
-  useEffect(() => {
-    if (!session.authenticated) return;
-    let cancelled = false;
-    const headers = new Headers();
-    try {
-      const token = window.sessionStorage.getItem('eon8_cms_bearer_token');
-      if (token) headers.set('Authorization', `Bearer ${token}`);
-    } catch {
-      // Ignore storage errors
-    }
-    fetch('/api/leads/admin', { credentials: 'include', headers })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data: { counts?: LeadStatusCounts } | null) => {
-        if (!cancelled && data?.counts) setLeadCounts(data.counts);
-      })
-      .catch(() => {});
-    return () => {
-      cancelled = true;
-    };
-  }, [session.authenticated]);
 
   // Open ?edit=<id> automatically when linked from Draft Preview
   const editQueryId = searchParams.get('edit');
@@ -311,6 +329,22 @@ export function AdminDashboardPage() {
           totalPublishedCount={publishedPosts.length}
           categoryCount={categories.length}
         />
+      ) : session.admin?.mustChangePassword ? (
+        <div className="min-h-screen bg-slate-50 dark:bg-[#070D19] p-5 sm:p-10">
+          <div className="max-w-5xl mx-auto space-y-6">
+            <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-800 dark:text-amber-200 font-medium">
+              You signed in with a temporary password. Choose a new password to continue.
+            </div>
+            <AdminSettingsView />
+            <button
+              type="button"
+              onClick={() => void logout()}
+              className="text-xs font-bold text-red-500 cursor-pointer"
+            >
+              Sign out
+            </button>
+          </div>
+        </div>
       ) : editorState ? (
         <AdminArticleStudio
           initialPost={editorState.post}
@@ -382,32 +416,6 @@ export function AdminDashboardPage() {
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('leads')}
-                  className={`flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-colors cursor-pointer ${
-                    activeTab === 'leads'
-                      ? 'bg-white/14 text-white'
-                      : 'text-slate-300 hover:bg-white/8 hover:text-white'
-                  }`}
-                >
-                  <span className="inline-flex items-center gap-2.5">
-                    <Inbox className="w-4 h-4 text-emerald-400" />
-                    <span>Leads Inbox</span>
-                  </span>
-                  {leadCounts && (
-                    <span
-                      className={`px-2 py-0.5 rounded-full text-[10px] ${
-                        leadCounts.new > 0
-                          ? 'bg-[#FD5900] text-white font-extrabold'
-                          : 'bg-white/10 text-slate-200'
-                      }`}
-                    >
-                      {leadCounts.new > 0 ? `${leadCounts.new} new` : leadCounts.total}
-                    </span>
-                  )}
-                </button>
-
-                <button
-                  type="button"
                   onClick={() => setActiveTab('categories')}
                   className={`flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-colors cursor-pointer ${
                     activeTab === 'categories'
@@ -438,6 +446,24 @@ export function AdminDashboardPage() {
                     <span>Media Library</span>
                   </span>
                 </button>
+
+                {BACKEND_TABS.filter((t) => isAdmin || !t.adminOnly).map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => setActiveTab(t.id)}
+                    className={`flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-colors cursor-pointer ${
+                      activeTab === t.id
+                        ? 'bg-white/14 text-white'
+                        : 'text-slate-300 hover:bg-white/8 hover:text-white'
+                    }`}
+                  >
+                    <span className="inline-flex items-center gap-2.5">
+                      <t.icon className={`w-4 h-4 ${t.color}`} />
+                      <span>{t.label}</span>
+                    </span>
+                  </button>
+                ))}
 
                 <button
                   type="button"
@@ -482,7 +508,7 @@ export function AdminDashboardPage() {
                   {session.admin?.email || 'Administrator'}
                 </p>
                 <p className="text-[10px] text-emerald-400">
-                  ● {session.mode === 'node-api' ? 'Node API Connected' : 'Local Mode'}
+                  ● {isAdmin ? 'Admin' : 'Editor'} · Connected
                 </p>
               </div>
 
@@ -514,25 +540,24 @@ export function AdminDashboardPage() {
               <div>
                 <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-foreground tracking-tight">
                   {activeTab === 'articles' && 'Blog Articles & Publications'}
-                  {activeTab === 'leads' && 'Website Leads & Enquiries Inbox'}
                   {activeTab === 'categories' && 'Topic & Category Architecture'}
                   {activeTab === 'media' && 'Editorial Media Library'}
-                  {activeTab === 'settings' && 'Security & CMS Engine'}
+                  {activeTab === 'settings' && 'Security & Account'}
                   {activeTab === 'trash' && 'Removed Baseline Articles'}
+                  {activeBackendTab?.title}
                 </h1>
                 <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                   {activeTab === 'articles' &&
                     'Create, edit, feature, draft, or delete articles with instant live synchronization.'}
-                  {activeTab === 'leads' &&
-                    'Review incoming website enquiries, track sales follow-up status, add internal notes, or export CSV.'}
                   {activeTab === 'categories' &&
                     'Organize Eon8 category archives and topic taxonomy.'}
                   {activeTab === 'media' &&
                     'Upload cover visuals and inline illustrations or browse existing assets.'}
                   {activeTab === 'settings' &&
-                    'Rotate admin credentials, export backups, or review Supabase migration readiness.'}
+                    'Change your email or password and export a backup of the blog content.'}
                   {activeTab === 'trash' &&
                     'Restore previously removed baseline articles back to the live catalog.'}
+                  {activeBackendTab?.description}
                 </p>
               </div>
 
@@ -562,13 +587,23 @@ export function AdminDashboardPage() {
               </div>
             )}
 
-            {activeTab === 'leads' && <AdminLeadsInbox onCountsChange={setLeadCounts} />}
-
             {activeTab === 'categories' && <AdminCategoryManager />}
 
             {activeTab === 'media' && <AdminMediaLibrary mode="page" />}
 
             {activeTab === 'settings' && <AdminSettingsView />}
+
+            {activeTab === 'leads' && <AdminLeadsView isAdmin={isAdmin} />}
+
+            {activeTab === 'redirects' && <AdminRedirectsView />}
+
+            {activeTab === 'seo' && <AdminSeoView />}
+
+            {activeTab === 'site' && isAdmin && <AdminSiteSettingsView />}
+
+            {activeTab === 'users' && isAdmin && <AdminUsersView currentUserId={session.admin?.id} />}
+
+            {activeTab === 'activity' && isAdmin && <AdminActivityView />}
 
             {activeTab === 'trash' && (
               <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-2xs">

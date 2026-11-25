@@ -249,7 +249,8 @@ export const useBlogCmsStore = create<BlogCmsStoreState>((set, get) => ({
     try {
       const session = await cmsProvider.getSession();
       set({ session, sessionChecked: true });
-      if (session.authenticated) {
+      // A user with a temporary password must change it before loading admin data.
+      if (session.authenticated && !session.admin?.mustChangePassword) {
         await get().refreshAdmin();
       }
       return session;
@@ -263,7 +264,9 @@ export const useBlogCmsStore = create<BlogCmsStoreState>((set, get) => ({
   login: async (email: string, password: string) => {
     const session = await cmsProvider.login(email, password);
     set({ session, sessionChecked: true });
-    await get().refreshAdmin();
+    if (!session.admin?.mustChangePassword) {
+      await get().refreshAdmin();
+    }
   },
 
   logout: async () => {
@@ -277,6 +280,9 @@ export const useBlogCmsStore = create<BlogCmsStoreState>((set, get) => ({
   changeCredentials: async (params) => {
     const session = await cmsProvider.changeCredentials(params);
     set({ session });
+    if (session.authenticated && !session.admin?.mustChangePassword && !get().adminReady) {
+      await get().refreshAdmin();
+    }
   },
 
   refreshAdmin: async () => {

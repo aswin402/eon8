@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ThemeToggleButton } from '@/components/ThemeToggleButton';
 import { useAppStore } from '@/store/useAppStore';
+import { telHref, useSiteSettings } from '@/lib/siteSettings';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 
@@ -216,6 +217,7 @@ const SIMPLE_LINKS = [
 ];
 
 export function Navbar() {
+  const { contact } = useSiteSettings();
   const { setContactModalOpen } = useAppStore();
   const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -648,11 +650,11 @@ export function Navbar() {
               <div className="border-t border-border pt-4 mt-4 space-y-2.5 text-xs text-slate-600 dark:text-slate-400 shrink-0">
                 <div className="flex items-center gap-2.5">
                   <Phone className="w-4 h-4 text-[#FD5900]" />
-                  <a href="tel:+919042294007" className="hover:text-[#0053C6] font-medium">+91 90422 94007</a>
+                  <a href={telHref(contact.phone)} className="hover:text-[#0053C6] font-medium">{contact.phone}</a>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Mail className="w-4 h-4 text-[#0053C6]" />
-                  <a href="mailto:info@eon8.com" className="hover:text-[#0053C6] font-medium">info@eon8.com</a>
+                  <a href={`mailto:${contact.email}`} className="hover:text-[#0053C6] font-medium">{contact.email}</a>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 text-[#0053C6] shrink-0 mt-0.5" />

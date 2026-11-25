@@ -1,482 +1,378 @@
 import crypto from 'node:crypto';
-import fs from 'node:fs';
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import {
-  atomicWriteJson,
-  getClientIp,
-  getEnvValue,
-  readJsonBody,
-  sendJson,
-  verifyAdminRequest,
-} from './cmsApi.ts';
+import { audit, requireUser } from './lib/auth.ts';
+import { query } from './lib/db.ts';
+import { env } from './lib/env.ts';
+import { HttpError, clientIp, createRateLimiter, parseCsv, readJsonBody, sendJson, toCsv } from './lib/http.ts';
+import { sendMail } from './lib/mailer.ts';
+import { getSetting } from './settingsApi.ts';
 
-export type LeadStatus = 'new' | 'contacted' | 'qualified' | 'won' | 'archived';
+const STATUSES = ['new', 'contacted', 'qualified', 'won', 'lost', 'spam'] as const;
+type LeadStatus = (typeof STATUSES)[number];
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid'];
 
-export interface StoredLead {
+const submitLimiter = createRateLimiter(6, 10 * 60 * 1000);
+
+interface LeadRow {
   id: string;
   source: string;
-  name?: string;
-  email?: string;
-  phone?: string;
-  country?: string;
-  website?: string;
-  message?: string;
-  preferredSlot?: string;
-  pageUrl?: string;
+  name: string | null;
+  email: string | null;
+  phone: string | null;
+  country: string | null;
+  website: string | null;
+  message: string | null;
+  preferred_slot: string | null;
+  page_url: string | null;
+  referrer: string | null;
+  utm: Record<string, string> | null;
+  extra: Record<string, unknown> | null;
   status: LeadStatus;
-  notes?: string;
-  webhookForwarded: boolean;
-  ipHash: string;
-  userAgent?: string;
-  createdAt: string;
-  updatedAt: string;
+  notes: string | null;
+  email_status: string;
+  email_error: string | null;
+  created_at: Date;
+  updated_at: Date;
 }
 
-interface StoredLeadsState {
-  version: number;
-  leads: StoredLead[];
-}
-
-const VALID_STATUSES = new Set<LeadStatus>(['new', 'contacted', 'qualified', 'won', 'archived']);
-const currentDir = path.dirname(fileURLToPath(import.meta.url));
-const ROOT_DIR = path.resolve(currentDir, '..');
-const LEADS_FILE = path.join(ROOT_DIR, 'data', 'leads.json');
-
-const MAX_LEAD_BODY_BYTES = 64 * 1024; // 64 KB
-const MAX_STORED_LEADS = 5000;
-const LEAD_RATE_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
-const LEAD_RATE_MAX = 10;
-const MAX_RATE_ENTRIES = 5000;
-const MIN_HUMAN_FORM_MS = 800;
-
-const leadRateByIp = new Map<string, { count: number; resetAt: number }>();
-
-function pruneLeadRateMap(now: number): void {
-  if (leadRateByIp.size === 0) return;
-  for (const [key, bucket] of leadRateByIp.entries()) {
-    if (bucket.resetAt <= now) {
-      leadRateByIp.delete(key);
-    }
-  }
-  if (leadRateByIp.size >= MAX_RATE_ENTRIES) {
-    const excess = leadRateByIp.size - Math.floor(MAX_RATE_ENTRIES * 0.8);
-    let removed = 0;
-    for (const key of leadRateByIp.keys()) {
-      leadRateByIp.delete(key);
-      removed += 1;
-      if (removed >= excess) break;
-    }
-  }
-}
-
-function readLeadsState(): StoredLeadsState {
-  if (fs.existsSync(LEADS_FILE)) {
-    try {
-      const parsed = JSON.parse(fs.readFileSync(LEADS_FILE, 'utf-8')) as Partial<StoredLeadsState>;
-      return {
-        version: parsed.version ?? 1,
-        leads: Array.isArray(parsed.leads) ? parsed.leads : [],
-      };
-    } catch {
-      // Fallback empty
-    }
-  }
-  return { version: 1, leads: [] };
-}
-
-function writeLeadsState(state: StoredLeadsState): void {
-  state.version += 1;
-  if (state.leads.length > MAX_STORED_LEADS) {
-    state.leads = state.leads.slice(0, MAX_STORED_LEADS);
-  }
-  atomicWriteJson(LEADS_FILE, state, 0o600);
-}
-
-function cleanText(value: unknown, maxLen: number): string | undefined {
-  if (typeof value !== 'string') return undefined;
-  const trimmed = value.replace(/\r\n/g, '\n').trim();
-  if (!trimmed) return undefined;
-  return trimmed.slice(0, maxLen);
-}
-
-function safeDecodeSegment(value: string): string | null {
-  try {
-    return decodeURIComponent(value);
-  } catch {
-    return null;
-  }
-}
-
-function escapeCsvCell(value: string | undefined): string {
-  const raw = (value || '').replace(/\r\n/g, '\n');
-  // Prevent CSV formula injection in Excel / Google Sheets
-  const neutralized = /^[=+\-@\t\r]/.test(raw) ? `'${raw}` : raw;
-  return `"${neutralized.replace(/"/g, '""')}"`;
-}
-
-function buildLeadsCsv(leads: StoredLead[]): string {
-  const headers = [
-    'ID',
-    'Created At',
-    'Status',
-    'Source',
-    'Name',
-    'Email',
-    'Phone',
-    'Country / Market',
-    'Website',
-    'Preferred Slot',
-    'Message',
-    'Page URL',
-    'Notes',
-    'Webhook Forwarded',
-  ];
-  const rows = leads.map((lead) =>
-    [
-      lead.id,
-      lead.createdAt,
-      lead.status,
-      lead.source,
-      lead.name,
-      lead.email,
-      lead.phone,
-      lead.country,
-      lead.website,
-      lead.preferredSlot,
-      lead.message,
-      lead.pageUrl,
-      lead.notes,
-      lead.webhookForwarded ? 'Yes' : 'No',
-    ]
-      .map(escapeCsvCell)
-      .join(',')
-  );
-  return `${headers.map(escapeCsvCell).join(',')}\n${rows.join('\n')}\n`;
-}
-
-async function forwardLeadToWebhook(lead: StoredLead): Promise<boolean> {
-  const webhookUrl = getEnvValue('LEAD_WEBHOOK_URL', '');
-  if (!webhookUrl || !/^https?:\/\//i.test(webhookUrl) || webhookUrl.includes('example.com')) {
-    return false;
-  }
-
-  const secret = getEnvValue('LEAD_WEBHOOK_SECRET', '');
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 5000);
-  try {
-    const headers: Record<string, string> = {
-      'Content-Type': 'application/json',
-      'User-Agent': 'Eon8-Lead-Router/1.0',
-    };
-    if (secret) {
-      headers.Authorization = `Bearer ${secret}`;
-    }
-    const res = await fetch(webhookUrl, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        event: 'lead.created',
-        lead: {
-          id: lead.id,
-          source: lead.source,
-          name: lead.name,
-          email: lead.email,
-          phone: lead.phone,
-          country: lead.country,
-          website: lead.website,
-          preferredSlot: lead.preferredSlot,
-          message: lead.message,
-          pageUrl: lead.pageUrl,
-          createdAt: lead.createdAt,
-        },
-      }),
-      signal: controller.signal,
-    });
-    return res.ok;
-  } catch {
-    return false;
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-function summarizeLeadCounts(leads: StoredLead[]): Record<LeadStatus | 'total', number> {
-  const counts: Record<LeadStatus | 'total', number> = {
-    total: leads.length,
-    new: 0,
-    contacted: 0,
-    qualified: 0,
-    won: 0,
-    archived: 0,
+function toLead(r: LeadRow) {
+  return {
+    id: Number(r.id),
+    source: r.source,
+    name: r.name,
+    email: r.email,
+    phone: r.phone,
+    country: r.country,
+    website: r.website,
+    message: r.message,
+    preferredSlot: r.preferred_slot,
+    pageUrl: r.page_url,
+    referrer: r.referrer,
+    utm: r.utm,
+    extra: r.extra,
+    status: r.status,
+    notes: r.notes,
+    emailStatus: r.email_status,
+    emailError: r.email_error,
+    createdAt: r.created_at.toISOString(),
+    updatedAt: r.updated_at.toISOString(),
   };
-  for (const lead of leads) {
-    if (VALID_STATUSES.has(lead.status)) {
-      counts[lead.status] += 1;
-    }
-  }
-  return counts;
 }
 
-export async function handleLeadsApiRequest(
-  req: IncomingMessage,
-  res: ServerResponse
-): Promise<boolean> {
-  const rawUrl = req.url || '';
-  if (!rawUrl.startsWith('/api/leads')) {
-    return false;
+const clip = (v: unknown, max: number): string | null => {
+  const s = String(v ?? '').split(String.fromCharCode(0)).join('').trim();
+  return s ? s.slice(0, max) : null;
+};
+
+const ipHash = (ip: string) =>
+  crypto.createHash('sha256').update(`${env('LEAD_IP_SALT', 'eon8-leads')}:${ip}`).digest('hex').slice(0, 32);
+
+function leadEmailText(lead: ReturnType<typeof toLead>): string {
+  const lines: Array<[string, string | null]> = [
+    ['Form', lead.source],
+    ['Name', lead.name],
+    ['Email', lead.email],
+    ['Phone', lead.phone],
+    ['Location', lead.country],
+    ['Website', lead.website],
+    ['Preferred slot', lead.preferredSlot],
+    ['Page', lead.pageUrl],
+    ['Received', lead.createdAt],
+  ];
+  const body = lines.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n');
+  const utm = lead.utm && Object.keys(lead.utm).length ? `\n\nCampaign: ${JSON.stringify(lead.utm)}` : '';
+  return `New enquiry from the EON8 website.\n\n${body}\n\nMessage:\n${lead.message || '(none)'}${utm}\n\nOpen the admin Leads tab to update its status.`;
+}
+
+async function notify(lead: ReturnType<typeof toLead>): Promise<void> {
+  const { notifyEmails } = await getSetting<{ notifyEmails: string[] }>('leads');
+  const fallback = env('LEAD_NOTIFY_EMAILS').split(',').map((s) => s.trim()).filter(Boolean);
+  const to = notifyEmails.length ? notifyEmails : fallback;
+  const result = await sendMail({
+    to,
+    subject: `New website lead: ${lead.name || lead.email || lead.phone} (${lead.source})`,
+    text: leadEmailText(lead),
+    replyTo: lead.email && EMAIL_RE.test(lead.email) ? lead.email : undefined,
+  });
+  const error = result.status === 'failed' ? result.error : result.status === 'skipped' ? result.reason : null;
+  await query('UPDATE leads SET email_status = $1, email_error = $2 WHERE id = $3', [result.status, error, lead.id]);
+  if (result.status !== 'sent') console.warn(`[leads] notification for lead ${lead.id} ${result.status}: ${error}`);
+}
+
+interface LeadFilters {
+  q: string;
+  status: string;
+  source: string;
+  from: string;
+  to: string;
+}
+
+function filtersFrom(url: URL): LeadFilters {
+  const p = url.searchParams;
+  return { q: p.get('q') || '', status: p.get('status') || '', source: p.get('source') || '', from: p.get('from') || '', to: p.get('to') || '' };
+}
+
+function whereClause(f: LeadFilters): { sql: string; params: unknown[] } {
+  const parts: string[] = [];
+  const params: unknown[] = [];
+  if (f.q.trim()) {
+    params.push(`%${f.q.trim().toLowerCase()}%`);
+    parts.push(`(lower(coalesce(name,'')) LIKE $${params.length} OR lower(coalesce(email,'')) LIKE $${params.length}
+             OR coalesce(phone,'') LIKE $${params.length} OR lower(coalesce(message,'')) LIKE $${params.length})`);
   }
+  if ((STATUSES as readonly string[]).includes(f.status)) {
+    params.push(f.status);
+    parts.push(`status = $${params.length}`);
+  } else if (f.status !== 'all') {
+    parts.push(`status <> 'spam'`);
+  }
+  if (f.source) {
+    params.push(f.source);
+    parts.push(`source = $${params.length}`);
+  }
+  if (/^\d{4}-\d{2}-\d{2}$/.test(f.from)) {
+    params.push(f.from);
+    parts.push(`created_at >= $${params.length}::date`);
+  }
+  if (/^\d{4}-\d{2}-\d{2}$/.test(f.to)) {
+    params.push(f.to);
+    parts.push(`created_at < ($${params.length}::date + 1)`);
+  }
+  return { sql: parts.length ? `WHERE ${parts.join(' AND ')}` : '', params };
+}
 
-  const parsedUrl = new URL(rawUrl, 'http://localhost');
-  const pathname = parsedUrl.pathname.replace(/\/+$/, '');
+/** Maps a column header from a WordPress/Flamingo export to a lead field. */
+function importField(header: string): keyof Omit<ReturnType<typeof toLead>, 'id'> | 'date' | null {
+  const h = header.toLowerCase().replace(/[^a-z]/g, '');
+  if (/^(yourname|name|fullname|fname|firstname)$/.test(h)) return 'name';
+  if (/email/.test(h)) return 'email';
+  if (/(phone|mobile|tel|whatsapp|contact)/.test(h)) return 'phone';
+  if (/(message|comments|details|requirement|yourmessage|description)/.test(h)) return 'message';
+  if (/(country|location|city)/.test(h)) return 'country';
+  if (/(website|url|site)/.test(h)) return 'website';
+  if (/^(date|submitted|created|createdat|time)$/.test(h)) return 'date';
+  if (/(channel|form|subject|source)/.test(h)) return 'source';
+  return null;
+}
+
+export async function handleLeadsApi(req: IncomingMessage, res: ServerResponse, url: URL): Promise<boolean> {
   const method = (req.method || 'GET').toUpperCase();
+  const pathname = url.pathname.replace(/\/+$/, '');
 
-  try {
-    // 1. Public Lead Capture Endpoint (POST /api/leads)
-    if (method === 'POST' && pathname === '/api/leads') {
-      const ip = getClientIp(req);
-      const now = Date.now();
-      pruneLeadRateMap(now);
-      const bucket = leadRateByIp.get(ip);
-      if (bucket && bucket.resetAt > now && bucket.count >= LEAD_RATE_MAX) {
-        const waitSec = Math.ceil((bucket.resetAt - now) / 1000);
-        sendJson(res, 429, {
-          error: `Too many enquiries submitted recently. Please wait ${waitSec}s or message us directly on WhatsApp.`,
-        });
-        return true;
-      }
+  // --- Public form submission ------------------------------------------------
+  if (pathname === '/api/leads') {
+    if (method !== 'POST') throw new HttpError(405, 'Use POST.');
+    const ip = clientIp(req);
+    const wait = submitLimiter.check(ip);
+    if (wait > 0) throw new HttpError(429, `Too many submissions. Please try again in ${wait}s.`);
+    submitLimiter.hit(ip);
 
-      const body = await readJsonBody<{
-        source?: string;
-        name?: string;
-        email?: string;
-        phone?: string;
-        country?: string;
-        website?: string;
-        message?: string;
-        preferredSlot?: string;
-        pageUrl?: string;
-        honeypot?: string;
-        companyFax?: string;
-        formStartedAt?: number;
-      }>(req, MAX_LEAD_BODY_BYTES);
+    const body = await readJsonBody<Record<string, unknown>>(req, 64 * 1024);
+    const source = clip(body.source, 100);
+    if (!source) throw new HttpError(400, 'Form name (source) is required.');
+    const email = clip(body.email, 200)?.toLowerCase() ?? null;
+    const phone = clip(body.phone, 40);
+    if (email && !EMAIL_RE.test(email)) throw new HttpError(400, 'Please enter a valid email address.');
+    if (phone && !/^[\d\s()+\-.]{6,40}$/.test(phone)) throw new HttpError(400, 'Please enter a valid phone number.');
+    if (!email && !phone) throw new HttpError(400, 'Please give an email address or a phone number.');
 
-      // Silent bot trap: honeypot populated -> pretend accepted without storing or forwarding
-      const trapVal = (body.honeypot || body.companyFax || '').trim();
-      if (trapVal.length > 0) {
-        sendJson(res, 200, {
-          ok: true,
-          stored: true,
-          id: `lead_ok_${now.toString(36)}`,
-          webhookForwarded: false,
-        });
-        return true;
-      }
+    // Hidden spam-trap field: people never fill it, bots usually do. Older form
+    // builds send it as "honeypot" or "companyFax". A form sent within 0.8 s of
+    // opening is also treated as a bot. Spam is kept (status "spam") but not emailed.
+    const trap = clip(body.hp, 200) || clip(body.honeypot, 200) || clip(body.companyFax, 200);
+    const elapsedMs = typeof body.elapsedMs === 'number' && Number.isFinite(body.elapsedMs) ? body.elapsedMs : null;
+    const isSpam = Boolean(trap) || (elapsedMs !== null && elapsedMs >= 0 && elapsedMs < 800);
+    const utmIn = (body.utm && typeof body.utm === 'object' ? body.utm : {}) as Record<string, unknown>;
+    const utm: Record<string, string> = {};
+    for (const k of UTM_KEYS) {
+      const v = clip(utmIn[k], 200);
+      if (v) utm[k] = v;
+    }
+    const extraJson = body.extra && typeof body.extra === 'object' ? JSON.stringify(body.extra) : null;
 
-      // Silent bot trap: impossibly fast submission (< 800ms after form render)
-      if (typeof body.formStartedAt === 'number' && Number.isFinite(body.formStartedAt)) {
-        const elapsed = now - body.formStartedAt;
-        if (elapsed >= 0 && elapsed < MIN_HUMAN_FORM_MS) {
-          sendJson(res, 200, {
-            ok: true,
-            stored: true,
-            id: `lead_ok_${now.toString(36)}`,
-            webhookForwarded: false,
-          });
-          return true;
-        }
-      }
-
-      const source = cleanText(body.source, 160) || 'Website Enquiry';
-      const name = cleanText(body.name, 120);
-      const email = cleanText(body.email, 160)?.toLowerCase();
-      const phone = cleanText(body.phone, 48);
-      const country = cleanText(body.country, 120);
-      const website = cleanText(body.website, 240);
-      const message = cleanText(body.message, 4000);
-      const preferredSlot = cleanText(body.preferredSlot, 120);
-      const pageUrl = cleanText(body.pageUrl, 500);
-
-      if (!email && (!phone || phone.replace(/\D/g, '').length < 5)) {
-        sendJson(res, 400, {
-          error: 'Please provide a valid email address or phone number.',
-        });
-        return true;
-      }
-      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        sendJson(res, 400, {
-          error: 'Please enter a valid email address.',
-        });
-        return true;
-      }
-
-      const prevCount = bucket && bucket.resetAt > now ? bucket.count : 0;
-      leadRateByIp.set(ip, { count: prevCount + 1, resetAt: now + LEAD_RATE_WINDOW_MS });
-
-      const nowIso = new Date().toISOString();
-      const leadId = `lead_${now.toString(36)}_${crypto.randomBytes(4).toString('hex')}`;
-      const ipHash = crypto.createHash('sha256').update(ip).digest('hex').slice(0, 12);
-
-      const record: StoredLead = {
-        id: leadId,
+    const { rows } = await query<LeadRow>(
+      `INSERT INTO leads (source, name, email, phone, country, website, message, preferred_slot,
+                          page_url, referrer, utm, extra, status, ip_hash, user_agent, email_status)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16) RETURNING *`,
+      [
         source,
-        name,
+        clip(body.name, 120),
         email,
         phone,
-        country,
-        website,
-        message,
-        preferredSlot,
-        pageUrl,
-        status: 'new',
-        webhookForwarded: false,
-        ipHash,
-        userAgent: cleanText(req.headers['user-agent'], 200),
-        createdAt: nowIso,
-        updatedAt: nowIso,
-      };
-
-      const webhookForwarded = await forwardLeadToWebhook(record);
-      record.webhookForwarded = webhookForwarded;
-
-      const state = readLeadsState();
-      state.leads.unshift(record);
-      writeLeadsState(state);
-
-      sendJson(res, 201, {
-        ok: true,
-        stored: true,
-        id: record.id,
-        webhookForwarded,
-      });
-      return true;
-    }
-
-    // All admin lead routes require authenticated admin session
-    if (!verifyAdminRequest(req)) {
-      sendJson(res, 401, { error: 'Authentication required. Please sign in again.' });
-      return true;
-    }
-
-    // 2. Admin List & Search Leads (GET /api/leads/admin)
-    if (method === 'GET' && pathname === '/api/leads/admin') {
-      const state = readLeadsState();
-      const statusFilter = (parsedUrl.searchParams.get('status') || 'all').toLowerCase();
-      const query = (parsedUrl.searchParams.get('q') || '').trim().toLowerCase();
-
-      const filtered = state.leads.filter((lead) => {
-        if (statusFilter !== 'all' && lead.status !== statusFilter) return false;
-        if (query) {
-          const haystack = [
-            lead.name,
-            lead.email,
-            lead.phone,
-            lead.source,
-            lead.country,
-            lead.website,
-            lead.message,
-            lead.pageUrl,
-            lead.notes,
-          ]
-            .filter(Boolean)
-            .join(' ')
-            .toLowerCase();
-          return haystack.includes(query);
-        }
-        return true;
-      });
-
-      sendJson(res, 200, {
-        leads: filtered,
-        counts: summarizeLeadCounts(state.leads),
-      });
-      return true;
-    }
-
-    // 3. Admin Export CSV (GET /api/leads/admin/export.csv)
-    if (method === 'GET' && pathname === '/api/leads/admin/export.csv') {
-      const state = readLeadsState();
-      const statusFilter = (parsedUrl.searchParams.get('status') || 'all').toLowerCase();
-      const filtered =
-        statusFilter === 'all'
-          ? state.leads
-          : state.leads.filter((l) => l.status === statusFilter);
-      const csv = buildLeadsCsv(filtered);
-      const dateStr = new Date().toISOString().slice(0, 10);
-      res.writeHead(200, {
-        'Content-Type': 'text/csv; charset=utf-8',
-        'Content-Disposition': `attachment; filename="eon8-leads-${dateStr}.csv"`,
-        'Cache-Control': 'no-store',
-        'X-Content-Type-Options': 'nosniff',
-      });
-      res.end(csv);
-      return true;
-    }
-
-    // 4. Admin Update Lead Status / Notes (PATCH /api/leads/admin/:id)
-    if (method === 'PATCH' && pathname.startsWith('/api/leads/admin/')) {
-      const id = safeDecodeSegment(pathname.slice('/api/leads/admin/'.length));
-      if (!id) {
-        sendJson(res, 400, { error: 'Invalid lead ID.' });
-        return true;
-      }
-
-      const body = await readJsonBody<{ status?: string; notes?: string }>(req, 16 * 1024);
-      const state = readLeadsState();
-      const idx = state.leads.findIndex((l) => l.id === id);
-      if (idx < 0) {
-        sendJson(res, 404, { error: 'Lead not found.' });
-        return true;
-      }
-
-      const current = state.leads[idx];
-      let nextStatus = current.status;
-      if (body.status !== undefined) {
-        const candidate = body.status.toLowerCase() as LeadStatus;
-        if (!VALID_STATUSES.has(candidate)) {
-          sendJson(res, 400, { error: 'Invalid lead status.' });
-          return true;
-        }
-        nextStatus = candidate;
-      }
-
-      const updated: StoredLead = {
-        ...current,
-        status: nextStatus,
-        notes: body.notes !== undefined ? cleanText(body.notes, 2000) : current.notes,
-        updatedAt: new Date().toISOString(),
-      };
-      state.leads[idx] = updated;
-      writeLeadsState(state);
-
-      sendJson(res, 200, { lead: updated, counts: summarizeLeadCounts(state.leads) });
-      return true;
-    }
-
-    // 5. Admin Delete Lead (DELETE /api/leads/admin/:id)
-    if (method === 'DELETE' && pathname.startsWith('/api/leads/admin/')) {
-      const id = safeDecodeSegment(pathname.slice('/api/leads/admin/'.length));
-      if (!id) {
-        sendJson(res, 400, { error: 'Invalid lead ID.' });
-        return true;
-      }
-      const state = readLeadsState();
-      const before = state.leads.length;
-      state.leads = state.leads.filter((l) => l.id !== id);
-      if (state.leads.length !== before) {
-        writeLeadsState(state);
-      }
-      sendJson(res, 200, { ok: true, counts: summarizeLeadCounts(state.leads) });
-      return true;
-    }
-
-    sendJson(res, 404, { error: `Unknown Leads endpoint: ${method} ${pathname}` });
-    return true;
-  } catch (err) {
-    const message = err instanceof Error ? err.message : 'Unexpected server error';
-    const isClientError = /Payload exceeds|Invalid JSON/i.test(message);
-    sendJson(res, isClientError ? 400 : 500, { error: message });
+        clip(body.country, 80),
+        clip(body.website, 300),
+        clip(body.message, 5000),
+        clip(body.preferredSlot, 120),
+        clip(body.pageUrl, 500),
+        clip(req.headers.referer, 500),
+        Object.keys(utm).length ? JSON.stringify(utm) : null,
+        extraJson && extraJson.length <= 4000 ? extraJson : null,
+        isSpam ? 'spam' : 'new',
+        ipHash(ip),
+        clip(req.headers['user-agent'], 300),
+        isSpam ? 'skipped' : 'pending',
+      ]
+    );
+    const lead = toLead(rows[0]);
+    if (!isSpam) void notify(lead).catch((err) => console.error('[leads] notify failed', err));
+    sendJson(res, 201, { ok: true, id: lead.id });
     return true;
   }
+
+  if (!pathname.startsWith('/api/admin/leads')) return false;
+
+  // --- Admin -----------------------------------------------------------------
+  const user = await requireUser(req, { roles: ['admin', 'editor'] });
+
+  if (method === 'GET' && pathname === '/api/admin/leads') {
+    const f = filtersFrom(url);
+    const page = Math.max(1, Number(url.searchParams.get('page')) || 1);
+    const pageSize = Math.min(100, Math.max(5, Number(url.searchParams.get('pageSize')) || 25));
+    const w = whereClause(f);
+    const [items, total, counts, sources] = await Promise.all([
+      query<LeadRow>(
+        `SELECT * FROM leads ${w.sql} ORDER BY created_at DESC LIMIT ${pageSize} OFFSET ${(page - 1) * pageSize}`,
+        w.params
+      ),
+      query<{ count: string }>(`SELECT count(*) FROM leads ${w.sql}`, w.params),
+      query<{ status: string; count: string }>('SELECT status, count(*) FROM leads GROUP BY status'),
+      query<{ source: string }>('SELECT DISTINCT source FROM leads ORDER BY source'),
+    ]);
+    sendJson(res, 200, {
+      items: items.rows.map(toLead),
+      total: Number(total.rows[0].count),
+      page,
+      pageSize,
+      counts: Object.fromEntries(counts.rows.map((r) => [r.status, Number(r.count)])),
+      sources: sources.rows.map((r) => r.source),
+    });
+    return true;
+  }
+
+  if (method === 'GET' && pathname === '/api/admin/leads/export.csv') {
+    if (user.role !== 'admin') throw new HttpError(403, 'Only admins can export leads.');
+    const w = whereClause(filtersFrom(url));
+    const { rows } = await query<LeadRow>(`SELECT * FROM leads ${w.sql} ORDER BY created_at DESC`, w.params);
+    const csv = toCsv([
+      ['ID', 'Received', 'Status', 'Form', 'Name', 'Email', 'Phone', 'Location', 'Website', 'Preferred slot', 'Message', 'Page', 'UTM', 'Notes'],
+      ...rows.map((r) => [
+        r.id, r.created_at.toISOString(), r.status, r.source, r.name, r.email, r.phone, r.country, r.website,
+        r.preferred_slot, r.message, r.page_url, r.utm ? JSON.stringify(r.utm) : '', r.notes,
+      ]),
+    ]);
+    await audit(user, 'export', 'leads', null, { rows: rows.length });
+    res.writeHead(200, {
+      'Content-Type': 'text/csv; charset=utf-8',
+      'Content-Disposition': `attachment; filename="eon8-leads-${new Date().toISOString().slice(0, 10)}.csv"`,
+      'Cache-Control': 'no-store',
+    });
+    res.end(String.fromCharCode(0xfeff) + csv); // BOM so Excel reads UTF-8
+    return true;
+  }
+
+  if (method === 'POST' && pathname === '/api/admin/leads/import') {
+    if (user.role !== 'admin') throw new HttpError(403, 'Only admins can import leads.');
+    const body = await readJsonBody<{ csv?: string; source?: string }>(req, 5 * 1024 * 1024);
+    const rows = parseCsv(String(body.csv || ''));
+    if (rows.length < 2) throw new HttpError(400, 'The CSV needs a header row and at least one lead.');
+    const map = rows[0].map(importField);
+    if (!map.includes('email') && !map.includes('phone')) {
+      throw new HttpError(400, 'No email or phone column found in the CSV header.');
+    }
+    const defaultSource = clip(body.source, 100) || 'wordpress-import';
+    let imported = 0;
+    let skipped = 0;
+    for (const row of rows.slice(1)) {
+      const rec: Record<string, string> = {};
+      row.forEach((value, i) => {
+        const field = map[i];
+        if (field && value.trim() && !rec[field]) rec[field] = value.trim();
+      });
+      const email = rec.email?.toLowerCase();
+      if (!email && !rec.phone) {
+        skipped += 1;
+        continue;
+      }
+      const created = rec.date && !Number.isNaN(Date.parse(rec.date)) ? new Date(rec.date) : new Date();
+      await query(
+        `INSERT INTO leads (source, name, email, phone, country, website, message, status, email_status, created_at, notes)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,'contacted','skipped',$8,'Imported from WordPress')`,
+        [clip(rec.source, 100) || defaultSource, clip(rec.name, 120), email ? clip(email, 200) : null, clip(rec.phone, 40),
+          clip(rec.country, 80), clip(rec.website, 300), clip(rec.message, 5000), created]
+      );
+      imported += 1;
+    }
+    await audit(user, 'import', 'leads', null, { imported, skipped });
+    sendJson(res, 200, { imported, skipped });
+    return true;
+  }
+
+  if (method === 'POST' && pathname === '/api/admin/leads/test-email') {
+    if (user.role !== 'admin') throw new HttpError(403, 'Only admins can send test emails.');
+    const { notifyEmails } = await getSetting<{ notifyEmails: string[] }>('leads');
+    const result = await sendMail({
+      to: notifyEmails,
+      subject: 'EON8 website: test lead notification',
+      text: `This is a test sent from the EON8 admin by ${user.email}. Lead notifications are working.`,
+    });
+    sendJson(res, result.status === 'sent' ? 200 : 502, result);
+    return true;
+  }
+
+  const idMatch = pathname.match(/^\/api\/admin\/leads\/(\d+)(\/resend)?$/);
+  if (!idMatch) throw new HttpError(404, 'Unknown leads endpoint.');
+  const id = Number(idMatch[1]);
+
+  if (method === 'POST' && idMatch[2]) {
+    const { rows } = await query<LeadRow>('SELECT * FROM leads WHERE id = $1', [id]);
+    if (!rows[0]) throw new HttpError(404, 'Lead not found.');
+    await notify(toLead(rows[0]));
+    const after = await query<LeadRow>('SELECT * FROM leads WHERE id = $1', [id]);
+    sendJson(res, 200, { lead: toLead(after.rows[0]) });
+    return true;
+  }
+
+  if (method === 'GET') {
+    const { rows } = await query<LeadRow>('SELECT * FROM leads WHERE id = $1', [id]);
+    if (!rows[0]) throw new HttpError(404, 'Lead not found.');
+    sendJson(res, 200, { lead: toLead(rows[0]) });
+    return true;
+  }
+
+  if (method === 'PATCH') {
+    const body = await readJsonBody<{ status?: string; notes?: string }>(req);
+    const sets: string[] = [];
+    const params: unknown[] = [];
+    if (body.status !== undefined) {
+      if (!(STATUSES as readonly string[]).includes(body.status)) throw new HttpError(400, 'Unknown lead status.');
+      params.push(body.status);
+      sets.push(`status = $${params.length}`);
+    }
+    if (body.notes !== undefined) {
+      params.push(clip(body.notes, 5000));
+      sets.push(`notes = $${params.length}`);
+    }
+    if (!sets.length) throw new HttpError(400, 'Nothing to update.');
+    params.push(id);
+    const { rows } = await query<LeadRow>(
+      `UPDATE leads SET ${sets.join(', ')}, updated_at = now() WHERE id = $${params.length} RETURNING *`,
+      params
+    );
+    if (!rows[0]) throw new HttpError(404, 'Lead not found.');
+    await audit(user, 'update', 'lead', id, { status: body.status, notesChanged: body.notes !== undefined });
+    sendJson(res, 200, { lead: toLead(rows[0]) });
+    return true;
+  }
+
+  if (method === 'DELETE') {
+    if (user.role !== 'admin') throw new HttpError(403, 'Only admins can delete leads.');
+    const { rowCount } = await query('DELETE FROM leads WHERE id = $1', [id]);
+    if (!rowCount) throw new HttpError(404, 'Lead not found.');
+    await audit(user, 'delete', 'lead', id);
+    sendJson(res, 200, { ok: true });
+    return true;
+  }
+
+  throw new HttpError(405, 'Method not allowed.');
 }

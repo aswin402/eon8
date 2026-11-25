@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   AlertCircle,
   ArrowLeft,
+  History,
   Calendar,
   CheckCircle2,
   Clock,
@@ -35,6 +36,7 @@ import {
 import type { CmsBlogPostRecord } from '@/lib/cms/types';
 import { AdminBlockEditor } from './AdminBlockEditor';
 import { AdminMediaLibrary } from './AdminMediaModal';
+import { AdminRevisionsPanel } from './AdminRevisionsPanel';
 
 interface AdminArticleStudioProps {
   initialPost: CmsBlogPostRecord;
@@ -58,6 +60,7 @@ export function AdminArticleStudio({
   const [slugManuallyEdited, setSlugManuallyEdited] = useState(!isNewPost);
   const [autoReadTime, setAutoReadTime] = useState(true);
   const [viewMode, setViewMode] = useState<'write' | 'split' | 'preview'>('write');
+  const [showHistory, setShowHistory] = useState(false);
   const [saving, setSaving] = useState(false);
   const [dirty, setDirty] = useState(false);
   const [feedback, setFeedback] = useState<{
@@ -250,6 +253,20 @@ export function AdminArticleStudio({
 
   return (
     <div className="min-h-screen bg-background text-foreground pb-20">
+      {showHistory && (
+        <AdminRevisionsPanel
+          postId={draft.id}
+          hasUnsavedChanges={dirty}
+          onClose={() => setShowHistory(false)}
+          onRestored={(restored) => {
+            setShowHistory(false);
+            setDraft(restored);
+            setDirty(false);
+            void useBlogCmsStore.getState().refreshAdmin();
+            onSaved(restored);
+          }}
+        />
+      )}
       {/* Sticky Studio Top Bar */}
       <header className="sticky top-0 z-30 border-b border-border bg-card/95 backdrop-blur-md px-4 sm:px-6 py-3">
         <div className="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-3">
@@ -333,6 +350,17 @@ export function AdminArticleStudio({
 
           {/* Right Save & Publish Controls */}
           <div className="flex items-center gap-2">
+            {!isNewPost && (
+              <button
+                type="button"
+                onClick={() => setShowHistory(true)}
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-border hover:bg-muted text-xs font-bold text-foreground cursor-pointer"
+                title="Earlier saved versions"
+              >
+                <History className="w-4 h-4" />
+                <span className="hidden sm:inline">History</span>
+              </button>
+            )}
             {draft.slug && !isNewPost && (
               <a
                 href={

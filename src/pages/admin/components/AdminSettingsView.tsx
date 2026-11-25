@@ -32,10 +32,10 @@ export function AdminSettingsView() {
       setStatus({ type: 'error', message: 'Please enter your current password.' });
       return;
     }
-    if (newPassword.length < 10) {
+    if (newPassword.length < 12) {
       setStatus({
         type: 'error',
-        message: 'New password must be at least 10 characters long.',
+        message: 'New password must be at least 12 characters long, using three of: lowercase, uppercase, numbers, symbols.',
       });
       return;
     }
@@ -172,12 +172,12 @@ export function AdminSettingsView() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
-                New Password (min 8 chars)
+                New Password (min 12 chars)
               </label>
               <input
                 type={showPasswords ? 'text' : 'password'}
                 required
-                minLength={8}
+                minLength={12}
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
                 placeholder="New strong password"
@@ -192,7 +192,7 @@ export function AdminSettingsView() {
               <input
                 type={showPasswords ? 'text' : 'password'}
                 required
-                minLength={8}
+                minLength={12}
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Re-enter new password"
@@ -221,27 +221,22 @@ export function AdminSettingsView() {
 
           <div className="rounded-xl bg-muted/60 p-4 space-y-1.5">
             <p className="text-sm font-heading font-extrabold text-foreground">
-              {session.mode === 'supabase'
-                ? 'Active: Supabase Database Adapter'
-                : 'Active: Built-in Node File API'}
+              Active: Node API with PostgreSQL
             </p>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              {session.mode === 'supabase'
-                ? 'All blog CRUD operations persist to Supabase Postgres & Storage.'
-                : 'All blog CRUD operations persist atomically to gitignored data/cms-content.json and uploaded images save to public/uploads/blog/.'}
+              Articles, categories, leads, redirects, SEO and settings are stored in the
+              PostgreSQL database. Uploaded images are saved to public/uploads/blog/.
             </p>
           </div>
 
           <div className="space-y-2 text-xs text-muted-foreground leading-relaxed">
             <p className="font-bold text-foreground flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-emerald-500" />
-              Supabase Migration Ready
+              Signed in as {session.admin?.email} ({session.admin?.role ?? 'admin'})
             </p>
             <p>
-              When you are ready to switch to Supabase, run{' '}
-              <code className="text-foreground">supabase/schema.sql</code> in your Supabase
-              SQL Editor and plug in a Supabase provider implementing{' '}
-              <code className="text-foreground">BlogCmsProvider</code>.
+              Changing your password signs you out on every other device. Admins can add
+              users and reset passwords under Users.
             </p>
           </div>
 

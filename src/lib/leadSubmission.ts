@@ -1,3 +1,5 @@
+import { getSiteSettingsSnapshot } from './siteSettings';
+
 export interface LeadSubmissionPayload {
   source: string;
   name?: string;
@@ -8,21 +10,51 @@ export interface LeadSubmissionPayload {
   message?: string;
   preferredSlot?: string;
   pageUrl?: string;
+  /** Hidden spam-trap field value (<SpamHoneypotField />); real visitors leave it empty. */
   honeypot?: string;
+  /** Date.now() when the form was opened; used to flag bot-speed submissions. */
   formStartedAt?: number;
 }
 
 export interface LeadSubmissionResult {
+  /**
+   * True when the enquiry reached the server and was saved. (Kept under this
+   * name so existing forms keep working; it no longer means "webhook only".)
+   */
   deliveredToWebhook: boolean;
+  /** True when the server saved the lead (shown in Admin > Leads). */
   storedInInbox?: boolean;
-  leadId?: string;
+  leadId?: string | number;
+  /** Message to show the visitor when the server rejected the form (validation or rate limit). */
   error?: string;
   whatsappHref: string;
   mailtoHref: string;
 }
 
-const WHATSAPP_NUMBER = '919042294007';
-const SALES_EMAIL = 'info@eon8.com';
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid'];
+const UTM_STORAGE_KEY = 'eon8_first_touch_utm';
+
+/** Keeps the campaign parameters from the visitor's first page so a lead can be attributed. */
+function campaignParams(): Record<string, string> {
+  if (typeof window === 'undefined') return {};
+  const fromUrl: Record<string, string> = {};
+  const params = new URLSearchParams(window.location.search);
+  for (const key of UTM_KEYS) {
+    const value = params.get(key);
+    if (value) fromUrl[key] = value.slice(0, 200);
+  }
+  try {
+    const stored = window.sessionStorage.getItem(UTM_STORAGE_KEY);
+    if (stored) return JSON.parse(stored) as Record<string, string>;
+    if (Object.keys(fromUrl).length) window.sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(fromUrl));
+  } catch {
+    // Storage can be unavailable (private mode); fall back to the current URL.
+  }
+  return fromUrl;
+}
+
+// Capture campaign parameters on the landing page, before the visitor navigates away.
+campaignParams();
 
 export function buildLeadSummaryLinks(payload: LeadSubmissionPayload): {
   whatsappHref: string;
@@ -42,13 +74,32 @@ export function buildLeadSummaryLinks(payload: LeadSubmissionPayload): {
 
   const text = lines.join('\n');
   const subject = `EON8 Website Enquiry — ${payload.name || payload.source}`;
+  const { contact } = getSiteSettingsSnapshot();
 
   return {
-    whatsappHref: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
-    mailtoHref: `mailto:${SALES_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`,
+    whatsappHref: `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(text)}`,
+    mailtoHref: `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`,
   };
 }
 
+async function postJson(url: string, body: unknown): Promise<boolean> {
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    return response.ok;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Saves the enquiry on the EON8 server (which emails the sales team) and, if
+ * configured, also posts it to an external webhook such as a CRM. Visitors
+ * always get WhatsApp/email links as a fallback.
+ */
 export async function submitLeadEnquiry(
   payload: LeadSubmissionPayload
 ): Promise<LeadSubmissionResult> {
@@ -57,70 +108,35 @@ export async function submitLeadEnquiry(
     pageUrl:
       payload.pageUrl || (typeof window !== 'undefined' ? window.location.href : undefined),
   };
-
   const links = buildLeadSummaryLinks(enriched);
+  const { honeypot, formStartedAt, ...lead } = enriched;
+  const elapsedMs =
+    typeof formStartedAt === 'number' && formStartedAt > 0 ? Date.now() - formStartedAt : undefined;
 
-  // 1. Primary delivery: built-in Eon8 Node Leads API (persists to Inbox + forwards server webhook)
+  let saved = false;
+  let leadId: string | number | undefined;
+  let error: string | undefined;
   try {
-    const apiRes = await fetch('/api/leads', {
+    const response = await fetch('/api/leads', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        ...enriched,
-        submittedAt: new Date().toISOString(),
-      }),
+      body: JSON.stringify({ ...lead, hp: honeypot || '', elapsedMs, utm: campaignParams() }),
     });
-
-    const contentType = apiRes.headers.get('content-type') || '';
-    if (contentType.includes('application/json')) {
-      const data = (await apiRes.json()) as {
-        ok?: boolean;
-        stored?: boolean;
-        id?: string;
-        error?: string;
-      };
-      if (apiRes.ok && data.ok) {
-        return {
-          deliveredToWebhook: true,
-          storedInInbox: Boolean(data.stored),
-          leadId: data.id,
-          ...links,
-        };
-      }
-      if (apiRes.status === 400 || apiRes.status === 429) {
-        return {
-          deliveredToWebhook: false,
-          storedInInbox: false,
-          error: data.error || 'Could not submit enquiry right now.',
-          ...links,
-        };
-      }
+    const data = (await response.json().catch(() => ({}))) as { ok?: boolean; id?: string | number; error?: string };
+    if (response.ok && data.ok) {
+      saved = true;
+      leadId = data.id;
+    } else if (response.status === 400 || response.status === 429) {
+      error = data.error || 'Could not submit your enquiry right now. Please try again.';
     }
   } catch {
-    // Fall through to optional client webhook or instant WhatsApp/Email links
+    // Network error: the visitor still gets the WhatsApp / email links below.
   }
 
-  // 2. Optional client-side webhook fallback (for static previews without Node server)
-  const fallbackEndpoint =
-    import.meta.env.VITE_LEAD_WEBHOOK_URL || import.meta.env.VITE_API_URL || '';
-
-  if (fallbackEndpoint && !fallbackEndpoint.includes('api.example.com')) {
-    try {
-      const response = await fetch(fallbackEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...enriched,
-          submittedAt: new Date().toISOString(),
-        }),
-      });
-      if (response.ok) {
-        return { deliveredToWebhook: true, ...links };
-      }
-    } catch {
-      // Fall through cleanly so user still receives WhatsApp / Email / Thank-You confirmation options
-    }
+  const webhook = import.meta.env.VITE_LEAD_WEBHOOK_URL || '';
+  if (!error && webhook && !webhook.includes('api.example.com')) {
+    void postJson(webhook, { ...lead, submittedAt: new Date().toISOString() });
   }
 
-  return { deliveredToWebhook: false, ...links };
+  return { deliveredToWebhook: saved, storedInInbox: saved, leadId, error, ...links };
 }

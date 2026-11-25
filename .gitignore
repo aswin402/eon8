@@ -148,9 +148,17 @@ temp/
 www.eon8.com/
 about-us-raw.html
 
-# CMS runtime data, auth secrets & user-uploaded blog media (auto-created at runtime)
-data/*.json
-data/*.tmp
-data/*.bak
-public/uploads/blog/*
-!public/uploads/blog/.gitkeep
+# CMS runtime auth secrets (auto-seeded from .env)
+data/cms-auth.json
+
+# Generated at build time (scripts/generate-route-manifest.ts)
+public/route-manifest.json
+
+# Local database/upload backups (deploy/backup.sh)
+backups/
+logs/
+# Images uploaded from the admin (runtime data, backed up by deploy/backup.sh)
+public/uploads/
+
+# Internal review reports (security findings) - keep out of git
+reports/
