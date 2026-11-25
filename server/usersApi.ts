@@ -10,6 +10,7 @@ import {
 } from './lib/auth.ts';
 import { query, transaction } from './lib/db.ts';
 import { HttpError, readJsonBody, sendJson } from './lib/http.ts';
+import { isEncryptionEnabled } from './lib/crypto.ts';
 import { isMailConfigured } from './lib/mailer.ts';
 
 interface UserRow {
@@ -66,6 +67,7 @@ export async function handleUsersApi(req: IncomingMessage, res: ServerResponse, 
     sendJson(res, 200, {
       database: 'connected',
       mailConfigured: isMailConfigured(),
+      leadEncryption: isEncryptionEnabled() ? 'on' : 'off',
       counts: {
         users: Number(users.rows[0].count),
         leads: Number(leads.rows[0].count),

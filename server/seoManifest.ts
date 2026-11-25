@@ -207,16 +207,24 @@ async function catalog(m: SeoManifest): Promise<Catalog> {
 
 const blogRootRedirect = () => env('BLOG_ROOT_REDIRECT', 'true').toLowerCase() !== 'false';
 
+/** WordPress / Rank Math sitemap file names (lower-case, no leading slash). */
+const LEGACY_SITEMAP_RE = /^(sitemap[_-]index|[a-z0-9_-]+-sitemap\d*|wp-sitemap(-[a-z0-9_-]+)?)\.xml$/;
+
 /**
  * Permanent redirects for old WordPress URL patterns: ?p=<id>, feeds, author and
  * tag archives, renamed pages, and posts that used to live at /<slug>/ (now
  * /blog/<slug>/). Admin-managed redirects are checked before this.
  */
 export async function legacyRedirect(pathname: string, search: URLSearchParams): Promise<string | null> {
-  const m = loadSeoManifest();
-  if (!m) return null;
   const key = normalizePath(pathname) || '/';
   const clean = key.slice(1);
+  // Old sitemaps (Rank Math sitemap_index.xml, post-sitemap.xml, post-sitemap2.xml...
+  // and WordPress core wp-sitemap.xml / wp-sitemap-*.xml) -> the one sitemap here.
+  // Not their .xsl stylesheets: those stay 404 (an XSL request must not get XML back).
+  if (LEGACY_SITEMAP_RE.test(clean)) return '/sitemap.xml';
+
+  const m = loadSeoManifest();
+  if (!m) return null;
 
   if (key === '/' && search.has('p')) {
     const id = Number(search.get('p'));
@@ -246,6 +254,15 @@ export async function legacyRedirect(pathname: string, search: URLSearchParams):
   if (blog) {
     const to = (await catalog(m)).renamed.get(blog[1]);
     if (to && to.toLowerCase() !== blog[1]) return withSlash(`/blog/${to}`);
+  }
+  // Older WordPress permalinks seen in the live 404 log: dated post URLs
+  // (/2020/08/28/<slug>/) and /blog-<slug>. Only redirect when the post exists.
+  const legacyPost = clean.match(/^\d{4}\/\d{2}\/\d{2}\/([^/]+)$/) || clean.match(/^blog-([^/]+)$/);
+  if (legacyPost) {
+    const c = await catalog(m);
+    const slug = c.renamed.get(legacyPost[1]) ?? legacyPost[1];
+    const post = c.posts.get(slug.toLowerCase());
+    if (post) return withSlash(`/blog/${post.slug}`);
   }
   return null;
 }

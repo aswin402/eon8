@@ -117,6 +117,11 @@ export function AdminSiteSettingsView() {
         <div className={`${ui.card} grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-sm`}>
           <StatusItem ok={status.database === 'connected'} label="Database" value={status.database} />
           <StatusItem ok={status.mailConfigured} label="Email (SMTP)" value={status.mailConfigured ? 'configured' : 'not configured: leads are saved but not emailed'} />
+          <StatusItem
+            ok={status.leadEncryption === 'on'}
+            label="Lead encryption"
+            value={status.leadEncryption === 'on' ? 'on: lead details are encrypted at rest' : 'off: set DATA_ENCRYPTION_KEY on the server'}
+          />
           <StatusItem ok label="Leads saved" value={String(status.counts.leads ?? 0)} />
           <StatusItem ok={(status.counts.failedLeadEmails30d ?? 0) === 0} label="Failed lead emails (30 days)" value={String(status.counts.failedLeadEmails30d ?? 0)} />
         </div>

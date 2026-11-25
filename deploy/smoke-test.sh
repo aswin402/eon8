@@ -33,6 +33,8 @@ echo "$html" | grep -q 'rel="canonical" href="[^"]*/about-us/"'; check "canonica
 echo "$html" | grep -q 'id="eon8-jsonld"'; check "JSON-LD in HTML" $? "json-ld missing"
 
 n="$(curl -s "$BASE/sitemap.xml" | grep -c '<loc>')"; [ "$n" -gt 250 ]; check "sitemap has URLs" $? "$n"
+s="$(status /sitemap_index.xml)"; [ "$s" = 301 ]; check "old /sitemap_index.xml 301" $? "$s"
+l="$(location /sitemap_index.xml)"; [ "$l" = "/sitemap.xml" ]; check "old /sitemap_index.xml -> /sitemap.xml" $? "$l"
 curl -s "$BASE/robots.txt" | grep -qi 'disallow: /admin-dashboard'; check "robots.txt blocks admin" $? "rule missing"
 
 headers="$(curl -sI "$BASE/")"

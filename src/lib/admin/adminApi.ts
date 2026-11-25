@@ -99,6 +99,8 @@ export interface AuditEntry {
 export interface SystemStatus {
   database: string;
   mailConfigured: boolean;
+  /** Whether lead personal data is encrypted at rest (DATA_ENCRYPTION_KEY). */
+  leadEncryption?: 'on' | 'off';
   counts: Record<string, number>;
 }
 

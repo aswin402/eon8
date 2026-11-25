@@ -4,6 +4,8 @@
 //
 // The admin account must be the one created from CMS_ADMIN_EMAIL / CMS_ADMIN_PASSWORD.
 // The run creates test data (leads, redirects, an editor account), so never point it at production.
+// The server is expected to run with DATA_ENCRYPTION_KEY set (lead encryption "on");
+// set E2E_EXPECT_LEAD_ENCRYPTION=off to test a server without a key.
 import net from 'node:net';
 
 const BASE = (process.env.E2E_BASE_URL || 'http://127.0.0.1:4173').replace(/\/+$/, '');
@@ -144,6 +146,25 @@ check('email marked skipped without SMTP', detail.data.lead?.emailStatus === 'sk
 check('update lead status + notes', (await admin.req('PATCH', `/api/admin/leads/${lead.data.id}`, { status: 'contacted', notes: 'called' })).data.lead?.status === 'contacted');
 const csv = await admin.req('GET', '/api/admin/leads/export.csv?status=all');
 check('CSV export works', csv.status === 200 && String(csv.data).includes('Test Lead'));
+check('CSV export has the plain (decrypted) email', String(csv.data).includes('lead@example.com') && !String(csv.data).includes('enc:v1:'));
+// Lead details may be encrypted at rest, so search runs on decrypted values in memory.
+const byEmail = await admin.req('GET', '/api/admin/leads?q=LEAD@example.com');
+check('admin search finds a lead by email (case-insensitive)', byEmail.data.items?.some((l) => l.id === lead.data.id) && byEmail.data.total === byEmail.data.items?.length, JSON.stringify(byEmail.data).slice(0, 300));
+const byName = await admin.req('GET', '/api/admin/leads?q=test%20lea');
+check('admin search finds a lead by part of the name', byName.data.items?.some((l) => l.id === lead.data.id && l.email === 'lead@example.com'));
+const byPhone = await admin.req('GET', '/api/admin/leads?q=98765');
+check('admin search finds a lead by phone', byPhone.data.items?.some((l) => l.id === lead.data.id));
+const noHit = await admin.req('GET', '/api/admin/leads?q=no-such-lead-xyz');
+check('admin search with no match returns an empty page', noHit.status === 200 && noHit.data.total === 0 && noHit.data.items?.length === 0 && typeof noHit.data.counts === 'object');
+const searchStatus = await admin.req('GET', '/api/admin/leads?q=example.com&status=contacted');
+check('search combines with the status filter', searchStatus.data.items?.length > 0 && searchStatus.data.items.every((l) => l.status === 'contacted'), JSON.stringify(searchStatus.data.items?.map((l) => l.status)));
+const spamSearch = await admin.req('GET', '/api/admin/leads?q=bot&status=spam');
+check('search finds spam leads when filtering by spam', spamSearch.data.items?.some((l) => l.id === spam.data.id));
+const csvSearch = await admin.req('GET', '/api/admin/leads/export.csv?status=all&q=lead@example.com');
+check('CSV export applies the search', String(csvSearch.data).includes('lead@example.com') && !String(csvSearch.data).includes('bot@example.com'));
+check('lead detail returns plain values', detail.data.lead?.name === 'Test Lead' && detail.data.lead?.phone === '+91 98765 43210' && detail.data.lead?.message === 'Hi');
+const notesBack = await admin.req('GET', `/api/admin/leads/${lead.data.id}`);
+check('lead notes read back in plain text', notesBack.data.lead?.notes === 'called', notesBack.data.lead?.notes);
 const imp = await admin.req('POST', '/api/admin/leads/import', { csv: 'Your Name,Your Email,Your Phone,Your Message,Date\nOld Lead,old@example.com,9999999999,From WP,2025-01-02\nNo contact,,,x,\n' });
 check('CSV import of WordPress leads', imp.data.imported === 1 && imp.data.skipped === 1, JSON.stringify(imp.data));
 
@@ -215,6 +236,9 @@ const actions = new Set(auditLog.data.items?.map((a) => `${a.action}:${a.entity}
 check('audit log records changes', ['create:redirect', 'upsert:page_seo', 'create:admin_user', 'update:lead', 'login_failed:admin_user'].every((a) => actions.has(a)), [...actions].join(' '));
 const sys = await admin.req('GET', '/api/admin/system');
 check('system status endpoint', sys.data.database === 'connected' && sys.data.mailConfigured === false);
+const expectEncryption = process.env.E2E_EXPECT_LEAD_ENCRYPTION || 'on';
+check(`system status shows lead encryption ${expectEncryption}`, sys.data.leadEncryption === expectEncryption, sys.data.leadEncryption);
+check('audit log holds no lead email or phone', !JSON.stringify(auditLog.data.items?.filter((a) => /lead/.test(a.entity)) ?? []).match(/lead@example\.com|98765/));
 check('logout clears session', (await admin.req('POST', '/api/cms/auth/logout', {})).status === 200 && (await admin.req('GET', '/api/admin/leads')).status === 401);
 
 // --- Real 404 status ----------------------------------------------------------------
@@ -235,10 +259,30 @@ for (const [from, to] of [
   ['/tag/seo/', '/blog/'],
   ['/author/admin/', '/blog/'],
   ['/?p=999999999', '/blog/'],
+  // Older permalinks from the live 404 log
+  ['/2020/08/28/delete-negative-reviews/', '/blog/delete-negative-reviews/'],
+  ['/blog-twitter-mindshare', '/blog/twitter-mindshare/'],
+  // Old WordPress / Rank Math sitemaps
+  ['/sitemap_index.xml', '/sitemap.xml'],
+  ['/post-sitemap.xml', '/sitemap.xml'],
+  ['/post-sitemap2.xml', '/sitemap.xml'],
+  ['/page-sitemap.xml', '/sitemap.xml'],
+  ['/category-sitemap.xml', '/sitemap.xml'],
+  ['/post_tag-sitemap.xml', '/sitemap.xml'],
+  ['/author-sitemap.xml', '/sitemap.xml'],
+  ['/local-sitemap.xml', '/sitemap.xml'],
+  ['/wp-sitemap.xml', '/sitemap.xml'],
+  ['/wp-sitemap-posts-post-1.xml', '/sitemap.xml'],
+  ['/Sitemap_Index.xml', '/sitemap.xml'],
 ]) {
   const r = await fetch(`${BASE}${from}`, { redirect: 'manual' });
   check(`legacy ${from} -> 301 ${to}`, r.status === 301 && r.headers.get('location') === to, `${r.status} ${r.headers.get('location')}`);
 }
+const sitemapRes = await fetch(`${BASE}/sitemap.xml`, { redirect: 'manual' });
+check('/sitemap.xml itself is served (not redirected)', sitemapRes.status === 200 && (await sitemapRes.text()).includes('<urlset'), String(sitemapRes.status));
+check('/robots.txt is still served', (await fetch(`${BASE}/robots.txt`, { redirect: 'manual' })).status === 200);
+check('old sitemap stylesheet /main-sitemap.xsl is a plain 404', (await fetch(`${BASE}/main-sitemap.xsl`, { redirect: 'manual' })).status === 404);
+check('unknown non-sitemap .xml stays 404', (await fetch(`${BASE}/not-a-sitemap-file.xml`, { redirect: 'manual' })).status === 404);
 const seoRes = await fetch(`${BASE}/ai-video-creation/`);
 const seoHtml = await seoRes.text();
 check('page title comes from the SEO manifest', seoHtml.includes('<title>AI Video Creation Services | AI Video Production Company | EON8</title>'), seoHtml.match(/<title>[^<]*<\/title>/)?.[0]);
