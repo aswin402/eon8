@@ -94,6 +94,7 @@ function mergeCatalog(
       author: summary.author,
       thumbnail: summary.thumbnail,
       excerpt: summary.excerpt,
+      postType: summary.postType,
       status: summary.status,
       featured: Boolean(summary.featured),
       seo: summary.seo,

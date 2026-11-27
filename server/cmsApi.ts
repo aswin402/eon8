@@ -63,6 +63,7 @@ interface StoredBlogPost {
   author: string;
   thumbnail: string;
   excerpt: string;
+  postType?: 'post' | 'news' | 'newsletter';
   seo?: { metaTitle?: string; metaDescription?: string; ogImage?: string };
   createdAt: string;
   updatedAt: string;
@@ -428,6 +429,7 @@ export async function handleCmsApiRequest(
         title: incoming.title.trim(),
         status: incoming.status === 'draft' ? 'draft' : 'published',
         featured: Boolean(incoming.featured),
+        postType: incoming.postType === 'news' || incoming.postType === 'newsletter' ? incoming.postType : 'post',
         category: primaryCategory,
         categories:
           Array.isArray(incoming.categories) && incoming.categories.length > 0

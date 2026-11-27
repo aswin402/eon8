@@ -3,6 +3,7 @@ import { handleCmsApiRequest } from './cmsApi.ts';
 import { isDatabaseConfigured, ready } from './lib/db.ts';
 import { HttpError, assertSameOrigin, sendJson } from './lib/http.ts';
 import { handleLeadsApi } from './leadsApi.ts';
+import { handlePagesApi } from './pagesApi.ts';
 import { handleRedirectsApi } from './redirectsApi.ts';
 import { handleSeoApi, invalidateHeadCaches } from './seoApi.ts';
 import { handleSettingsApi } from './settingsApi.ts';
@@ -39,6 +40,7 @@ export async function handleApiRequest(req: IncomingMessage, res: ServerResponse
     assertSameOrigin(req);
 
     if (await handleCmsApiRequest(req, res, url)) return true;
+    if (await handlePagesApi(req, res, url)) return true;
     if (await handleLeadsApi(req, res, url)) return true;
     if (await handleSettingsApi(req, res, url)) {
       if ((req.method || 'GET').toUpperCase() !== 'GET') invalidateHeadCaches();

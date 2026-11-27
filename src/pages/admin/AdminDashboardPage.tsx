@@ -7,6 +7,7 @@ import {
   FileText,
   FolderKanban,
   History,
+  LayoutTemplate,
   Image as ImageIcon,
   Inbox,
   LogOut,
@@ -26,6 +27,7 @@ import {
 } from 'lucide-react';
 import { PageSeo } from '@/components/sections';
 import { useBlogCmsStore } from '@/lib/cms/blogStore';
+import { POST_TYPES, postTypeOf, postUrl, type PostType } from '@/lib/cms/postTypes';
 import type { CmsBlogPostRecord, ManagedBlogSummary } from '@/lib/cms/types';
 import { useThemeStore } from '@/store/useThemeStore';
 import { AdminArticleStudio } from './components/AdminArticleStudio';
@@ -33,6 +35,7 @@ import { AdminCategoryManager } from './components/AdminCategoryManager';
 import { AdminLoginView } from './components/AdminLoginView';
 import { AdminMediaLibrary } from './components/AdminMediaModal';
 import { AdminLeadsView } from './components/AdminLeadsView';
+import { AdminPagesView } from './components/AdminPagesView';
 import { AdminRedirectsView } from './components/AdminRedirectsView';
 import { AdminSeoView } from './components/AdminSeoView';
 import { AdminSettingsView } from './components/AdminSettingsView';
@@ -40,6 +43,7 @@ import { AdminSiteSettingsView } from './components/AdminSiteSettingsView';
 import { AdminActivityView, AdminUsersView } from './components/AdminUsersView';
 
 type AdminSectionTab =
+  | 'pages'
   | 'articles'
   | 'categories'
   | 'media'
@@ -62,6 +66,7 @@ const BACKEND_TABS: Array<{
   title: string;
   description: string;
 }> = [
+  { id: 'pages', label: 'Pages', icon: LayoutTemplate, color: 'text-orange-300', title: 'Website Pages', description: 'Edit the text, images, buttons and sections of website pages, or create new pages.' },
   { id: 'leads', label: 'Leads', icon: Inbox, color: 'text-rose-300', title: 'Website Leads', description: 'Every enquiry from the website forms. Update status, add notes, export to CSV.' },
   { id: 'redirects', label: 'Redirects', icon: Route, color: 'text-violet-300', title: 'URL Redirects', description: 'Permanent (301) and temporary redirects served by the server, including old WordPress URLs.' },
   { id: 'seo', label: 'Page SEO', icon: ScanSearch, color: 'text-sky-300', title: 'Page SEO Overrides', description: 'Titles, descriptions, share images, noindex and structured data for any page.' },
@@ -177,7 +182,9 @@ export function AdminDashboardPage() {
       if (statusFilter === 'featured' && !post.featured) return false;
       if (statusFilter === 'custom' && post.source === 'static') return false;
 
-      if (categoryFilter !== 'ALL') {
+      if (categoryFilter.startsWith('TYPE:')) {
+        if (postTypeOf(post) !== categoryFilter.slice(5)) return false;
+      } else if (categoryFilter !== 'ALL') {
         const cats = post.categories?.length ? post.categories : [post.category];
         if (!cats.some((c) => c.toLowerCase() === categoryFilter.toLowerCase())) {
           return false;
@@ -534,7 +541,7 @@ export function AdminDashboardPage() {
           </aside>
 
           {/* Main Dashboard Workspace */}
-          <main className="flex-1 p-5 sm:p-8 lg:p-10 max-w-[1500px] w-full mx-auto space-y-7">
+          <main className="flex-1 min-w-0 p-5 sm:p-8 lg:p-10 max-w-[1500px] w-full mx-auto space-y-7">
             {/* Top Workspace Header */}
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
@@ -592,6 +599,8 @@ export function AdminDashboardPage() {
             {activeTab === 'media' && <AdminMediaLibrary mode="page" />}
 
             {activeTab === 'settings' && <AdminSettingsView />}
+
+            {activeTab === 'pages' && <AdminPagesView />}
 
             {activeTab === 'leads' && <AdminLeadsView isAdmin={isAdmin} />}
 
@@ -758,12 +767,21 @@ export function AdminDashboardPage() {
                         }}
                         className="w-full rounded-xl border border-border bg-background px-3 py-2.5 text-xs sm:text-sm text-foreground"
                       >
-                        <option value="ALL">All Categories</option>
-                        {categories.map((c) => (
-                          <option key={c.slug} value={c.name}>
-                            {c.name}
-                          </option>
-                        ))}
+                        <option value="ALL">All Types &amp; Categories</option>
+                        <optgroup label="Content type">
+                          {(Object.keys(POST_TYPES) as PostType[]).map((t) => (
+                            <option key={t} value={`TYPE:${t}`}>
+                              {t === 'post' ? 'Blog posts' : POST_TYPES[t].plural}
+                            </option>
+                          ))}
+                        </optgroup>
+                        <optgroup label="Category">
+                          {categories.map((c) => (
+                            <option key={c.slug} value={c.name}>
+                              {c.name}
+                            </option>
+                          ))}
+                        </optgroup>
                       </select>
                     </div>
 
@@ -971,6 +989,11 @@ export function AdminDashboardPage() {
                                   <span className="inline-block px-2.5 py-1 rounded-full bg-muted text-xs font-semibold text-foreground">
                                     {post.category}
                                   </span>
+                                  {postTypeOf(post) !== 'post' && (
+                                    <span className="ml-1.5 inline-block px-2 py-0.5 rounded-full bg-violet-500/15 text-violet-700 dark:text-violet-300 text-[11px] font-extrabold">
+                                      {POST_TYPES[postTypeOf(post)].label}
+                                    </span>
+                                  )}
                                 </td>
 
                                 <td className="py-3.5 px-4">
@@ -1027,8 +1050,8 @@ export function AdminDashboardPage() {
                                     <a
                                       href={
                                         post.status === 'draft'
-                                          ? `/blog/${post.slug}?preview=1`
-                                          : `/blog/${post.slug}`
+                                          ? `${postUrl(post)}?preview=1`
+                                          : `${postUrl(post)}`
                                       }
                                       target="_blank"
                                       rel="noopener noreferrer"

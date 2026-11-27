@@ -9,6 +9,8 @@ import {
 } from '@/components/sections';
 import type { CtaAction } from './types';
 import { ieoListingData } from './data/ieoListingData';
+import { usePageContent } from '@/lib/pages/pageContent';
+import { PageLoading } from '@/lib/pages/PageLoading';
 
 function mapAction(c: CtaAction, fallbackVariant: ActionItem['variant'] = 'primary'): ActionItem {
   const isWhatsapp = c.kind === 'whatsapp' || /wa\.link|whatsapp/i.test(c.href);
@@ -21,8 +23,7 @@ function mapAction(c: CtaAction, fallbackVariant: ActionItem['variant'] = 'prima
   };
 }
 
-export default function IeoListingPage() {
-  const data = ieoListingData;
+function IeoListingView({ data }: { data: typeof ieoListingData }) {
 
   return (
     <div className="bg-background text-foreground">
@@ -142,4 +143,10 @@ export default function IeoListingPage() {
       />
     </div>
   );
+}
+
+export default function IeoListingPage() {
+  const data = usePageContent('ieo-listing:ieo-listing-services', ieoListingData);
+  if (!data) return <PageLoading />;
+  return <IeoListingView data={data} />;
 }

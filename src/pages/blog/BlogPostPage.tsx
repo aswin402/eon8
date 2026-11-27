@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom';
+import { POST_TYPES, postTypeOf, type PostType } from '@/lib/cms/postTypes';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Eye, Pencil, Tag, User } from 'lucide-react';
 import { LeadCaptureCard, PageSeo } from '@/components/sections';
 import {
@@ -25,9 +26,11 @@ function formatDayMonthYear(dateIso: string, fallback: string): string {
 
 interface BlogPostPageProps {
   slug?: string;
+  /** The section this URL belongs to (/blog, /news, /newsletter). Root-level /<slug>/ leaves it unset. */
+  routeType?: PostType;
 }
 
-export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
+export function BlogPostPage({ slug: propSlug, routeType }: BlogPostPageProps) {
   const { slug: paramSlug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const isPreviewParam = searchParams.get('preview') === '1';
@@ -82,22 +85,33 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
     };
   }, [activeSlug, redirectTarget, isPreviewParam, loadKey, loadPostForDisplay]);
 
+  const type = postTypeOf(summary);
+  const base = POST_TYPES[type].base;
+  // Previous / next / recent stay within the same section (blog, news or newsletter).
+  const sectionPosts = useMemo(
+    () => publishedPosts.filter((p) => postTypeOf(p) === type),
+    [publishedPosts, type]
+  );
   const currentIndex = useMemo(
-    () => (summary ? publishedPosts.findIndex((p) => p.slug === summary.slug) : -1),
-    [summary, publishedPosts]
+    () => (summary ? sectionPosts.findIndex((p) => p.slug === summary.slug) : -1),
+    [summary, sectionPosts]
   );
 
   const prevChronologicalPost =
-    currentIndex >= 0 && currentIndex < publishedPosts.length - 1
-      ? publishedPosts[currentIndex + 1]
+    currentIndex >= 0 && currentIndex < sectionPosts.length - 1
+      ? sectionPosts[currentIndex + 1]
       : undefined;
   const newerChronologicalPost =
-    currentIndex > 0 ? publishedPosts[currentIndex - 1] : undefined;
+    currentIndex > 0 ? sectionPosts[currentIndex - 1] : undefined;
 
-  const recentSidebarPosts = useMemo(() => publishedPosts.slice(0, 6), [publishedPosts]);
+  const recentSidebarPosts = useMemo(() => sectionPosts.slice(0, 6), [sectionPosts]);
 
   if (redirectTarget && redirectTarget !== activeSlug) {
-    return <Navigate to={`/blog/${redirectTarget}`} replace />;
+    return <Navigate to={`${base}/${redirectTarget}`} replace />;
+  }
+  // A news item or newsletter opened under /blog/ (or the other way round) moves to its own section.
+  if (summary && routeType && routeType !== type) {
+    return <Navigate to={`${base}/${summary.slug}`} replace />;
   }
 
   const currentPost = loaded?.key === loadKey ? loaded.post : null;
@@ -111,7 +125,7 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
           The requested blog article could not be located.
         </p>
         <Link
-          to="/blog"
+          to={POST_TYPES[routeType ?? 'post'].base}
           className="px-6 py-3 rounded-xl bg-[#FD5900] text-white font-bold text-sm hover:bg-[#e55000] transition-colors no-underline"
         >
           Back to All Articles
@@ -147,7 +161,7 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
       <PageSeo
         title={seoTitle}
         description={seoDesc}
-        canonicalPath={`/blog/${effectiveSummary.slug}`}
+        canonicalPath={`${base}/${effectiveSummary.slug}`}
         ogImage={seoImage}
         noIndex={isDraftView}
         article={{
@@ -179,11 +193,11 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
         <div className="max-w-5xl mx-auto space-y-5">
           <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-200">
             <Link
-              to="/blog"
+              to={base}
               className="inline-flex items-center gap-1.5 text-white/85 hover:text-[#FD5900] font-semibold no-underline"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span>Blog</span>
+              <span>{type === 'post' ? 'Blog' : POST_TYPES[type].plural}</span>
             </Link>
             <span>/</span>
             <Link
@@ -253,7 +267,7 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
             >
               {prevChronologicalPost ? (
                 <Link
-                  to={`/blog/${prevChronologicalPost.slug}`}
+                  to={`${base}/${prevChronologicalPost.slug}`}
                   className="group rounded-xl border border-border p-4 hover:border-[#FD5900] transition-colors no-underline space-y-1"
                 >
                   <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">
@@ -269,7 +283,7 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
 
               {newerChronologicalPost && (
                 <Link
-                  to={`/blog/${newerChronologicalPost.slug}`}
+                  to={`${base}/${newerChronologicalPost.slug}`}
                   className="group rounded-xl border border-border p-4 hover:border-[#FD5900] transition-colors no-underline sm:text-right space-y-1"
                 >
                   <span className="inline-flex items-center sm:justify-end gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">
@@ -301,7 +315,7 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
                 {recentSidebarPosts.map((item) => (
                   <li key={item.slug}>
                     <Link
-                      to={`/blog/${item.slug}`}
+                      to={`${base}/${item.slug}`}
                       className="group block space-y-1 no-underline"
                     >
                       <h3 className="text-sm font-heading font-bold text-foreground group-hover:text-[#FD5900] transition-colors leading-snug">

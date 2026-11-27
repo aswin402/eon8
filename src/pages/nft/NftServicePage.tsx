@@ -11,6 +11,7 @@ import { HeadingLines, RichText } from '../crypto/components/RichText';
 import { NftSectionRenderer } from './components/NftSectionRenderer';
 import { NFT_SERVICE_LOADERS } from './data/services';
 import type { NftCtaButton, NftServicePageData, NftWpSlug } from './types';
+import { loadPageContent } from '@/lib/pages/pageContent';
 
 interface NftServicePageProps {
   slug: NftWpSlug;
@@ -39,7 +40,7 @@ export default function NftServicePage({ slug }: NftServicePageProps) {
     const loader = NFT_SERVICE_LOADERS[slug];
     if (!loader) return undefined;
 
-    loader().then((pageData) => {
+    loadPageContent(`nft-service:${slug}`, loader).then((pageData) => {
       if (!cancelled) {
         setLoaded({ routeSlug: slug, data: pageData });
       }

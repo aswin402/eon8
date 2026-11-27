@@ -10,6 +10,7 @@ import { CryptoSectionRenderer } from './components/CryptoSectionRenderer';
 import { HeadingLines, RichText } from './components/RichText';
 import { CRYPTO_SERVICE_LOADERS } from './data/services';
 import type { CryptoServicePageData, CtaAction, RichNode } from './types';
+import { loadPageContent } from '@/lib/pages/pageContent';
 
 interface CryptoServicePageProps {
   slug: string;
@@ -51,7 +52,7 @@ export default function CryptoServicePage({ slug }: CryptoServicePageProps) {
         active = false;
       };
     }
-    loader()
+    loadPageContent(`crypto-service:${slug}`, loader)
       .then((loaded) => {
         if (active) setState({ slug, data: loaded, error: false });
       })

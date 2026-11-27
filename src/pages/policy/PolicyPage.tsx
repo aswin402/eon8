@@ -4,8 +4,11 @@ import { PageSeo, ServiceHeroSection } from '@/components/sections';
 import {
   policyPagesData,
   type PolicyBlock,
+  type PolicyData,
   type PolicyInlineNode,
 } from './policyPagesData';
+import { usePageContent } from '@/lib/pages/pageContent';
+import { PageLoading } from '@/lib/pages/PageLoading';
 
 interface PolicyPageProps {
   slug: string;
@@ -124,8 +127,7 @@ function renderBlocks(blocks: PolicyBlock[]) {
   });
 }
 
-export function PolicyPage({ slug }: PolicyPageProps) {
-  const data = policyPagesData[slug];
+function PolicyView({ data }: { data: PolicyData | undefined }) {
 
   if (!data) {
     return (
@@ -212,3 +214,9 @@ export function PolicyPage({ slug }: PolicyPageProps) {
 }
 
 export default PolicyPage;
+
+export function PolicyPage({ slug }: PolicyPageProps) {
+  const data = usePageContent(`policy:${slug}`, policyPagesData[slug]);
+  if (data === null) return <PageLoading />;
+  return <PolicyView data={data} />;
+}

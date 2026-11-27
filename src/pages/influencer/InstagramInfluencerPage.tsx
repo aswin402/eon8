@@ -10,8 +10,10 @@ import {
 } from '@/components/sections';
 import { HeadingLines, RichText } from '@/pages/crypto/components/RichText';
 import { instagramInfluencerData } from './data/instagramInfluencerData';
+import { usePageContent } from '@/lib/pages/pageContent';
+import { PageLoading } from '@/lib/pages/PageLoading';
 
-export default function InstagramInfluencerPage() {
+function InstagramInfluencerView({ content }: { content: typeof instagramInfluencerData }) {
   const {
     title,
     metaDesc,
@@ -27,7 +29,7 @@ export default function InstagramInfluencerPage() {
     fixedSchedule,
     solutions,
     enquiry,
-  } = instagramInfluencerData;
+  } = content;
 
   return (
     <div className="bg-background text-foreground">
@@ -224,4 +226,10 @@ export default function InstagramInfluencerPage() {
       />
     </div>
   );
+}
+
+export default function InstagramInfluencerPage() {
+  const content = usePageContent('instagram-influencer:instagram-influencer-marketing-agency', instagramInfluencerData);
+  if (!content) return <PageLoading />;
+  return <InstagramInfluencerView content={content} />;
 }

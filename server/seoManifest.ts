@@ -101,6 +101,13 @@ function withSlash(target: string): string {
 
 interface LivePost extends ManifestPost {
   updatedAt?: string;
+  postType?: 'post' | 'news' | 'newsletter';
+}
+
+/** /blog/<slug>, /news/<slug> or /newsletter/<slug>, by the post's content type. */
+export function postPath(post: { slug: string; postType?: string | null }): string {
+  const base = post.postType === 'news' ? 'news' : post.postType === 'newsletter' ? 'newsletter' : 'blog';
+  return `/${base}/${post.slug}`;
 }
 
 interface Catalog {
@@ -118,6 +125,7 @@ interface PostData {
   updatedAt?: string;
   author?: string;
   category?: string;
+  postType?: 'post' | 'news' | 'newsletter';
   seo?: { metaTitle?: string; metaDescription?: string; ogImage?: string };
 }
 
@@ -187,6 +195,7 @@ async function catalog(m: SeoManifest): Promise<Catalog> {
       updatedAt: d.updatedAt || row.updated_at.toISOString(),
       author: d.author || 'EON8 Editorial Team',
       category: d.category || 'Digital Marketing',
+      postType: d.postType === 'news' || d.postType === 'newsletter' ? d.postType : 'post',
     });
   }
   for (const post of Object.values(m.blogPosts)) {
@@ -229,14 +238,15 @@ export async function legacyRedirect(pathname: string, search: URLSearchParams):
   if (key === '/' && search.has('p')) {
     const id = Number(search.get('p'));
     const slug = Number.isFinite(id) ? (await catalog(m)).slugById.get(id) : undefined;
-    return slug ? withSlash(`/blog/${slug}`) : '/blog/';
+    const post = slug ? (await catalog(m)).posts.get(slug.toLowerCase()) : undefined;
+    return post ? withSlash(postPath(post)) : '/blog/';
   }
   if (/^(feed|comments\/feed|author|tag)(\/|$)/.test(clean) || /\/feed$/.test(clean)) {
     // /<post>/feed -> the post itself; everything else -> the blog index.
     const parent = clean.replace(/\/feed$/, '');
     if (parent && parent !== clean && !parent.includes('/')) {
       const post = (await catalog(m)).posts.get(parent);
-      if (post) return withSlash(`/blog/${post.slug}`);
+      if (post) return withSlash(postPath(post));
     }
     return '/blog/';
   }
@@ -246,14 +256,21 @@ export async function legacyRedirect(pathname: string, search: URLSearchParams):
   if (clean && !clean.includes('/') && !m.pages[clean]) {
     const c = await catalog(m);
     const to = c.renamed.get(clean);
-    if (to && to.toLowerCase() !== clean) return withSlash(`/blog/${to}`);
+    if (to && to.toLowerCase() !== clean) {
+      const renamedPost = c.posts.get(to.toLowerCase());
+      return withSlash(renamedPost ? postPath(renamedPost) : `/blog/${to}`);
+    }
     const post = c.posts.get(clean);
-    if (post && blogRootRedirect()) return withSlash(`/blog/${post.slug}`);
+    if (post && blogRootRedirect()) return withSlash(postPath(post));
   }
-  const blog = clean.match(/^blog\/([^/]+)$/);
-  if (blog) {
-    const to = (await catalog(m)).renamed.get(blog[1]);
-    if (to && to.toLowerCase() !== blog[1]) return withSlash(`/blog/${to}`);
+  const article = clean.match(/^(blog|news|newsletter)\/([^/]+)$/);
+  if (article && article[2] !== 'page') {
+    const c = await catalog(m);
+    const to = c.renamed.get(article[2]);
+    const post = c.posts.get((to ?? article[2]).toLowerCase());
+    if (to && to.toLowerCase() !== article[2]) return withSlash(post ? postPath(post) : `/${article[1]}/${to}`);
+    // A news item or newsletter issue opened under the wrong section moves to its own.
+    if (post && postPath(post) !== `/${article[1]}/${post.slug}`) return withSlash(postPath(post));
   }
   // Older WordPress permalinks seen in the live 404 log: dated post URLs
   // (/2020/08/28/<slug>/) and /blog-<slug>. Only redirect when the post exists.
@@ -262,7 +279,7 @@ export async function legacyRedirect(pathname: string, search: URLSearchParams):
     const c = await catalog(m);
     const slug = c.renamed.get(legacyPost[1]) ?? legacyPost[1];
     const post = c.posts.get(slug.toLowerCase());
-    if (post) return withSlash(`/blog/${post.slug}`);
+    if (post) return withSlash(postPath(post));
   }
   return null;
 }
@@ -320,6 +337,21 @@ export async function routeMeta(pathname: string, search: URLSearchParams, statu
     };
   }
 
+  const section = clean.match(/^(news|newsletter)(?:\/page\/(\d+))?$/);
+  if (section) {
+    const n = section[2] ? Number(section[2]) : 1;
+    const news = section[1] === 'news';
+    return {
+      title: `${news ? 'News & Announcements' : 'Newsletter Archive'}${n > 1 ? ` — Page ${n}` : ''} | EON8`,
+      description: news
+        ? 'The latest EON8 news: launches, partnerships, awards and company announcements.'
+        : 'Read every issue of the EON8 newsletter: digital marketing trends, playbooks and agency updates.',
+      canonicalUrl: canonicalFor(n <= 1 ? `/${section[1]}` : key),
+      ogImage: m.defaultOgImage,
+      noIndex: false,
+    };
+  }
+
   const c = await catalog(m);
   const cat = clean.match(/^category\/([^/]+)(?:\/page\/(\d+))?$/);
   if (cat) {
@@ -335,14 +367,14 @@ export async function routeMeta(pathname: string, search: URLSearchParams, statu
     };
   }
 
-  const blog = clean.match(/^blog\/([^/]+)$/) || (!clean.includes('/') ? [clean, clean] : null);
+  const blog = clean.match(/^(?:blog|news|newsletter)\/([^/]+)$/) || (!clean.includes('/') ? [clean, clean] : null);
   if (blog && blog[1]) {
     const post = c.posts.get(blog[1]);
     if (post) {
       return {
         title: post.metaTitle,
         description: post.description,
-        canonicalUrl: canonicalFor(`/blog/${post.slug}`),
+        canonicalUrl: canonicalFor(postPath(post)),
         ogImage: post.ogImage || m.defaultOgImage,
         noIndex: false,
         article: {

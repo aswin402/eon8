@@ -10,6 +10,8 @@ export interface BlogPostSummary {
   author: string;
   thumbnail: string;
   excerpt: string;
+  /** Blog post (default), news item or newsletter issue. */
+  postType?: 'post' | 'news' | 'newsletter';
   seo?: {
     metaTitle?: string;
     metaDescription?: string;

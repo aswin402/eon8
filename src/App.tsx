@@ -215,7 +215,14 @@ const router = createBrowserRouter([
       { path: 'digital-marketing-blog', element: <BlogListPage /> },
       { path: 'category/:categorySlug', element: <BlogListPage /> },
       { path: 'category/:categorySlug/page/:pageNum', element: <BlogListPage /> },
-      { path: 'blog/:slug', element: <BlogPostPage /> },
+      { path: 'blog/:slug', element: <BlogPostPage routeType="post" /> },
+      // News and newsletter issues (written in the admin like blog posts)
+      { path: 'news', element: <BlogListPage key="news" postType="news" /> },
+      { path: 'news/page/:pageNum', element: <BlogListPage key="news" postType="news" /> },
+      { path: 'news/:slug', element: <BlogPostPage routeType="news" /> },
+      { path: 'newsletter', element: <BlogListPage key="newsletter" postType="newsletter" /> },
+      { path: 'newsletter/page/:pageNum', element: <BlogListPage key="newsletter" postType="newsletter" /> },
+      { path: 'newsletter/:slug', element: <BlogPostPage routeType="newsletter" /> },
 
       // Native Pure-React Crypto Pages (14 menu pages + alias)
       {

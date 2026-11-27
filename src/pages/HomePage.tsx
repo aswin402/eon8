@@ -374,12 +374,12 @@ export function HomePage() {
             </div>
 
             {/* Responsive H1 — never overflows 375px viewports */}
-            <h1 className="text-[36px] sm:text-[56px] md:text-[72px] lg:text-[88px] font-heading font-black text-white leading-[1.06] tracking-tight drop-shadow-2xl">
+            <h1 className="text-[36px] sm:text-[52px] md:text-[64px] lg:text-[72px] font-heading font-black text-white leading-[1.2] tracking-[0.3px] drop-shadow-2xl">
               We <span className="text-[#FD5900]">Build</span> Brands <br className="hidden sm:block" />
               That Win
             </h1>
 
-            <p className="text-[16px] sm:text-[20px] md:text-[23px] leading-relaxed text-white/95 max-w-3xl font-medium drop-shadow-md">
+            <p className="font-heading text-[16px] sm:text-[18px] leading-[1.625] text-white/95 max-w-3xl font-medium drop-shadow-md">
               Dominating Attention, Traffic &amp; Revenue through high-fidelity digital execution. Experience growth like never before.
             </p>
 
@@ -423,13 +423,13 @@ export function HomePage() {
       <section className="py-16 sm:py-24 bg-[#eff4fb] dark:bg-card/40 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           <div className="lg:col-span-6 space-y-5 text-left">
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-heading font-black tracking-tight leading-[1.15] text-foreground">
+            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-heading font-black tracking-[-1px] leading-[1.3] text-foreground">
               Powering Growth For <span className="text-[#0053c6] dark:text-blue-400">Digital, AI &amp; Web3</span>
             </h2>
-            <p className="text-base sm:text-lg text-foreground/85 font-medium leading-relaxed">
+            <p className="text-base sm:text-lg text-foreground font-medium leading-[1.5]">
               EON8 is a 360-degree marketing agency providing end-to-end digital solutions that transform attention into measurable revenue.
             </p>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg font-medium text-[#424654] dark:text-muted-foreground leading-relaxed">
               Our team blends creativity, data, and technology to drive consistent visibility and measurable growth for brands across digital, NFT, crypto, and AI ecosystems. From brand positioning to hyper-targeted lead generation, we manage every stage of your digital journey.
             </p>
             <div className="pt-2">
@@ -465,29 +465,29 @@ export function HomePage() {
           </div>
 
           <div className="lg:col-span-7 space-y-5 text-left order-2 lg:order-1">
-            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-heading font-black tracking-tight leading-tight text-foreground">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-[0.3px] leading-[1.25] text-foreground">
               A Distinctive Digital Marketing Company{' '}
               <span className="text-[#FD5900]">That Never Tires!</span>
             </h2>
-            <h3 className="text-lg sm:text-xl font-heading font-bold text-[#0053c6] dark:text-blue-400">
+            <h3 className="text-xl sm:text-2xl lg:text-[40px] lg:leading-[1.25] font-heading font-bold tracking-[0.3px] text-[#0053c6] dark:text-blue-400">
               We are EON8. Not Just a Digital Marketing Agency — A Growth Partner
             </h3>
-            <p className="italic text-foreground/85 border-l-4 border-[#FD5900] pl-4 text-sm sm:text-base">
+            <p className="italic font-medium text-[#424654] dark:text-foreground/85 border-l-4 border-[#FD5900] pl-4 text-sm sm:text-base lg:text-lg leading-[1.625]">
               We just not talk. We believe, dive and strive to take your business marketing to infinity &amp; beyond.
             </p>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg font-medium text-[#424654] dark:text-muted-foreground leading-relaxed">
               At EON8, we don&apos;t believe in random marketing tactics. We design custom digital growth systems that align branding, performance marketing, content, and technology to drive measurable business outcomes. From SEO and paid advertising to social media, AI-powered content, and Web3-ready marketing, we help brands stay relevant, visible, and profitable in a fast-moving digital world.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3">
               <div className="p-5 rounded-2xl bg-[#eff4fb] dark:bg-card border border-border">
-                <h4 className="font-heading font-bold text-foreground text-base mb-1">Strategy First</h4>
+                <h4 className="font-heading font-bold tracking-[0.3px] text-foreground text-base lg:text-xl lg:leading-[1.4] mb-1">Strategy First</h4>
                 <p className="text-xs sm:text-sm text-muted-foreground">
                   Methodical execution based on deep data.
                 </p>
               </div>
               <div className="p-5 rounded-2xl bg-[#eff4fb] dark:bg-card border border-border">
-                <h4 className="font-heading font-bold text-foreground text-base mb-1">Real Metrics</h4>
+                <h4 className="font-heading font-bold tracking-[0.3px] text-foreground text-base lg:text-xl lg:leading-[1.4] mb-1">Real Metrics</h4>
                 <p className="text-xs sm:text-sm text-muted-foreground">
                   Transparent reporting and actual ROI tracking.
                 </p>
@@ -501,10 +501,10 @@ export function HomePage() {
       <section className="py-16 sm:py-20 bg-[#f6f9ff] dark:bg-card/20 achievements-trigger">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="text-center mb-12 space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-heading font-black text-[#0053c6] dark:text-blue-400 tracking-tight">
+            <h2 className="text-3xl sm:text-5xl lg:text-[64px] lg:leading-[1.25] font-heading font-black text-[#0053c6] dark:text-blue-400 tracking-[-1.6px]">
               Our Achievements
             </h2>
-            <h3 className="text-lg sm:text-2xl font-heading font-bold text-foreground">
+            <h3 className="text-lg sm:text-2xl lg:text-[28px] lg:leading-[1.4] font-heading font-bold tracking-[0.3px] text-foreground">
               We Make The Best Digital Promoter For Brands
             </h3>
           </div>
@@ -540,10 +540,10 @@ export function HomePage() {
       <section id="home-services" className="py-16 sm:py-24 bg-white dark:bg-background border-t border-border/50">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight text-foreground">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-[-1.2px] leading-[1.25] text-foreground">
               Our Digital Marketing <span className="text-[#FD5900]">Services</span>
             </h2>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg font-medium text-[#424654] dark:text-muted-foreground leading-relaxed">
               We create high-fidelity digital footprints that capture attention and compel conversion through our advanced 360-degree marketing frameworks.
             </p>
           </div>
@@ -563,7 +563,7 @@ export function HomePage() {
                       className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <h3 className="text-xl font-heading font-extrabold text-foreground mb-4">
+                  <h3 className="text-xl lg:text-2xl lg:leading-[1.375] font-heading font-black tracking-[0.3px] text-foreground mb-4">
                     {srv.title}
                   </h3>
                   <ul className="space-y-2.5 text-sm text-muted-foreground">
@@ -808,7 +808,7 @@ export function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-heading font-black text-foreground leading-tight">
               Client Satisfaction is <span className="text-[#0053c6] dark:text-blue-400">Our Prime Goal</span>
             </h2>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg font-medium text-[#424654] dark:text-muted-foreground leading-relaxed">
               Be it a small or large business, we make sure to provide the best dedicated service to uplift your business value and returns while not forgetting to meet your expectations.
             </p>
 

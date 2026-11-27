@@ -217,7 +217,7 @@ const SIMPLE_LINKS = [
 ];
 
 export function Navbar() {
-  const { contact } = useSiteSettings();
+  const { contact, branding } = useSiteSettings();
   const { setContactModalOpen } = useAppStore();
   const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -287,9 +287,9 @@ export function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0 hover:opacity-95 transition-opacity">
             <img
-              src="/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png"
+              src={branding.headerLogo}
               alt="Eon8 Logo"
-              className="h-9 sm:h-10 lg:h-9 xl:h-11 w-auto max-w-[132px] xl:max-w-[170px] object-contain dark:invert"
+              className="h-9 sm:h-10 lg:h-9 xl:h-[50px] w-auto max-w-[132px] xl:max-w-[240px] object-contain dark:invert"
             />
           </Link>
 
@@ -309,10 +309,10 @@ export function Navbar() {
                 >
                   <Link
                     to={item.href}
-                    className={`flex items-center gap-1 text-[13px] xl:text-[14.5px] font-semibold py-2.5 px-2 xl:px-3 rounded-lg transition-colors whitespace-nowrap ${
+                    className={`flex items-center gap-1 font-nav text-[13px] xl:text-[14px] font-semibold py-2.5 px-2 xl:px-3 rounded-lg transition-colors whitespace-nowrap ${
                       active
                         ? 'text-[#FD5900]'
-                        : 'text-[#171c21] dark:text-slate-100 hover:text-[#FD5900]'
+                        : 'text-[#333333] dark:text-slate-100 hover:text-[#FD5900]'
                     }`}
                   >
                     <span>{item.label}</span>
@@ -436,8 +436,8 @@ export function Navbar() {
                   {renderLink(
                     link.label,
                     link.href,
-                    `text-[13px] xl:text-[14.5px] font-semibold py-2.5 px-2 xl:px-3 rounded-lg transition-colors whitespace-nowrap ${
-                      active ? 'text-[#FD5900]' : 'text-[#171c21] dark:text-slate-100 hover:text-[#FD5900]'
+                    `font-nav text-[13px] xl:text-[14px] font-semibold py-2.5 px-2 xl:px-3 rounded-lg transition-colors whitespace-nowrap ${
+                      active ? 'text-[#FD5900]' : 'text-[#333333] dark:text-slate-100 hover:text-[#FD5900]'
                     }`
                   )}
                 </span>
@@ -452,7 +452,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setContactModalOpen(true)}
-              className="hidden lg:inline-flex items-center justify-center bg-[#FD5900] hover:bg-[#e55000] text-white font-semibold text-[13px] xl:text-[15px] px-3.5 xl:px-5 py-2 xl:py-2.5 min-h-[40px] xl:min-h-[44px] rounded-[7px] transition-colors shadow-sm whitespace-nowrap cursor-pointer shrink-0"
+              className="hidden lg:inline-flex items-center justify-center bg-[#FD5900] hover:bg-[#e55000] text-white font-poppins font-semibold text-[13px] xl:text-[17px] px-3.5 xl:px-5 py-2 xl:py-2.5 min-h-[40px] xl:min-h-[44px] rounded-[7px] transition-colors shadow-sm whitespace-nowrap cursor-pointer shrink-0"
             >
               Get Started
             </button>
@@ -497,7 +497,7 @@ export function Navbar() {
                 <div className="flex items-center justify-between mb-6 shrink-0">
                   <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
                     <img
-                      src="/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png"
+                      src={branding.headerLogo}
                       alt="Eon8 Logo"
                       className="h-9 w-auto dark:invert"
                     />
