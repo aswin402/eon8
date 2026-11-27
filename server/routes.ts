@@ -2,7 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { isDatabaseConfigured, query } from './lib/db.ts';
 import { adminPath, ROOT_DIR } from './lib/env.ts';
+import { customPageAt, onPagesChanged, setCustomPathChecker } from './pagesApi.ts';
 import { normalizePath } from './redirectsApi.ts';
+import { legacyRedirect } from './seoManifest.ts';
 
 /**
  * Decides whether a URL is a page the React app can show, so the server can
@@ -97,12 +99,13 @@ export async function isKnownRoute(pathname: string): Promise<boolean> {
     return !db || db.categories.has(category[1]);
   }
 
-  const blog = key.match(/^\/blog\/([^/]+)$/);
+  if (/^\/(news|newsletter)(\/page\/\d+)?$/.test(key)) return true;
+  const blog = key.match(/^\/(?:blog|news|newsletter)\/([^/]+)$/);
   if (blog) return isBlogSlug(blog[1], m);
 
-  // Root-level blog slugs (old WordPress post URLs) are rendered by the app.
+  // Root-level blog slugs (old WordPress post URLs) and pages created in the admin.
   const rootSlug = key.match(/^\/([^/]+)$/);
-  if (rootSlug) return isBlogSlug(rootSlug[1], m);
+  if (rootSlug) return (await customPageAt(key)) !== null || isBlogSlug(rootSlug[1], m);
 
   return false;
 }
@@ -117,3 +120,25 @@ export function resetRouteCaches(): void {
   manifest = undefined;
   dbCache = null;
 }
+
+onPagesChanged(resetDbRouteCache);
+
+/** Why a new admin page cannot use this URL, or null when it is free. */
+setCustomPathChecker(async (pagePath, slug) => {
+  const m = loadManifest();
+  const key = normalizePath(pagePath) || '/';
+  if (m?.paths.has(key)) return `${key}/ is already a page of the website. Edit that page instead.`;
+  const admin = normalizePath(adminPath()) || '/admin-dashboard';
+  if (key === admin || ['/blog', '/news', '/newsletter', '/category', '/api', '/assets', '/uploads', '/wp-content'].includes(key)) {
+    return `${key}/ is reserved.`;
+  }
+  if (m?.blogSlugs.has(slug)) return `A blog post already uses "${slug}" (its old address /${slug}/ redirects to the post).`;
+  const db = await dbRoutes();
+  if (db && (db.posts.has(slug) || db.renamed.has(slug))) return `A blog post already uses "${slug}".`;
+  if (await legacyRedirect(key, new URLSearchParams())) return `${key}/ already redirects to another page.`;
+  if (isDatabaseConfigured()) {
+    const r = await query('SELECT 1 FROM redirects WHERE lower(source_path) = lower($1) AND is_active', [key]);
+    if (r.rowCount) return `${key}/ has a redirect in Admin > Redirects. Remove it first.`;
+  }
+  return null;
+});

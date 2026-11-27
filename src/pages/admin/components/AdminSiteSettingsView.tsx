@@ -1,12 +1,23 @@
 import { useCallback, useEffect, useState, type FormEvent } from 'react';
-import { CheckCircle2, CircleAlert, Mail } from 'lucide-react';
+import { CheckCircle2, CircleAlert, ImagePlus, Mail } from 'lucide-react';
 import { adminFetch, jsonBody, type SystemStatus } from '@/lib/admin/adminApi';
+import { AdminMediaLibrary } from './AdminMediaModal';
 import { ui } from './adminStyles';
 
-type Group = 'contact' | 'social' | 'leads' | 'tracking';
+type Group = 'branding' | 'contact' | 'social' | 'leads' | 'tracking';
 type Values = Record<string, string | boolean>;
 
-const FIELDS: Record<Group, { title: string; hint: string; fields: Array<{ key: string; label: string; placeholder?: string; multiline?: boolean }> }> = {
+const FIELDS: Record<Group, { title: string; hint: string; fields: Array<{ key: string; label: string; placeholder?: string; multiline?: boolean; image?: boolean }> }> = {
+  branding: {
+    title: 'Logos & favicon',
+    hint: 'Pick from the media library (the same /wp-content/uploads files as the WordPress site) or upload a new image.',
+    fields: [
+      { key: 'headerLogo', label: 'Header logo', image: true },
+      { key: 'footerLogo', label: 'Footer logo', image: true },
+      { key: 'favicon', label: 'Browser tab icon (favicon)', image: true },
+      { key: 'shareImage', label: 'Default share image (used when a page has none)', image: true },
+    ],
+  },
   contact: {
     title: 'Contact details',
     hint: 'Shown in the footer, contact page and WhatsApp/email buttons.',
@@ -56,6 +67,7 @@ export function AdminSiteSettingsView() {
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [busy, setBusy] = useState<Group | 'test' | null>(null);
+  const [picker, setPicker] = useState<((url: string) => void) | null>(null);
 
   const load = useCallback(async () => {
     try {
@@ -141,7 +153,19 @@ export function AdminSiteSettingsView() {
               return (
                 <div key={f.key} className="space-y-1.5">
                   <label htmlFor={id} className={ui.label}>{f.label}</label>
-                  {f.multiline ? (
+                  {f.image ? (
+                    <div className="flex items-start gap-3">
+                      <div className="w-24 h-14 shrink-0 rounded-lg border border-border bg-muted/40 overflow-hidden flex items-center justify-center">
+                        {value ? <img src={value} alt="" className="max-w-full max-h-full object-contain" /> : <ImagePlus className="w-5 h-5 text-muted-foreground" />}
+                      </div>
+                      <div className="flex-1 min-w-0 space-y-2">
+                        <input id={id} className={ui.input} value={value} onChange={(e) => onChange(e.target.value)} />
+                        <button type="button" className={`${ui.secondaryBtn} !py-1.5 !text-xs`} onClick={() => setPicker(() => onChange)}>
+                          <ImagePlus className="w-3.5 h-3.5" /> Choose from media library
+                        </button>
+                      </div>
+                    </div>
+                  ) : f.multiline ? (
                     <textarea id={id} rows={3} className={ui.input} placeholder={f.placeholder} value={value} onChange={(e) => onChange(e.target.value)} />
                   ) : (
                     <input id={id} className={ui.input} placeholder={f.placeholder} value={value} onChange={(e) => onChange(e.target.value)} />
@@ -162,6 +186,17 @@ export function AdminSiteSettingsView() {
           </form>
         ))}
       </div>
+
+      {picker && (
+        <AdminMediaLibrary
+          mode="modal"
+          onSelect={(url) => {
+            picker(url);
+            setPicker(null);
+          }}
+          onClose={() => setPicker(null)}
+        />
+      )}
     </div>
   );
 }

@@ -52,6 +52,11 @@
   --font-heading: 'Manrope', 'Inter Variable', sans-serif;
   --font-body: 'Hanken Grotesk', 'Poppins', 'Inter Variable', sans-serif;
   --font-sans: 'Hanken Grotesk', 'Poppins', 'Inter Variable', sans-serif;
+  /* Same fonts as the live WordPress site (measured on eon8.com, Nov 2026):
+     main menu = Alata, buttons and footer text = Poppins, footer headings = Palanquin Dark. */
+  --font-nav: 'Alata', 'Hanken Grotesk', sans-serif;
+  --font-poppins: 'Poppins', 'Hanken Grotesk', sans-serif;
+  --font-palanquin: 'Palanquin Dark', 'Manrope', sans-serif;
 }
 
 :root {

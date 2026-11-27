@@ -3,8 +3,9 @@ import { audit, requireUser } from './lib/auth.ts';
 import { isDatabaseConfigured, query } from './lib/db.ts';
 import { adminPath, env } from './lib/env.ts';
 import { HttpError, readJsonBody, sendJson } from './lib/http.ts';
+import { onPagesChanged, publishedPages, type PageIndexEntry } from './pagesApi.ts';
 import { normalizePath } from './redirectsApi.ts';
-import { jsonLdGraph, resetSeoCatalog, routeMeta, type OrgInfo, type RouteMeta } from './seoManifest.ts';
+import { canonicalFor, jsonLdGraph, postPath, resetSeoCatalog, routeMeta, type OrgInfo, type RouteMeta } from './seoManifest.ts';
 import { getSetting } from './settingsApi.ts';
 
 interface SeoRow {
@@ -44,6 +45,14 @@ const CACHE_TTL_MS = 60_000;
 let seoCache: { at: number; map: Map<string, PageSeo> } | null = null;
 let trackingCache: { at: number; value: Tracking } | null = null;
 let orgCache: { at: number; value: OrgInfo } | null = null;
+let brandingCache: { at: number; value: Branding } | null = null;
+
+interface Branding {
+  headerLogo: string;
+  footerLogo: string;
+  favicon: string;
+  shareImage: string;
+}
 
 interface Tracking {
   gtmId: string;
@@ -67,6 +76,12 @@ async function tracking(): Promise<Tracking> {
   return trackingCache.value;
 }
 
+async function branding(): Promise<Branding> {
+  if (brandingCache && Date.now() - brandingCache.at < CACHE_TTL_MS) return brandingCache.value;
+  brandingCache = { at: Date.now(), value: await getSetting<Branding & Record<string, unknown>>('branding') };
+  return brandingCache.value;
+}
+
 async function orgInfo(): Promise<OrgInfo> {
   if (orgCache && Date.now() - orgCache.at < CACHE_TTL_MS) return orgCache.value;
   const [contact, social] = await Promise.all([
@@ -82,10 +97,20 @@ async function orgInfo(): Promise<OrgInfo> {
   return value;
 }
 
+/** Published edited/created page shown at this path (aliases share one edit). */
+async function pageAt(key: string): Promise<PageIndexEntry | undefined> {
+  const pages = await publishedPages();
+  const want = key === '/' ? '/' : `${key.replace(/\/+$/, '')}/`.toLowerCase();
+  return pages.find((p) => p.path.toLowerCase() === want);
+}
+
+onPagesChanged(() => invalidateHeadCaches());
+
 export function invalidateHeadCaches(): void {
   seoCache = null;
   trackingCache = null;
   orgCache = null;
+  brandingCache = null;
   sitemapCache = null;
   resetSeoCatalog();
 }
@@ -119,27 +144,50 @@ export async function injectHead(
   } catch (err) {
     console.error('[seo] route meta failed', err);
   }
+  let page: PageIndexEntry | undefined;
+  let brand: Branding | undefined;
   if (isDatabaseConfigured()) {
     try {
       const key = normalizePath(pathname) || '/';
-      [seo, track, org] = await Promise.all([
+      [seo, track, org, page, brand] = await Promise.all([
         status === 404 ? Promise.resolve(undefined) : seoMap().then((m) => m.get(key)),
         tracking(),
         orgInfo(),
+        status === 404 ? Promise.resolve(undefined) : pageAt(key),
+        branding(),
       ]);
     } catch {
       // Database unavailable: keep the manifest defaults.
     }
   }
+  // A page created in the admin has no build-time entry: start from its own content.
+  if (page && (!meta || page.kind === 'custom')) {
+    meta = {
+      title: page.title,
+      description: page.description,
+      canonicalUrl: canonicalFor(page.path),
+      ogImage: page.ogImage ? absolute(page.ogImage) : meta?.ogImage || '',
+      noIndex: page.noIndex,
+    };
+  }
 
-  const title = seo?.title || meta?.title;
-  const description = seo?.description || meta?.description;
+  // Admin "Page SEO" first, then the page's own (edited) title and description, then the build defaults.
+  const title = seo?.title || page?.title || meta?.title;
+  const description = seo?.description || page?.description || meta?.description;
   const canonical = seo?.canonical ? absolute(seo.canonical) : meta?.canonicalUrl;
-  const ogImage = seo?.ogImage ? absolute(seo.ogImage) : meta?.ogImage;
-  const noIndex = Boolean(seo?.noindex || meta?.noIndex);
+  const ogImage = seo?.ogImage ? absolute(seo.ogImage) : meta?.ogImage || (brand?.shareImage ? absolute(brand.shareImage) : undefined);
+  const noIndex = Boolean(seo?.noindex || meta?.noIndex || page?.noIndex);
 
   const head: string[] = [];
   let out = html;
+  if (brand?.favicon) {
+    // Favicon from Admin > Site Settings > Logos & favicon.
+    const ext = brand.favicon.split('?')[0].split('.').pop()?.toLowerCase() ?? '';
+    const type = ext === 'svg' ? 'image/svg+xml' : ext === 'ico' ? 'image/x-icon' : `image/${ext === 'jpg' ? 'jpeg' : ext}`;
+    const icon = `<link rel="icon" type="${type}" href="${escapeAttr(brand.favicon)}" />`;
+    out = out.replace(/<link\s+rel="icon"[^>]*>/i, () => icon);
+    head.push(`<link rel="apple-touch-icon" href="${escapeAttr(brand.favicon)}" />`);
+  }
   if (title) {
     // Replacer functions: a "$" in admin text must not be read as a replace pattern.
     const titleTag = `<title>${escapeAttr(title)}</title>`;
@@ -239,15 +287,19 @@ export async function liveSitemap(staticXml: string): Promise<string> {
     return sitemapCache.xml;
   }
   try {
-    const [posts, hidden, seo] = await Promise.all([
-      query<{ slug: string; status: string; updated_at: Date }>('SELECT slug, status, updated_at FROM cms_posts'),
+    const [posts, hidden, seo, pages] = await Promise.all([
+      query<{ slug: string; status: string; post_type: string | null; updated_at: Date }>(
+        `SELECT slug, status, data->>'postType' AS post_type, updated_at FROM cms_posts`
+      ),
       query<{ slug: string }>('SELECT slug FROM cms_hidden_slugs'),
       query<{ path: string }>('SELECT path FROM page_seo WHERE noindex'),
+      publishedPages(),
     ]);
     const drop = new Set<string>([
       ...hidden.rows.map((r) => `/blog/${r.slug}`),
       ...posts.rows.filter((p) => p.status !== 'published').map((p) => `/blog/${p.slug}`),
       ...seo.rows.map((r) => r.path),
+      ...pages.filter((p) => p.noIndex).map((p) => normalizePath(p.path) || '/'),
     ]);
     const blocks = staticXml.match(/<url>[\s\S]*?<\/url>/g) ?? [];
     const kept: string[] = [];
@@ -259,11 +311,44 @@ export async function liveSitemap(staticXml: string): Promise<string> {
       present.add(key);
       kept.push(block);
     }
+    let hasNews = false;
+    let hasNewsletter = false;
     for (const p of posts.rows) {
-      const key = `/blog/${p.slug}`;
+      const key = postPath({ slug: p.slug, postType: p.post_type });
+      if (p.status === 'published') {
+        hasNews ||= p.post_type === 'news';
+        hasNewsletter ||= p.post_type === 'newsletter';
+      }
+      if (key !== `/blog/${p.slug}`) {
+        // Built-in posts moved to news/newsletter: drop the old /blog/ entry.
+        const old = kept.findIndex((b) => b.includes(`/blog/${p.slug}/<`));
+        if (old >= 0) kept.splice(old, 1);
+        present.delete(`/blog/${p.slug}`);
+      }
       if (p.status !== 'published' || present.has(key) || drop.has(key)) continue;
       kept.push(
         `<url>\n    <loc>${siteOrigin()}${key}/</loc>\n    <lastmod>${p.updated_at.toISOString().slice(0, 10)}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`
+      );
+    }
+    for (const [on, key] of [[hasNews, '/news'], [hasNewsletter, '/newsletter']] as const) {
+      if (!on || present.has(key)) continue;
+      kept.push(`<url>
+    <loc>${siteOrigin()}${key}/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>`);
+    }
+    for (const p of pages) {
+      const key = normalizePath(p.path) || '/';
+      if (p.kind !== 'custom' || p.noIndex || present.has(key) || drop.has(key)) continue;
+      present.add(key);
+      kept.push(
+        `<url>
+    <loc>${siteOrigin()}${key}/</loc>
+    <lastmod>${p.updatedAt.slice(0, 10)}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`
       );
     }
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  ${kept.join('\n  ')}\n</urlset>\n`;

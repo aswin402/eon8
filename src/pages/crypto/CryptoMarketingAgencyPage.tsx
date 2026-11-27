@@ -14,6 +14,8 @@ import {
 } from '@/components/sections';
 import type { CtaAction } from './types';
 import { cryptoMarketingAgencyData } from './data/cryptoMarketingAgencyData';
+import { usePageContent } from '@/lib/pages/pageContent';
+import { PageLoading } from '@/lib/pages/PageLoading';
 
 interface CryptoMarketingAgencyPageProps {
   slug?: string;
@@ -30,8 +32,10 @@ function mapCta(c: CtaAction): ActionItem {
   };
 }
 
-export default function CryptoMarketingAgencyPage({ slug }: CryptoMarketingAgencyPageProps) {
-  const data = cryptoMarketingAgencyData;
+function CryptoMarketingAgencyView({
+  slug,
+  data,
+}: CryptoMarketingAgencyPageProps & { data: typeof cryptoMarketingAgencyData }) {
 
   return (
     <div className="bg-background text-foreground" data-page-slug={slug}>
@@ -299,4 +303,10 @@ export default function CryptoMarketingAgencyPage({ slug }: CryptoMarketingAgenc
       />
     </div>
   );
+}
+
+export default function CryptoMarketingAgencyPage({ slug }: CryptoMarketingAgencyPageProps) {
+  const data = usePageContent('crypto-agency:crypto-marketing-agency', cryptoMarketingAgencyData);
+  if (!data) return <PageLoading />;
+  return <CryptoMarketingAgencyView slug={slug} data={data} />;
 }

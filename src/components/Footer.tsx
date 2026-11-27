@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import { telHref, useSiteSettings } from '@/lib/siteSettings';
 
 export function Footer() {
-  const { contact, social } = useSiteSettings();
+  const { contact, social, branding } = useSiteSettings();
   const socialLinks = [
     {
       name: 'Whatsapp',
@@ -95,10 +95,10 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 lg:gap-[60px] text-center sm:text-left">
         {/* About */}
         <div>
-          <h3 className="text-[22px] font-heading font-bold text-white mb-[15px] leading-[1.4]">
+          <h3 className="text-[22px] font-palanquin font-medium tracking-[0.3px] capitalize text-white mb-[15px] leading-[1.4]">
             Who We Are
           </h3>
-          <p className="text-[#cbd5e1] text-[14px] leading-[1.7] max-w-[320px] mx-auto sm:mx-0">
+          <p className="font-poppins font-medium text-[#cbd5e1] text-[14px] leading-[1.7] max-w-[320px] mx-auto sm:mx-0">
             Touted as one of the fastest-growing Digital marketing company, EON8 stands to be your
             one-stop destination for all digital marketing solutions. We deliver passionate,
             tailor-made and a full suite of digital services that generate increased sales &amp;
@@ -109,7 +109,7 @@ export function Footer() {
 
         {/* Services */}
         <div>
-          <h3 className="text-[22px] font-heading font-bold text-white mb-[15px] leading-[1.4]">
+          <h3 className="text-[22px] font-palanquin font-medium tracking-[0.3px] capitalize text-white mb-[15px] leading-[1.4]">
             Our Services
           </h3>
           <ul className="list-none p-0 m-0 space-y-[10px]">
@@ -117,7 +117,7 @@ export function Footer() {
               <li key={link.name}>
                 <Link
                   to={link.href}
-                  className="text-[#cbd5e1] hover:text-[#38bdf8] transition-colors duration-300 text-[14px] no-underline"
+                  className="font-poppins font-medium text-[#cbd5e1] hover:text-[#38bdf8] transition-colors duration-300 text-[14px] no-underline"
                 >
                   {link.name}
                 </Link>
@@ -128,7 +128,7 @@ export function Footer() {
 
         {/* Other Links */}
         <div>
-          <h3 className="text-[22px] font-heading font-bold text-white mb-[15px] leading-[1.4]">
+          <h3 className="text-[22px] font-palanquin font-medium tracking-[0.3px] capitalize text-white mb-[15px] leading-[1.4]">
             Other Links
           </h3>
           <ul className="list-none p-0 m-0 space-y-[10px]">
@@ -136,7 +136,7 @@ export function Footer() {
               <li key={link.name}>
                 <Link
                   to={link.href}
-                  className="text-[#cbd5e1] hover:text-[#38bdf8] transition-colors duration-300 text-[14px] no-underline"
+                  className="font-poppins font-medium text-[#cbd5e1] hover:text-[#38bdf8] transition-colors duration-300 text-[14px] no-underline"
                 >
                   {link.name}
                 </Link>
@@ -147,7 +147,7 @@ export function Footer() {
 
         {/* Social */}
         <div>
-          <h3 className="text-[22px] font-heading font-bold text-white mb-[15px] leading-[1.4]">
+          <h3 className="text-[22px] font-palanquin font-medium tracking-[0.3px] capitalize text-white mb-[15px] leading-[1.4]">
             Social Media
           </h3>
           <div className="flex flex-wrap justify-center sm:justify-start gap-[12px]">
@@ -188,7 +188,7 @@ export function Footer() {
 
           <Link to="/" className="shrink-0 flex items-center">
             <img
-              src="/wp-content/uploads/2026/03/Logo_bg-1.png"
+              src={branding.footerLogo}
               alt="EON8 Logo"
               className="h-[62px] w-auto object-contain"
             />

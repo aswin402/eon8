@@ -11,8 +11,10 @@ import {
 } from '@/components/sections';
 import { HeadingLines, RichText } from '@/pages/crypto/components/RichText';
 import { influencerAgencyData } from './data/influencerAgencyData';
+import { usePageContent } from '@/lib/pages/pageContent';
+import { PageLoading } from '@/lib/pages/PageLoading';
 
-export default function InfluencerMarketingAgencyPage() {
+function InfluencerMarketingAgencyView({ content }: { content: typeof influencerAgencyData }) {
   const {
     title,
     metaDesc,
@@ -30,7 +32,7 @@ export default function InfluencerMarketingAgencyPage() {
     solutions,
     faq,
     enquiry,
-  } = influencerAgencyData;
+  } = content;
 
   return (
     <div className="bg-background text-foreground">
@@ -226,4 +228,10 @@ export default function InfluencerMarketingAgencyPage() {
       />
     </div>
   );
+}
+
+export default function InfluencerMarketingAgencyPage() {
+  const content = usePageContent('influencer-agency:influencer-marketing-agency', influencerAgencyData);
+  if (!content) return <PageLoading />;
+  return <InfluencerMarketingAgencyView content={content} />;
 }

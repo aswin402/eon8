@@ -14,6 +14,8 @@ import {
   youtubeInfluencerData,
 } from './data/creatorPlatformData';
 import type { CreatorPlatformPageData } from './types';
+import { usePageContent } from '@/lib/pages/pageContent';
+import { PageLoading } from '@/lib/pages/PageLoading';
 
 const PAGE_DATA_MAP: Record<
   'tiktok-influencer-marketing' | 'youtube-influencer-services',
@@ -27,8 +29,7 @@ interface CreatorPlatformPageProps {
   slug: 'tiktok-influencer-marketing' | 'youtube-influencer-services';
 }
 
-export default function CreatorPlatformPage({ slug }: CreatorPlatformPageProps) {
-  const data = PAGE_DATA_MAP[slug];
+function CreatorPlatformView({ slug, data }: CreatorPlatformPageProps & { data: CreatorPlatformPageData }) {
   const {
     title,
     metaDesc,
@@ -202,4 +203,10 @@ export default function CreatorPlatformPage({ slug }: CreatorPlatformPageProps) 
       />
     </div>
   );
+}
+
+export default function CreatorPlatformPage({ slug }: CreatorPlatformPageProps) {
+  const data = usePageContent(`creator-platform:${slug}`, PAGE_DATA_MAP[slug]);
+  if (!data) return <PageLoading />;
+  return <CreatorPlatformView slug={slug} data={data} />;
 }

@@ -1,3 +1,4 @@
+import { POST_TYPES, postTypeOf, postUrl, type PostType } from '@/lib/cms/postTypes';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   AlertCircle,
@@ -163,7 +164,7 @@ export function AdminArticleStudio({
           type: 'success',
           message:
             saved.status === 'published'
-              ? `Published live at /blog/${saved.slug}`
+              ? `Published live at ${postUrl(saved)}`
               : 'Draft saved privately',
         });
         onSaved(saved);
@@ -365,8 +366,8 @@ export function AdminArticleStudio({
               <a
                 href={
                   draft.status === 'draft'
-                    ? `/blog/${draft.slug}?preview=1`
-                    : `/blog/${draft.slug}`
+                    ? `${postUrl(draft)}?preview=1`
+                    : `${postUrl(draft)}`
                 }
                 target="_blank"
                 rel="noopener noreferrer"
@@ -606,6 +607,29 @@ export function AdminArticleStudio({
                   >
                     Draft
                   </button>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="studio-post-type"
+                    className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1"
+                  >
+                    Content Type
+                  </label>
+                  <select
+                    id="studio-post-type"
+                    value={postTypeOf(draft)}
+                    onChange={(e) =>
+                      updateDraft((prev) => ({ ...prev, postType: e.target.value as PostType }))
+                    }
+                    className="w-full rounded-xl border border-border bg-background px-3 py-2.5 text-xs font-semibold text-foreground"
+                  >
+                    {(Object.keys(POST_TYPES) as PostType[]).map((t) => (
+                      <option key={t} value={t}>
+                        {POST_TYPES[t].label} ({POST_TYPES[t].base}/…)
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <button

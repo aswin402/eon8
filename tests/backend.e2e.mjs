@@ -321,6 +321,72 @@ await admin.req('POST', '/api/admin/redirects', { sourcePath: '/unicode-redirect
 const uni = await fetch(`${BASE}/unicode-redirect-test`, { redirect: 'manual' });
 check('non-Latin redirect target is encoded (no 500)', uni.status === 301 && uni.headers.get('location') === encodeURI('/ब्लॉग/test page/'), `${uni.status} ${uni.headers.get('location')}`);
 
+// --- Editable pages (Admin > Pages) ---------------------------------------------------------
+const titleTag = (html) => html.match(/<title>([^<]*)<\/title>/)?.[1];
+check('pages: saving needs a login', (await anon.req('PUT', '/api/admin/pages/item', { key: 'service:seo-packages' })).status === 401);
+const seoPkgOriginal = titleTag(await fetch(`${BASE}/seo-packages/`).then((r) => r.text()));
+const pageEdit = {
+  key: 'service:seo-packages', path: '/seo-packages/', kind: 'override', title: 'SEO Packages', status: 'published',
+  data: { slug: 'seo-packages', theme: 'brand', title: 'E2E Edited Packages | EON8', metaDesc: 'Edited.', hero: { heading: 'Edited', paragraphs: [['x']], bullets: [], actions: [], layout: 'centered' }, sections: [] },
+};
+check('pages: edit an existing page', (await admin.req('PUT', '/api/admin/pages/item', pageEdit)).status === 200);
+check('pages: edit listed in public index', (await anon.req('GET', '/api/pages/index')).data.pages?.some((p) => p.key === 'service:seo-packages'));
+check('pages: <title> follows the edit', titleTag(await fetch(`${BASE}/seo-packages/`).then((r) => r.text())) === 'E2E Edited Packages | EON8');
+await admin.req('PUT', '/api/admin/pages/item', { ...pageEdit, data: { ...pageEdit.data, metaDesc: 'Edited again.' } });
+check('pages: previous version kept', (await admin.req('GET', '/api/admin/pages/revisions?key=service:seo-packages')).data.items?.length === 1);
+check('pages: script links refused', (await admin.req('PUT', '/api/admin/pages/item', { ...pageEdit, data: { ...pageEdit.data, hero: { ...pageEdit.data.hero, actions: [{ label: 'x', href: ' javascript:alert(1)' }] } } })).status === 400);
+check('pages: drafts do not change the site', (await admin.req('PUT', '/api/admin/pages/item', { ...pageEdit, status: 'draft' })).status === 200 &&
+  titleTag(await fetch(`${BASE}/seo-packages/`).then((r) => r.text())) === seoPkgOriginal);
+check('pages: reset to original', (await admin.req('DELETE', '/api/admin/pages/item?key=service:seo-packages')).status === 200 &&
+  titleTag(await fetch(`${BASE}/seo-packages/`).then((r) => r.text())) === seoPkgOriginal);
+
+const newPage = { key: 'content:e2e-new-page', kind: 'custom', title: 'E2E page', status: 'draft', data: { title: 'E2E New Page | EON8', metaDesc: 'A page made in the admin.', heroHeading: 'E2E', blocks: [{ type: 'paragraph', content: ['Hello'] }] } };
+check('pages: create a new page', (await admin.req('PUT', '/api/admin/pages/item', newPage)).data.item?.path === '/e2e-new-page/');
+check('pages: draft new page is 404', (await fetch(`${BASE}/e2e-new-page/`)).status === 404);
+await admin.req('PUT', '/api/admin/pages/item', { ...newPage, status: 'published' });
+const newPageRes = await fetch(`${BASE}/e2e-new-page/`);
+const newPageHtml = await newPageRes.text();
+check('pages: published new page is 200 with its own title', newPageRes.status === 200 && titleTag(newPageHtml) === 'E2E New Page | EON8', `${newPageRes.status} ${titleTag(newPageHtml)}`);
+check('pages: new page in sitemap', (await fetch(`${BASE}/sitemap.xml`).then((r) => r.text())).includes('/e2e-new-page/'));
+for (const [slug, why] of [['seo-packages', 'an existing page'], ['blog', 'a reserved path'], ['delete-negative-reviews', 'a blog post']]) {
+  const r = await admin.req('PUT', '/api/admin/pages/item', { ...newPage, key: `content:${slug}` });
+  check(`pages: a new page cannot take ${why}`, r.status === 409, `${r.status} ${JSON.stringify(r.data)}`);
+}
+check('pages: delete new page', (await admin.req('DELETE', '/api/admin/pages/item?key=content:e2e-new-page')).status === 200 &&
+  (await fetch(`${BASE}/e2e-new-page/`)).status === 404);
+
+// --- News and newsletter posts ---------------------------------------------------------------
+const newsId = Date.now() + 7;
+const newsPost = {
+  id: newsId, slug: 'e2e-news-item', title: 'E2E News Item', status: 'published', featured: false, category: 'Testing', postType: 'news',
+  categories: ['Testing'], date: '27 Nov 2026', dateIso: '2026-11-27', readTime: '1 min', author: 'Test', thumbnail: '', excerpt: 'x', blocks: [],
+};
+check('news: save a news item', (await admin.req('POST', '/api/cms/admin/posts', newsPost)).data.post?.postType === 'news');
+const newsRes = await fetch(`${BASE}/news/e2e-news-item/`);
+const newsHtml = await newsRes.text();
+check('news: item served at /news/<slug>/', newsRes.status === 200, newsRes.status);
+check('news: canonical is /news/<slug>/', /rel="canonical" href="[^"]*\/news\/e2e-news-item\/"/.test(newsHtml), newsHtml.match(/rel="canonical"[^>]*>/)?.[0]);
+const newsViaBlog = await fetch(`${BASE}/blog/e2e-news-item/`, { redirect: 'manual' });
+check('news: /blog/<slug>/ moves to /news/<slug>/', newsViaBlog.status === 301 && /\/news\/e2e-news-item\/$/.test(newsViaBlog.headers.get('location') || ''), `${newsViaBlog.status} ${newsViaBlog.headers.get('location')}`);
+check('news: list page', (await fetch(`${BASE}/news/`)).status === 200);
+check('newsletter: list page', (await fetch(`${BASE}/newsletter/`)).status === 200);
+const sitemapWithNews = await fetch(`${BASE}/sitemap.xml`).then((r) => r.text());
+check('news: sitemap lists /news/<slug>/ and /news/', sitemapWithNews.includes('/news/e2e-news-item/') && sitemapWithNews.includes('/news/</loc>') && !sitemapWithNews.includes('/blog/e2e-news-item/'));
+await admin.req('POST', '/api/cms/admin/posts', { ...newsPost, postType: 'newsletter' });
+const issueRedirect = await fetch(`${BASE}/news/e2e-news-item/`, { redirect: 'manual' });
+check('newsletter: changing type moves the URL', issueRedirect.status === 301 && /\/newsletter\/e2e-news-item\/$/.test(issueRedirect.headers.get('location') || ''), `${issueRedirect.status} ${issueRedirect.headers.get('location')}`);
+await admin.req('DELETE', `/api/cms/admin/posts/${newsId}?slug=e2e-news-item`);
+
+// --- Branding (logos and favicon) -------------------------------------------------------------
+const brandingBefore = (await admin.req('GET', '/api/admin/settings')).data.settings?.branding;
+check('branding: defaults match the WordPress logos', brandingBefore?.headerLogo === '/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png');
+check('branding: rejects non-image paths', (await admin.req('PUT', '/api/admin/settings/branding', { ...brandingBefore, favicon: 'javascript:alert(1)' })).status === 400);
+await admin.req('PUT', '/api/admin/settings/branding', { ...brandingBefore, favicon: '/uploads/blog/e2e-icon.png', shareImage: '/uploads/blog/e2e-share.jpg' });
+const brandedHtml = await fetch(`${BASE}/about-us/`).then((r) => r.text());
+check('branding: favicon from settings', brandedHtml.includes('<link rel="icon" type="image/png" href="/uploads/blog/e2e-icon.png" />'));
+check('branding: public settings expose logos', (await anon.req('GET', '/api/settings')).data.settings?.branding?.favicon === '/uploads/blog/e2e-icon.png');
+await admin.req('PUT', '/api/admin/settings/branding', brandingBefore);
+
 // --- Rate limit last (it blocks further submissions from this IP) ----------------------
 let limited = false;
 for (let i = 0; i < 8; i += 1) {

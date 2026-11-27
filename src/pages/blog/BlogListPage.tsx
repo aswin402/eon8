@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { POST_TYPES, postTypeOf, type PostType } from '@/lib/cms/postTypes';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Search, Sparkles, Tag } from 'lucide-react';
 import { PageSeo, ServiceHeroSection } from '@/components/sections';
 import {
@@ -37,12 +38,18 @@ function buildPaginationItems(current: number, total: number): (number | 'dots')
   return out;
 }
 
-export function BlogListPage() {
+export function BlogListPage({ postType = 'post' }: { postType?: PostType }) {
+  const meta = POST_TYPES[postType];
+  const base = meta.base;
   const { pageNum, categorySlug } = useParams<{ pageNum?: string; categorySlug?: string }>();
   const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
 
-  const publishedPosts = useBlogCmsStore((s) => s.publishedPosts);
+  const allPublishedPosts = useBlogCmsStore((s) => s.publishedPosts);
+  const publishedPosts = useMemo(
+    () => allPublishedPosts.filter((p) => postTypeOf(p) === postType),
+    [allPublishedPosts, postType]
+  );
   const categories = useBlogCmsStore((s) => s.categories);
   const initPublic = useBlogCmsStore((s) => s.initPublic);
 
@@ -108,32 +115,32 @@ export function BlogListPage() {
     if (queryCategory) {
       return `/blog?category=${encodeURIComponent(queryCategory)}`;
     }
-    return page === 1 ? '/blog' : `/blog/page/${page}`;
+    return page === 1 ? base : `${base}/page/${page}`;
   };
 
   const paginationItems = buildPaginationItems(currentPage, totalPages);
   const showFeaturedSpotlight =
-    featuredPosts.length > 0 && !activeCategoryName && !searchQuery.trim() && currentPage === 1;
+    postType === 'post' && featuredPosts.length > 0 && !activeCategoryName && !searchQuery.trim() && currentPage === 1;
 
   return (
     <div className="bg-background text-foreground">
       <PageSeo
         title={
-          activeCategoryName
-            ? `${activeCategoryName} Archives - Eon8`
-            : 'Digital Marketing Blogs & Social Media Blogs Provider in Chennai'
+          activeCategoryName ? `${activeCategoryName} Archives - Eon8` : meta.seoTitle
         }
-        description="Stay updated with the latest news, events, and other interesting information on Digital Marketing, AI Agents, SEO, Social Media, and Web3 from Eon8."
+        description={meta.seoDescription}
       />
 
       {/* 1. Hero Header */}
       <ServiceHeroSection
         theme="brand"
         layout="centered"
-        badge="EON8 Knowledge Hub"
-        heading={activeCategoryName || 'Insights, Playbooks & Growth Research'}
+        badge={meta.badge}
+        heading={activeCategoryName || meta.heading}
         paragraphs={[
-          `Explore ${publishedPosts.length} in-depth articles covering SEO, AI Agents, Performance Marketing, Reputation Management, and Web3 growth.`,
+          publishedPosts.length
+            ? `Explore ${publishedPosts.length} ${meta.intro}`
+            : `Nothing published here yet. ${meta.plural} will appear here soon.`,
         ]}
       />
 
@@ -163,6 +170,7 @@ export function BlogListPage() {
             )}
           </div>
 
+          {postType === 'post' && (
           <div className="flex items-center gap-2 overflow-x-auto pb-2 custom-scrollbar">
             <Link
               to="/blog"
@@ -192,6 +200,7 @@ export function BlogListPage() {
               );
             })}
           </div>
+          )}
         </div>
       </section>
 
@@ -207,7 +216,7 @@ export function BlogListPage() {
               {featuredPosts.map((post) => (
                 <Link
                   key={`featured-${post.slug}`}
-                  to={`/blog/${post.slug}`}
+                  to={`${base}/${post.slug}`}
                   className="group relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#06152D] via-[#0B224B] to-[#0053C6] p-6 text-white border border-white/10 shadow-lg hover:shadow-xl transition-all no-underline flex flex-col justify-between min-h-[210px]"
                 >
                   <div className="flex items-center justify-between gap-2">
@@ -252,7 +261,7 @@ export function BlogListPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
               {paginatedPosts.map((post) => {
-                const postUrl = `/blog/${post.slug}`;
+                const postUrl = `${base}/${post.slug}`;
                 const catSlug = resolveCategorySlug(post.category, categories);
                 const hasRealThumb = Boolean(
                   post.thumbnail && !post.thumbnail.includes('Logo_bg')

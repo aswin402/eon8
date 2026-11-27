@@ -6,6 +6,23 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.10.0] - 2026-11-27
+
+### Added
+- **Admin > Pages**: edit the content of 128 existing pages (services, packages, landing pages, crypto, NFT, influencer and policy pages) from a form built from each page's own content: text, rich text, lists, buttons, images from the media library and sections (add, remove, reorder, duplicate). Save as draft or publish, view history, reset to original.
+- **New pages from the admin** at `/<slug>/`: "Landing page" (hero with enquiry form + sections such as cards, text + image, process, FAQ, pricing, logos) or "Simple page" (content blocks like a blog post); can start as a copy of an existing landing page. Added to the sitemap with their own SEO tags.
+- **News and newsletters**: articles have a content type; `/news/` and `/newsletter/` list pages and `/news/<slug>/`, `/newsletter/<slug>/` URLs, with SEO tags, sitemap entries and 301s between sections.
+- **Logos & favicon** in Site Settings (header logo, footer logo, favicon, default share image), chosen from the media library.
+- e2e: 28 new checks (168 in total).
+
+### Changed
+- Typography matched to the live eon8.com (measured at 1440 px): menu in Alata 14 px, header button in Poppins 17 px, footer headings in Palanquin Dark 500 and footer text in Poppins; home hero heading 72 px / 1.2, section headings 40–64 px as on WordPress, card headings 24 px, body text 18 px / 500 in #424654; header logo 50 px high.
+
+### Fixed
+- Admin pages no longer overflow to the right on narrower screens.
+
+---
+
 ## [3.9.0] - 2026-11-25
 
 ### Added

@@ -13,6 +13,20 @@ const httpsUrl = (v: unknown, field: string) => {
   if (s && !/^https:\/\/[^\s]+$/i.test(s)) throw new HttpError(400, `${field} must be an https:// link.`);
   return s;
 };
+/** A site image: a path on this site (/wp-content/uploads/..., /uploads/...) or an https:// link. */
+const imagePath = (v: unknown, field: string, required: boolean) => {
+  const s = text(v, 500);
+  if (!s) {
+    if (required) throw new HttpError(400, `${field} is required.`);
+    return s;
+  }
+  if (!/^(\/[^\s]*|https:\/\/[^\s]+)$/i.test(s) || s.startsWith('//')) {
+    throw new HttpError(400, `${field} must be a path like /wp-content/uploads/... or an https:// link.`);
+  }
+  if (!/\.(png|jpe?g|webp|gif|svg|avif|ico)(\?.*)?$/i.test(s)) throw new HttpError(400, `${field} must be an image file.`);
+  return s;
+};
+
 const list = (v: unknown) =>
   (Array.isArray(v) ? v : String(v ?? '').split(/[\n,;]+/))
     .map((x) => String(x).trim())
@@ -57,6 +71,21 @@ export const SETTINGS: Record<string, SettingDef> = {
       linkedin: httpsUrl(i.linkedin, 'LinkedIn'),
       x: httpsUrl(i.x, 'X'),
       youtube: httpsUrl(i.youtube, 'YouTube'),
+    }),
+  },
+  branding: {
+    public: true,
+    defaults: {
+      headerLogo: '/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png',
+      footerLogo: '/wp-content/uploads/2026/03/Logo_bg-1.png',
+      favicon: '/favicon.svg',
+      shareImage: '',
+    },
+    validate: (i) => ({
+      headerLogo: imagePath(i.headerLogo, 'Header logo', true),
+      footerLogo: imagePath(i.footerLogo, 'Footer logo', true),
+      favicon: imagePath(i.favicon, 'Favicon', true),
+      shareImage: imagePath(i.shareImage, 'Default share image', false),
     }),
   },
   leads: {

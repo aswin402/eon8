@@ -13,6 +13,7 @@ import {
 import { RichText } from '../crypto/components/RichText';
 import { NFT_COMMUNITY_LOADERS } from './data/community';
 import type { NftCommunityPageData, NftCommunitySlug } from './types';
+import { loadPageContent } from '@/lib/pages/pageContent';
 
 interface CommunityGrowthPageProps {
   slug: NftCommunitySlug;
@@ -29,7 +30,7 @@ export default function CommunityGrowthPage({ slug }: CommunityGrowthPageProps) 
     const loader = NFT_COMMUNITY_LOADERS[slug];
     if (!loader) return undefined;
 
-    loader().then((pageData) => {
+    loadPageContent(`nft-community:${slug}`, loader).then((pageData) => {
       if (!cancelled) {
         setLoaded({ routeSlug: slug, data: pageData });
       }

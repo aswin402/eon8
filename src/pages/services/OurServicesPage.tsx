@@ -22,6 +22,7 @@ import {
 import { RichText } from '@/pages/crypto/components/RichText';
 import { SERVICES_DATA_LOADERS } from './data';
 import type { OurServiceSlug, ServicePageData } from './types';
+import { loadPageContent } from '@/lib/pages/pageContent';
 
 interface OurServicesPageProps {
   slug: OurServiceSlug;
@@ -38,7 +39,7 @@ export default function OurServicesPage({ slug }: OurServicesPageProps) {
     const loader = SERVICES_DATA_LOADERS[slug];
     if (!loader) return undefined;
 
-    loader().then((pageData) => {
+    loadPageContent(`service:${slug}`, loader).then((pageData) => {
       if (!cancelled) {
         setLoaded({ routeSlug: slug, data: pageData });
       }
@@ -59,7 +60,13 @@ export default function OurServicesPage({ slug }: OurServicesPageProps) {
     );
   }
 
-  const { theme, title, metaDesc, noIndex, hero, sections, disclaimer } = data;
+  return <ServicePageView slug={slug} data={data} />;
+}
+
+/** The landing-page layout (hero + sections). Also used by pages created in the admin. */
+export function ServicePageView({ slug, data }: { slug: string; data: ServicePageData }) {
+  const { theme: rawTheme, title, metaDesc, noIndex, hero, sections, disclaimer } = data;
+  const theme = VERTICAL_THEMES[rawTheme] ? rawTheme : 'brand';
   const palette = VERTICAL_THEMES[theme];
   const firstSplitImage = sections.find((s) => s.type === 'split' && s.imageSrc);
   const resolvedOgImage =

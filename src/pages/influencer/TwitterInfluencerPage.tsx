@@ -12,10 +12,12 @@ import {
 } from '@/components/sections';
 import { HeadingLines, RichText } from '@/pages/crypto/components/RichText';
 import { twitterInfluencerData } from './data/twitterInfluencerData';
+import { usePageContent } from '@/lib/pages/pageContent';
+import { PageLoading } from '@/lib/pages/PageLoading';
 
 const BENEFIT_ICONS = [TrendingUp, Users, Megaphone, Sparkles];
 
-export default function TwitterInfluencerPage() {
+function TwitterInfluencerView({ content }: { content: typeof twitterInfluencerData }) {
   const {
     title,
     metaDesc,
@@ -31,7 +33,7 @@ export default function TwitterInfluencerPage() {
     calendly,
     bottomEnquiry,
     disclaimer,
-  } = twitterInfluencerData;
+  } = content;
 
   return (
     <div className="bg-background text-foreground">
@@ -207,4 +209,10 @@ export default function TwitterInfluencerPage() {
       />
     </div>
   );
+}
+
+export default function TwitterInfluencerPage() {
+  const content = usePageContent('twitter-influencer:twitter-influencer-marketing', twitterInfluencerData);
+  if (!content) return <PageLoading />;
+  return <TwitterInfluencerView content={content} />;
 }
