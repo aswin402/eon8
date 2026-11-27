@@ -25,7 +25,6 @@ import {
   FaqAccordionSection,
   PageSeo,
   ProcessRoadmapSection,
-  ServiceHeroSection,
   type FaqItem,
   type ProcessStepItem,
 } from '@/components/sections';
@@ -45,59 +44,54 @@ interface ShowcaseExample {
   copy: string;
   cta: string;
   url?: string;
-  badgeBg: string;
 }
 
 const SHOWCASE_EXAMPLES: ShowcaseExample[] = [
   {
     label: 'Bakery',
-    prompt: 'What’s the best cake shop in Chennai for a custom birthday cake?',
+    prompt: 'Best cake shop in Chennai for a custom birthday cake?',
     brand: 'CakeSquare',
     answer:
-      'CakeSquare is one option to compare. It offers custom birthday cakes in Chennai. Check the design, delivery area, and lead time before ordering.',
+      'CakeSquare offers custom birthday cakes in Chennai. Compare designs, delivery coverage, and lead times before ordering.',
     source: 'CakeSquare FAQ',
     sourceUrl: 'https://cakesquare.com/faq/',
     headline: 'Custom Birthday Cakes in Chennai',
-    copy: 'Explore themed cakes for kids and adults. Choose a design and check delivery for your area.',
-    cta: 'Browse cake designs',
+    copy: 'Explore themed designs and check delivery for your area.',
+    cta: 'Browse designs',
     url: 'https://cakesquare.com/order-customised-designer-cakes/',
-    badgeBg: 'from-rose-500 to-orange-500',
   },
   {
     label: 'Interiors',
-    prompt: 'Which Chennai interior design studios can plan a 3BHK renovation under ₹15 lakh?',
+    prompt: 'Chennai interior studios for a 3BHK renovation under ₹15L?',
     brand: 'Line & Loom Interiors',
     answer:
-      'Compare quotes for the same rooms, materials, and installation scope. Check recent 3BHK projects and ask which items are excluded.',
-    source: 'Example source · 3BHK pricing and projects',
+      'Compare quotes across rooms, materials, and installation scope. Review recent 3BHK handovers and exclusions.',
+    source: '3BHK pricing & projects',
     headline: 'Plan Your Chennai 3BHK Interiors',
-    copy: 'Share your floor plan to discuss room-by-room scope, finishes, and a budget range.',
-    cta: 'Request a design consultation',
-    badgeBg: 'from-emerald-500 to-teal-600',
+    copy: 'Share your floor plan for room-by-room scope and estimates.',
+    cta: 'Book consultation',
   },
   {
-    label: 'Wedding venue',
-    prompt: 'What wedding venues near ECR can host 250 guests with an indoor backup?',
+    label: 'Wedding',
+    prompt: 'Wedding venues near ECR for 250 guests with indoor backup?',
     brand: 'Tideglass Pavilion',
     answer:
-      'Shortlist venues with a published 250-guest layout, a covered backup space, and clear catering and parking terms. Confirm availability for your date.',
-    source: 'Example source · Venue capacity and FAQs',
+      'Shortlist venues with a published 250-guest layout, covered backup hall, and clear catering and parking terms.',
+    source: 'Venue capacity & FAQs',
     headline: 'Tour an ECR Wedding Venue',
-    copy: 'See sample seating plans, explore the indoor backup, and ask about dates for your wedding.',
-    cta: 'Book a venue tour',
-    badgeBg: 'from-purple-500 to-indigo-600',
+    copy: 'Review seating layouts, indoor backup spaces, and date availability.',
+    cta: 'Book a tour',
   },
   {
-    label: 'B2B software',
-    prompt: 'What payroll software should a 100-person company in India shortlist?',
+    label: 'B2B SaaS',
+    prompt: 'Payroll software for a 100-person company in India?',
     brand: 'Rosterlane Payroll',
     answer:
-      'Compare products on payroll approvals, integrations, reporting, and the time needed to migrate your existing data. Ask for a demo using your headcount.',
-    source: 'Example source · Product and integration pages',
+      'Compare products on payroll approvals, compliance filings, integrations, and migration effort for your headcount.',
+    source: 'Product & integrations',
     headline: 'Payroll for Growing India Teams',
-    copy: 'See payroll approvals, employee self-service, and reporting in a product walkthrough.',
-    cta: 'Book a payroll demo',
-    badgeBg: 'from-cyan-500 to-indigo-600',
+    copy: 'Walk through approvals, employee self-service, and reporting.',
+    cta: 'Book a demo',
   },
 ];
 
@@ -369,180 +363,192 @@ export function ChatgptAdsAgencyPage() {
         canonicalPath="/chatgpt-ads-agency"
       />
 
-      {/* 1. EON8 AI Hero + Interactive ChatGPT Search & Sponsored Ad Preview */}
-      <ServiceHeroSection
-        theme="ai"
-        layout="split-media"
-        badge="AI Visibility & ChatGPT Ads Agency"
-        heading={
-          <>
-            Get Found on <span className="text-[#FD5900]">ChatGPT.</span>
-          </>
-        }
-        subheading="AEO, GEO & Paid Placements for High-Intent AI Search"
-        paragraphs={[
-          'See what ChatGPT says about your business. Improve the verified information it can cite, and track the visits, WhatsApp enquiries, and bookings AI search sends your way.',
-        ]}
-        bullets={[
-          'Real buyer-query benchmarking',
-          'Verified citation & page optimization',
-          'Local business eligibility & discovery',
-          'Measurable AI referral & lead tracking',
-        ]}
-        actions={[
-          { label: 'Request a Visibility Audit', opensModal: true, variant: 'primary' },
-          { label: 'See Live Examples', href: '#examples', variant: 'secondary' },
-        ]}
-        onCustomModal={() => openAuditDialog('visibility')}
-        customRightSlot={
-          <div
-            id="examples"
-            className="rounded-3xl border border-white/15 bg-slate-950/75 backdrop-blur-md p-4 sm:p-5 shadow-2xl space-y-4"
-          >
-            {/* Studio Window Top Bar (matches EON8 AI Studio aesthetic) */}
-            <div className="flex flex-wrap items-center justify-between gap-2 px-1">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                <span className="ml-1 text-xs font-heading font-bold text-white/90">
-                  One search, two ways to be found
-                </span>
-              </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-300">
-                Interactive Preview
-              </span>
+      {/* 1. Clean Editorial EON8 Hero + Compact Interactive ChatGPT Preview */}
+      <section className="bg-gradient-to-br from-[#071124] via-[#0b1933] to-[#0f2247] text-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 border-b border-white/10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Editorial Column */}
+          <div className="lg:col-span-6 space-y-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+              ChatGPT Ads &amp; AI Search Agency
+            </p>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-heading font-extrabold leading-[1.08] tracking-tight text-white">
+              Get Found on ChatGPT<span className="text-[#FD5900]">.</span>
+            </h1>
+
+            <p className="text-[15.5px] sm:text-base text-slate-300 leading-relaxed max-w-xl">
+              See what ChatGPT says about your business today. Strengthen the verified pages it
+              cites, and turn high-intent AI search into measurable calls, WhatsApp enquiries, and
+              bookings.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <button
+                type="button"
+                onClick={() => openAuditDialog('visibility')}
+                className="inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-xl bg-[#FD5900] hover:bg-[#e55000] text-white font-bold text-sm sm:text-[15px] transition-colors cursor-pointer"
+              >
+                <span>Request a Visibility Audit</span>
+                <ArrowRight className="w-4 h-4 shrink-0" />
+              </button>
+
+              <a
+                href="#process"
+                className="inline-flex items-center justify-center gap-2 min-h-[46px] px-5 py-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/20 text-white font-semibold text-sm sm:text-[15px] no-underline transition-colors"
+              >
+                <span>How It Works</span>
+              </a>
             </div>
 
-            <div className="rounded-2xl bg-card text-foreground border border-border overflow-hidden shadow-xl">
-              {/* Industry Switcher Pills */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-5 border-t border-white/10 max-w-lg">
+              <div>
+                <p className="text-sm font-heading font-bold text-white">AEO &amp; GEO</p>
+                <p className="text-xs text-slate-400 mt-0.5">Organic AI citations</p>
+              </div>
+              <div>
+                <p className="text-sm font-heading font-bold text-white">Local Discovery</p>
+                <p className="text-xs text-slate-400 mt-0.5">Verified business facts</p>
+              </div>
+              <div>
+                <p className="text-sm font-heading font-bold text-white">ChatGPT Ads</p>
+                <p className="text-xs text-slate-400 mt-0.5">Tracked enquiries</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Compact Monochrome Preview Card */}
+          <div className="lg:col-span-6 min-w-0" id="examples">
+            <div className="rounded-2xl bg-card text-foreground border border-white/15 dark:border-border shadow-2xl overflow-hidden">
+              {/* Compact Segmented Switcher Bar */}
               <div
-                className="flex flex-wrap items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-3 border-b border-border bg-slate-50 dark:bg-slate-900/70"
+                className="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 border-b border-border bg-slate-50 dark:bg-slate-900/70"
                 role="group"
                 aria-label="Choose a business example"
               >
-                {SHOWCASE_EXAMPLES.map((item, idx) => {
-                  const isSelected = idx === activeCaseIdx;
-                  return (
-                    <button
-                      key={item.label}
-                      type="button"
-                      aria-pressed={isSelected}
-                      onClick={() => setActiveCaseIdx(idx)}
-                      className={`min-h-[34px] px-3 py-1.5 rounded-lg text-xs font-bold border transition-all cursor-pointer ${
-                        isSelected
-                          ? 'bg-indigo-600 dark:bg-cyan-500 text-white dark:text-slate-950 border-indigo-600 dark:border-cyan-500 shadow-xs'
-                          : 'bg-card text-foreground border-border hover:border-indigo-500 dark:hover:border-cyan-400'
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  );
-                })}
+                <div className="flex flex-wrap items-center gap-1">
+                  {SHOWCASE_EXAMPLES.map((item, idx) => {
+                    const isSelected = idx === activeCaseIdx;
+                    return (
+                      <button
+                        key={item.label}
+                        type="button"
+                        aria-pressed={isSelected}
+                        onClick={() => setActiveCaseIdx(idx)}
+                        className={`min-h-[32px] px-3 py-1 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
+                          isSelected
+                            ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950'
+                            : 'text-muted-foreground hover:text-foreground hover:bg-slate-200/60 dark:hover:bg-slate-800'
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                </div>
+                <span className="text-[11px] font-medium text-muted-foreground hidden sm:inline">
+                  Simulated preview
+                </span>
               </div>
 
-              {/* Simulated Conversation + Sponsored Card */}
-              <div className="p-4 space-y-3.5" aria-live="polite">
-                {/* Prompt */}
-                <div className="space-y-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-                    Customer asks
-                  </span>
-                  <div className="rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-border px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-foreground leading-snug">
+              {/* Compact Conversation + Sponsored Placement */}
+              <div className="p-4 space-y-3" aria-live="polite">
+                {/* Query Strip */}
+                <div className="flex items-start gap-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/70 border border-border/80 px-3.5 py-2.5">
+                  <Search className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" />
+                  <p className="text-[13px] font-semibold text-foreground leading-snug">
                     “{currentCase.prompt}”
-                  </div>
+                  </p>
                 </div>
 
-                {/* Organic AI Answer */}
-                <div className="rounded-xl border border-emerald-500/25 bg-emerald-500/[0.06] dark:bg-emerald-500/10 p-3.5 space-y-2">
-                  <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                    <span>Example organic AI answer</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-foreground leading-relaxed">
-                    {currentCase.answer}
-                  </p>
-                  <div>
+                {/* Organic Citation Block (Neutral Surface) */}
+                <div className="rounded-xl border border-border/80 bg-background px-3.5 py-3 space-y-1.5">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                      Organic Answer
+                    </span>
                     {currentCase.sourceUrl ? (
                       <a
                         href={currentCase.sourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 min-h-[32px] px-3 py-1.5 rounded-full bg-card border border-border text-xs font-bold text-indigo-600 dark:text-cyan-400 hover:border-[#FD5900] no-underline transition-colors"
+                        className="inline-flex items-center gap-1 min-h-[28px] py-0.5 text-[11.5px] font-semibold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline transition-colors"
                       >
-                        <span>Source: {currentCase.source}</span>
+                        <span>{currentCase.source}</span>
                         <ExternalLink className="w-3 h-3 shrink-0" />
                       </a>
                     ) : (
-                      <span className="inline-flex items-center px-3 py-1 rounded-full bg-card border border-border text-xs font-semibold text-muted-foreground">
+                      <span className="text-[11.5px] font-medium text-muted-foreground">
                         {currentCase.source}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed">
+                    {currentCase.answer}
+                  </p>
+                </div>
+
+                {/* Sponsored Placement Block (Neutral + Single Accent) */}
+                <div className="rounded-xl border border-border bg-slate-50/75 dark:bg-slate-900/50 px-3.5 py-3">
+                  <div className="flex items-center justify-between gap-2 text-[11px] text-muted-foreground mb-2">
+                    <span className="font-semibold uppercase tracking-wider text-foreground/80">
+                      Sponsored
+                    </span>
+                    <span>Below the answer</span>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div
+                        aria-hidden="true"
+                        className="w-9 h-9 rounded-lg bg-slate-900 dark:bg-slate-800 text-white font-heading font-bold text-xs flex items-center justify-center shrink-0"
+                      >
+                        {getBrandInitials(currentCase.brand)}
+                      </div>
+                      <div className="min-w-0">
+                        <h2 className="text-[13.5px] font-heading font-bold text-foreground leading-snug sm:truncate">
+                          {currentCase.headline}
+                        </h2>
+                        <p className="text-xs text-muted-foreground leading-snug line-clamp-1">
+                          {currentCase.copy}
+                        </p>
+                      </div>
+                    </div>
+
+                    {currentCase.url ? (
+                      <a
+                        href={currentCase.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1 min-h-[36px] px-3 py-1.5 rounded-lg border border-border bg-card hover:border-[#FD5900] text-xs font-semibold text-foreground hover:text-[#FD5900] no-underline shrink-0 self-start sm:self-auto transition-colors"
+                      >
+                        <span>{currentCase.cta}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-semibold text-muted-foreground shrink-0 self-start sm:self-auto">
+                        {currentCase.cta}
                       </span>
                     )}
                   </div>
                 </div>
 
-                {/* Sponsored Card */}
-                <div className="rounded-xl border border-indigo-500/25 dark:border-cyan-500/30 bg-indigo-500/[0.04] dark:bg-slate-900/80 p-3.5 space-y-2.5">
-                  <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] font-bold text-muted-foreground border-b border-border/70 pb-1.5">
-                    <span className="text-[#FD5900] uppercase tracking-wider">Sponsored</span>
-                    <span>Below the answer · Mock ad</span>
-                  </div>
-
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="space-y-1 min-w-0">
-                      <p className="text-xs font-bold text-muted-foreground">{currentCase.brand}</p>
-                      <h2 className="text-sm sm:text-base font-heading font-extrabold text-foreground leading-snug">
-                        {currentCase.headline}
-                      </h2>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        {currentCase.copy}
-                      </p>
-                      <div className="pt-0.5">
-                        {currentCase.url ? (
-                          <a
-                            href={currentCase.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 min-h-[36px] py-1.5 text-xs sm:text-sm font-bold text-indigo-600 dark:text-cyan-400 hover:text-[#FD5900] no-underline"
-                          >
-                            <span>{currentCase.cta}</span>
-                            <ArrowUpRight className="w-4 h-4 shrink-0" />
-                          </a>
-                        ) : (
-                          <span className="inline-flex items-center gap-1 py-1 text-xs sm:text-sm font-bold text-indigo-600 dark:text-cyan-400">
-                            <span>Example CTA: {currentCase.cta}</span>
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    <div
-                      aria-hidden="true"
-                      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${currentCase.badgeBg} text-white font-heading font-black text-base sm:text-lg flex items-center justify-center shrink-0 shadow-md`}
-                    >
-                      {getBrandInitials(currentCase.brand)}
-                    </div>
-                  </div>
-                </div>
-
-                {/* OpenAI Attribution Footnote */}
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  Simulated answers and ads. Examples other than CakeSquare use fictional brands.
-                  Ads may appear below answers for eligible users.{' '}
+                {/* Minimal 1-Line Attribution */}
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-0.5 text-[11.5px] text-muted-foreground">
+                  <span>Simulated example · Fictional brands except CakeSquare</span>
                   <a
                     href="https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center min-h-[28px] py-1 font-semibold text-indigo-600 dark:text-cyan-400 hover:text-[#FD5900] underline"
+                    className="inline-flex items-center min-h-[28px] py-0.5 font-medium text-foreground/80 hover:text-[#FD5900] underline"
                   >
-                    See OpenAI’s ad format ↗
+                    OpenAI ad format ↗
                   </a>
-                </p>
+                </div>
               </div>
             </div>
           </div>
-        }
-      />
+        </div>
+      </section>
 
       {/* 2. Agency Presence & Quick Resources Strip */}
       <section className="py-4 px-4 sm:px-6 lg:px-8 border-y border-border bg-slate-50 dark:bg-slate-900/60">
@@ -553,21 +559,21 @@ export function ChatgptAdsAgencyPage() {
           </div>
 
           <div className="inline-flex items-center gap-2 text-muted-foreground">
-            <MapPin className="w-4 h-4 text-indigo-600 dark:text-cyan-400 shrink-0" />
+            <MapPin className="w-4 h-4 text-[#0053C6] dark:text-sky-400 shrink-0" />
             <span>{contact.address}</span>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
             <Link
               to="/chatgpt-ads-agency/blog"
-              className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-indigo-600 dark:text-cyan-400 hover:text-[#FD5900] font-bold no-underline transition-colors"
+              className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] font-bold no-underline transition-colors"
             >
               <BookOpen className="w-4 h-4 shrink-0" />
               <span>AI Search Blog</span>
             </Link>
             <Link
               to="/chatgpt-ads-agency/education"
-              className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-indigo-600 dark:text-cyan-400 hover:text-[#FD5900] font-bold no-underline transition-colors"
+              className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] font-bold no-underline transition-colors"
             >
               <GraduationCap className="w-4 h-4 shrink-0" />
               <span>AI Visibility Guide</span>
@@ -587,7 +593,7 @@ export function ChatgptAdsAgencyPage() {
       <section id="services" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 space-y-3">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-indigo-600 dark:text-cyan-400">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-[#0053C6] dark:text-sky-400">
               Our Services
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-foreground leading-tight">
@@ -610,7 +616,7 @@ export function ChatgptAdsAgencyPage() {
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-indigo-600/10 dark:bg-cyan-500/15 text-indigo-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
+                      <div className="w-12 h-12 rounded-xl bg-[#0053C6]/10 dark:bg-sky-500/15 text-[#0053C6] dark:text-sky-400 flex items-center justify-center shrink-0">
                         <Icon className="w-6 h-6" />
                       </div>
                       <span className="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
@@ -629,7 +635,7 @@ export function ChatgptAdsAgencyPage() {
                     <button
                       type="button"
                       onClick={() => openServiceDialog(svc.focus)}
-                      className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-indigo-600 dark:text-cyan-400 group-hover:text-[#FD5900] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 group-hover:text-[#FD5900] transition-colors cursor-pointer"
                     >
                       <span>{svc.cta}</span>
                       <ArrowUpRight className="w-4 h-4 shrink-0" />
@@ -753,7 +759,7 @@ export function ChatgptAdsAgencyPage() {
       >
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="max-w-3xl mx-auto text-center space-y-3">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-indigo-600 dark:text-cyan-400">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-[#0053C6] dark:text-sky-400">
               Resources &amp; Playbooks
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-foreground leading-tight">
@@ -768,9 +774,9 @@ export function ChatgptAdsAgencyPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7">
             <Link
               to="/chatgpt-ads-agency/blog"
-              className="group rounded-2xl bg-card border border-border p-6 sm:p-8 shadow-xs hover:shadow-xl hover:border-indigo-500/50 dark:hover:border-cyan-400/50 hover:-translate-y-1 transition-all flex items-start gap-5 no-underline"
+              className="group rounded-2xl bg-card border border-border p-6 sm:p-8 shadow-xs hover:shadow-xl hover:border-[#0053C6]/50 dark:hover:border-sky-400/50 hover:-translate-y-1 transition-all flex items-start gap-5 no-underline"
             >
-              <div className="w-12 h-12 rounded-xl bg-indigo-600/10 dark:bg-cyan-500/15 text-indigo-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-[#0053C6]/10 dark:bg-sky-500/15 text-[#0053C6] dark:text-sky-400 flex items-center justify-center shrink-0">
                 <BookOpen className="w-6 h-6" />
               </div>
               <div className="space-y-2.5">
@@ -784,7 +790,7 @@ export function ChatgptAdsAgencyPage() {
                   Practical articles on AI search visibility, local discovery, citations, and paid
                   ChatGPT placements.
                 </p>
-                <span className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-indigo-600 dark:text-cyan-400 group-hover:text-[#FD5900]">
+                <span className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 group-hover:text-[#FD5900]">
                   <span>Read the blog</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -799,7 +805,7 @@ export function ChatgptAdsAgencyPage() {
                 <GraduationCap className="w-6 h-6" />
               </div>
               <div className="space-y-2.5">
-                <span className="inline-block text-xs font-bold uppercase tracking-[0.14em] text-indigo-600 dark:text-cyan-400">
+                <span className="inline-block text-xs font-bold uppercase tracking-[0.14em] text-[#0053C6] dark:text-sky-400">
                   Step-by-Step Guide
                 </span>
                 <h3 className="text-lg sm:text-xl font-heading font-extrabold text-foreground group-hover:text-[#FD5900] transition-colors">
@@ -809,7 +815,7 @@ export function ChatgptAdsAgencyPage() {
                   A step-by-step playbook to benchmark how ChatGPT and AI assistants find and
                   describe your business.
                 </p>
-                <span className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-indigo-600 dark:text-cyan-400 group-hover:text-[#FD5900]">
+                <span className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 group-hover:text-[#FD5900]">
                   <span>Start learning</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -869,7 +875,7 @@ export function ChatgptAdsAgencyPage() {
             if (e.target === e.currentTarget) setDialogMode(null);
           }}
         >
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-card text-foreground border border-border p-6 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto custom-scrollbar rounded-2xl bg-card text-foreground border border-border p-6 sm:p-8 shadow-2xl">
             <button
               type="button"
               aria-label="Close dialog"
@@ -942,7 +948,7 @@ export function ChatgptAdsAgencyPage() {
                       placeholder="you@company.com or +91 98765 43210"
                       value={contactDetail}
                       onChange={(e) => setContactDetail(e.target.value)}
-                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-cyan-400"
+                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0053C6] dark:focus:ring-sky-400"
                     />
                   </label>
 
@@ -957,7 +963,7 @@ export function ChatgptAdsAgencyPage() {
                       placeholder="example.com"
                       value={website}
                       onChange={(e) => setWebsite(e.target.value)}
-                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-cyan-400"
+                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0053C6] dark:focus:ring-sky-400"
                     />
                   </label>
 
@@ -972,7 +978,7 @@ export function ChatgptAdsAgencyPage() {
                       placeholder="Chennai, India"
                       value={market}
                       onChange={(e) => setMarket(e.target.value)}
-                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-cyan-400"
+                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0053C6] dark:focus:ring-sky-400"
                     />
                   </label>
 
@@ -984,7 +990,7 @@ export function ChatgptAdsAgencyPage() {
                       name="focus"
                       value={selectedFocus}
                       onChange={(e) => setSelectedFocus(e.target.value as ServiceFocusKey)}
-                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-cyan-400"
+                      className="w-full rounded-xl border border-border bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#0053C6] dark:focus:ring-sky-400"
                     >
                       {Object.entries(FOCUS_TITLES).map(([key, title]) => (
                         <option key={key} value={key}>
@@ -1006,7 +1012,7 @@ export function ChatgptAdsAgencyPage() {
                     <Link
                       to="/contact"
                       onClick={() => setDialogMode(null)}
-                      className="inline-flex items-center justify-center min-h-[46px] px-4 py-2.5 rounded-xl border border-border bg-background hover:border-indigo-500 dark:hover:border-cyan-400 text-foreground font-bold text-sm no-underline transition-colors"
+                      className="inline-flex items-center justify-center min-h-[46px] px-4 py-2.5 rounded-xl border border-border bg-background hover:border-[#0053C6] dark:hover:border-sky-400 text-foreground font-bold text-sm no-underline transition-colors"
                     >
                       Contact Page
                     </Link>
@@ -1016,7 +1022,7 @@ export function ChatgptAdsAgencyPage() {
                     Or email directly via{' '}
                     <a
                       href={buildMailtoHref()}
-                      className="inline-flex items-center min-h-[28px] py-1 font-semibold text-indigo-600 dark:text-cyan-400 underline"
+                      className="inline-flex items-center min-h-[28px] py-1 font-semibold text-[#0053C6] dark:text-sky-400 underline"
                     >
                       {contact.email}
                     </a>

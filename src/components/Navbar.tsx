@@ -345,35 +345,37 @@ export function Navbar() {
                         className={`absolute top-full pt-2 z-50 ${
                           item.isMega
                             ? 'left-4 right-4 xl:left-8 xl:right-8 mx-auto max-w-[1060px]'
-                            : 'left-0 w-72'
+                            : (item.submenu?.length ?? 0) > 7
+                              ? 'left-0 w-[520px] max-w-[calc(100vw-2rem)]'
+                              : 'left-0 w-72'
                         }`}
                       >
-                        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 shadow-2xl rounded-2xl p-6 text-left">
+                        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 shadow-2xl rounded-2xl p-5 text-left max-h-[75vh] overflow-y-auto custom-scrollbar">
                           {item.isMega && item.megaSections ? (
                             <div className="grid grid-cols-3 gap-6">
                               {item.megaSections.map((section, sIdx) => (
                                 <div
                                   key={sIdx}
-                                  className="space-y-4 border-r border-slate-100 dark:border-slate-800 last:border-r-0 pr-3 last:pr-0"
+                                  className="space-y-3.5 border-r border-slate-100 dark:border-slate-800 last:border-r-0 pr-3 last:pr-0"
                                 >
                                   {section.subGroups ? (
                                     section.subGroups.map((group) => (
-                                      <div key={group.title} className="space-y-2 pb-2">
+                                      <div key={group.title} className="space-y-1.5 pb-1.5">
                                         {group.href ? (
                                           <Link
                                             to={group.href}
                                             onClick={() => setActiveDropdown(null)}
-                                            className="text-[14px] font-bold text-slate-900 dark:text-slate-100 hover:text-[#FD5900] transition-colors inline-flex items-center gap-1 group/title"
+                                            className="text-[13.5px] font-bold text-slate-900 dark:text-slate-100 hover:text-[#FD5900] transition-colors inline-flex items-center gap-1 group/title"
                                           >
                                             <span>{group.title}</span>
                                             <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-[#FD5900]" />
                                           </Link>
                                         ) : (
-                                          <h5 className="text-[14px] font-bold text-slate-900 dark:text-slate-100">
+                                          <h5 className="text-[13.5px] font-bold text-slate-900 dark:text-slate-100">
                                             {group.title}
                                           </h5>
                                         )}
-                                        <ul className="space-y-1">
+                                        <ul className="space-y-0.5">
                                           {group.items.map((subitem) => (
                                             <li key={subitem.name}>
                                               {renderLink(
@@ -387,24 +389,24 @@ export function Navbar() {
                                       </div>
                                     ))
                                   ) : (
-                                    <div className="space-y-2">
+                                    <div className="space-y-1.5">
                                       {section.href ? (
                                         <Link
                                           to={section.href}
                                           onClick={() => setActiveDropdown(null)}
-                                          className="text-[14px] font-bold text-slate-900 dark:text-slate-100 hover:text-[#FD5900] transition-colors inline-flex items-center gap-1 group/title"
+                                          className="text-[13.5px] font-bold text-slate-900 dark:text-slate-100 hover:text-[#FD5900] transition-colors inline-flex items-center gap-1 group/title"
                                         >
                                           <span>{section.title}</span>
                                           <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-[#FD5900]" />
                                         </Link>
                                       ) : (
                                         section.title && (
-                                          <h5 className="text-[14px] font-bold text-slate-900 dark:text-slate-100">
+                                          <h5 className="text-[13.5px] font-bold text-slate-900 dark:text-slate-100">
                                             {section.title}
                                           </h5>
                                         )
                                       )}
-                                      <ul className="space-y-1 max-h-[60vh] overflow-y-auto custom-scrollbar pr-1">
+                                      <ul className="space-y-0.5">
                                         {section.items?.map((subitem) => (
                                           <li key={subitem.name}>
                                             {renderLink(
@@ -421,13 +423,19 @@ export function Navbar() {
                               ))}
                             </div>
                           ) : (
-                            <ul className="space-y-1.5 max-h-[65vh] overflow-y-auto custom-scrollbar">
+                            <ul
+                              className={
+                                (item.submenu?.length ?? 0) > 7
+                                  ? 'grid grid-cols-2 gap-x-5 gap-y-1'
+                                  : 'space-y-1'
+                              }
+                            >
                               {item.submenu?.map((subitem) => (
                                 <li key={subitem.name}>
                                   {renderLink(
                                     subitem.name,
                                     subitem.href,
-                                    'text-[13.5px] font-medium text-slate-600 dark:text-slate-300 hover:text-[#0053C6] dark:hover:text-blue-400 transition-colors block py-1 leading-snug'
+                                    'text-[13px] font-medium text-slate-600 dark:text-slate-300 hover:text-[#0053C6] dark:hover:text-blue-400 transition-colors block py-1 leading-snug'
                                   )}
                                 </li>
                               ))}

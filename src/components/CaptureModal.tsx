@@ -153,7 +153,7 @@ export function CaptureModal() {
               duration: 0.25,
               x: { duration: 0.4, ease: 'easeInOut' }
             }}
-            className="bg-card dark:bg-slate-900 border border-border/50 shadow-2xl rounded-3xl p-5 sm:p-6 md:p-8 w-full max-w-lg max-h-[92vh] overflow-y-auto overflow-x-hidden relative z-10"
+            className="bg-card dark:bg-slate-900 border border-border/50 shadow-2xl rounded-3xl p-5 sm:p-6 md:p-8 w-full max-w-lg max-h-[92vh] overflow-y-auto overflow-x-hidden custom-scrollbar relative z-10"
           >
             {/* Top Glowing gradient indicator */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-orange-500 via-primary to-blue-500" />

@@ -144,7 +144,7 @@ export function FloatingWidgets() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.22, ease: 'easeOut' }}
-              className="fixed top-0 right-0 bottom-0 w-80 max-w-[calc(100vw-16px)] overflow-y-auto bg-card border-l border-border p-5 sm:p-6 z-50 flex flex-col shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-80 max-w-[calc(100vw-16px)] overflow-y-auto custom-scrollbar bg-card border-l border-border p-5 sm:p-6 z-50 flex flex-col shadow-2xl"
             >
               <div className="flex items-center justify-between border-b border-border pb-4 mb-5 shrink-0">
                 <div>

@@ -6,6 +6,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.10.3] - 2026-11-27
+
+### Improved
+- **Minimal EON8-Themed Global Scrollbars (`src/index.css`)**: Styled minimal, thin, rounded scrollbars (`5px` global / `4px` `.custom-scrollbar`) with transparent tracks, subtle EON8 blue/slate thumbs that shift to `#FD5900` on hover, zero arrow buttons, and Firefox fallback via `@supports not selector(::-webkit-scrollbar)`. Added `.custom-scrollbar` to modal and floating drawer scroll containers (`CaptureModal.tsx`, `FloatingWidgets.tsx`, `ChatgptAdsAgencyPage.tsx`).
+- **Compact Navbar Dropdowns (`Navbar.tsx`)**: Converted the 14-item `Crypto` dropdown into a clean 2-column grid (`w-[520px]`, `265px` tall — eliminating its tall vertical scrollbar), tightened mega-menu spacing (`NFT` `356px`, `Our Services` `495px`), and moved scroll clamping cleanly to the outer panel so all 5 menus render with `0` unnecessary vertical scrollbars across `1024px`–`1440px`.
+- **Refined ChatGPT Ads Hero (`ChatgptAdsAgencyPage.tsx`)**: Replaced the loud multi-color hero & oversized preview bezel with a restrained, editorial EON8 deep-navy hero and a compact monochrome preview card (`382px` tall, fitting comfortably above the fold at `1440×820`) plus unified `#0053C6` / `sky-400` + `#FD5900` brand accents across the page.
+
+---
+
 ## [3.10.2] - 2026-11-27
 
 ### Changed & Removed
