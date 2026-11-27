@@ -6,6 +6,16 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.10.2] - 2026-11-27
+
+### Changed & Removed
+- **Removed ChatGPT Ads Pricing Section (`ChatgptAdsAgencyPage.tsx`)**: Removed the `"AI Visibility Packages — Start with 90 days."` pricing cards section (`₹9,900` / `₹19,900` / `₹12,000`), `#packages` anchor, and package dialog state so visitors convert via custom AI Visibility Audit or 30-Minute Strategy Call flows.
+- **Full EON8 AI Theme, Typography & Layout Alignment (`ChatgptAdsAgencyPage.tsx`, `ChatgptAdsSubPage.tsx`)**:
+  - Rebuilt `/chatgpt-ads-agency` with EON8's shared `ServiceHeroSection` (`theme="ai"`, studio glass interactive preview frame), indigo/cyan/`#FD5900` vertical tokens, `font-heading` / `font-body` typographic scale, `ProcessRoadmapSection`, `FaqAccordionSection`, `DiscoveryCallSection`, and `BottomCtaBanner`.
+  - Upgraded `/chatgpt-ads-agency/blog` and `/chatgpt-ads-agency/education` to EON8's 12-column editorial + sticky sidebar layout (inline `LeadCaptureCard` + EON8 AI hub navigation + `DiscoveryCallSection` + `BottomCtaBanner`), matching `AIAgentPage`, `AIVideoPage`, and `BlogPostPage` across Light and Dark modes.
+
+---
+
 ## [3.10.1] - 2026-11-27
 
 ### Fixed
