@@ -454,5 +454,9 @@ export const seoPackagesData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Get Consultation From Experts",
+    "description": "Speak directly with our senior SEO strategists to review your website, competition, and ideal monthly SEO package."
+  }
 };

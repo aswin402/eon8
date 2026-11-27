@@ -412,7 +412,7 @@ export function CaseStudyPage({ slug }: { slug: CaseStudySlug }) {
         theme="nft"
         layout="split-media"
         badge="WE DID IT IN 7 DAYS"
-        heading="Our Client Wanted His Project Showcased in NYC Times Square in 3 Months — We Did It in 7 Days"
+        heading="For Someone Who Believes In Manifestation, Our Client Wanted His Project To Be Showcased In Front Of NYC Times Square In 3 Months — We Did It In 7 Days"
         paragraphs={[
           'Discover how EON8 staged a viral New York City guerrilla truck stunt, 300+ global press releases, and 30+ simultaneous influencer drops to achieve a 90% mint-day sell-through.',
         ]}
@@ -499,7 +499,7 @@ export function CaseStudyPage({ slug }: { slug: CaseStudySlug }) {
 
       {/* 5. Featured Press Logos */}
       <ClientLogoMarquee
-        heading="Our Client Was Featured On"
+        heading="Our Clients Are Featured On"
         logos={HIDDEN_SECRET_PRESS_LOGOS}
       />
 
@@ -591,7 +591,7 @@ export function CaseStudyPage({ slug }: { slug: CaseStudySlug }) {
             ))}
           </div>
           <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-foreground">
-            Client&apos;s Feedback
+            Clients Feedback
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground italic leading-relaxed">
             &ldquo;We would like to thank one of our marketing partners as well as our airdrop managers @eon8 for making a super successful whitelisting campaign — their assistance helped us successfully reach 25k+ participants!&rdquo;
@@ -603,7 +603,7 @@ export function CaseStudyPage({ slug }: { slug: CaseStudySlug }) {
           <div>
             <Link
               to="/nft-marketing-services"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#FD5900] hover:underline"
+              className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#FD5900] hover:underline"
             >
               <span>Explore Our NFT Marketing Services</span>
               <ExternalLink className="w-3.5 h-3.5" />

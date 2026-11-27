@@ -162,5 +162,9 @@ export const digitalMarketingForEducationData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Let’s get started. Request for free Proposal today",
+    "description": "Grow student admissions and institutional visibility with tailored SEO, paid search, and social media campaigns built for schools, colleges, and EdTech brands."
+  }
 };

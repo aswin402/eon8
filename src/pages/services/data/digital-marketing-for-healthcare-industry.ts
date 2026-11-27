@@ -264,5 +264,9 @@ export const digitalMarketingForHealthcareIndustryData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Let’s get started. Request for free Proposal today",
+    "description": "Increase patient bookings and local clinic visibility with compliant, high-trust healthcare SEO, Google Ads, and reputation management."
+  }
 };

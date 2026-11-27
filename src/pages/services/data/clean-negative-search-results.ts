@@ -108,21 +108,35 @@ export const cleanNegativeSearchResultsData: ServicePageData = {
         {
           "title": "Brand Monitoring & Protection",
           "description": "Track mentions and respond quickly to protect your brand."
-        },
-        {
-          "title": "Industries We Serve",
-          "description": "At EON8, we help businesses across diverse industries protect and enhance their online reputation with tailored strategies that address unique challenges."
-        },
-        {
-          "title": "Real Estate",
-          "description": "Healthcare App Store Franchise Home Services Food & Beverage Construction Automotive Pet Services Restaurants Gaming Education"
-        },
-        {
-          "title": "Let’s Rebuild Your Search Presence",
-          "description": "If negative search results are affecting your business, we help you fix it strategically, ethically, and effectively — so your brand reflects its true value."
         }
       ],
-      "columns": 4,
+      "columns": 3,
+      "actions": []
+    },
+    {
+      "type": "split",
+      "heading": "Industries We Serve",
+      "paragraphs": [
+        [
+          "At EON8, we help businesses and executives across diverse industries protect, repair, and strengthen their online reputation with tailored white-hat ORM strategies that address each sector's unique search challenges."
+        ]
+      ],
+      "bullets": [
+        "Real Estate & Construction",
+        "Healthcare & Clinics",
+        "App Store & Mobile Gaming",
+        "Franchise & Retail Brands",
+        "Home Services & Automotive",
+        "Food, Beverage & Restaurants",
+        "Education & EdTech Institutions",
+        "Pet Services & Consumer D2C"
+      ],
+      "actions": []
+    },
+    {
+      "type": "cta-banner",
+      "heading": "Let’s Rebuild Your Search Presence",
+      "subtext": "If negative search results are affecting your business, we help you fix it strategically, ethically, and effectively — so your brand reflects its true value.",
       "actions": [
         {
           "label": "Get Started",

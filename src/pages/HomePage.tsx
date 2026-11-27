@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PageSeo } from '@/components/sections';
+import { telHref, useSiteSettings } from '@/lib/siteSettings';
 import { useAppStore } from '@/store/useAppStore';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -307,6 +308,7 @@ const FEATURED_LAB_POSTS = [
 export function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { setContactModalOpen } = useAppStore();
+  const { contact } = useSiteSettings();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -576,10 +578,10 @@ export function HomePage() {
                   </ul>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-border/50 flex items-center justify-between">
+                <div className="pt-4 mt-5 border-t border-border/50 flex items-center justify-between gap-2">
                   <Link
                     to={srv.to}
-                    className="text-xs sm:text-sm font-bold text-[#0053c6] dark:text-blue-400 hover:text-[#FD5900] transition-colors inline-flex items-center gap-1.5"
+                    className="min-h-[36px] py-1.5 text-xs sm:text-sm font-bold text-[#0053c6] dark:text-blue-400 hover:text-[#FD5900] transition-colors inline-flex items-center gap-1.5"
                   >
                     <span>Explore Service</span>
                     <ArrowRight className="w-4 h-4" />
@@ -587,7 +589,7 @@ export function HomePage() {
                   <button
                     type="button"
                     onClick={() => setContactModalOpen(true)}
-                    className="text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer"
+                    className="min-h-[36px] px-2.5 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer"
                   >
                     Get Quote
                   </button>
@@ -597,7 +599,7 @@ export function HomePage() {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/digital-marketing-agency-in-chennai">
+            <Link to="/digital-marketing-agency-in-chennai" className="inline-block">
               <Button className="rounded-xl bg-[#0053c6] hover:bg-[#0044a3] text-white font-bold h-12 px-8 text-sm cursor-pointer shadow-md">
                 Explore All Services <ArrowRight className="w-4 h-4 ml-1.5" />
               </Button>
@@ -646,10 +648,10 @@ export function HomePage() {
                       );
                     })}
                   </ul>
-                  <div className="pt-2">
+                  <div className="pt-1">
                     <Link
                       to={item.to}
-                      className="inline-flex items-center gap-2 text-sm font-bold text-[#FD5900] hover:text-[#e55000] transition-colors"
+                      className="inline-flex items-center gap-2 min-h-[36px] py-1.5 text-sm font-bold text-[#FD5900] hover:text-[#e55000] transition-colors"
                     >
                       <span>Read More</span>
                       <ArrowRight className="w-4 h-4" />
@@ -940,7 +942,7 @@ export function HomePage() {
 
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 font-bold text-sm text-[#0053c6] dark:text-blue-400 border-b-2 border-[#0053c6] pb-1 whitespace-nowrap hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 min-h-[36px] py-1.5 font-bold text-sm text-[#0053c6] dark:text-blue-400 border-b-2 border-[#0053c6] whitespace-nowrap hover:gap-3 transition-all"
             >
               <span>View All Posts</span>
               <ArrowRight className="w-4 h-4" />
@@ -977,7 +979,7 @@ export function HomePage() {
                   <div className="mt-auto">
                     <Link
                       to={post.to}
-                      className="font-bold text-sm text-foreground inline-flex items-center gap-2 hover:text-[#0053c6] dark:hover:text-blue-400 transition-colors"
+                      className="font-bold text-sm text-foreground inline-flex items-center gap-2 min-h-[36px] py-1.5 hover:text-[#0053c6] dark:hover:text-blue-400 transition-colors"
                     >
                       <span>Read More</span>
                       <ExternalLink className="w-4 h-4" />
@@ -1005,17 +1007,20 @@ export function HomePage() {
               <div className="flex flex-col md:flex-row items-center lg:items-start justify-center lg:justify-start gap-2 md:gap-3 text-sm text-white/90">
                 <p>Get in touch with us to explore new possibilities.</p>
                 <span className="hidden md:block w-1 h-1 rounded-full bg-white/50 mt-2" />
-                <a href="mailto:info@eon8.com" className="hover:underline font-medium">
-                  info@eon8.com
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="inline-flex items-center min-h-[32px] py-1 hover:underline font-medium"
+                >
+                  {contact.email}
                 </a>
                 <span className="hidden md:block w-1 h-1 rounded-full bg-white/50 mt-2" />
-                <p>Mumbai, Hyderabad, Bangalore, Chennai</p>
+                <p>{contact.address}</p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row shrink-0 gap-4 w-full sm:w-auto">
               <a
-                href="https://wa.me/919042294007"
+                href={`https://wa.me/${contact.whatsapp}`}
                 target="_blank"
                 rel="noreferrer"
                 className="uppercase tracking-[0.14em] font-bold text-xs sm:text-[13px] py-4 px-7 border border-white/50 text-white hover:bg-white hover:text-[#0053c6] transition-all duration-300 text-center flex items-center justify-center gap-2 rounded-lg"
@@ -1024,7 +1029,7 @@ export function HomePage() {
                 <span>CHAT WITH US</span>
               </a>
               <a
-                href="tel:+919042294007"
+                href={telHref(contact.phone)}
                 className="uppercase tracking-[0.14em] font-bold text-xs sm:text-[13px] py-4 px-7 bg-white text-[#0053c6] shadow-xl hover:bg-slate-100 transition-all duration-300 text-center flex items-center justify-center gap-2 rounded-lg"
               >
                 <Phone className="w-4 h-4" />

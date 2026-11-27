@@ -6,13 +6,19 @@ export const gameMarketingAgencyVideoMobileGamingData: ServicePageData = {
   "title": "Video & Mobile Game Marketing Agency - Eon8 | Marketing",
   "metaDesc": "Eon8 is your first choice Video & Mobile Game Marketing Agency when the concern is about promoting your game in an competitive environment.",
   "hero": {
+    "badge": "Video, PC, Console & Mobile Game Growth",
     "heading": "Scale Your Game to Millions of Players",
     "paragraphs": [
       [
-        "We help mobile and video game studios acquire high-quality users, boost retention, and maximize revenue with data-driven marketing strategies."
+        "We help mobile, PC, console, and Web3 game studios acquire high-quality players, boost day-7 and day-30 retention, and maximize LTV/ROAS with data-driven game marketing strategies."
       ]
     ],
-    "bullets": [],
+    "bullets": [
+      "App Store & Play Store ASO Dominance",
+      "Paid UA Across Google, Meta, TikTok & Unity Ads",
+      "Gaming Creator, Twitch & YouTube Launches",
+      "AppsFlyer & Adjust Attribution & LiveOps CRO"
+    ],
     "actions": [
       {
         "label": "Get a Free Growth Plan",
@@ -30,62 +36,98 @@ export const gameMarketingAgencyVideoMobileGamingData: ServicePageData = {
     {
       "type": "feature-grid",
       "heading": "Game Marketing That Actually Scales",
+      "subheading": "Full-funnel user acquisition, store optimization, creator seeding, and retention engineering tailored to your game's genre and monetization loop.",
       "cards": [
         {
-          "title": "🎯 User Acquisition",
-          "description": "High-quality installs through data-driven campaigns across major platforms."
-        },
-        {
-          "title": "📊 ASO Optimization",
-          "description": "Boost rankings and visibility with keyword and asset optimization."
-        },
-        {
-          "title": "📢 Paid Campaigns",
-          "description": "Google, Meta & TikTok campaigns designed to maximize ROI."
-        },
-        {
-          "title": "🔁 Retention & Monetization",
-          "description": "Turn players into long-term revenue with smart engagement loops."
-        },
-        {
+          "badge": "Acquisition",
           "title": "User Acquisition Strategy",
           "description": "We design multi-channel acquisition strategies tailored to your game’s genre, audience, and monetization model. From CPI campaigns to ROAS optimization, we ensure every install contributes to long-term value.",
           "bullets": [
-            "✓ Audience segmentation & targeting",
-            "✓ Creative testing & iteration",
-            "✓ Cost optimization across platforms"
+            "Audience segmentation & lookalike targeting",
+            "Playable & gameplay creative testing",
+            "CPI and ROAS bid optimization across networks"
           ]
         },
         {
+          "badge": "Organic",
+          "title": "ASO Optimization",
+          "description": "Boost App Store, Google Play, and Steam search visibility with keyword indexing, localized metadata, high-CTR store screenshots, and conversion-tested trailer previews.",
+          "bullets": [
+            "High-intent store keyword architecture",
+            "Icon, screenshot & promo video A/B testing",
+            "Ratings velocity & review sentiment management"
+          ]
+        },
+        {
+          "badge": "Paid Media",
+          "title": "Paid Campaigns",
+          "description": "High-scale performance campaigns across Google App Campaigns, Meta, TikTok, Unity Ads, and Apple Search Ads engineered to acquire paying players profitably.",
+          "bullets": [
+            "Genre-specific video hooks & UGC creatives",
+            "Geo-tiered soft launch & global scale rollouts",
+            "Value-based optimization for IAP & ad whales"
+          ]
+        },
+        {
+          "badge": "Lifecycle",
           "title": "Retention & Engagement",
-          "description": "Getting installs is only the beginning. We focus on keeping players engaged through behavioral insights, funnel analysis, and gameplay-driven retention strategies.",
+          "description": "Getting installs is only the beginning. We focus on keeping players engaged through behavioral insights, funnel analysis, Discord communities, and gameplay-driven retention loops.",
           "bullets": [
-            "✓ Player lifecycle tracking",
-            "✓ Drop-off analysis",
-            "✓ Re-engagement campaigns"
+            "Day-1, Day-7 & Day-30 cohort tracking",
+            "Onboarding & FTUE drop-off diagnostics",
+            "Push notification & LiveOps re-engagement"
           ]
         },
         {
+          "badge": "Revenue",
           "title": "Monetization Optimization",
-          "description": "We help you maximize revenue through optimized in-app purchases, ad placements, and player segmentation strategies.",
+          "description": "We help studios maximize ARPDAU and player LTV through balanced in-app purchase offers, rewarded video placements, and segmented store bundles.",
           "bullets": [
-            "✓ LTV optimization",
-            "✓ Ad frequency balancing",
-            "✓ Revenue funnel improvements"
+            "LTV-to-CPI margin optimization",
+            "Rewarded & interstitial ad frequency balancing",
+            "Seasonal battle-pass & offer funnel tuning"
           ]
         },
         {
+          "badge": "Intelligence",
           "title": "Analytics & Data Intelligence",
-          "description": "We integrate advanced analytics tools to track performance, identify growth opportunities, and continuously improve results.",
+          "description": "We integrate advanced mobile measurement partners (MMPs) and BI dashboards to track attribution, identify creative winners, and scale profitably.",
           "bullets": [
-            "✓ Real-time performance dashboards",
-            "✓ Attribution tracking (AppsFlyer, Adjust)",
-            "✓ A/B testing frameworks"
+            "Real-time UA & ROAS dashboards",
+            "AppsFlyer, Adjust & Firebase attribution",
+            "Structured creative & store A/B testing"
           ]
         }
       ],
-      "columns": 4,
+      "columns": 3,
       "actions": []
+    },
+    {
+      "type": "process",
+      "heading": "Our 4-Stage Game Launch & Scaling Framework",
+      "subheading": "From soft-launch retention validation to global scale across mobile, PC, and console ecosystems.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Market & Competitor Benchmarking",
+          "description": "Audit genre CPIs, top-grossing creative hooks, store rankings, and monetization benchmarks before spending a dollar."
+        },
+        {
+          "step": "02",
+          "title": "Soft Launch & Creative Testing",
+          "description": "Test 15–20 gameplay video hooks and playable ad variants in Tier-2 geos to lock in winning CTR, IPM, and Day-7 retention."
+        },
+        {
+          "step": "03",
+          "title": "Global UA & Gaming Creator Blitz",
+          "description": "Scale profitable ad sets across Google, Meta, TikTok, and Unity alongside synchronized YouTube, Twitch, and Discord influencer waves."
+        },
+        {
+          "step": "04",
+          "title": "LiveOps Retention & ROAS Compounding",
+          "description": "Continuously refresh creatives, optimize seasonal events, and reinvest ROAS into sustained top-chart momentum."
+        }
+      ]
     },
     {
       "type": "faq",
@@ -95,7 +137,7 @@ export const gameMarketingAgencyVideoMobileGamingData: ServicePageData = {
           "question": "What is included in your game marketing services?",
           "answerParagraphs": [
             [
-              "We cover end-to-end growth including user acquisition campaigns, ASO, paid ads, influencer marketing, retention strategies, analytics, and continuous optimization."
+              "We cover end-to-end growth including user acquisition campaigns, ASO, paid ads, influencer marketing, Discord community building, retention strategies, analytics, and continuous optimization."
             ]
           ],
           "bullets": []
@@ -104,7 +146,7 @@ export const gameMarketingAgencyVideoMobileGamingData: ServicePageData = {
           "question": "How long does it take to see results?",
           "answerParagraphs": [
             [
-              "Initial traction can be seen within weeks, but real scalable results typically appear within 1–3 months as campaigns are optimized."
+              "Initial install velocity and creative learnings appear within the first 2 weeks, while scalable ROAS-positive player growth typically matures within 1–3 months."
             ]
           ],
           "bullets": []
@@ -113,7 +155,7 @@ export const gameMarketingAgencyVideoMobileGamingData: ServicePageData = {
           "question": "Do you work with indie developers?",
           "answerParagraphs": [
             [
-              "Yes. We work with both indie developers and large studios, adapting strategies based on budget, stage, and goals."
+              "Yes. We work with both indie developers and established AAA/mobile studios, tailoring channel mix and budgets to your launch stage and goals."
             ]
           ],
           "bullets": []
@@ -122,7 +164,7 @@ export const gameMarketingAgencyVideoMobileGamingData: ServicePageData = {
           "question": "Which platforms do you use?",
           "answerParagraphs": [
             [
-              "Google Ads, Meta, TikTok, Unity Ads, Apple Search Ads, and more — depending on your audience and game type."
+              "Google App Campaigns, Meta, TikTok, Unity Ads, Apple Search Ads, Steam, Twitch, YouTube, and Discord — selected based on your genre and target audience."
             ]
           ],
           "bullets": []
@@ -131,7 +173,7 @@ export const gameMarketingAgencyVideoMobileGamingData: ServicePageData = {
           "question": "Can you improve an existing game?",
           "answerParagraphs": [
             [
-              "Absolutely. We specialize in scaling live games by improving acquisition efficiency, retention, and monetization."
+              "Absolutely. We specialize in reviving and scaling live games by fixing store conversion bottlenecks, refreshing ad creatives, and lifting retention and monetization."
             ]
           ],
           "bullets": []

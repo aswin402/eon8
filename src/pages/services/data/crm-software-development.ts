@@ -265,5 +265,11 @@ export const crmSoftwareDevelopmentData: ServicePageData = {
       "heading": "Let's Build the CRM Your Sales Team Will Actually Use"
     }
   ],
+  "bottomCta": {
+    "heading": "Get A Free CRM Consultation",
+    "description": "Discuss your sales stages, automation rules, and third-party integration requirements with EON8's CRM engineering team.",
+    "formHeading": "Get A Free CRM Consultation",
+    "submitLabel": "Request CRM Consultation"
+  },
   "disclaimer": "Disclaimer: The intended trademarks and logos are not our proprietary property and are owned by the respective brands. The mentioned names are strictly for creative and informative purposes."
 };

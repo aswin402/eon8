@@ -491,24 +491,24 @@ export function ChatgptAdsAgencyPage() {
               </a>
             </div>
 
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 text-sm text-slate-300">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-1 pt-2 text-sm text-slate-300">
               <Link
                 to="/chatgpt-ads-agency/blog"
-                className="inline-flex items-center gap-1.5 text-sky-300 hover:text-[#FD5900] font-semibold no-underline transition-colors"
+                className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sky-300 hover:text-[#FD5900] font-semibold no-underline transition-colors"
               >
                 <BookOpen className="w-4 h-4" />
                 <span>AI Search Blog</span>
               </Link>
               <Link
                 to="/chatgpt-ads-agency/education"
-                className="inline-flex items-center gap-1.5 text-sky-300 hover:text-[#FD5900] font-semibold no-underline transition-colors"
+                className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sky-300 hover:text-[#FD5900] font-semibold no-underline transition-colors"
               >
                 <GraduationCap className="w-4 h-4" />
                 <span>AI Visibility Guide</span>
               </Link>
               <a
                 href="#packages"
-                className="inline-flex items-center gap-1.5 text-slate-200 hover:text-[#FD5900] font-semibold no-underline transition-colors"
+                className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-slate-200 hover:text-[#FD5900] font-semibold no-underline transition-colors"
               >
                 <span>View 90-Day Packages</span>
               </a>
@@ -647,7 +647,7 @@ export function ChatgptAdsAgencyPage() {
                       href="https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-semibold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] underline"
+                      className="inline-flex items-center min-h-[28px] py-1 font-semibold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] underline"
                     >
                       See OpenAI’s ad format ↗
                     </a>
@@ -809,7 +809,7 @@ export function ChatgptAdsAgencyPage() {
               href="https://help.openai.com/en/articles/20001635-setting-up-your-business-on-chatgpt"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold text-sky-300 hover:text-[#FD5900] underline"
+              className="inline-flex items-center min-h-[28px] py-1 font-bold text-sky-300 hover:text-[#FD5900] underline"
             >
               OpenAI eligibility guidance ↗
             </a>
@@ -951,7 +951,7 @@ export function ChatgptAdsAgencyPage() {
               href="https://help.openai.com/en/articles/20001210-creating-campaigns-for-chatgpt-ads"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] underline"
+              className="inline-flex items-center min-h-[28px] py-1 font-semibold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] underline"
             >
               OpenAI budget guidance ↗
             </a>

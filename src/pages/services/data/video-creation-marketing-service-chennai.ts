@@ -112,7 +112,7 @@ export const videoCreationMarketingServiceChennaiData: ServicePageData = {
     },
     {
       "type": "process",
-      "heading": "Our Video Production Workflow",
+      "heading": "OUR WORKFLOW — Video Production & Launch",
       "subheading": "From initial creative spark to multi-platform launch.",
       "steps": [
         {

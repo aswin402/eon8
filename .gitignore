@@ -148,8 +148,10 @@ temp/
 www.eon8.com/
 about-us-raw.html
 
-# CMS runtime auth secrets (auto-seeded from .env)
+# CMS runtime data & auth secrets (auto-seeded from .env; production uses PostgreSQL)
 data/cms-auth.json
+data/cms-content.json
+data/leads.json
 
 # Generated at build time (scripts/generate-route-manifest.ts)
 public/route-manifest.json

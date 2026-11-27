@@ -85,7 +85,7 @@ export const homeNewData: ServicePageData = {
     },
     {
       "type": "stats",
-      "heading": "Verified Campaign Outcomes",
+      "heading": "NUMBERS DON'T LIE — Verified Campaign Outcomes",
       "stats": [
         {
           "value": "150%",
@@ -133,7 +133,7 @@ export const homeNewData: ServicePageData = {
     },
     {
       "type": "split",
-      "heading": "Work with the Experts",
+      "heading": "Work with the Experts Who Believe In WEB3",
       "paragraphs": [
         [
           "We have the team who were early adapters in the web 3 space. This makes them believe in it so much with creative passion towards it. Our team is excited and looking forward to work with your company as no bull or bear market can stop us!"

@@ -185,30 +185,40 @@ export const discordGameMarketingAgencyData: NftServicePageData = {
       "subtext": "Partner with our team of seasoned marketers who have the right experience in building your gaming brand on discord."
     },
     {
-      "kind": "editorial-copy",
+      "kind": "nft-overview",
       "sectionClass": "our_serv_inr grey_bg",
       "heading": "Eon8’s unique discord marketing strategies",
-      "paragraphs": [
-        [
-          "Being the favourite discord marketing company in the market, we at Eon8 foster the best discord community management services to ensure that we can develop tailored strategies for all our customers."
-        ],
-        [
-          "The first and foremost strategy we consider to develop your discord game server is finding the right target audience by conducting a survey and auditing your existing discord server. Understanding your target audience will help in building tailored community marketing strategies."
-        ],
-        [
-          "Secondly, we audit the existing situation of your discord server to understand the activity levels of your channel and content that your audience appreciates. We use the best content strategies to communicate with your audience. We will find out the problems and fix them to improve your performance."
-        ],
-        [
-          "A goal is essential to success and track progress; therefore, we will set a goal and track it for improvisation."
-        ],
-        [
-          "One of the most crucial promotion stages is engagement; hence, we consistently provide premium quality content to retain your existing gamers and attract new gamers to grow your server."
-        ]
-      ],
-      "image": {
-        "src": "/wp-content/uploads/2022/01/disc-new-sec-audience.png",
-        "alt": ""
-      }
+      "subheading": "Being the favourite discord marketing company in the market, we at Eon8 foster the best discord community management services to ensure that we can develop tailored strategies for all our customers.",
+      "items": [
+        {
+          "iconSrc": "/wp-content/uploads/2022/01/disc-new-sec-audience.png",
+          "iconAlt": "Identifying Your Potential Audience",
+          "useTargetSvg": false,
+          "title": "Identifying Your Potential Audience",
+          "description": "The first and foremost strategy we consider to develop your discord game server is finding the right target audience by conducting a survey and auditing your existing discord server. Understanding your target audience helps in building tailored community marketing strategies."
+        },
+        {
+          "iconSrc": "",
+          "iconAlt": "Set Up A Goal",
+          "useTargetSvg": true,
+          "title": "Set Up A Goal",
+          "description": "A clear goal is essential to measure success and track progress; therefore, we audit your current activity levels, define concrete growth KPIs, and refine campaigns continuously."
+        },
+        {
+          "iconSrc": "",
+          "iconAlt": "Consistent Posting",
+          "useTargetSvg": true,
+          "title": "Consistent Posting",
+          "description": "One of the most crucial promotion stages is ongoing engagement; hence, we consistently deliver high-value game updates, sneak peeks, contests, and interactive events to retain existing gamers and attract new players."
+        },
+        {
+          "iconSrc": "",
+          "iconAlt": "Customized Marketing Plan",
+          "useTargetSvg": true,
+          "title": "Customized Marketing Plan",
+          "description": "Every game has its own lore, mechanics, and player personas. We engineer a custom channel hierarchy, influencer blitz, and retention roadmap tailored specifically to your game launch."
+        }
+      ]
     },
     {
       "kind": "editorial-copy",

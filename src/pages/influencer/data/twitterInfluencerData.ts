@@ -148,7 +148,9 @@ export const twitterInfluencerData: TwitterInfluencerPageData = {
     "buttonHref": "#enquiry"
   },
   "processGrid": {
-    "headingLines": [],
+    "headingLines": [
+      "Tailored Twitter Influencer Marketing"
+    ],
     "items": [
       {
         "iconSrc": "/wp-content/uploads/2022/07/build-fans.svg",

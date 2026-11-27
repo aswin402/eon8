@@ -249,9 +249,13 @@ export const ppcPackagesData: ServicePageData = {
             true,
             true
           ],
-          "category": "DEDICATED ACCOUUNT MANAGER"
+          "category": "DEDICATED ACCOUNT MANAGER"
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Get Consultation From Experts",
+    "description": "Share your target CPA and monthly ad budget with our Google Ads specialists to select the right PPC management plan."
+  }
 };

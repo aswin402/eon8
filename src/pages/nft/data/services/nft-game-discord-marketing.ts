@@ -102,24 +102,32 @@ export const nftGameDiscordMarketingData: NftServicePageData = {
       ]
     },
     {
-      "kind": "editorial-copy",
+      "kind": "nft-overview",
       "sectionClass": "common-spc our_specialized",
       "heading": "Top-Tier NFT Marketing Agency For Your Brand",
-      "paragraphs": [
-        [
-          "We deliver custom-tailored strategies to inspire exponential growth for your NFT Game Discord community."
-        ],
-        [
-          "Our state-of-the-art tools and technologies help us to keep your community active and thriving."
-        ],
-        [
-          "Reach new heights with your NFT Discord marketing campaigns by leveraging our finest analytics services."
-        ]
-      ],
-      "image": {
-        "src": "/wp-content/uploads/2022/11/crypto-influencer-marketing.svg",
-        "alt": "Create"
-      }
+      "items": [
+        {
+          "iconSrc": "/wp-content/uploads/2022/11/crypto-influencer-marketing.svg",
+          "iconAlt": "Create",
+          "useTargetSvg": false,
+          "title": "Create",
+          "description": "We deliver custom-tailored strategies to inspire exponential growth for your NFT Game Discord community."
+        },
+        {
+          "iconSrc": "/wp-content/uploads/2022/07/crypto-social-media-marketing.svg",
+          "iconAlt": "Curate",
+          "useTargetSvg": false,
+          "title": "Curate",
+          "description": "Our state-of-the-art tools and technologies help us to keep your community active and thriving."
+        },
+        {
+          "iconSrc": "/wp-content/uploads/2022/07/crypto-pr-marketing.svg",
+          "iconAlt": "Conquer",
+          "useTargetSvg": false,
+          "title": "Conquer",
+          "description": "Reach new heights with your NFT Discord marketing campaigns by leveraging our finest analytics services."
+        }
+      ]
     },
     {
       "kind": "editorial-copy",

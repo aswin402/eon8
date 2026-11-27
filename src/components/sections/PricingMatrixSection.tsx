@@ -73,9 +73,9 @@ export function PricingMatrixSection({
                         tier.highlighted ? 'bg-[#0053C6]' : ''
                       }`}
                     >
-                      <div className="text-base sm:text-lg font-heading font-extrabold text-white">
+                      <h3 className="text-base sm:text-lg font-heading font-extrabold text-white">
                         {tier.name}
-                      </div>
+                      </h3>
                       {tier.price && (
                         <div className="text-xl font-black text-[#FD5900] mt-1">{tier.price}</div>
                       )}

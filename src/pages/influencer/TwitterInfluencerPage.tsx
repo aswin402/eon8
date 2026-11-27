@@ -76,7 +76,7 @@ export default function TwitterInfluencerPage() {
         reverse
         heading={<HeadingLines lines={boostSplit.headingLines} />}
         paragraphs={[<RichText key="intro" nodes={boostSplit.intro} />]}
-        bullets={boostSplit.bullets.map((b) => `${b.title} — ${b.text}`)}
+        bullets={boostSplit.bullets.map((b) => (b.title ? `${b.title} — ${b.text}` : b.text))}
         imageSrc={boostSplit.image.src}
         imageAlt={boostSplit.image.alt}
       />

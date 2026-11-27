@@ -215,7 +215,7 @@ export const nftMarketingServicesTestingData: ServicePageData = {
     {
       "type": "feature-grid",
       "heading": "Discord Marketing Services",
-      "subheading": "Partner with our discord NFT marketing firm and get an amazing platform to outsmart your competition and get a positive ROI. Experience growth beyond your expectations!",
+      "subheading": "Bring Value To Your NFTs Through Community Building — partner with our Discord NFT marketing firm to outsmart your competition and earn positive ROI.",
       "cards": [
         {
           "title": "Moderations",
@@ -655,5 +655,9 @@ export const nftMarketingServicesTestingData: ServicePageData = {
       "heading": "Book a Free Consultation with Our Experts"
     }
   ],
+  "bottomCta": {
+    "heading": "Get In Touch To Channelize Your NFT Projects",
+    "description": "Connect with our NFT community, KOL, Discord, and PR specialists to launch your collection with unstoppable momentum."
+  },
   "disclaimer": "Disclaimer: The intended trademarks and logos are not our proprietary property and are owned by the respective brands. The mentioned names are strictly for creative and informative purposes."
 };

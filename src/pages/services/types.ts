@@ -203,7 +203,14 @@ export type SemanticServiceSection =
   | {
       type: 'testimonials';
       heading: string;
-      quotes: string[];
+      subheading?: string;
+      quotes?: string[];
+      items?: {
+        quote: string;
+        name: string;
+        role?: string;
+        rating?: number;
+      }[];
     }
   | {
       type: 'blog-links';
@@ -233,5 +240,11 @@ export interface ServicePageData {
   noIndex?: boolean;
   hero: SemanticHeroData;
   sections: SemanticServiceSection[];
+  bottomCta?: {
+    heading?: string;
+    description?: string;
+    formHeading?: string;
+    submitLabel?: string;
+  };
   disclaimer?: string;
 }

@@ -65,24 +65,32 @@ export const nftPrServicesData: NftServicePageData = {
       }
     },
     {
-      "kind": "editorial-copy",
+      "kind": "nft-overview",
       "sectionClass": "common-spc our_specialized",
       "heading": "Attract Attention with NFT PR Marketing",
-      "paragraphs": [
-        [
-          "Let our team develop an impactful PR marketing strategy that effectively addresses all your marketing objectives."
-        ],
-        [
-          "Spread the word about your NFT project to millions of potential buyers and investors by partnering with top publications."
-        ],
-        [
-          "Engage with audiences at different stages of their journey to achieve measurable results in a short period of time."
-        ]
-      ],
-      "image": {
-        "src": "/wp-content/uploads/2022/07/discord-for-nft.svg",
-        "alt": "Attract"
-      }
+      "items": [
+        {
+          "iconSrc": "/wp-content/uploads/2022/07/discord-for-nft.svg",
+          "iconAlt": "Create",
+          "useTargetSvg": false,
+          "title": "Create",
+          "description": "Let our team develop an impactful PR marketing strategy that effectively addresses all your marketing objectives."
+        },
+        {
+          "iconSrc": "/wp-content/uploads/2022/07/cross-platform-discord.svg",
+          "iconAlt": "Attract",
+          "useTargetSvg": false,
+          "title": "Attract",
+          "description": "Spread the word about your NFT project to millions of potential buyers and investors by partnering with top publications."
+        },
+        {
+          "iconSrc": "/wp-content/uploads/2022/07/discord-promotion.svg",
+          "iconAlt": "Convert",
+          "useTargetSvg": false,
+          "title": "Convert",
+          "description": "Engage with audiences at different stages of their journey to achieve measurable results in a short period of time."
+        }
+      ]
     },
     {
       "kind": "service-cards",

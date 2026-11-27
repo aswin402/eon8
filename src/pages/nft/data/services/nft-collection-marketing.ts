@@ -50,6 +50,20 @@ export const nftCollectionMarketingData: NftServicePageData = {
           "useTargetSvg": true,
           "title": "Recognition",
           "description": "We build brand awareness for your NFT art collection by launching targeted campaigns for your art collectibles."
+        },
+        {
+          "iconSrc": "",
+          "iconAlt": "",
+          "useTargetSvg": true,
+          "title": "Optimization",
+          "description": "We refine messaging, community funnels, and creator touchpoints continuously so interested collectors stay engaged through pre-mint."
+        },
+        {
+          "iconSrc": "",
+          "iconAlt": "",
+          "useTargetSvg": true,
+          "title": "Conversion",
+          "description": "We convert warmed-up community members and whitelist prospects into verified NFT buyers on mint day and secondary marketplaces."
         }
       ]
     },

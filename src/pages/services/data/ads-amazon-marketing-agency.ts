@@ -8,32 +8,35 @@ export const adsAmazonMarketingAgencyData: ServicePageData = {
     'Scale your Amazon Seller & Vendor Central revenue with EON8’s data-driven Amazon PPC Ads, Sponsored Brands, DSP retargeting, and A+ listing conversion optimization.',
   noIndex: true,
   hero: {
-    badge: 'Amazon PPC, DSP & Marketplace Growth',
-    heading: 'Scale Profitable Amazon Sales & Slash Wasted Ad Spend',
+    badge: 'The Legendary — Amazon Advertising Agency',
+    heading: 'The Legendary Amazon Advertising Agency — Strategize, Advertise, Optimize And Target',
     subheading: 'Full-Funnel Amazon Sponsored Products, Sponsored Brands, Video Ads & Storefront CRO',
     paragraphs: [
       [
-        'Winning on Amazon requires tight alignment between paid ad velocity and organic Best Seller Rank (BSR). EON8’s Amazon Ads specialists engineer granular keyword bidding, negative-match hygiene, and high-converting A+ listings that lower ACoS while growing TACoS profitability.',
+        'Winning on Amazon requires tight alignment between paid ad velocity and organic Best Seller Rank (BSR). As a dedicated Amazon Advertising Agency, EON8 engineers granular keyword bidding, negative-match hygiene, and high-converting A+ listings that lower ACoS while growing TACoS profitability.',
+      ],
+      [
+        'Whether you operate on Amazon Seller Central or Vendor Central, our marketplace strategists help you Strategize, Advertise, Optimize And Target every stage of the buyer journey so your catalog dominates Page-1 search results.',
       ],
     ],
     bullets: [
       'Sponsored Products, Brands & Video Ads',
+      'Amazon Product Listing Ads & A+ CRO',
       'Amazon DSP Programmatic Retargeting',
-      'A+ Content, Brand Store & Listing SEO',
       'ACoS, TACoS & SKU-Level Margin Tracking',
     ],
     actions: [
       {
-        label: 'Get Free Amazon Account Audit',
-        href: '/contact',
-        opensModal: true,
+        label: 'HIRE US!',
+        href: '#consult-form',
+        opensModal: false,
         external: false,
         variant: 'primary',
       },
       {
-        label: 'Explore Amazon SEO',
-        href: '/amazon-marketing-service-agency-chennai',
-        opensModal: false,
+        label: 'Get Free Amazon Account Audit',
+        href: '/contact',
+        opensModal: true,
         external: false,
         variant: 'secondary',
       },
@@ -44,28 +47,63 @@ export const adsAmazonMarketingAgencyData: ServicePageData = {
   },
   sections: [
     {
+      type: 'feature-grid',
+      heading: 'How We Obtain Results',
+      subheading:
+        'Our proven three-pillar methodology turns wasted ad spend into predictable, compounding Amazon marketplace revenue.',
+      columns: 3,
+      cards: [
+        {
+          badge: 'Pillar 01',
+          title: 'Strong Strategy',
+          description:
+            'Deep ASIN profitability modeling, competitor keyword harvesting, search-term isolation, and category share-of-voice mapping tailored to your exact product margins.',
+          iconSrc: '/wp-content/uploads/2022/09/paid-ads-funnel.svg',
+          iconAlt: 'Strong Strategy',
+        },
+        {
+          badge: 'Pillar 02',
+          title: 'Smart Technology',
+          description:
+            'Automated bid-rule monitoring, hourly dayparting adjustments, Buy-Box alerts, and live search-term bleed suppression to eliminate non-converting spend in real time.',
+          iconSrc: '/wp-content/uploads/2022/09/marketing-funnel.svg',
+          iconAlt: 'Smart Technology',
+        },
+        {
+          badge: 'Pillar 03',
+          title: 'Substantial Sales & Growth',
+          description:
+            'Paid click velocity that lifts organic Best Seller Rank (BSR), lowers blended TACoS, and builds durable multi-marketplace revenue growth quarter after quarter.',
+          iconSrc: '/wp-content/uploads/2022/09/ecommerce-funnel.svg',
+          iconAlt: 'Substantial Sales & Growth',
+        },
+      ],
+    },
+    {
       type: 'stats',
-      heading: 'Marketplace Performance Built on SKU-Level Profitability',
+      heading: 'Our Experience — Globally',
+      subheading:
+        'Scaling D2C, private-label, and enterprise brands across Amazon India, North America, UK, EU, UAE, and APAC marketplaces.',
       stats: [
         { value: '3.8×', label: 'Average Return on Ad Spend' },
         { value: '-32%', label: 'Average Wasted ACoS Reduction' },
-        { value: '1250+', label: 'Campaigns Delivered by EON8' },
+        { value: '1250+', label: 'Campaigns Delivered Globally' },
         { value: '24/7', label: 'Bid & Buy-Box Monitoring' },
       ],
     },
     {
       type: 'feature-grid',
-      heading: 'End-to-End Amazon Advertising & Conversion Suite',
+      heading: 'Our Amazon Advertising Services',
       subheading:
         'Every lever needed to capture high-intent shoppers on Amazon and defend your brand against competitors.',
       columns: 3,
       cards: [
         {
-          title: 'Sponsored Products Architecture',
+          title: 'Amazon Product Listing Ads',
           description:
-            'Single-keyword exact campaigns, ASIN product-targeting conquesting, and automated search-term harvesting to win top-of-search placements.',
+            'High-intent Sponsored Products and single-keyword exact campaigns engineered to place your ASINs at the top of search and on competitor product detail pages.',
           iconSrc: '/wp-content/uploads/2022/09/paid-ads-funnel.svg',
-          iconAlt: 'Sponsored Products',
+          iconAlt: 'Amazon Product Listing Ads',
         },
         {
           title: 'Sponsored Brands & Video Ads',
@@ -105,6 +143,76 @@ export const adsAmazonMarketingAgencyData: ServicePageData = {
       ],
     },
     {
+      type: 'pricing-matrix',
+      heading: 'Amazon Advertising Services Pricing Plans',
+      subheading:
+        'Transparent monthly retainers aligned with your SKU count, ad spend tier, and international marketplace growth goals.',
+      tiers: [
+        {
+          name: 'Starter Growth',
+          price: '$750 / mo',
+          subtitle: 'Up to 15 Active ASINs',
+          ctaLabel: 'HIRE US!',
+        },
+        {
+          name: 'Scale Accelerator',
+          price: '$1,450 / mo',
+          subtitle: 'Up to 50 Active ASINs',
+          highlighted: true,
+          ctaLabel: 'HIRE US!',
+        },
+        {
+          name: 'Enterprise Global',
+          price: 'Custom',
+          subtitle: '50+ ASINs & Multi-Region',
+          ctaLabel: 'Request Custom Quote',
+        },
+      ],
+      rows: [
+        {
+          category: 'Campaign Management',
+          feature: 'Sponsored Products & Keyword Harvesting',
+          values: [true, true, true],
+        },
+        {
+          feature: 'Sponsored Brands & Video Campaigns',
+          values: [false, true, true],
+        },
+        {
+          feature: 'Sponsored Display & Competitor ASIN Defense',
+          values: [false, true, true],
+        },
+        {
+          feature: 'Amazon DSP Programmatic Retargeting',
+          values: [false, false, true],
+        },
+        {
+          category: 'Listing & Conversion Optimization',
+          feature: 'Search Term Negative Hygiene & Bid Rules',
+          values: ['Weekly', '3× Weekly', 'Daily'],
+        },
+        {
+          feature: 'Listing SEO & Backend Keyword Optimization',
+          values: ['Up to 5 ASINs', 'Up to 20 ASINs', 'Unlimited'],
+        },
+        {
+          feature: 'A+ Content & Brand Storefront Optimization',
+          values: [false, true, true],
+        },
+        {
+          category: 'Reporting & Support',
+          feature: 'ACoS, TACoS & SKU Margin Dashboard',
+          values: ['Monthly', 'Bi-Weekly', 'Weekly Live'],
+        },
+        {
+          feature: 'Dedicated Amazon Ads Account Strategist',
+          values: [true, true, true],
+        },
+      ],
+      footnote:
+        'All pricing plans exclude direct Amazon ad spend paid to Seller/Vendor Central. Custom INR billing is available for Amazon.in brands.',
+    },
+    {
       type: 'process',
       heading: 'How We Audit, Restructure & Scale Your Amazon Ad Account',
       steps: [
@@ -131,6 +239,44 @@ export const adsAmazonMarketingAgencyData: ServicePageData = {
           title: 'Organic Flywheel & International Expansion',
           description:
             'Reinvesting ad velocity into organic keyword rank growth across Amazon India, US, UK, UAE, and EU marketplaces.',
+        },
+      ],
+    },
+    {
+      type: 'testimonials',
+      heading: 'Client Testimonials',
+      subheading:
+        'Hear from global Amazon sellers and brand founders who partnered with EON8 to cut wasted ad spend and accelerate profitable growth.',
+      items: [
+        {
+          name: 'Carl Freedman',
+          role: 'Founder, Home & Kitchen Private Label',
+          quote:
+            'EON8 restructured our bloated Amazon PPC account in three weeks, cut our ACoS from 44% down to 23%, and unlocked profitable scaling across our top twelve SKUs.',
+        },
+        {
+          name: 'Armando R. Lundquist',
+          role: 'Director of E-Commerce, Consumer Electronics',
+          quote:
+            'Their keyword harvesting and Sponsored Brand Video campaigns lifted our category share of voice dramatically. Best Amazon Advertising Agency decision we made this year.',
+        },
+        {
+          name: 'Walter Hurd',
+          role: 'VP Growth, Health & Wellness Brand',
+          quote:
+            'Unlike agencies that set automated campaigns and disappear, the EON8 team monitors search terms, Buy-Box shifts, and TACoS margins every single week.',
+        },
+        {
+          name: 'Carmen Leblanc',
+          role: 'Co-Founder, Beauty & Personal Care',
+          quote:
+            'Combining A+ Content optimization with granular Amazon Product Listing Ads doubled our conversion rate and turned our seasonal launches into consistent bestsellers.',
+        },
+        {
+          name: 'Sharon Morley',
+          role: 'Head of Marketplace Sales, Apparel Brand',
+          quote:
+            'Transparent reporting, proactive bid strategy, and measurable revenue growth across both Amazon US and UK. EON8 feels like an extension of our internal growth team.',
         },
       ],
     },
@@ -165,4 +311,11 @@ export const adsAmazonMarketingAgencyData: ServicePageData = {
       ],
     },
   ],
+  bottomCta: {
+    heading: 'HIRE US! — Scale Your Amazon Revenue With EON8',
+    description:
+      'Stop losing margin to unmanaged bids and broad-match bleed. Partner with our Amazon advertising specialists for a free account audit and 90-day profitability roadmap.',
+    formHeading: 'HIRE US! Request Your Free Audit',
+    submitLabel: 'Claim Free Amazon Audit',
+  },
 };

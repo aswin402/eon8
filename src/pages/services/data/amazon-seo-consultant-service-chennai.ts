@@ -52,7 +52,7 @@ export const amazonSeoConsultantServiceChennaiData: ServicePageData = {
           "description": "Keyword-rich A+ copywriting that informs shoppers and boosts Amazon A9/A10 rankings."
         },
         {
-          "title": "Headline & Title Optimization",
+          "title": "Headline Optimization",
           "description": "High-CTR product titles structured with primary search terms, attributes, and benefits."
         },
         {
@@ -300,5 +300,11 @@ export const amazonSeoConsultantServiceChennaiData: ServicePageData = {
       "columns": 3,
       "actions": []
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Let's Drive Sales And Enhance Your Conversion Rates On Amazon Marketplace Today!",
+    "description": "Partner with EON8's Amazon SEO consultants to lift organic product rankings, improve Buy-Box conversion, and scale marketplace revenue.",
+    "formHeading": "Request Free Amazon SEO Audit",
+    "submitLabel": "Boost My Amazon Sales"
+  }
 };

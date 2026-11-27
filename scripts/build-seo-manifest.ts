@@ -349,13 +349,17 @@ async function buildManifest(): Promise<void> {
     if (!fs.existsSync(filePath)) continue;
     const data = await importFirstObjectExport(filePath);
     if (!data) continue;
-    const hero = data.hero as { image?: string } | undefined;
+    const hero = data.hero as { image?: string; mediaSrc?: string } | undefined;
+    const sections = Array.isArray(data.sections)
+      ? (data.sections as Array<{ type?: string; imageSrc?: string }>)
+      : [];
+    const firstSplitImage = sections.find((s) => s.type === 'split' && s.imageSrc)?.imageSrc;
     const noIndex = Boolean(data.noIndex);
     addPage(slug, {
       title: String(data.title || `${slug} | EON8`),
       description: String(data.metaDesc || ''),
       canonicalPath: `/${slug}`,
-      ogImage: normalizeImageUrl(hero?.image),
+      ogImage: normalizeImageUrl(hero?.mediaSrc || hero?.image || firstSplitImage),
       noIndex,
       inSitemap: !noIndex && !EXCLUDED_SITEMAP_SLUGS.has(slug),
       priority: slug.endsWith('-packages') ? '0.8' : '0.9',

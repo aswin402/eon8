@@ -71,7 +71,7 @@ export function Footer() {
       <div className="w-[calc(100%-32px)] max-w-[900px] lg:min-w-[700px] lg:w-max mx-auto -mt-[115px] mb-6 bg-[#f8fafc] text-[#111111] rounded-[12px] px-4 sm:px-[35px] py-[15px] shadow-[0_15px_35px_rgba(0,0,0,0.25)] flex flex-col lg:flex-row items-center justify-center gap-2.5 lg:gap-[50px]">
         <a
           href={telHref(contact.phone)}
-          className="flex items-center gap-[10px] text-[#111111] hover:text-[#FD5900] transition-colors text-[16px] sm:text-[18px] whitespace-nowrap no-underline"
+          className="inline-flex items-center gap-[10px] min-h-[36px] py-1 text-[#111111] hover:text-[#FD5900] transition-colors text-[16px] sm:text-[18px] whitespace-nowrap no-underline"
         >
           <Phone className="w-4 h-4 text-[#111111] shrink-0" />
           <span>{contact.phone}</span>
@@ -79,7 +79,7 @@ export function Footer() {
 
         <a
           href={`mailto:${contact.email}`}
-          className="flex items-center gap-[10px] text-[#111111] hover:text-[#0053C6] transition-colors text-[16px] sm:text-[18px] whitespace-nowrap no-underline"
+          className="inline-flex items-center gap-[10px] min-h-[36px] py-1 text-[#111111] hover:text-[#0053C6] transition-colors text-[16px] sm:text-[18px] whitespace-nowrap no-underline"
         >
           <Mail className="w-4 h-4 text-[#111111] shrink-0" />
           <span>{contact.email}</span>
@@ -109,15 +109,15 @@ export function Footer() {
 
         {/* Services */}
         <div>
-          <h3 className="text-[22px] font-heading font-bold text-white mb-[15px] leading-[1.4]">
+          <h3 className="text-[22px] font-heading font-bold text-white mb-[12px] leading-[1.4]">
             Our Services
           </h3>
-          <ul className="list-none p-0 m-0 space-y-[10px]">
+          <ul className="list-none p-0 m-0 space-y-1">
             {servicesLinks.map((link) => (
               <li key={link.name}>
                 <Link
                   to={link.href}
-                  className="text-[#cbd5e1] hover:text-[#38bdf8] transition-colors duration-300 text-[14px] no-underline"
+                  className="inline-flex items-center min-h-[36px] py-1.5 text-[#cbd5e1] hover:text-[#38bdf8] transition-colors duration-300 text-[14px] no-underline"
                 >
                   {link.name}
                 </Link>
@@ -128,15 +128,15 @@ export function Footer() {
 
         {/* Other Links */}
         <div>
-          <h3 className="text-[22px] font-heading font-bold text-white mb-[15px] leading-[1.4]">
+          <h3 className="text-[22px] font-heading font-bold text-white mb-[12px] leading-[1.4]">
             Other Links
           </h3>
-          <ul className="list-none p-0 m-0 space-y-[10px]">
+          <ul className="list-none p-0 m-0 space-y-1">
             {otherLinks.map((link) => (
               <li key={link.name}>
                 <Link
                   to={link.href}
-                  className="text-[#cbd5e1] hover:text-[#38bdf8] transition-colors duration-300 text-[14px] no-underline"
+                  className="inline-flex items-center min-h-[36px] py-1.5 text-[#cbd5e1] hover:text-[#38bdf8] transition-colors duration-300 text-[14px] no-underline"
                 >
                   {link.name}
                 </Link>

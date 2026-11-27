@@ -42,43 +42,50 @@ export const searchEngineOptimizationServicesChennaiData: ServicePageData = {
       "actions": [
         {
           "label": "View our Works",
-          "href": "#",
-          "opensModal": true,
+          "href": "/works",
+          "opensModal": false,
           "external": false,
           "variant": "primary"
         }
       ]
     },
     {
-      "type": "split",
+      "type": "feature-grid",
       "heading": "What we Offer",
-      "paragraphs": [
-        [
-          "Be it a product or a service, Paid search marketing is an intelligent and the controllable way of taking your business to the people who search for it. To yield the fruitful outcome out of online advertising, we tailor Pay-Per-Click Campaign that’s right for your business needs. Whatever maybe your budget, PPC has an option to get the output worth your investment."
-        ],
-        [
-          "Google Adwords is an effective search engine marketing technique that helps to run advertisements for your business to reach the targeted customers and bring more website traffic in a short time. Having done google advertising for the top players of different industrial markets, we make sure to deliver the best-in-class service that builds awareness while not missing to drive the audience to your site. As customizable options are available with Google marketing, you can get the maximum out of the money you're spending on your advertisement."
-        ],
-        [
-          "As search engine marketing completely relies on your landing page, it's highly important to have an attractive Landing page. When it comes to Landing page design and optimization, we nail it with our team of experienced experts. We tailor to your needs and design a sales-driving landing page to bring in more traffic & engagements. Not just that, we optimize your site to increase the visibility of the site and thus the sales."
-        ]
+      "subheading": "High-ROI Search Engine Optimization & Marketing solutions combining precision targeting, Google Ads mastery, and conversion-focused landing pages.",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "Pay Per Click Management",
+          "description": "Be it a product or a service, Paid search marketing is an intelligent and controllable way of taking your business to the people who search for it. We tailor Pay-Per-Click campaigns to your exact budget and ROI goals.",
+          "bullets": [
+            "Increases your website Traffic",
+            "Boost your Overall Sales",
+            "Cost-Effective — Pay only for Clicks",
+            "Fast Results in a Short Span"
+          ]
+        },
+        {
+          "title": "Google Adwords Campaign",
+          "description": "Google Adwords is an effective search engine marketing technique that reaches targeted customers and brings qualified website traffic fast. We build customized campaigns that maximize every rupee spent.",
+          "bullets": [
+            "Increases Brand Awareness",
+            "Improves the Web Traffic Immensely",
+            "Easy to Track & Outrank Competitors",
+            "Granular Keyword & Audience Targeting"
+          ]
+        },
+        {
+          "title": "Landing Page Optimization",
+          "description": "Search engine marketing relies heavily on your landing page experience. Our CRO specialists design and optimize sales-driving landing pages that convert search clicks into measurable leads and sales.",
+          "bullets": [
+            "Increases the number of website visitors",
+            "Improves the Conversion Count",
+            "Better Return On Investment (ROI)",
+            "Enhances brand trust & Quality Score"
+          ]
+        }
       ],
-      "bullets": [
-        "Increases your website Traffic",
-        "Boost your Overall Sales",
-        "Cost-Effective",
-        "Pay for only Clicks",
-        "Increases Brand Awareness",
-        "Fast Results in a Short Span",
-        "Improves the Web Traffic Immensely",
-        "Easy to Track & Outrank the Competitors",
-        "Increases the number of website visitors",
-        "Improves the Conversion Count",
-        "Better Return On Investment is Achievable",
-        "Enhances the brand awareness amongst the online audience"
-      ],
-      "imageSrc": "/wp-content/themes/eon8/assets/img/pay_per_click.png",
-      "imageAlt": "What we Offer",
       "actions": []
     },
     {

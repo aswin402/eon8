@@ -44,6 +44,7 @@ export const nftTelegramMarketingData: NftServicePageData = {
       "kind": "editorial-copy",
       "sectionClass": "custom-padding",
       "heading": "Why Is Telegram Marketing Important For Your NFTs?",
+      "subheading": "\"In Simple Words, A Reliable NFT Community On Telegram Is The Difference Between A Credible Project And A Forgotten Drop.\"",
       "paragraphs": [
         [
           "Telegram has nearly 200 million users with 60 million daily users; therefore, being on telegram is directly proportional to being in the crypto space. The majority of crypto enthusiasts are active on telegram looking for prospective NFT projects for their investment."
@@ -65,6 +66,20 @@ export const nftTelegramMarketingData: NftServicePageData = {
           "useTargetSvg": true,
           "title": "Driving users",
           "description": "We drive users for your community with the help of attractive offers initially to help you grow your audience base."
+        },
+        {
+          "iconSrc": "",
+          "iconAlt": "",
+          "useTargetSvg": true,
+          "title": "Building Value",
+          "description": "We nurture trust through transparent roadmap updates, 24/7 anti-spam moderation, educational discussions, and exclusive holder perks."
+        },
+        {
+          "iconSrc": "",
+          "iconAlt": "",
+          "useTargetSvg": true,
+          "title": "Grow Your Fan Base",
+          "description": "We expand your Telegram community organically via cross-promotions, KOL shoutouts, referral campaigns, and AMA partnerships."
         }
       ]
     },

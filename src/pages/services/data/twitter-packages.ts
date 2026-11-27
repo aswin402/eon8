@@ -274,5 +274,9 @@ export const twitterPackagesData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Get Consultation From Experts",
+    "description": "Connect with our X / Twitter growth team to configure an organic and paid campaign package for your brand."
+  }
 };

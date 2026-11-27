@@ -180,7 +180,7 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
           <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-200">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-1.5 text-white/85 hover:text-[#FD5900] font-semibold no-underline"
+              className="inline-flex items-center gap-1.5 min-h-[32px] py-1 text-white/85 hover:text-[#FD5900] font-semibold no-underline"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Blog</span>
@@ -188,7 +188,7 @@ export function BlogPostPage({ slug: propSlug }: BlogPostPageProps) {
             <span>/</span>
             <Link
               to={`/category/${catSlug}`}
-              className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/15 text-white font-bold no-underline"
+              className="inline-flex items-center gap-1 min-h-[32px] px-3 py-1.5 rounded-full bg-white/15 text-white font-bold no-underline"
             >
               <Tag className="w-3.5 h-3.5 text-[#FD5900]" />
               <span>{effectiveSummary.category}</span>

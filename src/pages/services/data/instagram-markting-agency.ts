@@ -427,5 +427,9 @@ export const instagramMarktingAgencyData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Got Any Queries About Our Instagram Marketing Services? Reach Us Now!",
+    "description": "Speak with our Instagram creative, Reels, and paid media team to launch a high-converting growth funnel."
+  }
 };

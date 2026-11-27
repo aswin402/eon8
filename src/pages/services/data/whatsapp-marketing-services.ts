@@ -40,7 +40,7 @@ export const whatsappMarketingServicesData: ServicePageData = {
       },
     ],
     layout: 'split-form',
-    formHeading: 'Request WhatsApp API & Automation Demo',
+    formHeading: 'Quick Contact — WhatsApp API & Automation Demo',
     formSubmitLabel: 'Get Custom Quote',
   },
   sections: [
@@ -70,20 +70,17 @@ export const whatsappMarketingServicesData: ServicePageData = {
       columns: 3,
       cards: [
         {
-          badge: '01',
-          title: 'WhatsApp Business API Activation & Verification',
+          title: '1. WhatsApp Business API Activation & Verification',
           description:
             'We manage end-to-end setup and official green-tick approval of WhatsApp Business API access — enabling verified messaging, broadcast limits, automation workflows, and tracking.',
         },
         {
-          badge: '02',
-          title: 'Targeted Broadcast Campaigns',
+          title: '2. Targeted Broadcast Campaigns',
           description:
             'Curated and scheduled campaigns to segmented customer lists — product launches, promotional offers, VIP alerts, event invites, and transactional notifications.',
         },
         {
-          badge: '03',
-          title: 'AI-Powered Chatbots & Flow Automation',
+          title: '3. AI‑Powered Chatbots & Flow Automation',
           description:
             'Deploy multilingual NLP chatbots that escalate smoothly to live human agents when needed.',
           bullets: [
@@ -94,40 +91,39 @@ export const whatsappMarketingServicesData: ServicePageData = {
           ],
         },
         {
-          badge: '04',
-          title: 'Cart Recovery & E-commerce Funnels',
+          title: '4. Cart Recovery & E-Commerce Funnels',
           description:
             'Trigger automated WhatsApp nudges when shoppers abandon carts, browse products, or postpone checkout — complete with deep links, QR codes, and time-limited offers.',
         },
         {
-          badge: '05',
-          title: 'Click-to-WhatsApp Advertising',
+          title: '5. Click-To‑WhatsApp Advertising',
           description:
             'Drive high-intent traffic via Meta (Facebook & Instagram) Ads that open direct pre-filled WhatsApp chat windows for instant qualification and quotes.',
         },
         {
-          badge: '06',
-          title: 'CRM & Platform Integrations',
+          title: '6. CRM & Platform Integrations',
           description:
             'Seamlessly sync WhatsApp conversations with HubSpot, Salesforce, Zoho, Shopify, WooCommerce, and ERP systems for unified audience tracking.',
         },
         {
-          badge: '07',
-          title: 'Reminders & Drip Campaigns',
+          title: '7. Reminders & Drip Campaigns',
           description:
             'Automate re-engagement around trigger events including payment reminders, webinar registrations, subscription renewals, and post-purchase reviews.',
         },
         {
-          badge: '08',
-          title: 'Multimedia Content Creation',
+          title: '8. Multimedia Content Creation',
           description:
             'Engaging, branded WhatsApp-ready visuals including carousels, short-form videos, interactive PDFs, catalog listings, polls, and feedback forms.',
         },
         {
-          badge: '09',
-          title: 'Multi-Agent Support Dashboard & Analytics',
+          title: '9. Multi-Agent Support Dashboard',
           description:
-            'Centralized team inbox with routing rules, canned responses, conversation tags, and full tracking of delivery, open, response, and attributable revenue.',
+            'Centralized team inbox with assignment rules, canned responses, conversation tagging, and real-time workload monitoring across sales and support teams.',
+        },
+        {
+          title: '10. Campaign Analytics & Insights',
+          description:
+            'Measure delivery rates, open rates, click-through velocity, subscriber growth, and attributable sales ROI from one unified analytics view.',
         },
       ],
     },
@@ -215,8 +211,23 @@ export const whatsappMarketingServicesData: ServicePageData = {
       ],
     },
     {
+      type: 'split',
+      heading: 'Rich Media & Advanced Content Tips',
+      paragraphs: [
+        [
+          'Elevate every WhatsApp campaign beyond plain text by combining interactive visual formats that lift click-through rates up to 3× while keeping message fatigue low.',
+        ],
+      ],
+      bullets: [
+        'Images & Carousels — Showcase multiple products or offers in one swipeable message for launches and flash sales.',
+        'Short Videos (<30 sec) — Demo products or explain services visually to boost CTR up to 3× compared to text-only broadcasts.',
+        'Voice Notes & Interactive Polls — Humanize outreach and drive immediate two-way customer replies.',
+        'Document & Catalog Sharing — Deliver price lists, brochures, or lookbooks with embedded quick-reply CTA buttons.',
+      ],
+    },
+    {
       type: 'feature-grid',
-      heading: 'Real Growth Metrics & Client Outcomes',
+      heading: 'Real Growth Metrics & Case Examples',
       subheading:
         'Proven benchmarks achieved across EON8 WhatsApp Business API & chatbot deployments.',
       columns: 3,
@@ -286,6 +297,60 @@ export const whatsappMarketingServicesData: ServicePageData = {
       ],
     },
     {
+      type: 'process',
+      heading: 'How To Get Started',
+      subheading: 'Launch your verified WhatsApp growth engine in five straightforward steps.',
+      steps: [
+        {
+          step: '01',
+          title: 'Contact Us',
+          description: 'Share your business goals, audience size, and CRM stack via our Quick Contact form or WhatsApp.',
+        },
+        {
+          step: '02',
+          title: 'Free Strategy Session',
+          description: 'Map your conversational funnel, opt-in entry points, and highest-ROI automation flows.',
+        },
+        {
+          step: '03',
+          title: 'Setup & Launch',
+          description: 'Complete WhatsApp Business API verification, approved message templates, and AI bot deployment.',
+        },
+        {
+          step: '04',
+          title: 'Live Optimization',
+          description: 'Refine send timing, rich-media formats, and audience segments using real-time analytics.',
+        },
+        {
+          step: '05',
+          title: 'Scale & Automate',
+          description: 'Expand into Click-to-WhatsApp ads, seasonal drops, and automated retention journeys.',
+        },
+      ],
+    },
+    {
+      type: 'cta-banner',
+      heading: 'Let Your Business Thrive With WhatsApp Conversations',
+      subtext:
+        'WhatsApp is not just a messaging app — it is your direct revenue channel. Build trust, drive conversions, and delight customers with EON8.',
+      actions: [
+        {
+          label: 'Enquire Now',
+          href: '#consult-form',
+          opensModal: false,
+          external: false,
+          variant: 'primary',
+        },
+        {
+          label: 'Whatsapp Us Now',
+          href: 'https://wa.link/x5370e',
+          opensModal: false,
+          external: true,
+          variant: 'whatsapp',
+        },
+      ],
+    },
+    {
       type: 'faq',
       heading: 'Frequently Asked Questions (FAQs)',
       faqs: [
@@ -332,4 +397,11 @@ export const whatsappMarketingServicesData: ServicePageData = {
       ],
     },
   ],
+  bottomCta: {
+    heading: 'Quick Contact — Launch Your WhatsApp Marketing Funnel',
+    description:
+      'Discuss your WhatsApp Business API setup, chatbot automation, and Click-to-WhatsApp ad strategy with an EON8 conversational growth specialist.',
+    formHeading: 'Quick Contact',
+    submitLabel: 'Request WhatsApp Demo',
+  },
 };

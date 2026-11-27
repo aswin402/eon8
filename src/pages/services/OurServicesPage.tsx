@@ -59,7 +59,7 @@ export default function OurServicesPage({ slug }: OurServicesPageProps) {
     );
   }
 
-  const { theme, title, metaDesc, noIndex, hero, sections, disclaimer } = data;
+  const { theme, title, metaDesc, noIndex, hero, sections, bottomCta, disclaimer } = data;
   const palette = VERTICAL_THEMES[theme];
   const firstSplitImage = sections.find((s) => s.type === 'split' && s.imageSrc);
   const resolvedOgImage =
@@ -236,10 +236,15 @@ export default function OurServicesPage({ slug }: OurServicesPageProps) {
                 key={idx}
                 theme={theme}
                 heading={section.heading}
-                testimonials={section.quotes.map((q) => ({
-                  quote: q,
-                  name: 'Verified EON8 Client',
-                }))}
+                subheading={section.subheading}
+                testimonials={
+                  section.items && section.items.length > 0
+                    ? section.items
+                    : (section.quotes || []).map((q) => ({
+                        quote: q,
+                        name: 'Verified EON8 Client',
+                      }))
+                }
               />
             );
 
@@ -256,7 +261,7 @@ export default function OurServicesPage({ slug }: OurServicesPageProps) {
                     </h2>
                     <Link
                       to="/blog"
-                      className="text-sm font-bold text-[#FD5900] hover:underline inline-flex items-center gap-1 no-underline"
+                      className="min-h-[36px] py-1.5 text-sm font-bold text-[#FD5900] hover:underline inline-flex items-center gap-1 no-underline"
                     >
                       <span>View All Articles</span>
                       <ArrowRight className="w-4 h-4" />
@@ -335,6 +340,10 @@ export default function OurServicesPage({ slug }: OurServicesPageProps) {
       {/* 3. Unified Bottom Consultation + Disclaimer */}
       <BottomCtaBanner
         theme={theme}
+        heading={bottomCta?.heading}
+        description={bottomCta?.description}
+        formHeading={bottomCta?.formHeading}
+        submitLabel={bottomCta?.submitLabel}
         disclaimer={disclaimer}
       />
     </div>

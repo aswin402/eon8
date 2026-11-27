@@ -307,6 +307,24 @@ export const performanceMarketingAgencyData: ServicePageData = {
           "bullets": []
         }
       ]
+    },
+    {
+      "type": "blog-links",
+      "heading": "Blog Post",
+      "posts": [
+        {
+          "title": "YouTube Marketing Agency Guide: YouTube Marketing Strategies to Increase Brand Awareness",
+          "href": "/blog/youtube-marketing-strategies-brand-awareness"
+        },
+        {
+          "title": "LinkedIn Marketing Agency Guide: LinkedIn Marketing for B2B Companies – A Complete Growth Guide",
+          "href": "/blog/linkedin-marketing-for-b2b-companies-growth-guide"
+        },
+        {
+          "title": "Online Marketing Is Important for Small and Big Businesses: Know the Top Reasons Why",
+          "href": "/blog/online-marketing-is-important-for-small-and-big-businesses-know-the-top-reasons-why"
+        }
+      ]
     }
   ]
 };

@@ -288,5 +288,9 @@ export const instagramPackagesData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Get Consultation From Experts",
+    "description": "Talk with our Instagram growth strategists to customize your monthly Reels, content, and Meta ads package."
+  }
 };

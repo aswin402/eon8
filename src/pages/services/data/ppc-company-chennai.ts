@@ -291,5 +291,9 @@ export const ppcCompanyChennaiData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Looking for PPC Agency To Boost Your Sale. Let's Connect",
+    "description": "Get a free Google Ads & Paid Media audit from EON8's certified PPC specialists to lower CPC and accelerate qualified sales."
+  }
 };

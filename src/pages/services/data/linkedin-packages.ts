@@ -275,5 +275,9 @@ export const linkedinPackagesData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Get Consultation From Experts",
+    "description": "Scale qualified B2B pipeline and executive thought leadership with a custom LinkedIn growth package built by EON8."
+  }
 };

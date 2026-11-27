@@ -133,5 +133,43 @@ export const removeComplaintsFromGoogleSearchData: ServicePageData = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Google Complaint Removal FAQs',
+      faqs: [
+        {
+          question: 'How does EON8 remove complaints from Google Search results?',
+          answerParagraphs: [
+            [
+              'We start with a full SERP audit to identify which complaint URLs qualify for direct source or Google policy de-indexing, while simultaneously building authoritative owned and third-party brand assets to push stubborn links off Page 1.',
+            ],
+          ],
+        },
+        {
+          question: 'Are your Google complaint suppression methods safe and white-hat?',
+          answerParagraphs: [
+            [
+              'Yes. Every campaign follows strict white-hat SEO, PR, and platform-compliant takedown protocols so your brand gains durable, penalty-free search protection.',
+            ],
+          ],
+        },
+        {
+          question: 'How long does it take to push negative complaint links off Page 1?',
+          answerParagraphs: [
+            [
+              'Direct policy removals can resolve in 2–4 weeks. Competitive Page-1 suppression typically delivers visible ranking shifts within 60–90 days depending on the authority of the complaint domain.',
+            ],
+          ],
+        },
+        {
+          question: 'Do you keep client ORM engagements strictly confidential?',
+          answerParagraphs: [
+            [
+              'Absolutely. All ORM audits, takedown submissions, and suppression roadmaps are handled under strict NDA confidentiality.',
+            ],
+          ],
+        },
+      ],
+    },
   ],
 };

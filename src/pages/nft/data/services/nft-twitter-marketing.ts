@@ -110,24 +110,32 @@ export const nftTwitterMarketingData: NftServicePageData = {
       ]
     },
     {
-      "kind": "editorial-copy",
+      "kind": "nft-overview",
       "sectionClass": "common-spc our_specialized",
       "heading": "Maximum Results With NFT Twitter Marketing",
-      "paragraphs": [
-        [
-          "We build scalable solutions to address ever-evolving business challenges in marketing your NFTs."
-        ],
-        [
-          "Our marketing team uses their experience to propel measurable business outcomes for your campaigns."
-        ],
-        [
-          "We periodically update your campaigns with improvements and adjustments for long-term success."
-        ]
-      ],
-      "image": {
-        "src": "/wp-content/uploads/2022/11/crypto-influencer-marketing.svg",
-        "alt": "Crypto Influencer Marketing"
-      }
+      "items": [
+        {
+          "iconSrc": "/wp-content/uploads/2022/11/crypto-influencer-marketing.svg",
+          "iconAlt": "Expertise",
+          "useTargetSvg": false,
+          "title": "Expertise",
+          "description": "We build scalable solutions to address ever-evolving business challenges in marketing your NFTs."
+        },
+        {
+          "iconSrc": "/wp-content/uploads/2022/07/crypto-social-media-marketing.svg",
+          "iconAlt": "Education",
+          "useTargetSvg": false,
+          "title": "Education",
+          "description": "Our marketing team uses their experience to propel measurable business outcomes for your campaigns."
+        },
+        {
+          "iconSrc": "/wp-content/uploads/2022/07/crypto-pr-marketing.svg",
+          "iconAlt": "Evolution",
+          "useTargetSvg": false,
+          "title": "Evolution",
+          "description": "We periodically update your campaigns with improvements and adjustments for long-term success."
+        }
+      ]
     },
     {
       "kind": "editorial-copy",

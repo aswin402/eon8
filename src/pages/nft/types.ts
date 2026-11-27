@@ -166,7 +166,7 @@ export type NftSectionBlock =
       kind: 'nft-overview';
       sectionClass: string;
       heading: string;
-      subheading: string;
+      subheading?: string;
       items: {
         iconSrc: string;
         iconAlt: string;

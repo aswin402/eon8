@@ -132,6 +132,7 @@ export const cryptoKolAgencyData: CryptoServicePageData = {
       "headingLines": [
         "Why Work with a Crypto KOL Agency?"
       ],
+      "listHeading": "A Professional Crypto KOL Agency Like EON8 Helps You:",
       "paragraphs": [
         [
           "In Web3, community is capital. But building trust in a decentralized world takes more than just ads it takes authentic voices, industry relevance, and smart engagement."

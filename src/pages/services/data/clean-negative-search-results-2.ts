@@ -131,5 +131,43 @@ export const cleanNegativeSearchResults2Data: ServicePageData = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions About Cleaning Negative Search Results',
+      faqs: [
+        {
+          question: 'Can EON8 push negative links off Page 1 of Google?',
+          answerParagraphs: [
+            [
+              'Yes — by combining direct policy takedowns with authoritative PR, owned-asset SEO, and verified customer review profiles, we systematically push negative links down to pages 2–4 where searchers rarely click.',
+            ],
+          ],
+        },
+        {
+          question: 'Do you handle Ripoff Report, MouthShut, and Sitejabber complaints?',
+          answerParagraphs: [
+            [
+              'Yes. Our ORM team specializes in suppressing and mitigating consumer complaint boards, outdated news stories, negative Quora threads, and unfair review listings.',
+            ],
+          ],
+        },
+        {
+          question: 'How long does a full negative search cleanup campaign take?',
+          answerParagraphs: [
+            [
+              'Most brands see initial SERP movement within 4–8 weeks, with strong Page-1 stabilization achieved over 3–6 months depending on the strength of the negative URLs.',
+            ],
+          ],
+        },
+        {
+          question: 'Are your ORM packages customizable for individuals and businesses?',
+          answerParagraphs: [
+            [
+              'Yes — we tailor flexible ORM packages for founders, executives, startups, local businesses, and national enterprises based on the exact keywords and URLs impacting your brand.',
+            ],
+          ],
+        },
+      ],
+    },
   ],
 };

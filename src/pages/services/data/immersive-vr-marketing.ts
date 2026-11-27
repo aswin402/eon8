@@ -27,7 +27,7 @@ export const immersiveVrMarketingData: ServicePageData = {
   "sections": [
     {
       "type": "split",
-      "heading": "Transforming Marketing with",
+      "heading": "Transforming Marketing With Virtual Reality",
       "paragraphs": [
         [
           "Virtual Reality marketing allows businesses to create immersive experiences for their audience, engaging them like never before. As a leading Virtual Reality marketing agency, EON8 crafts interactive campaigns that enhance customer engagement and brand impact."
@@ -97,15 +97,31 @@ export const immersiveVrMarketingData: ServicePageData = {
       "actions": []
     },
     {
-      "type": "split",
+      "type": "process",
       "heading": "Our Framework for VR Marketing",
-      "paragraphs": [
-        [
-          "At EON8, we follow a structured framework to maximize the impact of Virtual Reality marketing, ensuring innovative and results-driven experiences."
-        ]
-      ],
-      "bullets": [],
-      "actions": []
+      "subheading": "At EON8, we follow a structured 4-stage framework to maximize the impact of Virtual Reality marketing, ensuring innovative and results-driven experiences.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Experience Strategy & Storyboarding",
+          "description": "Define audience goals, interactive product touchpoints, headset/WebXR targets, and measurable campaign KPIs."
+        },
+        {
+          "step": "02",
+          "title": "3D Environment & Spatial Prototyping",
+          "description": "Craft photorealistic 3D assets, spatial audio, and interactive prototypes optimized for smooth high-FPS immersion."
+        },
+        {
+          "step": "03",
+          "title": "Multi-Platform VR Engineering & QA",
+          "description": "Build and stress-test across Meta Quest, Apple Vision, HTC Vive, and browser-based WebVR for seamless accessibility."
+        },
+        {
+          "step": "04",
+          "title": "Event Rollout, Promotion & Analytics",
+          "description": "Deploy across trade shows, virtual showrooms, and social campaigns while tracking dwell time, interactions, and conversions."
+        }
+      ]
     },
     {
       "type": "faq",

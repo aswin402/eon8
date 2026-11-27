@@ -98,9 +98,9 @@ export function TestimonialsSection({
                       />
                     )}
                     <div>
-                      <div className="text-sm font-heading font-bold text-foreground">
+                      <h3 className="text-sm font-heading font-bold text-foreground">
                         {t.name || 'Verified Partner'}
-                      </div>
+                      </h3>
                       {t.role && (
                         <div className="text-xs text-muted-foreground">{t.role}</div>
                       )}
@@ -110,7 +110,7 @@ export function TestimonialsSection({
                   {t.caseStudyHref && (
                     <Link
                       to={t.caseStudyHref}
-                      className={`inline-flex items-center gap-1 text-xs font-bold no-underline ${palette.accentText}`}
+                      className={`inline-flex items-center gap-1 min-h-[36px] py-1.5 text-xs font-bold no-underline ${palette.accentText}`}
                     >
                       <span>{t.caseStudyLabel || 'Case Study'}</span>
                       <ArrowRight className="w-3.5 h-3.5" />

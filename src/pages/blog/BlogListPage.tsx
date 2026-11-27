@@ -8,7 +8,7 @@ import {
   useBlogCmsStore,
 } from '@/lib/cms/blogStore';
 
-const POSTS_PER_PAGE = 18;
+const POSTS_PER_PAGE = 21;
 
 function buildPaginationItems(current: number, total: number): (number | 'dots')[] {
   if (total <= 6) {
@@ -296,7 +296,7 @@ export function BlogListPage() {
                         <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                           <Link
                             to={`/category/${catSlug}`}
-                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#0053C6]/10 dark:bg-sky-500/15 text-[#0053C6] dark:text-sky-400 font-bold no-underline"
+                            className="inline-flex items-center gap-1 min-h-[28px] px-2.5 py-1 rounded-full bg-[#0053C6]/10 dark:bg-sky-500/15 text-[#0053C6] dark:text-sky-400 font-bold no-underline"
                           >
                             <Tag className="w-3 h-3" />
                             <span>{post.category}</span>
@@ -327,10 +327,10 @@ export function BlogListPage() {
                       </div>
                     </div>
 
-                    <div className="px-6 pb-6 pt-2">
+                    <div className="px-6 pb-5 pt-1">
                       <Link
                         to={postUrl}
-                        className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 group-hover:text-[#FD5900] transition-colors no-underline"
+                        className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 group-hover:text-[#FD5900] transition-colors no-underline"
                       >
                         <span>Read More</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

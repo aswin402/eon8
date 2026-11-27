@@ -237,7 +237,7 @@ export const cryptoPrServicesData: CryptoServicePageData = {
       ],
       "columns": [
         {
-          "title": "",
+          "title": "Strategize",
           "paragraphs": [
             [
               "Our PR specialists utilize their combined years of experience to create a customized strategy for your crypto project."
@@ -248,7 +248,7 @@ export const cryptoPrServicesData: CryptoServicePageData = {
           "iconAlt": "Crypto Influencer Marketing"
         },
         {
-          "title": "",
+          "title": "Amplify",
           "paragraphs": [
             [
               "We distribute the campaigns on all major platforms to improve traction for your project’s launch."
@@ -259,7 +259,7 @@ export const cryptoPrServicesData: CryptoServicePageData = {
           "iconAlt": "Crypto Social Media Marketing"
         },
         {
-          "title": "",
+          "title": "Scale",
           "paragraphs": [
             [
               "Optimize your campaigns and strengthen your brand with our dedicated services for long-term services."

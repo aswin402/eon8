@@ -102,24 +102,32 @@ export const nftRedditMarketingData: NftServicePageData = {
       ]
     },
     {
-      "kind": "editorial-copy",
+      "kind": "nft-overview",
       "sectionClass": "common-spc our_specialized",
       "heading": "Tactful Reddit Strategies For Your NFT Projects",
-      "paragraphs": [
-        [
-          "Work with our seasoned team of experts to identify your business goals and objectives to create the most impact."
-        ],
-        [
-          "We create niche-based subreddit communities for your NFTs and boost engagement with consistent communication."
-        ],
-        [
-          "Support your NFT Reddit growth with boosted engagement rates using our niche-specific communities."
-        ]
-      ],
-      "image": {
-        "src": "/wp-content/uploads/2022/11/crypto-influencer-marketing.svg",
-        "alt": "Assess"
-      }
+      "items": [
+        {
+          "iconSrc": "/wp-content/uploads/2022/11/crypto-influencer-marketing.svg",
+          "iconAlt": "Assess",
+          "useTargetSvg": false,
+          "title": "Assess",
+          "description": "Work with our seasoned team of experts to identify your business goals and objectives to create the most impact."
+        },
+        {
+          "iconSrc": "/wp-content/uploads/2022/07/crypto-social-media-marketing.svg",
+          "iconAlt": "Attract",
+          "useTargetSvg": false,
+          "title": "Attract",
+          "description": "We create niche-based subreddit communities for your NFTs and boost engagement with consistent communication."
+        },
+        {
+          "iconSrc": "/wp-content/uploads/2022/07/crypto-pr-marketing.svg",
+          "iconAlt": "Augment",
+          "useTargetSvg": false,
+          "title": "Augment",
+          "description": "Support your NFT Reddit growth with boosted engagement rates using our niche-specific communities."
+        }
+      ]
     },
     {
       "kind": "editorial-copy",

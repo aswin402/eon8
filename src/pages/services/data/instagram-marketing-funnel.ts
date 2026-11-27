@@ -31,6 +31,13 @@ export const instagramMarketingFunnelData: ServicePageData = {
         variant: 'primary',
       },
       {
+        label: 'View Packages',
+        href: '#package',
+        opensModal: false,
+        external: false,
+        variant: 'secondary',
+      },
+      {
         label: 'WhatsApp Us',
         href: 'https://wa.link/x5370e',
         opensModal: false,
@@ -92,11 +99,11 @@ export const instagramMarketingFunnelData: ServicePageData = {
     },
     {
       type: 'split',
-      heading: 'Let’s Change The Way You Promote Your Brand On Instagram',
-      subheading: 'Is it difficult for your brand to engage with its Instagram audience?',
+      heading: 'How We Make Instagram Work For Your Brand?',
+      subheading: 'Let’s Change The Way You Promote Your Brand On Instagram',
       paragraphs: [
         [
-          'Try out our latest intelligence-driven Instagram marketing techniques to strengthen your company’s visibility, engagement velocity, and conversion rate across Reels, Stories, Carousels, and Instagram Shopping.',
+          'Is it difficult for your brand to engage with its Instagram audience? Try out our latest intelligence-driven Instagram marketing techniques to strengthen your company’s visibility, engagement velocity, and conversion rate across Reels, Stories, Carousels, and Instagram Shopping.',
         ],
         [
           'Because performance marketing ties every creative test directly to your brand’s ROI indicators, our Instagram funnel goes far beyond vanity impressions — delivering attributed leads, DM conversations, and repeat purchases.',
@@ -125,7 +132,9 @@ export const instagramMarketingFunnelData: ServicePageData = {
     },
     {
       type: 'feature-grid',
-      heading: 'Eon8 — Impeccable Approach For Incredible Instagram Marketing',
+      heading: 'Instagram Marketing Services',
+      subheading:
+        'Eon8 — Impeccable Approach For Incredible Instagram Marketing across organic storytelling, creator whitelisting, and performance paid media.',
       columns: 3,
       cards: [
         {
@@ -172,5 +181,82 @@ export const instagramMarketingFunnelData: ServicePageData = {
         },
       ],
     },
+    {
+      type: 'pricing-matrix',
+      heading: 'Our Instagram Marketing Services Packages',
+      subheading:
+        'Choose a full-funnel monthly Instagram growth package designed for consistent creative velocity, reach, and measurable conversions.',
+      tiers: [
+        {
+          name: 'Starter Growth',
+          price: 'RS. 25000 Monthly',
+          subtitle: 'Brand Consistency & Engagement',
+          ctaLabel: 'Choose Starter',
+        },
+        {
+          name: 'Growth Accelerator',
+          price: 'RS. 35000 Monthly',
+          subtitle: 'Reels Studio + Paid Funnel Ads',
+          highlighted: true,
+          ctaLabel: 'Choose Growth',
+        },
+        {
+          name: 'Scale Dominance',
+          price: 'RS. 50000 Monthly',
+          subtitle: 'Full Creative + Creator + Performance',
+          ctaLabel: 'Choose Scale',
+        },
+      ],
+      rows: [
+        {
+          category: 'Content & Creative Production',
+          feature: 'Branded Feed Posts & Motion Carousels / Month',
+          values: ['12 Posts', '18 Posts', '26 Posts'],
+        },
+        {
+          feature: 'High-Retention Instagram Reels / Month',
+          values: ['4 Reels', '8 Reels', '14 Reels'],
+        },
+        {
+          feature: 'Interactive Stories, Polls & Highlights Setup',
+          values: [true, true, true],
+        },
+        {
+          feature: 'Hashtag Research, Hook Scripting & Caption SEO',
+          values: [true, true, true],
+        },
+        {
+          category: 'Paid Ads & Creator Amplification',
+          feature: 'Meta Ads Manager Funnel & Retargeting Setup',
+          values: [false, true, true],
+        },
+        {
+          feature: 'DM Automation & Lead-Capture Flows',
+          values: [false, true, true],
+        },
+        {
+          feature: 'Influencer / Creator Collaboration Coordination',
+          values: [false, 'Micro-Creators', 'Full Campaign Management'],
+        },
+        {
+          category: 'Community & Analytics',
+          feature: 'Comment Moderation & Community Engagement',
+          values: [true, true, true],
+        },
+        {
+          feature: 'ROI, Reach & Conversion Performance Report',
+          values: ['Monthly', 'Bi-Weekly', 'Weekly Live Dashboard'],
+        },
+      ],
+      footnote:
+        'Paid ad spend is billed directly via your Meta Ads account. Custom enterprise and international D2C retainers are also available.',
+    },
   ],
+  bottomCta: {
+    heading: "Let's Talk Business",
+    description:
+      'Ready to stop wasting Instagram budget and build a predictable growth engine? Speak directly with our Instagram funnel strategists today.',
+    formHeading: "Let's Talk Business — Request Your Proposal",
+    submitLabel: 'Get Instagram Growth Plan',
+  },
 };

@@ -7,6 +7,7 @@ export const bestSeoAgencyData: ServicePageData = {
   "metaDesc": "Professional seo services have become essential in the modern world. Eon8 is the best affordable seo agency for your business services.",
   "hero": {
     "heading": "Best SEO Agency",
+    "subheading": "Choose a number between 1 and 5 - You will be ranked accordingly",
     "paragraphs": [
       [
         "The Avenue to Revenue begins with the SEO service that converts rankings to ROI.EON8, An insight-driven marketing agency that offers expertise in making your brand popular on search engines."
@@ -562,5 +563,11 @@ export const bestSeoAgencyData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Let’s get started your projects. Get free Proposal today",
+    "description": "Share your website and ranking targets with our senior SEO strategists for a complimentary technical and keyword audit.",
+    "formHeading": "Request Your Free SEO Proposal",
+    "submitLabel": "Get Free Proposal"
+  }
 };

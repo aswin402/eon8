@@ -102,24 +102,32 @@ export const nftYoutubeMarketingData: NftServicePageData = {
       ]
     },
     {
-      "kind": "editorial-copy",
+      "kind": "nft-overview",
       "sectionClass": "common-spc our_specialized",
       "heading": "Exceptional NFT YouTube Marketing Strategies",
-      "paragraphs": [
-        [
-          "Our strategies are developed to create a potential impact on the target audiences by communicating the right message."
-        ],
-        [
-          "We put your brand in front and consistently strive to drive meaningful and measurable outcomes."
-        ],
-        [
-          "We execute well-refined strategies tailored for your brand identity and deliver beyond your success expectations."
-        ]
-      ],
-      "image": {
-        "src": "/wp-content/uploads/2022/11/crypto-influencer-marketing.svg",
-        "alt": "Impactful"
-      }
+      "items": [
+        {
+          "iconSrc": "/wp-content/uploads/2022/11/crypto-influencer-marketing.svg",
+          "iconAlt": "Impactful",
+          "useTargetSvg": false,
+          "title": "Impactful",
+          "description": "Our strategies are developed to create a potential impact on the target audiences by communicating the right message."
+        },
+        {
+          "iconSrc": "/wp-content/uploads/2022/07/crypto-social-media-marketing.svg",
+          "iconAlt": "Interdependent",
+          "useTargetSvg": false,
+          "title": "Interdependent",
+          "description": "We put your brand in front and consistently strive to drive meaningful and measurable outcomes."
+        },
+        {
+          "iconSrc": "/wp-content/uploads/2022/07/crypto-pr-marketing.svg",
+          "iconAlt": "Incisive",
+          "useTargetSvg": false,
+          "title": "Incisive",
+          "description": "We execute well-refined strategies tailored for your brand identity and deliver beyond your success expectations."
+        }
+      ]
     },
     {
       "kind": "editorial-copy",

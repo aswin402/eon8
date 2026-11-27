@@ -50,6 +50,20 @@ export const nftCommunityMarketingData: NftServicePageData = {
           "useTargetSvg": true,
           "title": "Diversified Approach",
           "description": "Being a globally recognized agency we love to develop unique marketing approach for all our clients."
+        },
+        {
+          "iconSrc": "",
+          "iconAlt": "",
+          "useTargetSvg": true,
+          "title": "Engaging Content",
+          "description": "We craft interactive lore, AMAs, contests, and platform-native media that keep Discord, Twitter, and Telegram members actively participating every day."
+        },
+        {
+          "iconSrc": "",
+          "iconAlt": "",
+          "useTargetSvg": true,
+          "title": "Focussed Growth",
+          "description": "We grow verified, high-intent NFT collector communities rather than inflated bot counts — driving durable mint demand and floor-price loyalty."
         }
       ]
     },

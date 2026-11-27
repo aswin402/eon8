@@ -121,5 +121,43 @@ export const removeNegativeReviewsBackData: ServicePageData = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Negative Review Removal FAQs',
+      faqs: [
+        {
+          question: 'Can fake or competitor-planted Google reviews be permanently deleted?',
+          answerParagraphs: [
+            [
+              'Yes — reviews that violate Google content policies (spam, conflict of interest, defamation, impersonation, or off-topic attacks) can be documented, flagged, and escalated through official review-removal channels.',
+            ],
+          ],
+        },
+        {
+          question: 'What happens if a negative review does not violate platform policies?',
+          answerParagraphs: [
+            [
+              'When a review cannot be removed directly, we craft constructive public responses that win over prospective buyers and deploy compliant positive-review generation workflows so verified 5-star feedback outweighs isolated critiques.',
+            ],
+          ],
+        },
+        {
+          question: 'How long does it take to improve our Google star rating?',
+          answerParagraphs: [
+            [
+              'Policy-violating escalations are typically reviewed within 7–21 days, while measurable star-rating lift and review-sentiment turnaround usually show strong progress within 30–60 days.',
+            ],
+          ],
+        },
+        {
+          question: 'Which review platforms does EON8 cover beyond Google?',
+          answerParagraphs: [
+            [
+              'We manage brand reputation across Google Business Profile, Trustpilot, Glassdoor, MouthShut, Sitejabber, Facebook Recommendations, Quora, and industry-specific consumer directories.',
+            ],
+          ],
+        },
+      ],
+    },
   ],
 };

@@ -184,7 +184,7 @@ export function CryptoSectionRenderer({ section, index = 0 }: CryptoSectionRende
           surface={altSurface}
           heading={<HeadingLines lines={section.headingLines} />}
           cards={section.columns.map((col) => ({
-            title: col.title,
+            title: col.title || col.iconAlt || '',
             description: (
               <div className="space-y-2">
                 {col.paragraphs.map((nodes, pIdx) => (

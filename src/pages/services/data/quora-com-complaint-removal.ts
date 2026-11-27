@@ -129,5 +129,43 @@ export const quoraComComplaintRemovalData: ServicePageData = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Quora Complaint Removal FAQs',
+      faqs: [
+        {
+          question: 'Why do negative Quora threads rank so high on Google?',
+          answerParagraphs: [
+            [
+              'Quora holds very high domain authority and is favored by Google for brand-review and comparison queries. Without proactive ORM, even a single outdated or competitor-written answer can sit at the top of Page 1.',
+            ],
+          ],
+        },
+        {
+          question: 'Can defamatory or spam Quora answers be removed?',
+          answerParagraphs: [
+            [
+              'Yes — answers violating Quora BNBR (Be Nice, Be Respectful), harassment, spam, or defamation policies can be reported and escalated for moderation removal.',
+            ],
+          ],
+        },
+        {
+          question: 'What if a Quora question stays live after moderation?',
+          answerParagraphs: [
+            [
+              'We pair compliant moderation workflows with factual, well-referenced positive responses and branded SEO suppression so accurate customer perspectives lead both Quora and Google SERPs.',
+            ],
+          ],
+        },
+        {
+          question: 'How quickly does EON8 begin Quora ORM turnaround?',
+          answerParagraphs: [
+            [
+              'We audit every ranking Quora thread in week one and initiate moderation, response, and suppression actions immediately — with measurable progress typically starting within 15–30 days.',
+            ],
+          ],
+        },
+      ],
+    },
   ],
 };

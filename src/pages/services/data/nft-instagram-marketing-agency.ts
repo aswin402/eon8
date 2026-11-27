@@ -141,7 +141,8 @@ export const nftInstagramMarketingAgencyData: ServicePageData = {
     },
     {
       "type": "cta-banner",
-      "heading": "SPromote your P2E NFT game to potential players with Discord game Marketing Get your free consultation call today",
+      "heading": "Ready To Make Your NFT Game A Top Player In The Web3 Landscape?",
+      "subtext": "Get your free NFT Instagram marketing consultation call today.",
       "actions": [
         {
           "label": "Whatsapp Us",

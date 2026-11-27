@@ -6,6 +6,31 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.10.0] - 2026-11-27
+
+### Added & Restored
+- **100% Missing Headings Restored (`148/148` across all `57` URLs from the 25 Nov Gap Report)**:
+  - **High-Priority Pages (Tue 24 Nov)**: Restored complete sections, pricing tables, testimonials, and headings across `ads-amazon-marketing-agency.ts` (19 headings + pricing plans + 5 named client testimonials), `seo-services-funnel.ts` (12 headings + Before/After comparison + `10000/20000/30000 INR / Monthly` packages), `instagram-marketing-funnel.ts` (7 headings + `RS. 25000/35000/50000 Monthly` packages), `erp-software-development.ts` (7 headings), `whatsapp-marketing-services.ts` (15 headings including numbered `1.`–`10.` portfolio + Rich Media + Real Growth Metrics + How To Get Started + Quick Contact), `crm-software-development.ts`, `top-digital-marketing-agency-malaysia.ts` (4 headings + expanded copy), and `online-marketing-is-important-for-small-and-big-businesses-know-the-top-reasons-why.ts`.
+  - **Medium Content Gaps & Remaining Headings (Thu 26 Nov)**: Restored all missing pillar/step titles across 10 Crypto service pages (`CryptoSectionRenderer.tsx` + `crypto-pr-services.ts` + `crypto-kol-agency.ts`), 10 NFT/Discord pages (`discord-game-marketing-agency.ts`, `discord-moderation-services.ts`, `nft-collection-marketing.ts`, `nft-community-marketing.ts`, `nft-game-discord-marketing.ts`, `nft-pr-services.ts`, `nft-reddit-marketing.ts`, `nft-telegram-marketing.ts`, `nft-twitter-marketing.ts`, `nft-youtube-marketing.ts`), `PortfolioPages.tsx` (`case-study-hidden-secret`), `AIAgentPage.tsx`, `TwitterInfluencerPage.tsx`, `BlogListPage.tsx` (`POSTS_PER_PAGE = 21` so #19 YouTube & #20 LinkedIn guides display on page 1), and 24 service/package data modules (including `bottomCta` support in `OurServicesPage.tsx` + `types.ts` and named `items` testimonials in `TestimonialsAndFaqSection.tsx`).
+  - **Thin High-Gap Pages Expanded**: Added full FAQ sections and workflow roadmaps to `immersive-vr-marketing.ts`, `game-marketing-agency-video-mobile-gaming.ts`, `nft-influencer-marketing-agency.ts`, `remove-negative-reviews-back.ts`, `remove-complaints-from-google-search.ts`, `quora-com-complaint-removal.ts`, and `clean-negative-search-results-2.ts`.
+
+### Performance
+- **Existing Image Compression (`C22` / `F05`)**: Compressed 402 oversized PNG, JPG, JPEG, and animated GIF files in-place under `public/wp-content/uploads/` while preserving exact filenames, URLs, and alpha transparency — cutting `public/wp-content/uploads/` from `153 MB` down to `55 MB` (**99.1 MB saved**, `-72.1%` across raster images: PNG `-76.2%`, JPG `-60.4%`, `Effective-sms.gif` `-85.5%`, `insta-enquiry.gif` `-84.6%`).
+
+### Fixed
+- **Server-Side Service `og:image` Manifest (`scripts/build-seo-manifest.ts`)**: Fixed `hero?.image` lookup to read `hero?.mediaSrc || hero?.image || firstSplitImage`, raising custom `og:image` coverage in `dist/seo-manifest.json` from `2` to `68` pages.
+- **Mobile Tap Targets (`375px` QA)**: Added `min-h-[36px]` / vertical hit-area padding to footer links (`Footer.tsx`), homepage card/CTA links (`HomePage.tsx`), blog hub & post links (`BlogListPage.tsx`, `BlogPostPage.tsx`), feature cards (`FeatureGridSection.tsx`), case studies (`PortfolioPages.tsx`), and `ChatgptAdsAgencyPage.tsx` — eliminating baseline `<24px` tap-target warnings across all 308 routes.
+- **Frontend & Content Bugs Fixed**:
+  - Wired `useSiteSettings()` into the `HomePage.tsx` pre-footer CTA bar so admin contact settings update homepage phone/WhatsApp/email/address consistently with `Footer.tsx`.
+  - Fixed `"SPromote your P2E NFT game..."` wrong copy-paste CTA in `nft-instagram-marketing-agency.ts`.
+  - Fixed `"DEDICATED ACCOUUNT MANAGER"` typo in `ppc-packages.ts`.
+  - Fixed truncated `"Transforming Marketing with"` heading in `immersive-vr-marketing.ts`.
+  - Fixed malformed `"Real Estate"` / `"Industries We Serve"` cards jammed inside the service grid in `clean-negative-search-results.ts`.
+  - Fixed `"View our Works"` buttons opening the contact modal (`href: "#"`) instead of navigating to `/works` in `search-engine-marketing-service-chennai.ts` and `search-engine-optimization-services-chennai.ts`.
+  - Fixed leading `" — "` em-dash bug when `b.title` is empty in `TwitterInfluencerPage.tsx` and removed duplicate Unicode checkmarks/emojis in `game-marketing-agency-video-mobile-gaming.ts`.
+
+---
+
 ## [3.9.0] - 2026-11-25
 
 ### Added

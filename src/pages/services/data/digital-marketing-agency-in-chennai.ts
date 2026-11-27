@@ -7,6 +7,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
   "metaDesc": "Eon8 is a top-rated digital marketing company in Chennai that offers end-to-end digital marketing services to local and international businesses.",
   "hero": {
     "heading": "Digital marketing Agency in Chennai",
+    "subheading": "Empowering Business With Tailor-Made Digital Marketing Services",
     "paragraphs": [
       [
         "If you are looking to grow your business online through an effective and leading ",
@@ -404,6 +405,24 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
             ]
           ],
           "bullets": []
+        }
+      ]
+    },
+    {
+      "type": "blog-links",
+      "heading": "Blog Post",
+      "posts": [
+        {
+          "title": "YouTube Marketing Agency Guide: YouTube Marketing Strategies to Increase Brand Awareness",
+          "href": "/blog/youtube-marketing-strategies-brand-awareness"
+        },
+        {
+          "title": "LinkedIn Marketing Agency Guide: LinkedIn Marketing for B2B Companies – A Complete Growth Guide",
+          "href": "/blog/linkedin-marketing-for-b2b-companies-growth-guide"
+        },
+        {
+          "title": "Performance Marketing vs Traditional Marketing: What Drives Higher ROI?",
+          "href": "/blog/performance-marketing-vs-traditional-marketing"
         }
       ]
     }

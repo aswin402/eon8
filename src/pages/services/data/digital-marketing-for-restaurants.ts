@@ -173,5 +173,9 @@ export const digitalMarketingForRestaurantsData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Let’s get started. Request for free Proposal today",
+    "description": "Fill more tables and scale direct delivery orders with local SEO, geo-targeted Meta ads, and mouthwatering restaurant social storytelling."
+  }
 };

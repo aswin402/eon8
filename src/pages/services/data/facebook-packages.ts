@@ -374,5 +374,9 @@ export const facebookPackagesData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Get Consultation From Experts",
+    "description": "Not sure which Facebook marketing package matches your audience and budget? Speak directly with our Meta ads specialists for a tailored plan."
+  }
 };

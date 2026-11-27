@@ -795,5 +795,9 @@ export const searchEngineOptimizationServicesSeoData: ServicePageData = {
         }
       ]
     }
-  ]
+  ],
+  "bottomCta": {
+    "heading": "Do You Want To Know About Search Engine Optimization But Not Sure Where To Start?",
+    "description": "Talk to our Chennai & global SEO strategists for a free technical website audit, keyword roadmap, and transparent monthly pricing."
+  }
 };

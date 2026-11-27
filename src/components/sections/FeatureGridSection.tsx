@@ -179,11 +179,11 @@ export function FeatureGridSection({
                 </div>
 
                 {card.href && (
-                  <div className="pt-5 mt-5 border-t border-border/50">
+                  <div className="pt-4 mt-4 border-t border-border/50">
                     {card.href.startsWith('/') ? (
                       <Link
                         to={card.href}
-                        className={`inline-flex items-center gap-1.5 text-sm font-bold no-underline transition-colors ${
+                        className={`inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold no-underline transition-colors ${
                           isDark
                             ? 'text-[#FD5900] hover:text-orange-300'
                             : `${palette.accentText} hover:text-[#FD5900]`
@@ -197,7 +197,7 @@ export function FeatureGridSection({
                         href={card.href}
                         target="_blank"
                         rel="noreferrer"
-                        className={`inline-flex items-center gap-1.5 text-sm font-bold no-underline ${
+                        className={`inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold no-underline ${
                           isDark ? 'text-[#FD5900]' : palette.accentText
                         }`}
                       >

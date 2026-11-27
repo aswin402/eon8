@@ -121,28 +121,28 @@ export const erpSoftwareDevelopmentData: ServicePageData = {
       "heading": "Industries We Serve",
       "cards": [
         {
-          "title": "Manufacturing & Production",
+          "title": "Manufacturing And Production",
           "description": "Bill of materials (BOM), shop-floor scheduling, quality control, and supply chain tracking."
         },
         {
-          "title": "Retail & Multi-Channel Distribution",
+          "title": "Retail And E-Commerce",
           "description": "Centralized multi-warehouse inventory, POS sync, vendor replenishment, and order fulfillment."
         },
         {
-          "title": "Healthcare & Pharmaceuticals",
-          "description": "Batch traceability, regulatory compliance, procurement, billing, and asset management."
-        },
-        {
-          "title": "Logistics & Fleet Operations",
+          "title": "Logistics And Supply Chain",
           "description": "Dispatch planning, warehouse management, vendor SLAs, and real-time shipment visibility."
         },
         {
-          "title": "Construction & Real Estate",
+          "title": "Healthcare And Life Sciences",
+          "description": "Batch traceability, regulatory compliance, procurement, billing, and asset management."
+        },
+        {
+          "title": "Construction And Real Estate",
           "description": "Project costing, contractor billing, material procurement, and milestone tracking."
         },
         {
-          "title": "Professional Services & Finance",
-          "description": "Resource allocation, timesheets, automated invoicing, multi-entity accounting, and BI reports."
+          "title": "Wholesale And Distribution",
+          "description": "Bulk order management, multi-warehouse allocation, automated invoicing, credit control, and dealer portals."
         }
       ],
       "columns": 3,
@@ -241,5 +241,11 @@ export const erpSoftwareDevelopmentData: ServicePageData = {
       "heading": "Let's Build the ERP System Your Business Actually Needs"
     }
   ],
+  "bottomCta": {
+    "heading": "Get A Free ERP Consultation",
+    "description": "Share your current operational workflows, modules, and integration goals with our ERP architects to receive a tailored technical blueprint and delivery timeline.",
+    "formHeading": "Get A Free ERP Consultation",
+    "submitLabel": "Request ERP Consultation"
+  },
   "disclaimer": "Disclaimer: The intended trademarks and logos are not our proprietary property and are owned by the respective brands. The mentioned names are strictly for creative and informative purposes."
 };

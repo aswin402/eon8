@@ -83,6 +83,20 @@ export const discordModerationServicesData: NftServicePageData = {
           "useTargetSvg": true,
           "title": "Management",
           "description": "Our moderators will assign definite roles to each member to keep the community organized and efficient."
+        },
+        {
+          "iconSrc": "",
+          "iconAlt": "",
+          "useTargetSvg": true,
+          "title": "Engagement",
+          "description": "We host live AMAs, trivia nights, whitelist missions, and 24/7 conversations so members stay active and welcomed across every time zone."
+        },
+        {
+          "iconSrc": "",
+          "iconAlt": "",
+          "useTargetSvg": true,
+          "title": "Optimization",
+          "description": "We continually audit channel structure, security bots, anti-raid rules, and engagement metrics to maximize retention and community trust."
         }
       ]
     },

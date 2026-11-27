@@ -264,6 +264,7 @@ export function AIAgentPage() {
         reverse
         badge="Autonomous Systems"
         heading="What Are AI Agents?"
+        subheading="Types Of AI Agents:"
         paragraphs={[
           'AI agents are intelligent software programs designed to autonomously perceive their environment, make decisions, and take actions to achieve defined objectives — ranging from simple chatbots to advanced systems capable of learning and reasoning like humans.',
           'Deployed across finance, healthcare, e-commerce, and logistics — AI agents automate repetitive tasks, enhance workflows, and deliver 24/7 operational support.',

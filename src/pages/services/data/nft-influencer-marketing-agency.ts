@@ -17,7 +17,7 @@ export const nftInfluencerMarketingAgencyData: ServicePageData = {
   "sections": [
     {
       "type": "logo-marquee",
-      "heading": "Brands We Have Scaled",
+      "heading": "Brand's We Offered Service For",
       "logos": [
         {
           "src": "/wp-content/uploads/2026/06/vlcc.webp",
@@ -121,6 +121,44 @@ export const nftInfluencerMarketingAgencyData: ServicePageData = {
           "opensModal": false,
           "external": true,
           "variant": "whatsapp"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "heading": "All Your Queries On Influencer Marketing Will Be Answered",
+      "faqs": [
+        {
+          "question": "How does EON8 vet NFT and Web3 influencers before recommending them?",
+          "answerParagraphs": [
+            [
+              "We audit every creator's audience authenticity, engagement-to-follower ratio, on-chain collector overlap, and past NFT drop performance across X (Twitter), YouTube, Instagram, and TikTok so your budget only reaches real buyers."
+            ]
+          ]
+        },
+        {
+          "question": "Which platforms perform best for NFT influencer campaigns?",
+          "answerParagraphs": [
+            [
+              "X (Twitter) drives real-time collector discovery and Spaces momentum, YouTube delivers high-trust deep-dive project reviews, and Instagram/TikTok expand mainstream retail reach ahead of public mint."
+            ]
+          ]
+        },
+        {
+          "question": "How quickly can EON8 launch an NFT influencer blitz?",
+          "answerParagraphs": [
+            [
+              "With 20,000+ pre-vetted creators in our global roster, we can shortlist talent, finalize briefs, and coordinate synchronized multi-creator drops within 5 to 7 business days."
+            ]
+          ]
+        },
+        {
+          "question": "How do you measure ROI from an NFT influencer marketing campaign?",
+          "answerParagraphs": [
+            [
+              "Every campaign is tracked with unique UTM links, Discord invite trackers, whitelist signup attribution, mint-wallet velocity, and engagement benchmarks."
+            ]
+          ]
         }
       ]
     }
