@@ -3,7 +3,7 @@ import type { ServicePageData } from '../types';
 export const adsAmazonMarketingAgencyData: ServicePageData = {
   slug: 'ads-amazon-marketing-agency',
   theme: 'brand',
-  title: 'Amazon Ads & Marketplace Marketing Agency | Lower ACoS & Scale Sales – Eon8',
+  title: 'Ads Amazon Marketing Agency - Eon8',
   metaDesc:
     'Scale your Amazon Seller & Vendor Central revenue with EON8’s data-driven Amazon PPC Ads, Sponsored Brands, DSP retargeting, and A+ listing conversion optimization.',
   noIndex: true,

@@ -158,16 +158,34 @@ export async function injectHead(
     head.push(`<meta property="og:url" content="${escapeAttr(canonical)}" />`);
   }
   if (meta || seo) {
-    head.push('<meta property="og:site_name" content="EON8" />');
+    head.push('<meta property="og:locale" content="en_US" />');
+    head.push('<meta property="og:site_name" content="Eon8" />');
     head.push(`<meta property="og:type" content="${meta?.article ? 'article' : 'website'}" />`);
     head.push('<meta name="twitter:card" content="summary_large_image" />');
+    head.push('<meta name="twitter:site" content="@eon8digital" />');
+    head.push('<meta name="twitter:creator" content="@eon8digital" />');
   }
   if (ogImage) {
     head.push(`<meta property="og:image" content="${escapeAttr(ogImage)}" />`);
+    head.push(`<meta property="og:image:secure_url" content="${escapeAttr(ogImage)}" />`);
+    if (title) head.push(`<meta property="og:image:alt" content="${escapeAttr(title)}" />`);
     head.push(`<meta name="twitter:image" content="${escapeAttr(ogImage)}" />`);
   }
+  if (meta?.article?.publishedTime) {
+    head.push(`<meta property="article:published_time" content="${escapeAttr(meta.article.publishedTime)}" />`);
+    head.push(
+      `<meta property="article:modified_time" content="${escapeAttr(meta.article.modifiedTime || meta.article.publishedTime)}" />`
+    );
+    if (meta.article.section) {
+      head.push(`<meta property="article:section" content="${escapeAttr(meta.article.section)}" />`);
+    }
+  }
   if (noIndex) head.push('<meta name="robots" content="noindex, nofollow" />');
-  else if (meta || seo) head.push('<meta name="robots" content="index, follow" />');
+  else if (meta || seo) {
+    head.push(
+      '<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />'
+    );
+  }
   if (meta && !noIndex && status === 200) {
     const graph = jsonLdGraph(
       {
@@ -187,9 +205,11 @@ export async function injectHead(
     head.push(`<script type="application/ld+json">${json}</script>`);
   }
   if (track?.googleSiteVerification) {
+    out = out.replace(/<meta\s+name="google-site-verification"[\s\S]*?\/>\s*/i, '');
     head.push(`<meta name="google-site-verification" content="${escapeAttr(track.googleSiteVerification)}" />`);
   }
   if (track?.facebookDomainVerification) {
+    out = out.replace(/<meta\s+name="facebook-domain-verification"[\s\S]*?\/>\s*/i, '');
     head.push(`<meta name="facebook-domain-verification" content="${escapeAttr(track.facebookDomainVerification)}" />`);
   }
   // Analytics, ads and chat are for visitors: keep them off the admin so staff visits are not counted.

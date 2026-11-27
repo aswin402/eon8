@@ -378,7 +378,16 @@ export interface OrgInfo {
 export function jsonLdGraph(meta: RouteMeta, org: OrgInfo): Record<string, unknown> {
   const base = siteOrigin();
   const logo = `${base}/wp-content/uploads/2026/03/Logo_bg-1.png`;
-  const segments = new URL(meta.canonicalUrl).pathname.split('/').filter(Boolean);
+  const address = {
+    '@type': 'PostalAddress',
+    streetAddress: '9th Floor, Prestige Polygon, No 471, Anna Salai, Teynampet',
+    addressLocality: 'Chennai',
+    addressRegion: 'Tamil Nadu',
+    postalCode: '600035',
+    addressCountry: 'IN',
+  };
+  const canonicalPath = new URL(meta.canonicalUrl).pathname.replace(/\/+$/, '');
+  const segments = canonicalPath.split('/').filter(Boolean);
   const crumbs: Array<Record<string, unknown>> = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${base}/` }];
   let acc = '';
   segments.forEach((seg, i) => {
@@ -390,32 +399,71 @@ export function jsonLdGraph(meta: RouteMeta, org: OrgInfo): Record<string, unkno
     crumbs.push({ '@type': 'ListItem', position: i + 2, name, item: `${base}${acc}/` });
   });
 
+  const webPageType =
+    canonicalPath === '/about-us'
+      ? 'AboutPage'
+      : canonicalPath === '/contact'
+        ? 'ContactPage'
+        : 'WebPage';
+
+  const sameAs = org.sameAs.length
+    ? org.sameAs
+    : [
+        'https://www.instagram.com/eon8_official/',
+        'https://www.facebook.com/people/Eon8-The-Digital-Infinity/61588594388907/',
+        'https://www.linkedin.com/company/eon-8/',
+        'https://x.com/eon8digital',
+        'https://www.youtube.com/@Eon8TheDigitalInfinity/videos',
+      ];
+
   const graph: Array<Record<string, unknown>> = [
+    {
+      '@type': 'Place',
+      '@id': `${base}/#place`,
+      address,
+    },
     {
       '@type': 'Organization',
       '@id': `${base}/#organization`,
-      name: 'EON8',
+      name: 'Eon8',
       url: `${base}/`,
-      logo: { '@type': 'ImageObject', url: logo },
-      ...(org.phone ? { telephone: org.phone } : {}),
+      address,
+      location: { '@id': `${base}/#place` },
+      logo: {
+        '@type': 'ImageObject',
+        '@id': `${base}/#logo`,
+        url: logo,
+        contentUrl: logo,
+        caption: 'Eon8',
+        inLanguage: 'en-US',
+      },
+      ...(org.phone ? { contactPoint: [{ '@type': 'ContactPoint', telephone: org.phone, contactType: 'sales' }] } : {}),
       ...(org.email ? { email: org.email } : {}),
-      ...(org.sameAs.length ? { sameAs: org.sameAs } : {}),
+      sameAs,
     },
     {
       '@type': 'WebSite',
       '@id': `${base}/#website`,
       url: `${base}/`,
-      name: 'EON8 Digital Marketing Agency',
+      name: 'Eon8',
+      inLanguage: 'en-US',
       publisher: { '@id': `${base}/#organization` },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${base}/blog?q={search_term_string}`,
+        'query-input': 'required name=search_term_string',
+      },
     },
     {
-      '@type': 'WebPage',
+      '@type': webPageType,
       '@id': `${meta.canonicalUrl}#webpage`,
       url: meta.canonicalUrl,
       name: meta.title,
       description: meta.description,
+      inLanguage: 'en-US',
+      about: { '@id': `${base}/#organization` },
       isPartOf: { '@id': `${base}/#website` },
-      primaryImageOfPage: { '@type': 'ImageObject', url: meta.ogImage },
+      primaryImageOfPage: { '@type': 'ImageObject', url: meta.ogImage, inLanguage: 'en-US' },
     },
     { '@type': 'BreadcrumbList', '@id': `${meta.canonicalUrl}#breadcrumb`, itemListElement: crumbs },
   ];
@@ -426,6 +474,7 @@ export function jsonLdGraph(meta: RouteMeta, org: OrgInfo): Record<string, unkno
       mainEntityOfPage: { '@id': `${meta.canonicalUrl}#webpage` },
       headline: meta.article.headline,
       description: meta.description,
+      inLanguage: 'en-US',
       image: [meta.ogImage],
       datePublished: meta.article.publishedTime || undefined,
       dateModified: meta.article.modifiedTime || meta.article.publishedTime || undefined,

@@ -37,8 +37,9 @@ export function ThankYouPage() {
   return (
     <div className="bg-background text-foreground">
       <PageSeo
-        title="Thank You | EON8 Digital Marketing & Growth Partners"
-        description="Thank you for reaching out to EON8. Our growth strategists have received your enquiry and will respond within 24 hours."
+        title="Thank You | EON8 Digital Marketing Agency"
+        description="Thank you for reaching out to EON8. Our digital marketing and AI specialists will connect with you shortly."
+        noIndex
       />
 
       {/* Hero Confirmation */}

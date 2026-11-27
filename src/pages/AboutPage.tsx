@@ -79,7 +79,7 @@ export function AboutPage() {
     <div className="bg-background text-foreground">
       <PageSeo
         title="About Eon8 Digital Marketing Agency"
-        description="At Eon8 you can get 360-degree Digital Marketing solution and online marketing services for Web 2.0, Web 3.0, and AI brands."
+        description="At Eon8 you can get 360-degree Digital Marketing solution and online marketing services for brands and businesses to maintain digital presents."
       />
 
       {/* 1. Hero Header */}

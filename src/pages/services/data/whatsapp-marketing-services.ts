@@ -5,7 +5,7 @@ export const whatsappMarketingServicesData: ServicePageData = {
   theme: 'brand',
   title: 'WhatsApp Marketing Services | Automation & CRM by EON8',
   metaDesc:
-    'Boost engagement with EON8’s WhatsApp marketing — AI chatbots, bulk messaging, CRM integration, and real-time analytics for smart business growth.',
+    'Boost engagement with EON8’s WhatsApp marketing - AI chatbots, bulk messaging, CRM integration, and real-time analytics for smart business growth.',
   hero: {
     badge: 'Verified WhatsApp Business API & AI CRM',
     heading: 'WhatsApp Marketing Services by EON8 — Convert Conversations into Revenue',

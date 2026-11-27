@@ -5,7 +5,7 @@ export const quoraComComplaintRemovalData: ServicePageData = {
   theme: 'brand',
   title: 'Quora Complaints Removal | ORM Packages - Eon8',
   metaDesc:
-    'Remove online negative articles, unfair answers, and complaints from Quora. Approach EON8, a trusted Online Reputation Management company in Chennai.',
+    'For this very purpose, one should remove the online negative articles and complaints from Quora. Approach EON8, Digital marketing company located in Chennai',
   hero: {
     badge: 'Quora ORM & SERP Protection',
     heading: 'Quora.com Complaint Removal',

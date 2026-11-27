@@ -5,7 +5,7 @@ export const removeNegativeReviewsBackData: ServicePageData = {
   theme: 'brand',
   title: 'Remove Google Negative Reviews | EON8',
   metaDesc:
-    'Are you struggling to remove negative reviews from search engines? Showcase more positive consumer relations for your brand with EON8 ORM services.',
+    'Are you struggling to remove negative reviews from search engines? Showcase more positive consumer relations for your brand with the top ORM service.',
   hero: {
     badge: 'Google & Social Review Protection',
     heading: 'Remove Negative Reviews & Rebuild 5-Star Brand Trust',

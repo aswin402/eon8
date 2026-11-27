@@ -7,7 +7,8 @@ export function NotFoundPage() {
     <div className="min-h-screen flex flex-col items-center justify-center p-8 pt-32 pb-28 text-center animate-in fade-in duration-700">
       <PageSeo
         title="Page Not Found | EON8"
-        description="The page you are looking for could not be found."
+        description="The page you are looking for could not be found on EON8. Explore our digital marketing, AI agent, SEO, and Web3 services."
+        noIndex
       />
 
       <div className="relative mb-8">

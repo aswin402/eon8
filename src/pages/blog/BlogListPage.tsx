@@ -123,7 +123,7 @@ export function BlogListPage() {
             ? `${activeCategoryName} Archives - Eon8`
             : 'Digital Marketing Blogs & Social Media Blogs Provider in Chennai'
         }
-        description="Stay updated with the latest news, events, and other interesting information on Digital Marketing, AI Agents, SEO, Social Media, and Web3 from Eon8."
+        description="Stay updated with the latest news, events, and other interesting information on Digital Marketing, Amazon Advertising, Web Development, ORM and much more!"
       />
 
       {/* 1. Hero Header */}

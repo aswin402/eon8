@@ -6,6 +6,22 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.10.4] - 2026-11-27
+
+### Improved & Fixed
+- **Minimal Brand Cursor (`NeonCursor.tsx`, `NeonCursor.css`)**:
+  - Removed the blurry `.cursor-glow` neon glob, heavy box-shadow glow, and white border ring around `.cursor-main`.
+  - Refined the cursor to a crisp `9px` solid `#FD5900` inner dot + subtle `28px` `1.5px` trailing outer ring.
+  - Added navbar awareness (`#site-header, header`): moving over the navbar cleanly fades out the outer ring (`opacity: 0`) and keeps only the crisp steady inner dot (no enlargement over nav items).
+- **Official EON8 Favicon Suite (`public/`, `index.html`)**:
+  - Replaced the leftover Vite purple SVG favicon with EON8's official orange `"8"` on midnight-navy mark across `favicon.svg`, `favicon.ico` (16/32/48px), `favicon-32x32.png`, `favicon-192x192.png`, `apple-touch-icon.png` (180×180), and exact live WordPress `/wp-content/uploads/2019/07/favicon.png`, plus `theme-color` (`#071124`) and `msapplication-TileImage`.
+- **Full Live `www.eon8.com` SEO & Metadata Parity (`index.html`, `PageSeo.tsx`, `build-seo-manifest.ts`, `server/seoApi.ts`, `server/seoManifest.ts`, `TestimonialsAndFaqSection.tsx`, 15 page/data modules)**:
+  - Synced exact live `<title>` and `<meta name="description">` across all React `<PageSeo>` pages (`Home`, `About`, `Contact`, `AI Agent`, `AI Video`, `Blog Hub`, `ChatGPT Ads Blog`, `ChatGPT Ads Education`), policy/service data modules (`privacy-policy-2`, `ads-amazon-marketing-agency`, `seo-services-funnel`, `d2c-branding-and-growth-agency`, `quora-com-complaint-removal`, `remove-complaints-from-google-search`, `remove-negative-reviews-back`, `whatsapp-marketing-services`), and `noIndex` on `ThankYouPage` & `NotFoundPage`.
+  - Downloaded live `/wp-content/uploads/2022/07/banner-1.jpg` (`1000×500`) as the default OG/Twitter share image.
+  - Upgraded both client-side (`PageSeo.tsx`) and server-side (`server/seoApi.ts`, `server/seoManifest.ts`) SEO output with Rank Math `robots` directives (`follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large`), `og:locale`, `og:site_name: Eon8`, `og:image:secure_url`, `og:image:alt`, `article:*` timestamps/section, `twitter:site` / `twitter:creator` (`@eon8digital`), site-wide Google/Facebook/DMCA verification tags, Chennai HQ `Place`/`PostalAddress`, `AboutPage`/`ContactPage` schema types, `WebSite` `SearchAction`, and automatic `FAQPage` JSON-LD in `FaqAccordionSection`.
+
+---
+
 ## [3.10.3] - 2026-11-27
 
 ### Improved

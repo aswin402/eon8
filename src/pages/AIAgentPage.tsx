@@ -237,7 +237,7 @@ export function AIAgentPage() {
     <div className="bg-background text-foreground">
       <PageSeo
         title="AI Agent Development Services for Business Growth"
-        description="Get advanced AI agent development services tailored to your business. Build scalable, personalised AI agents to automate workflows and boost growth."
+        description="Get advanced AI agent development services tailored to your business. Build scalable, personalized AI agents to automate tasks and boost productivity."
       />
 
       {/* 1. Split Hero */}

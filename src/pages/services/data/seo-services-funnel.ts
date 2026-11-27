@@ -3,7 +3,7 @@ import type { ServicePageData } from '../types';
 export const seoServicesFunnelData: ServicePageData = {
   slug: 'seo-services-funnel',
   theme: 'brand',
-  title: 'SEO Services Funnel | Full-Funnel Organic Search Growth – Eon8',
+  title: 'SEO Services Funnel - Eon8',
   metaDesc:
     'Dominate Page-1 Google rankings and convert high-intent organic searchers into qualified pipeline with EON8’s full-funnel SEO services.',
   noIndex: true,

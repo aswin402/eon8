@@ -172,6 +172,18 @@ interface FaqAccordionSectionProps {
   surface?: 'light' | 'muted' | 'dark';
 }
 
+function faqAnswerToText(node: ReactNode): string {
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(faqAnswerToText).join(' ');
+  if (node && typeof node === 'object' && 'props' in node) {
+    const props = (node as { props?: { children?: ReactNode } }).props;
+    return faqAnswerToText(props?.children);
+  }
+  return '';
+}
+
+const FAQ_JSONLD_ID = 'eon8-faq-jsonld';
+
 export function FaqAccordionSection({
   id,
   badge = 'FAQ',
@@ -183,6 +195,42 @@ export function FaqAccordionSection({
 }: FaqAccordionSectionProps) {
   const palette = VERTICAL_THEMES[theme];
   const [openIdx, setOpenIdx] = useState<number | null>(0);
+
+  useEffect(() => {
+    const entries = faqs
+      .map((f) => ({
+        question: f.question.trim(),
+        answer: faqAnswerToText(f.answer).replace(/\s+/g, ' ').trim(),
+      }))
+      .filter((f) => f.question && f.answer);
+
+    if (!entries.length) return undefined;
+
+    let script = document.getElementById(FAQ_JSONLD_ID) as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement('script');
+      script.id = FAQ_JSONLD_ID;
+      script.type = 'application/ld+json';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: entries.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    });
+
+    return () => {
+      document.getElementById(FAQ_JSONLD_ID)?.remove();
+    };
+  }, [faqs]);
+
   if (!faqs.length) return null;
 
   const isDark = surface === 'dark';

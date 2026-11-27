@@ -5,7 +5,7 @@ export const removeComplaintsFromGoogleSearchData: ServicePageData = {
   theme: 'brand',
   title: 'Remove Complaints from Google Search - Eon8',
   metaDesc:
-    'Does negative perception of your brand affect your business and growth? EON8 offers reliable Google search complaint removal service at a reasonable price.',
+    'Does negative perception of your brand affects your business and growth? EON8 offers reliable Google search complaint removal service at a reasonable price.',
   hero: {
     badge: 'Google SERP & Complaint Mitigation',
     heading: 'Remove Complaints from Google Search Results',

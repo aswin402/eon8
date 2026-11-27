@@ -326,7 +326,7 @@ export function AIVideoPage() {
     <div className="bg-background text-foreground">
       <PageSeo
         title="AI Video Creation Services | AI Video Production Company | EON8"
-        description="Create engaging AI-powered videos for your business with EON8. We deliver high-quality AI video creation services for marketing, promotions, training, and social media."
+        description="Create engaging AI-powered videos for your business with EON8. We deliver high-quality AI video creation services for marketing, branding, training, and promotions."
       />
 
       {/* 1. Studio Hero */}

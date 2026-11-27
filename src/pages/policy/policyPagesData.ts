@@ -258,7 +258,7 @@ export const policyPagesData: Record<string, PolicyData> = {
     title: 'Privacy Policy',
     metaTitle: 'Privacy Policy for Data Protection and User Security | Eon8',
     metaDesc:
-      'At EON8, one of our main priorities is the privacy of our visitors. Read how EON8 collects, safeguards, and processes visitor data.',
+      'At EON8, accessible from https://www.eon8.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of',
     layout: 'privacy-standard',
     blocks: privacyPolicyBlocks,
   },
@@ -268,7 +268,7 @@ export const policyPagesData: Record<string, PolicyData> = {
     title: 'Privacy Policy',
     metaTitle: 'Privacy Policy for Data Protection and User Security | Eon8',
     metaDesc:
-      'At EON8, one of our main priorities is the privacy of our visitors. Read how EON8 collects, safeguards, and processes visitor data.',
+      'At EON8, accessible from https://www.eon8.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of',
     layout: 'privacy-standard',
     blocks: privacyPolicyBlocks,
   },

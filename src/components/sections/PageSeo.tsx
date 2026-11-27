@@ -18,8 +18,18 @@ interface PageSeoProps {
 }
 
 const SITE_ORIGIN = 'https://www.eon8.com';
-const DEFAULT_OG_IMAGE = '/wp-content/uploads/2026/03/Logo_bg-1.png';
+const DEFAULT_OG_IMAGE = '/wp-content/uploads/2022/07/banner-1.jpg';
+const ORG_LOGO_IMAGE = '/wp-content/uploads/2026/03/Logo_bg-1.png';
 const JSONLD_SCRIPT_ID = 'eon8-jsonld';
+
+const EON8_ADDRESS = {
+  '@type': 'PostalAddress',
+  streetAddress: '9th Floor, Prestige Polygon, No 471, Anna Salai, Teynampet',
+  addressLocality: 'Chennai',
+  addressRegion: 'Tamil Nadu',
+  postalCode: '600035',
+  addressCountry: 'IN',
+};
 
 function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
   let el = document.querySelector(`meta[${attr}="${key}"]`);
@@ -29,6 +39,10 @@ function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
     document.head.appendChild(el);
   }
   el.setAttribute('content', content);
+}
+
+function removeMeta(attr: 'name' | 'property', key: string) {
+  document.querySelector(`meta[${attr}="${key}"]`)?.remove();
 }
 
 function upsertCanonical(href: string) {
@@ -99,6 +113,7 @@ export function PageSeo({
       document.title = title;
       upsertMeta('property', 'og:title', title);
       upsertMeta('name', 'twitter:title', title);
+      upsertMeta('property', 'og:image:alt', title);
     }
     if (description) {
       upsertMeta('name', 'description', description);
@@ -109,15 +124,31 @@ export function PageSeo({
     upsertMeta(
       'name',
       'robots',
-      noIndex ? 'noindex, nofollow, noarchive' : 'index, follow'
+      noIndex
+        ? 'noindex, nofollow, noarchive'
+        : 'follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large'
     );
-    upsertMeta('property', 'og:site_name', 'EON8');
+    upsertMeta('property', 'og:locale', 'en_US');
+    upsertMeta('property', 'og:site_name', 'Eon8');
     upsertMeta('property', 'og:image', resolvedImg);
+    upsertMeta('property', 'og:image:secure_url', resolvedImg);
     upsertMeta('property', 'og:url', canonicalUrl);
     upsertMeta('property', 'og:type', isArticle ? 'article' : 'website');
     upsertMeta('name', 'twitter:card', 'summary_large_image');
+    upsertMeta('name', 'twitter:site', '@eon8digital');
+    upsertMeta('name', 'twitter:creator', '@eon8digital');
     upsertMeta('name', 'twitter:image', resolvedImg);
     upsertCanonical(canonicalUrl);
+
+    if (isArticle && articlePublished) {
+      upsertMeta('property', 'article:published_time', articlePublished);
+      upsertMeta('property', 'article:modified_time', articleModified || articlePublished);
+      if (articleSection) upsertMeta('property', 'article:section', articleSection);
+    } else {
+      removeMeta('property', 'article:published_time');
+      removeMeta('property', 'article:modified_time');
+      removeMeta('property', 'article:section');
+    }
 
     if (noIndex) {
       const existing = document.getElementById(JSONLD_SCRIPT_ID);
@@ -156,25 +187,44 @@ export function PageSeo({
       });
     }
 
+    const webPageType =
+      cleanPath === '/about-us'
+        ? 'AboutPage'
+        : cleanPath === '/contact'
+          ? 'ContactPage'
+          : 'WebPage';
+
     const graph: Record<string, unknown>[] = [
+      {
+        '@type': 'Place',
+        '@id': `${SITE_ORIGIN}/#place`,
+        address: EON8_ADDRESS,
+      },
       {
         '@type': 'Organization',
         '@id': `${SITE_ORIGIN}/#organization`,
-        name: 'EON8',
+        name: 'Eon8',
         url: `${SITE_ORIGIN}/`,
+        address: EON8_ADDRESS,
+        location: { '@id': `${SITE_ORIGIN}/#place` },
         logo: {
           '@type': 'ImageObject',
-          url: resolveAbsoluteUrl(DEFAULT_OG_IMAGE),
+          '@id': `${SITE_ORIGIN}/#logo`,
+          url: resolveAbsoluteUrl(ORG_LOGO_IMAGE),
+          contentUrl: resolveAbsoluteUrl(ORG_LOGO_IMAGE),
+          caption: 'Eon8',
+          inLanguage: 'en-US',
         },
         contactPoint: {
           '@type': 'ContactPoint',
           telephone: '+91-90422-94007',
-          contactType: 'customer service',
+          contactType: 'sales',
           email: 'info@eon8.com',
           areaServed: ['IN', 'US', 'GB', 'AE', 'SG'],
         },
         sameAs: [
           'https://www.instagram.com/eon8_official/',
+          'https://www.facebook.com/people/Eon8-The-Digital-Infinity/61588594388907/',
           'https://www.linkedin.com/company/eon-8/',
           'https://x.com/eon8digital',
           'https://www.youtube.com/@Eon8TheDigitalInfinity/videos',
@@ -184,19 +234,28 @@ export function PageSeo({
         '@type': 'WebSite',
         '@id': `${SITE_ORIGIN}/#website`,
         url: `${SITE_ORIGIN}/`,
-        name: 'EON8',
+        name: 'Eon8',
+        inLanguage: 'en-US',
         publisher: { '@id': `${SITE_ORIGIN}/#organization` },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${SITE_ORIGIN}/blog?q={search_term_string}`,
+          'query-input': 'required name=search_term_string',
+        },
       },
       {
-        '@type': 'WebPage',
+        '@type': webPageType,
         '@id': `${canonicalUrl}#webpage`,
         url: canonicalUrl,
         name: title,
         description,
+        inLanguage: 'en-US',
         isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+        about: { '@id': `${SITE_ORIGIN}/#organization` },
         primaryImageOfPage: {
           '@type': 'ImageObject',
           url: resolvedImg,
+          inLanguage: 'en-US',
         },
       },
       {
@@ -212,6 +271,7 @@ export function PageSeo({
         '@id': `${canonicalUrl}#article`,
         headline: title,
         description,
+        inLanguage: 'en-US',
         image: resolvedImg,
         datePublished: articlePublished || undefined,
         dateModified: articleModified || articlePublished || undefined,

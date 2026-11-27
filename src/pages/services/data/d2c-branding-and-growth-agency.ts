@@ -5,7 +5,7 @@ export const d2cBrandingAndGrowthAgencyData: ServicePageData = {
   theme: 'brand',
   title: 'Expert D2C Branding & Growth Agency | Boost Your Online Sales',
   metaDesc:
-    "Elevate your brand's online presence with our D2C branding and growth agency. We specialize in driving growth, customer retention, and ROAS. Let's grow together!",
+    "Elevate your brand's online presence with our D2C branding and growth agency. We specialize in driving growth and visibility. Let's grow together!",
   hero: {
     badge: 'Direct-to-Consumer Growth Engine',
     heading: 'D2C Branding and Growth Agency',

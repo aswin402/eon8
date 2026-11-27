@@ -16,7 +16,7 @@ export function ContactPage() {
     <div className="bg-background text-foreground">
       <PageSeo
         title="Contact Us | Let's Build Your Brand - Eon8"
-        description="At Eon8, we take your business to the next level with digital marketing and branding. Contact EON8 in Chennai, Bangalore, Hyderabad, and Mumbai."
+        description="At Eon8, we take your business to the next level with digital marketing and branding. Contact us & Get a Free Quote NOW."
       />
 
       {/* 1. Hero Header */}

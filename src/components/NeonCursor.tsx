@@ -4,6 +4,7 @@ import './NeonCursor.css';
 
 const INTERACTIVE_SELECTOR =
   'a, button, summary, [role="button"], [data-hover="true"]';
+const NAVBAR_SELECTOR = '#site-header, header';
 const TEXT_FIELD_SELECTOR = 'input, textarea, select, [contenteditable="true"]';
 
 function canUseCustomCursor(): boolean {
@@ -18,20 +19,18 @@ export function NeonCursor() {
   const [visible, setVisible] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [inNavbar, setInNavbar] = useState(false);
   const [overTextField, setOverTextField] = useState(false);
 
   // Zero-rerender motion values updated directly on mousemove
   const rawX = useMotionValue(-100);
   const rawY = useMotionValue(-100);
 
-  const mainX = useSpring(rawX, { damping: 28, stiffness: 520, mass: 0.35 });
-  const mainY = useSpring(rawY, { damping: 28, stiffness: 520, mass: 0.35 });
+  const mainX = useSpring(rawX, { damping: 32, stiffness: 620, mass: 0.25 });
+  const mainY = useSpring(rawY, { damping: 32, stiffness: 620, mass: 0.25 });
 
-  const trailX = useSpring(rawX, { damping: 26, stiffness: 220, mass: 0.7 });
-  const trailY = useSpring(rawY, { damping: 26, stiffness: 220, mass: 0.7 });
-
-  const glowX = useSpring(rawX, { damping: 36, stiffness: 150, mass: 0.95 });
-  const glowY = useSpring(rawY, { damping: 36, stiffness: 150, mass: 0.95 });
+  const trailX = useSpring(rawX, { damping: 28, stiffness: 260, mass: 0.55 });
+  const trailY = useSpring(rawY, { damping: 28, stiffness: 260, mass: 0.55 });
 
   useEffect(() => {
     const pointerQuery = window.matchMedia('(pointer: fine)');
@@ -67,6 +66,7 @@ export function NeonCursor() {
       const target = e.target as HTMLElement | null;
       if (target) {
         setOverTextField(Boolean(target.closest(TEXT_FIELD_SELECTOR)));
+        setInNavbar(Boolean(target.closest(NAVBAR_SELECTOR)));
         setIsHovering(Boolean(target.closest(INTERACTIVE_SELECTOR)));
       }
     };
@@ -76,6 +76,7 @@ export function NeonCursor() {
     const handleMouseLeave = () => {
       setVisible(false);
       setIsHovering(false);
+      setInNavbar(false);
       setIsClicking(false);
     };
     const handleMouseEnter = () => setVisible(true);
@@ -101,10 +102,11 @@ export function NeonCursor() {
   if (!enabled) return null;
 
   const showDot = visible && !overTextField;
+  const showOuter = showDot && !inNavbar;
 
   return (
     <div className="neon-cursor-container" aria-hidden="true">
-      {/* Main cursor dot */}
+      {/* Crisp inner cursor dot (stays alone & steady inside navbar) */}
       <motion.div
         className="cursor-main"
         style={{
@@ -115,12 +117,12 @@ export function NeonCursor() {
         }}
         animate={{
           opacity: showDot ? 1 : 0,
-          scale: isClicking ? 0.8 : isHovering ? 1.25 : 1,
+          scale: isClicking ? 0.8 : inNavbar ? 1 : isHovering ? 1.15 : 1,
         }}
         transition={{ duration: 0.14 }}
       />
 
-      {/* Trailing ring */}
+      {/* Minimal outer trailing ring (disappears cleanly inside navbar) */}
       <motion.div
         className="cursor-trail"
         style={{
@@ -130,27 +132,10 @@ export function NeonCursor() {
           translateY: '-50%',
         }}
         animate={{
-          opacity: showDot ? 1 : 0,
-          scale: isHovering ? 1.45 : isClicking ? 0.9 : 1,
-          borderWidth: isHovering ? '3px' : '2px',
+          opacity: showOuter ? 1 : 0,
+          scale: !showOuter ? 0.45 : isHovering ? 1.2 : isClicking ? 0.88 : 1,
         }}
-        transition={{ duration: 0.18 }}
-      />
-
-      {/* Outer ambient glow */}
-      <motion.div
-        className="cursor-glow"
-        style={{
-          x: glowX,
-          y: glowY,
-          translateX: '-50%',
-          translateY: '-50%',
-        }}
-        animate={{
-          opacity: showDot ? (isHovering ? 0.75 : 0.35) : 0,
-          scale: isHovering ? 1.8 : 1,
-        }}
-        transition={{ duration: 0.22 }}
+        transition={{ duration: 0.16, ease: 'easeOut' }}
       />
     </div>
   );

@@ -48,7 +48,7 @@ const currentDir = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(currentDir, '..');
 const DIST_DIR = path.join(ROOT_DIR, 'dist');
 const BASE_URL = 'https://www.eon8.com';
-const DEFAULT_OG_IMAGE = `${BASE_URL}/wp-content/uploads/2026/03/Logo_bg-1.png`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/wp-content/uploads/2022/07/banner-1.jpg`;
 
 const EXCLUDED_SITEMAP_SLUGS = new Set<string>([
   'nft-marketing-services-testing',
@@ -170,9 +170,8 @@ async function buildManifest(): Promise<void> {
   });
 
   addPage('chatgpt-ads-agency/blog', {
-    title: 'ChatGPT Ads & AI Search Playbook | EON8',
-    description:
-      'Research, playbooks, and insights on ChatGPT Ads, Answer Engine Optimisation (AEO), and Generative Engine Optimisation (GEO) by EON8.',
+    title: 'Blog | EON8',
+    description: 'Articles on ChatGPT visibility, local business discovery, and ads.',
     canonicalPath: '/chatgpt-ads-agency/blog',
     inSitemap: true,
     priority: '0.8',
@@ -180,9 +179,8 @@ async function buildManifest(): Promise<void> {
   });
 
   addPage('chatgpt-ads-agency/education', {
-    title: 'ChatGPT Ads Education Hub — AEO & GEO Guide | EON8',
-    description:
-      'Understand how ChatGPT Ads, AEO, and GEO work together to get Indian brands cited in AI answers and capture high-intent buyer enquiries.',
+    title: 'AI Visibility Education | EON8',
+    description: 'Practical lessons on auditing and improving AI visibility.',
     canonicalPath: '/chatgpt-ads-agency/education',
     inSitemap: true,
     priority: '0.8',

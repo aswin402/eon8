@@ -50,15 +50,11 @@ export function ChatgptAdsSubPage({ mode }: ChatgptAdsSubPageProps) {
   return (
     <div className="bg-background text-foreground">
       <PageSeo
-        title={
-          isBlog
-            ? 'ChatGPT & AI Search Visibility Blog | EON8'
-            : 'AI Visibility Education | EON8'
-        }
+        title={isBlog ? 'Blog | EON8' : 'AI Visibility Education | EON8'}
         description={
           isBlog
-            ? 'Practical articles on AI search, ChatGPT visibility, local discovery, and paid placements by EON8.'
-            : 'A practical guide to checking how ChatGPT and AI search engines find and describe your business.'
+            ? 'Articles on ChatGPT visibility, local business discovery, and ads.'
+            : 'Practical lessons on auditing and improving AI visibility.'
         }
         canonicalPath={currentPath}
       />
