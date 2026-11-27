@@ -29,6 +29,7 @@ import {
 } from '@/components/sections';
 import { SpamHoneypotField } from '@/components/ui/SpamHoneypotField';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
+import { telHref, useSiteSettings } from '@/lib/siteSettings';
 import { useFocusTrap } from '@/lib/useFocusTrap';
 
 interface ShowcaseExample {
@@ -353,6 +354,7 @@ function getBrandInitials(brand: string): string {
 }
 
 export function ChatgptAdsAgencyPage() {
+  const { contact } = useSiteSettings();
   const [activeCaseIdx, setActiveCaseIdx] = useState(0);
   const [expandedPkg, setExpandedPkg] = useState<string | null>(null);
   const [dialogMode, setDialogMode] = useState<DialogMode>(null);
@@ -433,7 +435,7 @@ export function ChatgptAdsAgencyPage() {
       `Target market: ${market}`,
       `Focus: ${title}`,
     ].join('\n');
-    return `mailto:info@eon8.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -580,7 +582,7 @@ export function ChatgptAdsAgencyPage() {
                           href={currentCase.sourceUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card border border-border text-xs font-bold text-[#0053C6] dark:text-sky-400 hover:border-[#FD5900] no-underline transition-colors"
+                          className="inline-flex items-center gap-1.5 min-h-[32px] px-3 py-1.5 rounded-full bg-card border border-border text-xs font-bold text-[#0053C6] dark:text-sky-400 hover:border-[#FD5900] no-underline transition-colors"
                         >
                           <span>Source: {currentCase.source}</span>
                           <ExternalLink className="w-3 h-3 shrink-0" />
@@ -617,7 +619,7 @@ export function ChatgptAdsAgencyPage() {
                               href={currentCase.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
+                              className="inline-flex items-center gap-1 min-h-[36px] py-1.5 text-xs sm:text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
                             >
                               <span>{currentCase.cta}</span>
                               <ArrowUpRight className="w-4 h-4 shrink-0" />
@@ -671,11 +673,11 @@ export function ChatgptAdsAgencyPage() {
             <span>Chennai · Bengaluru · Hyderabad · Mumbai</span>
           </div>
           <a
-            href="tel:+919042294007"
-            className="inline-flex items-center gap-2 text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] font-bold no-underline transition-colors"
+            href={telHref(contact.phone)}
+            className="inline-flex items-center gap-2 min-h-[36px] py-1.5 text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] font-bold no-underline transition-colors"
           >
             <Phone className="w-4 h-4 shrink-0" />
-            <span>Call +91 90422 94007</span>
+            <span>Call {contact.phone}</span>
           </a>
         </div>
       </section>
@@ -721,7 +723,7 @@ export function ChatgptAdsAgencyPage() {
                     <button
                       type="button"
                       onClick={() => openServiceDialog(svc.focus)}
-                      className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 group-hover:text-[#FD5900] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 group-hover:text-[#FD5900] transition-colors cursor-pointer"
                     >
                       <span>{svc.cta}</span>
                       <ArrowUpRight className="w-4 h-4 shrink-0" />
@@ -1224,7 +1226,7 @@ export function ChatgptAdsAgencyPage() {
                     <button
                       type="submit"
                       disabled={submittingAudit}
-                      className="flex-1 inline-flex items-center justify-center gap-2 min-h-[46px] px-5 py-2.5 rounded-xl bg-[#FD5900] hover:bg-[#e55000] text-white font-bold text-sm transition-all cursor-pointer disabled:opacity-60"
+                      className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 min-h-[46px] px-5 py-2.5 rounded-xl bg-[#FD5900] hover:bg-[#e55000] text-white font-bold text-sm transition-all cursor-pointer disabled:opacity-60"
                     >
                       <span>{submittingAudit ? 'Submitting…' : 'Submit Inquiry'}</span>
                       <ArrowUpRight className="w-4 h-4" />
@@ -1242,9 +1244,9 @@ export function ChatgptAdsAgencyPage() {
                     Or email directly via{' '}
                     <a
                       href={buildMailtoHref(dialogMode.isPackage)}
-                      className="font-semibold text-[#0053C6] dark:text-sky-400 underline"
+                      className="inline-flex items-center min-h-[28px] py-1 font-semibold text-[#0053C6] dark:text-sky-400 underline"
                     >
-                      info@eon8.com
+                      {contact.email}
                     </a>
                     .
                   </p>

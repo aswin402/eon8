@@ -153,7 +153,7 @@ export function CaptureModal() {
               duration: 0.25,
               x: { duration: 0.4, ease: 'easeInOut' }
             }}
-            className="bg-card dark:bg-slate-900 border border-border/50 shadow-2xl rounded-3xl p-6 md:p-8 w-full max-w-lg relative z-10 overflow-hidden"
+            className="bg-card dark:bg-slate-900 border border-border/50 shadow-2xl rounded-3xl p-5 sm:p-6 md:p-8 w-full max-w-lg max-h-[92vh] overflow-y-auto overflow-x-hidden relative z-10"
           >
             {/* Top Glowing gradient indicator */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-orange-500 via-primary to-blue-500" />
@@ -244,7 +244,7 @@ export function CaptureModal() {
                 </div>
 
                 {/* Captcha challenge */}
-                <div className="space-y-1.5 bg-muted/30 border border-border/10 p-4 rounded-xl flex items-center justify-between gap-4">
+                <div className="bg-muted/30 border border-border/10 p-3.5 sm:p-4 rounded-xl flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-2 shrink-0">
                     <span className="text-sm font-semibold tracking-wide text-foreground/90 font-mono">
                       {num1} + {num2} = ?
@@ -252,7 +252,8 @@ export function CaptureModal() {
                     <button
                       type="button"
                       onClick={generateCaptcha}
-                      className="p-1 hover:bg-muted/40 rounded-lg text-muted-foreground hover:text-foreground transition-all"
+                      aria-label="Refresh Captcha"
+                      className="h-8 w-8 inline-flex items-center justify-center hover:bg-muted/40 rounded-lg text-muted-foreground hover:text-foreground transition-all cursor-pointer"
                       title="Refresh Captcha"
                     >
                       <RefreshCw className="w-3.5 h-3.5" />
@@ -264,7 +265,7 @@ export function CaptureModal() {
                     placeholder="Enter answer"
                     value={captchaInput}
                     onChange={(e) => setCaptchaInput(e.target.value)}
-                    className={`w-28 h-9 text-center bg-background border ${
+                    className={`w-28 h-10 text-center bg-background border ${
                       captchaError ? 'border-red-500 focus:ring-red-500/10' : 'border-border/30 focus:border-primary'
                     } rounded-lg text-sm font-bold focus:outline-none focus:ring-1 transition-all`}
                   />

@@ -231,6 +231,18 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen && !activeDropdown) return undefined;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+        setActiveDropdown(null);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isMobileMenuOpen, activeDropdown]);
+
   const isNavItemActive = (item: NavItem) => {
     if (pathname === item.href) return true;
     if (item.submenu?.some((s) => s.href === pathname)) return true;
@@ -487,10 +499,13 @@ export function Navbar() {
             />
 
             <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 220 }}
+              transition={{ duration: 0.22, ease: 'easeOut' }}
               className="fixed top-0 right-0 bottom-0 w-[min(90vw,24rem)] bg-white dark:bg-slate-950 border-l border-border z-50 p-5 sm:p-6 flex flex-col justify-between shadow-2xl lg:hidden"
             >
               <div className="flex flex-col min-h-0 flex-1">
@@ -530,6 +545,7 @@ export function Navbar() {
                           }
                           className="h-11 w-11 inline-flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-[#FD5900]"
                           aria-label={`Toggle ${item.label} submenu`}
+                          aria-expanded={activeMobileSubmenu === item.label}
                         >
                           <ChevronDown
                             className={`w-4 h-4 transition-transform duration-200 ${
@@ -647,18 +663,28 @@ export function Navbar() {
                 </nav>
               </div>
 
-              <div className="border-t border-border pt-4 mt-4 space-y-2.5 text-xs text-slate-600 dark:text-slate-400 shrink-0">
+              <div className="border-t border-border pt-3 mt-4 space-y-1 text-xs text-slate-600 dark:text-slate-400 shrink-0">
                 <div className="flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-[#FD5900]" />
-                  <a href={telHref(contact.phone)} className="hover:text-[#0053C6] font-medium">{contact.phone}</a>
+                  <Phone className="w-4 h-4 text-[#FD5900] shrink-0" />
+                  <a
+                    href={telHref(contact.phone)}
+                    className="inline-flex items-center min-h-[36px] py-1.5 hover:text-[#0053C6] font-medium"
+                  >
+                    {contact.phone}
+                  </a>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <Mail className="w-4 h-4 text-[#0053C6]" />
-                  <a href={`mailto:${contact.email}`} className="hover:text-[#0053C6] font-medium">{contact.email}</a>
+                  <Mail className="w-4 h-4 text-[#0053C6] shrink-0" />
+                  <a
+                    href={`mailto:${contact.email}`}
+                    className="inline-flex items-center min-h-[36px] py-1.5 hover:text-[#0053C6] font-medium"
+                  >
+                    {contact.email}
+                  </a>
                 </div>
-                <div className="flex items-start gap-2.5">
+                <div className="flex items-start gap-2.5 pt-1">
                   <MapPin className="w-4 h-4 text-[#0053C6] shrink-0 mt-0.5" />
-                  <span>Mumbai, Hyderabad, Bangalore, Chennai</span>
+                  <span>{contact.address}</span>
                 </div>
               </div>
             </motion.div>

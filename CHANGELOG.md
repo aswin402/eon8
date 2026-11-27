@@ -6,6 +6,17 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.10.1] - 2026-11-27
+
+### Fixed
+- **Full-Site Responsive & Mobile QA (`320px`, `375px`, `430px`, `768px`, `1024px`, `1150px`, `1280px`, `1440px`)**:
+  - **Short-Viewport Modal Scrollability (`CaptureModal.tsx`)**: Added `max-h-[92vh] overflow-y-auto overflow-x-hidden` so the consultation form never clips vertically on short mobile/landscape viewports (`320×568`, `375×667`), wrapped the captcha row cleanly on `320px`, and enlarged the Refresh Captcha icon button to `32×32px` with `aria-label`.
+  - **Mobile Drawer & Quick Contact Drawer (`Navbar.tsx`, `FloatingWidgets.tsx`)**: Replaced overshooting spring transitions with crisp `0.22s easeOut` slide transitions (preventing right-edge overshoot on `320px`/`375px`), added `Escape` key closing, `role="dialog" aria-modal="true"`, `aria-expanded` on mobile submenu toggles, `max-w-[calc(100vw-16px)] overflow-y-auto` on the quick contact drawer, upgraded mobile drawer phone/email tap targets to `min-h-[36px]`, and synced `useSiteSettings()` (`contact.phone`, `contact.whatsapp`, `contact.address`).
+  - **Mobile Tap Targets (`ContactPage.tsx`, `ChatgptAdsAgencyPage.tsx`, `ChatgptAdsSubPage.tsx`)**: Upgraded all `<24px` standalone links and service CTA buttons to `min-h-[36px] py-1.5` (`ContactPage` phone/email + responsive map height `h-[320px] sm:h-[420px] lg:h-[540px]`, `ChatgptAdsAgencyPage` mock ad CTA / phone trust strip / 4 Explore capability buttons + `useSiteSettings()`, and `ChatgptAdsSubPage` back link / anchor pills / 5 article links).
+  - **Narrow `320px` Forms, Tables & Pricing Polish (`LeadCaptureCard.tsx`, `TestimonialsAndFaqSection.tsx`, `PricingMatrixSection.tsx`, `AdminDashboardPage.tsx`)**: Adjusted dial-code column width (`94px` at `320px`), tightened `DiscoveryCallSection` Mon–Fri day grid spacing at `320px`, added a mobile-only `"Swipe →"` scroll hint above `PricingMatrixSection` tables, and wrapped the Admin Removed Baseline table in `overflow-x-auto`.
+
+---
+
 ## [3.10.0] - 2026-11-27
 
 ### Added & Restored

@@ -1,5 +1,6 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { LeadCaptureCard, PageSeo, ServiceHeroSection } from '@/components/sections';
+import { telHref, useSiteSettings } from '@/lib/siteSettings';
 
 const PRESENCE_CITIES = [
   { name: 'Hyderabad', img: '/wp-content/uploads/2022/11/hyderabad.svg' },
@@ -9,6 +10,8 @@ const PRESENCE_CITIES = [
 ];
 
 export function ContactPage() {
+  const { contact } = useSiteSettings();
+
   return (
     <div className="bg-background text-foreground">
       <PageSeo
@@ -34,7 +37,7 @@ export function ContactPage() {
             </div>
             <h2 className="text-lg font-heading font-bold text-foreground">Our Locations</h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Mumbai, Hyderabad, Bangalore, Chennai
+              {contact.address}
             </p>
           </div>
 
@@ -45,10 +48,10 @@ export function ContactPage() {
             <h2 className="text-lg font-heading font-bold text-foreground">Call Us</h2>
             <p className="text-sm sm:text-base">
               <a
-                href="tel:+919042294007"
-                className="font-semibold text-foreground hover:text-[#FD5900] transition-colors no-underline"
+                href={telHref(contact.phone)}
+                className="inline-flex items-center justify-center min-h-[36px] py-1.5 font-semibold text-foreground hover:text-[#FD5900] transition-colors no-underline"
               >
-                +91 90422 94007
+                {contact.phone}
               </a>
             </p>
           </div>
@@ -60,10 +63,10 @@ export function ContactPage() {
             <h2 className="text-lg font-heading font-bold text-foreground">Email Us</h2>
             <p className="text-sm sm:text-base">
               <a
-                href="mailto:info@eon8.com"
-                className="font-semibold text-foreground hover:text-[#FD5900] transition-colors no-underline"
+                href={`mailto:${contact.email}`}
+                className="inline-flex items-center justify-center min-h-[36px] py-1.5 font-semibold text-foreground hover:text-[#FD5900] transition-colors no-underline"
               >
-                info@eon8.com
+                {contact.email}
               </a>
             </p>
           </div>
@@ -115,7 +118,7 @@ export function ContactPage() {
             />
           </div>
 
-          <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-border shadow-xl bg-card h-[460px] lg:h-[540px]">
+          <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-border shadow-xl bg-card h-[320px] sm:h-[420px] lg:h-[540px]">
             <iframe
               title="Eon8 Chennai Office Map"
               allowFullScreen

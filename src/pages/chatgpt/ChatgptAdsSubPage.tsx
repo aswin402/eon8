@@ -54,7 +54,7 @@ export function ChatgptAdsSubPage({ mode }: ChatgptAdsSubPageProps) {
         <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <Link
             to="/chatgpt-ads-agency"
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
+            className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>ChatGPT Ads Hub</span>
@@ -76,7 +76,7 @@ export function ChatgptAdsSubPage({ mode }: ChatgptAdsSubPageProps) {
               <a
                 key={anchor.href}
                 href={anchor.href}
-                className="px-3.5 py-1.5 rounded-full bg-card border border-border text-xs sm:text-sm font-bold text-foreground hover:border-[#FD5900] hover:text-[#FD5900] no-underline transition-colors"
+                className="inline-flex items-center min-h-[36px] px-3.5 py-1.5 rounded-full bg-card border border-border text-xs sm:text-sm font-bold text-foreground hover:border-[#FD5900] hover:text-[#FD5900] no-underline transition-colors"
               >
                 {anchor.label}
               </a>
@@ -115,7 +115,7 @@ export function ChatgptAdsSubPage({ mode }: ChatgptAdsSubPageProps) {
                 <div className="pt-2">
                   <Link
                     to="/chatgpt-ads-agency#examples"
-                    className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
+                    className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
                   >
                     <span>See four worked examples</span>
                     <ArrowRight className="w-4 h-4" />
@@ -148,7 +148,7 @@ export function ChatgptAdsSubPage({ mode }: ChatgptAdsSubPageProps) {
                 <div className="pt-2">
                   <Link
                     to="/chatgpt-ads-agency#local-business"
-                    className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
+                    className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
                   >
                     <span>See EON8’s local business service</span>
                     <ArrowRight className="w-4 h-4" />
@@ -177,7 +177,7 @@ export function ChatgptAdsSubPage({ mode }: ChatgptAdsSubPageProps) {
                     href="https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
+                    className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
                   >
                     <span>Read OpenAI’s ad-format guide</span>
                     <ExternalLink className="w-4 h-4" />
@@ -236,7 +236,7 @@ export function ChatgptAdsSubPage({ mode }: ChatgptAdsSubPageProps) {
                 <div className="pt-2">
                   <Link
                     to="/chatgpt-ads-agency#local-business"
-                    className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
+                    className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
                   >
                     <span>Explore claiming and local optimization</span>
                     <ArrowRight className="w-4 h-4" />
@@ -267,7 +267,7 @@ export function ChatgptAdsSubPage({ mode }: ChatgptAdsSubPageProps) {
                 <div className="pt-2">
                   <Link
                     to="/chatgpt-ads-agency#examples"
-                    className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
+                    className="inline-flex items-center gap-1.5 min-h-[36px] py-1.5 text-sm font-bold text-[#0053C6] dark:text-sky-400 hover:text-[#FD5900] no-underline"
                   >
                     <span>See where a sponsored ChatGPT ad can appear</span>
                     <ArrowRight className="w-4 h-4" />

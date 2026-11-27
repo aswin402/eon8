@@ -59,6 +59,10 @@ export function PricingMatrixSection({
         </div>
 
         <div className="rounded-2xl border border-border bg-card shadow-lg overflow-hidden">
+          <div className="md:hidden px-4 py-2 text-xs font-semibold text-muted-foreground bg-slate-50 dark:bg-slate-900/70 border-b border-border flex items-center justify-between">
+            <span>Compare all plans</span>
+            <span>Swipe →</span>
+          </div>
           <div className="overflow-x-auto">
             <table className="w-full min-w-[680px] border-collapse text-left">
               <thead>

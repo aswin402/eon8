@@ -612,37 +612,39 @@ export function AdminDashboardPage() {
                     No removed baseline articles.
                   </div>
                 ) : (
-                  <table className="w-full text-left border-collapse">
-                    <thead>
-                      <tr className="border-b border-border bg-muted/50 text-[11px] font-extrabold uppercase tracking-wider text-muted-foreground">
-                        <th className="py-3.5 px-5">Title</th>
-                        <th className="py-3.5 px-5">Slug</th>
-                        <th className="py-3.5 px-5 text-right">Restore</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-border text-sm">
-                      {deletedStaticPosts.map((item) => (
-                        <tr key={item.id}>
-                          <td className="py-3.5 px-5 font-semibold text-foreground">
-                            {item.title}
-                          </td>
-                          <td className="py-3.5 px-5 text-xs font-mono text-muted-foreground">
-                            /blog/{item.slug}
-                          </td>
-                          <td className="py-3.5 px-5 text-right">
-                            <button
-                              type="button"
-                              onClick={() => void restoreStaticPost(item.id, item.slug)}
-                              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold cursor-pointer"
-                            >
-                              <ArchiveRestore className="w-3.5 h-3.5" />
-                              <span>Restore</span>
-                            </button>
-                          </td>
+                  <div className="overflow-x-auto">
+                    <table className="w-full min-w-[540px] text-left border-collapse">
+                      <thead>
+                        <tr className="border-b border-border bg-muted/50 text-[11px] font-extrabold uppercase tracking-wider text-muted-foreground">
+                          <th className="py-3.5 px-5">Title</th>
+                          <th className="py-3.5 px-5">Slug</th>
+                          <th className="py-3.5 px-5 text-right">Restore</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody className="divide-y divide-border text-sm">
+                        {deletedStaticPosts.map((item) => (
+                          <tr key={item.id}>
+                            <td className="py-3.5 px-5 font-semibold text-foreground">
+                              {item.title}
+                            </td>
+                            <td className="py-3.5 px-5 text-xs font-mono text-muted-foreground">
+                              /blog/{item.slug}
+                            </td>
+                            <td className="py-3.5 px-5 text-right">
+                              <button
+                                type="button"
+                                onClick={() => void restoreStaticPost(item.id, item.slug)}
+                                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold cursor-pointer"
+                              >
+                                <ArchiveRestore className="w-3.5 h-3.5" />
+                                <span>Restore</span>
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 )}
               </div>
             )}

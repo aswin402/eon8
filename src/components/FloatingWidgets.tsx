@@ -4,8 +4,10 @@ import { PhoneCall, MessageCircle, X, Send, CheckCircle2, ArrowUp, Mail } from '
 import { Button } from '@/components/ui/button';
 import { SpamHoneypotField } from '@/components/ui/SpamHoneypotField';
 import { submitLeadEnquiry, type LeadSubmissionResult } from '@/lib/leadSubmission';
+import { telHref, useSiteSettings } from '@/lib/siteSettings';
 
 export function FloatingWidgets() {
+  const { contact } = useSiteSettings();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [name, setName] = useState('');
@@ -22,6 +24,15 @@ export function FloatingWidgets() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isDrawerOpen) return undefined;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsDrawerOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isDrawerOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,7 +69,7 @@ export function FloatingWidgets() {
         <motion.a
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          href="https://wa.me/919042294007"
+          href={`https://wa.me/${contact.whatsapp}`}
           target="_blank"
           rel="noreferrer"
           className="w-11 h-11 bg-[#28d347] hover:bg-[#f16f00] rounded-full flex items-center justify-center text-white shadow-lg transition-colors"
@@ -71,7 +82,7 @@ export function FloatingWidgets() {
         <motion.a
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          href="tel:+919042294007"
+          href={telHref(contact.phone)}
           className="w-11 h-11 bg-[#28d347] hover:bg-[#f16f00] rounded-full flex items-center justify-center text-white shadow-lg transition-colors"
           title="Call Us"
           aria-label="Call Us"
@@ -126,13 +137,16 @@ export function FloatingWidgets() {
             />
 
             <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label="Quick Contact Form"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="fixed top-0 right-0 bottom-0 w-80 bg-card border-l border-border p-6 z-50 flex flex-col shadow-2xl"
+              transition={{ duration: 0.22, ease: 'easeOut' }}
+              className="fixed top-0 right-0 bottom-0 w-80 max-w-[calc(100vw-16px)] overflow-y-auto bg-card border-l border-border p-5 sm:p-6 z-50 flex flex-col shadow-2xl"
             >
-              <div className="flex items-center justify-between border-b border-border pb-4 mb-5">
+              <div className="flex items-center justify-between border-b border-border pb-4 mb-5 shrink-0">
                 <div>
                   <h4 className="text-lg font-heading font-extrabold text-foreground">Contact Us</h4>
                   <p className="text-xs text-muted-foreground">Submit details for a prompt reply</p>
@@ -141,7 +155,7 @@ export function FloatingWidgets() {
                   type="button"
                   onClick={() => setIsDrawerOpen(false)}
                   aria-label="Close contact drawer"
-                  className="p-2 hover:bg-muted rounded-lg text-muted-foreground hover:text-foreground transition-colors"
+                  className="h-9 w-9 inline-flex items-center justify-center hover:bg-muted rounded-lg text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>

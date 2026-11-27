@@ -404,7 +404,7 @@ export function DiscoveryCallSection({
                     setName('');
                     setEmail('');
                   }}
-                  className="mt-2 text-xs font-bold text-[#0053C6] dark:text-sky-400 underline cursor-pointer"
+                  className="mt-2 inline-flex items-center min-h-[36px] py-1.5 text-xs font-bold text-[#0053C6] dark:text-sky-400 underline cursor-pointer"
                 >
                   Schedule another time
                 </button>
@@ -416,13 +416,13 @@ export function DiscoveryCallSection({
                   <span className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
                     Select Preferred Day
                   </span>
-                  <div className="grid grid-cols-5 gap-2">
+                  <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
                     {DAYS.map((day) => (
                       <button
                         key={day}
                         type="button"
                         onClick={() => setSelectedDay(day)}
-                        className={`py-2.5 rounded-xl text-sm font-bold border transition-colors cursor-pointer ${
+                        className={`px-1 py-2.5 rounded-xl text-xs sm:text-sm font-bold border transition-colors cursor-pointer ${
                           selectedDay === day
                             ? 'bg-[#0053C6] text-white border-[#0053C6]'
                             : 'bg-slate-50 dark:bg-slate-800/80 text-foreground border-border hover:border-[#0053C6]'

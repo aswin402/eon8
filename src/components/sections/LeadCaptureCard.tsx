@@ -167,12 +167,12 @@ export function LeadCaptureCard({
           />
         </div>
 
-        <div className="grid grid-cols-[106px_1fr] gap-2.5">
+        <div className="grid grid-cols-[94px_1fr] sm:grid-cols-[106px_1fr] gap-2 sm:gap-2.5">
           <select
             aria-label="Country dial code"
             value={dialCode}
             onChange={(e) => setDialCode(e.target.value)}
-            className={inputCls}
+            className={`${inputCls} px-2.5 sm:px-3.5`}
           >
             {DIAL_CODES.map((d) => (
               <option key={d.value} value={d.value}>
