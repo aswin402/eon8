@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 export interface SiteSettings {
   contact: { phone: string; whatsapp: string; email: string; address: string };
   social: { instagram: string; facebook: string; linkedin: string; x: string; youtube: string };
-  branding: { headerLogo: string; footerLogo: string; favicon: string; shareImage: string };
+  branding: { headerLogo: string; headerLogoDark: string; footerLogo: string; favicon: string; shareImage: string };
 }
 
 /** Same values the site used before settings existed, shown until the API answers. */
@@ -24,6 +24,7 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   },
   branding: {
     headerLogo: '/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png',
+    headerLogoDark: '/wp-content/uploads/2026/03/Logo_bg-1.png',
     footerLogo: '/wp-content/uploads/2026/03/Logo_bg-1.png',
     favicon: '/favicon.svg',
     shareImage: '',

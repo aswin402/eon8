@@ -286,10 +286,20 @@ export function Navbar() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 xl:px-8 h-[74px] sm:h-[82px] flex items-center justify-between gap-2 xl:gap-4">
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0 hover:opacity-95 transition-opacity">
+            {/* Same sizes as eon8.com: 39px high on phones, 45px on tablets, 50px on desktop. */}
             <img
               src={branding.headerLogo}
               alt="Eon8 Logo"
-              className="h-9 sm:h-10 lg:h-9 xl:h-[50px] w-auto max-w-[132px] xl:max-w-[240px] object-contain dark:invert"
+              width={1042}
+              height={239}
+              className="h-[39px] sm:h-[45px] lg:h-9 xl:h-[50px] w-auto max-w-none lg:max-w-[132px] xl:max-w-[240px] object-contain dark:hidden"
+            />
+            <img
+              src={branding.headerLogoDark}
+              alt="Eon8 Logo"
+              width={1217}
+              height={233}
+              className="hidden dark:block h-[39px] sm:h-[45px] lg:h-9 xl:h-[50px] w-auto max-w-none lg:max-w-[132px] xl:max-w-[240px] object-contain"
             />
           </Link>
 
@@ -499,7 +509,16 @@ export function Navbar() {
                     <img
                       src={branding.headerLogo}
                       alt="Eon8 Logo"
-                      className="h-9 w-auto dark:invert"
+                      width={1042}
+                      height={239}
+                      className="h-9 w-auto dark:hidden"
+                    />
+                    <img
+                      src={branding.headerLogoDark}
+                      alt="Eon8 Logo"
+                      width={1217}
+                      height={233}
+                      className="hidden dark:block h-9 w-auto"
                     />
                   </Link>
                   <button

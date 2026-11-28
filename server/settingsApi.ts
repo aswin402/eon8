@@ -77,12 +77,14 @@ export const SETTINGS: Record<string, SettingDef> = {
     public: true,
     defaults: {
       headerLogo: '/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png',
+      headerLogoDark: '/wp-content/uploads/2026/03/Logo_bg-1.png',
       footerLogo: '/wp-content/uploads/2026/03/Logo_bg-1.png',
       favicon: '/favicon.svg',
       shareImage: '',
     },
     validate: (i) => ({
       headerLogo: imagePath(i.headerLogo, 'Header logo', true),
+      headerLogoDark: imagePath(i.headerLogoDark, 'Header logo (dark mode)', true),
       footerLogo: imagePath(i.footerLogo, 'Footer logo', true),
       favicon: imagePath(i.favicon, 'Favicon', true),
       shareImage: imagePath(i.shareImage, 'Default share image', false),
