@@ -98,13 +98,20 @@ When a lead is saved, the browser pushes a `generate_lead` event (with `lead_sou
 
 ## Tests
 
-`npm run test:e2e` runs about 140 backend checks against a running server with a
+`npm run test:e2e` runs about 170 backend checks against a running server with a
 **fresh test database** (it creates test data). Set `E2E_BASE_URL`,
 `E2E_ADMIN_EMAIL` and `E2E_ADMIN_PASSWORD` (the first-admin values). The server
 should run with a test `DATA_ENCRYPTION_KEY`; for a server without one set
 `E2E_EXPECT_LEAD_ENCRYPTION=off`. CI
 (`.github/workflows/ci.yml`) runs lint, build and these tests against PostgreSQL
 on every push.
+
+`npm run test:urls -- <url>` checks all 308 old WordPress URLs. `npm run test:visual`
+compares full-page screenshots of 25 page types at four widths with a saved baseline
+(`npm run test:visual:baseline`), using the Chrome or Edge installed on the computer; it runs
+locally, not in CI. `tests/style-audit.mjs` measures fonts, sizes, alignment, logos and
+animations on any site so the new build can be compared with eon8.com. How these fit into
+each change is described in `docs/WORKFLOW.md`.
 
 ## Deployment
 
