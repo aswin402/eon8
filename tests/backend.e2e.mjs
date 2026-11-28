@@ -378,12 +378,20 @@ check('newsletter: changing type moves the URL', issueRedirect.status === 301 &&
 await admin.req('DELETE', `/api/cms/admin/posts/${newsId}?slug=e2e-news-item`);
 
 // --- Branding (logos and favicon) -------------------------------------------------------------
+const defaultHtml = await fetch(`${BASE}/about-us/`).then((r) => r.text());
+check('favicon: EON8 icon set in every page', ['/favicon.ico', '/favicon-32x32.png', '/apple-touch-icon.png', '/site.webmanifest'].every((h) => defaultHtml.includes(`href="${h}"`)) && !defaultHtml.includes('favicon.svg'));
+const manifestRes = await fetch(`${BASE}/site.webmanifest`);
+check('favicon: web manifest served as JSON', manifestRes.status === 200 && /manifest\+json/.test(manifestRes.headers.get('content-type') || '') && (await manifestRes.json()).icons?.length === 3);
+for (const icon of ['/favicon.ico', '/favicon-32x32.png', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png', '/icon-maskable-512.png', '/wp-content/uploads/2019/07/favicon.png']) {
+  check(`favicon: ${icon} exists`, (await fetch(`${BASE}${icon}`)).status === 200);
+}
 const brandingBefore = (await admin.req('GET', '/api/admin/settings')).data.settings?.branding;
 check('branding: defaults match the WordPress logos', brandingBefore?.headerLogo === '/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.webp');
 check('branding: rejects non-image paths', (await admin.req('PUT', '/api/admin/settings/branding', { ...brandingBefore, favicon: 'javascript:alert(1)' })).status === 400);
 await admin.req('PUT', '/api/admin/settings/branding', { ...brandingBefore, favicon: '/uploads/blog/e2e-icon.png', shareImage: '/uploads/blog/e2e-share.jpg' });
 const brandedHtml = await fetch(`${BASE}/about-us/`).then((r) => r.text());
 check('branding: favicon from settings', brandedHtml.includes('<link rel="icon" type="image/png" href="/uploads/blog/e2e-icon.png" />'));
+check('branding: custom favicon replaces the whole icon set', (brandedHtml.match(/rel="icon"/g) || []).length === 1 && brandedHtml.includes('<link rel="apple-touch-icon" href="/uploads/blog/e2e-icon.png" />'));
 check('branding: public settings expose logos', (await anon.req('GET', '/api/settings')).data.settings?.branding?.favicon === '/uploads/blog/e2e-icon.png');
 await admin.req('PUT', '/api/admin/settings/branding', brandingBefore);
 

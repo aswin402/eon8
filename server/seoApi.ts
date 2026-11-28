@@ -180,13 +180,20 @@ export async function injectHead(
 
   const head: string[] = [];
   let out = html;
-  if (brand?.favicon) {
-    // Favicon from Admin > Site Settings > Logos & favicon.
+  // index.html carries the EON8 icon set (favicon.ico, 32px PNG, Apple icon, manifest). Only a
+  // different image chosen in Admin > Site Settings > Logos & favicon replaces it. '/favicon.svg'
+  // was the old default (Vite's placeholder) and is treated as "not changed".
+  if (brand?.favicon && !['/favicon.ico', '/favicon.svg'].includes(brand.favicon)) {
     const ext = brand.favicon.split('?')[0].split('.').pop()?.toLowerCase() ?? '';
     const type = ext === 'svg' ? 'image/svg+xml' : ext === 'ico' ? 'image/x-icon' : `image/${ext === 'jpg' ? 'jpeg' : ext}`;
-    const icon = `<link rel="icon" type="${type}" href="${escapeAttr(brand.favicon)}" />`;
-    out = out.replace(/<link\s+rel="icon"[^>]*>/i, () => icon);
-    head.push(`<link rel="apple-touch-icon" href="${escapeAttr(brand.favicon)}" />`);
+    const href = escapeAttr(brand.favicon);
+    let first = true;
+    out = out.replace(/<link\s+rel="icon"[^>]*>\s*/gi, () => {
+      if (!first) return '';
+      first = false;
+      return `<link rel="icon" type="${type}" href="${href}" />\n    `;
+    });
+    out = out.replace(/<link\s+rel="apple-touch-icon"[^>]*>/i, () => `<link rel="apple-touch-icon" href="${href}" />`);
   }
   if (title) {
     // Replacer functions: a "$" in admin text must not be read as a replace pattern.
