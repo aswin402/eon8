@@ -26,7 +26,7 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
     headerLogo: '/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.webp',
     headerLogoDark: '/wp-content/uploads/2026/03/Logo_bg-1.webp',
     footerLogo: '/wp-content/uploads/2026/03/Logo_bg-1.webp',
-    favicon: '/favicon.svg',
+    favicon: '/favicon.ico',
     shareImage: '',
   },
 };
