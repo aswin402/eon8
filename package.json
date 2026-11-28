@@ -33,6 +33,9 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
+    "pixelmatch": "^8.0.0",
+    "playwright-core": "^1.65.1",
+    "pngjs": "^7.0.0",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.57.2",
     "vite": "^8.0.2"
@@ -55,7 +58,9 @@
     "db:backup": "bash deploy/backup.sh",
     "db:up": "docker compose up -d db",
     "db:down": "docker compose down",
-    "test:urls": "node tests/url-check.mjs"
+    "test:urls": "node tests/url-check.mjs",
+    "test:visual": "node tests/visual.mjs compare",
+    "test:visual:baseline": "node tests/visual.mjs baseline"
   },
   "type": "module",
   "version": "0.0.0"
