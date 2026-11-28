@@ -13,7 +13,7 @@ export const chatgptThreatToGooglePost: BlogPost = {
   "dateIso": "2023-01-05",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2023/01/google-dead.png",
+  "thumbnail": "/wp-content/uploads/2023/01/google-dead.webp",
   "excerpt": "In recent years, AI or artificial intelligence have made rapid advancements in the digital world. From optimizing chatbots to understanding…",
   "blocks": [
     {
@@ -36,12 +36,12 @@ export const chatgptThreatToGooglePost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2023/01/chat-gpt.png",
+      "src": "/wp-content/uploads/2023/01/chat-gpt.webp",
       "alt": ""
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2023/01/chat-gpt-2.png",
+      "src": "/wp-content/uploads/2023/01/chat-gpt-2.webp",
       "alt": ""
     },
     {
@@ -190,7 +190,7 @@ export const chatgptThreatToGooglePost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2023/01/chat-gpt-3.png",
+      "src": "/wp-content/uploads/2023/01/chat-gpt-3.webp",
       "alt": ""
     },
     {

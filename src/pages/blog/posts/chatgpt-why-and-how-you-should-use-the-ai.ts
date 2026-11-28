@@ -13,7 +13,7 @@ export const chatgptWhyAndHowYouShouldUseTheAiPost: BlogPost = {
   "dateIso": "2023-01-30",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2023/01/Why-and-How-You-Should-Use-The-AI.png",
+  "thumbnail": "/wp-content/uploads/2023/01/Why-and-How-You-Should-Use-The-AI.webp",
   "excerpt": "The last few months have been hectic for everyone in the industry (in a good way). It was like the…",
   "blocks": [
     {

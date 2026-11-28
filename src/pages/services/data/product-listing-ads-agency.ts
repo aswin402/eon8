@@ -116,7 +116,7 @@ export const productListingAdsAgencyData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2026/04/Screenshot-2026-04-09-130318.png",
+      "imageSrc": "/wp-content/uploads/2026/04/Screenshot-2026-04-09-130318.webp",
       "imageAlt": "gads",
       "actions": []
     },

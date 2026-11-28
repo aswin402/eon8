@@ -12,7 +12,7 @@ export const allYouNeedToKnowAboutShopifySeoForYourBusinessPost: BlogPost = {
   "dateIso": "2021-06-24",
   "readTime": "2 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/06/5540850.jpg",
+  "thumbnail": "/wp-content/uploads/2021/06/5540850.webp",
   "excerpt": "Every business owner’s worst nightmare is not getting customers to either online or physical stores, where in online stores we…",
   "blocks": [
     {

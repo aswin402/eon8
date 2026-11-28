@@ -78,7 +78,7 @@ export const displayAdvertisingAgencyData: ServicePageData = {
         "Support product launches",
         "Strengthen multi-channel marketing"
       ],
-      "imageSrc": "/wp-content/uploads/2020/11/Display-Advertising-for-Sustainable-Growth.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Display-Advertising-for-Sustainable-Growth.webp",
       "imageAlt": "Display Advertising for Sustainable Growth​",
       "actions": []
     },
@@ -166,7 +166,7 @@ export const displayAdvertisingAgencyData: ServicePageData = {
         "Strong Brand Visibility",
         "Measurable Performance Tracking"
       ],
-      "imageSrc": "/wp-content/uploads/2020/11/If-you-want-some-energy-for-your-business-you-are-in-the-right-place-EON8.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/If-you-want-some-energy-for-your-business-you-are-in-the-right-place-EON8.webp",
       "imageAlt": "If you want some energy for your business you are in the right place EON8",
       "actions": []
     },

@@ -12,12 +12,12 @@ export const erpSoftwareDevelopment2Post: BlogPost = {
   "dateIso": "2026-10-22",
   "readTime": "6 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/10/ERP-software-development_EON-1024x538.jpg",
+  "thumbnail": "/wp-content/uploads/2026/10/ERP-software-development_EON-1024x538.webp",
   "excerpt": "As businesses grow, managing daily operations across separate systems can become increasingly difficult. Sales teams maintain customer records, finance teams…",
   "blocks": [
     {
       "type": "image",
-      "src": "/wp-content/uploads/2026/10/ERP-software-development_EON-1024x538.jpg",
+      "src": "/wp-content/uploads/2026/10/ERP-software-development_EON-1024x538.webp",
       "alt": "ERP software development for integrated finance, HR, inventory, sales and business operations"
     },
     {

@@ -12,7 +12,7 @@ export const ormBusinessSuccessPost: BlogPost = {
   "dateIso": "2020-04-29",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2020/04/online-reputation-management.png",
+  "thumbnail": "/wp-content/uploads/2020/04/online-reputation-management.webp",
   "excerpt": "In the widespread internet world, it takes years to build a good online reputation among the audience. As digital media…",
   "blocks": [
     {

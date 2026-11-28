@@ -12,7 +12,7 @@ export const seoIn2025RankingInChatgptEraPost: BlogPost = {
   "dateIso": "2025-07-30",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/06/SEO-in-2025-Ranking-in-the-ChatGPT-Era.jpg",
+  "thumbnail": "/wp-content/uploads/2025/06/SEO-in-2025-Ranking-in-the-ChatGPT-Era.webp",
   "excerpt": "Search engine optimization (SEO) is no longer just about keywords and backlinks—2025 is witnessing a transformational shift where artificial intelligence,…",
   "blocks": [
     {

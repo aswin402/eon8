@@ -12,7 +12,7 @@ export const instagramMarketingAgencyInMumbaiPost: BlogPost = {
   "dateIso": "2022-09-27",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/09/How-instagram-marketing-agency-in-mumbai.png",
+  "thumbnail": "/wp-content/uploads/2022/09/How-instagram-marketing-agency-in-mumbai.webp",
   "excerpt": "The world has become a tech-savvy box, and most organizations chase digital marketing to make their business profitable through online…",
   "blocks": [
     {

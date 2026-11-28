@@ -12,7 +12,7 @@ export const twitterKolMarketingPost: BlogPost = {
   "dateIso": "2025-05-08",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/05/Twitter-KOL-Marketing.png",
+  "thumbnail": "/wp-content/uploads/2025/05/Twitter-KOL-Marketing.webp",
   "excerpt": "In the fast-paced digital world, Twitter KOLs (Key Opinion Leaders) have become some of the most influential voices across industries.…",
   "blocks": [
     {

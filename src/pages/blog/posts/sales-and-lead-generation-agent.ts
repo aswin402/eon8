@@ -12,7 +12,7 @@ export const salesAndLeadGenerationAgentPost: BlogPost = {
   "dateIso": "2026-08-02",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/08/5-2.jpg",
+  "thumbnail": "/wp-content/uploads/2026/08/5-2.webp",
   "excerpt": "Sales organizations are evolving rapidly as customer expectations continue to rise. Modern buyers expect immediate responses, personalized communication, and seamless…",
   "blocks": [
     {

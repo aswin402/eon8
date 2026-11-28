@@ -12,7 +12,7 @@ export const isInvestingOnSocialMediaMarketingGoodForYourBusinessPost: BlogPost 
   "dateIso": "2019-09-04",
   "readTime": "2 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2019/09/post_2.jpg",
+  "thumbnail": "/wp-content/uploads/2019/09/post_2.webp",
   "excerpt": "Choosing the right way to market your product/service and reaching the right target audience has always been hard. And after…",
   "blocks": [
     {

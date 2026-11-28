@@ -12,7 +12,7 @@ export const darkSocialDmCommunityMarketingWeb2Post: BlogPost = {
   "dateIso": "2025-06-14",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/5.-Dark-Social-Is-Bright-Again-Leveraging-DMs-Communities-for-Web2-Growth.png",
+  "thumbnail": "/wp-content/uploads/2025/07/5.-Dark-Social-Is-Bright-Again-Leveraging-DMs-Communities-for-Web2-Growth.webp",
   "excerpt": "In a digital world overflowing with metrics, analytics, and public engagement dashboards, a silent revolution is underway dark social. While…",
   "blocks": [
     {

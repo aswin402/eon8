@@ -13,7 +13,7 @@ export const getYourBrandInstagramProfileVerifiedPost: BlogPost = {
   "dateIso": "2022-11-29",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/11/Essential-Tips-to-Get-Your-Brands-Instagram-Profile-Verified.jpg",
+  "thumbnail": "/wp-content/uploads/2022/11/Essential-Tips-to-Get-Your-Brands-Instagram-Profile-Verified.webp",
   "excerpt": "Getting verified on Instagram is one of the highest forms of validation one can get for managing a valuable and…",
   "blocks": [
     {

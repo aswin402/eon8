@@ -33,7 +33,7 @@ export const nftCollectionMarketingData: NftServicePageData = {
         }
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/07/brush-nft-art.png",
+        "src": "/wp-content/uploads/2022/07/brush-nft-art.webp",
         "alt": "brush",
         "className": "pink-floating pink-img-1"
       }
@@ -63,7 +63,7 @@ export const nftCollectionMarketingData: NftServicePageData = {
         ]
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/07/nft-collection-marketing-agency.png",
+        "src": "/wp-content/uploads/2022/07/nft-collection-marketing-agency.webp",
         "alt": ""
       }
     },
@@ -183,7 +183,7 @@ export const nftCollectionMarketingData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/create-nft-art.png",
+            "src": "/wp-content/uploads/2022/07/create-nft-art.webp",
             "alt": "Create",
             "className": "child"
           }
@@ -199,7 +199,7 @@ export const nftCollectionMarketingData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/share-nft-art.png",
+            "src": "/wp-content/uploads/2022/07/share-nft-art.webp",
             "alt": "Share",
             "className": "child"
           }
@@ -215,7 +215,7 @@ export const nftCollectionMarketingData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/optimize-nft-art.png",
+            "src": "/wp-content/uploads/2022/07/optimize-nft-art.webp",
             "alt": "Optimize",
             "className": "child"
           }
@@ -231,7 +231,7 @@ export const nftCollectionMarketingData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/grow-nft-art.png",
+            "src": "/wp-content/uploads/2022/07/grow-nft-art.webp",
             "alt": "Grow",
             "className": "child"
           }
@@ -289,7 +289,7 @@ export const nftCollectionMarketingData: NftServicePageData = {
         ]
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/07/ideal-nft-art.png",
+        "src": "/wp-content/uploads/2022/07/ideal-nft-art.webp",
         "alt": "Art Collection Marketing"
       }
     },
@@ -370,7 +370,7 @@ export const nftCollectionMarketingData: NftServicePageData = {
   "modalHeading": "Get A Free Consultation",
   "modalSubmitLabel": "Submit",
   "stickyOffer": {
-    "src": "/wp-content/uploads/2022/11/offer-christmas.png",
+    "src": "/wp-content/uploads/2022/11/offer-christmas.webp",
     "alt": ""
   },
   "hero": {
@@ -417,43 +417,43 @@ export const nftCollectionMarketingData: NftServicePageData = {
   "clientSlider": {
     "logos": [
       {
-        "src": "/wp-content/uploads/2022/11/street-race.png",
+        "src": "/wp-content/uploads/2022/11/street-race.webp",
         "name": "1"
       },
       {
-        "src": "/wp-content/uploads/2022/11/rebe-world.png",
+        "src": "/wp-content/uploads/2022/11/rebe-world.webp",
         "name": "3"
       },
       {
-        "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+        "src": "/wp-content/uploads/2022/11/mafia-dogs.webp",
         "name": "5"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp",
         "name": "6"
       },
       {
-        "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+        "src": "/wp-content/uploads/2022/11/diamonds-club.webp",
         "name": "7"
       },
       {
-        "src": "/wp-content/uploads/2022/11/cryptorus.png",
+        "src": "/wp-content/uploads/2022/11/cryptorus.webp",
         "name": "8"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+        "src": "/wp-content/uploads/2022/11/Bad-Influence.webp",
         "name": "9"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+        "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp",
         "name": "10"
       },
       {
-        "src": "/wp-content/uploads/2022/11/voganyangs.png",
+        "src": "/wp-content/uploads/2022/11/voganyangs.webp",
         "name": "11"
       },
       {
-        "src": "/wp-content/uploads/2022/11/ths-logo.png",
+        "src": "/wp-content/uploads/2022/11/ths-logo.webp",
         "name": "12"
       }
     ],

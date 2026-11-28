@@ -127,7 +127,7 @@ export const socialMediaMarketingCompanyChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/06/small-business.jpg",
+      "imageSrc": "/wp-content/uploads/2022/06/small-business.webp",
       "imageAlt": "Small Businesses",
       "actions": []
     },

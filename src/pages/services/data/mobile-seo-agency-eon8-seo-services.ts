@@ -42,7 +42,7 @@ export const mobileSeoAgencyEon8SeoServicesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2026/04/Beginners-Guide-to-Mobile-UI-Design_-Top-Tips-for-Success.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/Beginners-Guide-to-Mobile-UI-Design_-Top-Tips-for-Success.webp",
       "imageAlt": "Beginners Guide to Mobile UI Design Top Tips for Success",
       "actions": []
     },

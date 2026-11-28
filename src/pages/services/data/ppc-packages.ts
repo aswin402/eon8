@@ -75,7 +75,7 @@ export const ppcPackagesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/07/ppc-package.png",
+      "imageSrc": "/wp-content/uploads/2022/07/ppc-package.webp",
       "imageAlt": "ppc services pakage",
       "actions": []
     },

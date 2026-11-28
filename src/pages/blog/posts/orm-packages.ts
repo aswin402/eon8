@@ -12,7 +12,7 @@ export const ormPackagesPost: BlogPost = {
   "dateIso": "2021-03-17",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/03/ORM-packages.jpg",
+  "thumbnail": "/wp-content/uploads/2021/03/ORM-packages.webp",
   "excerpt": "Is your brand struggling with a constant inflow of negative reviews? While it is possible to request the content host…",
   "blocks": [
     {

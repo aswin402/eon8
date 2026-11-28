@@ -59,7 +59,7 @@ export const whatsappMarketingServicesData: ServicePageData = {
         'Conversational Commerce — Turn product promos, FAQs, and chat flows into seamless in-app purchase journeys.',
         'Automation + Real-Time — Deliver instant support, automated reminders, and personalized campaigns with zero delay.',
       ],
-      imageSrc: '/wp-content/uploads/2025/08/WhatsApp-Marketing-Agency.jpg',
+      imageSrc: '/wp-content/uploads/2025/08/WhatsApp-Marketing-Agency.webp',
       imageAlt: 'WhatsApp Marketing Services by EON8',
     },
     {

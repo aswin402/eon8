@@ -13,7 +13,7 @@ export const topSeoAgencySouthIndiaPost: BlogPost = {
   "dateIso": "2026-09-29",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/09/top-seo-agency-in-south-india_EON-1024x538.jpg",
+  "thumbnail": "/wp-content/uploads/2026/09/top-seo-agency-in-south-india_EON-1024x538.webp",
   "excerpt": "Type “best SEO agency” into any search engine, and you’ll find dozens of companies claiming the title. Nearly every agency’s…",
   "blocks": [
     {
@@ -36,7 +36,7 @@ export const topSeoAgencySouthIndiaPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2026/09/top-seo-agency-in-south-india_EON-1024x538.jpg",
+      "src": "/wp-content/uploads/2026/09/top-seo-agency-in-south-india_EON-1024x538.webp",
       "alt": "Top SEO agency in South India"
     },
     {

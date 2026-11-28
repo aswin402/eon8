@@ -258,31 +258,31 @@ export const webDesignDevelopmentServicesChennaiData: ServicePageData = {
       "heading": "Design Empowered With Technology",
       "logos": [
         {
-          "src": "/wp-content/uploads/2022/06/wordpress-150x130.png",
+          "src": "/wp-content/uploads/2022/06/wordpress-150x130.webp",
           "alt": "wordpress"
         },
         {
-          "src": "/wp-content/uploads/2022/06/html-150x130.png",
+          "src": "/wp-content/uploads/2022/06/html-150x130.webp",
           "alt": "html"
         },
         {
-          "src": "/wp-content/uploads/2022/06/node-js-150x130.png",
+          "src": "/wp-content/uploads/2022/06/node-js-150x130.webp",
           "alt": "node-js"
         },
         {
-          "src": "/wp-content/uploads/2022/06/shopify-150x130.png",
+          "src": "/wp-content/uploads/2022/06/shopify-150x130.webp",
           "alt": "shopify"
         },
         {
-          "src": "/wp-content/uploads/2022/06/angular-150x130.png",
+          "src": "/wp-content/uploads/2022/06/angular-150x130.webp",
           "alt": "angular"
         },
         {
-          "src": "/wp-content/uploads/2022/06/css-150x130.png",
+          "src": "/wp-content/uploads/2022/06/css-150x130.webp",
           "alt": "css"
         },
         {
-          "src": "/wp-content/uploads/2022/06/js-150x130.png",
+          "src": "/wp-content/uploads/2022/06/js-150x130.webp",
           "alt": "js"
         }
       ]

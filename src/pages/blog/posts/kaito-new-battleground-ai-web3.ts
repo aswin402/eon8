@@ -12,7 +12,7 @@ export const kaitoNewBattlegroundAiWeb3Post: BlogPost = {
   "dateIso": "2025-05-03",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/01/Kaito-PreTGE-Arena.png",
+  "thumbnail": "/wp-content/uploads/2025/01/Kaito-PreTGE-Arena.webp",
   "excerpt": "In the rapidly evolving landscape of artificial intelligence and decentralized technologies, platforms like Kaito are pushing the boundaries of what’s…",
   "blocks": [
     {

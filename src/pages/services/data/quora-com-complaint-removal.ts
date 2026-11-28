@@ -55,7 +55,7 @@ export const quoraComComplaintRemovalData: ServicePageData = {
           'Within the first week, EON8 detects every negative article, thread, and comment ranking across Google SERPs and Quora. Using structured moderation workflows, policy-violation escalations, and authoritative responses, our team works to remove inappropriate complaints and restore accurate brand perception — typically initiating measurable turnaround within 15 days.',
         ],
       ],
-      imageSrc: '/wp-content/uploads/2020/07/Quora.com-Complaint-Removal.jpg',
+      imageSrc: '/wp-content/uploads/2020/07/Quora.com-Complaint-Removal.webp',
       imageAlt: 'Quora.com Complaint Removal - EON8',
     },
     {

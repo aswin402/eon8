@@ -12,7 +12,7 @@ export const conversionRateOptimizationPost: BlogPost = {
   "dateIso": "2021-06-22",
   "readTime": "2 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/06/Conversion-rate-optimization.png",
+  "thumbnail": "/wp-content/uploads/2021/06/Conversion-rate-optimization.webp",
   "excerpt": "With a solid conversion rate optimization plan, you can take your business to new heights, receive better Return on Investment…",
   "blocks": [
     {

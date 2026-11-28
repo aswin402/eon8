@@ -12,7 +12,7 @@ export const darkSocialMarketingTrackingStrategiesPost: BlogPost = {
   "dateIso": "2025-07-19",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/Dark-Social-Explained-How-to-Track-the-Invisible-Shares.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/Dark-Social-Explained-How-to-Track-the-Invisible-Shares.webp",
   "excerpt": "In the world of digital marketing, not all user engagement is visible. In fact, a massive portion of online interactions…",
   "blocks": [
     {

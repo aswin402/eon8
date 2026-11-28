@@ -12,7 +12,7 @@ export const removeBadReviewsFromGoogleMyBusinessPost: BlogPost = {
   "dateIso": "2021-03-03",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/03/Untitled-design3.jpg",
+  "thumbnail": "/wp-content/uploads/2021/03/Untitled-design3.webp",
   "excerpt": "A complete guide to safeguard your online reputation from negative feedback Does your company have a Google My Business (GMB)…",
   "blocks": [
     {

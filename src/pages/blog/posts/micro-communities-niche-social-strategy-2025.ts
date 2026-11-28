@@ -12,7 +12,7 @@ export const microCommunitiesNicheSocialStrategy2025Post: BlogPost = {
   "dateIso": "2025-07-18",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/The-Rise-of-Micro-Communities-Why-You-Need-a-Niche-Social-Strategy.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/The-Rise-of-Micro-Communities-Why-You-Need-a-Niche-Social-Strategy.webp",
   "excerpt": "In the digital age, broad marketing messages are quickly losing their impact. Today’s consumers crave relevance, connection, and authenticity. That’s…",
   "blocks": [
     {

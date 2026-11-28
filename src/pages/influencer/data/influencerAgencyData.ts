@@ -28,7 +28,7 @@ export const influencerAgencyData: InfluencerAgencyPageData = {
     "ctaLabel": "Talk with our Experts",
     "ctaHref": "#enquiry",
     "image": {
-      "src": "/wp-content/uploads/2023/03/Influencer-marketing-banner-transparent.png",
+      "src": "/wp-content/uploads/2023/03/Influencer-marketing-banner-transparent.webp",
       "alt": "nft marketing services"
     }
   },
@@ -66,7 +66,7 @@ export const influencerAgencyData: InfluencerAgencyPageData = {
   "clientSliderHeading": "",
   "clientLogos": [
     {
-      "src": "/wp-content/uploads/2022/09/poorvika.png",
+      "src": "/wp-content/uploads/2022/09/poorvika.webp",
       "alt": "Client logo"
     },
     {
@@ -74,7 +74,7 @@ export const influencerAgencyData: InfluencerAgencyPageData = {
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/lenskart.png",
+      "src": "/wp-content/uploads/2022/09/lenskart.webp",
       "alt": "Client logo"
     },
     {
@@ -82,27 +82,27 @@ export const influencerAgencyData: InfluencerAgencyPageData = {
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/otto.png",
+      "src": "/wp-content/uploads/2022/09/otto.webp",
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/big-bazaar.png",
+      "src": "/wp-content/uploads/2022/09/big-bazaar.webp",
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/Radio-City.png",
+      "src": "/wp-content/uploads/2022/09/Radio-City.webp",
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/apollo.png",
+      "src": "/wp-content/uploads/2022/09/apollo.webp",
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/McDonald.png",
+      "src": "/wp-content/uploads/2022/09/McDonald.webp",
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/meesho.png",
+      "src": "/wp-content/uploads/2022/09/meesho.webp",
       "alt": "Client logo"
     },
     {
@@ -110,7 +110,7 @@ export const influencerAgencyData: InfluencerAgencyPageData = {
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/dabur.png",
+      "src": "/wp-content/uploads/2022/09/dabur.webp",
       "alt": "Client logo"
     }
   ],
@@ -362,7 +362,7 @@ export const influencerAgencyData: InfluencerAgencyPageData = {
     "heading": "What Our Influencers Can Do For Your Business?",
     "desktopCards": [
       {
-        "iconSrc": "/wp-content/uploads/2022/11/Share-Your-Brands-Story.png",
+        "iconSrc": "/wp-content/uploads/2022/11/Share-Your-Brands-Story.webp",
         "iconAlt": "Share Your Brand's Story",
         "title": "Share Your Brand's Story",
         "description": "Influencers have a unique way of attracting their audience, and they can similarly share your brand's story."
@@ -374,19 +374,19 @@ export const influencerAgencyData: InfluencerAgencyPageData = {
         "description": "Our influencers can create a short video about your brand and share it on Tiktok, Youtube shorts, or influencers."
       },
       {
-        "iconSrc": "/wp-content/uploads/2022/11/Product-Reviews.png",
+        "iconSrc": "/wp-content/uploads/2022/11/Product-Reviews.webp",
         "iconAlt": "Product Reviews",
         "title": "Product Reviews",
         "description": "We urge our influencers to use your product and provide genuine online reviews about their experience."
       },
       {
-        "iconSrc": "/wp-content/uploads/2022/11/Visit.png",
+        "iconSrc": "/wp-content/uploads/2022/11/Visit.webp",
         "iconAlt": "Visit",
         "title": "Visit",
         "description": "Our local and micro-influencers can also visit your official store and create a short vlog of their experience."
       },
       {
-        "iconSrc": "/wp-content/uploads/2022/11/Events.png",
+        "iconSrc": "/wp-content/uploads/2022/11/Events.webp",
         "iconAlt": "Events",
         "title": "Events",
         "description": "If you want to run giveaways or bounty programs, our influencers can help you with that effectively."
@@ -394,7 +394,7 @@ export const influencerAgencyData: InfluencerAgencyPageData = {
     ],
     "mobileCards": [
       {
-        "iconSrc": "/wp-content/uploads/2022/11/Share-Your-Brands-Story.png",
+        "iconSrc": "/wp-content/uploads/2022/11/Share-Your-Brands-Story.webp",
         "iconAlt": "Share Your Brand's Story",
         "title": "Share Your Brand's Story",
         "description": "Influencers have a unique way of attracting their audience, and they can similarly share your brand's story."
@@ -406,19 +406,19 @@ export const influencerAgencyData: InfluencerAgencyPageData = {
         "description": "Our influencers can create a short video about your brand and share it on Tiktok, Youtube shorts, or influencers."
       },
       {
-        "iconSrc": "/wp-content/uploads/2022/11/Product-Reviews.png",
+        "iconSrc": "/wp-content/uploads/2022/11/Product-Reviews.webp",
         "iconAlt": "Product Reviews",
         "title": "Product Reviews",
         "description": "We urge our influencers to use your product and provide genuine online reviews about their experience."
       },
       {
-        "iconSrc": "/wp-content/uploads/2022/11/Visit.png",
+        "iconSrc": "/wp-content/uploads/2022/11/Visit.webp",
         "iconAlt": "Visit",
         "title": "Visit",
         "description": "Our local and micro-influencers can also visit your official store and create a short vlog of their experience."
       },
       {
-        "iconSrc": "/wp-content/uploads/2022/11/Events.png",
+        "iconSrc": "/wp-content/uploads/2022/11/Events.webp",
         "iconAlt": "Events",
         "title": "Events",
         "description": "If you want to run giveaways or bounty programs, our influencers can help you with that effectively."
@@ -446,7 +446,7 @@ export const influencerAgencyData: InfluencerAgencyPageData = {
       ]
     ],
     "image": {
-      "src": "/wp-content/uploads/2022/05/beginning-to-end.png",
+      "src": "/wp-content/uploads/2022/05/beginning-to-end.webp",
       "alt": "Instagram marketing services"
     }
   },

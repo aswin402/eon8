@@ -30,7 +30,7 @@ export const instagramInfluencerData: InstagramInfluencerPageData = {
     "ctaLabel": "Talk with our Experts",
     "ctaHref": "#enquiry",
     "image": {
-      "src": "/wp-content/uploads/2022/10/influencer-marketing.png",
+      "src": "/wp-content/uploads/2022/10/influencer-marketing.webp",
       "alt": "nft marketing services"
     }
   },
@@ -66,7 +66,7 @@ export const instagramInfluencerData: InstagramInfluencerPageData = {
   "clientSliderHeading": "",
   "clientLogos": [
     {
-      "src": "/wp-content/uploads/2022/09/poorvika.png",
+      "src": "/wp-content/uploads/2022/09/poorvika.webp",
       "alt": "Client logo"
     },
     {
@@ -74,7 +74,7 @@ export const instagramInfluencerData: InstagramInfluencerPageData = {
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/lenskart.png",
+      "src": "/wp-content/uploads/2022/09/lenskart.webp",
       "alt": "Client logo"
     },
     {
@@ -82,27 +82,27 @@ export const instagramInfluencerData: InstagramInfluencerPageData = {
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/otto.png",
+      "src": "/wp-content/uploads/2022/09/otto.webp",
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/big-bazaar.png",
+      "src": "/wp-content/uploads/2022/09/big-bazaar.webp",
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/Radio-City.png",
+      "src": "/wp-content/uploads/2022/09/Radio-City.webp",
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/apollo.png",
+      "src": "/wp-content/uploads/2022/09/apollo.webp",
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/McDonald.png",
+      "src": "/wp-content/uploads/2022/09/McDonald.webp",
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/meesho.png",
+      "src": "/wp-content/uploads/2022/09/meesho.webp",
       "alt": "Client logo"
     },
     {
@@ -110,7 +110,7 @@ export const instagramInfluencerData: InstagramInfluencerPageData = {
       "alt": "Client logo"
     },
     {
-      "src": "/wp-content/uploads/2022/09/dabur.png",
+      "src": "/wp-content/uploads/2022/09/dabur.webp",
       "alt": "Client logo"
     }
   ],
@@ -137,7 +137,7 @@ export const instagramInfluencerData: InstagramInfluencerPageData = {
     "items": [
       {
         "brandLogo": {
-          "src": "/wp-content/uploads/2022/10/samsung.jpg",
+          "src": "/wp-content/uploads/2022/10/samsung.webp",
           "alt": "crypto market attract"
         },
         "metrics": [
@@ -158,7 +158,7 @@ export const instagramInfluencerData: InstagramInfluencerPageData = {
       },
       {
         "brandLogo": {
-          "src": "/wp-content/uploads/2022/10/starbucks.jpg",
+          "src": "/wp-content/uploads/2022/10/starbucks.webp",
           "alt": "crypto market user file"
         },
         "metrics": [
@@ -179,7 +179,7 @@ export const instagramInfluencerData: InstagramInfluencerPageData = {
       },
       {
         "brandLogo": {
-          "src": "/wp-content/uploads/2022/10/ramraj.jpg",
+          "src": "/wp-content/uploads/2022/10/ramraj.webp",
           "alt": "crypto market user engage"
         },
         "metrics": [
@@ -286,7 +286,7 @@ export const instagramInfluencerData: InstagramInfluencerPageData = {
       ]
     ],
     "image": {
-      "src": "/wp-content/uploads/2022/05/beginning-to-end.png",
+      "src": "/wp-content/uploads/2022/05/beginning-to-end.webp",
       "alt": "Instagram marketing services"
     }
   },

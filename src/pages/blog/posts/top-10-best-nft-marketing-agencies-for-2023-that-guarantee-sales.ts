@@ -14,7 +14,7 @@ export const top10BestNftMarketingAgenciesFor2023ThatGuaranteeSalesPost: BlogPos
   "dateIso": "2023-03-09",
   "readTime": "6 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2023/03/Top-10.png",
+  "thumbnail": "/wp-content/uploads/2023/03/Top-10.webp",
   "excerpt": "NFTs, or non-fungible tokens, are digital assets that are unique and indivisible, meaning they cannot be exchanged for another token…",
   "blocks": [
     {

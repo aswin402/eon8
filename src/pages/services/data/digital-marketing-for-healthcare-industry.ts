@@ -65,7 +65,7 @@ export const digitalMarketingForHealthcareIndustryData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Strategies-for-digital-marketing-for-healthcare.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Strategies-for-digital-marketing-for-healthcare.webp",
       "imageAlt": "Strategies for digital marketing for healthcare",
       "actions": [
         {
@@ -86,7 +86,7 @@ export const digitalMarketingForHealthcareIndustryData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Contact-forms.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Contact-forms.webp",
       "imageAlt": "Contact forms",
       "actions": []
     },
@@ -112,7 +112,7 @@ export const digitalMarketingForHealthcareIndustryData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/HIPAA-compliance.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/HIPAA-compliance.webp",
       "imageAlt": "HIPAA compliance",
       "actions": []
     },
@@ -130,7 +130,7 @@ export const digitalMarketingForHealthcareIndustryData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Offline-media.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Offline-media.webp",
       "imageAlt": "Offline media",
       "actions": []
     },
@@ -143,7 +143,7 @@ export const digitalMarketingForHealthcareIndustryData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Contact-pages.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Contact-pages.webp",
       "imageAlt": "Contact pages",
       "actions": []
     },
@@ -200,7 +200,7 @@ export const digitalMarketingForHealthcareIndustryData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Why-Eon8.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Why-Eon8.webp",
       "imageAlt": "Why-Eon8",
       "actions": []
     },

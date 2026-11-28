@@ -12,7 +12,7 @@ export const linkedinMarketingForB2bCompaniesGrowthGuidePost: BlogPost = {
   "dateIso": "2026-06-27",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/06/Content-Marketing-Strategies-2.png",
+  "thumbnail": "/wp-content/uploads/2026/06/Content-Marketing-Strategies-2.webp",
   "excerpt": "For B2B companies, generating quality leads often requires a different approach than consumer-focused marketing. Decision-makers, business owners, executives, and industry…",
   "blocks": [
     {

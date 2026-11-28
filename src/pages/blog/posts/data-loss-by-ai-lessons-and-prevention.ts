@@ -12,7 +12,7 @@ export const dataLossByAiLessonsAndPreventionPost: BlogPost = {
   "dateIso": "2025-08-02",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-04-at-1.17.08-PM.jpeg",
+  "thumbnail": "/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-04-at-1.17.08-PM.webp",
   "excerpt": "Introduction Artificial Intelligence (AI) has rapidly transformed the digital landscape, offering unmatched automation, scalability, and performance. However, with great power…",
   "blocks": [
     {

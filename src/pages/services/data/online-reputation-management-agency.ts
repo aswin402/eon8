@@ -47,7 +47,7 @@ export const onlineReputationManagementAgencyData: ServicePageData = {
         "Strategic communication planning",
         "Ethical reputation-building techniques"
       ],
-      "imageSrc": "/wp-content/uploads/2020/11/Role-of-reviews-and-why-ORM-matters.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Role-of-reviews-and-why-ORM-matters.webp",
       "imageAlt": "Role of reviews and why ORM matters",
       "actions": []
     },
@@ -101,7 +101,7 @@ export const onlineReputationManagementAgencyData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Why-does-your-business-need-ORM-1.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Why-does-your-business-need-ORM-1.webp",
       "imageAlt": "Why does your business need ORM 1",
       "actions": [
         {

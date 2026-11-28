@@ -12,7 +12,7 @@ export const cryptoAirdropsAsAMarketingFunnel2025Post: BlogPost = {
   "dateIso": "2025-07-04",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/Crypto-Airdrops-as-a-Marketing-Funnel-Still-Relevant-or-Played-Out.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/Crypto-Airdrops-as-a-Marketing-Funnel-Still-Relevant-or-Played-Out.webp",
   "excerpt": "As the Web3 space matures in 2025, crypto airdrops remain one of the most discussed marketing strategies. Once hailed as…",
   "blocks": [
     {

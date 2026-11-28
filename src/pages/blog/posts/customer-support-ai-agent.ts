@@ -12,7 +12,7 @@ export const customerSupportAiAgentPost: BlogPost = {
   "dateIso": "2026-08-05",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/08/02.jpg",
+  "thumbnail": "/wp-content/uploads/2026/08/02.webp",
   "excerpt": "Customer expectations have changed dramatically over the past few years. People no longer expect businesses to respond within days or…",
   "blocks": [
     {

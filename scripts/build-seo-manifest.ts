@@ -66,11 +66,28 @@ function slugifyCategory(name: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
+const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
+
+/** Share images: pages show WebP copies, but some social networks only read JPG/PNG, so use the original. */
+function shareableImage(p: string): string {
+  if (!/\.webp$/i.test(p)) return p;
+  for (const ext of ['.png', '.jpg', '.jpeg']) {
+    const original = p.replace(/\.webp$/i, ext);
+    try {
+      if (fs.existsSync(path.join(PUBLIC_DIR, decodeURIComponent(original)))) return original;
+    } catch {
+      /* malformed path: keep the WebP */
+    }
+  }
+  return p;
+}
+
 function normalizeImageUrl(img?: string): string | undefined {
   if (!img || !img.trim()) return undefined;
   const trimmed = img.trim();
   if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) return trimmed;
-  return `${BASE_URL}${trimmed.startsWith('/') ? trimmed : `/${trimmed}`}`;
+  const local = shareableImage(trimmed.startsWith('/') ? trimmed : `/${trimmed}`);
+  return `${BASE_URL}${local}`;
 }
 
 async function importFirstObjectExport(filePath: string): Promise<Record<string, unknown> | null> {

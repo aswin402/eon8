@@ -105,7 +105,7 @@ export const linkedinMarketingAgencyChennaiServicesData: ServicePageData = {
         "✓ Clear ROI tracking",
         "✓ Advanced targeting optimization"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/How-to-Maximize-LinkedIn-Sales-Navigator-for-Lead-Generation.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/How-to-Maximize-LinkedIn-Sales-Navigator-for-Lead-Generation.webp",
       "imageAlt": "How to Maximize LinkedIn Sales Navigator for Lead Generation",
       "actions": []
     },
@@ -204,7 +204,7 @@ export const linkedinMarketingAgencyChennaiServicesData: ServicePageData = {
         "✓ Enterprise-level campaigns",
         "✓ Industry-specific targeting"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/linkedin.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/linkedin.webp",
       "imageAlt": "linkedin",
       "actions": []
     },

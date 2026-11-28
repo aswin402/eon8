@@ -81,7 +81,7 @@ export const instagramPackagesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/07/instagram-package.png",
+      "imageSrc": "/wp-content/uploads/2022/07/instagram-package.webp",
       "imageAlt": "Instagram Marketing & Promotion Packages",
       "actions": []
     },

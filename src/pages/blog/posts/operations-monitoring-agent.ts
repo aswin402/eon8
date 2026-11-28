@@ -12,7 +12,7 @@ export const operationsMonitoringAgentPost: BlogPost = {
   "dateIso": "2026-08-08",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/08/05.jpg",
+  "thumbnail": "/wp-content/uploads/2026/08/05.webp",
   "excerpt": "Business operations have become more complex than ever. Organizations rely on multiple applications, cloud environments, internal systems, customer platforms, and…",
   "blocks": [
     {

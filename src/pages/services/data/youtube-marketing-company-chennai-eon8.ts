@@ -127,7 +127,7 @@ export const youtubeMarketingCompanyChennaiEon8Data: ServicePageData = {
         "Competitor channel placements",
         "Website visitor remarketing"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/Content-Keywords-and-Rankings_-The-SEO-Formula-for-Success_.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/Content-Keywords-and-Rankings_-The-SEO-Formula-for-Success_.webp",
       "imageAlt": "Content Keywords and Rankings The SEO Formula for Success",
       "actions": []
     },
@@ -182,7 +182,7 @@ export const youtubeMarketingCompanyChennaiEon8Data: ServicePageData = {
         "Better conversion rates",
         "Competitive advantage"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/audrey-gerthoffer.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/audrey-gerthoffer.webp",
       "imageAlt": "audrey gerthoffer",
       "actions": []
     },

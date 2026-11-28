@@ -75,7 +75,7 @@ export const bestRemarketingAdAgencyData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Remarketing-ads.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Remarketing-ads.webp",
       "imageAlt": "Remarketing ads",
       "actions": []
     },
@@ -117,7 +117,7 @@ export const bestRemarketingAdAgencyData: ServicePageData = {
         "Improve campaign ROI",
         "Shorten the sales cycle"
       ],
-      "imageSrc": "/wp-content/uploads/2020/11/Benefits-of-retargeting.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Benefits-of-retargeting.webp",
       "imageAlt": "Benefits of retargeting",
       "actions": []
     },

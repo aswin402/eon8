@@ -12,7 +12,7 @@ export const landingPagePsychologyBadUxLostClicksPost: BlogPost = {
   "dateIso": "2025-07-31",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/Bad-UX-Lost-Clicks-Landing-Page-Psychology.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/Bad-UX-Lost-Clicks-Landing-Page-Psychology.webp",
   "excerpt": "You’ve written great ad copy, chosen the right keywords, and set a competitive bid. But users are clicking your ad…",
   "blocks": [
     {

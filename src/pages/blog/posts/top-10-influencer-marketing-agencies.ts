@@ -13,7 +13,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
   "dateIso": "2022-11-19",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/11/5a.png",
+  "thumbnail": "/wp-content/uploads/2022/11/5a.webp",
   "excerpt": "Influencers have the capacity to attract more people and collaborate with several brands perpetually to increase visibility for their services…",
   "blocks": [
     {
@@ -51,7 +51,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/image-5-1024x501.png",
+      "src": "/wp-content/uploads/2022/11/image-5-1024x501.webp",
       "alt": ""
     },
     {
@@ -73,7 +73,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/Timf-1024x503.png",
+      "src": "/wp-content/uploads/2022/11/Timf-1024x503.webp",
       "alt": ""
     },
     {
@@ -95,7 +95,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/obvi-1024x521.png",
+      "src": "/wp-content/uploads/2022/11/obvi-1024x521.webp",
       "alt": ""
     },
     {
@@ -117,7 +117,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/the-sle-1024x499.png",
+      "src": "/wp-content/uploads/2022/11/the-sle-1024x499.webp",
       "alt": ""
     },
     {
@@ -139,7 +139,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/image-6-1024x480.png",
+      "src": "/wp-content/uploads/2022/11/image-6-1024x480.webp",
       "alt": ""
     },
     {
@@ -161,7 +161,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/image-1024x497.png",
+      "src": "/wp-content/uploads/2022/11/image-1024x497.webp",
       "alt": ""
     },
     {
@@ -183,7 +183,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/image-1-1024x498.png",
+      "src": "/wp-content/uploads/2022/11/image-1-1024x498.webp",
       "alt": ""
     },
     {
@@ -205,7 +205,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/image-2-1024x485.png",
+      "src": "/wp-content/uploads/2022/11/image-2-1024x485.webp",
       "alt": ""
     },
     {
@@ -227,7 +227,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/image-3-1024x482.png",
+      "src": "/wp-content/uploads/2022/11/image-3-1024x482.webp",
       "alt": ""
     },
     {
@@ -249,7 +249,7 @@ export const top10InfluencerMarketingAgenciesPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/image-4-1024x483.png",
+      "src": "/wp-content/uploads/2022/11/image-4-1024x483.webp",
       "alt": ""
     },
     {

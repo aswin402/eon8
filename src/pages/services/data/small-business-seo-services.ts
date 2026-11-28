@@ -45,7 +45,7 @@ export const smallBusinessSeoServicesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2026/04/Small-Business-Tools.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/Small-Business-Tools.webp",
       "imageAlt": "Small Business Tools",
       "actions": []
     },
@@ -154,7 +154,7 @@ export const smallBusinessSeoServicesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2026/04/secrets-of-great-service-key-to-business-success.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/secrets-of-great-service-key-to-business-success.webp",
       "imageAlt": "Секреты отличного сервиса ключ к успеху бизнеса",
       "actions": []
     },

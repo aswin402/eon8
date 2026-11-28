@@ -7,32 +7,32 @@ export function Footer() {
   const socialLinks = [
     {
       name: 'Whatsapp',
-      icon: '/wp-content/uploads/2026/03/Whatsapp-1.png',
+      icon: '/wp-content/uploads/2026/03/Whatsapp-1.webp',
       href: contact.whatsapp ? `https://api.whatsapp.com/send?phone=${contact.whatsapp}` : '',
     },
     {
       name: 'Instagram',
-      icon: '/wp-content/uploads/2026/03/Instagram-1.png',
+      icon: '/wp-content/uploads/2026/03/Instagram-1.webp',
       href: social.instagram,
     },
     {
       name: 'Facebook',
-      icon: '/wp-content/uploads/2026/03/Facebook-1.png',
+      icon: '/wp-content/uploads/2026/03/Facebook-1.webp',
       href: social.facebook,
     },
     {
       name: 'LinkedIn',
-      icon: '/wp-content/uploads/2026/03/Linkedin-1.png',
+      icon: '/wp-content/uploads/2026/03/Linkedin-1.webp',
       href: social.linkedin,
     },
     {
       name: 'Twitter',
-      icon: '/wp-content/uploads/2026/03/twitter-1.png',
+      icon: '/wp-content/uploads/2026/03/twitter-1.webp',
       href: social.x,
     },
     {
       name: 'YouTube',
-      icon: '/wp-content/uploads/2026/03/youtube.png',
+      icon: '/wp-content/uploads/2026/03/youtube.webp',
       href: social.youtube,
     },
   ].filter((link) => link.href);
@@ -53,13 +53,13 @@ export function Footer() {
 
   const certLogos = [
     { alt: 'Top Digital Agency', src: '/wp-content/uploads/2022/02/top-digital.svg' },
-    { alt: 'Digital Marketing Agency Award', src: '/wp-content/uploads/2022/02/digi-mar-ag.png' },
-    { alt: 'Clutch Top Agency', src: '/wp-content/uploads/2022/02/clutch.png' },
+    { alt: 'Digital Marketing Agency Award', src: '/wp-content/uploads/2022/02/digi-mar-ag.webp' },
+    { alt: 'Clutch Top Agency', src: '/wp-content/uploads/2022/02/clutch.webp' },
     {
       alt: 'Top Digital Marketing Agencies',
       src: '/wp-content/uploads/2022/07/top-digital-marketing-agencies.svg',
     },
-    { alt: 'Google Partner', src: '/wp-content/uploads/2022/11/google-partner.png' },
+    { alt: 'Google Partner', src: '/wp-content/uploads/2022/11/google-partner.webp' },
   ];
 
   return (

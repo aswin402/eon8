@@ -12,7 +12,7 @@ export const affordableSeoAgencyIndiaPost: BlogPost = {
   "dateIso": "2024-07-11",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2024/07/affordable-seo-agency-india-eon8.png",
+  "thumbnail": "/wp-content/uploads/2024/07/affordable-seo-agency-india-eon8.webp",
   "excerpt": "In today’s digital age, a strong online presence is essential for any business in India. Search Engine Optimization (SEO) plays…",
   "blocks": [
     {

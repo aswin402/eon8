@@ -12,12 +12,12 @@ export const personalizedAiAgentDevelopmentPost: BlogPost = {
   "dateIso": "2026-10-22",
   "readTime": "7 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/10/Personalized-AI-Agent_EON-1024x538.jpg",
+  "thumbnail": "/wp-content/uploads/2026/10/Personalized-AI-Agent_EON-1024x538.webp",
   "excerpt": "Businesses interact with different customers, employees, and partners every day. Each person has different needs, preferences, and expectations. Providing relevant…",
   "blocks": [
     {
       "type": "image",
-      "src": "/wp-content/uploads/2026/10/Personalized-AI-Agent_EON-1024x538.jpg",
+      "src": "/wp-content/uploads/2026/10/Personalized-AI-Agent_EON-1024x538.webp",
       "alt": "Personalized AI agent helping businesses automate workflows and manage customer interactions"
     },
     {

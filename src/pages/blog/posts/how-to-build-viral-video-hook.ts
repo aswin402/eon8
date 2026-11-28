@@ -12,7 +12,7 @@ export const howToBuildViralVideoHookPost: BlogPost = {
   "dateIso": "2025-07-21",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/How-to-Build-a-Viral-Hook-in-the-First-3-Seconds-of-Any-Video.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/How-to-Build-a-Viral-Hook-in-the-First-3-Seconds-of-Any-Video.webp",
   "excerpt": "In today’s fast-paced digital world, you have less than 3 seconds to grab a viewer’s attention before they scroll past…",
   "blocks": [
     {

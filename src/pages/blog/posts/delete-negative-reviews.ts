@@ -12,7 +12,7 @@ export const deleteNegativeReviewsPost: BlogPost = {
   "dateIso": "2020-08-28",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2020/09/eon8-helps-in-removing-negative-reviews.jpg",
+  "thumbnail": "/wp-content/uploads/2020/09/eon8-helps-in-removing-negative-reviews.webp",
   "excerpt": "Evacuating negative reviews is a great task which cannot be done single-handedly. Delete the negative reviews from Google or Facebook…",
   "blocks": [
     {

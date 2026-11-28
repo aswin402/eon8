@@ -12,7 +12,7 @@ export const bestDigitalMarketingAgencyPost: BlogPost = {
   "dateIso": "2022-03-05",
   "readTime": "2 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/03/digital-m-arkiting-agency-1.png",
+  "thumbnail": "/wp-content/uploads/2022/03/digital-m-arkiting-agency-1.webp",
   "excerpt": "Digital Marketing is at the center of every brand’s effort to reach potential customers. The marketing strategies allow you to…",
   "blocks": [
     {

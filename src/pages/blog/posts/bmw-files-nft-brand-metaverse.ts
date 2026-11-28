@@ -12,7 +12,7 @@ export const bmwFilesNftBrandMetaversePost: BlogPost = {
   "dateIso": "2022-12-07",
   "readTime": "2 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/12/bmw.png",
+  "thumbnail": "/wp-content/uploads/2022/12/bmw.webp",
   "excerpt": "BMW, a prominent automobile manufacturer from Germany, has decided to get into the decentralized market and has filed for its…",
   "blocks": [
     {

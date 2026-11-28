@@ -12,7 +12,7 @@ export const cocaColaLaunchsFifaWcNftsPost: BlogPost = {
   "dateIso": "2022-12-07",
   "readTime": "2 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/12/coke.png",
+  "thumbnail": "/wp-content/uploads/2022/12/coke.webp",
   "excerpt": "The FIFA fever is getting closer to the knockout stages, and it has started affecting almost every brand that wishes…",
   "blocks": [
     {

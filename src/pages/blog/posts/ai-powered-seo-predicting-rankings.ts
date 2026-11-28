@@ -12,7 +12,7 @@ export const aiPoweredSeoPredictingRankingsPost: BlogPost = {
   "dateIso": "2025-07-30",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/06/AI-Powered-SEO-Predicting-Rankings-1.jpg",
+  "thumbnail": "/wp-content/uploads/2025/06/AI-Powered-SEO-Predicting-Rankings-1.webp",
   "excerpt": "Search engine optimization (SEO) has always been a dynamic and evolving field. In recent years, the biggest game-changer has been…",
   "blocks": [
     {

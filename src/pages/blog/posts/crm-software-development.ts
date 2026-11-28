@@ -12,12 +12,12 @@ export const crmSoftwareDevelopmentPost: BlogPost = {
   "dateIso": "2026-10-22",
   "readTime": "7 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/10/CRM-Software-Development-_EON-1-1024x538.jpg",
+  "thumbnail": "/wp-content/uploads/2026/10/CRM-Software-Development-_EON-1-1024x538.webp",
   "excerpt": "Managing customer relationships becomes more challenging as a business grows. Enquiries arrive through websites, phone calls, emails, and social media,…",
   "blocks": [
     {
       "type": "image",
-      "src": "/wp-content/uploads/2026/10/CRM-Software-Development-_EON-1-1024x538.jpg",
+      "src": "/wp-content/uploads/2026/10/CRM-Software-Development-_EON-1-1024x538.webp",
       "alt": "CRM software development for customer management, lead tracking and sales automation"
     },
     {

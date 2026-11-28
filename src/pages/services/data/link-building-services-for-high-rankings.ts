@@ -62,7 +62,7 @@ export const linkBuildingServicesForHighRankingsData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2026/04/download.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/download.webp",
       "imageAlt": "download",
       "actions": []
     },
@@ -101,7 +101,7 @@ export const linkBuildingServicesForHighRankingsData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2026/04/How-Can-I-Turn-Data-Overload-into-Actionable-Insights-for-My-Business_.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/How-Can-I-Turn-Data-Overload-into-Actionable-Insights-for-My-Business_.webp",
       "imageAlt": "How Can I Turn Data Overload into Actionable Insights for My Business",
       "actions": []
     },
@@ -254,7 +254,7 @@ export const linkBuildingServicesForHighRankingsData: ServicePageData = {
         "Build brand credibility",
         "Generate better-quality leads"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/5-Reasons-to-Invest-in-a-Product-Marketing-Specialist.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/5-Reasons-to-Invest-in-a-Product-Marketing-Specialist.webp",
       "imageAlt": "5 Reasons to Invest in a Product Marketing Specialist",
       "actions": []
     },
@@ -276,7 +276,7 @@ export const linkBuildingServicesForHighRankingsData: ServicePageData = {
         "Better lead generation",
         "Stronger brand authority"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/download-4.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/download-4.webp",
       "imageAlt": "download 4",
       "actions": []
     },

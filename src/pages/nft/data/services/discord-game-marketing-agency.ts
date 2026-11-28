@@ -30,28 +30,28 @@ export const discordGameMarketingAgencyData: NftServicePageData = {
       "heading": "The Roadmap To Success On Discord",
       "steps": [
         {
-          "iconSrc": "/wp-content/uploads/2022/01/road-group-users.png",
+          "iconSrc": "/wp-content/uploads/2022/01/road-group-users.webp",
           "iconAlt": "...",
           "title": "Get a chance to engage your online community",
           "description": "Do you want to engage gamers from all across the world within your discord server to promote your game? We will publish engaging content to keep your followers engaged.",
           "inverted": false
         },
         {
-          "iconSrc": "/wp-content/uploads/2022/01/road-consumer.png",
+          "iconSrc": "/wp-content/uploads/2022/01/road-consumer.webp",
           "iconAlt": "...",
           "title": "Adding a human touch to your brand on Discord",
           "description": "Community management is not all about publishing engaging content or moderating discussions. To build a brand, you will have to provide a human touch to connect with your consumers, and we can do it on behalf of your brand and help you build strong relationships with your consumers in Discord.",
           "inverted": true
         },
         {
-          "iconSrc": "/wp-content/uploads/2022/01/road-feedback.png",
+          "iconSrc": "/wp-content/uploads/2022/01/road-feedback.webp",
           "iconAlt": "...",
           "title": "Manage customer feedback and queries",
           "description": "One of our primary duties while managing your community server is to manage customer queries and feedback. We focus on all the strategies that keep you on top of things.",
           "inverted": false
         },
         {
-          "iconSrc": "/wp-content/uploads/2022/01/road-writing.png",
+          "iconSrc": "/wp-content/uploads/2022/01/road-writing.webp",
           "iconAlt": "...",
           "title": "Content moderation",
           "description": "The gaming world is all about content; therefore, we can help you in creating objectionable-free content on your discord server. If you are looking for a professional Discord game marketing agency for content moderation for your discord server, Eon8 is an ideal choice for your brand.",
@@ -83,7 +83,7 @@ export const discordGameMarketingAgencyData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/dis-game-store.png",
+            "src": "/wp-content/uploads/2022/01/dis-game-store.webp",
             "alt": ""
           }
         },
@@ -99,7 +99,7 @@ export const discordGameMarketingAgencyData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/dis-game-deals.png",
+            "src": "/wp-content/uploads/2022/01/dis-game-deals.webp",
             "alt": ""
           }
         },
@@ -115,7 +115,7 @@ export const discordGameMarketingAgencyData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/dis-game-communi.png",
+            "src": "/wp-content/uploads/2022/01/dis-game-communi.webp",
             "alt": ""
           }
         },
@@ -131,7 +131,7 @@ export const discordGameMarketingAgencyData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/dis-game-customer.png",
+            "src": "/wp-content/uploads/2022/01/dis-game-customer.webp",
             "alt": ""
           }
         },
@@ -147,7 +147,7 @@ export const discordGameMarketingAgencyData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/dis-game-data.png",
+            "src": "/wp-content/uploads/2022/01/dis-game-data.webp",
             "alt": ""
           }
         },
@@ -163,7 +163,7 @@ export const discordGameMarketingAgencyData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/dis-game-away.png",
+            "src": "/wp-content/uploads/2022/01/dis-game-away.webp",
             "alt": ""
           }
         }
@@ -206,7 +206,7 @@ export const discordGameMarketingAgencyData: NftServicePageData = {
         ]
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/01/disc-new-sec-audience.png",
+        "src": "/wp-content/uploads/2022/01/disc-new-sec-audience.webp",
         "alt": ""
       }
     },
@@ -268,43 +268,43 @@ export const discordGameMarketingAgencyData: NftServicePageData = {
   "clientSlider": {
     "logos": [
       {
-        "src": "/wp-content/uploads/2022/11/street-race.png",
+        "src": "/wp-content/uploads/2022/11/street-race.webp",
         "name": "1"
       },
       {
-        "src": "/wp-content/uploads/2022/11/rebe-world.png",
+        "src": "/wp-content/uploads/2022/11/rebe-world.webp",
         "name": "3"
       },
       {
-        "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+        "src": "/wp-content/uploads/2022/11/mafia-dogs.webp",
         "name": "5"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp",
         "name": "6"
       },
       {
-        "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+        "src": "/wp-content/uploads/2022/11/diamonds-club.webp",
         "name": "7"
       },
       {
-        "src": "/wp-content/uploads/2022/11/cryptorus.png",
+        "src": "/wp-content/uploads/2022/11/cryptorus.webp",
         "name": "8"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+        "src": "/wp-content/uploads/2022/11/Bad-Influence.webp",
         "name": "9"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+        "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp",
         "name": "10"
       },
       {
-        "src": "/wp-content/uploads/2022/11/voganyangs.png",
+        "src": "/wp-content/uploads/2022/11/voganyangs.webp",
         "name": "11"
       },
       {
-        "src": "/wp-content/uploads/2022/11/ths-logo.png",
+        "src": "/wp-content/uploads/2022/11/ths-logo.webp",
         "name": "12"
       }
     ],

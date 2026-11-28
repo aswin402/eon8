@@ -12,7 +12,7 @@ export const aiBlockchainSmartCampaignsPredictiveDecentralizedMarketingPost: Blo
   "dateIso": "2025-07-02",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/AI-Blockchain-Smart-Campaigns-A-New-Era-of-Predictive-Decentralized-Marketing.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/AI-Blockchain-Smart-Campaigns-A-New-Era-of-Predictive-Decentralized-Marketing.webp",
   "excerpt": "The marketing landscape in 2025 is witnessing a profound transformation, powered by two of the most disruptive technologies of our…",
   "blocks": [
     {

@@ -12,7 +12,7 @@ export const healthAndWellnessCoachAiAgentPost: BlogPost = {
   "dateIso": "2026-08-06",
   "readTime": "6 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/08/03-3.jpg",
+  "thumbnail": "/wp-content/uploads/2026/08/03-3.webp",
   "excerpt": "Health and wellness have entered a new era. Instead of reacting to illness, individuals and organizations are investing in preventive…",
   "blocks": [
     {

@@ -12,7 +12,7 @@ export const bestInstagramMarketingAgencyPost: BlogPost = {
   "dateIso": "2022-09-16",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/09/Best-instagram-marketing_-1.png",
+  "thumbnail": "/wp-content/uploads/2022/09/Best-instagram-marketing_-1.webp",
   "excerpt": "Instagram has become an integral part of social media marketing campaigns for various brands on the internet. Whether the concern…",
   "blocks": [
     {

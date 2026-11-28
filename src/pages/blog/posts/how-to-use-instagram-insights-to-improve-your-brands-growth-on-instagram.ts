@@ -12,7 +12,7 @@ export const howToUseInstagramInsightsToImproveYourBrandsGrowthOnInstagramPost: 
   "dateIso": "2022-09-21",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/09/Instagram-Growth-Agency.png",
+  "thumbnail": "/wp-content/uploads/2022/09/Instagram-Growth-Agency.webp",
   "excerpt": "There are 3.5 billion people who are using Instagram every day. One of the main reasons people love to spend…",
   "blocks": [
     {

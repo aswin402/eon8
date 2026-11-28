@@ -12,7 +12,7 @@ export const googleBusinessProfileOptimizationIncreasesCustomerCallsPost: BlogPo
   "dateIso": "2026-06-24",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/06/Google-Business-Profile-optimization-1.png",
+  "thumbnail": "/wp-content/uploads/2026/06/Google-Business-Profile-optimization-1.webp",
   "excerpt": "For local businesses, visibility is everything. Even the best products and services can go unnoticed if potential customers cannot find…",
   "blocks": [
     {

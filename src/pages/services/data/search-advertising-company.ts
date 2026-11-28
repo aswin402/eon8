@@ -41,7 +41,7 @@ export const searchAdvertisingCompanyData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Search-Advertising-Services.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Search-Advertising-Services.webp",
       "imageAlt": "Search Advertising Services​",
       "actions": []
     },
@@ -79,7 +79,7 @@ export const searchAdvertisingCompanyData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Search-Advertising-Services-Offered-By-Us.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Search-Advertising-Services-Offered-By-Us.webp",
       "imageAlt": "Search Advertising Services Offered By Us​",
       "actions": []
     },
@@ -100,7 +100,7 @@ export const searchAdvertisingCompanyData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Our-Experience-with-Search-Advertising.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Our-Experience-with-Search-Advertising.webp",
       "imageAlt": "Our Experience with Search Advertising",
       "actions": []
     },

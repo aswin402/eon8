@@ -13,7 +13,7 @@ export const top3dNftArtDesignersPost: BlogPost = {
   "dateIso": "2022-11-11",
   "readTime": "2 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/11/web3.0-1.png",
+  "thumbnail": "/wp-content/uploads/2022/11/web3.0-1.webp",
   "excerpt": "There are stalwarts in every industry, irrespective of whether it is art or rocket science. The real world has exceptional…",
   "blocks": [
     {
@@ -53,12 +53,12 @@ export const top3dNftArtDesignersPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/7-1024x536.png",
+      "src": "/wp-content/uploads/2022/11/7-1024x536.webp",
       "alt": ""
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/8-1024x536.png",
+      "src": "/wp-content/uploads/2022/11/8-1024x536.webp",
       "alt": ""
     },
     {
@@ -80,13 +80,13 @@ export const top3dNftArtDesignersPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/10-1024x536.png",
+      "src": "/wp-content/uploads/2022/11/10-1024x536.webp",
       "alt": "",
       "caption": "Frozeverse – 3D animation and interface for Metaverse VR game"
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/unnamed.png",
+      "src": "/wp-content/uploads/2022/11/unnamed.webp",
       "alt": "",
       "caption": "ArmaApes – 3D NFT collection"
     },
@@ -124,7 +124,7 @@ export const top3dNftArtDesignersPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/1-1-1024x536.png",
+      "src": "/wp-content/uploads/2022/11/1-1-1024x536.webp",
       "alt": ""
     },
     {
@@ -138,7 +138,7 @@ export const top3dNftArtDesignersPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/2-1024x536.png",
+      "src": "/wp-content/uploads/2022/11/2-1024x536.webp",
       "alt": ""
     },
     {
@@ -148,7 +148,7 @@ export const top3dNftArtDesignersPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/3-1-1024x536.png",
+      "src": "/wp-content/uploads/2022/11/3-1-1024x536.webp",
       "alt": ""
     },
     {
@@ -159,12 +159,12 @@ export const top3dNftArtDesignersPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/4-1024x536.png",
+      "src": "/wp-content/uploads/2022/11/4-1024x536.webp",
       "alt": ""
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/5-1024x536.png",
+      "src": "/wp-content/uploads/2022/11/5-1024x536.webp",
       "alt": ""
     },
     {
@@ -186,12 +186,12 @@ export const top3dNftArtDesignersPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/6-1024x536.png",
+      "src": "/wp-content/uploads/2022/11/6-1024x536.webp",
       "alt": ""
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/unnamed-1.png",
+      "src": "/wp-content/uploads/2022/11/unnamed-1.webp",
       "alt": ""
     },
     {

@@ -12,7 +12,7 @@ export const influencerAgencyPost: BlogPost = {
   "dateIso": "2022-09-16",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/09/The-best-Influencer-1.png",
+  "thumbnail": "/wp-content/uploads/2022/09/The-best-Influencer-1.webp",
   "excerpt": "Now imagine! You own a brand and you need a powerful approach to grow it. The very first thought that…",
   "blocks": [
     {

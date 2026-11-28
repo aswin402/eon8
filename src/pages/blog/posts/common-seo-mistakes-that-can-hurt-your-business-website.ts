@@ -12,7 +12,7 @@ export const commonSeoMistakesThatCanHurtYourBusinessWebsitePost: BlogPost = {
   "dateIso": "2022-02-16",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/02/Capture.png",
+  "thumbnail": "/wp-content/uploads/2022/02/Capture.webp",
   "excerpt": "SEO or Search Engine Optimization is one of the best ways of increasing the traffic of a website by driving…",
   "blocks": [
     {

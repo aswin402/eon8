@@ -23,7 +23,7 @@ export const searchEngineOptimizationServicesSeoData: ServicePageData = {
       }
     ],
     "layout": "split-media",
-    "mediaSrc": "/wp-content/uploads/2020/10/rightnft.png",
+    "mediaSrc": "/wp-content/uploads/2020/10/rightnft.webp",
     "mediaAlt": "Stay Ahead With Best SEO Services"
   },
   "sections": [

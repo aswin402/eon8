@@ -12,7 +12,7 @@ export const badLinksRemovalAgencyPost: BlogPost = {
   "dateIso": "2021-07-21",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/07/1.png",
+  "thumbnail": "/wp-content/uploads/2021/07/1.webp",
   "excerpt": "Without a doubt, your business is successful and caters to its customers’ needs efficiently. But it is always a good…",
   "blocks": [
     {

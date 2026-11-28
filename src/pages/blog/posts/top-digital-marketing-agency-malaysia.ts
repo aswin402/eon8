@@ -10,7 +10,7 @@ export const topDigitalMarketingAgencyMalaysiaPost: BlogPost = {
   dateIso: '2021-03-11',
   readTime: '4 min read',
   author: 'Aanya',
-  thumbnail: '/wp-content/uploads/2021/03/top-digital-marketing-agency-malaysia.jpg',
+  thumbnail: '/wp-content/uploads/2021/03/top-digital-marketing-agency-malaysia.webp',
   excerpt:
     'No matter whether your business is a start-up or a well-established company envied in the market, finding a top digital marketing agency in Malaysia to promote it is a great way to stay ahead.',
   blocks: [

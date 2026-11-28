@@ -12,7 +12,7 @@ export const negativeLinksInOrmPost: BlogPost = {
   "dateIso": "2020-06-15",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2019/07/eon-blog-1.jpg",
+  "thumbnail": "/wp-content/uploads/2019/07/eon-blog-1.webp",
   "excerpt": "It is the primary duty of a brand or business service to maintain its business reputation in online platforms. Online…",
   "blocks": [
     {

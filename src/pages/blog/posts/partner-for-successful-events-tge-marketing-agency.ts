@@ -12,7 +12,7 @@ export const partnerForSuccessfulEventsTgeMarketingAgencyPost: BlogPost = {
   "dateIso": "2025-06-09",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/TGE-marketing-Agency.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/TGE-marketing-Agency.webp",
   "excerpt": "Introduction In the fast-paced world of Web3, a successful token launch can define the future of your blockchain project. With…",
   "blocks": [
     {

@@ -39,7 +39,7 @@ export const complaintsBoardRemovalData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/What-are-complaint-boards.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/What-are-complaint-boards.webp",
       "imageAlt": "What are complaint boards",
       "actions": []
     },
@@ -69,7 +69,7 @@ export const complaintsBoardRemovalData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Removing-complaints-from-the-complaints-board.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Removing-complaints-from-the-complaints-board.webp",
       "imageAlt": "Removing complaints from the complaints board",
       "actions": []
     },

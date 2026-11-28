@@ -55,7 +55,7 @@ export const cleanNegativeSearchResults2Data: ServicePageData = {
           'While cleaning negative reviews across consumer reporting portals, we also handle Ripoff Report and similar complaint boards, replacing outdated or unverified claims with verified customer stories and trusted brand properties.',
         ],
       ],
-      imageSrc: '/wp-content/uploads/2020/04/Clean-Negative-Search-Results-eon8-softtech.jpg',
+      imageSrc: '/wp-content/uploads/2020/04/Clean-Negative-Search-Results-eon8-softtech.webp',
       imageAlt: 'Clean Negative Search Results - EON8',
     },
     {

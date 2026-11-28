@@ -77,7 +77,7 @@ export const facebookPackagesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/07/fb-package.png",
+      "imageSrc": "/wp-content/uploads/2022/07/fb-package.webp",
       "imageAlt": "facebook services package",
       "actions": []
     },

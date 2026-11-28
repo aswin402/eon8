@@ -29,43 +29,43 @@ export const communityMarketingAgency2Data: ServicePageData = {
       "heading": "We Helped Our Clients Take Their Biggest Step",
       "logos": [
         {
-          "src": "/wp-content/uploads/2022/11/street-race.png",
+          "src": "/wp-content/uploads/2022/11/street-race.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/rebe-world.png",
+          "src": "/wp-content/uploads/2022/11/rebe-world.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+          "src": "/wp-content/uploads/2022/11/mafia-dogs.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+          "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+          "src": "/wp-content/uploads/2022/11/diamonds-club.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/cryptorus.png",
+          "src": "/wp-content/uploads/2022/11/cryptorus.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+          "src": "/wp-content/uploads/2022/11/Bad-Influence.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+          "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/voganyangs.png",
+          "src": "/wp-content/uploads/2022/11/voganyangs.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/ths-logo.png",
+          "src": "/wp-content/uploads/2022/11/ths-logo.webp",
           "alt": "Web3 Client Partner"
         }
       ]

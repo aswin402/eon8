@@ -81,7 +81,7 @@ export const seoByIndustryData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/10/What-is-SEO-by-Industry-How-is-it-different-from-other-SEO-services.jpg",
+      "imageSrc": "/wp-content/uploads/2020/10/What-is-SEO-by-Industry-How-is-it-different-from-other-SEO-services.webp",
       "imageAlt": "What is SEO by Industry How is it different from other SEO services",
       "actions": [
         {
@@ -105,7 +105,7 @@ export const seoByIndustryData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/10/How-does-industry-based-SEO-work-1.jpg",
+      "imageSrc": "/wp-content/uploads/2020/10/How-does-industry-based-SEO-work-1.webp",
       "imageAlt": "How does industry-based SEO work",
       "actions": []
     },
@@ -128,7 +128,7 @@ export const seoByIndustryData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/10/What-makes-us-different.jpg",
+      "imageSrc": "/wp-content/uploads/2020/10/What-makes-us-different.webp",
       "imageAlt": "What makes us different",
       "actions": [
         {

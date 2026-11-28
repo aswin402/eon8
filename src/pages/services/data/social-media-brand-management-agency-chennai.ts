@@ -44,7 +44,7 @@ export const socialMediaBrandManagementAgencyChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/What-is-brand-management-on-social-media.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/What-is-brand-management-on-social-media.webp",
       "imageAlt": "What is brand management on social media",
       "actions": []
     },
@@ -65,7 +65,7 @@ export const socialMediaBrandManagementAgencyChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Benefits-of-brand-management.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Benefits-of-brand-management.webp",
       "imageAlt": "Benefits of brand management",
       "actions": []
     },
@@ -103,7 +103,7 @@ export const socialMediaBrandManagementAgencyChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Our-social-media-campaigns.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Our-social-media-campaigns.webp",
       "imageAlt": "Our social media campaigns",
       "actions": []
     },
@@ -160,7 +160,7 @@ export const socialMediaBrandManagementAgencyChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/why-eon8-4.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/why-eon8-4.webp",
       "imageAlt": "why eon8 4",
       "actions": []
     },

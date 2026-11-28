@@ -50,55 +50,55 @@ export const cryptoTwitterInfluencerMarketingData: CryptoServicePageData = {
   "clientLogos": [
     {
       "name": "1",
-      "src": "/wp-content/uploads/2022/11/street-race.png"
+      "src": "/wp-content/uploads/2022/11/street-race.webp"
     },
     {
       "name": "3",
-      "src": "/wp-content/uploads/2022/11/rebe-world.png"
+      "src": "/wp-content/uploads/2022/11/rebe-world.webp"
     },
     {
       "name": "5",
-      "src": "/wp-content/uploads/2022/11/mafia-dogs.png"
+      "src": "/wp-content/uploads/2022/11/mafia-dogs.webp"
     },
     {
       "name": "6",
-      "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png"
+      "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp"
     },
     {
       "name": "7",
-      "src": "/wp-content/uploads/2022/11/diamonds-club.png"
+      "src": "/wp-content/uploads/2022/11/diamonds-club.webp"
     },
     {
       "name": "8",
-      "src": "/wp-content/uploads/2022/11/cryptorus.png"
+      "src": "/wp-content/uploads/2022/11/cryptorus.webp"
     },
     {
       "name": "9",
-      "src": "/wp-content/uploads/2022/11/Bad-Influence.png"
+      "src": "/wp-content/uploads/2022/11/Bad-Influence.webp"
     },
     {
       "name": "10",
-      "src": "/wp-content/uploads/2022/11/Alphacadabraz.png"
+      "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp"
     },
     {
       "name": "11",
-      "src": "/wp-content/uploads/2022/11/voganyangs.png"
+      "src": "/wp-content/uploads/2022/11/voganyangs.webp"
     },
     {
       "name": "12",
-      "src": "/wp-content/uploads/2022/11/ths-logo.png"
+      "src": "/wp-content/uploads/2022/11/ths-logo.webp"
     },
     {
       "name": "13",
-      "src": "/wp-content/uploads/2022/11/street-race.png"
+      "src": "/wp-content/uploads/2022/11/street-race.webp"
     },
     {
       "name": "16",
-      "src": "/wp-content/uploads/2022/11/rebe-world.png"
+      "src": "/wp-content/uploads/2022/11/rebe-world.webp"
     },
     {
       "name": "18",
-      "src": "/wp-content/uploads/2022/11/mafia-dogs.png"
+      "src": "/wp-content/uploads/2022/11/mafia-dogs.webp"
     }
   ],
   "sections": [
@@ -270,7 +270,7 @@ export const cryptoTwitterInfluencerMarketingData: CryptoServicePageData = {
         ]
       ],
       "listItems": [],
-      "imageSrc": "/wp-content/uploads/2022/05/Partner-With-Eon8.png",
+      "imageSrc": "/wp-content/uploads/2022/05/Partner-With-Eon8.webp",
       "imageAlt": "crypto marketing services",
       "imageColClass": "col-md-12 col-lg-6 text-center collection-why",
       "contentColClass": "col-md-12 col-lg-6 col-sm-12"

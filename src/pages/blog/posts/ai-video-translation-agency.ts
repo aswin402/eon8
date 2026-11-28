@@ -12,7 +12,7 @@ export const aiVideoTranslationAgencyPost: BlogPost = {
   "dateIso": "2024-09-09",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/05/Untitled-design.png",
+  "thumbnail": "/wp-content/uploads/2025/05/Untitled-design.webp",
   "excerpt": "In today’s borderless world, one voice can echo across continents — but only if everyone understands it. Whether you’re a…",
   "blocks": [
     {

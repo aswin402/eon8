@@ -12,7 +12,7 @@ export const websiteDesignMistakesReduceLeadsConversionsPost: BlogPost = {
   "dateIso": "2026-06-25",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/06/website-design-company.png",
+  "thumbnail": "/wp-content/uploads/2026/06/website-design-company.webp",
   "excerpt": "Your website is often the first interaction potential customers have with your business. While attracting visitors through SEO, social media,…",
   "blocks": [
     {

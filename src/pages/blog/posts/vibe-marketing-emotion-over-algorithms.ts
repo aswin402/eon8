@@ -12,7 +12,7 @@ export const vibeMarketingEmotionOverAlgorithmsPost: BlogPost = {
   "dateIso": "2025-06-12",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/The-Rise-of-Vibe-Marketing-How-Emotion-Driven-Campaigns-Are-Beating-Algorithms.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/The-Rise-of-Vibe-Marketing-How-Emotion-Driven-Campaigns-Are-Beating-Algorithms.webp",
   "excerpt": "In today’s digital world, consumers are constantly exposed to thousands of ads every day. Most of these ads rely on…",
   "blocks": [
     {

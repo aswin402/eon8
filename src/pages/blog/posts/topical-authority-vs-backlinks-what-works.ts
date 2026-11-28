@@ -12,7 +12,7 @@ export const topicalAuthorityVsBacklinksWhatWorksPost: BlogPost = {
   "dateIso": "2025-07-23",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/Topical-Authority-vs-Backlinks-What-Works.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/Topical-Authority-vs-Backlinks-What-Works.webp",
   "excerpt": "Introduction: The Changing SEO Landscape Search engine optimization has always been a mix of art and science. While backlinks once…",
   "blocks": [
     {

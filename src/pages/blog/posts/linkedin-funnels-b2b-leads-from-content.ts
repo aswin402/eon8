@@ -12,7 +12,7 @@ export const linkedinFunnelsB2bLeadsFromContentPost: BlogPost = {
   "dateIso": "2025-07-29",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/LinkedIn-Funnels-B2B-Leads-from-Content.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/LinkedIn-Funnels-B2B-Leads-from-Content.webp",
   "excerpt": "For B2B companies, LinkedIn isn’t just a networking site—it’s a powerful sales machine. But simply posting on LinkedIn won’t drive…",
   "blocks": [
     {

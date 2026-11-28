@@ -12,7 +12,7 @@ export const marketingAutomationToolsBusinessesShouldUse2026Post: BlogPost = {
   "dateIso": "2026-06-29",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/06/marketing-automation-tools.png",
+  "thumbnail": "/wp-content/uploads/2026/06/marketing-automation-tools.webp",
   "excerpt": "As digital marketing becomes more sophisticated, businesses are expected to engage customers across multiple channels while delivering personalized experiences at…",
   "blocks": [
     {

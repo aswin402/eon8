@@ -69,7 +69,7 @@ export const ppcCompanyChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/What-is-PPC-Marketing.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/What-is-PPC-Marketing.webp",
       "imageAlt": "What is PPC Marketing",
       "actions": []
     },
@@ -90,7 +90,7 @@ export const ppcCompanyChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Choosing-the-right-PPC-Agency.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Choosing-the-right-PPC-Agency.webp",
       "imageAlt": "Choosing the right PPC Agency",
       "actions": [
         {
@@ -162,7 +162,7 @@ export const ppcCompanyChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/best-PPC-Agency-in-Chennai.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/best-PPC-Agency-in-Chennai.webp",
       "imageAlt": "best PPC Agency in Chennai",
       "actions": [
         {
@@ -191,7 +191,7 @@ export const ppcCompanyChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/How-does-PPC-work.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/How-does-PPC-work.webp",
       "imageAlt": "How does PPC work",
       "actions": [
         {

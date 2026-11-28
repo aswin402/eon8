@@ -12,7 +12,7 @@ export const personalizedAiVideosPost: BlogPost = {
   "dateIso": "2024-10-16",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/05/1.png",
+  "thumbnail": "/wp-content/uploads/2025/05/1.webp",
   "excerpt": "Why settle for plain when you can entertain? With EON8’s Personalized AI Videos, you can turn simple communications into extraordinary…",
   "blocks": [
     {

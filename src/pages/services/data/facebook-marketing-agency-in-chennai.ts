@@ -70,7 +70,7 @@ export const facebookMarketingAgencyInChennaiData: ServicePageData = {
         "🛒 Direct impact on eCommerce sales & lead generation",
         "📈 Scalable strategies to grow with your business"
       ],
-      "imageSrc": "/wp-content/uploads/2020/11/Advantages-of-Facebook-Marketing.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Advantages-of-Facebook-Marketing.webp",
       "imageAlt": "Advantages of Facebook Marketing",
       "actions": []
     },
@@ -99,7 +99,7 @@ export const facebookMarketingAgencyInChennaiData: ServicePageData = {
         "🔁 Advanced remarketing strategies",
         "🧪 Continuous A/B testing & optimization"
       ],
-      "imageSrc": "/wp-content/uploads/2020/11/Facebook-Advertising-and-Page-Maintenance-agency.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Facebook-Advertising-and-Page-Maintenance-agency.webp",
       "imageAlt": "Facebook Advertising and Page Maintenance agency",
       "actions": []
     },
@@ -136,7 +136,7 @@ export const facebookMarketingAgencyInChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Why-should-you-do-Facebook-advertising-with-us.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Why-should-you-do-Facebook-advertising-with-us.webp",
       "imageAlt": "Why should you do Facebook advertising with us",
       "actions": []
     },

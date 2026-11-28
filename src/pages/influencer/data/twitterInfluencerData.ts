@@ -116,25 +116,25 @@ export const twitterInfluencerData: TwitterInfluencerPageData = {
     "subheading": "",
     "items": [
       {
-        "iconSrc": "/wp-content/uploads/2022/07/brand.png",
+        "iconSrc": "/wp-content/uploads/2022/07/brand.webp",
         "iconAlt": "In-depth Analysis",
         "title": "In-depth Analysis",
         "description": "Our team will scrutinize all aspects of your brand to create a comprehensive strategy that aligns with your objectives."
       },
       {
-        "iconSrc": "/wp-content/uploads/2022/07/community-moderation.png",
+        "iconSrc": "/wp-content/uploads/2022/07/community-moderation.webp",
         "iconAlt": "Influencer Source",
         "title": "Influencer Source",
         "description": "We have a broad network of reputable Twitter Influencers and deeply analyze to find the ideal one for your campaign."
       },
       {
-        "iconSrc": "/wp-content/uploads/2022/07/connections.png",
+        "iconSrc": "/wp-content/uploads/2022/07/connections.webp",
         "iconAlt": "Campaign Design",
         "title": "Campaign Design",
         "description": "We utilize solid Twitter marketing principles to communicate your core values to the right audience."
       },
       {
-        "iconSrc": "/wp-content/uploads/2022/07/discord-classic.png",
+        "iconSrc": "/wp-content/uploads/2022/07/discord-classic.webp",
         "iconAlt": "Testing",
         "title": "Testing",
         "description": "Our team evaluates every campaign to find concepts that drive the most conversions and ensure optimizations."
@@ -190,7 +190,7 @@ export const twitterInfluencerData: TwitterInfluencerPageData = {
       ]
     ],
     "image": {
-      "src": "/wp-content/uploads/2022/07/discord-marketing.jpg",
+      "src": "/wp-content/uploads/2022/07/discord-marketing.webp",
       "alt": "nft marketing services"
     }
   },

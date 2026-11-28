@@ -12,7 +12,7 @@ export const promoteNftsOnTwitterPost: BlogPost = {
   "dateIso": "2022-11-25",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/11/how-to-promote.png",
+  "thumbnail": "/wp-content/uploads/2022/11/how-to-promote.webp",
   "excerpt": "How to promote NFT on Twitter Do you have NFTs that need to be marketed? Social media must be a…",
   "blocks": [
     {

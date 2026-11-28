@@ -23,9 +23,9 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
     youtube: 'https://www.youtube.com/@Eon8TheDigitalInfinity/videos',
   },
   branding: {
-    headerLogo: '/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png',
-    headerLogoDark: '/wp-content/uploads/2026/03/Logo_bg-1.png',
-    footerLogo: '/wp-content/uploads/2026/03/Logo_bg-1.png',
+    headerLogo: '/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.webp',
+    headerLogoDark: '/wp-content/uploads/2026/03/Logo_bg-1.webp',
+    footerLogo: '/wp-content/uploads/2026/03/Logo_bg-1.webp',
     favicon: '/favicon.svg',
     shareImage: '',
   },

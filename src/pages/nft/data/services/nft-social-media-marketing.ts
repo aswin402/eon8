@@ -36,7 +36,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
         ]
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/01/nft-marks.png",
+        "src": "/wp-content/uploads/2022/01/nft-marks.webp",
         "alt": "nft marketing services"
       },
       "buttons": [
@@ -77,7 +77,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/influencer-marketing.png",
+            "src": "/wp-content/uploads/2022/01/influencer-marketing.webp",
             "alt": ""
           }
         },
@@ -93,7 +93,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/influencer-marketing.png",
+            "src": "/wp-content/uploads/2022/01/influencer-marketing.webp",
             "alt": ""
           }
         },
@@ -109,7 +109,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/influencer-marketing.png",
+            "src": "/wp-content/uploads/2022/01/influencer-marketing.webp",
             "alt": ""
           }
         },
@@ -125,7 +125,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/influencer-marketing.png",
+            "src": "/wp-content/uploads/2022/01/influencer-marketing.webp",
             "alt": ""
           }
         },
@@ -141,7 +141,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/influencer-marketing.png",
+            "src": "/wp-content/uploads/2022/01/influencer-marketing.webp",
             "alt": ""
           }
         },
@@ -157,7 +157,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
           "colClass": "col-lg-4 col-md-4 col-sm-6",
           "iconSpanClass": "card-icon-section",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/influencer-marketing.png",
+            "src": "/wp-content/uploads/2022/01/influencer-marketing.webp",
             "alt": ""
           }
         }
@@ -177,7 +177,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
         }
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/01/call-nftimg1.png",
+        "src": "/wp-content/uploads/2022/01/call-nftimg1.webp",
         "alt": "nft marketing agency"
       }
     },
@@ -204,7 +204,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center",
           "iconSpanClass": "icon",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/influencer-marketing.png",
+            "src": "/wp-content/uploads/2022/01/influencer-marketing.webp",
             "alt": ""
           }
         },
@@ -226,7 +226,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center",
           "iconSpanClass": "icon",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/influencer-marketing.png",
+            "src": "/wp-content/uploads/2022/01/influencer-marketing.webp",
             "alt": ""
           }
         },
@@ -248,7 +248,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center",
           "iconSpanClass": "icon",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/influencer-marketing.png",
+            "src": "/wp-content/uploads/2022/01/influencer-marketing.webp",
             "alt": ""
           }
         },
@@ -270,7 +270,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center",
           "iconSpanClass": "icon",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/01/influencer-marketing.png",
+            "src": "/wp-content/uploads/2022/01/influencer-marketing.webp",
             "alt": ""
           }
         }
@@ -295,7 +295,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
         ]
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/01/why-man.png",
+        "src": "/wp-content/uploads/2022/01/why-man.webp",
         "alt": "nft marketing services"
       }
     },
@@ -314,7 +314,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
   "modalHeading": "Get A Free Consultation",
   "modalSubmitLabel": "Submit",
   "stickyOffer": {
-    "src": "/wp-content/uploads/2022/11/offer-christmas.png",
+    "src": "/wp-content/uploads/2022/11/offer-christmas.webp",
     "alt": ""
   },
   "hero": {
@@ -352,43 +352,43 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
   "clientSlider": {
     "logos": [
       {
-        "src": "/wp-content/uploads/2022/11/street-race.png",
+        "src": "/wp-content/uploads/2022/11/street-race.webp",
         "name": "1"
       },
       {
-        "src": "/wp-content/uploads/2022/11/rebe-world.png",
+        "src": "/wp-content/uploads/2022/11/rebe-world.webp",
         "name": "3"
       },
       {
-        "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+        "src": "/wp-content/uploads/2022/11/mafia-dogs.webp",
         "name": "5"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp",
         "name": "6"
       },
       {
-        "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+        "src": "/wp-content/uploads/2022/11/diamonds-club.webp",
         "name": "7"
       },
       {
-        "src": "/wp-content/uploads/2022/11/cryptorus.png",
+        "src": "/wp-content/uploads/2022/11/cryptorus.webp",
         "name": "8"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+        "src": "/wp-content/uploads/2022/11/Bad-Influence.webp",
         "name": "9"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+        "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp",
         "name": "10"
       },
       {
-        "src": "/wp-content/uploads/2022/11/voganyangs.png",
+        "src": "/wp-content/uploads/2022/11/voganyangs.webp",
         "name": "11"
       },
       {
-        "src": "/wp-content/uploads/2022/11/ths-logo.png",
+        "src": "/wp-content/uploads/2022/11/ths-logo.webp",
         "name": "12"
       }
     ],
@@ -407,7 +407,7 @@ export const nftSocialMediaMarketingData: NftServicePageData = {
     "formSubmitLabel": "Submit",
     "subheading": "Request Free Quote",
     "leftImage": {
-      "src": "/wp-content/uploads/2022/01/contact-sec1.png",
+      "src": "/wp-content/uploads/2022/01/contact-sec1.webp",
       "alt": "nft marketing services"
     },
     "formHeading": "Request Free Quote"

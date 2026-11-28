@@ -13,7 +13,7 @@ export const learnHowToSucceedWithDiscordCommunityPost: BlogPost = {
   "dateIso": "2022-10-19",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/10/discord-2.png",
+  "thumbnail": "/wp-content/uploads/2022/10/discord-2.webp",
   "excerpt": "Discord, a platform that started off as a chat space for gamers, has become increasingly popular among brands and non-brands…",
   "blocks": [
     {

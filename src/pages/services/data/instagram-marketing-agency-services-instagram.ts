@@ -35,7 +35,7 @@ export const instagramMarketingAgencyServicesInstagramData: ServicePageData = {
       }
     ],
     "layout": "split-media",
-    "mediaSrc": "/wp-content/uploads/2022/05/insta-marketing-img.png",
+    "mediaSrc": "/wp-content/uploads/2022/05/insta-marketing-img.webp",
     "mediaAlt": "nft marketing services"
   },
   "sections": [
@@ -44,7 +44,7 @@ export const instagramMarketingAgencyServicesInstagramData: ServicePageData = {
       "heading": "Trusted By Industry Leaders",
       "logos": [
         {
-          "src": "/wp-content/uploads/2022/09/poorvika.png",
+          "src": "/wp-content/uploads/2022/09/poorvika.webp",
           "alt": "Client Logo"
         },
         {
@@ -52,7 +52,7 @@ export const instagramMarketingAgencyServicesInstagramData: ServicePageData = {
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/lenskart.png",
+          "src": "/wp-content/uploads/2022/09/lenskart.webp",
           "alt": "Client Logo"
         },
         {
@@ -60,27 +60,27 @@ export const instagramMarketingAgencyServicesInstagramData: ServicePageData = {
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/otto.png",
+          "src": "/wp-content/uploads/2022/09/otto.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/big-bazaar.png",
+          "src": "/wp-content/uploads/2022/09/big-bazaar.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/Radio-City.png",
+          "src": "/wp-content/uploads/2022/09/Radio-City.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/apollo.png",
+          "src": "/wp-content/uploads/2022/09/apollo.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/McDonald.png",
+          "src": "/wp-content/uploads/2022/09/McDonald.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/meesho.png",
+          "src": "/wp-content/uploads/2022/09/meesho.webp",
           "alt": "Client Logo"
         },
         {
@@ -88,7 +88,7 @@ export const instagramMarketingAgencyServicesInstagramData: ServicePageData = {
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/dabur.png",
+          "src": "/wp-content/uploads/2022/09/dabur.webp",
           "alt": "Client Logo"
         }
       ]
@@ -239,7 +239,7 @@ export const instagramMarketingAgencyServicesInstagramData: ServicePageData = {
         "Account hygiene, bio optimization & verification readiness review",
         "Sustained follower growth and engagement authenticity"
       ],
-      "imageSrc": "/wp-content/uploads/2022/10/verified.png",
+      "imageSrc": "/wp-content/uploads/2022/10/verified.webp",
       "imageAlt": "Instagram Blue Tick Verification Support",
       "actions": [
         {
@@ -337,7 +337,7 @@ export const instagramMarketingAgencyServicesInstagramData: ServicePageData = {
         "Value For Money.",
         "Loyalty."
       ],
-      "imageSrc": "/wp-content/uploads/2022/05/beginning-to-end.png",
+      "imageSrc": "/wp-content/uploads/2022/05/beginning-to-end.webp",
       "imageAlt": "Instagram marketing services",
       "actions": []
     },

@@ -49,55 +49,55 @@ export const stoMarketingAgencyData: CryptoServicePageData = {
   "clientLogos": [
     {
       "name": "1",
-      "src": "/wp-content/uploads/2022/11/street-race.png"
+      "src": "/wp-content/uploads/2022/11/street-race.webp"
     },
     {
       "name": "3",
-      "src": "/wp-content/uploads/2022/11/rebe-world.png"
+      "src": "/wp-content/uploads/2022/11/rebe-world.webp"
     },
     {
       "name": "5",
-      "src": "/wp-content/uploads/2022/11/mafia-dogs.png"
+      "src": "/wp-content/uploads/2022/11/mafia-dogs.webp"
     },
     {
       "name": "6",
-      "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png"
+      "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp"
     },
     {
       "name": "7",
-      "src": "/wp-content/uploads/2022/11/diamonds-club.png"
+      "src": "/wp-content/uploads/2022/11/diamonds-club.webp"
     },
     {
       "name": "8",
-      "src": "/wp-content/uploads/2022/11/cryptorus.png"
+      "src": "/wp-content/uploads/2022/11/cryptorus.webp"
     },
     {
       "name": "9",
-      "src": "/wp-content/uploads/2022/11/Bad-Influence.png"
+      "src": "/wp-content/uploads/2022/11/Bad-Influence.webp"
     },
     {
       "name": "10",
-      "src": "/wp-content/uploads/2022/11/Alphacadabraz.png"
+      "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp"
     },
     {
       "name": "11",
-      "src": "/wp-content/uploads/2022/11/voganyangs.png"
+      "src": "/wp-content/uploads/2022/11/voganyangs.webp"
     },
     {
       "name": "12",
-      "src": "/wp-content/uploads/2022/11/ths-logo.png"
+      "src": "/wp-content/uploads/2022/11/ths-logo.webp"
     },
     {
       "name": "13",
-      "src": "/wp-content/uploads/2022/11/street-race.png"
+      "src": "/wp-content/uploads/2022/11/street-race.webp"
     },
     {
       "name": "16",
-      "src": "/wp-content/uploads/2022/11/rebe-world.png"
+      "src": "/wp-content/uploads/2022/11/rebe-world.webp"
     },
     {
       "name": "18",
-      "src": "/wp-content/uploads/2022/11/mafia-dogs.png"
+      "src": "/wp-content/uploads/2022/11/mafia-dogs.webp"
     }
   ],
   "sections": [
@@ -239,7 +239,7 @@ export const stoMarketingAgencyData: CryptoServicePageData = {
             ]
           ],
           "bullets": [],
-          "iconImg": "/wp-content/uploads/2022/07/brand.png",
+          "iconImg": "/wp-content/uploads/2022/07/brand.webp",
           "iconAlt": "Branding"
         },
         {
@@ -250,7 +250,7 @@ export const stoMarketingAgencyData: CryptoServicePageData = {
             ]
           ],
           "bullets": [],
-          "iconImg": "/wp-content/uploads/2022/07/community-moderation.png",
+          "iconImg": "/wp-content/uploads/2022/07/community-moderation.webp",
           "iconAlt": "Reputation management"
         },
         {
@@ -261,7 +261,7 @@ export const stoMarketingAgencyData: CryptoServicePageData = {
             ]
           ],
           "bullets": [],
-          "iconImg": "/wp-content/uploads/2022/07/connections.png",
+          "iconImg": "/wp-content/uploads/2022/07/connections.webp",
           "iconAlt": "Influencer marketing"
         },
         {
@@ -272,7 +272,7 @@ export const stoMarketingAgencyData: CryptoServicePageData = {
             ]
           ],
           "bullets": [],
-          "iconImg": "/wp-content/uploads/2022/07/discord-classic.png",
+          "iconImg": "/wp-content/uploads/2022/07/discord-classic.webp",
           "iconAlt": "Social media"
         }
       ]
@@ -317,7 +317,7 @@ export const stoMarketingAgencyData: CryptoServicePageData = {
         ]
       ],
       "listItems": [],
-      "imageSrc": "/wp-content/uploads/2022/11/emp-brand.png",
+      "imageSrc": "/wp-content/uploads/2022/11/emp-brand.webp",
       "imageAlt": "Scalable Security Token Agency To Build Your Business Success",
       "imageColClass": "col-md-12 col-lg-6 text-center",
       "contentColClass": "col-md-12 col-lg-6 col-sm-12"

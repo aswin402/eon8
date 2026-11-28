@@ -68,6 +68,8 @@ for (const kind of ['baseline', 'current', 'diff']) fs.mkdirSync(dirFor(kind), {
 // but must still count. Image-scaling noise stays under ~250 px; occasional text-rendering
 // noise is handled by retaking the screenshot.
 const MAX_PIXELS = Number(process.env.VISUAL_MAX_PIXELS || 300);
+// Retakes before a difference counts (VISUAL_RETAKES=0 when a change is expected everywhere).
+const RETAKES = Number(process.env.VISUAL_RETAKES ?? 2);
 
 const STILL_CSS = `
   *, *::before, *::after { animation: none !important; transition: none !important; caret-color: transparent !important; }
@@ -194,7 +196,7 @@ async function runJob(job) {
   let isChanged = pixels > MAX_PIXELS || heightDelta !== 0;
   let note = '';
   // Up to two retakes: a real change shows every time, an occasional rendering hiccup does not.
-  for (let attempt = 0; isChanged && attempt < 2; attempt += 1) {
+  for (let attempt = 0; isChanged && attempt < RETAKES; attempt += 1) {
     const retake = await capture(browser, job.url, job.width);
     const again = compare(job.name, baseline, retake);
     if (again.pixels <= MAX_PIXELS && again.heightDelta === 0) {

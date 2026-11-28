@@ -28,7 +28,7 @@ export const instagramReelsMarketingAgencyData: ServicePageData = {
       }
     ],
     "layout": "split-media",
-    "mediaSrc": "/wp-content/uploads/2022/10/reels-marketing.png",
+    "mediaSrc": "/wp-content/uploads/2022/10/reels-marketing.webp",
     "mediaAlt": "nft marketing services"
   },
   "sections": [
@@ -59,7 +59,7 @@ export const instagramReelsMarketingAgencyData: ServicePageData = {
       "heading": "Trusted By Industry Leaders",
       "logos": [
         {
-          "src": "/wp-content/uploads/2022/09/poorvika.png",
+          "src": "/wp-content/uploads/2022/09/poorvika.webp",
           "alt": "Client Logo"
         },
         {
@@ -67,7 +67,7 @@ export const instagramReelsMarketingAgencyData: ServicePageData = {
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/lenskart.png",
+          "src": "/wp-content/uploads/2022/09/lenskart.webp",
           "alt": "Client Logo"
         },
         {
@@ -75,27 +75,27 @@ export const instagramReelsMarketingAgencyData: ServicePageData = {
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/otto.png",
+          "src": "/wp-content/uploads/2022/09/otto.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/big-bazaar.png",
+          "src": "/wp-content/uploads/2022/09/big-bazaar.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/Radio-City.png",
+          "src": "/wp-content/uploads/2022/09/Radio-City.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/apollo.png",
+          "src": "/wp-content/uploads/2022/09/apollo.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/McDonald.png",
+          "src": "/wp-content/uploads/2022/09/McDonald.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/meesho.png",
+          "src": "/wp-content/uploads/2022/09/meesho.webp",
           "alt": "Client Logo"
         },
         {
@@ -103,7 +103,7 @@ export const instagramReelsMarketingAgencyData: ServicePageData = {
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/dabur.png",
+          "src": "/wp-content/uploads/2022/09/dabur.webp",
           "alt": "Client Logo"
         }
       ]

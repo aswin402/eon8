@@ -12,7 +12,7 @@ export const metaAdsAdvertisingPost: BlogPost = {
   "dateIso": "2025-07-11",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/1.-Why-Metas-AI-Targeting-is-Failing-And-What-You-Can-Do-About-It.png",
+  "thumbnail": "/wp-content/uploads/2025/07/1.-Why-Metas-AI-Targeting-is-Failing-And-What-You-Can-Do-About-It.webp",
   "excerpt": "Meta’s AI-powered advertising once promised marketers a futuristic blend of automation and results in an ecosystem where brands could effortlessly…",
   "blocks": [
     {

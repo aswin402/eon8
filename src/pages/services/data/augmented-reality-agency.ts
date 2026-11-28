@@ -62,7 +62,7 @@ export const augmentedRealityAgencyData: ServicePageData = {
         "Virtual face, wrist, and apparel try-on directly in mobile browsers",
         "Higher add-to-cart rates and lower return rates across high-AOV catalogs"
       ],
-      "imageSrc": "/wp-content/uploads/2025/02/Mask-Group-11-Copy.png",
+      "imageSrc": "/wp-content/uploads/2025/02/Mask-Group-11-Copy.webp",
       "imageAlt": "Augmented Reality E-Commerce Growth",
       "actions": [
         {

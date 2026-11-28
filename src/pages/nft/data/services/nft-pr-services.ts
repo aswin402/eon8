@@ -100,7 +100,7 @@ export const nftPrServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/brand.png",
+            "src": "/wp-content/uploads/2022/07/brand.webp",
             "alt": "",
             "className": "child"
           }
@@ -116,7 +116,7 @@ export const nftPrServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/community-moderation.png",
+            "src": "/wp-content/uploads/2022/07/community-moderation.webp",
             "alt": "",
             "className": "child"
           }
@@ -132,7 +132,7 @@ export const nftPrServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/connections.png",
+            "src": "/wp-content/uploads/2022/07/connections.webp",
             "alt": "",
             "className": "child"
           }
@@ -148,7 +148,7 @@ export const nftPrServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/discord-classic.png",
+            "src": "/wp-content/uploads/2022/07/discord-classic.webp",
             "alt": "",
             "className": "child"
           }
@@ -265,7 +265,7 @@ export const nftPrServicesData: NftServicePageData = {
         ]
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/07/discord-marketing.jpg",
+        "src": "/wp-content/uploads/2022/07/discord-marketing.webp",
         "alt": "NFT PR Marketing"
       }
     },
@@ -337,7 +337,7 @@ export const nftPrServicesData: NftServicePageData = {
   "modalHeading": "Get A Free Consultation",
   "modalSubmitLabel": "Submit",
   "stickyOffer": {
-    "src": "/wp-content/uploads/2022/11/offer-christmas.png",
+    "src": "/wp-content/uploads/2022/11/offer-christmas.webp",
     "alt": ""
   },
   "hero": {

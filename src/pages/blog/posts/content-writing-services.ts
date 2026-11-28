@@ -12,7 +12,7 @@ export const contentWritingServicesPost: BlogPost = {
   "dateIso": "2021-06-22",
   "readTime": "2 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/06/Content-writing.png",
+  "thumbnail": "/wp-content/uploads/2021/06/Content-writing.webp",
   "excerpt": "It doesn’t matter if you are a small start-up or a well-established brand. Digital marketing and good content writing services…",
   "blocks": [
     {
