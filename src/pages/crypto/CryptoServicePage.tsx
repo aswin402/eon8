@@ -81,7 +81,7 @@ export default function CryptoServicePage({ slug }: CryptoServicePageProps) {
 
   if (!data) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center bg-background">
+      <div className="min-h-[100svh] flex items-center justify-center bg-background">
         <div className="w-9 h-9 border-3 border-amber-500 border-t-transparent rounded-full animate-spin" />
       </div>
     );

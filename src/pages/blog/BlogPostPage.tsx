@@ -137,7 +137,7 @@ export function BlogPostPage({ slug: propSlug, routeType }: BlogPostPageProps) {
   const effectiveSummary = currentPost || summary;
   if (!effectiveSummary) {
     return (
-      <div className="min-h-[65vh] pt-32 pb-24 flex items-center justify-center">
+      <div className="min-h-[100svh] pt-32 pb-24 flex items-center justify-center">
         <div className="w-9 h-9 border-3 border-[#FD5900] border-t-transparent rounded-full animate-spin" />
       </div>
     );

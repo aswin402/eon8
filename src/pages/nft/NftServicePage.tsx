@@ -56,7 +56,7 @@ export default function NftServicePage({ slug }: NftServicePageProps) {
 
   if (!data) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center bg-background">
+      <div className="min-h-[100svh] flex items-center justify-center bg-background">
         <div className="h-9 w-9 animate-spin rounded-full border-4 border-purple-600 border-t-transparent" />
       </div>
     );

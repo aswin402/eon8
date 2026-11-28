@@ -1,3 +1,4 @@
+import { HERO_IMAGE_SIZES } from '@/lib/media/heroImageSizes';
 import type { ReactNode } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { LeadCaptureCard } from './LeadCaptureCard';
@@ -180,9 +181,13 @@ export function ServiceHeroSection({
                     aria-hidden="true"
                     className="absolute inset-4 rounded-3xl bg-white/10 blur-2xl"
                   />
+                  {/* width/height let the browser keep the image's space before it loads (no jump). */}
                   <img
                     src={mediaSrc}
                     alt={mediaAlt}
+                    width={HERO_IMAGE_SIZES[mediaSrc]?.[0]}
+                    height={HERO_IMAGE_SIZES[mediaSrc]?.[1]}
+                    fetchPriority="high"
                     className="relative z-10 w-full max-w-[480px] h-auto object-contain rounded-2xl drop-shadow-2xl animate-float"
                   />
                 </div>

@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function PageLoader() {
   return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center p-12 pt-36">
+    <div className="min-h-[100svh] flex flex-col items-center justify-center p-12 pt-36">
       <div className="relative flex items-center justify-center">
         <div className="w-12 h-12 border-3 border-orange-500/20 border-t-orange-500 rounded-full animate-spin" />
         <div className="absolute w-6 h-6 bg-gradient-to-tr from-orange-500 to-blue-500 rounded-full blur-md opacity-40 animate-pulse" />
