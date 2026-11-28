@@ -12,7 +12,7 @@ export const buildTrustDriveSalesSocialMediaMarketingPost: BlogPost = {
   "dateIso": "2026-06-22",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/06/How-Social-Media-Marketing.png",
+  "thumbnail": "/wp-content/uploads/2026/06/How-Social-Media-Marketing.webp",
   "excerpt": "In today’s digital-first world, consumers expect more than just products and services. They want to connect with brands, understand their…",
   "blocks": [
     {

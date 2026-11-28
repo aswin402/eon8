@@ -12,7 +12,7 @@ export const instagramMarketingAgencyInDelhiPost: BlogPost = {
   "dateIso": "2022-09-19",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/09/Instagram-Marketing-Agency-In-Delh.png",
+  "thumbnail": "/wp-content/uploads/2022/09/Instagram-Marketing-Agency-In-Delh.webp",
   "excerpt": "Do you want to know your Instagram audience better than ever before? You have landed at the right place, as…",
   "blocks": [
     {

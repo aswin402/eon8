@@ -12,7 +12,7 @@ export const instagramMarketingAgencyInBanglorePost: BlogPost = {
   "dateIso": "2022-09-20",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/09/City-Buildings-Facebook-Cover.png",
+  "thumbnail": "/wp-content/uploads/2022/09/City-Buildings-Facebook-Cover.webp",
   "excerpt": "Eon8 is an experienced Instagram marketing agency present in Banglore with 12+ years of experience and has done 30,000+ successful…",
   "blocks": [
     {

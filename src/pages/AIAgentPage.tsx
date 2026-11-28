@@ -24,35 +24,35 @@ import {
 
 const BUSINESS_CARDS: FeatureCardItem[] = [
   {
-    iconSrc: '/wp-content/uploads/2022/07/brand.png',
+    iconSrc: '/wp-content/uploads/2022/07/brand.webp',
     iconAlt: 'Cost Effective',
     title: '1. Cost-Effective Automation',
     description:
       'AI agents significantly reduce human intervention, helping businesses save time and operational costs while maintaining high accuracy and efficiency.',
   },
   {
-    iconSrc: '/wp-content/uploads/2022/07/community-moderation.png',
+    iconSrc: '/wp-content/uploads/2022/07/community-moderation.webp',
     iconAlt: 'Customer Support',
     title: '2. Real-Time Customer Support',
     description:
       'Deploy personalised AI agents as virtual assistants that handle queries, process orders, provide recommendations, and offer support 24/7.',
   },
   {
-    iconSrc: '/wp-content/uploads/2022/07/connections.png',
+    iconSrc: '/wp-content/uploads/2022/07/connections.webp',
     iconAlt: 'Scalable Intelligence',
     title: '3. Scalable Intelligence',
     description:
       'Our customizable AI agent services allow you to scale from simple use cases to complex, multi-functional systems without starting from scratch.',
   },
   {
-    iconSrc: '/wp-content/uploads/2022/07/discord-classic.png',
+    iconSrc: '/wp-content/uploads/2022/07/discord-classic.webp',
     iconAlt: 'Data Driven',
     title: '4. Data-Driven Decisions',
     description:
       'AI agents gather and analyze data continuously, enabling intelligent decision-making and predictive analytics to keep you proactive.',
   },
   {
-    iconSrc: '/wp-content/uploads/2022/07/discord-nitro.png',
+    iconSrc: '/wp-content/uploads/2022/07/discord-nitro.webp',
     iconAlt: 'Omnichannel',
     title: '5. Omnichannel Integration',
     description:
@@ -153,50 +153,50 @@ const TECH_CATEGORIES = [
   {
     title: 'Programming',
     items: [
-      { name: 'Python', src: '/wp-content/uploads/2025/08/Python.png' },
-      { name: 'JavaScript', src: '/wp-content/uploads/2025/08/JavaScript.png' },
-      { name: 'Node.js', src: '/wp-content/uploads/2025/08/Node.js.png' },
+      { name: 'Python', src: '/wp-content/uploads/2025/08/Python.webp' },
+      { name: 'JavaScript', src: '/wp-content/uploads/2025/08/JavaScript.webp' },
+      { name: 'Node.js', src: '/wp-content/uploads/2025/08/Node.js.webp' },
     ],
   },
   {
     title: 'AI Frameworks',
     items: [
-      { name: 'TensorFlow', src: '/wp-content/uploads/2025/08/TensorFlow.png' },
-      { name: 'PyTorch', src: '/wp-content/uploads/2025/08/PyTorch.png' },
-      { name: 'OpenAI API', src: '/wp-content/uploads/2025/08/OpenAI-API.png' },
-      { name: 'Dialogflow', src: '/wp-content/uploads/2025/08/Dialogflow.png' },
+      { name: 'TensorFlow', src: '/wp-content/uploads/2025/08/TensorFlow.webp' },
+      { name: 'PyTorch', src: '/wp-content/uploads/2025/08/PyTorch.webp' },
+      { name: 'OpenAI API', src: '/wp-content/uploads/2025/08/OpenAI-API.webp' },
+      { name: 'Dialogflow', src: '/wp-content/uploads/2025/08/Dialogflow.webp' },
     ],
   },
   {
     title: 'NLP Engines',
     items: [
-      { name: 'Google BERT', src: '/wp-content/uploads/2025/08/Google-BERT.png' },
-      { name: 'OpenAI GPT', src: '/wp-content/uploads/2025/08/OpenAI-GPT.png' },
-      { name: 'SpaCy', src: '/wp-content/uploads/2025/08/SpaCy.png' },
+      { name: 'Google BERT', src: '/wp-content/uploads/2025/08/Google-BERT.webp' },
+      { name: 'OpenAI GPT', src: '/wp-content/uploads/2025/08/OpenAI-GPT.webp' },
+      { name: 'SpaCy', src: '/wp-content/uploads/2025/08/SpaCy.webp' },
     ],
   },
   {
     title: 'Cloud Platforms',
     items: [
-      { name: 'AWS', src: '/wp-content/uploads/2025/08/AWS.png' },
-      { name: 'Azure', src: '/wp-content/uploads/2025/08/Azure.png' },
-      { name: 'GCP', src: '/wp-content/uploads/2025/08/GCP.png' },
+      { name: 'AWS', src: '/wp-content/uploads/2025/08/AWS.webp' },
+      { name: 'Azure', src: '/wp-content/uploads/2025/08/Azure.webp' },
+      { name: 'GCP', src: '/wp-content/uploads/2025/08/GCP.webp' },
     ],
   },
   {
     title: 'Databases',
     items: [
-      { name: 'MongoDB', src: '/wp-content/uploads/2025/08/MongoDB.png' },
-      { name: 'PostgreSQL', src: '/wp-content/uploads/2025/08/PostgreSQL.png' },
-      { name: 'MySQL', src: '/wp-content/uploads/2025/08/MySQL.png' },
+      { name: 'MongoDB', src: '/wp-content/uploads/2025/08/MongoDB.webp' },
+      { name: 'PostgreSQL', src: '/wp-content/uploads/2025/08/PostgreSQL.webp' },
+      { name: 'MySQL', src: '/wp-content/uploads/2025/08/MySQL.webp' },
     ],
   },
   {
     title: 'Integration Tools',
     items: [
-      { name: 'Zapier', src: '/wp-content/uploads/2025/08/Zapier.png' },
-      { name: 'API Gateways', src: '/wp-content/uploads/2025/08/API-Gateways.png' },
-      { name: 'Webhooks', src: '/wp-content/uploads/2025/08/Webhooks.png' },
+      { name: 'Zapier', src: '/wp-content/uploads/2025/08/Zapier.webp' },
+      { name: 'API Gateways', src: '/wp-content/uploads/2025/08/API-Gateways.webp' },
+      { name: 'Webhooks', src: '/wp-content/uploads/2025/08/Webhooks.webp' },
     ],
   },
 ];
@@ -250,7 +250,7 @@ export function AIAgentPage() {
           "In today's digital landscape, AI agents are transforming how businesses operate — handling complex tasks, making smart decisions, and enabling human-like interactions. At Eon8, we deliver customized, scalable AI agent solutions tailored to your business needs, helping you reduce costs and elevate customer experiences.",
           'From Personalised AI Agents to enterprise-grade customizable AI agent services, our solutions empower businesses to stay ahead of the curve, reduce operational overhead, and deliver superior customer experiences.',
         ]}
-        mediaSrc="/wp-content/uploads/2025/08/ai-agent-development-services.png"
+        mediaSrc="/wp-content/uploads/2025/08/ai-agent-development-services.webp"
         mediaAlt="AI Agent Development Services"
         actions={[
           { label: 'Whatsapp Us', href: 'https://wa.link/cgw2xa', variant: 'whatsapp', external: true },
@@ -275,7 +275,7 @@ export function AIAgentPage() {
           'Multi-Agent Systems',
         ]}
         bulletsColumns={2}
-        imageSrc="/wp-content/uploads/2025/08/ai-agents.png"
+        imageSrc="/wp-content/uploads/2025/08/ai-agents.webp"
         imageAlt="Types of AI Agents"
       />
 

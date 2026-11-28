@@ -42,43 +42,43 @@ export const nftMarketingServicesTestingData: ServicePageData = {
       "heading": "We Helped Our Clients Take Their Biggest Step",
       "logos": [
         {
-          "src": "/wp-content/uploads/2022/11/street-race.png",
+          "src": "/wp-content/uploads/2022/11/street-race.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/rebe-world.png",
+          "src": "/wp-content/uploads/2022/11/rebe-world.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+          "src": "/wp-content/uploads/2022/11/mafia-dogs.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+          "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+          "src": "/wp-content/uploads/2022/11/diamonds-club.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/cryptorus.png",
+          "src": "/wp-content/uploads/2022/11/cryptorus.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+          "src": "/wp-content/uploads/2022/11/Bad-Influence.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+          "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/voganyangs.png",
+          "src": "/wp-content/uploads/2022/11/voganyangs.webp",
           "alt": "Web3 Client Partner"
         },
         {
-          "src": "/wp-content/uploads/2022/11/ths-logo.png",
+          "src": "/wp-content/uploads/2022/11/ths-logo.webp",
           "alt": "Web3 Client Partner"
         }
       ]
@@ -95,7 +95,7 @@ export const nftMarketingServicesTestingData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/07/Group-414.png",
+      "imageSrc": "/wp-content/uploads/2022/07/Group-414.webp",
       "imageAlt": "NFT Marketing Agency",
       "actions": []
     },
@@ -108,7 +108,7 @@ export const nftMarketingServicesTestingData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/11/eliot.png",
+      "imageSrc": "/wp-content/uploads/2022/11/eliot.webp",
       "imageAlt": "Our clients love us",
       "actions": [
         {
@@ -187,7 +187,7 @@ export const nftMarketingServicesTestingData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/07/nft-community-building.png",
+      "imageSrc": "/wp-content/uploads/2022/07/nft-community-building.webp",
       "imageAlt": "discord marketing services",
       "actions": [
         {
@@ -208,7 +208,7 @@ export const nftMarketingServicesTestingData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/11/nft-influencers.png",
+      "imageSrc": "/wp-content/uploads/2022/11/nft-influencers.webp",
       "imageAlt": "NFT Influencer",
       "actions": []
     },
@@ -220,22 +220,22 @@ export const nftMarketingServicesTestingData: ServicePageData = {
         {
           "title": "Moderations",
           "description": "Moderators play a key role in making your community a great place where your NFT holders love to gather. We assign clear roles to members and develop your community with our effective discord moderation services. Our moderators are the ones to whom your community members can head for support.",
-          "iconSrc": "/wp-content/uploads/2022/07/Moderations.png"
+          "iconSrc": "/wp-content/uploads/2022/07/Moderations.webp"
         },
         {
           "title": "Promotions",
           "description": "Tap into the global audience base with our effective and efficient Discord promotion services. We promote your discord server across all social media platforms to help you drive new members within your server. We also help you partner with influencers who can run referral drives for your discord server.",
-          "iconSrc": "/wp-content/uploads/2022/07/Promotions.png"
+          "iconSrc": "/wp-content/uploads/2022/07/Promotions.webp"
         },
         {
           "title": "Custom Bots",
           "description": "Bots add a fun factor to your community and make your discord community look professional. Discord bots also make things easy for a moderator and are visually appealing to community members. We install the best discord bots to grow your servers and drive better outcomes for your NFT community.",
-          "iconSrc": "/wp-content/uploads/2022/07/Custom-Bots.png"
+          "iconSrc": "/wp-content/uploads/2022/07/Custom-Bots.webp"
         },
         {
           "title": "Engagement",
           "description": "Building a discord server for your NFTs is not enough, and you must ensure your community is actively engaged in achieving your goals. We engage your discord community members by hosting events, sharing memes, and establishing discussions to help you get maximum reach for your NFT project.",
-          "iconSrc": "/wp-content/uploads/2022/07/Engagement.png"
+          "iconSrc": "/wp-content/uploads/2022/07/Engagement.webp"
         }
       ],
       "columns": 4,
@@ -535,7 +535,7 @@ export const nftMarketingServicesTestingData: ServicePageData = {
         "Marketing Analytics",
         "Insightful Approach"
       ],
-      "imageSrc": "/wp-content/uploads/2022/11/why-eon8.png",
+      "imageSrc": "/wp-content/uploads/2022/11/why-eon8.webp",
       "imageAlt": "nft marketing services",
       "actions": []
     },

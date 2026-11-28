@@ -12,7 +12,7 @@ export const brandsToDaosWeb3CommunityLoyaltyPost: BlogPost = {
   "dateIso": "2025-06-15",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/71.png",
+  "thumbnail": "/wp-content/uploads/2025/07/71.webp",
   "excerpt": "The concept of customer loyalty is undergoing a radical transformation. With the rise of Web3 technologies, brands are no longer…",
   "blocks": [
     {

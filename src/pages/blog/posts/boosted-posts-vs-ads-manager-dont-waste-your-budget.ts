@@ -12,7 +12,7 @@ export const boostedPostsVsAdsManagerDontWasteYourBudgetPost: BlogPost = {
   "dateIso": "2025-07-16",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/4.-Boosted-Posts-vs-Ads-Manager-Dont-Waste-Your-Budget.png",
+  "thumbnail": "/wp-content/uploads/2025/07/4.-Boosted-Posts-vs-Ads-Manager-Dont-Waste-Your-Budget.webp",
   "excerpt": "In today’s competitive landscape, businesses looking to scale their digital presence often turn to social media advertising. Facebook and Instagram…",
   "blocks": [
     {

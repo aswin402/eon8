@@ -12,7 +12,7 @@ export const performanceMarketingVsTraditionalMarketingPost: BlogPost = {
   "dateIso": "2026-06-26",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/06/performance-marketing-agency.png",
+  "thumbnail": "/wp-content/uploads/2026/06/performance-marketing-agency.webp",
   "excerpt": "Marketing has evolved significantly over the past decade. Businesses today have more channels, tools, and technologies available than ever before.…",
   "blocks": [
     {

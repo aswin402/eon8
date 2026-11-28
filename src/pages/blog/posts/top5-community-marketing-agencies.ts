@@ -12,7 +12,7 @@ export const top5CommunityMarketingAgenciesPost: BlogPost = {
   "dateIso": "2023-02-20",
   "readTime": "6 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2023/02/Top-5-Best-Community-Marketing-Company-in-2023-1.png",
+  "thumbnail": "/wp-content/uploads/2023/02/Top-5-Best-Community-Marketing-Company-in-2023-1.webp",
   "excerpt": "Community marketing has become an essential part of brand building and customer engagement in recent years. With the rise of…",
   "blocks": [
     {

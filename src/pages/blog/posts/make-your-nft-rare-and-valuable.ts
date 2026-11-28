@@ -12,7 +12,7 @@ export const makeYourNftRareAndValuablePost: BlogPost = {
   "dateIso": "2022-11-24",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/11/c.png",
+  "thumbnail": "/wp-content/uploads/2022/11/c.webp",
   "excerpt": "If you are not living in a cave for the last 12 months, you have had some sort of experience…",
   "blocks": [
     {
@@ -195,7 +195,7 @@ export const makeYourNftRareAndValuablePost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/a-1024x538.png",
+      "src": "/wp-content/uploads/2022/11/a-1024x538.webp",
       "alt": ""
     },
     {

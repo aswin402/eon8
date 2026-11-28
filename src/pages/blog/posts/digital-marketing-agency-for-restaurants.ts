@@ -12,7 +12,7 @@ export const digitalMarketingAgencyForRestaurantsPost: BlogPost = {
   "dateIso": "2021-02-24",
   "readTime": "2 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/02/Digital-marketing-Agency-for-Restaurants.jpg",
+  "thumbnail": "/wp-content/uploads/2021/02/Digital-marketing-Agency-for-Restaurants.webp",
   "excerpt": "Food and Restaurants is a booming business in the industry, and it might give you more business when it is…",
   "blocks": [
     {

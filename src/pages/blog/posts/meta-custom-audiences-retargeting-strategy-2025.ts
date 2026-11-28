@@ -12,7 +12,7 @@ export const metaCustomAudiencesRetargetingStrategy2025Post: BlogPost = {
   "dateIso": "2025-07-17",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/5.png",
+  "thumbnail": "/wp-content/uploads/2025/07/5.webp",
   "excerpt": "Meta (formerly Facebook) remains one of the most powerful platforms for digital advertising. In 2025, as competition grows and audience…",
   "blocks": [
     {

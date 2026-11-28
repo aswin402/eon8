@@ -64,7 +64,7 @@ export const removeComplaintsFromGoogleSearchData: ServicePageData = {
         'Snapchat & Youth Engagement Platforms',
       ],
       imageSrc:
-        '/wp-content/uploads/2020/07/Remove-Complaints-from-Google-Search-Results-bg.jpg',
+        '/wp-content/uploads/2020/07/Remove-Complaints-from-Google-Search-Results-bg.webp',
       imageAlt: 'Remove Complaints from Google Search Results - EON8',
     },
     {

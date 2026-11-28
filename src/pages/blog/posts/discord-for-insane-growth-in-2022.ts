@@ -13,7 +13,7 @@ export const discordForInsaneGrowthIn2022Post: BlogPost = {
   "dateIso": "2022-10-20",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/10/discord.png",
+  "thumbnail": "/wp-content/uploads/2022/10/discord.webp",
   "excerpt": "What is discord? Discord is a platform that can serve your brand as a community center! The application is specially…",
   "blocks": [
     {

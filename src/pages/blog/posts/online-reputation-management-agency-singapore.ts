@@ -12,7 +12,7 @@ export const onlineReputationManagementAgencySingaporePost: BlogPost = {
   "dateIso": "2021-03-08",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/03/Singapore2.jpg",
+  "thumbnail": "/wp-content/uploads/2021/03/Singapore2.webp",
   "excerpt": "Reviews and comments about your business can greatly influence the quality and quantity of your customers. It takes years to…",
   "blocks": [
     {

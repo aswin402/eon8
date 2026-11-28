@@ -49,7 +49,7 @@ export const digitalMarketingForEducationData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/What-is-digital-marketing-for-a-franchise.png",
+      "imageSrc": "/wp-content/uploads/2020/11/What-is-digital-marketing-for-a-franchise.webp",
       "imageAlt": "What is digital marketing for a franchise",
       "actions": []
     },
@@ -70,7 +70,7 @@ export const digitalMarketingForEducationData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Strategies-to-drive-traffic.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Strategies-to-drive-traffic.webp",
       "imageAlt": "Strategies to drive traffic",
       "actions": []
     },
@@ -116,7 +116,7 @@ export const digitalMarketingForEducationData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/local-digital-marketing.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/local-digital-marketing.webp",
       "imageAlt": "local digital marketing",
       "actions": []
     },

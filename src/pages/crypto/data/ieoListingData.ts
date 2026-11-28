@@ -31,7 +31,7 @@ export const ieoListingData: IeoListingData = {
       "Simplified token distribution process"
     ],
     "closingParagraph": "Our IEO Listing Services help you leverage these advantages to maximize your token’s potential.",
-    "imageSrc": "/wp-content/uploads/2026/05/Gemini_Generated_Image_ykizltykizltykiz-1.png",
+    "imageSrc": "/wp-content/uploads/2026/05/Gemini_Generated_Image_ykizltykizltykiz-1.webp",
     "imageAlt": "Gemini Generated Image ykizltykizltykiz 1"
   },
   "servicesSection": {
@@ -96,7 +96,7 @@ export const ieoListingData: IeoListingData = {
       "Increased investor confidence"
     ],
     "closingParagraph": "Our goal is to help you achieve a successful token launch with maximum visibility and participation.",
-    "imageSrc": "/wp-content/uploads/2026/05/IEO-Projects-Listing.jpg",
+    "imageSrc": "/wp-content/uploads/2026/05/IEO-Projects-Listing.webp",
     "imageAlt": "IEO Projects Listing"
   },
   "whoShouldUse": {
@@ -110,7 +110,7 @@ export const ieoListingData: IeoListingData = {
       "Established crypto projects looking for exchange listings"
     ],
     "closing": "Whether you are at the idea stage or ready for launch, we provide the expertise needed to execute a successful IEO.",
-    "imageSrc": "/wp-content/uploads/2026/05/Make-Sure-That-Your-ICO_IEO-Campaign-Outshines-with-The-Best-Rating-Platform.jpg",
+    "imageSrc": "/wp-content/uploads/2026/05/Make-Sure-That-Your-ICO_IEO-Campaign-Outshines-with-The-Best-Rating-Platform.webp",
     "imageAlt": "Make Sure That Your ICO IEO Campaign Outshines with The Best Rating Platform"
   },
   "processSection": {
@@ -163,7 +163,7 @@ export const ieoListingData: IeoListingData = {
       "Ensuring transparency and communication"
     ],
     "closing": "Our team works closely with clients to ensure every aspect of the IEO launch is executed flawlessly",
-    "imageSrc": "/wp-content/uploads/2026/05/Bitcoin-demand-hits-2025-highs-why-hasnt-BTC-price-recovered.jpg",
+    "imageSrc": "/wp-content/uploads/2026/05/Bitcoin-demand-hits-2025-highs-why-hasnt-BTC-price-recovered.webp",
     "imageAlt": "Bitcoin demand hits 2025 highs – So why hasnt BTC price recovered 1"
   },
   "finalCta": {

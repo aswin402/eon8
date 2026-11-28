@@ -12,7 +12,7 @@ export const contentOperationsAgentAiWorkflows2026Post: BlogPost = {
   "dateIso": "2026-08-04",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/08/01.jpg",
+  "thumbnail": "/wp-content/uploads/2026/08/01.webp",
   "excerpt": "Content production has evolved beyond simply writing blog posts or publishing social media updates. Modern businesses manage hundreds—or even thousands—of…",
   "blocks": [
     {

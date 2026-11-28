@@ -21,7 +21,7 @@ export const nftMarketingServicesData: NftServicePageData = {
       ],
       "subtitle": "Growth & Hype",
       "image": {
-        "src": "/wp-content/uploads/2022/07/Group-414.png",
+        "src": "/wp-content/uploads/2022/07/Group-414.webp",
         "alt": "",
         "className": "img-fluid img-1 floating"
       },
@@ -34,7 +34,7 @@ export const nftMarketingServicesData: NftServicePageData = {
       "cards": [
         {
           "id": "button-1",
-          "avatarSrc": "/wp-content/uploads/2022/11/eliot.png",
+          "avatarSrc": "/wp-content/uploads/2022/11/eliot.webp",
           "avatarAlt": "",
           "stars": 5,
           "name": "",
@@ -47,7 +47,7 @@ export const nftMarketingServicesData: NftServicePageData = {
         },
         {
           "id": "button-1",
-          "avatarSrc": "/wp-content/uploads/2022/11/eyal.png",
+          "avatarSrc": "/wp-content/uploads/2022/11/eyal.webp",
           "avatarAlt": "",
           "stars": 5,
           "name": "",
@@ -55,7 +55,7 @@ export const nftMarketingServicesData: NftServicePageData = {
         },
         {
           "id": "button-1",
-          "avatarSrc": "/wp-content/uploads/2022/11/moses.png",
+          "avatarSrc": "/wp-content/uploads/2022/11/moses.webp",
           "avatarAlt": "",
           "stars": 5,
           "name": "",
@@ -63,7 +63,7 @@ export const nftMarketingServicesData: NftServicePageData = {
         },
         {
           "id": "button-1",
-          "avatarSrc": "/wp-content/uploads/2022/11/idan.png",
+          "avatarSrc": "/wp-content/uploads/2022/11/idan.webp",
           "avatarAlt": "",
           "stars": 5,
           "name": "",
@@ -71,7 +71,7 @@ export const nftMarketingServicesData: NftServicePageData = {
         },
         {
           "id": "button-1",
-          "avatarSrc": "/wp-content/uploads/2022/11/jasper.png",
+          "avatarSrc": "/wp-content/uploads/2022/11/jasper.webp",
           "avatarAlt": "",
           "stars": 5,
           "name": "",
@@ -225,7 +225,7 @@ export const nftMarketingServicesData: NftServicePageData = {
         ]
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/07/nft-community-building.png",
+        "src": "/wp-content/uploads/2022/07/nft-community-building.webp",
         "alt": "discord marketing services"
       },
       "buttons": [
@@ -242,7 +242,7 @@ export const nftMarketingServicesData: NftServicePageData = {
       "containerClass": "container-fluid",
       "heading": "Influencers that helped us influence",
       "image": {
-        "src": "/wp-content/uploads/2022/11/nft-influencers.png",
+        "src": "/wp-content/uploads/2022/11/nft-influencers.webp",
         "alt": "NFT Influencer"
       }
     },
@@ -262,7 +262,7 @@ export const nftMarketingServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/Moderations.png",
+            "src": "/wp-content/uploads/2022/07/Moderations.webp",
             "alt": "",
             "className": "child"
           }
@@ -278,7 +278,7 @@ export const nftMarketingServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/Promotions.png",
+            "src": "/wp-content/uploads/2022/07/Promotions.webp",
             "alt": "",
             "className": "child"
           }
@@ -294,7 +294,7 @@ export const nftMarketingServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/Custom-Bots.png",
+            "src": "/wp-content/uploads/2022/07/Custom-Bots.webp",
             "alt": "",
             "className": "child"
           }
@@ -310,7 +310,7 @@ export const nftMarketingServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/Engagement.png",
+            "src": "/wp-content/uploads/2022/07/Engagement.webp",
             "alt": "",
             "className": "child"
           }
@@ -895,7 +895,7 @@ export const nftMarketingServicesData: NftServicePageData = {
         ]
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/11/why-eon8.png",
+        "src": "/wp-content/uploads/2022/11/why-eon8.webp",
         "alt": "nft marketing services"
       }
     },
@@ -903,19 +903,19 @@ export const nftMarketingServicesData: NftServicePageData = {
       "kind": "extra-slider",
       "logos": [
         {
-          "src": "/wp-content/uploads/2022/07/slide-1.png",
+          "src": "/wp-content/uploads/2022/07/slide-1.webp",
           "name": "1"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-2.png",
+          "src": "/wp-content/uploads/2022/07/slide-2.webp",
           "name": "2"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-3.png",
+          "src": "/wp-content/uploads/2022/07/slide-3.webp",
           "name": "3"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-4.png",
+          "src": "/wp-content/uploads/2022/07/slide-4.webp",
           "name": "4"
         }
       ]
@@ -924,19 +924,19 @@ export const nftMarketingServicesData: NftServicePageData = {
       "kind": "extra-slider",
       "logos": [
         {
-          "src": "/wp-content/uploads/2022/07/slide-5.png",
+          "src": "/wp-content/uploads/2022/07/slide-5.webp",
           "name": "1"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-6.png",
+          "src": "/wp-content/uploads/2022/07/slide-6.webp",
           "name": "2"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-7.png",
+          "src": "/wp-content/uploads/2022/07/slide-7.webp",
           "name": "3"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-8.png",
+          "src": "/wp-content/uploads/2022/07/slide-8.webp",
           "name": "4"
         }
       ]
@@ -1099,7 +1099,7 @@ export const nftMarketingServicesData: NftServicePageData = {
   "modalHeading": "Get A Free Consultation",
   "modalSubmitLabel": "Submit",
   "stickyOffer": {
-    "src": "/wp-content/uploads/2022/11/offer-christmas.png",
+    "src": "/wp-content/uploads/2022/11/offer-christmas.webp",
     "alt": ""
   },
   "hero": {
@@ -1146,43 +1146,43 @@ export const nftMarketingServicesData: NftServicePageData = {
   "clientSlider": {
     "logos": [
       {
-        "src": "/wp-content/uploads/2022/11/street-race.png",
+        "src": "/wp-content/uploads/2022/11/street-race.webp",
         "name": "1"
       },
       {
-        "src": "/wp-content/uploads/2022/11/rebe-world.png",
+        "src": "/wp-content/uploads/2022/11/rebe-world.webp",
         "name": "3"
       },
       {
-        "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+        "src": "/wp-content/uploads/2022/11/mafia-dogs.webp",
         "name": "5"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp",
         "name": "6"
       },
       {
-        "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+        "src": "/wp-content/uploads/2022/11/diamonds-club.webp",
         "name": "7"
       },
       {
-        "src": "/wp-content/uploads/2022/11/cryptorus.png",
+        "src": "/wp-content/uploads/2022/11/cryptorus.webp",
         "name": "8"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+        "src": "/wp-content/uploads/2022/11/Bad-Influence.webp",
         "name": "9"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+        "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp",
         "name": "10"
       },
       {
-        "src": "/wp-content/uploads/2022/11/voganyangs.png",
+        "src": "/wp-content/uploads/2022/11/voganyangs.webp",
         "name": "11"
       },
       {
-        "src": "/wp-content/uploads/2022/11/ths-logo.png",
+        "src": "/wp-content/uploads/2022/11/ths-logo.webp",
         "name": "12"
       }
     ],

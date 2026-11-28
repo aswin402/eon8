@@ -67,7 +67,7 @@ export const twitterPackagesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/07/twitter-package.png",
+      "imageSrc": "/wp-content/uploads/2022/07/twitter-package.webp",
       "imageAlt": "Twitter Marketing & Promotion Packages",
       "actions": []
     },

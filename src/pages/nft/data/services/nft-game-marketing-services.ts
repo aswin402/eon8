@@ -42,34 +42,34 @@ export const nftGameMarketingServicesData: NftServicePageData = {
       ],
       "sideLeftImages": [
         {
-          "src": "/wp-content/uploads/2022/07/flag.png",
+          "src": "/wp-content/uploads/2022/07/flag.webp",
           "alt": "flag",
           "className": "img-fluid floating icon-one"
         },
         {
-          "src": "/wp-content/uploads/2022/07/target-1.png",
+          "src": "/wp-content/uploads/2022/07/target-1.webp",
           "alt": "target",
           "className": "img-fluid floating icon-two"
         },
         {
-          "src": "/wp-content/uploads/2022/07/calendar.png",
+          "src": "/wp-content/uploads/2022/07/calendar.webp",
           "alt": "calendar",
           "className": "img-fluid floating icon-three"
         }
       ],
       "sideRightImages": [
         {
-          "src": "/wp-content/uploads/2022/07/heart.png",
+          "src": "/wp-content/uploads/2022/07/heart.webp",
           "alt": "heart",
           "className": "img-fluid floating icon-one"
         },
         {
-          "src": "/wp-content/uploads/2022/07/star.png",
+          "src": "/wp-content/uploads/2022/07/star.webp",
           "alt": "star",
           "className": "img-fluid floating icon-two"
         },
         {
-          "src": "/wp-content/uploads/2022/07/headphone.png",
+          "src": "/wp-content/uploads/2022/07/headphone.webp",
           "alt": "headphones",
           "className": "img-fluid floating icon-three"
         }
@@ -340,7 +340,7 @@ export const nftGameMarketingServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/Facebook-game-marketing.png",
+            "src": "/wp-content/uploads/2022/07/Facebook-game-marketing.webp",
             "alt": "Facebook Gaming",
             "className": "child"
           }
@@ -356,7 +356,7 @@ export const nftGameMarketingServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/youtube-game-marketing.png",
+            "src": "/wp-content/uploads/2022/07/youtube-game-marketing.webp",
             "alt": "Youtube Gaming",
             "className": "child"
           }
@@ -372,7 +372,7 @@ export const nftGameMarketingServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/twitch-game.png",
+            "src": "/wp-content/uploads/2022/07/twitch-game.webp",
             "alt": "Twitch",
             "className": "child"
           }
@@ -388,7 +388,7 @@ export const nftGameMarketingServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/omlet-game.png",
+            "src": "/wp-content/uploads/2022/07/omlet-game.webp",
             "alt": "Omlet Arcade",
             "className": "child"
           }
@@ -646,19 +646,19 @@ export const nftGameMarketingServicesData: NftServicePageData = {
       "kind": "extra-slider",
       "logos": [
         {
-          "src": "/wp-content/uploads/2022/07/slide-1-gaming.png",
+          "src": "/wp-content/uploads/2022/07/slide-1-gaming.webp",
           "name": "1"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-2-gaming.png",
+          "src": "/wp-content/uploads/2022/07/slide-2-gaming.webp",
           "name": "2"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-3-gaming.png",
+          "src": "/wp-content/uploads/2022/07/slide-3-gaming.webp",
           "name": "3"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-4-gaming.png",
+          "src": "/wp-content/uploads/2022/07/slide-4-gaming.webp",
           "name": "4"
         }
       ]
@@ -667,23 +667,23 @@ export const nftGameMarketingServicesData: NftServicePageData = {
       "kind": "extra-slider",
       "logos": [
         {
-          "src": "/wp-content/uploads/2022/07/slide-5-gaming.png",
+          "src": "/wp-content/uploads/2022/07/slide-5-gaming.webp",
           "name": "1"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-6-gaming.png",
+          "src": "/wp-content/uploads/2022/07/slide-6-gaming.webp",
           "name": "2"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-7-gaming.png",
+          "src": "/wp-content/uploads/2022/07/slide-7-gaming.webp",
           "name": "3"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-8-gaming.png",
+          "src": "/wp-content/uploads/2022/07/slide-8-gaming.webp",
           "name": "4"
         },
         {
-          "src": "/wp-content/uploads/2022/07/slide-7.png",
+          "src": "/wp-content/uploads/2022/07/slide-7.webp",
           "name": "11"
         }
       ]
@@ -828,7 +828,7 @@ export const nftGameMarketingServicesData: NftServicePageData = {
   "modalHeading": "Get A Free Consultation",
   "modalSubmitLabel": "Submit",
   "stickyOffer": {
-    "src": "/wp-content/uploads/2022/11/offer-christmas.png",
+    "src": "/wp-content/uploads/2022/11/offer-christmas.webp",
     "alt": ""
   },
   "hero": {
@@ -868,50 +868,50 @@ export const nftGameMarketingServicesData: NftServicePageData = {
       }
     ],
     "image": {
-      "src": "/wp-content/uploads/2023/03/NFT-Game-Marketing-Services.png",
+      "src": "/wp-content/uploads/2023/03/NFT-Game-Marketing-Services.webp",
       "alt": ""
     }
   },
   "clientSlider": {
     "logos": [
       {
-        "src": "/wp-content/uploads/2022/11/street-race.png",
+        "src": "/wp-content/uploads/2022/11/street-race.webp",
         "name": "1"
       },
       {
-        "src": "/wp-content/uploads/2022/11/rebe-world.png",
+        "src": "/wp-content/uploads/2022/11/rebe-world.webp",
         "name": "3"
       },
       {
-        "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+        "src": "/wp-content/uploads/2022/11/mafia-dogs.webp",
         "name": "5"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp",
         "name": "6"
       },
       {
-        "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+        "src": "/wp-content/uploads/2022/11/diamonds-club.webp",
         "name": "7"
       },
       {
-        "src": "/wp-content/uploads/2022/11/cryptorus.png",
+        "src": "/wp-content/uploads/2022/11/cryptorus.webp",
         "name": "8"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+        "src": "/wp-content/uploads/2022/11/Bad-Influence.webp",
         "name": "9"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+        "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp",
         "name": "10"
       },
       {
-        "src": "/wp-content/uploads/2022/11/voganyangs.png",
+        "src": "/wp-content/uploads/2022/11/voganyangs.webp",
         "name": "11"
       },
       {
-        "src": "/wp-content/uploads/2022/11/ths-logo.png",
+        "src": "/wp-content/uploads/2022/11/ths-logo.webp",
         "name": "12"
       }
     ],

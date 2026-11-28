@@ -12,7 +12,7 @@ export const googleAdsForWeb3RulesAndRisksPost: BlogPost = {
   "dateIso": "2025-07-28",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/Google-Ads-for-Web3-Rules-Risks.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/Google-Ads-for-Web3-Rules-Risks.webp",
   "excerpt": "The world of Web3 — including blockchain, NFTs, crypto, and decentralized platforms — is evolving fast. So is the ad…",
   "blocks": [
     {

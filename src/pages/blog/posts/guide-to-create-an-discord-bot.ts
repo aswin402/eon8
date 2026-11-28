@@ -14,7 +14,7 @@ export const guideToCreateAnDiscordBotPost: BlogPost = {
   "dateIso": "2022-11-17",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/11/3-3.png",
+  "thumbnail": "/wp-content/uploads/2022/11/3-3.webp",
   "excerpt": "Creating a Discord bot may seem harder than it is but when it comes to it there can be a…",
   "blocks": [
     {

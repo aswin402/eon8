@@ -77,7 +77,7 @@ export const linkedinPackagesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/07/linkedin-package.png",
+      "imageSrc": "/wp-content/uploads/2022/07/linkedin-package.webp",
       "imageAlt": "Linkedin Package",
       "actions": []
     },

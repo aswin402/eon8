@@ -12,7 +12,7 @@ export const yapperLeaderboardInfluenceTrackingPost: BlogPost = {
   "dateIso": "2025-05-07",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/05/What-is-the-Yapper-Leaderboard.png",
+  "thumbnail": "/wp-content/uploads/2025/05/What-is-the-Yapper-Leaderboard.webp",
   "excerpt": "In the age of Web3, influence is no longer just about follower counts or viral posts—it’s about contributions, engagement, and…",
   "blocks": [
     {

@@ -34,7 +34,7 @@ export const immersiveVrMarketingData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2025/02/Group-226.jpg",
+      "imageSrc": "/wp-content/uploads/2025/02/Group-226.webp",
       "imageAlt": "Group 226",
       "actions": []
     },
@@ -77,13 +77,13 @@ export const immersiveVrMarketingData: ServicePageData = {
         {
           "title": "Comprehensive Understanding of Industry Needs",
           "description": "Our team understands various industries, enabling us to create VR solutions for marketing, training, and product visualization that address real-world challenges.",
-          "iconSrc": "/wp-content/uploads/2025/02/investor-with-graphic-global-network-connection-graph-chart-stock-market-investment-trading-2.png",
+          "iconSrc": "/wp-content/uploads/2025/02/investor-with-graphic-global-network-connection-graph-chart-stock-market-investment-trading-2.webp",
           "iconAlt": "investor with graphic global network connection graph chart stock market investment trading 2"
         },
         {
           "title": "Commitment to Quality and Innovation",
           "description": "We continuously explore new VR technologies to deliver forward-thinking solutions that keep your brand ahead of the competition.",
-          "iconSrc": "/wp-content/uploads/2025/02/investor-with-graphic-global-network-connection-graph-chart-stock-market-investment-trading-1.png",
+          "iconSrc": "/wp-content/uploads/2025/02/investor-with-graphic-global-network-connection-graph-chart-stock-market-investment-trading-1.webp",
           "iconAlt": "investor with graphic global network connection graph chart stock market investment trading 1"
         },
         {

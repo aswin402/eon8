@@ -13,6 +13,7 @@ const FIELDS: Record<Group, { title: string; hint: string; fields: Array<{ key: 
     hint: 'Pick from the media library (the same /wp-content/uploads files as the WordPress site) or upload a new image.',
     fields: [
       { key: 'headerLogo', label: 'Header logo', image: true },
+      { key: 'headerLogoDark', label: 'Header logo in dark mode (light text)', image: true },
       { key: 'footerLogo', label: 'Footer logo', image: true },
       { key: 'favicon', label: 'Browser tab icon (favicon)', image: true },
       { key: 'shareImage', label: 'Default share image (used when a page has none)', image: true },

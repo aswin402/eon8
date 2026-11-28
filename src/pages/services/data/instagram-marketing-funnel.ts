@@ -53,39 +53,39 @@ export const instagramMarketingFunnelData: ServicePageData = {
       heading: 'Trusted By Leading Consumer & Enterprise Brands',
       logos: [
         {
-          src: '/wp-content/uploads/elementor/thumbs/meesho-puqx204ahcrfz1vv5m3za3l4my4ls38wzgy30mkc1s.png',
+          src: '/wp-content/uploads/elementor/thumbs/meesho-puqx204ahcrfz1vv5m3za3l4my4ls38wzgy30mkc1s.webp',
           alt: 'Meesho',
         },
         {
-          src: '/wp-content/uploads/elementor/thumbs/poorvika-puqx1tjf5iifps5f819lan8wh911a7ismkdonou39c.png',
+          src: '/wp-content/uploads/elementor/thumbs/poorvika-puqx1tjf5iifps5f819lan8wh911a7ismkdonou39c.webp',
           alt: 'Poorvika',
         },
         {
-          src: '/wp-content/uploads/elementor/thumbs/McDonald-puqx1uh9ccjq1e422jo7v50d2mwehwmiyp164ysp34.png',
+          src: '/wp-content/uploads/elementor/thumbs/McDonald-puqx1uh9ccjq1e422jo7v50d2mwehwmiyp164ysp34.webp',
           alt: 'McDonalds',
         },
         {
-          src: '/wp-content/uploads/elementor/thumbs/lenskart-puqx19st5zrexyy3faqfca8805qbskcfjuohkvncw0.png',
+          src: '/wp-content/uploads/elementor/thumbs/lenskart-puqx19st5zrexyy3faqfca8805qbskcfjuohkvncw0.webp',
           alt: 'Lenskart',
         },
         {
-          src: '/wp-content/uploads/elementor/thumbs/redhat-puqx1ou87cc03qc8zh8gg6flibo77q04xx499b124g.png',
+          src: '/wp-content/uploads/elementor/thumbs/redhat-puqx1ou87cc03qc8zh8gg6flibo77q04xx499b124g.webp',
           alt: 'RedHat',
         },
         {
-          src: '/wp-content/uploads/elementor/thumbs/vlcc-puqx137xu5ieop7nhpw1ctvzugmraomb6y437xx43k.png',
+          src: '/wp-content/uploads/elementor/thumbs/vlcc-puqx137xu5ieop7nhpw1ctvzugmraomb6y437xx43k.webp',
           alt: 'VLCC',
         },
         {
-          src: '/wp-content/uploads/elementor/thumbs/prime-video-logo-pvdpjw8ic1wr72g5m13m6tct7zm7yzmr2gnx6wfrb4.png',
+          src: '/wp-content/uploads/elementor/thumbs/prime-video-logo-pvdpjw8ic1wr72g5m13m6tct7zm7yzmr2gnx6wfrb4.webp',
           alt: 'Prime Video',
         },
         {
-          src: '/wp-content/uploads/elementor/thumbs/starbuckss-pvdpt9okhkqoz2tzvkyojy7ahbezqbue0uv8h8jf9c.png',
+          src: '/wp-content/uploads/elementor/thumbs/starbuckss-pvdpt9okhkqoz2tzvkyojy7ahbezqbue0uv8h8jf9c.webp',
           alt: 'Starbucks',
         },
         {
-          src: '/wp-content/uploads/elementor/thumbs/speedo-logo-pvdpwqp3qjhtv7sell029knlhkat62mou1mtb1e29s.png',
+          src: '/wp-content/uploads/elementor/thumbs/speedo-logo-pvdpwqp3qjhtv7sell029knlhkat62mou1mtb1e29s.webp',
           alt: 'Speedo',
         },
       ],
@@ -108,7 +108,7 @@ export const instagramMarketingFunnelData: ServicePageData = {
         'Bottom-of-Funnel Dynamic Product Ads & DM Automation',
         'Weekly Creative Fatigue Refresh & ROAS Reporting',
       ],
-      imageSrc: '/wp-content/uploads/2022/10/plan.png',
+      imageSrc: '/wp-content/uploads/2022/10/plan.webp',
       imageAlt: 'Instagram Marketing Funnel Blueprint',
     },
     {

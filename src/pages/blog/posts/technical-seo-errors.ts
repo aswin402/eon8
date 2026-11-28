@@ -12,7 +12,7 @@ export const technicalSeoErrorsPost: BlogPost = {
   "dateIso": "2025-07-22",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/Top-Technical-SEO-Errors-Agencies-Still-Make.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/Top-Technical-SEO-Errors-Agencies-Still-Make.webp",
   "excerpt": "Even in 2025, many digital agencies—including some claiming to be the best SEO marketing company—continue to make critical technical SEO…",
   "blocks": [
     {

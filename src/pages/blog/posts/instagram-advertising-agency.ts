@@ -13,7 +13,7 @@ export const instagramAdvertisingAgencyPost: BlogPost = {
   "dateIso": "2022-09-28",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/09/Instagram-Advertising-Agency.png",
+  "thumbnail": "/wp-content/uploads/2022/09/Instagram-Advertising-Agency.webp",
   "excerpt": "Instagram has never been popular in the past, like now, and it is one of the prominent reasons why every…",
   "blocks": [
     {

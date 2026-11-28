@@ -12,7 +12,7 @@ export const redditCollectibleAvatarPost: BlogPost = {
   "dateIso": "2022-11-03",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/11/1.-What-are-Collectible-Avatars_.png",
+  "thumbnail": "/wp-content/uploads/2022/11/1.-What-are-Collectible-Avatars_.webp",
   "excerpt": "Reddit created an active 2.3 million decentralized wallet for its active user base in a short span of 3 months…",
   "blocks": [
     {

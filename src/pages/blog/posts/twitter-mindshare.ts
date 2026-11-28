@@ -12,7 +12,7 @@ export const twitterMindsharePost: BlogPost = {
   "dateIso": "2025-05-05",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/05/Twitter-Mindshare.png",
+  "thumbnail": "/wp-content/uploads/2025/05/Twitter-Mindshare.webp",
   "excerpt": "In today’s digitally native economy, where attention is fragmented and competition is fierce, gaining market share isn’t enough. You need…",
   "blocks": [
     {

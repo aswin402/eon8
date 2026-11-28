@@ -118,15 +118,15 @@ export const homeNewData: ServicePageData = {
           "alt": "Cointelegraph"
         },
         {
-          "src": "/wp-content/uploads/2022/11/OpenSea.png",
+          "src": "/wp-content/uploads/2022/11/OpenSea.webp",
           "alt": "OpenSea"
         },
         {
-          "src": "/wp-content/uploads/2022/11/logoyahoo.png",
+          "src": "/wp-content/uploads/2022/11/logoyahoo.webp",
           "alt": "Yahoo Finance"
         },
         {
-          "src": "/wp-content/uploads/2022/11/forbes.png",
+          "src": "/wp-content/uploads/2022/11/forbes.webp",
           "alt": "Forbes"
         }
       ]

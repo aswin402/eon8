@@ -12,7 +12,7 @@ export const instagramReelsVsStoriesAdsRoi2025Post: BlogPost = {
   "dateIso": "2025-07-15",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/3.-Instagram-Reels-vs-Stories-Ads-Which-Gets-More-ROI-in-2025.png",
+  "thumbnail": "/wp-content/uploads/2025/07/3.-Instagram-Reels-vs-Stories-Ads-Which-Gets-More-ROI-in-2025.webp",
   "excerpt": "In the fast-paced world of digital advertising, Instagram continues to evolve as a powerhouse for business marketing. With the rise…",
   "blocks": [
     {

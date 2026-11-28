@@ -12,7 +12,7 @@ export const emailMarketingServicesTurningSubscribersIntoCustomersPost: BlogPost
   "dateIso": "2026-06-23",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/06/Google-Business-Profile-optimization.png",
+  "thumbnail": "/wp-content/uploads/2026/06/Google-Business-Profile-optimization.webp",
   "excerpt": "Email remains one of the most effective digital marketing channels for building relationships, nurturing leads, and driving sales. While attracting…",
   "blocks": [
     {

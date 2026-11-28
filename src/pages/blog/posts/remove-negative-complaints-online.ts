@@ -12,7 +12,7 @@ export const removeNegativeComplaintsOnlinePost: BlogPost = {
   "dateIso": "2021-03-24",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/03/Remove-negative-complaints.jpg",
+  "thumbnail": "/wp-content/uploads/2021/03/Remove-negative-complaints.webp",
   "excerpt": "When customers approach your business to purchase your products or services, it helps to have a good reputation and brand…",
   "blocks": [
     {

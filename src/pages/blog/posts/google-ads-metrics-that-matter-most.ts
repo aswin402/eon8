@@ -12,7 +12,7 @@ export const googleAdsMetricsThatMatterMostPost: BlogPost = {
   "dateIso": "2025-07-27",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/7-Google-Ads-Metrics-That-Matter-Most.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/7-Google-Ads-Metrics-That-Matter-Most.webp",
   "excerpt": "Introduction: Why Metrics Matter in Google Ads Google Ads is one of the most powerful tools for online advertising, but…",
   "blocks": [
     {

@@ -41,7 +41,7 @@ export const contentMarketingCompanyChennaiData: ServicePageData = {
         "Content Marketing is the cost-effective way to show off your expertise",
         "Helps in increasing your website’s conversion rate"
       ],
-      "imageSrc": "/wp-content/uploads/2019/08/content_marketing.png",
+      "imageSrc": "/wp-content/uploads/2019/08/content_marketing.webp",
       "imageAlt": "Why Choose Content Marketing?",
       "actions": []
     },

@@ -12,7 +12,7 @@ export const howToDeleteGoogleReviewsPost: BlogPost = {
   "dateIso": "2021-04-26",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/04/How-To-Delete-Google-Reviews.jpg",
+  "thumbnail": "/wp-content/uploads/2021/04/How-To-Delete-Google-Reviews.webp",
   "excerpt": "I bet you all have wondered at least once, can google reviews be deleted? The answer is not quite simple…",
   "blocks": [
     {

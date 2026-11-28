@@ -12,7 +12,7 @@ export const getVerifiedOnOpenseaPost: BlogPost = {
   "dateIso": "2023-04-17",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-12.50.20-PM.jpeg",
+  "thumbnail": "/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-12.50.20-PM.webp",
   "excerpt": "Welcome to the world of NFTs, where digital art and collectibles are being sold for millions of dollars! We all…",
   "blocks": [
     {

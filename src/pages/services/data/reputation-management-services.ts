@@ -47,7 +47,7 @@ export const reputationManagementServicesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2026/04/Online-Reputation-Training-Institute-In-Nagpur.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/Online-Reputation-Training-Institute-In-Nagpur.webp",
       "imageAlt": "Rep Management",
       "actions": [
         {
@@ -80,7 +80,7 @@ export const reputationManagementServicesData: ServicePageData = {
         "✔ Crisis response expertise",
         "✔ Positive content amplification"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/aesthetic.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/aesthetic.webp",
       "imageAlt": "⌗𝐀𝐄𝐒𝐓𝐇𝐄𝐓𝐈𝐂",
       "actions": [
         {
@@ -253,7 +253,7 @@ export const reputationManagementServicesData: ServicePageData = {
         "✔ Increased inquiries and conversions",
         "✔ Long-term brand stability"
       ],
-      "imageSrc": "/wp-content/uploads/2020/11/Other-online-reputation-services-we-offer-that-may-be-of-great-help-to-you-include-1.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Other-online-reputation-services-we-offer-that-may-be-of-great-help-to-you-include-1.webp",
       "imageAlt": "Other online reputation services we offer that may be of great help to you include 1",
       "actions": []
     },

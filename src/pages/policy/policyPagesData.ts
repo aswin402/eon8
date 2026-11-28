@@ -568,9 +568,9 @@ export const policyPagesData: Record<string, PolicyData> = {
         'effect on the date specified. To ensure the benefit of the client, we work closely, understand client requirements and deliver the services on time without any delay.',
       ],
       image: {
-        src: '/wp-content/uploads/2021/07/shutterstock_208664626-1024x768.jpg',
+        src: '/wp-content/uploads/2021/07/shutterstock_208664626-1024x768.webp',
         srcSet:
-          '/wp-content/uploads/2021/07/shutterstock_208664626-1024x768.jpg 1024w, /wp-content/uploads/2021/07/shutterstock_208664626-300x225.jpg 300w, /wp-content/uploads/2021/07/shutterstock_208664626-768x576.jpg 768w, /wp-content/uploads/2021/07/shutterstock_208664626-1536x1152.jpg 1536w, /wp-content/uploads/2021/07/shutterstock_208664626-2048x1536.jpg 2048w',
+          '/wp-content/uploads/2021/07/shutterstock_208664626-1024x768.webp 1024w, /wp-content/uploads/2021/07/shutterstock_208664626-300x225.webp 300w, /wp-content/uploads/2021/07/shutterstock_208664626-768x576.webp 768w, /wp-content/uploads/2021/07/shutterstock_208664626-1536x1152.webp 1536w, /wp-content/uploads/2021/07/shutterstock_208664626-2048x1536.webp 2048w',
         sizes: '(max-width: 780px) 100vw, 780px',
         alt: 'EON8 Service Delivery Commitment',
         width: 780,

@@ -14,7 +14,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
   "dateIso": "2022-11-18",
   "readTime": "6 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/11/Top-10-NFT-Marketing-Agencies-of-2022.jpg",
+  "thumbnail": "/wp-content/uploads/2022/11/Top-10-NFT-Marketing-Agencies-of-2022.webp",
   "excerpt": "The adoption of blockchain technology changed the digital landscape for the better. One of the most notable concepts of blockchain…",
   "blocks": [
     {
@@ -77,7 +77,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/eon-1024x489.png",
+      "src": "/wp-content/uploads/2022/11/eon-1024x489.webp",
       "alt": ""
     },
     {
@@ -245,7 +245,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/NinjaPromo--1024x487.png",
+      "src": "/wp-content/uploads/2022/11/NinjaPromo--1024x487.webp",
       "alt": ""
     },
     {
@@ -304,7 +304,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/Coinbound--1024x472.png",
+      "src": "/wp-content/uploads/2022/11/Coinbound--1024x472.webp",
       "alt": ""
     },
     {
@@ -363,7 +363,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/Crowdcreate--1024x494.png",
+      "src": "/wp-content/uploads/2022/11/Crowdcreate--1024x494.webp",
       "alt": ""
     },
     {
@@ -416,7 +416,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/BlockchainPR-1024x501.png",
+      "src": "/wp-content/uploads/2022/11/BlockchainPR-1024x501.webp",
       "alt": ""
     },
     {
@@ -469,7 +469,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/FireCask--1024x486.png",
+      "src": "/wp-content/uploads/2022/11/FireCask--1024x486.webp",
       "alt": ""
     },
     {
@@ -522,7 +522,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/X10-1-1-1024x502.png",
+      "src": "/wp-content/uploads/2022/11/X10-1-1-1024x502.webp",
       "alt": ""
     },
     {
@@ -575,7 +575,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/Inoru-1024x477.png",
+      "src": "/wp-content/uploads/2022/11/Inoru-1024x477.webp",
       "alt": ""
     },
     {
@@ -628,7 +628,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/turkeytown-1024x492.png",
+      "src": "/wp-content/uploads/2022/11/turkeytown-1024x492.webp",
       "alt": ""
     },
     {
@@ -686,7 +686,7 @@ export const top10NftMarketingAgencies2022Post: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2022/11/TokenMinds-1024x585.png",
+      "src": "/wp-content/uploads/2022/11/TokenMinds-1024x585.webp",
       "alt": ""
     },
     {

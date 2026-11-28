@@ -12,7 +12,7 @@ export const youtubeMarketingStrategiesBrandAwarenessPost: BlogPost = {
   "dateIso": "2026-06-28",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/06/YouTube-marketing-agency.png",
+  "thumbnail": "/wp-content/uploads/2026/06/YouTube-marketing-agency.webp",
   "excerpt": "Building brand awareness is one of the most important objectives for businesses seeking long-term growth. Before customers make purchasing decisions,…",
   "blocks": [
     {

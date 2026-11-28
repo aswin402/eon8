@@ -12,7 +12,7 @@ export const startupGrowthWithRedditNoAdsPost: BlogPost = {
   "dateIso": "2025-07-29",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/Startup-Growth-with-Reddit-No-Ads.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/Startup-Growth-with-Reddit-No-Ads.webp",
   "excerpt": "When most startups think about digital growth, they often overlook Reddit. But with over 430 million active users and hyper-focused…",
   "blocks": [
     {

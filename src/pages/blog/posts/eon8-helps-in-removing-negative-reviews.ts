@@ -12,7 +12,7 @@ export const eon8HelpsInRemovingNegativeReviewsPost: BlogPost = {
   "dateIso": "2020-09-01",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2020/09/delete-negative-reviews.jpg",
+  "thumbnail": "/wp-content/uploads/2020/09/delete-negative-reviews.webp",
   "excerpt": "There is a feature called grievance board which are utilized all the while as it is the online stage which…",
   "blocks": [
     {

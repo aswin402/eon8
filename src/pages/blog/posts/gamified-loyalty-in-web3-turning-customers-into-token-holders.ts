@@ -12,7 +12,7 @@ export const gamifiedLoyaltyInWeb3TurningCustomersIntoTokenHoldersPost: BlogPost
   "dateIso": "2025-07-10",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/Gamified-Loyalty-in-Web3-Turning-Customers-into-Token-Holders.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/Gamified-Loyalty-in-Web3-Turning-Customers-into-Token-Holders.webp",
   "excerpt": "In the evolving landscape of digital engagement, Web3 loyalty programs are redefining how brands interact with their communities. At the…",
   "blocks": [
     {

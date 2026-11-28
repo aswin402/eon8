@@ -12,7 +12,7 @@ export const howToDevelopPositiveReputationAndPushDownTheNegativeSearchResultsFo
   "dateIso": "2020-05-27",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2020/04/Remove-Negative-Reviews-eon8-eonsofttecch.jpg",
+  "thumbnail": "/wp-content/uploads/2020/04/Remove-Negative-Reviews-eon8-eonsofttecch.webp",
   "excerpt": "When you read this, several customers would be probably googling or searching for your company. To develop a positive reputation…",
   "blocks": [
     {

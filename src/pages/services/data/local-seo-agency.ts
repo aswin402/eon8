@@ -188,7 +188,7 @@ export const localSeoAgencyData: ServicePageData = {
         "Increased foot traffic (for physical businesses)",
         "Sustainable organic growth"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/Untitled-design-21.png",
+      "imageSrc": "/wp-content/uploads/2026/04/Untitled-design-21.webp",
       "imageAlt": "Untitled design 21",
       "actions": []
     },
@@ -229,7 +229,7 @@ export const localSeoAgencyData: ServicePageData = {
         "Data-backed decisions",
         "Continuous refinement"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/download-3.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/download-3.webp",
       "imageAlt": "download 3",
       "actions": []
     },

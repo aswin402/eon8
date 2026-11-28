@@ -63,7 +63,7 @@ export const consumerComplaintsRemovalData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Why-Eon8-2.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Why-Eon8-2.webp",
       "imageAlt": "Why Eon8 2",
       "actions": []
     },
@@ -79,7 +79,7 @@ export const consumerComplaintsRemovalData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Why-is-the-consumer-board-so-important.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Why-is-the-consumer-board-so-important.webp",
       "imageAlt": "Why is the consumer board so important",
       "actions": [
         {

@@ -12,7 +12,7 @@ export const contentMarketingStrategiesDriveOrganicTrafficLeadsPost: BlogPost = 
   "dateIso": "2026-06-21",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/06/Content-Marketing-Strategies.png",
+  "thumbnail": "/wp-content/uploads/2026/06/Content-Marketing-Strategies.webp",
   "excerpt": "In an increasingly competitive digital landscape, businesses need more than advertisements to attract customers. Today’s buyers conduct extensive research before…",
   "blocks": [
     {

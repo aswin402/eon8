@@ -12,7 +12,7 @@ export const smartBiddingVsManualPost: BlogPost = {
   "dateIso": "2025-07-26",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/07/Smart-Bidding-vs-Manual-2025-Showdown.jpg",
+  "thumbnail": "/wp-content/uploads/2025/07/Smart-Bidding-vs-Manual-2025-Showdown.webp",
   "excerpt": "In the world of Google Ads, one of the most debated questions remains: Should you use Smart Bidding or Manual…",
   "blocks": [
     {

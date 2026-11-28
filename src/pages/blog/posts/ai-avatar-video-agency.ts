@@ -12,7 +12,7 @@ export const aiAvatarVideoAgencyPost: BlogPost = {
   "dateIso": "2024-08-15",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/05/4.png",
+  "thumbnail": "/wp-content/uploads/2025/05/4.webp",
   "excerpt": "In today’s fast world, text alone won’t cut it. People crave faces, emotions, real connections. At EON8, the leading AI…",
   "blocks": [
     {

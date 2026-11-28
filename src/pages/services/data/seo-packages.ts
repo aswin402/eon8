@@ -67,7 +67,7 @@ export const seoPackagesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/07/seo-package.png",
+      "imageSrc": "/wp-content/uploads/2022/07/seo-package.webp",
       "imageAlt": "SEO Services Package",
       "actions": []
     },

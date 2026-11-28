@@ -12,7 +12,7 @@ export const businessOperationsAgentEnterpriseAutomationPost: BlogPost = {
   "dateIso": "2026-08-03",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/08/4-2.jpg",
+  "thumbnail": "/wp-content/uploads/2026/08/4-2.webp",
   "excerpt": "Business growth rarely slows because of a lack of ideas. More often, it slows because internal operations cannot keep pace…",
   "blocks": [
     {

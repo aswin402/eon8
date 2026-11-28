@@ -13,7 +13,7 @@ export const seoAgencyAndWhyDoYouNeedItPost: BlogPost = {
   "dateIso": "2022-10-19",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/10/SE0-and-its-Importance.png",
+  "thumbnail": "/wp-content/uploads/2022/10/SE0-and-its-Importance.webp",
   "excerpt": "A search engine optimization (SEO) strategy is a plan to optimize your website for SEO . Building, implementing, and maintaining…",
   "blocks": [
     {

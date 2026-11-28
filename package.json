@@ -46,7 +46,7 @@
     "node": ">=22.18.0"
   },
   "scripts": {
-    "build": "node scripts/generate-sitemap.ts && node scripts/generate-route-manifest.ts && tsc -b && vite build && node scripts/build-seo-manifest.ts",
+    "build": "node scripts/generate-sitemap.ts && node scripts/generate-route-manifest.ts && node scripts/build-image-sizes.mjs && tsc -b && vite build && node scripts/build-seo-manifest.ts",
     "seo-manifest": "node scripts/build-seo-manifest.ts",
     "sitemap": "node scripts/generate-sitemap.ts",
     "dev": "vite",

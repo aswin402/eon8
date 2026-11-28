@@ -12,7 +12,7 @@ export const businessNeedsOrmServicesPost: BlogPost = {
   "dateIso": "2021-02-16",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/02/Why-your-business-needs-effective-ORM-services.jpg",
+  "thumbnail": "/wp-content/uploads/2021/02/Why-your-business-needs-effective-ORM-services.webp",
   "excerpt": "If you have been noticing a consistent downfall in your business’s reputation lately, then it means it’s time you invested…",
   "blocks": [
     {

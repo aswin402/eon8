@@ -12,7 +12,7 @@ export const howDigitalMarketingServiceHelpYourBusinessGrowPost: BlogPost = {
   "dateIso": "2021-07-28",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/07/Eon-image.jpg",
+  "thumbnail": "/wp-content/uploads/2021/07/Eon-image.webp",
   "excerpt": "Business owners, especially small business entrepreneurs, understand better than anybody that in order to stay successful in the market, they…",
   "blocks": [
     {

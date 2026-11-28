@@ -12,7 +12,7 @@ export const onlineReputationManagementProtectingYourBrandPost: BlogPost = {
   "dateIso": "2026-06-30",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/06/online-reputation-management-services.png",
+  "thumbnail": "/wp-content/uploads/2026/06/online-reputation-management-services.webp",
   "excerpt": "In today’s connected world, a brand’s reputation can influence customer decisions long before a direct interaction occurs. Potential customers often…",
   "blocks": [
     {

@@ -60,7 +60,7 @@ export const quoraComplaintRemovalData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/What-can-Eon8-do.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/What-can-Eon8-do.webp",
       "imageAlt": "What can Eon8 do",
       "actions": [
         {
@@ -89,7 +89,7 @@ export const quoraComplaintRemovalData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Our-ORM-packages.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Our-ORM-packages.webp",
       "imageAlt": "Our ORM packages",
       "actions": [
         {
@@ -123,7 +123,7 @@ export const quoraComplaintRemovalData: ServicePageData = {
         "Post blogs, articles, and guest posts on authoritative blogs",
         "Set up social profiles for exposure"
       ],
-      "imageSrc": "/wp-content/uploads/2020/11/Our-services-eon8.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Our-services-eon8.webp",
       "imageAlt": "Our-services-eon8",
       "actions": [
         {
@@ -147,7 +147,7 @@ export const quoraComplaintRemovalData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Why-is-it-necessary.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Why-is-it-necessary.webp",
       "imageAlt": "Why is it necessary",
       "actions": [
         {
@@ -168,7 +168,7 @@ export const quoraComplaintRemovalData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/How-can-we-help-eon8.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/How-can-we-help-eon8.webp",
       "imageAlt": "How can we help eon8",
       "actions": [
         {

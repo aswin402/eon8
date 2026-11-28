@@ -12,7 +12,7 @@ export const digitalMarketingForAppStoreChennaiPost: BlogPost = {
   "dateIso": "2021-09-03",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/09/5-fundamental-shifts-that-are-shaping-search-digital-marketing-5f7f23593ac21-1280x720-1.png",
+  "thumbnail": "/wp-content/uploads/2021/09/5-fundamental-shifts-that-are-shaping-search-digital-marketing-5f7f23593ac21-1280x720-1.webp",
   "excerpt": "What is App Store Optimization, and how does it work? App store optimization (ASO) is the most popular SEO technique…",
   "blocks": [
     {

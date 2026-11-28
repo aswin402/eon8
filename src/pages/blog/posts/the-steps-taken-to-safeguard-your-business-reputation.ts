@@ -12,7 +12,7 @@ export const theStepsTakenToSafeguardYourBusinessReputationPost: BlogPost = {
   "dateIso": "2020-06-08",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2020/04/Reputation-Management-eon8softech.jpg",
+  "thumbnail": "/wp-content/uploads/2020/04/Reputation-Management-eon8softech.webp",
   "excerpt": "It is basic knowledge that every business shall have its ups and downs. Compare it with a curve and you…",
   "blocks": [
     {

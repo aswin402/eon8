@@ -12,7 +12,7 @@ export const crmSoftwareDevelopmentTrends2026Post: BlogPost = {
   "dateIso": "2026-07-31",
   "readTime": "6 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/08/2-2.jpg",
+  "thumbnail": "/wp-content/uploads/2026/08/2-2.webp",
   "excerpt": "Customer relationships have evolved far beyond maintaining contact databases or recording sales activities. Today’s organizations expect CRM platforms to become…",
   "blocks": [
     {

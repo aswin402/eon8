@@ -63,10 +63,13 @@ const DIR = path.join(ROOT, '.visual');
 const dirFor = (kind) => path.join(DIR, kind);
 for (const kind of ['baseline', 'current', 'diff']) fs.mkdirSync(dirFor(kind), { recursive: true });
 
-// Share of pixels that may differ before a page counts as changed. The same build gives
-// identical pixels, so this only absorbs rare anti-aliasing noise: a letter-spacing change
-// in the footer alone is about 0.03%, which must count as a change.
-const TOLERANCE = Number(process.env.VISUAL_TOLERANCE || 0.0001);
+// Number of pixels that may differ before a screenshot counts as changed. An absolute count,
+// not a share of the page: on a 20,000px-tall page a resized logo (~750 px) is a tiny share
+// but must still count. Image-scaling noise stays under ~250 px; occasional text-rendering
+// noise is handled by retaking the screenshot.
+const MAX_PIXELS = Number(process.env.VISUAL_MAX_PIXELS || 300);
+// Retakes before a difference counts (VISUAL_RETAKES=0 when a change is expected everywhere).
+const RETAKES = Number(process.env.VISUAL_RETAKES ?? 2);
 
 const STILL_CSS = `
   *, *::before, *::after { animation: none !important; transition: none !important; caret-color: transparent !important; }
@@ -133,7 +136,7 @@ function same(name, aBuf, bBuf) {
   const a = PNG.sync.read(aBuf);
   const b = PNG.sync.read(bBuf);
   if (a.width !== b.width || a.height !== b.height) return false;
-  return pixelmatch(a.data, b.data, null, a.width, a.height, { threshold: 0.1 }) / (a.width * a.height) <= TOLERANCE;
+  return pixelmatch(a.data, b.data, null, a.width, a.height, { threshold: 0.1 }) <= MAX_PIXELS;
 }
 
 function compare(name, aBuf, bBuf) {
@@ -153,8 +156,8 @@ function compare(name, aBuf, bBuf) {
   const changed = pixelmatch(ca.data, cb.data, diff.data, width, height, { threshold: 0.1 });
   const share = changed / (width * height);
   const heightDelta = b.height - a.height;
-  if (share > TOLERANCE || heightDelta !== 0) fs.writeFileSync(path.join(dirFor('diff'), `${name}.png`), PNG.sync.write(diff));
-  return { share, heightDelta };
+  if (changed > MAX_PIXELS || heightDelta !== 0) fs.writeFileSync(path.join(dirFor('diff'), `${name}.png`), PNG.sync.write(diff));
+  return { share, pixels: changed, heightDelta };
 }
 
 // Software rendering, fixed colour profile and no sub-pixel text: the same page then gives
@@ -170,25 +173,52 @@ const jobs = pages.flatMap(([label, url]) => VISUAL_WIDTHS.map((width) => ({ lab
 const results = new Map();
 // A few screenshots at a time keeps a full run short without straining the server.
 const CONCURRENCY = Number(process.env.VISUAL_CONCURRENCY || 4);
+
+async function runJob(job) {
+  let shot = await capture(browser, job.url, job.width);
+  if (mode === 'baseline') {
+    // A few pages occasionally render text a few pixels differently (layer/font timing).
+    // Keep the version that two of three captures agree on, so the baseline is the usual one.
+    const second = await capture(browser, job.url, job.width);
+    if (!same(job.name, shot, second)) {
+      const third = await capture(browser, job.url, job.width);
+      if (same(job.name, second, third)) shot = second;
+      else if (!same(job.name, shot, third)) console.log(`UNSTABLE ${job.name}: three captures all differ`);
+    }
+    fs.writeFileSync(path.join(dirFor('baseline'), `${job.name}.png`), shot);
+    return { line: `saved  ${job.name}` };
+  }
+  const basePath = path.join(dirFor('baseline'), `${job.name}.png`);
+  fs.writeFileSync(path.join(dirFor('current'), `${job.name}.png`), shot);
+  if (!fs.existsSync(basePath)) return { missing: true, line: `NEW    ${job.name}  (no baseline yet)` };
+  const baseline = fs.readFileSync(basePath);
+  let { share, pixels, heightDelta } = compare(job.name, baseline, shot);
+  let isChanged = pixels > MAX_PIXELS || heightDelta !== 0;
+  let note = '';
+  // Up to two retakes: a real change shows every time, an occasional rendering hiccup does not.
+  for (let attempt = 0; isChanged && attempt < RETAKES; attempt += 1) {
+    const retake = await capture(browser, job.url, job.width);
+    const again = compare(job.name, baseline, retake);
+    if (again.pixels <= MAX_PIXELS && again.heightDelta === 0) {
+      ({ share, pixels, heightDelta } = again);
+      isChanged = false;
+      note = ' (retake)';
+      fs.writeFileSync(path.join(dirFor('current'), `${job.name}.png`), retake);
+      fs.rmSync(path.join(dirFor('diff'), `${job.name}.png`), { force: true });
+    }
+  }
+  const height = heightDelta ? `, height ${heightDelta > 0 ? '+' : ''}${heightDelta}px` : '';
+  return { changed: isChanged, line: `${isChanged ? 'CHANGED' : 'same  '} ${job.name}  ${pixels} px (${(share * 100).toFixed(2)}%)${height}${note}` };
+}
+
 let next = 0;
 async function worker() {
   while (next < jobs.length) {
     const job = jobs[next++];
     try {
-      let shot = await capture(browser, job.url, job.width);
-      if (mode === 'baseline') {
-        // A few pages occasionally render text a few pixels differently (layer/font timing).
-        // Keep the version that two of three captures agree on, so the baseline is the usual one.
-        const second = await capture(browser, job.url, job.width);
-        if (!same(job.name, shot, second)) {
-          const third = await capture(browser, job.url, job.width);
-          if (same(job.name, second, third)) shot = second;
-          else if (!same(job.name, shot, third)) console.log(`UNSTABLE ${job.name}: three captures all differ`);
-        }
-      }
-      results.set(job.name, { shot });
+      results.set(job.name, await runJob(job));
     } catch (err) {
-      results.set(job.name, { error: err.message.split('\n')[0] });
+      results.set(job.name, { changed: true, line: `ERROR  ${job.name}  ${job.url}  ${err.message.split('\n')[0]}` });
     }
   }
 }
@@ -197,45 +227,11 @@ await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 let changed = 0;
 let missing = 0;
 const total = jobs.length;
-for (const { name, url } of jobs) {
-  const { shot, error } = results.get(name);
-  if (error) {
-    changed += 1;
-    console.log(`ERROR  ${name}  ${url}  ${error}`);
-    continue;
-  }
-  if (mode === 'baseline') {
-    fs.writeFileSync(path.join(dirFor('baseline'), `${name}.png`), shot);
-    console.log(`saved  ${name}`);
-    continue;
-  }
-  fs.writeFileSync(path.join(dirFor('current'), `${name}.png`), shot);
-  const basePath = path.join(dirFor('baseline'), `${name}.png`);
-  if (!fs.existsSync(basePath)) {
-    missing += 1;
-    console.log(`NEW    ${name}  (no baseline yet)`);
-    continue;
-  }
-  const baseline = fs.readFileSync(basePath);
-  let { share, heightDelta } = compare(name, baseline, shot);
-  let isChanged = share > TOLERANCE || heightDelta !== 0;
-  let note = '';
-  // Up to two retakes: a real change shows every time, an occasional rendering hiccup does not.
-  for (let attempt = 0; isChanged && attempt < 2; attempt += 1) {
-    const retake = await capture(browser, url, Number(name.split('@')[1]));
-    const again = compare(name, baseline, retake);
-    if (again.share <= TOLERANCE && again.heightDelta === 0) {
-      ({ share, heightDelta } = again);
-      isChanged = false;
-      note = ' (retake)';
-      fs.writeFileSync(path.join(dirFor('current'), `${name}.png`), retake);
-      fs.rmSync(path.join(dirFor('diff'), `${name}.png`), { force: true });
-    }
-  }
-  if (isChanged) changed += 1;
-  console.log(
-    `${isChanged ? 'CHANGED' : 'same  '} ${name}  ${(share * 100).toFixed(2)}% pixels${heightDelta ? `, height ${heightDelta > 0 ? '+' : ''}${heightDelta}px` : ''}${note}`
-  );
+for (const { name } of jobs) {
+  const r = results.get(name);
+  if (r.changed) changed += 1;
+  if (r.missing) missing += 1;
+  console.log(r.line);
 }
 await browser.close();
 if (mode === 'baseline') {

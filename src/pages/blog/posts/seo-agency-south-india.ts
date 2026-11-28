@@ -12,7 +12,7 @@ export const seoAgencySouthIndiaPost: BlogPost = {
   "dateIso": "2026-09-29",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/09/seo-agency-in-south-india_SEO-1024x538.jpg",
+  "thumbnail": "/wp-content/uploads/2026/09/seo-agency-in-south-india_SEO-1024x538.webp",
   "excerpt": "Most business owners start their SEO journey with a simple goal — rank higher on Google. But somewhere along the…",
   "blocks": [
     {
@@ -29,7 +29,7 @@ export const seoAgencySouthIndiaPost: BlogPost = {
     },
     {
       "type": "image",
-      "src": "/wp-content/uploads/2026/09/seo-agency-in-south-india_SEO-1024x538.jpg",
+      "src": "/wp-content/uploads/2026/09/seo-agency-in-south-india_SEO-1024x538.webp",
       "alt": "SEO agency in South India"
     },
     {

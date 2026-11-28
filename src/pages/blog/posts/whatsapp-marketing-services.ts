@@ -12,7 +12,7 @@ export const whatsappMarketingServicesPost: BlogPost = {
   "dateIso": "2025-08-06",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2025/08/WhatsApp-Marketing-Agency.jpg",
+  "thumbnail": "/wp-content/uploads/2025/08/WhatsApp-Marketing-Agency.webp",
   "excerpt": "With over 2 billion active users globally, WhatsApp has rapidly evolved into more than just a messaging tool it’s a…",
   "blocks": [
     {

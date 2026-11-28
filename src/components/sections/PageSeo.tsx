@@ -18,7 +18,7 @@ interface PageSeoProps {
 }
 
 const SITE_ORIGIN = 'https://www.eon8.com';
-const DEFAULT_OG_IMAGE = '/wp-content/uploads/2026/03/Logo_bg-1.png';
+const DEFAULT_OG_IMAGE = '/wp-content/uploads/2026/03/Logo_bg-1.webp';
 const JSONLD_SCRIPT_ID = 'eon8-jsonld';
 
 function upsertMeta(attr: 'name' | 'property', key: string, content: string) {

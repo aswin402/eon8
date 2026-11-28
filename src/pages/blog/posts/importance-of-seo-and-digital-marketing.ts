@@ -12,7 +12,7 @@ export const importanceOfSeoAndDigitalMarketingPost: BlogPost = {
   "dateIso": "2020-07-24",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2020/07/Importance.jpg",
+  "thumbnail": "/wp-content/uploads/2020/07/Importance.webp",
   "excerpt": "During a pandemic like this, every business is undergoing a tough time. If there is one field that is least…",
   "blocks": [
     {

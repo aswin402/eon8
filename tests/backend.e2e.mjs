@@ -379,7 +379,7 @@ await admin.req('DELETE', `/api/cms/admin/posts/${newsId}?slug=e2e-news-item`);
 
 // --- Branding (logos and favicon) -------------------------------------------------------------
 const brandingBefore = (await admin.req('GET', '/api/admin/settings')).data.settings?.branding;
-check('branding: defaults match the WordPress logos', brandingBefore?.headerLogo === '/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.png');
+check('branding: defaults match the WordPress logos', brandingBefore?.headerLogo === '/wp-content/uploads/2026/03/Logo-White-BG-removebg-preview.webp');
 check('branding: rejects non-image paths', (await admin.req('PUT', '/api/admin/settings/branding', { ...brandingBefore, favicon: 'javascript:alert(1)' })).status === 400);
 await admin.req('PUT', '/api/admin/settings/branding', { ...brandingBefore, favicon: '/uploads/blog/e2e-icon.png', shareImage: '/uploads/blog/e2e-share.jpg' });
 const brandedHtml = await fetch(`${BASE}/about-us/`).then((r) => r.text());

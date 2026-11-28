@@ -41,7 +41,7 @@ export const googleComplaintRemovalData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Google-Complaint-Removal.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Google-Complaint-Removal.webp",
       "imageAlt": "Google Complaint Removal",
       "actions": [
         {
@@ -75,7 +75,7 @@ export const googleComplaintRemovalData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Why-Eon8-1.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Why-Eon8-1.webp",
       "imageAlt": "Why Eon8 1",
       "actions": []
     },
@@ -91,7 +91,7 @@ export const googleComplaintRemovalData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Our-clients-1.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Our-clients-1.webp",
       "imageAlt": "Our clients 1",
       "actions": [
         {

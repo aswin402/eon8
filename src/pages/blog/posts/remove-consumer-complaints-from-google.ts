@@ -12,7 +12,7 @@ export const removeConsumerComplaintsFromGooglePost: BlogPost = {
   "dateIso": "2020-09-03",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2020/09/Remove-Consumer-Complaints-from-google.jpg",
+  "thumbnail": "/wp-content/uploads/2020/09/Remove-Consumer-Complaints-from-google.webp",
   "excerpt": "Over 90% of consumers read online reviews before even thinking of buying a product or service. It is widely understood…",
   "blocks": [
     {

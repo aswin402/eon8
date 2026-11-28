@@ -32,104 +32,104 @@ export const cryptoMarketingAgencyData: CryptoMarketingAgencyData = {
     "logos": [
       {
         "name": "street race",
-        "src": "/wp-content/uploads/2022/11/street-race.png"
+        "src": "/wp-content/uploads/2022/11/street-race.webp"
       },
       {
         "name": "space park freaks",
-        "src": "/wp-content/uploads/2023/01/space-park-freaks.png"
+        "src": "/wp-content/uploads/2023/01/space-park-freaks.webp"
       },
       {
         "name": "rebe world",
-        "src": "/wp-content/uploads/2022/11/rebe-world.png"
+        "src": "/wp-content/uploads/2022/11/rebe-world.webp"
       },
       {
         "name": "mafia dogs",
-        "src": "/wp-content/uploads/2022/11/mafia-dogs.png"
+        "src": "/wp-content/uploads/2022/11/mafia-dogs.webp"
       },
       {
         "name": "Galaxy Fight Club",
-        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png"
+        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp"
       },
       {
         "name": "diamonds club",
-        "src": "/wp-content/uploads/2022/11/diamonds-club.png"
+        "src": "/wp-content/uploads/2022/11/diamonds-club.webp"
       },
       {
         "name": "cryptorus",
-        "src": "/wp-content/uploads/2022/11/cryptorus.png"
+        "src": "/wp-content/uploads/2022/11/cryptorus.webp"
       },
       {
         "name": "Bad Influence",
-        "src": "/wp-content/uploads/2022/11/Bad-Influence.png"
+        "src": "/wp-content/uploads/2022/11/Bad-Influence.webp"
       },
       {
         "name": "Alphacadabraz",
-        "src": "/wp-content/uploads/2022/11/Alphacadabraz.png"
+        "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp"
       },
       {
         "name": "voganyangs",
-        "src": "/wp-content/uploads/2022/11/voganyangs.png"
+        "src": "/wp-content/uploads/2022/11/voganyangs.webp"
       },
       {
         "name": "ths logo",
-        "src": "/wp-content/uploads/2022/11/ths-logo.png"
+        "src": "/wp-content/uploads/2022/11/ths-logo.webp"
       },
       {
         "name": "street race",
-        "src": "/wp-content/uploads/2022/11/street-race.png"
+        "src": "/wp-content/uploads/2022/11/street-race.webp"
       },
       {
         "name": "space park freaks",
-        "src": "/wp-content/uploads/2023/01/space-park-freaks.png"
+        "src": "/wp-content/uploads/2023/01/space-park-freaks.webp"
       },
       {
         "name": "rebe world",
-        "src": "/wp-content/uploads/2022/11/rebe-world.png"
+        "src": "/wp-content/uploads/2022/11/rebe-world.webp"
       },
       {
         "name": "mafia dogs",
-        "src": "/wp-content/uploads/2022/11/mafia-dogs.png"
+        "src": "/wp-content/uploads/2022/11/mafia-dogs.webp"
       },
       {
         "name": "Galaxy Fight Club",
-        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png"
+        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp"
       },
       {
         "name": "diamonds club",
-        "src": "/wp-content/uploads/2022/11/diamonds-club.png"
+        "src": "/wp-content/uploads/2022/11/diamonds-club.webp"
       },
       {
         "name": "cryptorus",
-        "src": "/wp-content/uploads/2022/11/cryptorus.png"
+        "src": "/wp-content/uploads/2022/11/cryptorus.webp"
       },
       {
         "name": "Bad Influence",
-        "src": "/wp-content/uploads/2022/11/Bad-Influence.png"
+        "src": "/wp-content/uploads/2022/11/Bad-Influence.webp"
       },
       {
         "name": "Alphacadabraz",
-        "src": "/wp-content/uploads/2022/11/Alphacadabraz.png"
+        "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp"
       },
       {
         "name": "voganyangs",
-        "src": "/wp-content/uploads/2022/11/voganyangs.png"
+        "src": "/wp-content/uploads/2022/11/voganyangs.webp"
       },
       {
         "name": "ths logo",
-        "src": "/wp-content/uploads/2022/11/ths-logo.png"
+        "src": "/wp-content/uploads/2022/11/ths-logo.webp"
       }
     ]
   },
   "viralSection": {
     "leftIcons": [
-      "/wp-content/uploads/2022/07/clock-crypto.png",
-      "/wp-content/uploads/2022/07/gift-crypto.png",
-      "/wp-content/uploads/2022/07/target-crypto.png"
+      "/wp-content/uploads/2022/07/clock-crypto.webp",
+      "/wp-content/uploads/2022/07/gift-crypto.webp",
+      "/wp-content/uploads/2022/07/target-crypto.webp"
     ],
     "rightIcons": [
-      "/wp-content/uploads/2022/07/heart-crypto.png",
-      "/wp-content/uploads/2022/07/crown-crypto.png",
-      "/wp-content/uploads/2022/07/image-crypto.png"
+      "/wp-content/uploads/2022/07/heart-crypto.webp",
+      "/wp-content/uploads/2022/07/crown-crypto.webp",
+      "/wp-content/uploads/2022/07/image-crypto.webp"
     ],
     "eyebrow": "Attract, Engage & Convert",
     "heading": "Crypto Marketing Agency",
@@ -205,7 +205,7 @@ export const cryptoMarketingAgencyData: CryptoMarketingAgencyData = {
       "Thrive even in bear markets by delivering the right message across platforms.",
       "Maximize ROI with scalable, data-driven crypto marketing campaigns."
     ],
-    "imageSrc": "/wp-content/uploads/2022/11/bitcoin.png",
+    "imageSrc": "/wp-content/uploads/2022/11/bitcoin.webp",
     "imageAlt": "bitcoin"
   },
   "ctaSection": {
@@ -314,37 +314,37 @@ export const cryptoMarketingAgencyData: CryptoMarketingAgencyData = {
       {
         "title": "NFT Marketing",
         "text": "NFTs dominate the digital space, and we position your project for successful trading adoption.",
-        "iconSrc": "/wp-content/uploads/2022/07/nft-marketing-crypto.png",
+        "iconSrc": "/wp-content/uploads/2022/07/nft-marketing-crypto.webp",
         "iconAlt": "nft marketing crypto"
       },
       {
         "title": "ICO Marketing",
         "text": "We drive awareness and investor interest before launch to maximize fundraising success.",
-        "iconSrc": "/wp-content/uploads/2022/07/ico-marketing-crypto.png",
+        "iconSrc": "/wp-content/uploads/2022/07/ico-marketing-crypto.webp",
         "iconAlt": "ico marketing crypto"
       },
       {
         "title": "STO Marketing",
         "text": "We help investors clearly understand your vision through structured communication strategies.",
-        "iconSrc": "/wp-content/uploads/2022/07/sto-marketing-crypto.png",
+        "iconSrc": "/wp-content/uploads/2022/07/sto-marketing-crypto.webp",
         "iconAlt": "sto marketing crypto"
       },
       {
         "title": "IDO Marketing",
         "text": "We attract and convert investors with optimized promotion strategies for your IDO platform.",
-        "iconSrc": "/wp-content/uploads/2022/07/ido-marketing-crypto.png",
+        "iconSrc": "/wp-content/uploads/2022/07/ido-marketing-crypto.webp",
         "iconAlt": "ido marketing crypto"
       },
       {
         "title": "IEO Marketing",
         "text": "We help you raise funds effectively with ethical and scalable marketing campaigns.",
-        "iconSrc": "/wp-content/uploads/2022/07/ieo-marketing-crypto.png",
+        "iconSrc": "/wp-content/uploads/2022/07/ieo-marketing-crypto.webp",
         "iconAlt": "ieo marketing crypto"
       },
       {
         "title": "DeFi Marketing",
         "text": "We position your DeFi project for transparency, adoption, and long-term growth.",
-        "iconSrc": "/wp-content/uploads/2022/07/defi-crypto.png",
+        "iconSrc": "/wp-content/uploads/2022/07/defi-crypto.webp",
         "iconAlt": "defi crypto"
       }
     ]
@@ -393,7 +393,7 @@ export const cryptoMarketingAgencyData: CryptoMarketingAgencyData = {
       "Value for money",
       "Loyalty & long-term partnership"
     ],
-    "imageSrc": "/wp-content/uploads/ext/1bf3bb261ac4.jpg",
+    "imageSrc": "/wp-content/uploads/ext/1bf3bb261ac4.webp",
     "imageAlt": "Crypto trading graph"
   },
   "faqSection": {

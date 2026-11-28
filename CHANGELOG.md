@@ -6,6 +6,21 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.11.0] - 2026-11-28
+
+### Added
+- `npm run test:visual`: full-page screenshots of 25 page types at 375/768/1024/1440 px compared with a saved baseline (local Chrome, no download). `tests/style-audit.mjs` measures fonts, alignment, logos and animations on any site for live-vs-new comparisons. `docs/WORKFLOW.md` describes how each migration task is checked.
+- Site Settings: "Header logo in dark mode".
+
+### Changed
+- Images: WebP copies of 537 PNG/JPG files (134.6 MB -> 28.2 MB); pages use them, originals stay for old URLs and share images. Pages now download 67% fewer image bytes.
+- Header logo 39 px high on phones and 45 px on tablets, as on eon8.com; dark mode shows the light-text logo instead of an inverted image.
+
+### Fixed
+- Layout shift while pages load: loading placeholders fill the screen and hero images reserve their size (CLS under 0.1 on 35 of 36 measured page/width pairs, was 2 of 36).
+
+---
+
 ## [3.10.0] - 2026-11-27
 
 ### Added

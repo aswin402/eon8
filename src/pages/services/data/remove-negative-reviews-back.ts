@@ -61,7 +61,7 @@ export const removeNegativeReviewsBackData: ServicePageData = {
         'Elevates brand authority in local and national search results',
         'Serves as trusted first-hand social proof before purchase',
       ],
-      imageSrc: '/wp-content/uploads/2020/04/Remove-Negative-Reviews-eon8-eonsofttecch.jpg',
+      imageSrc: '/wp-content/uploads/2020/04/Remove-Negative-Reviews-eon8-eonsofttecch.webp',
       imageAlt: 'Remove Negative Reviews - EON8 ORM Services',
     },
     {

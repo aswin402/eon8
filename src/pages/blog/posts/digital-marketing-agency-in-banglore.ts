@@ -12,7 +12,7 @@ export const digitalMarketingAgencyInBanglorePost: BlogPost = {
   "dateIso": "2022-11-01",
   "readTime": "6 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/11/digital-marketing-agency-in-bangalore.png",
+  "thumbnail": "/wp-content/uploads/2022/11/digital-marketing-agency-in-bangalore.webp",
   "excerpt": "We are your online porter that delivers your potential customers to your business with the help of customized digital marketing…",
   "blocks": [
     {

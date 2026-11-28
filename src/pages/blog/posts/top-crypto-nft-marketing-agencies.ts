@@ -13,7 +13,7 @@ export const topCryptoNftMarketingAgenciesPost: BlogPost = {
   "dateIso": "2022-11-19",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/11/Top-10-Crypto-NFT.jpg",
+  "thumbnail": "/wp-content/uploads/2022/11/Top-10-Crypto-NFT.webp",
   "excerpt": "Launching a crypto or an NFT project is something familiar, as there are tons of projects already existing in the…",
   "blocks": [
     {

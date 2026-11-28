@@ -45,7 +45,7 @@ export const videoCreationMarketingServiceChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2019/08/marketing_about.jpg",
+      "imageSrc": "/wp-content/uploads/2019/08/marketing_about.webp",
       "imageAlt": "image",
       "actions": []
     },

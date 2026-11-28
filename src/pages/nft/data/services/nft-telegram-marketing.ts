@@ -35,7 +35,7 @@ export const nftTelegramMarketingData: NftServicePageData = {
         }
       ],
       "image": {
-        "src": "/wp-content/uploads/ext/3cb30ea29e79.png",
+        "src": "/wp-content/uploads/ext/3cb30ea29e79.webp",
         "alt": "community",
         "className": "telegram-float telegram-img-1"
       }
@@ -117,7 +117,7 @@ export const nftTelegramMarketingData: NftServicePageData = {
       "heading": "Benefits of NFT Telegram Marketing",
       "paragraphs": [],
       "image": {
-        "src": "/wp-content/uploads/2022/07/nft-community-building.png",
+        "src": "/wp-content/uploads/2022/07/nft-community-building.webp",
         "alt": "discord marketing services"
       },
       "bullets": [
@@ -306,7 +306,7 @@ export const nftTelegramMarketingData: NftServicePageData = {
         ]
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/11/why-eon8.png",
+        "src": "/wp-content/uploads/2022/11/why-eon8.webp",
         "alt": "nft marketing services"
       }
     },
@@ -395,50 +395,50 @@ export const nftTelegramMarketingData: NftServicePageData = {
     ],
     "sectionId": "enquiry-top",
     "image": {
-      "src": "/wp-content/uploads/2023/03/NFT-Telegram-Marketing.png",
+      "src": "/wp-content/uploads/2023/03/NFT-Telegram-Marketing.webp",
       "alt": ""
     }
   },
   "clientSlider": {
     "logos": [
       {
-        "src": "/wp-content/uploads/2022/11/street-race.png",
+        "src": "/wp-content/uploads/2022/11/street-race.webp",
         "name": "1"
       },
       {
-        "src": "/wp-content/uploads/2022/11/rebe-world.png",
+        "src": "/wp-content/uploads/2022/11/rebe-world.webp",
         "name": "3"
       },
       {
-        "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+        "src": "/wp-content/uploads/2022/11/mafia-dogs.webp",
         "name": "5"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp",
         "name": "6"
       },
       {
-        "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+        "src": "/wp-content/uploads/2022/11/diamonds-club.webp",
         "name": "7"
       },
       {
-        "src": "/wp-content/uploads/2022/11/cryptorus.png",
+        "src": "/wp-content/uploads/2022/11/cryptorus.webp",
         "name": "8"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+        "src": "/wp-content/uploads/2022/11/Bad-Influence.webp",
         "name": "9"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+        "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp",
         "name": "10"
       },
       {
-        "src": "/wp-content/uploads/2022/11/voganyangs.png",
+        "src": "/wp-content/uploads/2022/11/voganyangs.webp",
         "name": "11"
       },
       {
-        "src": "/wp-content/uploads/2022/11/ths-logo.png",
+        "src": "/wp-content/uploads/2022/11/ths-logo.webp",
         "name": "12"
       }
     ],

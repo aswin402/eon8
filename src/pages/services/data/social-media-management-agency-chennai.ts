@@ -68,7 +68,7 @@ export const socialMediaManagementAgencyChennaiData: ServicePageData = {
         "Platform selection",
         "Funnel-based strategy"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/Business-strategy-planning-whiteboard.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/Business-strategy-planning-whiteboard.webp",
       "imageAlt": "Business strategy planning marketing tactic or winning strategy to achieve target project blocker and solution to be success concept smart businessman presenting business strategy on whiteboard",
       "actions": []
     },
@@ -94,7 +94,7 @@ export const socialMediaManagementAgencyChennaiData: ServicePageData = {
         "Storytelling approach",
         "Strong CTAs"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/download.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/download.webp",
       "imageAlt": "download",
       "actions": []
     },
@@ -120,7 +120,7 @@ export const socialMediaManagementAgencyChennaiData: ServicePageData = {
         "A/B testing",
         "Detailed reporting"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/How-Can-I-Turn-Data-Overload-into-Actionable-Insights-for-My-Business_.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/How-Can-I-Turn-Data-Overload-into-Actionable-Insights-for-My-Business_.webp",
       "imageAlt": "How Can I Turn Data Overload into Actionable Insights for My Business",
       "actions": []
     },
@@ -169,7 +169,7 @@ export const socialMediaManagementAgencyChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2026/04/download-1.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/download-1.webp",
       "imageAlt": "Facebook",
       "actions": []
     },
@@ -235,7 +235,7 @@ export const socialMediaManagementAgencyChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2026/04/B2B-Lead-Generation-Content-Strategy.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/B2B-Lead-Generation-Content-Strategy.webp",
       "imageAlt": "B2B Lead Generation Content Strategy",
       "actions": []
     },

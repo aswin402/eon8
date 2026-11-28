@@ -37,34 +37,34 @@ export const discordModerationServicesData: NftServicePageData = {
       ],
       "sideLeftImages": [
         {
-          "src": "/wp-content/uploads/2022/07/gift.png",
+          "src": "/wp-content/uploads/2022/07/gift.webp",
           "alt": "gift",
           "className": "img-fluid img-one"
         },
         {
-          "src": "/wp-content/uploads/2022/07/chat.png",
+          "src": "/wp-content/uploads/2022/07/chat.webp",
           "alt": "chat",
           "className": "img-fluid img-two"
         },
         {
-          "src": "/wp-content/uploads/2022/07/file.png",
+          "src": "/wp-content/uploads/2022/07/file.webp",
           "alt": "file",
           "className": "img-fluid img-three"
         }
       ],
       "sideRightImages": [
         {
-          "src": "/wp-content/uploads/2022/07/image.png",
+          "src": "/wp-content/uploads/2022/07/image.webp",
           "alt": "nft",
           "className": "img-fluid img-one"
         },
         {
-          "src": "/wp-content/uploads/2022/07/target.png",
+          "src": "/wp-content/uploads/2022/07/target.webp",
           "alt": "target",
           "className": "img-fluid img-two"
         },
         {
-          "src": "/wp-content/uploads/2022/07/link.png",
+          "src": "/wp-content/uploads/2022/07/link.webp",
           "alt": "link",
           "className": "img-fluid img-three"
         }
@@ -146,7 +146,7 @@ export const discordModerationServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/brand.png",
+            "src": "/wp-content/uploads/2022/07/brand.webp",
             "alt": "",
             "className": "child"
           }
@@ -162,7 +162,7 @@ export const discordModerationServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/community-moderation.png",
+            "src": "/wp-content/uploads/2022/07/community-moderation.webp",
             "alt": "",
             "className": "child"
           }
@@ -178,7 +178,7 @@ export const discordModerationServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/connections.png",
+            "src": "/wp-content/uploads/2022/07/connections.webp",
             "alt": "",
             "className": "child"
           }
@@ -194,7 +194,7 @@ export const discordModerationServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/discord-classic.png",
+            "src": "/wp-content/uploads/2022/07/discord-classic.webp",
             "alt": "",
             "className": "child"
           }
@@ -210,7 +210,7 @@ export const discordModerationServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/discord-nitro.png",
+            "src": "/wp-content/uploads/2022/07/discord-nitro.webp",
             "alt": "",
             "className": "child"
           }
@@ -226,7 +226,7 @@ export const discordModerationServicesData: NftServicePageData = {
           ],
           "colClass": "col-lg-6 col-md-6 col-sm-6 col-xs-12",
           "iconImg": {
-            "src": "/wp-content/uploads/2022/07/large-server.png",
+            "src": "/wp-content/uploads/2022/07/large-server.webp",
             "alt": "",
             "className": "child"
           }
@@ -608,7 +608,7 @@ export const discordModerationServicesData: NftServicePageData = {
         ]
       ],
       "image": {
-        "src": "/wp-content/uploads/2022/07/discord-marketing.jpg",
+        "src": "/wp-content/uploads/2022/07/discord-marketing.webp",
         "alt": "nft marketing services"
       }
     },
@@ -709,50 +709,50 @@ export const discordModerationServicesData: NftServicePageData = {
     ],
     "sectionId": "enquiry-top",
     "image": {
-      "src": "/wp-content/uploads/2023/03/Discord-Moderation-Services.png",
+      "src": "/wp-content/uploads/2023/03/Discord-Moderation-Services.webp",
       "alt": ""
     }
   },
   "clientSlider": {
     "logos": [
       {
-        "src": "/wp-content/uploads/2022/11/street-race.png",
+        "src": "/wp-content/uploads/2022/11/street-race.webp",
         "name": "1"
       },
       {
-        "src": "/wp-content/uploads/2022/11/rebe-world.png",
+        "src": "/wp-content/uploads/2022/11/rebe-world.webp",
         "name": "3"
       },
       {
-        "src": "/wp-content/uploads/2022/11/mafia-dogs.png",
+        "src": "/wp-content/uploads/2022/11/mafia-dogs.webp",
         "name": "5"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.png",
+        "src": "/wp-content/uploads/2022/11/Galaxy-Fight-Club.webp",
         "name": "6"
       },
       {
-        "src": "/wp-content/uploads/2022/11/diamonds-club.png",
+        "src": "/wp-content/uploads/2022/11/diamonds-club.webp",
         "name": "7"
       },
       {
-        "src": "/wp-content/uploads/2022/11/cryptorus.png",
+        "src": "/wp-content/uploads/2022/11/cryptorus.webp",
         "name": "8"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Bad-Influence.png",
+        "src": "/wp-content/uploads/2022/11/Bad-Influence.webp",
         "name": "9"
       },
       {
-        "src": "/wp-content/uploads/2022/11/Alphacadabraz.png",
+        "src": "/wp-content/uploads/2022/11/Alphacadabraz.webp",
         "name": "10"
       },
       {
-        "src": "/wp-content/uploads/2022/11/voganyangs.png",
+        "src": "/wp-content/uploads/2022/11/voganyangs.webp",
         "name": "11"
       },
       {
-        "src": "/wp-content/uploads/2022/11/ths-logo.png",
+        "src": "/wp-content/uploads/2022/11/ths-logo.webp",
         "name": "12"
       }
     ],

@@ -206,7 +206,7 @@ export const performanceMarketingAgencyData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/10/bui.png",
+      "imageSrc": "/wp-content/uploads/2020/10/bui.webp",
       "imageAlt": "Ready to grow your business? Give us a call today for a consultation!",
       "actions": [
         {
@@ -246,7 +246,7 @@ export const performanceMarketingAgencyData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/01/game-marketing-talk-our.png",
+      "imageSrc": "/wp-content/uploads/2022/01/game-marketing-talk-our.webp",
       "imageAlt": "The Future Of Performance Marketing",
       "actions": [
         {

@@ -13,7 +13,7 @@ export const gettingYourBrandTwitterVerifiedPost: BlogPost = {
   "dateIso": "2022-11-29",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2022/11/Getting-Your-Brand-Twitter-Verifie-Things-You-Need-to-Know.jpg",
+  "thumbnail": "/wp-content/uploads/2022/11/Getting-Your-Brand-Twitter-Verifie-Things-You-Need-to-Know.webp",
   "excerpt": "Getting Your Brand Twitter Verified: Things You Need to Know Twitter is one of the leading social media platforms with…",
   "blocks": [
     {

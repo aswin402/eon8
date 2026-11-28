@@ -34,7 +34,7 @@ export const socialArSolutionsData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2025/02/Mask-Group-15.png",
+      "imageSrc": "/wp-content/uploads/2025/02/Mask-Group-15.webp",
       "imageAlt": "Mask Group 15",
       "actions": []
     },
@@ -72,37 +72,37 @@ export const socialArSolutionsData: ServicePageData = {
       "cards": [
         {
           "title": "Real Estate",
-          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-48.png",
+          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-48.webp",
           "iconAlt": "Real Estate",
           "description": "Showcase properties with virtual tours and AR overlays for immersive experiences."
         },
         {
           "title": "Automotive",
-          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-54.png",
+          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-54.webp",
           "iconAlt": "Automotive",
           "description": "Let customers explore vehicle features and customization through AR visualization."
         },
         {
           "title": "Food & Beverage",
-          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-49.png",
+          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-49.webp",
           "iconAlt": "Food & Beverage",
           "description": "Enhance dining with interactive AR menus and engaging visuals."
         },
         {
           "title": "Sports & Fitness",
-          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-55.png",
+          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-55.webp",
           "iconAlt": "Sports & Fitness",
           "description": "Create interactive fan experiences and enhance live events with AR."
         },
         {
           "title": "Technology & Startups",
-          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-50.png",
+          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-50.webp",
           "iconAlt": "Technology & Startups",
           "description": "Demonstrate innovative products with engaging AR visual experiences."
         },
         {
           "title": "Home Decor",
-          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-56.png",
+          "iconSrc": "/wp-content/uploads/2025/02/Mask-Group-56.webp",
           "iconAlt": "Home Decor",
           "description": "Let customers preview furniture and decor in their space before buying."
         }

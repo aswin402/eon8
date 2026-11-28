@@ -106,7 +106,7 @@ export const metaverseData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2025/02/Rectangle-201.png",
+      "imageSrc": "/wp-content/uploads/2025/02/Rectangle-201.webp",
       "imageAlt": "VR Experience",
       "actions": []
     },

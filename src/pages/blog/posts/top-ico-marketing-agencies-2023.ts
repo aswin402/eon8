@@ -13,7 +13,7 @@ export const topIcoMarketingAgencies2023Post: BlogPost = {
   "dateIso": "2023-02-20",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2023/02/Top-10-ICO-Marketing-agency-in-2023.png",
+  "thumbnail": "/wp-content/uploads/2023/02/Top-10-ICO-Marketing-agency-in-2023.webp",
   "excerpt": "As the cryptocurrency industry continues to grow and evolve, the importance of effective marketing for Initial Coin Offerings (ICOs) becomes…",
   "blocks": [
     {

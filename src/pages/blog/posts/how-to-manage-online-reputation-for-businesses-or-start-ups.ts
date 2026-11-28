@@ -12,7 +12,7 @@ export const howToManageOnlineReputationForBusinessesOrStartUpsPost: BlogPost = 
   "dateIso": "2021-07-13",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/07/unnamed-9.png",
+  "thumbnail": "/wp-content/uploads/2021/07/unnamed-9.webp",
   "excerpt": "To start with, let’s be clear that communication is a very powerful tool. With every day passing, we are looking…",
   "blocks": [
     {

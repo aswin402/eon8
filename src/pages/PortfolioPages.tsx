@@ -46,8 +46,8 @@ const PORTFOLIO_PROJECTS: {
     slug: '/case-study-hidden-secret',
     category: 'Web3, NFT & NYC Times Square Stunt',
     name: 'Hidden Secret NFT',
-    logo: '/wp-content/uploads/2022/11/OpenSea.png',
-    preview: '/wp-content/uploads/2022/11/truck-campaign-scaled.jpg',
+    logo: '/wp-content/uploads/2022/11/OpenSea.webp',
+    preview: '/wp-content/uploads/2022/11/truck-campaign-scaled.webp',
     highlight: 'NYC Times Square Showcase in 7 Days • 90% Mint Rate',
     summary:
       'Our client wanted his NFT project showcased in front of NYC Times Square within 3 months — EON8 executed the guerrilla truck stunt, 300+ press releases, and 30+ simultaneous influencer drops in just 7 days.',
@@ -200,22 +200,22 @@ const HIDDEN_SECRET_TEAM = [
 ];
 
 const HIDDEN_SECRET_DESIGNS = [
-  '/wp-content/uploads/2022/11/hidden-4.jpeg',
-  '/wp-content/uploads/2022/11/hidden-3.jpeg',
-  '/wp-content/uploads/2022/11/hidden-2.jpeg',
-  '/wp-content/uploads/2022/11/hidden-1.jpeg',
-  '/wp-content/uploads/2022/11/02_Genie.png',
-  '/wp-content/uploads/2022/11/01_Creative.png',
-  '/wp-content/uploads/2022/11/09_MagicPotion.png',
-  '/wp-content/uploads/2022/11/06_Boat.png',
+  '/wp-content/uploads/2022/11/hidden-4.webp',
+  '/wp-content/uploads/2022/11/hidden-3.webp',
+  '/wp-content/uploads/2022/11/hidden-2.webp',
+  '/wp-content/uploads/2022/11/hidden-1.webp',
+  '/wp-content/uploads/2022/11/02_Genie.webp',
+  '/wp-content/uploads/2022/11/01_Creative.webp',
+  '/wp-content/uploads/2022/11/09_MagicPotion.webp',
+  '/wp-content/uploads/2022/11/06_Boat.webp',
 ];
 
 const HIDDEN_SECRET_PRESS_LOGOS = [
   { src: '/wp-content/uploads/2022/11/nft-now.png', alt: 'NFT Now' },
   { src: '/wp-content/uploads/2022/11/cointelegraph.png', alt: 'Cointelegraph' },
-  { src: '/wp-content/uploads/2022/11/OpenSea.png', alt: 'OpenSea' },
-  { src: '/wp-content/uploads/2022/11/logoyahoo.png', alt: 'Yahoo Finance' },
-  { src: '/wp-content/uploads/2022/11/forbes.png', alt: 'Forbes' },
+  { src: '/wp-content/uploads/2022/11/OpenSea.webp', alt: 'OpenSea' },
+  { src: '/wp-content/uploads/2022/11/logoyahoo.webp', alt: 'Yahoo Finance' },
+  { src: '/wp-content/uploads/2022/11/forbes.webp', alt: 'Forbes' },
 ];
 
 export function CaseStudyPage({ slug }: { slug: CaseStudySlug }) {
@@ -422,7 +422,7 @@ export function CaseStudyPage({ slug }: { slug: CaseStudySlug }) {
           '30+ Simultaneous Influencer Campaigns',
           '90% Mint Rate on Mint Day',
         ]}
-        mediaSrc="/wp-content/uploads/2022/11/truck-campaign-scaled.jpg"
+        mediaSrc="/wp-content/uploads/2022/11/truck-campaign-scaled.webp"
         mediaAlt="Hidden Secret NYC Times Square Truck Stunt"
         actions={[
           { label: 'Launch Your Web3 Campaign', href: '#consult-form', variant: 'primary' },
@@ -515,7 +515,7 @@ export function CaseStudyPage({ slug }: { slug: CaseStudySlug }) {
             </h2>
             <div className="rounded-3xl overflow-hidden border border-border bg-card shadow-lg p-3 max-w-5xl mx-auto">
               <img
-                src="/wp-content/uploads/2022/11/Proof-of-work.png"
+                src="/wp-content/uploads/2022/11/Proof-of-work.webp"
                 alt="Hidden Secret Proof of Work"
                 className="w-full h-auto rounded-2xl object-contain"
               />

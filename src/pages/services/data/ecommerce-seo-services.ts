@@ -107,7 +107,7 @@ export const ecommerceSeoServicesData: ServicePageData = {
         "Dedicated ecommerce technical optimization",
         "Conversion-driven strategy integration"
       ],
-      "imageSrc": "/wp-content/uploads/2026/04/ipad.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/ipad.webp",
       "imageAlt": "SEO Audit",
       "actions": []
     },
@@ -120,7 +120,7 @@ export const ecommerceSeoServicesData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2026/04/shopify.jpg",
+      "imageSrc": "/wp-content/uploads/2026/04/shopify.webp",
       "imageAlt": "Shopify",
       "actions": []
     },
@@ -169,7 +169,7 @@ export const ecommerceSeoServicesData: ServicePageData = {
           "step": "07",
           "title": "Monthly Performance Optimization",
           "description": "Continuous refinement based on data insights to improve rankings and revenue growth.",
-          "iconSrc": "/wp-content/uploads/2026/04/business-report.png"
+          "iconSrc": "/wp-content/uploads/2026/04/business-report.webp"
         }
       ],
       "actions": []

@@ -154,7 +154,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
         "Website Design & Development",
         "Local SEO Services"
       ],
-      "imageSrc": "/wp-content/uploads/2022/06/d-m-services.jpg",
+      "imageSrc": "/wp-content/uploads/2022/06/d-m-services.webp",
       "imageAlt": "Our Spectacular Services",
       "actions": [
         {
@@ -180,7 +180,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
         {
           "title": "Search Engine Optimization",
           "description": "We improve the visibility of your website in Google’s organic search results through SEO Services by keeping up with the latest developments, which makes it easier for your target audience to find you.",
-          "iconSrc": "/wp-content/uploads/2022/06/seo-eon.png",
+          "iconSrc": "/wp-content/uploads/2022/06/seo-eon.webp",
           "iconAlt": "Search Engine Optimization",
           "href": "/search-engine-optimization-services-seo",
           "ctaLabel": "Read More"
@@ -188,7 +188,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
         {
           "title": "Social Media Marketing",
           "description": "We help you grow awareness of your brand and drive sales through our social media marketing expertise in platforms like Facebook, Instagram, Twitter, Pinterest (and more) to reach your business goals.",
-          "iconSrc": "/wp-content/uploads/2019/08/social_media.jpg",
+          "iconSrc": "/wp-content/uploads/2019/08/social_media.webp",
           "iconAlt": "Social Media Marketing",
           "href": "/social-media-marketing-company-chennai",
           "ctaLabel": "Read More"
@@ -196,7 +196,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
         {
           "title": "Search Engine Marketing",
           "description": "We help you get qualified leads and conversions with the help of our search engine marketing services to help you build trust, brand loyalty, and increase sales of your business effectively.",
-          "iconSrc": "/wp-content/uploads/2019/08/searc_engine.jpg",
+          "iconSrc": "/wp-content/uploads/2019/08/searc_engine.webp",
           "iconAlt": "Search Engine Marketing",
           "href": "/search-engine-marketing-service-chennai",
           "ctaLabel": "Read More"
@@ -204,7 +204,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
         {
           "title": "Online Reputation Management",
           "description": "In order to maintain the brand name and reputation amongst the people of the online community, we offer online reputation management services that will overhaul, build and protect your business name online.",
-          "iconSrc": "/wp-content/uploads/2019/08/orm.jpg",
+          "iconSrc": "/wp-content/uploads/2019/08/orm.webp",
           "iconAlt": "Online Reputation Management",
           "href": "/online-reputation-management-agency",
           "ctaLabel": "Read More"
@@ -222,7 +222,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/06/leadin-d-m-agency-1.jpg",
+      "imageSrc": "/wp-content/uploads/2022/06/leadin-d-m-agency-1.webp",
       "imageAlt": "Digital marketing Agency in Chennai",
       "actions": []
     },
@@ -249,7 +249,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
         "Better Audience Engagement",
         "Increase Customer Loyalty"
       ],
-      "imageSrc": "/wp-content/uploads/2022/09/digital-marketing-services.jpg",
+      "imageSrc": "/wp-content/uploads/2022/09/digital-marketing-services.webp",
       "imageAlt": "Our Spectacular Services",
       "actions": []
     },
@@ -296,7 +296,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/06/d-m-made-smiple.jpg",
+      "imageSrc": "/wp-content/uploads/2022/06/d-m-made-smiple.webp",
       "imageAlt": "Digital Marketing Made Simple",
       "actions": []
     },
@@ -341,7 +341,7 @@ export const digitalMarketingAgencyInChennaiData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/06/d-m-client.jpg",
+      "imageSrc": "/wp-content/uploads/2022/06/d-m-client.webp",
       "imageAlt": "What Our Clients Are Saying",
       "actions": [
         {

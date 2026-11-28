@@ -32,47 +32,47 @@ export const twitterMarketingAgencyInChennaiMarketingData: ServicePageData = {
       "heading": "Trusted By Industry Leaders",
       "logos": [
         {
-          "src": "/wp-content/uploads/elementor/thumbs/speedo-logo-pvdpwqp3qjhtv7sell029knlhkat62mou1mtb1e29s.png",
+          "src": "/wp-content/uploads/elementor/thumbs/speedo-logo-pvdpwqp3qjhtv7sell029knlhkat62mou1mtb1e29s.webp",
           "alt": "speedo-logo"
         },
         {
-          "src": "/wp-content/uploads/elementor/thumbs/starbuckss-pvdpt9okhkqoz2tzvkyojy7ahbezqbue0uv8h8jf9c.png",
+          "src": "/wp-content/uploads/elementor/thumbs/starbuckss-pvdpt9okhkqoz2tzvkyojy7ahbezqbue0uv8h8jf9c.webp",
           "alt": "starbuckss"
         },
         {
-          "src": "/wp-content/uploads/elementor/thumbs/prime-video-logo-pvdpjw8ic1wr72g5m13m6tct7zm7yzmr2gnx6wfrb4.png",
+          "src": "/wp-content/uploads/elementor/thumbs/prime-video-logo-pvdpjw8ic1wr72g5m13m6tct7zm7yzmr2gnx6wfrb4.webp",
           "alt": "prime-video-logo"
         },
         {
-          "src": "/wp-content/uploads/elementor/thumbs/Unilever-puqx25rbmcz5wpno8ojqp25w79ct29vb08uzwabz0g.png",
+          "src": "/wp-content/uploads/elementor/thumbs/Unilever-puqx25rbmcz5wpno8ojqp25w79ct29vb08uzwabz0g.webp",
           "alt": "Unilever"
         },
         {
-          "src": "/wp-content/uploads/elementor/thumbs/meesho-puqx204ahcrfz1vv5m3za3l4my4ls38wzgy30mkc1s.png",
+          "src": "/wp-content/uploads/elementor/thumbs/meesho-puqx204ahcrfz1vv5m3za3l4my4ls38wzgy30mkc1s.webp",
           "alt": "meesho"
         },
         {
-          "src": "/wp-content/uploads/elementor/thumbs/McDonald-puqx1uh9ccjq1e422jo7v50d2mwehwmiyp164ysp34.png",
+          "src": "/wp-content/uploads/elementor/thumbs/McDonald-puqx1uh9ccjq1e422jo7v50d2mwehwmiyp164ysp34.webp",
           "alt": "McDonald"
         },
         {
-          "src": "/wp-content/uploads/elementor/thumbs/poorvika-puqx1tjf5iifps5f819lan8wh911a7ismkdonou39c.png",
+          "src": "/wp-content/uploads/elementor/thumbs/poorvika-puqx1tjf5iifps5f819lan8wh911a7ismkdonou39c.webp",
           "alt": "poorvika"
         },
         {
-          "src": "/wp-content/uploads/elementor/thumbs/redhat-puqx1ou87cc03qc8zh8gg6flibo77q04xx499b124g.png",
+          "src": "/wp-content/uploads/elementor/thumbs/redhat-puqx1ou87cc03qc8zh8gg6flibo77q04xx499b124g.webp",
           "alt": "redhat"
         },
         {
-          "src": "/wp-content/uploads/elementor/thumbs/lenskart-puqx19st5zrexyy3faqfca8805qbskcfjuohkvncw0.png",
+          "src": "/wp-content/uploads/elementor/thumbs/lenskart-puqx19st5zrexyy3faqfca8805qbskcfjuohkvncw0.webp",
           "alt": "lenskart"
         },
         {
-          "src": "/wp-content/uploads/elementor/thumbs/vlcc-puqx137xu5ieop7nhpw1ctvzugmraomb6y437xx43k.png",
+          "src": "/wp-content/uploads/elementor/thumbs/vlcc-puqx137xu5ieop7nhpw1ctvzugmraomb6y437xx43k.webp",
           "alt": "vlcc"
         },
         {
-          "src": "/wp-content/uploads/elementor/thumbs/apollo-puqx0gnta4niy24f5g4zozkxl7py5y4r3ugfpauk8w.png",
+          "src": "/wp-content/uploads/elementor/thumbs/apollo-puqx0gnta4niy24f5g4zozkxl7py5y4r3ugfpauk8w.webp",
           "alt": "apollo"
         }
       ]
@@ -121,7 +121,7 @@ export const twitterMarketingAgencyInChennaiMarketingData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Our-Twitter-Marketing-Strategy.png",
+      "imageSrc": "/wp-content/uploads/2020/11/Our-Twitter-Marketing-Strategy.webp",
       "imageAlt": "Our Twitter Marketing Strategy",
       "actions": []
     },
@@ -139,7 +139,7 @@ export const twitterMarketingAgencyInChennaiMarketingData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Set-the-exact-target-audience.png",
+      "imageSrc": "/wp-content/uploads/2020/11/Set-the-exact-target-audience.webp",
       "imageAlt": "Set the exact target audience",
       "actions": []
     },
@@ -170,7 +170,7 @@ export const twitterMarketingAgencyInChennaiMarketingData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2020/11/Why-Twitter-Ads-with-us.jpg",
+      "imageSrc": "/wp-content/uploads/2020/11/Why-Twitter-Ads-with-us.webp",
       "imageAlt": "Why Twitter Ads with us",
       "actions": []
     },

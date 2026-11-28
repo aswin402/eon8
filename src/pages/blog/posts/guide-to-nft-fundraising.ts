@@ -12,7 +12,7 @@ export const guideToNftFundraisingPost: BlogPost = {
   "dateIso": "2023-04-17",
   "readTime": "4 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-12.50.20-PM-1.jpeg",
+  "thumbnail": "/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-12.50.20-PM-1.webp",
   "excerpt": "NFTs (Non-Fungible Tokens) have revolutionized the way we think about digital assets. From digital artwork to music, sports collectibles to…",
   "blocks": [
     {

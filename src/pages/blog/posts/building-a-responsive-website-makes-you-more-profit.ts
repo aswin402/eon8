@@ -12,7 +12,7 @@ export const buildingAResponsiveWebsiteMakesYouMoreProfitPost: BlogPost = {
   "dateIso": "2019-09-04",
   "readTime": "2 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2019/09/post_1.jpg",
+  "thumbnail": "/wp-content/uploads/2019/09/post_1.webp",
   "excerpt": "When everything is revolving around your fingers now-a-days, there needs a quick upgrade on building your business with a strong…",
   "blocks": [
     {

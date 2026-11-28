@@ -12,7 +12,7 @@ export const financialAssistantAgent2026Post: BlogPost = {
   "dateIso": "2026-08-07",
   "readTime": "5 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2026/08/04.jpg",
+  "thumbnail": "/wp-content/uploads/2026/08/04.webp",
   "excerpt": "Finance has evolved from simply tracking numbers to becoming one of the most strategic functions within modern organizations. Businesses today…",
   "blocks": [
     {

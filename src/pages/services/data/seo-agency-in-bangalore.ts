@@ -28,7 +28,7 @@ export const seoAgencyInBangaloreData: ServicePageData = {
       }
     ],
     "layout": "split-media",
-    "mediaSrc": "/wp-content/uploads/2022/10/result-1.png",
+    "mediaSrc": "/wp-content/uploads/2022/10/result-1.webp",
     "mediaAlt": "Best SEO Company in Bangalore"
   },
   "sections": [
@@ -41,7 +41,7 @@ export const seoAgencyInBangaloreData: ServicePageData = {
         ]
       ],
       "bullets": [],
-      "imageSrc": "/wp-content/uploads/2022/10/cake-square-before-1.png",
+      "imageSrc": "/wp-content/uploads/2022/10/cake-square-before-1.webp",
       "imageAlt": "Before",
       "actions": []
     },
@@ -72,7 +72,7 @@ export const seoAgencyInBangaloreData: ServicePageData = {
       "heading": "Trusted By Industry Leaders",
       "logos": [
         {
-          "src": "/wp-content/uploads/2022/09/poorvika.png",
+          "src": "/wp-content/uploads/2022/09/poorvika.webp",
           "alt": "Client Logo"
         },
         {
@@ -80,7 +80,7 @@ export const seoAgencyInBangaloreData: ServicePageData = {
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/lenskart.png",
+          "src": "/wp-content/uploads/2022/09/lenskart.webp",
           "alt": "Client Logo"
         },
         {
@@ -88,27 +88,27 @@ export const seoAgencyInBangaloreData: ServicePageData = {
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/otto.png",
+          "src": "/wp-content/uploads/2022/09/otto.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/big-bazaar.png",
+          "src": "/wp-content/uploads/2022/09/big-bazaar.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/Radio-City.png",
+          "src": "/wp-content/uploads/2022/09/Radio-City.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/apollo.png",
+          "src": "/wp-content/uploads/2022/09/apollo.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/McDonald.png",
+          "src": "/wp-content/uploads/2022/09/McDonald.webp",
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/meesho.png",
+          "src": "/wp-content/uploads/2022/09/meesho.webp",
           "alt": "Client Logo"
         },
         {
@@ -116,7 +116,7 @@ export const seoAgencyInBangaloreData: ServicePageData = {
           "alt": "Client Logo"
         },
         {
-          "src": "/wp-content/uploads/2022/09/dabur.png",
+          "src": "/wp-content/uploads/2022/09/dabur.webp",
           "alt": "Client Logo"
         }
       ]
@@ -290,7 +290,7 @@ export const seoAgencyInBangaloreData: ServicePageData = {
         "Value For Money",
         "24/7 support"
       ],
-      "imageSrc": "/wp-content/uploads/2022/05/beginning-to-end.png",
+      "imageSrc": "/wp-content/uploads/2022/05/beginning-to-end.webp",
       "imageAlt": "Instagram marketing services",
       "actions": []
     },

@@ -12,7 +12,7 @@ export const nftMarketingHowIsItDoneCorrectlyPost: BlogPost = {
   "dateIso": "2023-01-06",
   "readTime": "6 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2023/01/unnamed-1.png",
+  "thumbnail": "/wp-content/uploads/2023/01/unnamed-1.webp",
   "excerpt": "NFTs, or Non-Fungible Tokens, have brought a new revolution in the field of artwork. They give an amazing opportunity to…",
   "blocks": [
     {

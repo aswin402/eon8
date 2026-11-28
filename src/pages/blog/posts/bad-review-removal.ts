@@ -12,7 +12,7 @@ export const badReviewRemovalPost: BlogPost = {
   "dateIso": "2021-07-23",
   "readTime": "3 min read",
   "author": "Aanya",
-  "thumbnail": "/wp-content/uploads/2021/07/EOn-blog.png",
+  "thumbnail": "/wp-content/uploads/2021/07/EOn-blog.webp",
   "excerpt": "Benefits of bad review removal You might often have wondered why your business reputation is average online when you are…",
   "blocks": [
     {
